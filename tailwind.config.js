@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
-// const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -7,13 +7,26 @@ module.exports = {
     container: false,
   },
   theme: {
-    // TODO: Uncomment this part of the code and the import of "defaultTheme" above, and complete TODOs
-    // fontFamily: {
-    //   // TODO: Add font families
-    //   //       Delete "mono" if it isn't needed
-    //   sans: ['', ...defaultTheme.fontFamily.sans],
-    //   mono: ['', ...defaultTheme.fontFamily.mono],
-    // },
+    fontFamily: {
+      sans: ['brother-1816', ...defaultTheme.fontFamily.sans],
+    },
+    fontSize: {
+      // Commented sizes are not being used yet
+      // Before starting to use them, please make sure to check if values are correct!
+      xs: ['12px'],
+      sm: ['14px'],
+      base: ['16px'],
+      lg: ['18px'],
+      xl: ['20px'],
+      '2xl': ['24px'],
+      '3xl': ['30px'],
+      '4xl': ['36px'],
+      '5xl': ['48px'],
+      '6xl': ['56px'],
+      // '7xl': ['72px'],
+      // '8xl': ['96px'],
+      // '9xl': ['128px'],
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
@@ -22,17 +35,26 @@ module.exports = {
       // Make sure that they are prepared in the Figma and follow the naming primary/secondary/gray-${number}
       // Example of correctly prepared colors in Figma — https://user-images.githubusercontent.com/20713191/143586876-5e834233-9639-4166-9811-b00e63820d98.png
       // Example of incorrectly prepared colors in Figma — https://user-images.githubusercontent.com/20713191/143586974-6986149f-aee3-450c-a1dd-26e73e3aca02.png
-      // black: '',
-      // white: '',
-      // primary: {
-      //   1: '',
-      // },
-      // secondary: {
-      //   1: '',
-      // },
-      // gray: {
-      //   1: '',
-      // },
+      black: '#000000',
+      white: '#ffffff',
+      primary: {
+        1: '#47EBEB',
+        2: '#00AAFF',
+      },
+      secondary: {
+        1: '#FF33DE',
+        2: '#FFFF33',
+      },
+      gray: {
+        1: '#0D0D0D',
+        2: '#1A1A1A',
+        3: '#262626',
+        4: '#333333',
+        5: '#4D4D4D',
+        6: '#666666',
+        8: '#999999',
+        10: '#E6E6E6',
+      },
     }),
     screens: {
       '2xl': { max: '1919px' },
