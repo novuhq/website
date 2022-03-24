@@ -8,7 +8,8 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ['brother-1816', ...defaultTheme.fontFamily.sans],
+      sans: ['Brother-1816', ...defaultTheme.fontFamily.sans],
+      mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
       // Commented sizes are not being used yet
