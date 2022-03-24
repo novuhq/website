@@ -17,7 +17,7 @@ const INPUT_TEXT = 'npx notu init';
 const inputBeforeClassNames =
   'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
 const inputAfterClassNames =
-  'after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:-z-20 after:-m-0.5 after:rounded-[inherit] after:bg-input-gradient after:blur';
+  'after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:-z-20 after:-m-0.5 after:rounded-[inherit] after:bg-input-gradient after:blur-sm';
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
