@@ -1,41 +1,85 @@
-import React from 'react';
+import clsx from 'clsx';
+import copyToClipboard from 'copy-to-clipboard';
+import React, { useEffect, useState } from 'react';
 
+import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import logo5 from './images/ab-in-bev.svg';
-import logo2 from './images/buzzfeed.svg';
-import logo1 from './images/google.svg';
-import logo4 from './images/relive.svg';
-import logo7 from './images/rvezy.svg';
-import logo6 from './images/tesla.svg';
-import logo3 from './images/typeform.svg';
-
-const LOGOS = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
+import bg from './images/bg.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
 const DESCRIPTION =
   'Simple components and APIs for managing all communication channels in one place: Email, SMS, Direct, and Push';
 
-const LOGOS_TITLE = 'Loved by engineers from';
+const INPUT_TEXT = 'npx notu init';
 
-const Hero = () => (
-  <section className="safe-paddings bg-black pt-20 pb-20">
-    <div className="container flex flex-col items-center">
-      <Heading size="xl" tag="h1" className="max-w-[764px] text-center leading-tight">
-        {TITLE}
-      </Heading>
-      <p className="mt-5 text-lg text-white">{DESCRIPTION}</p>
-      <div className="mt-20 text-white">TODO: input</div>
-      <h3 className="text-md mt-40 text-center text-white">{LOGOS_TITLE}</h3>
-      <ul className="mt-8 flex w-full justify-between">
-        {LOGOS.map((item, index) => (
-          <li key={index} className="block h-10 min-w-min">
-            <img src={item} className="w-auto" loading="lazy" alt={`logo-${index}`} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-);
+/* TODO: find a way to simplify the styles for applying a gradient border for the input field */
+const inputBeforeClassNames =
+  'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
+const inputAfterClassNames =
+  'after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:-z-20 after:-m-0.5 after:rounded-[inherit] after:bg-input-gradient after:blur';
+
+const Hero = () => {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleButtonClick = () => {
+    if (!isCopied) {
+      copyToClipboard(INPUT_TEXT, { onCopy: setIsCopied(true) });
+    }
+  };
+
+  useEffect(() => {
+    if (isCopied) {
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 1500);
+    }
+  }, [isCopied]);
+
+  return (
+    <section className="safe-paddings relative overflow-hidden bg-black pt-32 pb-20">
+      <div className="container relative z-10 flex flex-col items-center">
+        <Heading className="max-w-[764px] text-center font-normal leading-tight" size="xl" tag="h1">
+          {TITLE}
+        </Heading>
+        <p className="mt-5 text-lg font-light text-white">{DESCRIPTION}</p>
+
+        <div
+          className={clsx(
+            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3',
+            inputBeforeClassNames,
+            inputAfterClassNames
+          )}
+        >
+          <span className="t-3xl whitespace-nowrap font-mono !leading-none text-white">
+            {INPUT_TEXT}
+          </span>
+
+          <Button className="relative" size="xs" theme="white-filled" onClick={handleButtonClick}>
+            <span className={clsx({ 'opacity-0': isCopied })}>Copy</span>
+            <span
+              className={clsx(
+                'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0',
+                { 'opacity-100': isCopied }
+              )}
+            >
+              Copied!
+            </span>
+          </Button>
+        </div>
+
+        <div className="mt-32">{/* TODO: add an illustration */}</div>
+      </div>
+
+      <img
+        className="absolute -top-12 left-1/2 -translate-x-1/2"
+        src={bg}
+        loading="eager"
+        alt=""
+        aria-hidden
+      />
+    </section>
+  );
+};
 
 export default Hero;
