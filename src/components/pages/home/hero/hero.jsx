@@ -77,7 +77,7 @@ const Hero = () => {
       </div>
 
       <img
-        className="absolute -top-12 left-1/2 -translate-x-1/2"
+        className="absolute -top-12 left-1/2 min-w-[1920px] -translate-x-1/2"
         src={bg}
         loading="eager"
         alt=""

@@ -15,12 +15,14 @@ const CARDS = [
   },
   {
     title: 'Connect providers',
-    description: `Use a built in collection of popular providers - Sendgrid, Mailgun, Twilio and many more. Add API key and you're ready to go.`,
+    description:
+      "Use a built in collection of popular providers - Sendgrid, Mailgun, Twilio and many more. Add API key and you're ready to go.",
     image: <StaticImage className="w-full" src="./images/providers.png" alt="" loading="lazy" />,
   },
   {
     title: 'Add trigger',
-    description: `Send an event trigger using one of our community built SDK's, and we will handle it from there.`,
+    description:
+      "Send an event trigger using one of our community built SDK's, and we will handle it from there.",
     image: <StaticImage className="w-full" src="./images/trigger.png" alt="" loading="lazy" />,
   },
 ];
@@ -35,7 +37,7 @@ const HowItWorks = () => (
         {LINK_NAME}
       </Link>
 
-      <ul className="mt-10 grid grid-cols-3 gap-x-10 lg:block lg:gap-x-0 lg:space-y-7">
+      <div className="mt-10 grid grid-cols-3 gap-x-10 lg:block lg:gap-x-0 lg:space-y-7">
         {CARDS.map(({ title, description, image }, index) => (
           <div
             className="rounded-[20px] bg-card-gradient p-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-7 md:gap-x-5 sm:block"
@@ -46,11 +48,11 @@ const HowItWorks = () => (
               <Heading className="leading-snug text-white sm:text-2xl" tag="h3" size="md">
                 {title}
               </Heading>
-              <p className="mt-3 leading-snug text-gray-8 sm:mt-2.5">{description}</p>
+              <p className="mt-3 font-light leading-snug text-gray-8 sm:mt-2.5">{description}</p>
             </div>
           </div>
         ))}
-      </ul>
+      </div>
     </div>
   </section>
 );
