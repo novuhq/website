@@ -59,6 +59,7 @@ module.exports = {
     }),
     backgroundImage: {
       'input-gradient': 'linear-gradient(268.62deg, #47EBEB 0%, #FFFFFF 46.28%, #FF33DE 100%)',
+      'card-gradient': 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%)',
     },
     screens: {
       '2xl': { max: '1919px' },

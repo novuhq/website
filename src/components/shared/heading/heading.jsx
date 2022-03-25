@@ -6,6 +6,7 @@ const styles = {
   size: {
     xl: 'text-6xl',
     lg: 'text-4xl',
+    md: 'text-3xl',
   },
 };
 
