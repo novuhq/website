@@ -25,15 +25,15 @@ const LINKS = [
 // eslint-disable-next-line no-unused-vars
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
   <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black lg:relative">
-    <div className="flex items-center justify-between py-3 px-10">
+    <div className="flex items-center justify-between py-3 px-10 md:px-7 sm:px-4">
       <Link to="/">
         <Logo className="h-6 2xl:h-5" aria-hidden />
         <span className="sr-only">Notu</span>
       </Link>
 
       <div className="flex items-center space-x-20">
-        <nav className="xl:absolute xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2">
-          <ul className="flex space-x-8 lg:hidden">
+        <nav>
+          <ul className="flex space-x-8 md:hidden">
             {LINKS.map(({ to, title }, index) => (
               <li key={index}>
                 <Link to={to} theme="white" size="sm">

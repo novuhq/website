@@ -6,6 +6,7 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 import bg from './images/bg.svg';
+import illustration from './images/illustration.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
 const DESCRIPTION =
@@ -42,7 +43,9 @@ const Hero = () => {
         <Heading className="max-w-[764px] text-center font-normal leading-tight" size="xl" tag="h1">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-light text-white">{DESCRIPTION}</p>
+        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px]">
+          {DESCRIPTION}
+        </p>
 
         <div
           className={clsx(
@@ -51,7 +54,7 @@ const Hero = () => {
             inputAfterClassNames
           )}
         >
-          <span className="t-3xl whitespace-nowrap font-mono !leading-none text-white">
+          <span className="whitespace-nowrap font-mono text-lg !leading-none text-white">
             {INPUT_TEXT}
           </span>
 
@@ -68,7 +71,9 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-32">{/* TODO: add an illustration */}</div>
+        <div className="mt-32">
+          <img src={illustration} width={1096} height={578} loading="eager" alt="" />
+        </div>
       </div>
 
       <img
