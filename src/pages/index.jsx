@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Community from 'components/pages/home/community/community';
+import ComponentBased from 'components/pages/home/component-based';
 import Features from 'components/pages/home/features';
 import Hero from 'components/pages/home/hero';
 import HowItWorks from 'components/pages/home/how-it-works';
@@ -19,6 +20,7 @@ const HomePage = () => (
     <NotificationCenter />
     <Separator />
     <Community />
+    <ComponentBased />
   </Layout>
 );
 
