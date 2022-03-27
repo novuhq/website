@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Community from 'components/pages/home/community/community';
 import Features from 'components/pages/home/features';
 import Hero from 'components/pages/home/hero';
 import HowItWorks from 'components/pages/home/how-it-works';
@@ -16,6 +17,8 @@ const HomePage = () => (
     <Separator />
     <Features />
     <NotificationCenter />
+    <Separator />
+    <Community />
   </Layout>
 );
 

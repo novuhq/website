@@ -18,12 +18,12 @@ const NotificationCenter = () => (
         <Heading size="xl" tag="h2" className="leading-tight xl:text-5xl sm:text-3xl">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg text-gray-8 sm:text-base">{DESCRIPTION}</p>
+        <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>
         <Button className="mt-7" to={BUTTON_URL} size="sm" theme="gray-outline">
           {BUTTON_TEXT}
         </Button>
       </div>
-      <div className="left order-first lg:order-last lg:mt-6" aria-hidden>
+      <div className="order-first lg:order-last lg:mt-6" aria-hidden>
         <img
           className="xl:max-w-[600px] lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
           src={illustration}
