@@ -12,7 +12,7 @@ const TITLE = 'Loved by engineers from';
 const LOGOS = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 
 const Logos = () => (
-  <section className="safe-paddings bg-black pt-20 pb-20">
+  <section className="logos safe-paddings bg-black pt-20 pb-20">
     <div className="container">
       <h3 className="text-md text-center font-light text-white">{TITLE}</h3>
       <ul className="mt-8 flex w-full justify-between md:flex-wrap md:justify-center md:gap-y-5 md:gap-x-7">

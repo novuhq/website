@@ -28,7 +28,7 @@ const CARDS = [
 ];
 
 const HowItWorks = () => (
-  <section className="safe-paddings bg-black pt-20 pb-28">
+  <section className="how-it-works safe-paddings bg-black pt-20 pb-28">
     <div className="container flex flex-col items-center">
       <Heading size="lg" tag="h2" className="max-w-[764px] text-center leading-tight sm:text-3xl">
         {TITLE}

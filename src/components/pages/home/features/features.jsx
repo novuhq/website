@@ -49,8 +49,8 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="safe-paddings relative overflow-hidden bg-black">
-    <div className="container relative z-10 border-t border-dashed border-gray-4 pt-28 pb-40">
+  <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40">
+    <div className="container relative z-10">
       <Heading size="lg" tag="h2" className="text-center leading-tight sm:text-left sm:text-3xl">
         {TITLE}
       </Heading>

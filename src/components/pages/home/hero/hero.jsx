@@ -38,7 +38,7 @@ const Hero = () => {
   }, [isCopied]);
 
   return (
-    <section className="safe-paddings relative overflow-hidden bg-black pt-32 pb-20">
+    <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading className="max-w-[764px] text-center font-normal leading-tight" size="xl" tag="h1">
           {TITLE}
