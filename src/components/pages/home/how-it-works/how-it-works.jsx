@@ -30,7 +30,7 @@ const CARDS = [
 const HowItWorks = () => (
   <section className="how-it-works safe-paddings bg-black pt-20 pb-28">
     <div className="container flex flex-col items-center">
-      <Heading size="lg" tag="h2" className="max-w-[764px] text-center leading-tight sm:text-3xl">
+      <Heading size="md" tag="h2" className="max-w-[764px] text-center leading-tight sm:text-3xl">
         {TITLE}
       </Heading>
       <Link className="mt-7 sm:mt-5 sm:text-xs" to="/" theme="primary-underline" size="sm">

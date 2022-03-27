@@ -51,7 +51,7 @@ const ITEMS = [
 const Features = () => (
   <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40">
     <div className="container relative z-10">
-      <Heading size="lg" tag="h2" className="text-center leading-tight sm:text-left sm:text-3xl">
+      <Heading size="md" tag="h2" className="text-center leading-tight sm:text-left sm:text-3xl">
         {TITLE}
       </Heading>
 
@@ -60,7 +60,7 @@ const Features = () => (
           <li key={index}>
             <img src={icon} height={64} width={120} loading="lazy" alt={`Icon ${title}`} />
             <div className="mt-5">
-              <Heading className="leading-snug text-white sm:text-2xl" tag="h3" size="md">
+              <Heading className="leading-snug text-white sm:text-2xl" tag="h3" size="sm">
                 {title}
               </Heading>
               <p className="mt-3 max-w-[377px] font-light leading-snug text-gray-8 sm:mt-2.5">
