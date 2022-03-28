@@ -6,6 +6,7 @@ import Link from 'components/shared/link';
 
 const TITLE = 'How it works?';
 const LINK_NAME = 'Read quick start guide';
+const LINK_URL = '/';
 const CARDS = [
   {
     title: 'Create template',
@@ -33,7 +34,7 @@ const HowItWorks = () => (
       <Heading size="md" tag="h2" className="max-w-[764px] text-center leading-tight sm:text-3xl">
         {TITLE}
       </Heading>
-      <Link className="mt-7 sm:mt-5 sm:text-xs" to="/" theme="primary-underline" size="sm">
+      <Link className="mt-7 sm:mt-5 sm:text-xs" to={LINK_URL} theme="primary-underline" size="sm">
         {LINK_NAME}
       </Link>
 

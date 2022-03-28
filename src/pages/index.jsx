@@ -7,6 +7,7 @@ import Hero from 'components/pages/home/hero';
 import HowItWorks from 'components/pages/home/how-it-works';
 import Logos from 'components/pages/home/logos';
 import NotificationCenter from 'components/pages/home/notification-center';
+import SimpleUse from 'components/pages/home/simple-use';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
@@ -21,6 +22,7 @@ const HomePage = () => (
     <Separator />
     <Community />
     <ComponentBased />
+    <SimpleUse />
   </Layout>
 );
 
