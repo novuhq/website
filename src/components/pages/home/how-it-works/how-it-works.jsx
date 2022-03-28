@@ -31,7 +31,12 @@ const CARDS = [
 const HowItWorks = () => (
   <section className="how-it-works safe-paddings bg-black pt-20 pb-28">
     <div className="container flex flex-col items-center">
-      <Heading size="md" tag="h2" className="max-w-[764px] text-center leading-tight sm:text-3xl">
+      <Heading
+        size="md"
+        tag="h2"
+        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        theme="white"
+      >
         {TITLE}
       </Heading>
       <Link className="mt-7 sm:mt-5 sm:text-xs" to={LINK_URL} theme="primary-underline" size="sm">
@@ -46,7 +51,7 @@ const HowItWorks = () => (
           >
             {image}
             <div className="mt-14 lg:mt-0 sm:mt-10">
-              <Heading className="leading-snug text-white sm:text-2xl" tag="h3" size="md">
+              <Heading className="leading-snug sm:text-2xl" tag="h3" size="md" theme="white">
                 {title}
               </Heading>
               <p className="mt-3 font-light leading-snug text-gray-8 sm:mt-2.5">{description}</p>

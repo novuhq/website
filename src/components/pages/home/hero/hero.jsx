@@ -40,7 +40,12 @@ const Hero = () => {
   return (
     <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20">
       <div className="container relative z-10 flex flex-col items-center">
-        <Heading className="max-w-[764px] text-center font-normal leading-tight" size="xl" tag="h1">
+        <Heading
+          className="max-w-[764px] text-center font-normal leading-tight"
+          size="xl"
+          tag="h1"
+          theme="white"
+        >
           {TITLE}
         </Heading>
         <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px]">

@@ -67,7 +67,12 @@ const Card = ({ icon, title, text, comingSoon }) => (
 const SimpleUse = () => (
   <section className="simple-use safe-paddings bg-gray-2 pt-20 pb-28">
     <div className="container flex flex-col items-center">
-      <Heading size="md" tag="h2" className="max-w-[764px] text-center leading-tight sm:text-3xl">
+      <Heading
+        size="md"
+        tag="h2"
+        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        theme="white"
+      >
         {TITLE}
       </Heading>
       <Link className="mt-7 sm:mt-5 sm:text-xs" to={LINK_URL} theme="primary-underline" size="sm">
