@@ -9,13 +9,14 @@ import DEFAULT_EASE from 'constants/default-ease';
 const styles = {
   base: 'inline-block leading-none',
   size: {
-    md: 'text-base',
+    base: 'text-base',
     sm: 'text-sm',
   },
   theme: {
     'primary-underline':
       'text-primary-2 relative tracking-wide uppercase pb-1.5 transition-colors duration-200 hover:text-primary-2',
     white: 'text-white hover:text-primary-2 transition-colors',
+    gray: 'text-gray-8 hover:text-primary-2 transition-colors',
   },
 };
 
