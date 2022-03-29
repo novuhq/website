@@ -1,15 +1,15 @@
 import React from 'react';
 
-import logo5 from './images/ab-in-bev.svg';
-import logo2 from './images/buzzfeed.svg';
-import logo1 from './images/google.svg';
-import logo4 from './images/relive.svg';
-import logo7 from './images/rvezy.svg';
-import logo6 from './images/tesla.svg';
-import logo3 from './images/typeform.svg';
+import abInBev from './images/ab-in-bev.svg';
+import buzzfeed from './images/buzzfeed.svg';
+import google from './images/google.svg';
+import relive from './images/relive.svg';
+import rvezy from './images/rvezy.svg';
+import tesla from './images/tesla.svg';
+import typeform from './images/typeform.svg';
 
 const TITLE = 'Loved by engineers from';
-const LOGOS = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
+const LOGOS = [google, buzzfeed, typeform, relive, abInBev, tesla, rvezy];
 
 const Logos = () => (
   <section className="logos safe-paddings bg-black pt-20 pb-20">
