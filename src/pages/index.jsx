@@ -28,6 +28,7 @@ const HomePage = () => (
     <Separator />
     <Languages />
     <GetStarted />
+    <Separator />
   </Layout>
 );
 

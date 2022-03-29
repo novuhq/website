@@ -53,7 +53,7 @@ const HowItWorks = () => (
           >
             {image}
             <div className="mt-14 lg:mt-0 sm:mt-10">
-              <Heading className="leading-snug sm:text-2xl" tag="h3" size="md" theme="white">
+              <Heading className="leading-snug sm:text-2xl" tag="h3" size="sm" theme="white">
                 {title}
               </Heading>
               <p className="mt-3 font-light leading-snug text-gray-8 sm:mt-2.5">{description}</p>
