@@ -24,7 +24,7 @@ const CodeTabs = ({ className, items }) => {
 
   return (
     <div
-      className={clsx('overflow-hidden rounded-3xl bg-black p-8 md:p-6 sm:pr-0', className)}
+      className={clsx('overflow-hidden rounded-[20px] bg-black p-8 md:p-6 sm:pr-0', className)}
       aria-hidden
     >
       <ul className="scrollbar-hidden flex space-x-3 overflow-x-auto overflow-y-hidden">

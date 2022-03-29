@@ -98,7 +98,7 @@ const Languages = () => (
       </div>
       <div className="order-first lg:order-last lg:mt-6 lg:w-full">
         <CodeTabs
-          className="min-h-[560px] max-w-[842px] xl:min-h-[488px] xl:max-w-[600px] lg:mx-auto lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
+          className="min-h-[564px] max-w-[842px] xl:min-h-[519px] xl:max-w-[600px] lg:mx-auto lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
           items={ITEMS}
         />
       </div>
