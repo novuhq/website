@@ -11,7 +11,7 @@ const styles = {
     xs: 'h-10 px-5 text-xs',
   },
   theme: {
-    primary: 'bg-primary-2 text-black hover:bg-white',
+    primary: 'bg-primary-1 text-black hover:bg-white',
     'black-filled': 'bg-black text-white hover:bg-gray-4',
     'white-filled': 'bg-white text-black hover:opacity-80',
     'black-outline':

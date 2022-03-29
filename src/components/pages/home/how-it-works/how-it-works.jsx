@@ -4,6 +4,8 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
+import './how-it-works.css';
+
 const TITLE = 'How it works?';
 const LINK_NAME = 'Read quick start guide';
 const LINK_URL = '/';
@@ -46,7 +48,7 @@ const HowItWorks = () => (
       <div className="mt-10 grid grid-cols-3 gap-x-10 lg:block lg:gap-x-0 lg:space-y-7">
         {CARDS.map(({ title, description, image }, index) => (
           <div
-            className="rounded-[20px] bg-card-gradient p-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-7 md:gap-x-5 sm:block"
+            className="how-it-works-card-gradient rounded-[20px] p-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-7 md:gap-x-5 sm:block"
             key={index}
           >
             {image}

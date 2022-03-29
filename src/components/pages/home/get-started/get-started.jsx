@@ -5,6 +5,8 @@ import Heading from 'components/shared/heading/heading';
 
 import bg from './images/bg.svg';
 
+import './get-started.css';
+
 const TITLE = 'Ready to send your first notification?';
 
 const LEFT_TITLE = 'Self-Hosted';
@@ -25,11 +27,8 @@ const GetStarted = () => (
       </Heading>
 
       <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 sm:block sm:gap-0 sm:space-y-7">
-        <div
-          className="flex flex-col items-center rounded-[20px] p-8 pb-10"
-          style={{ background: 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%)' }}
-        >
-          <Heading size="sm" tag="h4" className="leading-tight" theme="white">
+        <div className="get-started-gradient-black flex flex-col items-center rounded-[20px] p-8 pb-10">
+          <Heading size="sm" tag="h4" className="font-medium leading-tight" theme="white">
             {LEFT_TITLE}
           </Heading>
           <p className="mt-3 font-light text-gray-8 sm:text-base">{LEFT_DESCRIPTION}</p>
@@ -38,17 +37,11 @@ const GetStarted = () => (
           </Button>
         </div>
 
-        <div
-          className="flex flex-col items-center rounded-[20px] p-8 pb-10"
-          style={{
-            background:
-              'linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(257.22deg, #33FFFF 0%, #FFFFFF 46.28%, #FF33BB 100%)',
-          }}
-        >
-          <Heading size="sm" tag="h4" className="leading-tight" theme="black">
+        <div className="get-started-gradient-multicolor flex flex-col items-center rounded-[20px] p-8 pb-10">
+          <Heading size="sm" tag="h4" className="font-medium leading-tight" theme="black">
             {RIGHT_TITLE}
           </Heading>
-          <p className="mt-3 font-light text-black sm:text-base">{RIGHT_DESCRIPTION}</p>
+          <p className="mt-3 text-black sm:text-base">{RIGHT_DESCRIPTION}</p>
           <Button className="mt-7" to={RIGHT_BUTTON_URL} size="sm" theme="black-filled">
             {RIGHT_BUTTON_TEXT}
           </Button>

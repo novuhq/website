@@ -1,0 +1,7 @@
+.community-social-card-gradient {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000000 100%);
+
+  &:hover {
+    background: linear-gradient(180deg, #262626 0%, #262626 100%);
+  }
+}

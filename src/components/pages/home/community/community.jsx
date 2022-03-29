@@ -8,6 +8,8 @@ import discord from './images/discord.svg';
 import github from './images/github.svg';
 import twitter from './images/twitter.svg';
 
+import './community.css';
+
 const TITLE = 'Built by the community';
 const DESCRIPTION = `Open-source is in the heart of Notu. We keep all the source code and work publicly available. Join our community driven project with <strong class="text-white">over 3,000+ developers</strong> from around the world who contribute code and help building the modern notification infrastructure.`;
 
@@ -45,12 +47,12 @@ const Community = () => (
           <div className="mt-5 flex space-x-6 lg:justify-center">
             {SOCIAL_ITEMS.map(({ icon, url, countFollowers }, index) => (
               <Link
-                className="relative flex h-[88px] w-[88px] items-center justify-center rounded-2xl bg-social-card-gradient transition-colors duration-200 hover:bg-hover-social-card-gradient"
+                className="community-social-card-gradient group relative flex h-[88px] w-[88px] items-center justify-center rounded-2xl transition-colors duration-200"
                 to={url}
                 key={index}
               >
                 {countFollowers && (
-                  <span className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-bold leading-none">
+                  <span className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-bold leading-none transition-colors duration-200 group-hover:bg-primary-1">
                     {countFollowers}
                   </span>
                 )}

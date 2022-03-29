@@ -1,22 +1,20 @@
 <svg width="120" height="64" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="32" cy="32" r="31.5" fill="#1A1A1A" stroke="white" stroke-dasharray="3 3"/>
 <circle cx="22" cy="22" r="10" fill="white"/>
-<circle cx="44" cy="20" r="8" fill="#333333"/>
-<circle cx="44" cy="20" r="8" fill="url(#paint0_linear_505_2769)"/>
-<circle cx="40" cy="42" r="10.5" stroke="#FFFF33" stroke-width="3"/>
+<circle cx="44" cy="20" r="8" fill="url(#paint0_linear_174_1113)"/>
+<circle cx="40" cy="42" r="10.5" stroke="#FFF04D" stroke-width="3"/>
 <circle cx="17" cy="43" r="7" fill="#4D4D4D"/>
 <circle cx="88" cy="32" r="32" fill="white"/>
-<g clip-path="url(#clip0_505_2769)">
+<g clip-path="url(#clip0_174_1113)">
 <path d="M97.75 20.625H78.25C77.388 20.625 76.5614 20.9674 75.9519 21.5769C75.3424 22.1864 75 23.013 75 23.875V24.525L88 31.8375L101 24.6875V23.875C101 23.013 100.658 22.1864 100.048 21.5769C99.4386 20.9674 98.612 20.625 97.75 20.625Z" fill="black"/>
 <path d="M87.1875 35.0877L75 28.2627V40.1252C75 40.9872 75.3424 41.8138 75.9519 42.4233C76.5614 43.0328 77.388 43.3752 78.25 43.3752H97.75C98.612 43.3752 99.4386 43.0328 100.048 42.4233C100.658 41.8138 101 40.9872 101 40.1252V28.2627L88.8125 35.0877C88.5564 35.2002 88.2797 35.2583 88 35.2583C87.7203 35.2583 87.4436 35.2002 87.1875 35.0877Z" fill="black"/>
 </g>
 <defs>
-<linearGradient id="paint0_linear_505_2769" x1="52" y1="12" x2="36" y2="28" gradientUnits="userSpaceOnUse">
-<stop stop-color="#33FFFF"/>
-<stop offset="0.462772" stop-color="white"/>
-<stop offset="1" stop-color="#FF33BB"/>
+<linearGradient id="paint0_linear_174_1113" x1="52" y1="12" x2="36" y2="28" gradientUnits="userSpaceOnUse">
+<stop offset="0.289062" stop-color="#FF884D"/>
+<stop offset="0.960938" stop-color="#E300BD"/>
 </linearGradient>
-<clipPath id="clip0_505_2769">
+<clipPath id="clip0_174_1113">
 <rect width="26" height="26" fill="white" transform="translate(75 19)"/>
 </clipPath>
 </defs>
