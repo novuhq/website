@@ -47,16 +47,16 @@ const Community = () => (
           <div className="mt-5 flex space-x-6 lg:justify-center">
             {SOCIAL_ITEMS.map(({ icon, url, countFollowers }, index) => (
               <Link
-                className="community-social-card-gradient group relative flex h-[88px] w-[88px] items-center justify-center rounded-2xl transition-colors duration-200"
+                className="community-social-card-gradient group relative flex h-[88px] w-[88px] items-center justify-center rounded-2xl"
                 to={url}
                 key={index}
               >
+                <div className="relative z-10">{icon}</div>
                 {countFollowers && (
-                  <span className="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-bold leading-none transition-colors duration-200 group-hover:bg-primary-1">
+                  <span className="absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-bold leading-none transition-colors duration-200 group-hover:bg-primary-1">
                     {countFollowers}
                   </span>
                 )}
-                {icon}
               </Link>
             ))}
           </div>
