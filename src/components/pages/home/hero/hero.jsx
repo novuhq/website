@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
+import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useState } from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 import bg from './images/bg.svg';
-import illustration from './images/illustration.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
 const DESCRIPTION =
@@ -77,7 +77,12 @@ const Hero = () => {
         </div>
 
         <div className="mt-32">
-          <img src={illustration} width={1096} height={578} loading="eager" alt="" />
+          <StaticImage
+            className="max-w-[1096px]"
+            src="./images/illustration.png"
+            alt=""
+            loading="eager"
+          />
         </div>
       </div>
 
