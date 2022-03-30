@@ -79,7 +79,7 @@ const Hero = () => {
         <div className="mt-32">
           <StaticImage
             className="max-w-[1096px]"
-            src="./images/illustration.png"
+            src="./images/hero-illustration.png"
             alt=""
             loading="eager"
           />
