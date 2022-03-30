@@ -59,6 +59,7 @@ module.exports = {
     backgroundImage: {
       'input-gradient':
         'linear-gradient(268.91deg, #FF884D 23.17%, #FFFFFF 53.83%, #E300BD 80.17%)',
+      ...defaultTheme.backgroundImage,
     },
     screens: {
       '2xl': { max: '1919px' },

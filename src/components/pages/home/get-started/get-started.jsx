@@ -27,7 +27,7 @@ const GetStarted = () => (
       </Heading>
 
       <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 sm:block sm:gap-0 sm:space-y-7">
-        <div className="get-started-gradient-black flex flex-col items-center rounded-[20px] p-8 pb-10">
+        <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10">
           <Heading size="sm" tag="h4" className="font-medium leading-tight" theme="white">
             {LEFT_TITLE}
           </Heading>
