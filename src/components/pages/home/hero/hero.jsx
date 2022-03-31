@@ -38,7 +38,7 @@ const Hero = () => {
   }, [isCopied]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20">
+    <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20 lg:pt-16">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-tight"
@@ -76,7 +76,7 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-32">
+        <div className="mt-32 lg:mt-28">
           <StaticImage
             className="max-w-[1096px]"
             src="./images/hero-illustration.png"

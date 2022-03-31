@@ -49,18 +49,18 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40">
+  <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40 lg:pt-24 lg:pb-24">
     <div className="container relative z-10">
       <Heading
         size="md"
         tag="h2"
-        className="text-center leading-tight sm:text-left sm:text-3xl"
+        className="text-center leading-tight lg:text-left sm:text-3xl"
         theme="white"
       >
         {TITLE}
       </Heading>
 
-      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:grid-cols-2 sm:block sm:gap-0 sm:space-y-12">
+      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:grid-cols-2 lg:gap-y-16 sm:block sm:gap-0 sm:space-y-12">
         {ITEMS.map(({ title, description, icon }, index) => (
           <li key={index}>
             <img src={icon} height={64} width={120} loading="lazy" alt={`Icon ${title}`} />
@@ -68,7 +68,7 @@ const Features = () => (
               <Heading className="leading-snug sm:text-2xl" tag="h3" size="sm" theme="white">
                 {title}
               </Heading>
-              <p className="mt-3 max-w-[377px] font-light leading-snug text-gray-8 sm:mt-2.5">
+              <p className="mt-3 max-w-[377px] font-light leading-snug text-gray-8 lg:max-w-none sm:mt-2.5">
                 {description}
               </p>
             </div>

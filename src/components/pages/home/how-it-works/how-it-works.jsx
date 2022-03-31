@@ -29,7 +29,7 @@ const CARDS = [
 ];
 
 const HowItWorks = () => (
-  <section className="how-it-works safe-paddings bg-black pt-20 pb-28">
+  <section className="how-it-works safe-paddings bg-black pt-20 pb-28 lg:pt-16 lg:pb-24">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
@@ -43,18 +43,20 @@ const HowItWorks = () => (
         {LINK_NAME}
       </Link>
 
-      <div className="mt-10 grid grid-cols-3 gap-x-10 lg:block lg:gap-x-0 lg:space-y-7">
+      <div className="mt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7">
         {CARDS.map(({ title, description, image }, index) => (
           <div
-            className="rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-7 md:gap-x-5 sm:block"
+            className="rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 lg:p-5 md:grid md:grid-cols-2 md:items-center md:gap-x-5 sm:block"
             key={index}
           >
             {image}
-            <div className="mt-14 lg:mt-0 sm:mt-10">
-              <Heading className="leading-snug sm:text-2xl" tag="h3" size="sm" theme="white">
+            <div className="mt-14 lg:mt-8 md:mt-0 sm:mt-10">
+              <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
                 {title}
               </Heading>
-              <p className="mt-3 font-light leading-snug text-gray-8 sm:mt-2.5">{description}</p>
+              <p className="mt-3 font-light leading-snug text-gray-8 lg:text-sm sm:mt-2.5">
+                {description}
+              </p>
             </div>
           </div>
         ))}

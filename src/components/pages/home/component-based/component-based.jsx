@@ -12,10 +12,10 @@ const BUTTON_TEXT = 'Get Started';
 const BUTTON_URL = '/';
 
 const ComponentBased = () => (
-  <section className="component-based safe-paddings bg-black pt-40 pb-40">
-    <div className="container flex items-center justify-between lg:flex-col">
-      <div className="max-w-[464px] xl:max-w-[525px] lg:max-w-[782px] lg:text-center md:max-w-[712px] sm:w-full sm:max-w-none">
-        <Heading size="lg" tag="h2" className="leading-tight xl:text-5xl sm:text-3xl" theme="white">
+  <section className="component-based safe-paddings bg-black py-40 lg:py-24">
+    <div className="container grid grid-cols-12 items-center gap-x-10">
+      <div className="col-start-1 col-end-5 lg:col-end-7">
+        <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
         <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>
@@ -23,9 +23,10 @@ const ComponentBased = () => (
           {BUTTON_TEXT}
         </Button>
       </div>
-      <div className="lg:mt-6" aria-hidden>
+
+      <div className="col-start-6 col-end-13 lg:col-start-7 md:mt-6" aria-hidden>
         <img
-          className="xl:max-w-[600px] lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
+          className="md:max-w-[712px] sm:max-w-full"
           src={illustration}
           alt=""
           loading="lazy"
