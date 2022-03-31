@@ -5,7 +5,13 @@ import React from 'react';
 const styles = {
   size: {
     xl: 'text-6xl',
-    lg: 'text-4xl',
+    lg: 'text-5xl',
+    md: 'text-4xl',
+    sm: 'text-3xl',
+  },
+  theme: {
+    white: 'text-white',
+    black: 'text-black',
   },
 };
 
@@ -13,11 +19,12 @@ const Heading = ({
   className: additionalClassName,
   tag: Tag,
   size,
+  theme,
   asHTML,
   children,
   ...otherProps
 }) => {
-  const className = clsx('text-white', styles.size[size], additionalClassName);
+  const className = clsx(styles.size[size], styles.theme[theme], additionalClassName);
 
   if (asHTML) {
     return (
@@ -36,6 +43,7 @@ Heading.propTypes = {
   className: PropTypes.string,
   tag: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(styles.size)).isRequired,
+  theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
   asHTML: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };

@@ -8,7 +8,8 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ['brother-1816', ...defaultTheme.fontFamily.sans],
+      sans: ['Brother-1816', ...defaultTheme.fontFamily.sans],
+      mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
       // Commented sizes are not being used yet
@@ -38,8 +39,7 @@ module.exports = {
       black: '#000000',
       white: '#ffffff',
       primary: {
-        1: '#47EBEB',
-        2: '#00AAFF',
+        1: '#19C4E6',
       },
       secondary: {
         1: '#FF33DE',
@@ -56,6 +56,11 @@ module.exports = {
         10: '#E6E6E6',
       },
     }),
+    backgroundImage: {
+      'input-gradient':
+        'linear-gradient(268.91deg, #FF884D 23.17%, #FFFFFF 53.83%, #E300BD 80.17%)',
+      ...defaultTheme.backgroundImage,
+    },
     screens: {
       '2xl': { max: '1919px' },
       xl: { max: '1535px' },

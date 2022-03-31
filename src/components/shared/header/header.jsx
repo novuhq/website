@@ -1,7 +1,9 @@
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Button from 'components/shared/button';
+import Link from 'components/shared/link';
+import GitHubLogo from 'images/logo-github.inline.svg';
 import Logo from 'images/logo.inline.svg';
 
 const LINKS = [
@@ -23,21 +25,35 @@ const LINKS = [
 // eslint-disable-next-line no-unused-vars
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
   <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black lg:relative">
-    <div className="container flex items-center justify-between  py-3">
+    <div className="flex items-center justify-between py-3 px-10 md:px-7 sm:px-4">
       <Link to="/">
-        <Logo className="h-6 2xl:h-5" aria-hidden />
+        <Logo className="h-6" aria-hidden />
+        <span className="sr-only">Notu</span>
       </Link>
-      <nav className="xl:absolute xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2">
-        <ul className="flex space-x-12 2xl:space-x-10 lg:hidden">
-          {LINKS.map(({ to, title }, index) => (
-            <li key={index}>
-              <Link className="text-white" to={to}>
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+
+      <div className="flex items-center space-x-20">
+        <nav>
+          <ul className="flex space-x-8 md:hidden">
+            {LINKS.map(({ to, title }, index) => (
+              <li key={index}>
+                <Link to={to} theme="white" size="sm">
+                  {title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="flex space-x-5">
+          <Button className="pl-3" to="/" size="xs" theme="gray-outline">
+            <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
+            Star us on Github
+          </Button>
+          <Button to="/" size="xs" theme="white-filled">
+            Get Started
+          </Button>
+        </div>
+      </div>
     </div>
   </header>
 );
