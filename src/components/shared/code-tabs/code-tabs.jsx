@@ -17,7 +17,7 @@ SyntaxHighlighter.registerLanguage('php', php);
 SyntaxHighlighter.registerLanguage('bash', bash);
 
 const classNamesCode =
-  'h-full text-base text-secondary-2 overflow-auto scrollbar-hidden mt-8 xl:text-sm sm:pr-6';
+  'h-full text-base text-secondary-2 overflow-auto scrollbar-hidden mt-8 md:text-sm sm:pr-6';
 
 const CodeTabs = ({ className, items }) => {
   const [activeIndex, setActiveIndex] = useState(0);

@@ -13,11 +13,12 @@ const ITEMS = [
   {
     name: 'Node.js',
     language: 'javascript',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
+    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo,
+error, userCancelled) in
+  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
+    // Unlock that great "pro" content              
+  }
+}
 
 
 
@@ -85,9 +86,15 @@ const ITEMS = [
 ];
 
 const Languages = () => (
-  <section className="languages safe-paddings bg-gray-2 pt-24 pb-40">
-    <div className="container flex items-center justify-between lg:flex-col">
-      <div className="max-w-[464px] xl:max-w-[525px] lg:max-w-[782px] lg:text-center md:max-w-[712px] sm:w-full sm:max-w-none">
+  <section className="languages safe-paddings bg-gray-2 pt-24 pb-40 lg:pt-20 lg:pb-24">
+    <div className="container grid grid-cols-12 items-center gap-x-10 lg:flex lg:flex-col ">
+      <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12">
+        <CodeTabs
+          className="min-h-[564px] xl:min-h-[519px] lg:mx-auto lg:min-h-[560px] lg:max-w-[944px] md:max-w-[712px] sm:max-w-full"
+          items={ITEMS}
+        />
+      </div>
+      <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
         <Heading size="lg" tag="h2" className="leading-tight sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
@@ -95,12 +102,6 @@ const Languages = () => (
         <Button className="mt-7" to={BUTTON_URL} size="sm" theme="gray-outline">
           {BUTTON_TEXT}
         </Button>
-      </div>
-      <div className="order-first lg:order-last lg:mt-6 lg:w-full">
-        <CodeTabs
-          className="min-h-[564px] max-w-[842px] xl:min-h-[519px] xl:max-w-[600px] lg:mx-auto lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
-          items={ITEMS}
-        />
       </div>
     </div>
   </section>

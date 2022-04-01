@@ -14,7 +14,7 @@ const BUTTON_URL = '/';
 const NotificationCenter = () => (
   <section className="notification-center safe-paddings bg-gray-2 pt-40 pb-28 lg:pt-24 lg:pb-20">
     <div className="container grid grid-cols-12 items-center gap-x-10">
-      <div className="col-start-1 col-end-9 xl:col-end-8 md:mt-6" aria-hidden>
+      <div className="col-start-1 col-end-8 md:mt-6" aria-hidden>
         <img
           className="md:max-w-[712px] sm:max-w-full"
           src={illustration}

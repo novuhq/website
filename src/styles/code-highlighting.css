@@ -25,6 +25,6 @@ code {
   }
 
   .react-syntax-highlighter-line-number {
-    @apply mr-8 w-5 !min-w-0 !pr-0 !text-center text-gray-6 xl:mr-4;
+    @apply mr-8 w-5 !min-w-0 !pr-0 !text-center text-gray-6 md:mr-4;
   }
 }
