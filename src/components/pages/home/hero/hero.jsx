@@ -41,20 +41,20 @@ const Hero = () => {
     <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20 lg:pt-16">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
-          className="max-w-[764px] text-center font-normal leading-tight"
+          className="max-w-[764px] text-center font-normal leading-tight md:max-w-[712px] md:text-4xl"
           size="xl"
           tag="h1"
           theme="white"
         >
           {TITLE}
         </Heading>
-        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px]">
+        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px] md:max-w-[590px]">
           {DESCRIPTION}
         </p>
 
         <div
           className={clsx(
-            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3',
+            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 md:max-w-[458px]',
             inputBeforeClassNames,
             inputAfterClassNames
           )}

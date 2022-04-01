@@ -87,7 +87,7 @@ error, userCancelled) in
 
 const Languages = () => (
   <section className="languages safe-paddings bg-gray-2 pt-24 pb-40 lg:pt-20 lg:pb-24">
-    <div className="container grid grid-cols-12 items-center gap-x-10 lg:flex lg:flex-col ">
+    <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col ">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12">
         <CodeTabs
           className="min-h-[564px] xl:min-h-[519px] lg:mx-auto lg:min-h-[560px] lg:max-w-[944px] md:max-w-[712px] sm:max-w-full"
@@ -95,7 +95,12 @@ const Languages = () => (
         />
       </div>
       <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
-        <Heading size="lg" tag="h2" className="leading-tight sm:text-3xl" theme="white">
+        <Heading
+          size="lg"
+          tag="h2"
+          className="leading-tight md:text-4xl  sm:text-3xl"
+          theme="white"
+        >
           {TITLE}
         </Heading>
         <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>

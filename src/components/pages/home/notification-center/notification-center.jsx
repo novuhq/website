@@ -12,9 +12,9 @@ const BUTTON_TEXT = 'Read Docs';
 const BUTTON_URL = '/';
 
 const NotificationCenter = () => (
-  <section className="notification-center safe-paddings bg-gray-2 pt-40 pb-28 lg:pt-24 lg:pb-20">
-    <div className="container grid grid-cols-12 items-center gap-x-10">
-      <div className="col-start-1 col-end-8 md:mt-6" aria-hidden>
+  <section className="notification-center safe-paddings bg-gray-2 pt-40 pb-28 lg:pt-24 lg:pb-20 md:pt-20 md:pb-14">
+    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
+      <div className="col-start-1 col-end-8 md:order-2 md:mt-6" aria-hidden>
         <img
           className="md:max-w-[712px] sm:max-w-full"
           src={illustration}
@@ -25,7 +25,7 @@ const NotificationCenter = () => (
         />
       </div>
 
-      <div className="col-start-9 col-end-13 xl:col-start-8">
+      <div className="col-start-9 col-end-13 xl:col-start-8 md:order-1 md:max-w-[590px] md:text-center">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>

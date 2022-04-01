@@ -33,9 +33,9 @@ const socialCardGradient = `before:to-[rgba(0,0,0,0.1)] before:absolute before:t
  after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-2xl after:bg-gradient-to-t after:from-gray-3 after:to-gray-3 after:opacity-0 after:transition-all after:duration-200 hover:before:opacity-0 hover:after:opacity-100`;
 
 const Community = () => (
-  <section className="community safe-paddings bg-gray-2 pt-28 pb-40 lg:pt-20 lg:pb-24">
-    <div className="container grid grid-cols-12 items-center gap-x-10">
-      <div className="col-start-1 col-end-5 lg:col-end-7">
+  <section className="community safe-paddings bg-gray-2 pt-28 pb-40 lg:pt-20 lg:pb-24 md:pt-14 md:pb-20">
+    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
+      <div className="col-start-1 col-end-5 lg:col-end-7 md:max-w-[590px] md:text-center">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
@@ -67,7 +67,8 @@ const Community = () => (
           </div>
         </div>
       </div>
-      <div className="col-start-6 col-end-13 lg:col-start-7 md:mt-6" aria-hidden>
+
+      <div className="col-start-6 col-end-13 lg:col-start-7 md:mt-16" aria-hidden>
         <StaticImage
           className="md:max-w-[712px] sm:max-w-full"
           src="./images/illustration.png"
