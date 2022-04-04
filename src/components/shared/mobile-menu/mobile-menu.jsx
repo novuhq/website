@@ -27,11 +27,18 @@ const variants = {
   },
 };
 
-// TODO: Add links
-const links = [
+const LINKS = [
   {
-    text: '',
-    to: '',
+    text: 'Documentation',
+    to: '/',
+  },
+  {
+    text: 'Blog',
+    to: '/',
+  },
+  {
+    text: 'FAQ',
+    to: '/',
   },
 ];
 
@@ -48,18 +55,14 @@ const MobileMenu = ({ isOpen }) => {
 
   return (
     <motion.nav
-      // TODO: Add "top" value equal to the header's height so mobile menu would be positioned right after the header, e.g. "top-20"
-      //       Check out this screenshot for better understanding — https://user-images.githubusercontent.com/20713191/144218387-afd19e0c-c33d-4c8f-8cfe-b6e6214d236c.png
-      // TODO: Add background color, e.g. "bg-white"
-      className="absolute right-8 left-8 z-[-1] hidden rounded-md px-8 pt-4 pb-7 lg:block md:right-4 md:left-4"
+      // TODO: these styles are set as an example, please contact the design department to apply the desired design
+      className="absolute right-8 top-20 left-8 z-[-1] hidden rounded-md bg-white px-8 pt-4 pb-7 lg:block md:right-4 md:left-4"
       initial="from"
       animate={controls}
       variants={variants}
-      // TODO: Replace the color to the one from the color palette
-      style={{ boxShadow: '0px 10px 20px rgba(26, 26, 26, 0.4)' }}
     >
       <ul className="flex flex-col text-center">
-        {links.map(({ text, to }, index) => (
+        {LINKS.map(({ text, to }, index) => (
           <li key={index}>
             {/* TODO: Add needed props so the link would have styles */}
             <Link className="block py-4" to={to}>

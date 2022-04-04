@@ -65,12 +65,12 @@ const Card = ({ icon, title, text, comingSoon }) => (
 );
 
 const SimpleUse = () => (
-  <section className="simple-use safe-paddings bg-gray-2 pt-40 pb-28 lg:py-24">
+  <section className="simple-use safe-paddings bg-gray-2 pt-40 pb-28 lg:py-24 md:pt-20 md:pb-16">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
         tag="h2"
-        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        className="max-w-[764px] text-center leading-tight md:text-3xl"
         theme="white"
       >
         {TITLE}
@@ -105,7 +105,7 @@ const SimpleUse = () => (
         ))}
       </div>
 
-      <div className="mt-10 hidden grid-cols-2 items-start gap-x-7 md:grid sm:hidden">
+      <div className="mt-10 hidden grid-cols-2 items-start gap-x-5 md:grid sm:hidden">
         {CARDS.reduce((acc, curr, index) => {
           if (index % 3 === 0) {
             acc.push([curr]);

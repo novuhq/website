@@ -38,7 +38,7 @@ const Hero = () => {
   }, [isCopied]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20 lg:pt-16">
+    <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20 lg:pt-16 md:pt-10 md:pb-16">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-tight md:max-w-[712px] md:text-4xl"
@@ -48,7 +48,7 @@ const Hero = () => {
         >
           {TITLE}
         </Heading>
-        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px] md:max-w-[590px]">
+        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px] md:max-w-[590px] md:text-base md:leading-tight">
           {DESCRIPTION}
         </p>
 
@@ -76,7 +76,7 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-32 lg:mt-28">
+        <div className="mt-32 lg:mt-28 md:mt-16">
           <StaticImage
             className="max-w-[1096px]"
             src="./images/hero-illustration.png"

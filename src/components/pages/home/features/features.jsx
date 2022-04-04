@@ -49,7 +49,7 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40 lg:pt-24 lg:pb-24">
+  <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40 lg:py-24 md:py-20">
     <div className="container relative z-10">
       <Heading
         size="md"
@@ -60,7 +60,7 @@ const Features = () => (
         {TITLE}
       </Heading>
 
-      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:grid-cols-2 lg:gap-y-16 sm:block sm:gap-0 sm:space-y-12">
+      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:grid-cols-2 lg:gap-y-16 md:gap-x-6 sm:block sm:gap-0 sm:space-y-12">
         {ITEMS.map(({ title, description, icon }, index) => (
           <li key={index}>
             <img src={icon} height={64} width={120} loading="lazy" alt={`Icon ${title}`} />

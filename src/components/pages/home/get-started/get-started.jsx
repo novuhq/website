@@ -20,13 +20,13 @@ const RIGHT_BUTTON_TEXT = 'Get Started';
 const RIGHT_BUTTON_URL = '/';
 
 const GetStarted = () => (
-  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-24">
+  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-24 md:py-16">
     <div className="container relative z-10">
-      <Heading size="md" tag="h2" className="text-center leading-tight sm:text-3xl" theme="white">
+      <Heading size="md" tag="h2" className="text-center leading-tight md:text-3xl" theme="white">
         {TITLE}
       </Heading>
 
-      <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 sm:block sm:gap-0 sm:space-y-7">
+      <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 md:mt-12 md:gap-x-5 sm:block sm:gap-0 sm:space-y-7">
         <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10">
           <Heading size="sm" tag="h4" className="font-medium leading-tight" theme="white">
             {LEFT_TITLE}

@@ -86,7 +86,7 @@ error, userCancelled) in
 ];
 
 const Languages = () => (
-  <section className="languages safe-paddings bg-gray-2 pt-24 pb-40 lg:pt-20 lg:pb-24">
+  <section className="languages safe-paddings bg-gray-2 pt-24 pb-40 lg:pt-20 lg:pb-24 md:py-20">
     <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col ">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12">
         <CodeTabs
