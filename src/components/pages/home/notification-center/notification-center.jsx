@@ -12,7 +12,7 @@ const BUTTON_TEXT = 'Read Docs';
 const BUTTON_URL = '/';
 
 const NotificationCenter = () => (
-  <section className="notification-center safe-paddings bg-gray-2 pt-40 pb-28 lg:pt-24 lg:pb-20 md:pt-20 md:pb-14">
+  <section className="notification-center safe-paddings bg-gray-2 pt-40 pb-28 lg:pt-24 lg:pb-20 md:pt-20 md:pb-14 sm:pt-10 sm:pb-8">
     <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
       <div className="col-start-1 col-end-8 md:order-2 md:mt-6" aria-hidden>
         <img

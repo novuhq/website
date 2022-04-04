@@ -65,7 +65,7 @@ const Card = ({ icon, title, text, comingSoon }) => (
 );
 
 const SimpleUse = () => (
-  <section className="simple-use safe-paddings bg-gray-2 pt-40 pb-28 lg:py-24 md:pt-20 md:pb-16">
+  <section className="simple-use safe-paddings bg-gray-2 pt-40 pb-28 lg:py-24 md:pt-20 md:pb-16 sm:pt-10 sm:pb-8">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"

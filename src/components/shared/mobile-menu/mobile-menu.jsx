@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
 import Link from 'components/shared/link';
+import MENUS from 'constants/menus';
 
 const ANIMATION_DURATION = 0.2;
 
@@ -27,21 +28,6 @@ const variants = {
   },
 };
 
-const LINKS = [
-  {
-    text: 'Documentation',
-    to: '/',
-  },
-  {
-    text: 'Blog',
-    to: '/',
-  },
-  {
-    text: 'FAQ',
-    to: '/',
-  },
-];
-
 const MobileMenu = ({ isOpen }) => {
   const controls = useAnimation();
 
@@ -62,7 +48,7 @@ const MobileMenu = ({ isOpen }) => {
       variants={variants}
     >
       <ul className="flex flex-col text-center">
-        {LINKS.map(({ text, to }, index) => (
+        {MENUS.header.map(({ text, to }, index) => (
           <li key={index}>
             {/* TODO: Add needed props so the link would have styles */}
             <Link className="block py-4" to={to}>

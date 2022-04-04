@@ -4,23 +4,9 @@ import React from 'react';
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
+import MENUS from 'constants/menus';
 import GitHubLogo from 'images/logo-github.inline.svg';
 import Logo from 'images/logo.inline.svg';
-
-const LINKS = [
-  {
-    title: 'Documentation',
-    to: '/',
-  },
-  {
-    title: 'Blog',
-    to: '/',
-  },
-  {
-    title: 'FAQ',
-    to: '/',
-  },
-];
 
 // TODO: Implement mobile menu functionality and delete eslint comment below, example — https://user-images.githubusercontent.com/20713191/144221747-70dc933e-a5bd-4586-9019-08117afc13e0.png
 // eslint-disable-next-line no-unused-vars
@@ -35,7 +21,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
       <div className="flex items-center space-x-20">
         <nav>
           <ul className="flex space-x-8 md:hidden">
-            {LINKS.map(({ to, title }, index) => (
+            {MENUS.header.map(({ to, title }, index) => (
               <li key={index}>
                 <Link to={to} theme="white" size="sm">
                   {title}
