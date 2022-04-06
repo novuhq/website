@@ -2,7 +2,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-import InputWithCopying from '../copy-code/InputWithCopying';
+import InputWithCopying from '../input-with-copying/input-with-copying';
 
 import bg from './images/bg.svg';
 
