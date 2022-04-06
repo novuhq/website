@@ -5,14 +5,13 @@ import React, { useEffect, useState } from 'react';
 
 import Button from 'components/shared/button';
 
-/* TODO: find a way to simplify the styles for applying a gradient border for the input field */
-
 const inputBeforeClassNames =
   'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
+
 const inputAfterClassNames =
   'after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:-z-20 after:-m-0.5 after:rounded-[inherit] after:bg-input-gradient after:blur-sm';
 
-const CopyCode = ({ className, text }) => {
+const InputWithCopying = ({ className, text }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleButtonClick = () => {
@@ -32,10 +31,10 @@ const CopyCode = ({ className, text }) => {
   return (
     <div
       className={clsx(
-        'copy-code relative flex h-16 w-full items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 ',
-        className,
+        'input-with-copying relative flex h-16 w-full items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3',
         inputBeforeClassNames,
-        inputAfterClassNames
+        inputAfterClassNames,
+        className
       )}
     >
       <span className="input-text whitespace-nowrap font-mono text-lg !leading-none text-white">
@@ -56,13 +55,13 @@ const CopyCode = ({ className, text }) => {
   );
 };
 
-CopyCode.propTypes = {
+InputWithCopying.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string.isRequired,
 };
 
-CopyCode.defaultProps = {
+InputWithCopying.defaultProps = {
   className: null,
 };
 
-export default CopyCode;
+export default InputWithCopying;
