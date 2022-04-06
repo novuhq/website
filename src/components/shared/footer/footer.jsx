@@ -6,7 +6,7 @@ import MENUS from 'constants/menus';
 import GitHubLogo from 'images/logo-github.inline.svg';
 import Logo from 'images/logo.inline.svg';
 
-const COPYRIGHT = 'Transmit';
+const COPYRIGHT = 'Novu';
 const GITHUB_BUTTON_TEXT = 'Star us on Github';
 const GITHUB_BUTTON_URL = '/';
 
