@@ -16,7 +16,7 @@ const Footer = () => (
       <div className="flex flex-col items-start justify-between lg:flex-row lg:items-center">
         <Link to="/">
           <span className="sr-only">Notu</span>
-          <Logo className="h-6" aria-hidden />
+          <Logo className="h-8" aria-hidden />
         </Link>
         <p className="text-sm leading-none text-gray-8 lg:hidden">
           Ⓒ {new Date().getFullYear()} {COPYRIGHT}

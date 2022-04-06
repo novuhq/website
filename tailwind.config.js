@@ -39,11 +39,11 @@ module.exports = {
       black: '#000000',
       white: '#ffffff',
       primary: {
-        1: '#19C4E6',
+        1: '#00AAFF',
       },
       secondary: {
         1: '#FF33DE',
-        2: '#FFFF33',
+        2: '#FFE14D',
       },
       gray: {
         1: '#0D0D0D',
@@ -58,7 +58,7 @@ module.exports = {
     }),
     backgroundImage: {
       'input-gradient':
-        'linear-gradient(268.91deg, #FF884D 23.17%, #FFFFFF 53.83%, #E300BD 80.17%)',
+        'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
       ...defaultTheme.backgroundImage,
     },
     screens: {
