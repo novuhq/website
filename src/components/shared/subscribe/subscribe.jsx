@@ -2,7 +2,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-import InputWithCopying from '../copy-code/copy-code';
+import InputWithCopying from '../copy-code/InputWithCopying';
 
 import bg from './images/bg.svg';
 
@@ -13,6 +13,13 @@ const DESCRIPTION =
 
 const Subscribe = () => (
   <section className="subscribe safe-paddings relative overflow-hidden bg-black pt-24 pb-24">
+    <img
+      className="absolute left-1/2 min-w-[1920px] -translate-x-1/2 "
+      src={bg}
+      loading="lazy"
+      alt=""
+      aria-hidden
+    />
     <div className="container relative z-10 flex flex-col items-center">
       <Heading
         className="max-w-[789px] text-center font-normal leading-tight"
@@ -28,13 +35,6 @@ const Subscribe = () => (
 
       <InputWithCopying className="mt-10 h-16 max-w-[464px]" text="npx notu init" />
     </div>
-    <img
-      className="absolute left-1/2 min-w-[1920px] -translate-x-1/2 "
-      src={bg}
-      loading="lazy"
-      alt=""
-      aria-hidden
-    />
   </section>
 );
 

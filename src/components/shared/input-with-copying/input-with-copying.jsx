@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 
 import Button from 'components/shared/button';
 
+/* TODO: find a way to simplify the styles for applying a gradient border for the input field */
+
 const inputBeforeClassNames =
   'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
 
