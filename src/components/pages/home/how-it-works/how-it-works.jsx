@@ -46,7 +46,7 @@ const HowItWorks = () => (
       <div className="mt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7">
         {CARDS.map(({ title, description, image }, index) => (
           <div
-            className="rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] md:grid md:grid-cols-2 md:items-center md:gap-x-5 sm:block"
+            className="rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] md:grid md:grid-cols-2 md:items-center sm:block"
             key={index}
           >
             {image}
