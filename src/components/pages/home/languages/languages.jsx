@@ -74,11 +74,11 @@ error, userCancelled) in
 ];
 
 const Languages = () => (
-  <section className="languages safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-20 lg:pb-24 md:py-20 sm:pt-8 sm:pb-10">
+  <section className="languages safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-24 lg:pb-32 md:py-20 sm:pt-8 sm:pb-10">
     <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col ">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12 sm:mt-8">
         <CodeTabs
-          className="min-h-[560px] xl:min-h-[519px] lg:mx-auto lg:min-h-[560px] lg:max-w-[944px] md:max-w-[712px] sm:min-h-[310px] sm:max-w-full"
+          className="min-h-[560px] lg:mx-auto lg:min-h-[560px] lg:max-w-[944px] md:max-w-[712px] sm:min-h-[310px] sm:max-w-full"
           items={ITEMS}
         />
       </div>

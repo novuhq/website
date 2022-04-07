@@ -49,7 +49,7 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden bg-black pt-30 pb-40 lg:py-24 md:py-20 sm:py-10">
+  <section className="features safe-paddings relative overflow-hidden bg-black pt-30 pb-40 lg:pt-24 lg:pb-32 md:py-20 sm:py-10">
     <div className="container relative z-10">
       <Heading
         size="md"
@@ -60,15 +60,15 @@ const Features = () => (
         {TITLE}
       </Heading>
 
-      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:grid-cols-2 lg:gap-y-16 md:gap-x-6 sm:block sm:gap-0 sm:space-y-12">
+      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:gap-y-16 md:grid-cols-2 md:gap-x-6 sm:block sm:gap-0 sm:space-y-12">
         {ITEMS.map(({ title, description, icon }, index) => (
           <li key={index}>
             <img src={icon} height={64} width={120} loading="lazy" alt={`Icon ${title}`} />
             <div className="mt-5">
-              <Heading className="leading-snug sm:text-2xl" tag="h3" size="sm" theme="white">
+              <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
                 {title}
               </Heading>
-              <p className="mt-3 max-w-[377px] font-light leading-snug text-gray-8 lg:max-w-none sm:mt-2.5">
+              <p className="mt-3 max-w-[377px] font-light leading-snug text-gray-8 lg:mt-2 lg:max-w-none">
                 {description}
               </p>
             </div>

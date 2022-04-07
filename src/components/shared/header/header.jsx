@@ -18,7 +18,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
         <span className="sr-only">Notu</span>
       </Link>
 
-      <div className="flex items-center space-x-20">
+      <div className="flex items-center space-x-20 lg:space-x-14">
         <nav>
           <ul className="flex space-x-8 md:hidden">
             {MENUS.header.map(({ to, title }, index) => (
@@ -34,7 +34,8 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
         <div className="flex space-x-5 md:hidden">
           <Button className="pl-3" to="/" size="xs" theme="gray-outline">
             <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
-            Star us on Github
+            <span className="lg:hidden">Star us on Github</span>
+            <span className="hidden lg:block">Star us</span>
           </Button>
           <Button to="/" size="xs" theme="white-filled">
             Get Started

@@ -20,14 +20,14 @@ const RIGHT_BUTTON_TEXT = 'Get Started';
 const RIGHT_BUTTON_URL = '/';
 
 const GetStarted = () => (
-  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-24 md:py-16 sm:py-10">
+  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-16 sm:py-10">
     <div className="container relative z-10">
       <Heading size="md" tag="h2" className="text-center leading-tight md:text-3xl" theme="white">
         {TITLE}
       </Heading>
 
-      <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 md:mt-12 md:gap-x-5 sm:block sm:gap-0 sm:space-y-7">
-        <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10">
+      <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 lg:gap-x-7 md:mt-12 md:gap-x-5 sm:block sm:gap-0 sm:space-y-7">
+        <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10 lg:rounded-2xl">
           <Heading
             size="sm"
             tag="h4"
@@ -44,7 +44,7 @@ const GetStarted = () => (
           </Button>
         </div>
 
-        <div className="get-started-gradient-multicolor flex flex-col items-center rounded-[20px] p-8 pb-10">
+        <div className="get-started-gradient-multicolor flex flex-col items-center rounded-[20px] p-8 pb-10 lg:rounded-2xl">
           <Heading
             size="sm"
             tag="h4"

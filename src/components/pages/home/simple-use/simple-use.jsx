@@ -48,24 +48,8 @@ const CARDS = [
   },
 ];
 
-// eslint-disable-next-line react/prop-types
-const Card = ({ icon, title, text, comingSoon }) => (
-  <div className="rounded-[20px] bg-black">
-    <div className="flex items-center p-4">
-      <div className="mr-3.5 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white">
-        {icon}
-      </div>
-      <h3 className="text-lg leading-tight text-white">{title}</h3>
-    </div>
-    <div className="relative p-4 pb-5 before:absolute before:top-0 before:left-0 before:h-px before:w-full before:bg-white before:opacity-10">
-      <p className="text-sm leading-tight text-gray-8">{text}</p>
-      {comingSoon && <span className="mt-1 block text-sm text-secondary-2">Coming Soon...</span>}
-    </div>
-  </div>
-);
-
 const SimpleUse = () => (
-  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:py-24 md:pt-20 md:pb-16 sm:pt-10 sm:pb-8">
+  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-20 md:pb-16 sm:pt-10 sm:pb-8">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
@@ -79,45 +63,21 @@ const SimpleUse = () => (
         {LINK_NAME}
       </Link>
 
-      {/* FIXME: optimize, this trick has been applied to be able to build a grid with different block heights - we need to find a simpler option for this */}
-      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:hidden sm:block sm:space-x-0 sm:space-y-5">
-        {CARDS.map((props, index) => (
-          <div className="grid grid-cols-1" key={index}>
-            <Card {...props} />
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 hidden grid-cols-3 items-start gap-x-7 lg:grid md:hidden">
-        {CARDS.reduce((acc, curr, index) => {
-          if (index % 2 === 0) {
-            acc.push([curr]);
-          } else {
-            acc[acc.length - 1].push(curr);
-          }
-          return acc;
-        }, []).map((column, index) => (
-          <div className="grid grid-cols-1 gap-y-5" key={index}>
-            {column.map((props, index) => (
-              <Card {...props} key={index} />
-            ))}
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 hidden grid-cols-2 items-start gap-x-5 md:grid sm:hidden">
-        {CARDS.reduce((acc, curr, index) => {
-          if (index % 3 === 0) {
-            acc.push([curr]);
-          } else {
-            acc[acc.length - 1].push(curr);
-          }
-          return acc;
-        }, []).map((column, index) => (
-          <div className="grid grid-cols-1 gap-y-5" key={index}>
-            {column.map((props, index) => (
-              <Card {...props} key={index} />
-            ))}
+      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:grid-cols-3 lg:gap-y-7">
+        {CARDS.map(({ icon, title, text, comingSoon }, index) => (
+          <div className="rounded-[20px] bg-black lg:h-full lg:rounded-2xl" key={index}>
+            <div className="flex items-center p-4">
+              <div className="mr-3.5 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white">
+                {icon}
+              </div>
+              <h3 className="text-lg leading-tight text-white">{title}</h3>
+            </div>
+            <div className="relative p-4 pb-5 before:absolute before:top-0 before:left-0 before:h-px before:w-full before:bg-white before:opacity-10">
+              <p className="text-sm leading-tight text-gray-8">{text}</p>
+              {comingSoon && (
+                <span className="mt-1 block text-sm text-secondary-2">Coming Soon...</span>
+              )}
+            </div>
           </div>
         ))}
       </div>

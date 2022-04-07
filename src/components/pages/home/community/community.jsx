@@ -33,18 +33,18 @@ const socialCardGradient = `before:to-[rgba(0,0,0,0.1)] before:absolute before:t
  after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-2xl after:bg-gradient-to-t after:from-gray-3 after:to-gray-3 after:opacity-0 after:transition-all after:duration-200 hover:before:opacity-0 hover:after:opacity-100`;
 
 const Community = () => (
-  <section className="community safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-20 lg:pb-24 md:pt-14 md:pb-20 sm:pt-8 sm:pb-10">
+  <section className="community safe-paddings bg-gray-2 pt-30 pb-40 lg:py-24 md:pt-14 md:pb-20 sm:pt-8 sm:pb-10">
     <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
-      <div className="col-start-1 col-end-5 lg:col-end-7 md:max-w-[590px] md:text-center">
+      <div className="col-start-1 col-end-5 lg:col-end-6 md:max-w-[590px] md:text-center">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
         <div
-          className="mt-5 text-lg font-light leading-snug text-gray-8 sm:text-base"
+          className="mt-5 text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:max-w-[324px] lg:text-base"
           dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
         />
 
-        <div className="mt-10">
+        <div className="mt-10 lg:mt-7">
           <h4 className="text-white">{SOCIAL_TILE}</h4>
           <div className="mt-5 flex space-x-6 md:justify-center">
             {SOCIAL_ITEMS.map(({ icon, url, countFollowers }, index) => (
@@ -68,7 +68,7 @@ const Community = () => (
         </div>
       </div>
 
-      <div className="col-start-6 col-end-13 lg:col-start-7 md:mt-16" aria-hidden>
+      <div className="col-start-6 col-end-13 md:mt-16" aria-hidden>
         <StaticImage
           className="md:max-w-[712px] sm:max-w-full"
           src="./images/illustration.png"
