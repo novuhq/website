@@ -27,7 +27,7 @@ const CodeTabs = ({ className, items }) => {
       className={clsx('overflow-hidden rounded-[20px] bg-black p-8 md:p-6 sm:pr-0', className)}
       aria-hidden
     >
-      <ul className="scrollbar-hidden flex space-x-3 overflow-x-auto overflow-y-hidden">
+      <ul className="scrollbar-hidden flex space-x-2.5 overflow-x-auto overflow-y-hidden">
         {items.map(({ name }, index) => (
           <li key={index}>
             <button

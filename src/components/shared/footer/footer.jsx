@@ -33,10 +33,10 @@ const Footer = () => (
         </Button>
       </div>
 
-      <div className="flex space-x-28 lg:mt-14 lg:grid lg:grid-cols-12 lg:gap-x-7 lg:space-x-0 sm:block">
-        <nav className="flex space-x-28 lg:col-span-11 lg:w-full lg:justify-between lg:space-x-0 sm:hidden">
+      <div className="flex space-x-30 lg:mt-14 lg:grid lg:grid-cols-12 lg:gap-x-7 lg:space-x-0 sm:block">
+        <nav className="flex space-x-30 lg:col-span-11 lg:w-full lg:justify-between lg:space-x-0 sm:hidden">
           {MENUS.footer.map((links, index) => (
-            <ul className="space-y-3 lg:space-y-2" key={index}>
+            <ul className="space-y-2.5 lg:space-y-2" key={index}>
               {links.map(({ to, text }, index) => (
                 <li key={index}>
                   <Link to={to} size="base" theme="white">

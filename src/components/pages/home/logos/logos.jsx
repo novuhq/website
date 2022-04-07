@@ -18,7 +18,7 @@ const Logos = () => (
       <ul className="mt-8 flex w-full justify-between lg:space-x-8 md:flex-wrap md:justify-center md:gap-y-9 md:gap-x-11 md:space-x-0">
         {LOGOS.map((item, index) => (
           <li key={index}>
-            <img className="h-10 w-auto md:h-8" src={item} loading="eager" alt={`logo-${index}`} />
+            <img className="h-9.5 w-auto md:h-8" src={item} loading="eager" alt={`logo-${index}`} />
           </li>
         ))}
       </ul>

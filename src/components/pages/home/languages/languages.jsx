@@ -19,17 +19,6 @@ error, userCancelled) in
     // Unlock that great "pro" content              
   }
 }
-
-
-
-
-
-
-
-
-
-
-
   `,
   },
   {
@@ -85,24 +74,21 @@ error, userCancelled) in
 ];
 
 const Languages = () => (
-  <section className="languages safe-paddings bg-gray-2 pt-24 pb-40 lg:pt-20 lg:pb-24 md:py-20 sm:pt-8 sm:pb-10">
+  <section className="languages safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-20 lg:pb-24 md:py-20 sm:pt-8 sm:pb-10">
     <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col ">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12 sm:mt-8">
         <CodeTabs
-          className="min-h-[564px] xl:min-h-[519px] lg:mx-auto lg:min-h-[560px] lg:max-w-[944px] md:max-w-[712px] sm:min-h-[310px] sm:max-w-full"
+          className="min-h-[560px] xl:min-h-[519px] lg:mx-auto lg:min-h-[560px] lg:max-w-[944px] md:max-w-[712px] sm:min-h-[310px] sm:max-w-full"
           items={ITEMS}
         />
       </div>
       <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
-        <Heading
-          size="lg"
-          tag="h2"
-          className="leading-tight md:text-4xl  sm:text-3xl"
-          theme="white"
-        >
+        <Heading size="lg" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>
+        <p className="mt-5 text-lg font-light leading-snug text-gray-8 sm:text-base">
+          {DESCRIPTION}
+        </p>
         <Button className="mt-7" to={BUTTON_URL} size="sm" theme="gray-outline">
           {BUTTON_TEXT}
         </Button>

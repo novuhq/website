@@ -31,12 +31,14 @@ const GetStarted = () => (
           <Heading
             size="sm"
             tag="h4"
-            className="font-medium leading-tight sm:text-2xl"
+            className="font-medium leading-snug sm:text-2xl"
             theme="white"
           >
             {LEFT_TITLE}
           </Heading>
-          <p className="mt-3 font-light text-gray-8 sm:text-base">{LEFT_DESCRIPTION}</p>
+          <p className="mt-3 font-light leading-snug text-gray-8 sm:text-base">
+            {LEFT_DESCRIPTION}
+          </p>
           <Button className="mt-7" to={LEFT_BUTTON_URL} size="sm" theme="gray-outline">
             {LEFT_BUTTON_TEXT}
           </Button>
@@ -46,12 +48,12 @@ const GetStarted = () => (
           <Heading
             size="sm"
             tag="h4"
-            className="font-medium leading-tight sm:text-2xl"
+            className="font-medium leading-snug sm:text-2xl"
             theme="black"
           >
             {RIGHT_TITLE}
           </Heading>
-          <p className="mt-3 text-black sm:text-base">{RIGHT_DESCRIPTION}</p>
+          <p className="mt-3 leading-snug text-black sm:text-base">{RIGHT_DESCRIPTION}</p>
           <Button className="mt-7" to={RIGHT_BUTTON_URL} size="sm" theme="black-filled">
             {RIGHT_BUTTON_TEXT}
           </Button>

@@ -18,7 +18,9 @@ const ComponentBased = () => (
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>
+        <p className="mt-5 text-lg font-light leading-snug text-gray-8 sm:text-base">
+          {DESCRIPTION}
+        </p>
         <Button className="mt-7" to={BUTTON_URL} size="sm" theme="primary">
           {BUTTON_TEXT}
         </Button>

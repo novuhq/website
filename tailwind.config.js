@@ -69,6 +69,14 @@ module.exports = {
       sm: { max: '767px' },
       xs: { max: '359px' },
     },
+    extend: {
+      lineHeight: {
+        denser: '1.125',
+      },
+      spacing: {
+        30: '7.5rem',
+      },
+    },
   },
   plugins: [require('tailwindcss-safe-area')],
 };
