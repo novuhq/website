@@ -74,6 +74,7 @@ module.exports = {
         denser: '1.125',
       },
       spacing: {
+        18: '4.5rem',
         30: '7.5rem',
       },
     },

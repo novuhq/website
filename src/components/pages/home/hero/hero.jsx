@@ -38,7 +38,7 @@ const Hero = () => {
   }, [isCopied]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden bg-black pt-36 pb-20 lg:py-16 md:pt-10 sm:pb-12">
+    <section className="hero safe-paddings relative overflow-hidden bg-black pt-36 pb-20 lg:py-16 md:py-14 sm:pb-12">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl"
@@ -54,7 +54,7 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 md:max-w-[458px]',
+            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 md:mt-8 md:max-w-[458px]',
             inputBeforeClassNames,
             inputAfterClassNames
           )}

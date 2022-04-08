@@ -12,13 +12,13 @@ const BUTTON_TEXT = 'Get Started';
 const BUTTON_URL = '/';
 
 const ComponentBased = () => (
-  <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-20 sm:py-10">
-    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
-      <div className="col-start-1 col-end-5 lg:col-end-6 md:max-w-[590px] md:text-center">
+  <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-10">
+    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col md:items-start">
+      <div className="col-start-1 col-end-5 lg:col-end-6">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:max-w-[296px] lg:text-base">
+        <p className="mt-5 text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
           {DESCRIPTION}
         </p>
         <Button className="mt-7" to={BUTTON_URL} size="sm" theme="primary">
@@ -26,9 +26,9 @@ const ComponentBased = () => (
         </Button>
       </div>
 
-      <div className="col-start-6 col-end-13 lg:col-start-6 md:mt-10" aria-hidden>
+      <div className="col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full" aria-hidden>
         <img
-          className="md:max-w-[712px] sm:max-w-full"
+          className="md:w-full"
           src={illustration}
           alt=""
           loading="lazy"

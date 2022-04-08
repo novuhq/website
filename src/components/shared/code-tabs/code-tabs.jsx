@@ -16,15 +16,15 @@ SyntaxHighlighter.registerLanguage('go', go);
 SyntaxHighlighter.registerLanguage('php', php);
 SyntaxHighlighter.registerLanguage('bash', bash);
 
-const classNamesCode =
-  'h-full text-base text-secondary-2 overflow-auto scrollbar-hidden mt-8 md:text-sm sm:pr-6';
-
 const CodeTabs = ({ className, items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <div
-      className={clsx('overflow-hidden rounded-[20px] bg-black p-8 md:p-6 sm:pr-0', className)}
+      className={clsx(
+        'overflow-hidden rounded-[20px] bg-black p-8 lg:rounded-2xl md:p-6 sm:pr-0',
+        className
+      )}
       aria-hidden
     >
       <ul className="scrollbar-hidden flex space-x-2.5 overflow-x-auto overflow-y-hidden">
@@ -32,7 +32,7 @@ const CodeTabs = ({ className, items }) => {
           <li key={index}>
             <button
               className={clsx(
-                'hover:bg-gray-9 block w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black py-2.5 px-4 text-sm uppercase leading-none text-white transition-colors duration-200',
+                'hover:bg-gray-9 block w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black py-2.5 px-4 text-sm uppercase leading-none text-white transition-colors duration-200 md:py-2 md:text-xs',
                 activeIndex === index && '!border-white !bg-white !text-black'
               )}
               type="button"
@@ -43,9 +43,9 @@ const CodeTabs = ({ className, items }) => {
           </li>
         ))}
       </ul>
-      <div className="sm:pr-6">
+      <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base text-secondary-2 md:mt-6 md:!text-sm sm:pr-6">
         <SyntaxHighlighter
-          className={clsx(classNamesCode, 'sm:hidden')}
+          className="'sm:hidden'"
           language={items[activeIndex].language}
           useInlineStyles={false}
           showLineNumbers
@@ -53,7 +53,7 @@ const CodeTabs = ({ className, items }) => {
           {items[activeIndex].code}
         </SyntaxHighlighter>
         <SyntaxHighlighter
-          className={clsx(classNamesCode, 'hidden sm:block')}
+          className="hidden sm:block"
           language={items[activeIndex].language}
           useInlineStyles={false}
         >

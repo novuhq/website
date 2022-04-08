@@ -49,7 +49,7 @@ const CARDS = [
 ];
 
 const SimpleUse = () => (
-  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-20 md:pb-16 sm:pt-10 sm:pb-8">
+  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-20 md:pb-18 sm:pt-10 sm:pb-8">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
@@ -59,11 +59,11 @@ const SimpleUse = () => (
       >
         {TITLE}
       </Heading>
-      <Link className="mt-7 sm:mt-5 sm:text-xs" to={LINK_URL} theme="primary-underline" size="sm">
+      <Link className="mt-7 md:mt-8 sm:text-xs" to={LINK_URL} theme="primary-underline" size="sm">
         {LINK_NAME}
       </Link>
 
-      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:grid-cols-3 lg:gap-y-7">
+      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:grid-cols-3 lg:gap-y-7 md:gap-x-5 md:gap-y-5">
         {CARDS.map(({ icon, title, text, comingSoon }, index) => (
           <div className="rounded-[20px] bg-black lg:h-full lg:rounded-2xl" key={index}>
             <div className="flex items-center p-4">

@@ -20,7 +20,7 @@ const RIGHT_BUTTON_TEXT = 'Get Started';
 const RIGHT_BUTTON_URL = '/';
 
 const GetStarted = () => (
-  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-16 sm:py-10">
+  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-28 sm:py-10">
     <div className="container relative z-10">
       <Heading size="md" tag="h2" className="text-center leading-tight md:text-3xl" theme="white">
         {TITLE}

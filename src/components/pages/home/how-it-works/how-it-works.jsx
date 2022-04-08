@@ -34,7 +34,7 @@ const CARDS = [
 ];
 
 const HowItWorks = () => (
-  <section className="how-it-works safe-paddings bg-black pb-30 pt-20 lg:pt-16 lg:pb-24 md:pb-20 sm:pt-12 sm:pb-10">
+  <section className="how-it-works safe-paddings bg-black pb-30 pt-20 lg:pt-16 lg:pb-24 md:pt-14 md:pb-18 sm:pt-12 sm:pb-10">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
@@ -60,13 +60,16 @@ const HowItWorks = () => (
             key={index}
           >
             {image}
-            <div className="p-8 pt-5 lg:p-5 lg:pt-2">
-              <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
+            <div className="p-8 pt-5 lg:p-5 lg:pt-2 md:pt-5">
+              <Heading
+                className="leading-snug lg:text-2xl md:text-3xl"
+                tag="h3"
+                size="sm"
+                theme="white"
+              >
                 {title}
               </Heading>
-              <p className="mt-3 font-light leading-snug text-gray-8 md:text-sm sm:mt-2.5">
-                {description}
-              </p>
+              <p className="mt-3 font-light leading-snug text-gray-8 sm:mt-2.5">{description}</p>
             </div>
           </div>
         ))}
