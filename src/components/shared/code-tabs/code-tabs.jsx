@@ -28,23 +28,30 @@ const CodeTabs = ({ className, items }) => {
       aria-hidden
     >
       <ul className="scrollbar-hidden flex items-center space-x-2.5 overflow-x-auto overflow-y-hidden sm:space-x-2 sm:px-4">
-        {items.map(({ name }, index) => (
+        {items.map(({ name, code }, index) => (
           <li key={index}>
             <button
               className={clsx(
-                'hover:bg-gray-9 block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-gray-5 transition-colors duration-200 hover:text-white md:h-8 md:text-xs sm:h-7 sm:px-3.5',
-                activeIndex === index && '!border-white !bg-white !text-black'
+                'hover:bg-gray-9 block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-gray-5 transition-colors duration-200 md:h-8 md:text-xs sm:h-7 sm:px-3.5',
+                {
+                  '!border-white !bg-white !text-black': activeIndex === index,
+                  'cursor-default': !code,
+                  'hover:text-white': code,
+                }
               )}
               type="button"
+              disabled={!code}
               onClick={() => setActiveIndex(index)}
             >
               {name}
             </button>
           </li>
         ))}
-        <li className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-light leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs">
-          Coming Soon...
-        </li>
+        {!items.every((item) => item.code) && (
+          <li className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-light leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs">
+            Coming Soon...
+          </li>
+        )}
       </ul>
       <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base md:mt-6 md:!text-sm sm:mt-5 sm:px-4">
         <SyntaxHighlighter
@@ -64,7 +71,7 @@ CodeTabs.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      code: PropTypes.string.isRequired,
+      code: PropTypes.string,
       language: PropTypes.oneOf(['javascript', 'ruby', 'python', 'go', 'php', 'bash']).isRequired,
     })
   ).isRequired,

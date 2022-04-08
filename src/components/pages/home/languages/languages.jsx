@@ -30,52 +30,22 @@ await novu.trigger('<EVENT_NAME>', {
   {
     name: 'Ruby',
     language: 'ruby',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-    // Unlock that great "pro" content              
-  }
-}
-  `,
   },
   {
     name: 'Python',
     language: 'python',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-    // Unlock that great "pro" content              
-  }
-}
-  `,
   },
   {
     name: 'Go',
     language: 'go',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-    // Unlock that great "pro" content              
-  }
-}
-  `,
   },
   {
     name: 'PHP',
     language: 'php',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-    // Unlock that great "pro" content              
-  }
-}
-  `,
   },
   {
     name: 'Curl',
     language: 'bash',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-    // Unlock that great "pro" content              
-  }
-}
-  `,
   },
 ];
 
