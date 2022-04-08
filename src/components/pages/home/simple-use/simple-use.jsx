@@ -75,7 +75,7 @@ const SimpleUse = () => (
               <div className="mr-3.5 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white sm:h-10 sm:w-10 sm:p-2">
                 {icon}
               </div>
-              <h3 className="text-lg leading-tight text-white">{title}</h3>
+              <h3 className="text-lg leading-tight">{title}</h3>
             </div>
             <div className="relative p-4 pb-5 before:absolute before:top-0 before:left-0 before:h-px before:w-full before:bg-white before:opacity-10">
               <p className="text-sm leading-tight text-gray-8">{text}</p>

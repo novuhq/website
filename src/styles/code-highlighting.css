@@ -1,6 +1,6 @@
 code {
   > span {
-    @apply items-center font-light text-white;
+    @apply items-center font-light;
   }
 
   .token {
@@ -14,12 +14,6 @@ code {
 
     &.keyword {
       @apply text-secondary-2;
-    }
-
-    &.punctuation,
-    &.operator,
-    &.boolean {
-      @apply text-white;
     }
 
     &.comment {

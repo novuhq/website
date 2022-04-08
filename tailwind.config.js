@@ -12,8 +12,6 @@ module.exports = {
       mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
-      // Commented sizes are not being used yet
-      // Before starting to use them, please make sure to check if values are correct!
       xs: ['12px'],
       sm: ['14px'],
       base: ['16px'],
@@ -24,18 +22,11 @@ module.exports = {
       '4xl': ['36px'],
       '5xl': ['48px'],
       '6xl': ['56px'],
-      // '7xl': ['72px'],
-      // '8xl': ['96px'],
-      // '9xl': ['128px'],
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
       transparent: colors.transparent,
-      // TODO: Add colors
-      // Make sure that they are prepared in the Figma and follow the naming primary/secondary/gray-${number}
-      // Example of correctly prepared colors in Figma — https://user-images.githubusercontent.com/20713191/143586876-5e834233-9639-4166-9811-b00e63820d98.png
-      // Example of incorrectly prepared colors in Figma — https://user-images.githubusercontent.com/20713191/143586974-6986149f-aee3-450c-a1dd-26e73e3aca02.png
       black: '#000000',
       white: '#ffffff',
       primary: {

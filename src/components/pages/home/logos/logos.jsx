@@ -14,7 +14,7 @@ const LOGOS = [google, buzzfeed, typeform, relive, abInBev, tesla, rvezy];
 const Logos = () => (
   <section className="logos safe-paddings bg-black py-20 lg:py-16 md:py-14 sm:py-9">
     <div className="container">
-      <h3 className="text-md text-center font-light text-white">{TITLE}</h3>
+      <h3 className="text-md text-center font-light">{TITLE}</h3>
       <ul className="mt-8 flex w-full justify-between lg:space-x-11 md:flex-wrap md:justify-center md:gap-y-7 md:gap-x-16 md:space-x-0 sm:mt-6 sm:gap-x-5 sm:gap-y-5">
         {LOGOS.map((item, index) => (
           <li key={index}>

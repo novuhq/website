@@ -1,7 +1,6 @@
-/* TODO: Add global styles: font-size, color, and other if needed */
 @layer base {
   body {
-    @apply min-w-[320px] font-sans text-base antialiased;
+    @apply min-w-[320px] font-sans text-base leading-normal text-white antialiased;
     -webkit-tap-highlight-color: transparent;
   }
 }
