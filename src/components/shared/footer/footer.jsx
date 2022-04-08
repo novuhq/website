@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
+import GITHUB from 'constants/github';
 import MENUS from 'constants/menus';
 import GitHubLogo from 'images/logo-github.inline.svg';
 import Logo from 'images/logo.inline.svg';
@@ -51,7 +52,7 @@ const Footer = () => (
         </nav>
 
         <div className="flex flex-col items-end justify-between lg:col-span-4 sm:mt-9 sm:items-start">
-          <Button className="pl-3" to="/" size="xs" theme="gray-outline">
+          <Button className="pl-3" to={GITHUB.repoUrl} size="xs" theme="gray-outline">
             <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
             <span className="lg:hidden sm:block">Star us on Github</span>
             <span className="hidden lg:block sm:hidden">Star us</span>
