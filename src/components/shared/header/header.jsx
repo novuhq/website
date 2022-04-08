@@ -36,7 +36,13 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
           </nav>
 
           <div className="flex space-x-5 md:hidden">
-            <Button className="pl-3" to={GITHUB.repoUrl} size="xs" theme="gray-outline">
+            <Button
+              className="pl-3"
+              to={GITHUB.repoUrl}
+              target="_blank"
+              size="xs"
+              theme="gray-outline"
+            >
               <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
               <span>Star us</span>
               <div

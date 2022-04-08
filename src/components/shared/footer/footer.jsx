@@ -52,7 +52,13 @@ const Footer = () => (
         </nav>
 
         <div className="flex flex-col items-end justify-between lg:col-span-4 sm:mt-9 sm:items-start">
-          <Button className="pl-3" to={GITHUB.repoUrl} size="xs" theme="gray-outline">
+          <Button
+            className="pl-3"
+            to={GITHUB.repoUrl}
+            target="_blank"
+            size="xs"
+            theme="gray-outline"
+          >
             <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
             <span className="lg:hidden sm:block">Star us on Github</span>
             <span className="hidden lg:block sm:hidden">Star us</span>
