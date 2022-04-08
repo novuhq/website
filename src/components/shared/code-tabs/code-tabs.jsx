@@ -20,14 +20,8 @@ const CodeTabs = ({ className, items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div
-      className={clsx(
-        'overflow-hidden rounded-[20px] bg-black p-8 lg:rounded-2xl md:p-6 sm:p-4 sm:px-0',
-        className
-      )}
-      aria-hidden
-    >
-      <ul className="scrollbar-hidden flex items-center space-x-2.5 overflow-x-auto overflow-y-hidden sm:space-x-2 sm:px-4">
+    <div className={clsx('rounded-[20px] bg-black lg:rounded-2xl', className)} aria-hidden>
+      <ul className="scrollbar-hidden flex items-center space-x-2.5 overflow-x-auto overflow-y-hidden pl-8 pt-8 after:h-px after:w-8 after:flex-shrink-0 md:pl-6 md:pt-6 md:after:w-6 sm:space-x-2 sm:pl-4 sm:pt-4 sm:after:w-4">
         {items.map(({ name, code }, index) => (
           <li key={index}>
             <button
@@ -53,15 +47,15 @@ const CodeTabs = ({ className, items }) => {
           </li>
         )}
       </ul>
-      <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base md:mt-6 md:!text-sm sm:mt-5 sm:px-4">
-        <SyntaxHighlighter
-          language={items[activeIndex].language}
-          useInlineStyles={false}
-          showLineNumbers
-        >
-          {items[activeIndex].code}
-        </SyntaxHighlighter>
-      </div>
+
+      <SyntaxHighlighter
+        className="scrollbar-hidden h-full overflow-auto p-8 text-base md:p-6 md:!text-sm sm:p-4"
+        language={items[activeIndex].language}
+        useInlineStyles={false}
+        showLineNumbers
+      >
+        {items[activeIndex].code}
+      </SyntaxHighlighter>
     </div>
   );
 };

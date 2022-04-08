@@ -68,9 +68,9 @@ const SimpleUse = () => (
         {LINK_NAME}
       </Link>
 
-      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:grid-cols-3 lg:gap-y-7 md:gap-x-5 md:gap-y-5 sm:mt-8 sm:grid-cols-1 sm:gap-x-0 sm:gap-y-4">
+      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:grid-cols-3 lg:items-stretch lg:gap-y-7 md:gap-x-5 md:gap-y-5 sm:mt-8 sm:grid-cols-1 sm:gap-x-0 sm:gap-y-4">
         {CARDS.map(({ icon, title, text, comingSoon }, index) => (
-          <div className="rounded-[20px] bg-black lg:h-full lg:rounded-2xl" key={index}>
+          <div className="rounded-[20px] bg-black lg:rounded-2xl" key={index}>
             <div className="flex items-center p-4">
               <div className="mr-3.5 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white sm:h-10 sm:w-10 sm:p-2">
                 {icon}
