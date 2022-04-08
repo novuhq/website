@@ -40,7 +40,7 @@ const GetStarted = () => (
             {LEFT_DESCRIPTION}
           </p>
           <Button
-            className="mt-7 sm:mt-5 sm:h-10"
+            className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
             to={LEFT_BUTTON_URL}
             size="sm"
             theme="gray-outline"
@@ -62,7 +62,7 @@ const GetStarted = () => (
             {RIGHT_DESCRIPTION}
           </p>
           <Button
-            className="mt-7 sm:mt-5 sm:h-10"
+            className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
             to={RIGHT_BUTTON_URL}
             size="sm"
             theme="black-filled"
