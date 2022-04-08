@@ -45,14 +45,15 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
             >
               <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
               <span>Star us</span>
-              <div
+              <span
                 className={clsx(
                   'invisible flex items-center opacity-0 transition-[opacity,visibility] duration-200 before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4',
                   githubStars && '!visible !opacity-100'
                 )}
+                aria-label={`${githubStars} stars on Github`}
               >
-                <p aria-label={`${githubStars} stars on Github`}>{githubStars}</p>
-              </div>
+                {githubStars}
+              </span>
             </Button>
             <Button to="/" size="xs" theme="white-filled">
               Get Started

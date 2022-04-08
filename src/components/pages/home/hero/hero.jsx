@@ -48,7 +48,7 @@ const Hero = () => {
         >
           {TITLE}
         </Heading>
-        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px] md:max-w-[590px] md:text-base md:leading-tight sm:mt-3">
+        <p className="mt-5 text-center text-lg font-light text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base md:leading-tight sm:mt-3">
           {DESCRIPTION}
         </p>
 
