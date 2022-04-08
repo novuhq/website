@@ -34,7 +34,7 @@ const CARDS = [
 ];
 
 const HowItWorks = () => (
-  <section className="how-it-works safe-paddings bg-black pb-30 pt-20 lg:pt-16 lg:pb-24 md:pt-14 md:pb-18 sm:pt-12 sm:pb-10">
+  <section className="how-it-works safe-paddings bg-black pb-30 pt-20 lg:pt-16 lg:pb-24 md:pt-14 md:pb-18 sm:pt-9 sm:pb-12">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
@@ -53,16 +53,16 @@ const HowItWorks = () => (
         {LINK_NAME}
       </Link>
 
-      <div className="mt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7">
+      <div className="mt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
         {CARDS.map(({ title, description, image }, index) => (
           <div
             className="rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] lg:rounded-2xl md:grid md:grid-cols-2 md:items-center sm:block"
             key={index}
           >
             {image}
-            <div className="p-8 pt-5 lg:p-5 lg:pt-2 md:pt-5">
+            <div className="p-8 pt-5 lg:p-5 lg:pt-2 md:pt-5 sm:pt-2">
               <Heading
-                className="leading-snug lg:text-2xl md:text-3xl"
+                className="leading-snug lg:text-2xl md:text-3xl sm:text-2xl"
                 tag="h3"
                 size="sm"
                 theme="white"

@@ -22,17 +22,17 @@ const CodeTabs = ({ className, items }) => {
   return (
     <div
       className={clsx(
-        'overflow-hidden rounded-[20px] bg-black p-8 lg:rounded-2xl md:p-6 sm:pr-0',
+        'overflow-hidden rounded-[20px] bg-black p-8 lg:rounded-2xl md:p-6 sm:p-4 sm:px-0',
         className
       )}
       aria-hidden
     >
-      <ul className="scrollbar-hidden flex space-x-2.5 overflow-x-auto overflow-y-hidden">
+      <ul className="scrollbar-hidden flex space-x-2.5 overflow-x-auto overflow-y-hidden sm:space-x-2 sm:px-4">
         {items.map(({ name }, index) => (
           <li key={index}>
             <button
               className={clsx(
-                'hover:bg-gray-9 block w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black py-2.5 px-4 text-sm uppercase leading-none text-white transition-colors duration-200 md:py-2 md:text-xs',
+                'hover:bg-gray-9 block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-white transition-colors duration-200 md:h-8 md:text-xs sm:h-7 sm:px-3.5',
                 activeIndex === index && '!border-white !bg-white !text-black'
               )}
               type="button"
@@ -43,19 +43,11 @@ const CodeTabs = ({ className, items }) => {
           </li>
         ))}
       </ul>
-      <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base text-secondary-2 md:mt-6 md:!text-sm sm:pr-6">
+      <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base text-secondary-2 md:mt-6 md:!text-sm sm:mt-5 sm:px-4">
         <SyntaxHighlighter
-          className="'sm:hidden'"
           language={items[activeIndex].language}
           useInlineStyles={false}
           showLineNumbers
-        >
-          {items[activeIndex].code}
-        </SyntaxHighlighter>
-        <SyntaxHighlighter
-          className="hidden sm:block"
-          language={items[activeIndex].language}
-          useInlineStyles={false}
         >
           {items[activeIndex].code}
         </SyntaxHighlighter>

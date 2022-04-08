@@ -33,7 +33,7 @@ const socialCardGradient = `before:to-[rgba(0,0,0,0.1)] before:absolute before:t
  after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-2xl after:bg-gradient-to-t after:from-gray-3 after:to-gray-3 after:opacity-0 after:transition-all after:duration-200 hover:before:opacity-0 hover:after:opacity-100`;
 
 const Community = () => (
-  <section className="community safe-paddings bg-gray-2 pt-30 pb-40 lg:py-24 md:pt-18 md:pb-28 sm:pt-8 sm:pb-10">
+  <section className="community safe-paddings bg-gray-2 pt-30 pb-40 lg:py-24 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
     <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col md:items-start">
       <div className="col-start-1 col-end-5 lg:col-end-6">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
@@ -46,7 +46,7 @@ const Community = () => (
 
         <div className="mt-10 lg:mt-7">
           <h4 className="text-white">{SOCIAL_TILE}</h4>
-          <div className="mt-5 flex space-x-6">
+          <div className="mt-5 flex space-x-6 sm:space-x-8 xs:justify-between xs:space-x-0">
             {SOCIAL_ITEMS.map(({ icon, url, countFollowers }, index) => (
               <Link
                 className={clsx(
@@ -68,7 +68,7 @@ const Community = () => (
         </div>
       </div>
 
-      <div className="col-start-6 col-end-13 md:mt-11" aria-hidden>
+      <div className="col-start-6 col-end-13 md:mt-11 sm:mt-8" aria-hidden>
         <StaticImage className="md:w-full" src="./images/illustration.png" alt="" loading="lazy" />
       </div>
     </div>

@@ -12,7 +12,7 @@ const BUTTON_TEXT = 'Get Started';
 const BUTTON_URL = '/';
 
 const ComponentBased = () => (
-  <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-10">
+  <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-18">
     <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col md:items-start">
       <div className="col-start-1 col-end-5 lg:col-end-6">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
@@ -21,12 +21,12 @@ const ComponentBased = () => (
         <p className="mt-5 text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
           {DESCRIPTION}
         </p>
-        <Button className="mt-7" to={BUTTON_URL} size="sm" theme="primary">
+        <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="primary">
           {BUTTON_TEXT}
         </Button>
       </div>
 
-      <div className="col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full" aria-hidden>
+      <div className="col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full sm:mt-8" aria-hidden>
         <img
           className="md:w-full"
           src={illustration}
