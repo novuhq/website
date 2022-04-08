@@ -26,8 +26,8 @@ const GetStarted = () => (
         {TITLE}
       </Heading>
 
-      <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 lg:gap-x-7 md:mt-12 md:gap-x-5 sm:mt-8 sm:block sm:gap-0 sm:space-y-7">
-        <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10 lg:rounded-2xl sm:p-5">
+      <div className="mx-auto mt-16 grid max-w-[968px] grid-cols-2 gap-x-10 lg:gap-x-7 md:mt-12 md:gap-x-5 sm:mt-8 sm:grid-cols-1 sm:gap-x-0 sm:gap-y-7">
+        <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10 lg:rounded-2xl sm:order-2 sm:p-5">
           <Heading
             size="sm"
             tag="h4"
@@ -49,7 +49,7 @@ const GetStarted = () => (
           </Button>
         </div>
 
-        <div className="get-started-gradient-multicolor flex flex-col items-center rounded-[20px] p-8 pb-10 lg:rounded-2xl sm:p-5">
+        <div className="get-started-gradient-multicolor flex flex-col items-center rounded-[20px] p-8 pb-10 lg:rounded-2xl sm:order-1 sm:p-5">
           <Heading
             size="sm"
             tag="h4"

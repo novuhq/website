@@ -25,6 +25,11 @@ await novu.trigger('<EVENT_NAME>', {
     logo: 'https://happycorp.com/logo.png'
   }
 });
+
+
+
+
+
   `,
   },
   {
@@ -51,14 +56,14 @@ await novu.trigger('<EVENT_NAME>', {
 
 const Languages = () => (
   <section className="languages safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
-    <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col lg:items-start">
+    <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12 sm:mt-8">
         <CodeTabs
-          className="min-h-[560px] lg:min-h-[560px] lg:w-full md:min-h-[482px] sm:min-h-[310px]"
+          className="min-h-[560px] lg:mx-auto lg:w-full lg:max-w-[944px] md:mx-auto md:min-h-[482px] md:max-w-[712px] sm:min-h-[458px]"
           items={ITEMS}
         />
       </div>
-      <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1">
+      <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
         <Heading size="lg" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>

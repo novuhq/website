@@ -13,8 +13,8 @@ const BUTTON_URL = '/';
 
 const ComponentBased = () => (
   <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-18">
-    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col md:items-start">
-      <div className="col-start-1 col-end-5 lg:col-end-6">
+    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
+      <div className="col-start-1 col-end-5 lg:col-end-6 md:text-center">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
@@ -28,7 +28,7 @@ const ComponentBased = () => (
 
       <div className="col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full sm:mt-8" aria-hidden>
         <img
-          className="md:w-full"
+          className="w-full md:mx-auto md:max-w-[712px]"
           src={illustration}
           alt=""
           loading="lazy"
