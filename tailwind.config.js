@@ -23,6 +23,10 @@ module.exports = {
       '5xl': ['48px'],
       '6xl': ['56px'],
     },
+    fontWeight: {
+      book: 350,
+      ...defaultTheme.fontWeight,
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,

@@ -69,7 +69,7 @@ const HowItWorks = () => (
               >
                 {title}
               </Heading>
-              <p className="mt-3 font-light leading-snug text-gray-8 sm:mt-2.5">{description}</p>
+              <p className="mt-3 font-book leading-snug text-gray-8 sm:mt-2.5">{description}</p>
             </div>
           </div>
         ))}

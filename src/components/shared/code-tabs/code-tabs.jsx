@@ -26,10 +26,10 @@ const CodeTabs = ({ className, items }) => {
           <li key={index}>
             <button
               className={clsx(
-                'hover:bg-gray-9 block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-gray-5 transition-colors duration-200 md:h-8 md:text-xs sm:h-7 sm:px-3.5',
+                'block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-gray-5 transition-colors duration-200 md:h-8 md:text-xs sm:h-7 sm:px-3.5',
                 {
                   '!border-white !bg-white !text-black': activeIndex === index,
-                  'cursor-default': !code,
+                  'cursor-default': !code || !!items.length,
                   'hover:text-white': code,
                 }
               )}
@@ -42,7 +42,7 @@ const CodeTabs = ({ className, items }) => {
           </li>
         ))}
         {!items.every((item) => item.code) && (
-          <li className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-light leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs">
+          <li className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-book leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs">
             Coming Soon...
           </li>
         )}

@@ -67,7 +67,7 @@ const Languages = () => (
         <Heading size="lg" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-light leading-snug text-gray-8 md:mt-3 md:text-base">
+        <p className="mt-5 text-lg font-book leading-snug text-gray-8 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
         <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="gray-outline">

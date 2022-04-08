@@ -40,7 +40,7 @@ const Community = () => (
           {TITLE}
         </Heading>
         <div
-          className="mt-5 text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:max-w-[324px] lg:text-base md:max-w-full"
+          className="mt-5 text-lg font-book leading-snug text-gray-8 lg:mt-3 lg:max-w-[324px] lg:text-base md:max-w-full"
           dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
         />
 

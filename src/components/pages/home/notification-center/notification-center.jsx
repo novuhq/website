@@ -29,7 +29,7 @@ const NotificationCenter = () => (
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:text-base">
+        <p className="mt-5 text-lg font-book leading-snug text-gray-8 lg:mt-3 lg:text-base">
           {DESCRIPTION}
         </p>
         <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="gray-outline">

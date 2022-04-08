@@ -1,4 +1,7 @@
 @layer base {
+  /* 
+  TODO: Commented fonts are not used yet. If these fonts are not to be used in the project, please remove them
+
   @font-face {
     font-family: 'Brother-1816';
     src: url('/fonts/brother-1816/brother-1816-thin.woff2') format('woff2');
@@ -11,6 +14,15 @@
     font-family: 'Brother-1816';
     src: url('/fonts/brother-1816/brother-1816-light.woff2') format('woff2');
     font-weight: 300;
+    font-style: normal;
+    font-display: fallback;
+  }
+  */
+
+  @font-face {
+    font-family: 'Brother-1816';
+    src: url('/fonts/brother-1816/brother-1816-book.woff2') format('woff2');
+    font-weight: 350;
     font-style: normal;
     font-display: fallback;
   }
