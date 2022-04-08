@@ -22,7 +22,7 @@ const Footer = () => (
       </div>
 
       <div className="flex space-x-30 lg:mt-8 lg:grid lg:grid-cols-12 lg:justify-between lg:gap-x-7 lg:space-x-0 sm:mt-9 sm:block">
-        <nav className="flex space-x-30 lg:col-span-8 lg:w-full lg:justify-between lg:space-x-0 sm:hidden">
+        <nav className="flex space-x-30 pt-1.5 lg:col-span-8 lg:w-full lg:justify-between lg:space-x-0 sm:hidden">
           {MENUS.footer.map((links, index) => (
             <ul className="space-y-2.5 lg:space-y-2" key={index}>
               {links.map(({ to, text }, index) => (
