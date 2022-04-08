@@ -27,12 +27,12 @@ const CodeTabs = ({ className, items }) => {
       )}
       aria-hidden
     >
-      <ul className="scrollbar-hidden flex space-x-2.5 overflow-x-auto overflow-y-hidden sm:space-x-2 sm:px-4">
+      <ul className="scrollbar-hidden flex items-center space-x-2.5 overflow-x-auto overflow-y-hidden sm:space-x-2 sm:px-4">
         {items.map(({ name }, index) => (
           <li key={index}>
             <button
               className={clsx(
-                'hover:bg-gray-9 block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-white transition-colors duration-200 md:h-8 md:text-xs sm:h-7 sm:px-3.5',
+                'hover:bg-gray-9 block h-[34px] w-full cursor-pointer whitespace-nowrap rounded-[50px] border border-gray-4 bg-black px-4 text-sm uppercase leading-none text-gray-5 transition-colors duration-200 hover:text-white md:h-8 md:text-xs sm:h-7 sm:px-3.5',
                 activeIndex === index && '!border-white !bg-white !text-black'
               )}
               type="button"
@@ -42,8 +42,11 @@ const CodeTabs = ({ className, items }) => {
             </button>
           </li>
         ))}
+        <li className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-light leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs">
+          Coming Soon...
+        </li>
       </ul>
-      <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base text-secondary-2 md:mt-6 md:!text-sm sm:mt-5 sm:px-4">
+      <div className="scrollbar-hidden mt-8 h-full overflow-auto text-base md:mt-6 md:!text-sm sm:mt-5 sm:px-4">
         <SyntaxHighlighter
           language={items[activeIndex].language}
           useInlineStyles={false}

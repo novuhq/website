@@ -13,8 +13,24 @@ const ITEMS = [
   {
     name: 'Node.js',
     language: 'javascript',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo,
-error, userCancelled) in
+    code: `import { Novu } from '@novu/node';
+
+const novu = new Novu(process.env.NOVU_API_KEY);
+    
+await novu.trigger('<EVENT_NAME>', {
+  $user_id: "<USER IDENTIFIER>",
+  firstName: "John",
+  lastName: "Doe",
+  organization: {
+    logo: 'https://happycorp.com/logo.png'
+  }
+});
+  `,
+  },
+  {
+    name: 'Ruby',
+    language: 'ruby',
+    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
   if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
     // Unlock that great "pro" content              
   }
@@ -22,53 +38,43 @@ error, userCancelled) in
   `,
   },
   {
-    name: 'Ruby',
-    language: 'ruby',
-    code: `2Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
-  `,
-  },
-  {
     name: 'Python',
     language: 'python',
-    code: `3Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
+    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
+    // Unlock that great "pro" content              
+  }
+}
   `,
   },
   {
     name: 'Go',
     language: 'go',
-    code: `4Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
+    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
+    // Unlock that great "pro" content              
+  }
+}
   `,
   },
   {
     name: 'PHP',
     language: 'php',
-    code: `5Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
+    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
+    // Unlock that great "pro" content              
+  }
+}
   `,
   },
   {
     name: 'Curl',
     language: 'bash',
-    code: `6Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
+    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+  if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
+    // Unlock that great "pro" content              
+  }
+}
   `,
   },
 ];
