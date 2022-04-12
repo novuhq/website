@@ -54,17 +54,17 @@ const Features = () => (
       <Heading
         size="md"
         tag="h2"
-        className="text-center leading-tight lg:text-left sm:text-3xl"
+        className="text-center leading-tight lg:text-left sm:text-center sm:text-3xl"
         theme="white"
       >
         {TITLE}
       </Heading>
 
-      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:gap-y-16 md:mt-14 md:grid-cols-2 md:gap-x-6 md:gap-y-14 sm:mt-10 sm:block sm:gap-0 sm:space-y-10">
+      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:gap-y-16 md:mt-14 md:grid-cols-2 md:gap-x-6 md:gap-y-14 sm:mt-10 sm:flex sm:flex-col sm:items-center sm:gap-0 sm:space-y-10 sm:text-center">
         {ITEMS.map(({ title, description, icon }, index) => (
-          <li key={index}>
+          <li className="sm:max-w-[410px]" key={index}>
             <img
-              className="sm:h-14 sm:w-auto"
+              className="sm:mx-auto sm:h-14 sm:w-auto"
               src={icon}
               height={64}
               width={120}
