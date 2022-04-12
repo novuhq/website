@@ -33,20 +33,20 @@ const socialCardGradient = `before:to-[rgba(0,0,0,0.1)] before:absolute before:t
  after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-2xl after:bg-gradient-to-t after:from-gray-3 after:to-gray-3 after:opacity-0 after:transition-all after:duration-200 hover:before:opacity-0 hover:after:opacity-100`;
 
 const Community = () => (
-  <section className="community safe-paddings bg-gray-2 pt-28 pb-40">
-    <div className="container flex items-center justify-between lg:flex-col">
-      <div className="max-w-[464px] xl:max-w-[525px] lg:max-w-[782px] lg:text-center md:max-w-[712px] sm:w-full sm:max-w-none">
-        <Heading size="lg" tag="h2" className="leading-tight sm:text-3xl" theme="white">
+  <section className="community safe-paddings bg-gray-2 pt-30 pb-40 lg:py-24 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
+    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
+      <div className="col-start-1 col-end-5 lg:col-end-6 md:text-center">
+        <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
         <div
-          className="mt-5 text-lg font-light text-gray-8 sm:text-base"
+          className="mt-5 text-lg font-book leading-snug text-gray-8 lg:mt-3 lg:max-w-[324px] lg:text-base md:max-w-full"
           dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
         />
 
-        <div className="mt-10">
+        <div className="mt-10 lg:mt-7">
           <h4 className="text-white">{SOCIAL_TILE}</h4>
-          <div className="mt-5 flex space-x-6 lg:justify-center">
+          <div className="mt-5 flex space-x-6 md:justify-center sm:space-x-8 xs:justify-between xs:space-x-0">
             {SOCIAL_ITEMS.map(({ icon, url, countFollowers }, index) => (
               <Link
                 className={clsx(
@@ -67,9 +67,10 @@ const Community = () => (
           </div>
         </div>
       </div>
-      <div className="lg:mt-6" aria-hidden>
+
+      <div className="col-start-6 col-end-13 text-right md:mt-11 sm:mt-8" aria-hidden>
         <StaticImage
-          className="max-w-[842px] xl:max-w-[600px] lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
+          className="max-w-[756px] md:mx-auto md:max-w-[712px]"
           src="./images/illustration.png"
           alt=""
           loading="lazy"

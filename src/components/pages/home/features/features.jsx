@@ -49,26 +49,33 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden bg-black pt-28 pb-40">
+  <section className="features safe-paddings relative overflow-hidden bg-black pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
     <div className="container relative z-10">
       <Heading
         size="md"
         tag="h2"
-        className="text-center leading-tight sm:text-left sm:text-3xl"
+        className="text-center leading-tight lg:text-left sm:text-center sm:text-3xl"
         theme="white"
       >
         {TITLE}
       </Heading>
 
-      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:grid-cols-2 sm:block sm:gap-0 sm:space-y-12">
+      <ul className="mt-20 grid grid-cols-3 gap-x-8 gap-y-20 lg:mt-16 lg:gap-y-16 md:mt-14 md:grid-cols-2 md:gap-x-6 md:gap-y-14 sm:mt-10 sm:flex sm:flex-col sm:items-center sm:gap-0 sm:space-y-10 sm:text-center">
         {ITEMS.map(({ title, description, icon }, index) => (
-          <li key={index}>
-            <img src={icon} height={64} width={120} loading="lazy" alt={`Icon ${title}`} />
+          <li className="sm:max-w-[410px]" key={index}>
+            <img
+              className="sm:mx-auto sm:h-14 sm:w-auto"
+              src={icon}
+              height={64}
+              width={120}
+              loading="lazy"
+              alt={`Icon ${title}`}
+            />
             <div className="mt-5">
-              <Heading className="leading-snug sm:text-2xl" tag="h3" size="sm" theme="white">
+              <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
                 {title}
               </Heading>
-              <p className="mt-3 max-w-[377px] font-light leading-snug text-gray-8 sm:mt-2.5">
+              <p className="mt-3 max-w-[377px] font-book leading-snug text-gray-8 lg:mt-2 lg:max-w-none">
                 {description}
               </p>
             </div>

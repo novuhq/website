@@ -1,22 +1,19 @@
 code {
   > span {
-    @apply items-center font-light;
+    @apply items-center font-book;
   }
 
   .token {
     &.string {
-      @apply text-secondary-1;
-    }
-
-    &.function {
       @apply text-primary-1;
     }
 
-    &.punctuation,
-    &.keyword,
-    &.operator,
-    &.boolean {
-      @apply text-white;
+    &.function {
+      @apply text-secondary-1;
+    }
+
+    &.keyword {
+      @apply text-secondary-2;
     }
 
     &.comment {
@@ -25,6 +22,6 @@ code {
   }
 
   .react-syntax-highlighter-line-number {
-    @apply mr-8 w-5 !min-w-0 !pr-0 !text-center text-gray-6 xl:mr-4;
+    @apply mr-8 w-5 !min-w-0 !pr-0 !text-center text-gray-6 md:mr-6 sm:mr-3;
   }
 }

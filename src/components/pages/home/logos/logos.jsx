@@ -12,13 +12,18 @@ const TITLE = 'Loved by engineers from';
 const LOGOS = [google, buzzfeed, typeform, relive, abInBev, tesla, rvezy];
 
 const Logos = () => (
-  <section className="logos safe-paddings bg-black pt-20 pb-20">
+  <section className="logos safe-paddings bg-black py-20 lg:py-16 md:py-14 sm:py-9">
     <div className="container">
-      <h3 className="text-md text-center font-light text-white">{TITLE}</h3>
-      <ul className="mt-8 flex w-full justify-between md:flex-wrap md:justify-center md:gap-y-5 md:gap-x-7">
+      <h3 className="text-md text-center font-book">{TITLE}</h3>
+      <ul className="mt-8 flex w-full justify-between lg:space-x-11 md:flex-wrap md:justify-center md:gap-y-7 md:gap-x-16 md:space-x-0 sm:mt-6 sm:gap-x-5 sm:gap-y-5">
         {LOGOS.map((item, index) => (
-          <li className="block h-10 min-w-min" key={index}>
-            <img className="w-auto" src={item} loading="eager" alt={`logo-${index}`} />
+          <li key={index}>
+            <img
+              className="h-9.5 w-auto md:h-8 sm:h-6"
+              src={item}
+              loading="eager"
+              alt={`logo-${index}`}
+            />
           </li>
         ))}
       </ul>
