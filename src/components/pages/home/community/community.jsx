@@ -68,9 +68,9 @@ const Community = () => (
         </div>
       </div>
 
-      <div className="col-start-6 col-end-13 md:mt-11 sm:mt-8" aria-hidden>
+      <div className="col-start-6 col-end-13 text-right md:mt-11 sm:mt-8" aria-hidden>
         <StaticImage
-          className="md:mx-auto md:max-w-[712px]"
+          className="max-w-[756px] md:mx-auto md:max-w-[712px]"
           src="./images/illustration.png"
           alt=""
           loading="lazy"
