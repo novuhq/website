@@ -14,11 +14,11 @@ const BUTTON_URL = '/';
 const ComponentBased = () => (
   <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-18">
     <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
-      <div className="col-start-1 col-end-5 lg:col-end-6 md:text-center">
+      <div className="col-start-1 col-end-5 xl:col-end-6 md:text-center">
         <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
-        <p className="mt-5 text-lg font-book leading-snug text-gray-8 lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
+        <p className="mt-5 text-lg font-book leading-snug text-gray-8 xl:max-w-[464px] lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
           {DESCRIPTION}
         </p>
         <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="primary">
