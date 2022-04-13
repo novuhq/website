@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
 
-import CheckIcon from '/Users/mac3/Documents/Den/work/Novu/novu-gatsby/src/components/shared/subscribe/images/check.svg';
-import ErrorIcon from '/Users/mac3/Documents/Den/work/Novu/novu-gatsby/src/components/shared/subscribe/images/error-icon.svg';
-import LoadingIcon from '/Users/mac3/Documents/Den/work/Novu/novu-gatsby/src/components/shared/subscribe/images/loading-icon.svg';
+import CheckIcon from './images/check.svg';
+import ErrorIcon from './images/error-icon.svg';
+import LoadingIcon from './images/loading-icon.svg';
 
 /* TODO: find a way to simplify the styles for applying a gradient border for the input field */
 
