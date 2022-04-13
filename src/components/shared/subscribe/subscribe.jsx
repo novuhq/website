@@ -2,7 +2,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-import InputWithCopying from '../input-with-copying/input-with-copying';
+import SubscriptionForm from '../subscription-form';
 
 import bg from './images/bg.svg';
 
@@ -14,7 +14,7 @@ const DESCRIPTION =
 const Subscribe = () => (
   <section className="subscribe safe-paddings relative overflow-hidden bg-black pt-24 pb-24">
     <img
-      className="absolute left-1/2 min-w-[1920px] -translate-x-1/2 "
+      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
       src={bg}
       loading="lazy"
       alt=""
@@ -33,7 +33,10 @@ const Subscribe = () => (
         {DESCRIPTION}
       </p>
 
-      <InputWithCopying className="mt-10 h-16 max-w-[464px]" text="npx notu init" />
+      <SubscriptionForm
+        className="input-subscribe autocomplete mx-auto mt-10 max-w-[464px]"
+        type="email"
+      />
     </div>
   </section>
 );
