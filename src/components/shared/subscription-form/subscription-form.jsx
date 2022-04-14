@@ -133,7 +133,7 @@ const SubscriptionForm = ({ className }) => {
       {/* Error message */}
       {errorMessage && (
         <span
-          className=" absolute left-1/2 -bottom-5 w-full translate-y-2/3 -translate-x-1/2 text-center text-sm text-gray-8"
+          className="absolute left-1/2 -bottom-5 w-full translate-y-2/3 -translate-x-1/2 text-center text-sm text-gray-8"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -159,9 +159,6 @@ const SubscriptionForm = ({ className }) => {
             type="submit"
           >
             <span className="">subscribe</span>
-            {/* <span className="aria-hidden opacity-1 absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2">
-              <img className="" src={LoadingIcon} loading="lazy" aria-hidden />
-            </span> */}
           </Button>
         </div>
       )}
@@ -200,7 +197,6 @@ const SubscriptionForm = ({ className }) => {
           variants={appearAndExitAnimationVariants}
           aria-hidden
         >
-          {/* {formState === 'success' && <CheckIcon className="2xl:w-[60px] xl:w-[56px]" />} */}
           {formState === 'success' && (
             <div className="relative flex h-[40px] w-[40px] items-center justify-center rounded-md bg-white">
               <img className="" src={CheckIcon} alt="" loading="lazy" aria-hidden />
