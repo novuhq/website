@@ -4,12 +4,9 @@ import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
 
-import CheckIcon from './images/check.svg';
-import ErrorIcon from './images/error-icon.svg';
-import LoadingIcon from './images/loading-icon.svg';
+import CheckIcon from './images/check.inline.svg';
 
 /* TODO: find a way to simplify the styles for applying a gradient border for the input field */
-
 const inputBeforeClassNames =
   'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
 
@@ -27,7 +24,7 @@ const appearAndExitAnimationVariants = {
 };
 
 function doNowOrAfterSomeTime(callback, loadingAnimationStartedTime) {
-  const LOADING_ANIMATION_FULL_DURATION = 2200; // 2000 (loading animation duration) + 200 (loading animation delay) = 2200
+  const LOADING_ANIMATION_FULL_DURATION = 2000; // 2000 (loading animation duration) + 200 (loading animation delay) = 2200
 
   if (Date.now() - loadingAnimationStartedTime > LOADING_ANIMATION_FULL_DURATION) {
     callback();
@@ -82,12 +79,6 @@ const SubscriptionForm = ({ className }) => {
             doNowOrAfterSomeTime(() => {
               setFormState('error');
               setErrorMessage('Oops! Something went wrong.');
-
-              setTimeout(() => {
-                setFormState('default');
-                setEmail('');
-                setErrorMessage('');
-              }, 5000);
             }, loadingAnimationStartedTime);
           }
         })
@@ -95,11 +86,6 @@ const SubscriptionForm = ({ className }) => {
           doNowOrAfterSomeTime(() => {
             setFormState('error');
             setErrorMessage('Oops! Something went wrong.');
-
-            // setTimeout(() => {
-            //   setFormState('default');
-            //   setEmail('');
-            // }, 5000);
           }, loadingAnimationStartedTime);
         });
     }
@@ -116,10 +102,9 @@ const SubscriptionForm = ({ className }) => {
       noValidate
       onSubmit={handleSubmit}
     >
-      {/* Input */}
       <input
         className={clsx(
-          'remove-autocomplete-styles input-text appearance-none whitespace-nowrap rounded-md border border-black bg-black font-mono text-lg !leading-none text-white placeholder-white outline-none'
+          'remove-autocomplete-styles input-text w-full appearance-none whitespace-nowrap rounded-md border border-black bg-black pr-3 font-mono text-lg !leading-none text-white placeholder-white outline-none'
         )}
         name="email"
         type="email"
@@ -130,7 +115,6 @@ const SubscriptionForm = ({ className }) => {
         onChange={handleInputChange}
       />
 
-      {/* Error message */}
       {errorMessage && (
         <span
           className="absolute left-1/2 -bottom-5 w-full translate-y-2/3 -translate-x-1/2 text-center text-sm text-gray-8"
@@ -143,7 +127,6 @@ const SubscriptionForm = ({ className }) => {
         </span>
       )}
 
-      {/* Button */}
       {formState === 'default' && (
         <div
           initial="initial"
@@ -163,34 +146,30 @@ const SubscriptionForm = ({ className }) => {
         </div>
       )}
 
-      {/* Loading state */}
-
       {formState === 'loading' && (
-        <div
-          className="absolute right-3 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full bg-white"
-          initial="initial"
-          size="xs"
-          animate="animate"
-          exit="exit"
-          variants={appearAndExitAnimationVariants}
-          aria-hidden
-        >
-          <div
-            className="relative flex h-[40px] w-[108px] items-center justify-center rounded-md bg-white"
-            size="xs"
-            theme="white-filled"
-            name="loading"
+        <div className="relative flex h-10 w-[145px] items-center justify-center rounded-md bg-white ">
+          <svg
+            className=" animate-spin"
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
           >
-            <img className="" src={LoadingIcon} alt="" loading="lazy" aria-hidden />
-          </div>
+            <circle cx="13" cy="13" r="12" stroke="#E6E6E6" strokeWidth="2" />
+            <path
+              d="M25 13C25 6.37258 19.6274 1 13 1"
+              stroke="black"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
         </div>
       )}
 
-      {/* Success state */}
-
       {(formState === 'success' || formState === 'error') && (
         <div
-          className="absolute right-3 top-1/2 -translate-y-1/2 2xl:right-2.5 xl:right-2"
+          className="relative "
           initial="initial"
           animate="animate"
           exit="exit"
@@ -199,13 +178,19 @@ const SubscriptionForm = ({ className }) => {
         >
           {formState === 'success' && (
             <div className="relative flex h-[40px] w-[40px] items-center justify-center rounded-md bg-white">
-              <img className="" src={CheckIcon} alt="" loading="lazy" aria-hidden />
+              <CheckIcon class="h-3 w-4" />
             </div>
           )}
           {formState === 'error' && (
-            <div className="relative flex h-[40px] w-[40px] items-center justify-center rounded-md bg-white">
-              <img className="" src={ErrorIcon} alt="" loading="lazy" aria-hidden />
-            </div>
+            <Button
+              className="relative"
+              size="xs"
+              theme="white-filled"
+              name="subscribe"
+              type="submit"
+            >
+              <span className="">subscribe</span>
+            </Button>
           )}
         </div>
       )}
