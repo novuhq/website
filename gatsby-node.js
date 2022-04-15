@@ -1,7 +1,60 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
 
-// You can delete this file if you're not using it
+const slash = require('slash');
+
+const createArticles = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions;
+
+  const template = path.resolve('./src/templates/article.jsx');
+
+  const result = await graphql(
+    `
+      {
+        strapiBlog {
+          slug
+        }
+
+        allStrapiArticle {
+          nodes {
+            id
+            slug
+          }
+        }
+      }
+    `
+  );
+
+  if (result.errors) {
+    reporter.panicOnBuild(`There was an error loading your Strapi articles`, result.errors);
+
+    return;
+  }
+
+  const {
+    strapiBlog: { slug: blogPageURL },
+    allStrapiArticle: { nodes: articles },
+  } = result.data;
+
+  if (articles.length) {
+    articles.forEach(({ id, slug }) => {
+      const context = {
+        id,
+        blogPageURL,
+      };
+
+      createPage({
+        path: `/${blogPageURL}/${slug}`,
+        component: slash(template),
+        context,
+      });
+    });
+  }
+};
+
+exports.createPages = async (args) => {
+  const params = {
+    ...args,
+  };
+
+  await createArticles(params);
+};
