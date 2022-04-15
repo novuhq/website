@@ -2,18 +2,11 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import AuthorWithDate from 'components/shared/author-with-date';
 import CategoryLabel from 'components/shared/category-label';
 import Heading from 'components/shared/heading';
 
-const Hero = ({
-  title,
-  description,
-  author: { name: authorName, avatar: authorPhoto },
-  createdAt,
-  image,
-  category,
-  blogPageURL,
-}) => (
+const Hero = ({ title, description, author, date, image, category, blogPageURL }) => (
   <section>
     <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="sm">
       {category.name}
@@ -22,24 +15,12 @@ const Hero = ({
       {title}
     </Heading>
     <p className="mt-5 text-lg font-book text-gray-8">{description}</p>
-    <div className="mt-5 flex items-center">
-      <GatsbyImage
-        imgClassName="rounded-full"
-        image={getImage(authorPhoto.localFile)}
-        alt={authorPhoto.alternativeText || authorName}
-        loading="eager"
-      />
-      <div className="ml-4 flex  items-center">
-        <span className="text-sm">{authorName}</span>
-        <span className="mx-3.5 block h-5 w-px bg-gray-6" />
-        <span className="text-sm text-gray-6">{createdAt}</span>
-      </div>
-    </div>
+    <AuthorWithDate className="mt-5" author={author} date={date} />
     <GatsbyImage
-      className="mt-7"
+      className="mt-7 w-full"
       imgClassName="rounded-xl"
       image={getImage(image.localFile)}
-      alt={image.alternativeText || authorName}
+      alt={image.alternativeText}
       loading="eager"
     />
   </section>
@@ -59,7 +40,7 @@ Hero.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  createdAt: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   category: PropTypes.shape({
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
