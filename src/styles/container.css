@@ -8,6 +8,6 @@
   }
 
   .container-sm {
-    @apply mx-auto max-w-[716px] xl:px-10 lg:max-w-full md:px-7 sm:px-4;
+    @apply mx-auto max-w-[716px] xl:px-10 md:px-7 sm:max-w-full sm:px-4;
   }
 }

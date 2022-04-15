@@ -4,9 +4,12 @@ import React from 'react';
 
 import Content from 'components/pages/article/content';
 import Hero from 'components/pages/article/hero';
+import RelatedArticles from 'components/pages/article/related-articles';
+import SocialShare from 'components/pages/article/social-share';
 import Layout from 'components/shared/layout';
+import Separator from 'components/shared/separator';
 
-const Article = ({ data: { strapiArticle: article }, pageContext }) => {
+const Article = ({ data: { strapiArticle: article, relatedArticles }, location, pageContext }) => {
   // eslint-disable-next-line no-unused-vars
   const seo = {
     metaTitle: article.seo.metaTitle,
@@ -19,7 +22,7 @@ const Article = ({ data: { strapiArticle: article }, pageContext }) => {
     description: article.description,
     image: article.cover,
     author: article.author,
-    createdAt: article.createdAt,
+    date: article.createdAt,
     category: article.category,
     blogPageURL: pageContext.blogPageURL,
   };
@@ -29,20 +32,29 @@ const Article = ({ data: { strapiArticle: article }, pageContext }) => {
     contentMedia: article.content.medias,
   };
 
+  const socialShare = {
+    url: location.href,
+    author: article.author,
+    date: article.createdAt,
+  };
+
   return (
     <Layout>
-      <article className="safe-paddings bg-black pt-40">
+      <article className="safe-paddings pt-40">
         <div className="container-sm">
           <Hero {...hero} />
           <Content {...content} />
+          <Separator className="mt-14" />
+          <SocialShare {...socialShare} />
         </div>
       </article>
+      <RelatedArticles items={relatedArticles.nodes} blogPageURL={pageContext.blogPageURL} />
     </Layout>
   );
 };
 
 export const pageQuery = graphql`
-  query ($id: String!) {
+  query ($id: String!, $categoryName: String!) {
     strapiArticle(id: { eq: $id }) {
       id
       slug
@@ -95,6 +107,45 @@ export const pageQuery = graphql`
       seo {
         metaTitle
         metaDescription
+      }
+    }
+
+    relatedArticles: allStrapiArticle(
+      limit: 3
+      sort: { fields: createdAt, order: DESC }
+      filter: { category: { name: { eq: $categoryName } }, id: { ne: $id } }
+    ) {
+      nodes {
+        title
+        description
+        slug
+        createdAt(formatString: "MMMM D, YYYY")
+        category {
+          color
+          name
+          slug
+        }
+        author {
+          name
+          avatar {
+            alternativeText
+            localFile {
+              url
+              childImageSharp {
+                gatsbyImageData(width: 36, height: 36)
+              }
+            }
+          }
+        }
+        cover {
+          alternativeText
+          localFile {
+            url
+            childImageSharp {
+              gatsbyImageData(width: 716, height: 386)
+            }
+          }
+        }
       }
     }
   }

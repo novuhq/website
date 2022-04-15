@@ -18,6 +18,9 @@ const createArticles = async ({ graphql, actions, reporter }) => {
           nodes {
             id
             slug
+            category {
+              name
+            }
           }
         }
       }
@@ -36,9 +39,10 @@ const createArticles = async ({ graphql, actions, reporter }) => {
   } = result.data;
 
   if (articles.length) {
-    articles.forEach(({ id, slug }) => {
+    articles.forEach(({ id, slug, category: { name: categoryName } }) => {
       const context = {
         id,
+        categoryName,
         blogPageURL,
       };
 

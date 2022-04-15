@@ -40,7 +40,14 @@ const Image = (contentMedia, src, alt) => {
   // Retrieve an image from a static folder by comparing paths
   // eslint-disable-next-line react/destructuring-assignment
   const image = contentMedia.find((element) => element.src === src);
-  return <GatsbyImage image={getImage(image.localFile)} imgClassName="rounded-xl" alt={alt} />;
+  return (
+    <GatsbyImage
+      className="w-full"
+      image={getImage(image.localFile)}
+      imgClassName="rounded-xl"
+      alt={alt}
+    />
+  );
 };
 
 const Content = ({ className, content, contentMedia }) => {
