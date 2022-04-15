@@ -10,11 +10,13 @@ import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
 const Article = ({ data: { strapiArticle: article, relatedArticles }, location, pageContext }) => {
-  // eslint-disable-next-line no-unused-vars
   const seo = {
-    metaTitle: article.seo.metaTitle,
-    metaDescription: article.seo.metaDescription,
-    // socailImage: article.seo.socailImage,
+    title: article.seo?.title,
+    description: article.seo?.description,
+    slug: `${pageContext.blogPageURL}/${article.slug}`,
+    preventIndexing: article.seo?.preventIndexing,
+    keywords: article.seo?.keywords,
+    ogImage: article.seo?.ogImage?.localFile.publicURL,
   };
 
   const hero = {
@@ -39,7 +41,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
   };
 
   return (
-    <Layout>
+    <Layout seo={seo}>
       <article className="safe-paddings pt-40">
         <div className="container-sm">
           <Hero {...hero} />
@@ -105,8 +107,15 @@ export const pageQuery = graphql`
       }
 
       seo {
-        metaTitle
-        metaDescription
+        title
+        description
+        preventIndexing
+        keywords
+        ogImage {
+          localFile {
+            publicURL
+          }
+        }
       }
     }
 

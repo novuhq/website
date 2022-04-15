@@ -5,8 +5,9 @@ require('dotenv').config();
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
-    siteTitle: 'Pixel Point Gatsby Tailwind Starter',
-    siteDescription: 'Site Description',
+    siteTitle: 'Novu - Notification management simplified.',
+    siteDescription:
+      'The ultimate library for managing multi-channel transactional notifications with a single API.',
     siteImage: '/images/social-preview.jpg',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
@@ -93,13 +94,27 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: ['article', 'author'],
-        singleTypes: ['blog'],
-        markdownImages: {
-          typesToParse: {
-            article: ['content'],
+        collectionTypes: [
+          {
+            singularName: 'article',
+            queryParams: {
+              // Populate media and relations
+              // Make sure to not specify the fields key so the api always returns the updatedAt
+              populate: {
+                author: '*',
+                category: '*',
+                cover: '*',
+                seo: {
+                  populate: {
+                    ogImage: '*',
+                  },
+                },
+              },
+            },
           },
-        },
+          'author',
+        ],
+        singleTypes: ['blog'],
       },
     },
     // TODO: Either uncomment this part of the code if the website is being hosted on Netlify and install "gatsby-plugin-netlify" or delete it
