@@ -3,7 +3,11 @@
     @apply mx-auto max-w-[1472px] xl:px-10 lg:max-w-full md:px-7 sm:px-4;
   }
 
+  .container-lg {
+    @apply mx-auto max-w-[1220px] xl:px-10 lg:max-w-full md:px-7 sm:px-4;
+  }
+
   .container-sm {
-    @apply mx-auto max-w-[968px] md:max-w-full md:px-7 sm:px-4;
+    @apply mx-auto max-w-[716px] xl:px-10 lg:max-w-full md:px-7 sm:px-4;
   }
 }

@@ -39,6 +39,7 @@ module.exports = {
       secondary: {
         1: '#FF33DE',
         2: '#FFE14D',
+        3: '#00E585',
       },
       gray: {
         1: '#0D0D0D',
