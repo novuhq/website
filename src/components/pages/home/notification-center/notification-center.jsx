@@ -16,7 +16,6 @@ const BUTTON_URL = '/';
 
 const NotificationCenter = () => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
-    triggerOnce: true,
     threshold: 0.6,
   });
 
