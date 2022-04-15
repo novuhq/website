@@ -24,6 +24,28 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 716,
+              quality: 85,
+              withWebp: true,
+              showCaptions: true,
+              linkImagesToOriginal: false,
+              backgroundColor: '#262626',
+              disableBgImageOnAlpha: true,
+            },
+          },
+          'gatsby-remark-prismjs',
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
@@ -64,6 +86,20 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: ['article', 'author'],
+        singleTypes: ['blog'],
+        markdownImages: {
+          typesToParse: {
+            article: ['content'],
+          },
+        },
       },
     },
     // TODO: Either uncomment this part of the code if the website is being hosted on Netlify and install "gatsby-plugin-netlify" or delete it
