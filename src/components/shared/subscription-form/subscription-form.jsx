@@ -94,7 +94,7 @@ const SubscriptionForm = ({ className }) => {
   return (
     <form
       className={clsx(
-        'input relative flex h-16 w-full items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3',
+        'input relative flex h-16 w-full items-center justify-between rounded-md border border-transparent bg-black bg-clip-border',
         inputBeforeClassNames,
         inputAfterClassNames,
         className
@@ -104,7 +104,7 @@ const SubscriptionForm = ({ className }) => {
     >
       <input
         className={clsx(
-          'remove-autocomplete-styles input-text w-full appearance-none whitespace-nowrap rounded-md border border-black bg-black pr-3 font-mono text-lg !leading-none text-white placeholder-white outline-none'
+          'remove-autocomplete-styles input-text h-full w-full appearance-none whitespace-nowrap rounded-md border border-black bg-black pr-[132px] pl-5 font-mono text-lg !leading-none text-white placeholder-white outline-none'
         )}
         name="email"
         type="email"
@@ -135,7 +135,7 @@ const SubscriptionForm = ({ className }) => {
           variants={appearAndExitAnimationVariants}
         >
           <Button
-            className="relative"
+            className="absolute top-1/2 right-3 -translate-y-1/2"
             size="xs"
             theme="white-filled"
             name="subscribe"
@@ -147,7 +147,7 @@ const SubscriptionForm = ({ className }) => {
       )}
 
       {formState === 'loading' && (
-        <div className="relative flex h-10 w-[145px] items-center justify-center rounded-md bg-white ">
+        <div className="absolute top-1/2 right-3 flex h-10 w-[107px] -translate-y-1/2 items-center justify-center rounded bg-white ">
           <svg
             className=" animate-spin"
             xmlns="http://www.w3.org/2000/svg"
@@ -177,13 +177,13 @@ const SubscriptionForm = ({ className }) => {
           aria-hidden
         >
           {formState === 'success' && (
-            <div className="relative flex h-[40px] w-[40px] items-center justify-center rounded-md bg-white">
+            <div className="absolute top-1/2 right-3 flex h-[40px] w-[40px] -translate-y-1/2 items-center justify-center rounded-md bg-white">
               <CheckIcon class="h-3 w-4" />
             </div>
           )}
           {formState === 'error' && (
             <Button
-              className="relative"
+              className="absolute top-1/2 right-3 -translate-y-1/2"
               size="xs"
               theme="white-filled"
               name="subscribe"
