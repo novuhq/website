@@ -147,7 +147,7 @@ const SubscriptionForm = ({ className }) => {
       )}
 
       {formState === 'loading' && (
-        <div className="absolute top-1/2 right-3 flex h-10 w-[107px] -translate-y-1/2 items-center justify-center rounded bg-white ">
+        <div className="absolute top-1/2 right-3 flex h-10 w-[107px] -translate-y-1/2 items-center justify-center rounded bg-white">
           <svg
             className=" animate-spin"
             xmlns="http://www.w3.org/2000/svg"
