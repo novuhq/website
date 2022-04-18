@@ -38,7 +38,6 @@ Button.propTypes = {
   size: PropTypes.oneOf(Object.keys(styles.size)).isRequired,
   theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
   children: PropTypes.node.isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {
