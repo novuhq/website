@@ -54,7 +54,7 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 md:mt-8 md:max-w-[458px] sm:h-[60px]',
+            'relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 before:top-0 md:mt-8 md:max-w-[458px] sm:h-[60px]',
             inputBeforeClassNames,
             inputAfterClassNames
           )}
