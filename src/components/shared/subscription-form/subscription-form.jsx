@@ -47,7 +47,7 @@ const SubscriptionForm = ({ className }) => {
     event.preventDefault();
 
     if (!email) {
-      setErrorMessage('This field is required');
+      setErrorMessage('Please enter your email');
     } else if (!emailRegexp.test(email)) {
       setErrorMessage('Please enter a valid email');
     } else {
@@ -78,14 +78,18 @@ const SubscriptionForm = ({ className }) => {
           } else {
             doNowOrAfterSomeTime(() => {
               setFormState('error');
-              setErrorMessage('Oops! Something went wrong.');
+              setErrorMessage(
+                'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
+              );
             }, loadingAnimationStartedTime);
           }
         })
         .catch(() => {
           doNowOrAfterSomeTime(() => {
             setFormState('error');
-            setErrorMessage('Oops! Something went wrong.');
+            setErrorMessage(
+              'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
+            );
           }, loadingAnimationStartedTime);
         });
     }
@@ -111,13 +115,13 @@ const SubscriptionForm = ({ className }) => {
         placeholder="Your email..."
         autoComplete="email"
         value={email}
-        readOnly={formState !== 'default'}
+        readOnly={formState === 'loading'}
         onChange={handleInputChange}
       />
 
       {errorMessage && (
         <span
-          className="absolute left-1/2 -bottom-5 w-full translate-y-2/3 -translate-x-1/2 text-center text-sm text-gray-8"
+          className="absolute left-1/2 -bottom-5 w-full max-w-[330px] translate-y-2/3 -translate-x-1/2 text-center text-sm text-gray-8"
           initial="initial"
           animate="animate"
           exit="exit"
