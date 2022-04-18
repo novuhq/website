@@ -95,12 +95,12 @@ const Form = () => {
 
   return (
     <form
-      className="autocomplete input-border-gradient relative mx-auto mt-10 w-full max-w-[464px] rounded-md"
+      className="autocomplete input-border-gradient relative mx-auto mt-10 h-16 w-full max-w-[464px] rounded-md bg-black"
       noValidate
       onSubmit={handleSubmit}
     >
       <input
-        className="remove-autocomplete-styles h-16 w-full appearance-none whitespace-nowrap rounded-md border-none bg-black pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none"
+        className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none"
         name="email"
         type="email"
         placeholder="Your email..."
