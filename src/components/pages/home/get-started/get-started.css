@@ -1,4 +1,4 @@
 .get-started-gradient-multicolor {
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-    linear-gradient(257.22deg, #ff884d 26.38%, #ffffff 51.85%, #e300bd 87.02%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 54.67%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(257.22deg, #ffbb33 21.09%, #e300bd 55.18%, #ff006a 92.64%);
 }

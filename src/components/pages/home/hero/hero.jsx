@@ -32,21 +32,21 @@ const Hero = () => {
   }, [isCopied]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden bg-black pt-32 pb-20">
+    <section className="hero safe-paddings relative overflow-hidden bg-black pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-9">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
-          className="max-w-[764px] text-center font-normal leading-tight"
+          className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[26px]"
           size="xl"
           tag="h1"
           theme="white"
         >
           {TITLE}
         </Heading>
-        <p className="mt-5 text-center text-lg font-light text-white lg:max-w-[782px]">
+        <p className="mt-5 text-center text-lg font-book leading-tight text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3">
           {DESCRIPTION}
         </p>
 
-        <div className="bedore:top-0 input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
+        <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
           <span className="whitespace-nowrap font-mono text-lg !leading-none text-white">
             {INPUT_TEXT}
           </span>
@@ -64,7 +64,7 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-32">
+        <div className="mt-18 lg:mt-16 md:mt-14 sm:mt-12">
           <StaticImage
             className="max-w-[1096px]"
             src="./images/hero-illustration.png"

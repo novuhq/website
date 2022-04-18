@@ -12,26 +12,29 @@ const BUTTON_TEXT = 'Read Docs';
 const BUTTON_URL = '/';
 
 const NotificationCenter = () => (
-  <section className="notification-center safe-paddings bg-gray-2 pt-40 pb-28">
-    <div className="container flex items-center justify-between lg:flex-col">
-      <div className="max-w-[464px] xl:max-w-[525px] lg:max-w-[782px] lg:text-center md:max-w-[712px] sm:w-full sm:max-w-none">
-        <Heading size="lg" tag="h2" className="leading-tight sm:text-3xl" theme="white">
-          {TITLE}
-        </Heading>
-        <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>
-        <Button className="mt-7" to={BUTTON_URL} size="sm" theme="gray-outline">
-          {BUTTON_TEXT}
-        </Button>
-      </div>
-      <div className="order-first lg:order-last lg:mt-6" aria-hidden>
+  <section className="notification-center safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-28 md:pb-18 sm:pt-18 sm:pb-12">
+    <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
+      <div className="col-start-1 col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8" aria-hidden>
         <img
-          className="xl:max-w-[600px] lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
+          className="w-full md:mx-auto md:max-w-[712px]"
           src={illustration}
           alt=""
           loading="lazy"
           width={842}
           height={560}
         />
+      </div>
+
+      <div className="col-start-9 col-end-13 xl:col-start-8 md:order-1 md:text-center">
+        <Heading size="lg" tag="h2" className="leading-tight lg:text-4xl sm:text-3xl" theme="white">
+          {TITLE}
+        </Heading>
+        <p className="mt-5 text-lg font-book leading-snug text-gray-8 lg:mt-3 lg:text-base">
+          {DESCRIPTION}
+        </p>
+        <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="gray-outline">
+          {BUTTON_TEXT}
+        </Button>
       </div>
     </div>
   </section>

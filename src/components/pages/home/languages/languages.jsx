@@ -13,18 +13,18 @@ const ITEMS = [
   {
     name: 'Node.js',
     language: 'javascript',
-    code: `Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
+    code: `import { Novu } from '@novu/node';
 
-
-
-
-
-
-
+const novu = new Novu(process.env.NOVU_API_KEY);
+    
+await novu.trigger('<EVENT_NAME>', {
+  $user_id: "<USER IDENTIFIER>",
+  firstName: "John",
+  lastName: "Doe",
+  organization: {
+    logo: 'https://happycorp.com/logo.png'
+  }
+});
 
 
 
@@ -35,72 +35,44 @@ const ITEMS = [
   {
     name: 'Ruby',
     language: 'ruby',
-    code: `2Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
-  `,
   },
   {
     name: 'Python',
     language: 'python',
-    code: `3Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
-  `,
   },
   {
     name: 'Go',
     language: 'go',
-    code: `4Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
-  `,
   },
   {
     name: 'PHP',
     language: 'php',
-    code: `5Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
-  `,
   },
   {
     name: 'Curl',
     language: 'bash',
-    code: `6Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
-      if purchaserInfo.entitlements["your_entitlement_id"]?.isActive == true {
-        // Unlock that great "pro" content              
-      }
-    }
-  `,
   },
 ];
 
 const Languages = () => (
-  <section className="languages safe-paddings bg-gray-2 pt-24 pb-40">
-    <div className="container flex items-center justify-between lg:flex-col">
-      <div className="max-w-[464px] xl:max-w-[525px] lg:max-w-[782px] lg:text-center md:max-w-[712px] sm:w-full sm:max-w-none">
-        <Heading size="lg" tag="h2" className="leading-tight sm:text-3xl" theme="white">
-          {TITLE}
-        </Heading>
-        <p className="mt-5 text-lg font-light text-gray-8 sm:text-base">{DESCRIPTION}</p>
-        <Button className="mt-7" to={BUTTON_URL} size="sm" theme="gray-outline">
-          {BUTTON_TEXT}
-        </Button>
-      </div>
-      <div className="order-first lg:order-last lg:mt-6 lg:w-full">
+  <section className="languages safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
+    <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col">
+      <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12 sm:mt-8">
         <CodeTabs
-          className="min-h-[564px] max-w-[842px] xl:min-h-[519px] xl:max-w-[600px] lg:mx-auto lg:max-w-[782px] md:max-w-[712px] sm:max-w-full"
+          className="min-h-[560px] lg:mx-auto lg:w-full lg:max-w-[944px] md:mx-auto md:min-h-[482px] md:max-w-[712px] sm:min-h-[458px]"
           items={ITEMS}
         />
+      </div>
+      <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
+        <Heading size="lg" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
+          {TITLE}
+        </Heading>
+        <p className="mt-5 text-lg font-book leading-snug text-gray-8 md:mt-3 md:text-base">
+          {DESCRIPTION}
+        </p>
+        <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="gray-outline">
+          {BUTTON_TEXT}
+        </Button>
       </div>
     </div>
   </section>
