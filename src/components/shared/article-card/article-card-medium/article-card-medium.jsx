@@ -23,6 +23,7 @@ const ArticleCardMedium = ({
   <article className={clsx('flex flex-col', className)}>
     <Link to={slug}>
       <GatsbyImage
+        className="w-full"
         imgClassName="rounded-lg"
         image={getImage(image.localFile)}
         alt={image.alternativeText || ''}

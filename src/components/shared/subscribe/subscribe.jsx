@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
@@ -9,8 +11,13 @@ const TITLE = 'Subscribe to the blog updates';
 const DESCRIPTION =
   "Novu's latest articles, right in your inbox. Keep in touch with our news and updates.";
 
-const Subscribe = () => (
-  <section className="subscribe safe-paddings relative overflow-hidden bg-black pt-24 pb-24">
+const Subscribe = ({ className }) => (
+  <section
+    className={clsx(
+      'subscribe safe-paddings relative overflow-hidden bg-black pt-24 pb-24',
+      className
+    )}
+  >
     <div className="container relative z-10 flex flex-col items-center">
       <Heading
         className="max-w-[789px] text-center font-normal leading-tight"
@@ -35,5 +42,13 @@ const Subscribe = () => (
     />
   </section>
 );
+
+Subscribe.propTypes = {
+  className: PropTypes.string,
+};
+
+Subscribe.defaultProps = {
+  className: null,
+};
 
 export default Subscribe;

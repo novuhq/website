@@ -8,7 +8,7 @@ const ArticleCardPropTypes = {
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   date: PropTypes.string.isRequired,
   image: PropTypes.shape({
     alternativeText: PropTypes.string,

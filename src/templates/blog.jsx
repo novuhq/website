@@ -4,9 +4,11 @@ import React from 'react';
 
 import ArticlesList from 'components/pages/blog/articles-list';
 import Categories from 'components/pages/blog/categories';
+import Hero from 'components/pages/blog/hero';
 import Pagination from 'components/pages/blog/pagination';
-import ArticleCard from 'components/shared/article-card';
 import Layout from 'components/shared/layout';
+import Separator from 'components/shared/separator';
+import Subscribe from 'components/shared/subscribe';
 
 const BlogPage = ({
   data: {
@@ -25,10 +27,10 @@ const BlogPage = ({
     ogImage: page.seo?.ogImage?.localFile.publicURL,
   };
 
-  const featuredPost = {
+  const hero = {
     title: page.featuredPost.title,
     description: page.featuredPost.description,
-    slug: `${pageContext.blogPageURL}/${page.featuredPost.slug}`,
+    slug: `/${pageContext.blogPageURL}/${page.featuredPost.slug}`,
     category: page.featuredPost.category,
     image: page.featuredPost.cover,
     date: page.featuredPost.date,
@@ -43,23 +45,28 @@ const BlogPage = ({
 
   return (
     <Layout seo={seo}>
-      <div className="container-lg pt-8">
-        <ArticleCard size="lg" {...featuredPost} />
-      </div>
-      <Categories
-        items={categories}
-        activeCategoryId={pageContext.categoryId || 'none'}
-        blogPageURL={pageContext.blogPageURL}
-      />
-      <ArticlesList {...articlesList} />
-      {pageContext.pageCount > 1 && (
-        <Pagination
-          pageCount={pageContext.pageCount}
-          currentPageIndex={pageContext.currentPage}
+      <Hero {...hero} />
+      <div className="bg-gray-2">
+        <Categories
+          items={categories}
+          activeCategoryId={pageContext.categoryId || 'none'}
           blogPageURL={pageContext.blogPageURL}
-          categoryPath={pageContext.categoryPath}
         />
-      )}
+        <ArticlesList {...articlesList} />
+        {pageContext.pageCount > 1 && (
+          <>
+            <Separator className="mt-14" size="lg" />
+            <Pagination
+              pageCount={pageContext.pageCount}
+              currentPageIndex={pageContext.currentPage}
+              blogPageURL={pageContext.blogPageURL}
+              categoryPath={pageContext.categoryPath}
+            />
+          </>
+        )}
+        <Subscribe className="mt-20" />
+      </div>
+      <Separator />
     </Layout>
   );
 };

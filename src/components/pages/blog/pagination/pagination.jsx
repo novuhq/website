@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
-import Separator from 'components/shared/separator';
 import Arrow from 'images/arrow.inline.svg';
 
 const Pagination = ({ currentPageIndex, pageCount, blogPageURL, categoryPath }) => {
@@ -21,9 +20,8 @@ const Pagination = ({ currentPageIndex, pageCount, blogPageURL, categoryPath }) 
   };
 
   return (
-    <div className="safe-paddings bg-gray-2 pt-14">
-      <Separator size="lg" />
-      <div className="container-lg mt-10">
+    <div className="safe-paddings pt-10">
+      <div className="container-lg">
         <ReactPaginate
           containerClassName="flex justify-center items-center"
           pageLinkClassName={pageLinkAndBreakLinkClassName}

@@ -8,6 +8,7 @@ import RelatedArticles from 'components/pages/article/related-articles';
 import SocialShare from 'components/pages/article/social-share';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
+import Subscribe from 'components/shared/subscribe';
 
 const Article = ({ data: { strapiArticle: article, relatedArticles }, location, pageContext }) => {
   const seo = {
@@ -51,6 +52,8 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
         </div>
       </article>
       <RelatedArticles items={relatedArticles.nodes} blogPageURL={pageContext.blogPageURL} />
+      <Subscribe />
+      <Separator />
     </Layout>
   );
 };
@@ -146,7 +149,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        cover {
+        image: cover {
           alternativeText
           localFile {
             url
