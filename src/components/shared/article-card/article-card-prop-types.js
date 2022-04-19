@@ -10,7 +10,7 @@ const ArticleCardPropTypes = {
     color: PropTypes.string.isRequired,
   }),
   date: PropTypes.string.isRequired,
-  cover: PropTypes.shape({
+  image: PropTypes.shape({
     alternativeText: PropTypes.string,
     localFile: PropTypes.shape({
       childImageSharp: PropTypes.shape({

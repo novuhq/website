@@ -15,7 +15,7 @@ const ArticleCardLarge = ({
   category,
   date,
   slug,
-  cover,
+  image,
   description,
   author,
   blogPageURL,
@@ -48,8 +48,8 @@ const ArticleCardLarge = ({
       <GatsbyImage
         className="h-full"
         imgClassName="rounded-lg"
-        image={getImage(cover.localFile)}
-        alt={cover.alternativeText || ''}
+        image={getImage(image.localFile)}
+        alt={image.alternativeText || ''}
       />
     </Link>
   </article>

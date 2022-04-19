@@ -15,7 +15,7 @@ const ArticleCardMedium = ({
   category,
   date,
   slug,
-  cover,
+  image,
   description,
   author,
   blogPageURL,
@@ -24,8 +24,8 @@ const ArticleCardMedium = ({
     <Link to={slug}>
       <GatsbyImage
         imgClassName="rounded-lg"
-        image={getImage(cover.localFile)}
-        alt={cover.alternativeText || ''}
+        image={getImage(image.localFile)}
+        alt={image.alternativeText || ''}
       />
     </Link>
     <div className="mt-5 flex grow flex-col">
