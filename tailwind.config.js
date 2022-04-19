@@ -55,7 +55,6 @@ module.exports = {
     backgroundImage: {
       'input-gradient':
         'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
-      ...defaultTheme.backgroundImage,
       'mobile-menu-gradient':
         'linear-gradient(180deg, rgba(0, 0, 0, 0) 66.56%, #000000 100%), linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 32.81%), linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), linear-gradient(186.44deg, #FFBA33 8.9%, rgba(255, 0, 106, 0) 52.93%), radial-gradient(76.87% 50% at 50% 50%, #FF006A 34%, #E300BD 61.33%, #FF4CE1 76.67%)',
       ...defaultTheme.backgroundImage,

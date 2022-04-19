@@ -9,7 +9,6 @@ import MENUS from 'constants/menus';
 import GitHubLogo from 'images/logo-github.inline.svg';
 
 const ANIMATION_DURATION = 0.2;
-
 const RIGHT_BUTTON_TEXT = 'Get Started';
 const RIGHT_BUTTON_URL = '/';
 
@@ -40,34 +39,43 @@ const MobileMenu = ({ isOpen }) => {
   useEffect(() => {
     if (isOpen) {
       controls.start('to');
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     } else {
       controls.start('from');
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
   }, [isOpen, controls]);
 
   return (
     <motion.nav
-      // TODO: these styles are set as an example, please contact the design department to apply the desired design
-      className="absolute top-20 z-10 h-[584px] w-full min-w-[360px] rounded-md bg-mobile-menu-gradient px-4 pt-4 pb-7 lg:block"
+      className="fixed top-20 z-10 h-screen w-full min-w-[360px] rounded-md bg-mobile-menu-gradient pt-4 pb-7 lg:block"
       initial="from"
       animate={controls}
       variants={variants}
     >
-      <ul className="flex flex-col pt-[120px] pb-[180px] text-center">
+      <ul className="mx-9 flex flex-col pt-[120px] pb-[180px] text-center">
         {MENUS.header.map(({ to, title }, index) => (
-          <li key={index}>
-            {/* TODO: Add needed props so the link would have styles */}
-            <Link className="block py-6 text-center text-2xl" theme="white" size="xl" to={to}>
+          <li
+            key={index}
+            className="even:border-b-[1px] even:border-t-[1px] even:border-dashed even:border-white  even:border-opacity-20"
+          >
+            <Link
+              className="block w-full py-6 text-center text-2xl"
+              theme="white"
+              size="xl"
+              to={to}
+            >
               {title}
             </Link>
           </li>
         ))}
       </ul>
-      {/* TODO: Add a button if needed */}
 
-      <div className="flex w-full justify-between">
+      <div className="flex w-full justify-between px-4 pb-4">
         <Button
-          className="w-[156px] px-5"
+          className="mr-4 flex-auto"
           to={GITHUB.repoUrl}
           target="_blank"
           size="xs"
@@ -78,7 +86,7 @@ const MobileMenu = ({ isOpen }) => {
         </Button>
 
         <Button
-          className="w-[156px] sm:h-10 sm:text-xs"
+          className="flex-auto sm:h-10 sm:text-xs"
           to={RIGHT_BUTTON_URL}
           size="xs"
           theme="white-filled"
