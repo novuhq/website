@@ -13,6 +13,7 @@ const styles = {
   theme: {
     blue: 'text-primary-1',
     yellow: 'text-secondary-2',
+    purple: 'text-secondary-1',
   },
 };
 
