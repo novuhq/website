@@ -24,7 +24,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
     description: article.description,
     image: article.cover,
     author: article.author,
-    date: article.createdAt,
+    date: article.date,
     category: article.category,
     blogPageURL: pageContext.blogPageURL,
   };
@@ -37,7 +37,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
   const socialShare = {
     url: location.href,
     author: article.author,
-    date: article.createdAt,
+    date: article.date,
   };
 
   return (
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
     strapiArticle(id: { eq: $id }) {
       id
       slug
-      createdAt(formatString: "MMMM D, YYYY")
+      date(formatString: "MMMM D, YYYY")
       category {
         color
         name
@@ -128,7 +128,7 @@ export const pageQuery = graphql`
         title
         description
         slug
-        createdAt(formatString: "MMMM D, YYYY")
+        date(formatString: "MMMM D, YYYY")
         category {
           color
           name

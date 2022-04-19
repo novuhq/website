@@ -13,7 +13,7 @@ const ArticleCardMedium = ({
   className,
   title,
   category,
-  createdAt,
+  date,
   slug,
   cover,
   description,
@@ -28,20 +28,20 @@ const ArticleCardMedium = ({
         alt={cover.alternativeText || ''}
       />
     </Link>
-    <div className="mt-5 flex grow flex-col justify-between">
+    <div className="mt-5 flex grow flex-col">
       <header className="space-y-3.5">
         <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
         <h1 className="text-[22px] font-normal lg:text-[18px] xs:text-[16px]">
-          <Link className="line-clamp-2 inline-block align-top" to={slug} theme="black">
+          <Link className="line-clamp-2 inline-block align-top" to={slug} theme="white">
             {title}
           </Link>
         </h1>
         <p className="line-clamp-3 text-base font-book text-gray-8">{description}</p>
       </header>
-      <footer className="mt-3 flex items-center space-x-3 md:mt-5">
-        <AuthorWithDate author={author} date={createdAt} />
+      <footer className="mt-3.5 flex items-center space-x-3 md:mt-5">
+        <AuthorWithDate author={author} date={date} />
       </footer>
     </div>
   </article>

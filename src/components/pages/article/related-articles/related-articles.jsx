@@ -33,7 +33,7 @@ RelatedArticles.propTypes = {
         slug: PropTypes.string.isRequired,
         color: PropTypes.string.isRequired,
       }),
-      createdAt: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
       cover: PropTypes.shape({
         alternativeText: PropTypes.string,
         localFile: PropTypes.shape({

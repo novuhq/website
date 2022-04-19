@@ -13,32 +13,24 @@ const ArticleCardLarge = ({
   className,
   title,
   category,
-  createdAt,
+  date,
   slug,
   cover,
   description,
   author,
   blogPageURL,
 }) => (
-  <article className={clsx('grid-gap grid grid-cols-2 lg:block', className)}>
-    <Link className="lg:block" to={slug}>
-      <GatsbyImage
-        className="h-full"
-        imgClassName="rounded-lg"
-        image={getImage(cover.localFile)}
-        alt={cover.alternativeText || ''}
-      />
-    </Link>
-    <div className="flex flex-col justify-between lg:mt-5">
+  <article className={clsx('grid grid-cols-2 items-center gap-x-16 py-28 lg:block', className)}>
+    <div className="flex flex-col lg:mt-5">
       <header>
-        <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color}>
+        <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
         <h1 className="mt-4 text-4xl font-bold leading-tight">
           <Link
             className="line-clamp-2 md:line-clamp-none inline-block align-top"
             to={slug}
-            theme="black"
+            theme="white"
           >
             {title}
           </Link>
@@ -48,9 +40,18 @@ const ArticleCardLarge = ({
         </p>
       </header>
       <footer className="mt-5 flex items-center space-x-4">
-        <AuthorWithDate author={author} date={createdAt} />
+        <AuthorWithDate author={author} date={date} />
       </footer>
     </div>
+
+    <Link className="lg:block" to={slug}>
+      <GatsbyImage
+        className="h-full"
+        imgClassName="rounded-lg"
+        image={getImage(cover.localFile)}
+        alt={cover.alternativeText || ''}
+      />
+    </Link>
   </article>
 );
 
