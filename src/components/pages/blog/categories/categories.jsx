@@ -8,31 +8,60 @@ import Link from 'components/shared/link';
 import Arrow from './images/arrow.inline.svg';
 
 const Categories = ({ items, activeCategoryId, blogPageURL }) => {
-  const allItems = [{ id: 'none', name: 'All articles', slug: '' }, ...items];
+  const allItems = [{ id: 'none', name: 'All categories', slug: '' }, ...items];
 
-  const selectValue = allItems.find(({ id }) => id === activeCategoryId).slug;
+  const selectValue = allItems.find(({ id }) => id === activeCategoryId).id;
+
+  const animateScroll = () => {
+    // eslint-disable-next-line global-require
+    require('smooth-scroll')().animateScroll(document.querySelector(`.categories`), undefined, {
+      speed: 500,
+    });
+  };
+
+  const navigateOnScrollEnd = (href) => {
+    const changeUrl = () => {
+      navigate(href, {
+        state: { preventScroll: true },
+      });
+      document.removeEventListener('scrollStop', changeUrl, false);
+    };
+    document.addEventListener('scrollStop', changeUrl, false);
+  };
 
   const handleLinkClick = (event) => {
     event.preventDefault();
-    navigate(event.currentTarget.getAttribute('href'), { state: { preventScroll: true } });
+    const href = event.currentTarget.getAttribute('href');
+    navigateOnScrollEnd(href);
+    animateScroll();
   };
 
-  const handleSelectChange = ({ target: { value } }) => {
-    navigate(value ? blogPageURL + value : blogPageURL, { state: { preventScroll: true } });
+  const handleSelectChange = (event) => {
+    const categoryId = event.currentTarget.value;
+
+    if (categoryId === 'none') {
+      navigateOnScrollEnd(`/${blogPageURL}/`);
+      animateScroll();
+      return;
+    }
+
+    const categorySlug = items.find((item) => item.id === categoryId).slug;
+    navigateOnScrollEnd(`/${blogPageURL}/${categorySlug}`);
+    animateScroll();
   };
 
   return (
-    <div className="safe-paddings bg-gray-2 pt-10">
+    <div className="categories safe-paddings bg-gray-2 pt-10">
       <div className="container-lg">
-        <ul className="scrollbar-hidden flex space-x-4 overflow-auto md:hidden">
+        <ul className="scrollbar-hidden relative flex space-x-10 overflow-auto before:absolute before:left-0 before:bottom-0 before:h-px before:w-full before:bg-gray-4 md:hidden">
           {allItems.map(({ id, name, slug }, index) => (
             <li key={index}>
               <Link
                 className={clsx(
-                  'inline-block whitespace-nowrap rounded-full py-2.5 px-4 align-top text-base font-medium leading-none',
+                  'relative inline-block whitespace-nowrap rounded-full py-4 align-top text-xs font-medium uppercase leading-none',
                   activeCategoryId === id
-                    ? 'bg-primary-1'
-                    : 'hover:text-primary-2 transition-colors duration-200'
+                    ? 'text-primary-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-primary-1'
+                    : 'transition-colors duration-200 hover:text-primary-1'
                 )}
                 to={slug ? `/${blogPageURL}/${slug}` : `/${blogPageURL}`}
                 onClick={handleLinkClick}
@@ -45,17 +74,17 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
 
         <div className="relative hidden md:block">
           <select
-            className="ml-auto w-full appearance-none rounded-full bg-primary-1 py-1.5 pr-8 pl-3 text-sm font-medium outline-none"
+            className="ml-auto w-full appearance-none rounded-full bg-gray-2 py-1.5 pr-8 pl-3 text-sm font-medium outline-none"
             value={selectValue}
             onChange={handleSelectChange}
           >
-            {allItems.map(({ name, slug }, index) => (
-              <option value={slug} key={index}>
+            {allItems.map(({ id, name }, index) => (
+              <option value={id} key={index}>
                 {name}
               </option>
             ))}
           </select>
-          <Arrow className="absolute top-1/2 right-3 w-3 -translate-y-1/2" />
+          <Arrow className="absolute top-1/2 right-3 w-3 -translate-y-1/2 text-white" />
         </div>
       </div>
     </div>
