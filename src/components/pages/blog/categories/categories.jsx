@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Link from 'components/shared/link';
-
-import Arrow from './images/arrow.inline.svg';
+import Arrow from 'images/arrow.inline.svg';
 
 const Categories = ({ items, activeCategoryId, blogPageURL }) => {
   const allItems = [{ id: 'none', name: 'All categories', slug: '' }, ...items];
@@ -53,7 +52,7 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
   return (
     <div className="categories safe-paddings bg-gray-2 pt-10">
       <div className="container-lg">
-        <ul className="scrollbar-hidden relative flex space-x-10 overflow-auto before:absolute before:left-0 before:bottom-0 before:h-px before:w-full before:bg-gray-4 md:hidden">
+        <ul className="scrollbar-hidden relative flex space-x-10 overflow-auto after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-gray-4 md:hidden">
           {allItems.map(({ id, name, slug }, index) => (
             <li key={index}>
               <Link
@@ -72,9 +71,9 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
           ))}
         </ul>
 
-        <div className="relative hidden md:block">
+        <div className="relative hidden after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-gray-4 md:block">
           <select
-            className="ml-auto w-full appearance-none rounded-full bg-gray-2 py-1.5 pr-8 pl-3 text-sm font-medium outline-none"
+            className="ml-auto w-full appearance-none rounded-full bg-gray-2 py-4 pr-8 text-sm font-medium uppercase outline-none"
             value={selectValue}
             onChange={handleSelectChange}
           >
@@ -84,7 +83,7 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
               </option>
             ))}
           </select>
-          <Arrow className="absolute top-1/2 right-3 w-3 -translate-y-1/2 text-white" />
+          <Arrow className="absolute top-1/2 right-3 h-auto w-2.5 -translate-y-1/2 -rotate-90 text-white" />
         </div>
       </div>
     </div>

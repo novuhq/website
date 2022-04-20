@@ -21,7 +21,7 @@ const ArticleCardMedium = ({
   blogPageURL,
 }) => (
   <article className={clsx('flex flex-col', className)}>
-    <Link to={slug}>
+    <Link to={`/${blogPageURL}/${slug}`}>
       <GatsbyImage
         className="w-full"
         imgClassName="rounded-lg"
@@ -35,11 +35,15 @@ const ArticleCardMedium = ({
           {category.name}
         </CategoryLabel>
         <h1 className="text-[22px] font-normal lg:text-[18px] xs:text-[16px]">
-          <Link className="line-clamp-2 inline-block align-top" to={slug} theme="white">
+          <Link
+            className="inline-block align-top line-clamp-2"
+            to={`/${blogPageURL}/${slug}`}
+            theme="white"
+          >
             {title}
           </Link>
         </h1>
-        <p className="line-clamp-3 text-base font-book text-gray-8">{description}</p>
+        <p className="text-base font-book text-gray-8 line-clamp-3">{description}</p>
       </header>
       <footer className="mt-3.5 flex items-center space-x-3 md:mt-5">
         <AuthorWithDate author={author} date={date} />

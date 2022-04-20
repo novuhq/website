@@ -20,22 +20,27 @@ const ArticleCardLarge = ({
   author,
   blogPageURL,
 }) => (
-  <article className={clsx('grid grid-cols-2 items-center gap-x-16 py-28 lg:block', className)}>
-    <div className="flex flex-col lg:mt-5">
+  <article
+    className={clsx(
+      'grid grid-cols-2 items-center gap-x-16 py-28 md:flex md:flex-col md:py-10',
+      className
+    )}
+  >
+    <div className="flex flex-col md:order-2 md:mt-5">
       <header>
         <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
-        <h1 className="mt-4 text-4xl font-bold leading-tight">
+        <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-3xl">
           <Link
-            className="line-clamp-2 md:line-clamp-none inline-block align-top"
-            to={slug}
+            className="inline-block align-top line-clamp-2 md:line-clamp-none"
+            to={`/${blogPageURL}/${slug}`}
             theme="white"
           >
             {title}
           </Link>
         </h1>
-        <p className="line-clamp-3 xl:line-clamp-1 md:line-clamp-none mt-2.5 text-gray-8">
+        <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-1 md:line-clamp-none">
           {description}
         </p>
       </header>
@@ -44,9 +49,9 @@ const ArticleCardLarge = ({
       </footer>
     </div>
 
-    <Link className="lg:block" to={slug}>
+    <Link className="w-full md:order-1 md:block" to={`/${blogPageURL}/${slug}`}>
       <GatsbyImage
-        className="h-full"
+        className="h-full w-full"
         imgClassName="rounded-lg"
         image={getImage(image.localFile)}
         alt={image.alternativeText || ''}

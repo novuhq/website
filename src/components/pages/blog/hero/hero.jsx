@@ -6,11 +6,13 @@ import AuthorWithDate from 'components/shared/author-with-date';
 import CategoryLabel from 'components/shared/category-label';
 import Link from 'components/shared/link';
 
+import bg from './images/bg.svg';
+
 const Hero = ({ title, category, date, slug, image, description, author, blogPageURL }) => (
-  <section className="safe-paddings py-36">
-    <div className="container-lg">
-      <article className="grid grid-cols-2 items-center gap-x-16 lg:block">
-        <div className="flex flex-col lg:mt-5">
+  <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
+    <div className="container-lg relative z-10">
+      <article className="grid grid-cols-2 items-center gap-x-16 md:flex md:flex-col">
+        <div className="flex flex-col md:order-2 md:mt-5">
           <header>
             <CategoryLabel
               url={`/${blogPageURL}/${category.slug}`}
@@ -19,16 +21,16 @@ const Hero = ({ title, category, date, slug, image, description, author, blogPag
             >
               {category.name}
             </CategoryLabel>
-            <h1 className="mt-4 text-4xl font-bold leading-tight">
+            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-3xl">
               <Link
-                className="line-clamp-2 md:line-clamp-none inline-block align-top"
+                className="inline-block align-top line-clamp-2 md:line-clamp-none"
                 to={slug}
                 theme="white"
               >
                 {title}
               </Link>
             </h1>
-            <p className="line-clamp-3 xl:line-clamp-1 md:line-clamp-none mt-2.5 text-gray-8">
+            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-1 md:line-clamp-none">
               {description}
             </p>
           </header>
@@ -38,9 +40,9 @@ const Hero = ({ title, category, date, slug, image, description, author, blogPag
           </footer>
         </div>
 
-        <Link className="lg:block" to={slug}>
+        <Link className="w-full md:order-1 md:block" to={slug}>
           <GatsbyImage
-            className="h-full"
+            className="h-full w-full"
             imgClassName="rounded-lg"
             image={getImage(image.localFile)}
             alt={image.alternativeText || ''}
@@ -48,6 +50,14 @@ const Hero = ({ title, category, date, slug, image, description, author, blogPag
         </Link>
       </article>
     </div>
+
+    <img
+      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
+      src={bg}
+      loading="eager"
+      alt=""
+      aria-hidden
+    />
   </section>
 );
 

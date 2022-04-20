@@ -6,7 +6,7 @@ const MENUS = {
     },
     {
       title: 'Blog',
-      to: '/',
+      to: '/blog/',
     },
     {
       title: 'FAQ',
@@ -15,7 +15,7 @@ const MENUS = {
   ],
   footer: [
     [
-      { text: 'Blog', to: '/' },
+      { text: 'Blog', to: '/blog/' },
       { text: 'FAQ', to: '/' },
     ],
     [
@@ -39,7 +39,7 @@ const MENUS = {
       { text: 'SDK', to: '/' },
     ],
     [
-      { text: 'Blog', to: '/' },
+      { text: 'Blog', to: '/blog/' },
       { text: 'FAQ', to: '/' },
     ],
 

@@ -9,6 +9,7 @@ const wrapperItemsClassNames =
 
 const ArticlesList = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-10">
+    {/* The card that is being displayed on the desktop */}
     <div className="sm:hidden">
       <div className={clsx(wrapperItemsClassNames)}>
         {items.slice(0, 6).map((item, index) => (
@@ -59,6 +60,7 @@ const ArticlesList = ({ items, blogPageURL }) => (
       )}
     </div>
 
+    {/* The same card that is being displayed on the mobile */}
     <div className={clsx('hidden', wrapperItemsClassNames)}>
       {items.map((item, index) => (
         <ArticletCard

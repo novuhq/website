@@ -14,20 +14,20 @@ const DESCRIPTION =
 const Subscribe = ({ className }) => (
   <section
     className={clsx(
-      'subscribe safe-paddings relative overflow-hidden bg-black pt-24 pb-24',
+      'subscribe safe-paddings relative overflow-hidden bg-black py-24 sm:py-18',
       className
     )}
   >
     <div className="container relative z-10 flex flex-col items-center">
       <Heading
-        className="max-w-[789px] text-center font-normal leading-tight"
+        className="max-w-[789px] text-center font-normal leading-tight md:text-4xl sm:text-3xl"
         size="xl"
         tag="h2"
         theme="white"
       >
         {TITLE}
       </Heading>
-      <p className="mt-5 text-center text-lg font-light text-gray-8 lg:max-w-[716px]">
+      <p className="mt-5 text-center text-lg font-book text-gray-8 lg:max-w-[716px] md:text-base sm:mt-3">
         {DESCRIPTION}
       </p>
       <Form />
