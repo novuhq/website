@@ -59,7 +59,7 @@ const Hero = () => {
             inputAfterClassNames
           )}
         >
-          <span className="whitespace-nowrap font-mono text-lg !leading-none sm:text-base">
+          <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none sm:text-base">
             {INPUT_TEXT}
           </span>
 
