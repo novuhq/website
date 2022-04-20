@@ -70,6 +70,7 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify',
       options: {
         headers: {
+          '/*': ['X-Frame-Options: DENY', 'X-XSS-Protection: 1; mode=block'],
           '/fonts/*': ['Cache-Control: public, max-age: 31536000, immutable'],
         },
       },
