@@ -47,20 +47,16 @@ const MobileMenu = ({ isOpen }) => {
       document.body.style.touchAction = '';
     }
   }, [isOpen, controls]);
-
   return (
     <motion.nav
-      className="fixed top-20 z-10 h-screen w-full min-w-[360px] rounded-md bg-mobile-menu-gradient pt-4 pb-7 lg:block"
+      className="fixed top-20 left-0 right-0 bottom-0 z-10 flex h-[90vh] w-full flex-col justify-around rounded bg-black pb-20"
       initial="from"
       animate={controls}
       variants={variants}
     >
-      <ul className="mx-9 flex flex-col pt-[120px] pb-[180px] text-center">
+      <ul className="flex flex-col overflow-scroll text-center">
         {MENUS.header.map(({ to, title }, index) => (
-          <li
-            key={index}
-            className="even:border-b-[1px] even:border-t-[1px] even:border-dashed even:border-white  even:border-opacity-20"
-          >
+          <li key={index} className="">
             <Link
               className="block w-full py-6 text-center text-2xl"
               theme="white"
@@ -73,7 +69,7 @@ const MobileMenu = ({ isOpen }) => {
         ))}
       </ul>
 
-      <div className="flex w-full justify-between px-4 pb-4">
+      <div className="fixed bottom-0 flex w-full justify-between bg-black px-4 pt-4 pb-7">
         <Button
           className="mr-4 flex-auto"
           to={GITHUB.repoUrl}
