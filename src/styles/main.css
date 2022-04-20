@@ -10,6 +10,7 @@
 
 /* Components */
 @import './container.css';
+@import './input-border-gradient.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';
