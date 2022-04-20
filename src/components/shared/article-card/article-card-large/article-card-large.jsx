@@ -34,7 +34,7 @@ const ArticleCardLarge = ({
         <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-3xl">
           <Link
             className="inline-block align-top line-clamp-2 md:line-clamp-none"
-            to={`/${blogPageURL}/${slug}`}
+            to={slug}
             theme="white"
           >
             {title}
@@ -49,7 +49,7 @@ const ArticleCardLarge = ({
       </footer>
     </div>
 
-    <Link className="w-full md:order-1 md:block" to={`/${blogPageURL}/${slug}`}>
+    <Link className="w-full md:order-1 md:block" to={slug}>
       <GatsbyImage
         className="h-full w-full"
         imgClassName="rounded-lg"

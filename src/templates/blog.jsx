@@ -39,7 +39,10 @@ const BlogPage = ({
   };
 
   const articlesList = {
-    items: articles.nodes,
+    items: articles.nodes.map((article) => ({
+      ...article,
+      slug: `/${pageContext.blogPageURL}/${article.slug}`,
+    })),
     blogPageURL: pageContext.blogPageURL,
   };
 

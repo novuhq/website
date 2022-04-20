@@ -41,6 +41,14 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
     date: article.date,
   };
 
+  const relatedArticlesProps = {
+    items: relatedArticles.nodes.map((article) => ({
+      ...article,
+      slug: `/${pageContext.blogPageURL}/${article.slug}`,
+    })),
+    blogPageURL: pageContext.blogPageURL,
+  };
+
   return (
     <Layout seo={seo}>
       <article className="safe-paddings pt-40">
@@ -51,7 +59,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
           <SocialShare {...socialShare} />
         </div>
       </article>
-      <RelatedArticles items={relatedArticles.nodes} blogPageURL={pageContext.blogPageURL} />
+      <RelatedArticles {...relatedArticlesProps} />
       <Subscribe />
       <Separator />
     </Layout>
