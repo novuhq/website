@@ -7,7 +7,7 @@ import Heading from 'components/shared/heading/heading';
 const TITLE = 'An infrastructure that speaks your language';
 const DESCRIPTION = "Community built server-side SDK's for your preferred programming language";
 const BUTTON_TEXT = 'Read Docs';
-const BUTTON_URL = '/';
+const BUTTON_URL = 'https://docs.notifire.co/docs/overview/introduction';
 
 const ITEMS = [
   {

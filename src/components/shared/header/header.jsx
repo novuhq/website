@@ -17,7 +17,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
   return (
     <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black">
       <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
-        <Link to="/">
+        <Link to="https://www.novu.co/">
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Notu</span>
         </Link>
@@ -55,7 +55,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 {githubStars}
               </span>
             </Button>
-            <Button to="/" size="xs" theme="white-filled">
+            <Button to="https://github.com/notifirehq/notifire" size="xs" theme="white-filled">
               Get Started
             </Button>
           </div>

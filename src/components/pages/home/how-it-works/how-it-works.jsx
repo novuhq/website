@@ -9,7 +9,7 @@ import trigger from './images/trigger.svg';
 
 const TITLE = 'How it works?';
 const LINK_NAME = 'Read quick start guide';
-const LINK_URL = '/';
+const LINK_URL = 'https://docs.notifire.co/docs/overview/quick-start';
 const CARDS = [
   {
     title: 'Create template',

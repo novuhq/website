@@ -9,7 +9,7 @@ const TITLE = 'Component based';
 const DESCRIPTION =
   'Notu API first approach, means that you can  use just what you need, when you need it.';
 const BUTTON_TEXT = 'Get Started';
-const BUTTON_URL = '/';
+const BUTTON_URL = 'https://github.com/notifirehq/notifire';
 
 const ComponentBased = () => (
   <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-18">

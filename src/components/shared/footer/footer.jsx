@@ -18,7 +18,7 @@ const Footer = () => {
     <footer className="safe-paddings bg-black">
       <div className="container flex justify-between py-20 lg:flex-col lg:py-12 sm:block sm:py-10">
         <div className="flex flex-col items-start justify-between lg:flex-row lg:items-center">
-          <Link to="/">
+          <Link to="https://www.novu.co/">
             <span className="sr-only">Notu</span>
             <Logo className="h-8" aria-hidden />
           </Link>

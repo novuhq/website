@@ -12,12 +12,12 @@ const TITLE = 'Ready to send your first notification?';
 const LEFT_TITLE = 'Self-Hosted';
 const LEFT_DESCRIPTION = 'Run locally with docker-compose';
 const LEFT_BUTTON_TEXT = 'Read Docs';
-const LEFT_BUTTON_URL = '/';
+const LEFT_BUTTON_URL = 'https://docs.notifire.co/docs/overview/introduction';
 
 const RIGHT_TITLE = 'Cloud';
 const RIGHT_DESCRIPTION = 'Use our free serverless solution';
 const RIGHT_BUTTON_TEXT = 'Get Started';
-const RIGHT_BUTTON_URL = '/';
+const RIGHT_BUTTON_URL = 'https://github.com/notifirehq/notifire';
 
 const GetStarted = () => (
   <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-28 sm:py-18">

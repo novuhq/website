@@ -16,12 +16,12 @@ const SOCIAL_TILE = 'Join the community:';
 const SOCIAL_ITEMS = [
   {
     icon: <img src={github} alt="" loading="lazy" width={46} height={45} />,
-    url: '/',
+    url: 'https://github.com/novuhq/novu',
     countFollowers: '3k',
   },
   {
     icon: <img src={discord} alt="" loading="lazy" width={46} height={34} />,
-    url: '/',
+    url: 'https://discord.gg/9wcGSf22PM',
   },
   {
     icon: <img src={twitter} alt="" loading="lazy" width={40} height={32} />,

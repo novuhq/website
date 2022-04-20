@@ -12,7 +12,7 @@ import twilio from './images/twilio.svg';
 
 const TITLE = 'Simple to use outgoing communication layer';
 const LINK_NAME = 'Show all services';
-const LINK_URL = '/';
+const LINK_URL = 'https://www.novu.co/communication-providers';
 const CARDS = [
   {
     icon: <img src={sendgrid} alt="" loading="lazy" width={30} height={30} />,

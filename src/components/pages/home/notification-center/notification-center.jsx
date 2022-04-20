@@ -9,7 +9,7 @@ const TITLE = 'Fully featured notification center in minutes';
 const DESCRIPTION =
   'Build a real-time notification center using our embeddable components or connect your custom UI with our notification feed API.';
 const BUTTON_TEXT = 'Read Docs';
-const BUTTON_URL = '/';
+const BUTTON_URL = 'https://docs.notifire.co/docs/overview/introduction';
 
 const NotificationCenter = () => (
   <section className="notification-center safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-28 md:pb-18 sm:pt-18 sm:pb-12">
