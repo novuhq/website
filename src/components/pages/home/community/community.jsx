@@ -4,6 +4,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading/heading';
 import Link from 'components/shared/link/link';
+import LINKS from 'constants/links.js';
 
 import discord from './images/discord.svg';
 import github from './images/github.svg';
@@ -16,16 +17,16 @@ const SOCIAL_TILE = 'Join the community:';
 const SOCIAL_ITEMS = [
   {
     icon: <img src={github} alt="" loading="lazy" width={46} height={45} />,
-    url: 'https://github.com/novuhq/novu',
+    url: LINKS.github,
     countFollowers: '3k',
   },
   {
     icon: <img src={discord} alt="" loading="lazy" width={46} height={34} />,
-    url: 'https://discord.gg/9wcGSf22PM',
+    url: LINKS.discord,
   },
   {
     icon: <img src={twitter} alt="" loading="lazy" width={40} height={32} />,
-    url: '/',
+    url: LINKS.twitter,
   },
 ];
 
@@ -55,6 +56,7 @@ const Community = () => (
                 )}
                 to={url}
                 key={index}
+                target="_blank"
               >
                 <div className="relative z-10">{icon}</div>
                 {countFollowers && (

@@ -1,55 +1,59 @@
+import LINKS from 'constants/links.js';
+
 const MENUS = {
   header: [
     {
       title: 'Documentation',
-      to: 'https://docs.notifire.co/docs/overview/introduction',
+      to: LINKS.documentation,
+      target: '_blank',
     },
     {
       title: 'Blog',
-      to: 'https://blog.notifire.co',
+      to: LINKS.blog,
     },
     {
       title: 'FAQ',
-      to: 'https://docs.notifire.co/docs/community/faq',
+      to: LINKS.FAQ,
+      target: '_blank',
     },
   ],
   footer: [
     [
-      { text: 'Blog', to: 'https://blog.notifire.co' },
-      { text: 'FAQ', to: 'https://docs.notifire.co/docs/community/faq' },
+      { text: 'Blog', to: LINKS.blog },
+      { text: 'FAQ', to: LINKS.FAQ, target: '_blank' },
     ],
     [
-      { text: 'Documentation', to: 'https://docs.notifire.co/docs/overview/introduction' },
-      { text: 'Providers', to: 'https://www.novu.co/communication-providers' },
-      { text: 'SDK', to: 'https://docs.novu.co/docs/community/contributing#development' },
+      { text: 'Documentation', to: LINKS.documentation },
+      { text: 'Providers', to: LINKS.providers },
+      { text: 'SDK', to: LINKS.SDK },
     ],
     [
-      { text: 'Contact Us', to: 'https://www.novu.co/sections/content-3' },
-      { text: 'Discord', to: 'https://discord.gg/9wcGSf22PM' },
+      { text: 'Contact Us', to: LINKS.contactUs },
+      { text: 'Discord', to: LINKS.discord, target: '_blank' },
     ],
     [
-      { text: 'Twitter', to: '/' },
-      { text: 'Github', to: 'https://github.com/novuhq/novu' },
+      { text: 'Twitter', to: LINKS.twitter, target: '_blank' },
+      { text: 'Github', to: LINKS.github, target: '_blank' },
     ],
   ],
   footerSm: [
     [
-      { text: 'Documentation', to: 'https://docs.notifire.co/docs/overview/introduction' },
-      { text: 'Providers', to: 'https://www.novu.co/communication-providers' },
-      { text: 'SDK', to: 'https://docs.novu.co/docs/community/contributing#development' },
+      { text: 'Documentation', to: LINKS.documentation, target: '_blank' },
+      { text: 'Providers', to: LINKS.providers },
+      { text: 'SDK', to: LINKS.providers, target: '_blank' },
     ],
     [
-      { text: 'Blog', to: 'https://blog.notifire.co' },
-      { text: 'FAQ', to: 'https://docs.notifire.co/docs/community/faq' },
+      { text: 'Blog', to: LINKS.blog },
+      { text: 'FAQ', to: LINKS.FAQ, target: '_blank' },
     ],
 
     [
-      { text: 'Contact Us', to: 'https://www.novu.co/sections/content-3' },
-      { text: 'Discord', to: 'https://discord.gg/9wcGSf22PM' },
+      { text: 'Contact Us', to: LINKS.contactUs },
+      { text: 'Discord', to: LINKS.discord, target: '_blank' },
     ],
     [
-      { text: 'Twitter', to: '/' },
-      { text: 'Github', to: 'https://github.com/novuhq/novu' },
+      { text: 'Twitter', to: LINKS.twitter, target: '_blank' },
+      { text: 'Github', to: LINKS.github, target: '_blank' },
     ],
   ],
   mobile: [],

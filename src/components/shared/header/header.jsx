@@ -6,6 +6,7 @@ import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import GITHUB from 'constants/github';
+import LINKS from 'constants/links.js';
 import MENUS from 'constants/menus';
 import useGithubRepoStars from 'hooks/use-github-repo-stars';
 import GitHubLogo from 'images/logo-github.inline.svg';
@@ -17,7 +18,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
   return (
     <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black">
       <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
-        <Link to="https://www.novu.co/">
+        <Link to={LINKS.novu}>
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Notu</span>
         </Link>
@@ -27,7 +28,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
             <ul className="flex space-x-8 md:hidden">
               {MENUS.header.map(({ to, title }, index) => (
                 <li key={index}>
-                  <Link to={to} theme="white" size="sm">
+                  <Link to={to} theme="white" size="sm" target="_blank">
                     {title}
                   </Link>
                 </li>
@@ -55,7 +56,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 {githubStars}
               </span>
             </Button>
-            <Button to="https://github.com/notifirehq/notifire" size="xs" theme="white-filled">
+            <Button to={LINKS.getStarted} size="xs" theme="white-filled" target="_blank">
               Get Started
             </Button>
           </div>

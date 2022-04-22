@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
+import LINKS from 'constants/links.js';
 
 import illustration from './images/illustration.svg';
 
@@ -9,7 +10,7 @@ const TITLE = 'Component based';
 const DESCRIPTION =
   'Notu API first approach, means that you can  use just what you need, when you need it.';
 const BUTTON_TEXT = 'Get Started';
-const BUTTON_URL = 'https://github.com/notifirehq/notifire';
+const BUTTON_URL = LINKS.getStarted;
 
 const ComponentBased = () => (
   <section className="component-based safe-paddings bg-black py-40 lg:py-32 md:py-28 sm:py-18">
@@ -21,7 +22,7 @@ const ComponentBased = () => (
         <p className="mt-5 text-lg font-book leading-snug text-gray-8 xl:max-w-[464px] lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
           {DESCRIPTION}
         </p>
-        <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="primary">
+        <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="primary" target="_blank">
           {BUTTON_TEXT}
         </Button>
       </div>

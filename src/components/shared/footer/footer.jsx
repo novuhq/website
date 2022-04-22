@@ -4,6 +4,7 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import GITHUB from 'constants/github';
+import LINKS from 'constants/links.js';
 import MENUS from 'constants/menus';
 import useGithubRepoStars from 'hooks/use-github-repo-stars';
 import GitHubLogo from 'images/logo-github.inline.svg';
@@ -18,7 +19,7 @@ const Footer = () => {
     <footer className="safe-paddings bg-black">
       <div className="container flex justify-between py-20 lg:flex-col lg:py-12 sm:block sm:py-10">
         <div className="flex flex-col items-start justify-between lg:flex-row lg:items-center">
-          <Link to="https://www.novu.co/">
+          <Link to={LINKS.novu}>
             <span className="sr-only">Notu</span>
             <Logo className="h-8" aria-hidden />
           </Link>
@@ -33,7 +34,7 @@ const Footer = () => {
               <ul className="space-y-2.5 lg:space-y-2" key={index}>
                 {links.map(({ to, text }, index) => (
                   <li key={index}>
-                    <Link to={to} size="base" theme="white">
+                    <Link to={to} size="base" theme="white" target="_blank">
                       {text}
                     </Link>
                   </li>
@@ -79,12 +80,7 @@ const Footer = () => {
 
             <p className="text-sm leading-none text-gray-8 lg:hidden">
               Design made by{' '}
-              <Link
-                to="https://pixelpoint.io/"
-                theme="gray"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to={LINKS.pixelPoint} theme="gray" target="_blank" rel="noopener noreferrer">
                 Pixel Point
               </Link>
             </p>
@@ -97,12 +93,7 @@ const Footer = () => {
           </p>
           <p className="text-sm leading-none text-gray-8">
             Design made by{' '}
-            <Link
-              to="https://pixelpoint.io/"
-              theme="gray"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link to={LINKS.pixelPoint} theme="gray" target="_blank" rel="noopener noreferrer">
               Pixel Point
             </Link>
           </p>

@@ -1,0 +1,16 @@
+export default {
+  documentation: 'https://docs.notifire.co/docs/overview/introduction',
+  blog: '/blog',
+  FAQ: 'https://docs.notifire.co/docs/community/faq',
+  providers: '/communication-providers',
+  SDK: '/docs/community/contributing#development',
+  github: 'https://github.com/novuhq/novu',
+  githubAPIurl: 'https://api.github.com/repos',
+  discord: 'https://discord.gg/9wcGSf22PM',
+  twitter: '/',
+  contactUs: 'https://www.novu.co/sections/content-3',
+  getStarted: 'https://github.com/notifirehq/notifire',
+  quickStart: 'https://docs.notifire.co/docs/overview/quick-start',
+  novu: '/',
+  pixelPoint: 'https://pixelpoint.io/',
+};
