@@ -11,6 +11,7 @@ import NotificationCenter from 'components/pages/home/notification-center';
 import SimpleUse from 'components/pages/home/simple-use';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
+import Subscribe from 'components/shared/subscribe';
 
 const HomePage = () => (
   <Layout>
@@ -27,6 +28,7 @@ const HomePage = () => (
     <Languages />
     <GetStarted />
     <Separator />
+    <Subscribe />
   </Layout>
 );
 
