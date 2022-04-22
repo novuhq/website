@@ -3,7 +3,7 @@
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      transition: background-color 5000s;
+      transition: background-color 5000s, color 5000s;
     }
   }
 }

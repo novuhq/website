@@ -14,12 +14,6 @@ const DESCRIPTION =
 
 const INPUT_TEXT = 'npx notu init';
 
-/* TODO: find a way to simplify the styles for applying a gradient border for the input field */
-const inputBeforeClassNames =
-  'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
-const inputAfterClassNames =
-  'after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:-z-20 after:-m-0.5 after:rounded-[inherit] after:bg-input-gradient after:blur-sm';
-
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
 
@@ -52,14 +46,8 @@ const Hero = () => {
           {DESCRIPTION}
         </p>
 
-        <div
-          className={clsx(
-            'bedore:top-0 relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 md:mt-8 md:max-w-[458px] sm:h-[60px]',
-            inputBeforeClassNames,
-            inputAfterClassNames
-          )}
-        >
-          <span className="whitespace-nowrap font-mono text-lg !leading-none sm:text-base">
+        <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
+          <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
             {INPUT_TEXT}
           </span>
 

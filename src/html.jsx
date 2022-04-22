@@ -3,8 +3,11 @@ import React from 'react';
 
 const fontsBasePath = '/fonts';
 
-// TODO: Add paths to fonts that need to be preloaded, need to add only fonts that are being used in header + hero sections
-const fontsPaths = [];
+const fontsPaths = [
+  '/brother-1816/brother-1816-regular.woff2',
+  '/brother-1816/brother-1816-book.woff2',
+  '/ibm-plex-mono/ibm-plex-mono-medium.woff2',
+];
 
 const HTML = ({
   htmlAttributes,
