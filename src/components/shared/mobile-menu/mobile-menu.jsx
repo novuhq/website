@@ -48,7 +48,7 @@ const MobileMenu = ({ isOpen }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16"
+          className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16 sm:pt-[60px]"
           initial="hidden"
           animate="visible"
           exit="hidden"
