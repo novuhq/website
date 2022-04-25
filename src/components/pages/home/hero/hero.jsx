@@ -1,11 +1,14 @@
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
-import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import ImagePlaceholder from 'components/shared/image-placeholder';
+import useLottie from 'hooks/use-lottie';
 
+import lottieData from './data/hero-lottie-data.json';
 import bg from './images/bg.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
@@ -14,14 +17,18 @@ const DESCRIPTION =
 
 const INPUT_TEXT = 'npx notu init';
 
-/* TODO: find a way to simplify the styles for applying a gradient border for the input field */
-const inputBeforeClassNames =
-  'before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:-z-10 before:-m-0.5 before:rounded-[inherit] before:bg-input-gradient';
-const inputAfterClassNames =
-  'after:absolute after:left-0 after:top-0 after:right-0 after:bottom-0 after:-z-20 after:-m-0.5 after:rounded-[inherit] after:bg-input-gradient after:blur-sm';
-
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
+  const [animationWrapperRef, isAnimationWrapperInView] = useInView({
+    threshold: 0.6,
+  });
+  const { animationRef, animation, isAnimationReady } = useLottie({
+    lottieOptions: {
+      animationData: lottieData,
+      loop: true,
+    },
+    isInView: isAnimationWrapperInView,
+  });
 
   const handleButtonClick = () => {
     if (!isCopied) {
@@ -36,6 +43,15 @@ const Hero = () => {
       }, 1500);
     }
   }, [isCopied]);
+
+  useEffect(() => {
+    if (!animation) return;
+    if (isAnimationWrapperInView) {
+      animation.play();
+    } else {
+      animation.pause();
+    }
+  }, [animation, isAnimationWrapperInView]);
 
   return (
     <section className="hero safe-paddings relative overflow-hidden bg-black pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-9">
@@ -52,14 +68,8 @@ const Hero = () => {
           {DESCRIPTION}
         </p>
 
-        <div
-          className={clsx(
-            'relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-3 before:top-0 md:mt-8 md:max-w-[458px] sm:h-[60px]',
-            inputBeforeClassNames,
-            inputAfterClassNames
-          )}
-        >
-          <span className="whitespace-nowrap font-mono text-lg !leading-none sm:text-base">
+        <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
+          <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
             {INPUT_TEXT}
           </span>
 
@@ -76,13 +86,15 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-18 lg:mt-16 md:mt-14 sm:mt-12">
-          <StaticImage
-            className="max-w-[1096px]"
-            src="./images/hero-illustration.png"
-            alt=""
-            loading="eager"
-          />
+        <div
+          className={clsx(
+            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12',
+            isAnimationReady && 'opacity-100'
+          )}
+          ref={animationWrapperRef}
+        >
+          <ImagePlaceholder width={1300} height={321} />
+          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
         </div>
       </div>
 
