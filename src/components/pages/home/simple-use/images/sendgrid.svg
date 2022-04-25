@@ -1,9 +1,10 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 20H10V30H20V20Z" fill="#99E1F4"/>
-<path d="M10 10H0V20H10V10Z" fill="#99E1F4"/>
-<path d="M10 20H0V30H10V20Z" fill="#1A82E2"/>
-<path d="M30 10H20V20H30V10Z" fill="#00B2E3"/>
-<path d="M20 0H10V10H20V0Z" fill="#00B2E3"/>
-<path d="M10 10V20H20V10H10Z" fill="#009DD9"/>
-<path d="M30 0H20V10H30V0Z" fill="#1A82E2"/>
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="26" cy="26" r="26" fill="white"/>
+<path d="M31 31H21V41H31V31Z" fill="#99E1F4"/>
+<path d="M21 21H11V31H21V21Z" fill="#99E1F4"/>
+<path d="M21 31H11V41H21V31Z" fill="#1A82E2"/>
+<path d="M41 21H31V31H41V21Z" fill="#00B2E3"/>
+<path d="M31 11H21V21H31V11Z" fill="#00B2E3"/>
+<path d="M21 21V31H31V21H21Z" fill="#009DD9"/>
+<path d="M41 11H31V21H41V11Z" fill="#1A82E2"/>
 </svg>

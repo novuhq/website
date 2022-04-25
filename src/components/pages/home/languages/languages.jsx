@@ -3,11 +3,11 @@ import React from 'react';
 import Button from 'components/shared/button/button';
 import CodeTabs from 'components/shared/code-tabs/code-tabs';
 import Heading from 'components/shared/heading/heading';
+import LINKS from 'constants/links';
 
 const TITLE = 'An infrastructure that speaks your language';
 const DESCRIPTION = "Community built server-side SDK's for your preferred programming language";
 const BUTTON_TEXT = 'Read Docs';
-const BUTTON_URL = '/';
 
 const ITEMS = [
   {
@@ -16,20 +16,23 @@ const ITEMS = [
     code: `import { Novu } from '@novu/node';
 
 const novu = new Novu(process.env.NOVU_API_KEY);
-    
-await novu.trigger('<EVENT_NAME>', {
-  $user_id: "<USER IDENTIFIER>",
-  firstName: "John",
-  lastName: "Doe",
-  organization: {
-    logo: 'https://happycorp.com/logo.png'
+
+await novu.trigger('<TRIGGER_NAME>',
+  {
+    to: {
+      subscriberId: '<UUNIQUE_IDENTIFIER>',
+      email: 'john@doemail.com',
+      firstName: 'John',
+      lastName: 'Doe',
+    },
+    payload: {
+      name: "Hello World",
+      organization: {
+        logo: 'https://happycorp.com/logo.png',
+      },
+    },
   }
-});
-
-
-
-
-
+);
   `,
   },
   {
@@ -70,7 +73,7 @@ const Languages = () => (
         <p className="mt-5 text-lg font-book leading-snug text-gray-8 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
-        <Button className="mt-7 md:mt-6" to={BUTTON_URL} size="sm" theme="gray-outline">
+        <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.documentation}>
           {BUTTON_TEXT}
         </Button>
       </div>

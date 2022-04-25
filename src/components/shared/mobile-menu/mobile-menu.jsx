@@ -1,25 +1,28 @@
-import { motion, useAnimation } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
+import Button from 'components/shared/button/button';
 import Link from 'components/shared/link';
+import GITHUB from 'constants/github';
+import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
+import GitHubLogo from 'images/logo-github.inline.svg';
+
+const RIGHT_BUTTON_TEXT = 'Get Started';
 
 const ANIMATION_DURATION = 0.2;
 
 const variants = {
-  from: {
+  hidden: {
     opacity: 0,
     translateY: 30,
     transition: {
       duration: ANIMATION_DURATION,
     },
-    transitionEnd: {
-      zIndex: -1,
-    },
   },
-  to: {
-    zIndex: 999,
+  visible: {
+    zIndex: 10,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -33,32 +36,70 @@ const MobileMenu = ({ isOpen }) => {
 
   useEffect(() => {
     if (isOpen) {
-      controls.start('to');
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
     } else {
-      controls.start('from');
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
     }
   }, [isOpen, controls]);
 
   return (
-    <motion.nav
-      // TODO: these styles are set as an example, please contact the design department to apply the desired design
-      className="absolute right-8 top-20 left-8 z-[-1] hidden rounded-md bg-white px-8 pt-4 pb-7 lg:block md:right-4 md:left-4"
-      initial="from"
-      animate={controls}
-      variants={variants}
-    >
-      <ul className="flex flex-col text-center">
-        {MENUS.header.map(({ text, to }, index) => (
-          <li key={index}>
-            {/* TODO: Add needed props so the link would have styles */}
-            <Link className="block py-4" to={to}>
-              {text}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      {/* TODO: Add a button if needed */}
-    </motion.nav>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16 sm:pt-[60px]"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={variants}
+        >
+          <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
+            <ul className="my-auto flex w-full flex-col">
+              {MENUS.header.map(({ to, title, target }, index) => (
+                <li key={index}>
+                  <Link
+                    className="block w-full py-6 text-center text-2xl"
+                    theme="white"
+                    size="xl"
+                    to={to}
+                    target={target}
+                  >
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="sticky bottom-0 bg-black">
+            <div className="container">
+              <div className="flex w-full justify-between space-x-4 py-7">
+                <Button
+                  className="w-full xs:text-xs"
+                  to={GITHUB.repoUrl}
+                  target="_blank"
+                  size="sm"
+                  theme="gray-outline"
+                >
+                  <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
+                  <span>Star us</span>
+                </Button>
+
+                <Button
+                  className="w-full xs:text-xs"
+                  size="sm"
+                  theme="white-filled"
+                  {...LINKS.getStarted}
+                >
+                  {RIGHT_BUTTON_TEXT}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

@@ -1,55 +1,57 @@
+import LINKS from 'constants/links.js';
+
 const MENUS = {
   header: [
     {
       title: 'Documentation',
-      to: '/',
+      ...LINKS.documentation,
     },
     {
       title: 'Blog',
-      to: '/blog/',
+      ...LINKS.blog,
     },
     {
       title: 'FAQ',
-      to: '/',
+      ...LINKS.faq,
     },
   ],
   footer: [
     [
-      { text: 'Blog', to: '/blog/' },
-      { text: 'FAQ', to: '/' },
+      { text: 'Blog', ...LINKS.blog },
+      { text: 'FAQ', ...LINKS.faq },
     ],
     [
-      { text: 'Documentation', to: '/' },
-      { text: 'Providers', to: '/' },
-      { text: 'SDK', to: '/' },
+      { text: 'Documentation', ...LINKS.documentation },
+      { text: 'Providers', ...LINKS.providers },
+      { text: 'SDK', ...LINKS.sdk },
     ],
     [
-      { text: 'Contact Us', to: '/' },
-      { text: 'Discord', to: '/' },
+      { text: 'Contact Us', ...LINKS.contactUs },
+      { text: 'Discord', ...LINKS.discord },
     ],
     [
-      { text: 'Twitter', to: '/' },
-      { text: 'Github', to: '/' },
+      { text: 'Twitter', ...LINKS.twitter },
+      { text: 'Github', ...LINKS.github },
     ],
   ],
   footerSm: [
     [
-      { text: 'Documentation', to: '/' },
-      { text: 'Providers', to: '/' },
-      { text: 'SDK', to: '/' },
+      { text: 'Documentation', ...LINKS.documentation },
+      { text: 'Providers', ...LINKS.providers },
+      { text: 'SDK', ...LINKS.providers },
     ],
     [
-      { text: 'Blog', to: '/blog/' },
-      { text: 'FAQ', to: '/' },
+      { text: 'Blog', ...LINKS.blog },
+      { text: 'FAQ', ...LINKS.faq },
     ],
 
     [
-      { text: 'Contact Us', to: '/' },
-      { text: 'Discord', to: '/' },
+      { text: 'Contact Us', ...LINKS.contactUs },
+      { text: 'Discord', ...LINKS.discord },
     ],
     [
-      { text: 'Twitter', to: '/' },
-      { text: 'Github', to: '/' },
+      { text: 'Twitter', ...LINKS.twitter },
+      { text: 'Github', ...LINKS.github },
     ],
   ],
   mobile: [],

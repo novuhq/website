@@ -1,6 +1,6 @@
 code {
   > span {
-    @apply items-center font-book;
+    @apply items-center font-light;
   }
 
   .token {
