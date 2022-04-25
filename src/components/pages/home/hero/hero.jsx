@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
-import { StaticImage } from 'gatsby-plugin-image';
 import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import useLottie from 'hooks/use-lottie';
 
+import lottieData from './data/hero-lottie-data.json';
 import bg from './images/bg.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
@@ -16,6 +18,16 @@ const INPUT_TEXT = 'npx notu init';
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
+  const [animationWrapperRef, isAnimationWrapperInView] = useInView({
+    threshold: 0.6,
+  });
+  const { animationRef, animation, isAnimationReady } = useLottie({
+    lottieOptions: {
+      animationData: lottieData,
+      loop: true,
+    },
+    isInView: isAnimationWrapperInView,
+  });
 
   const handleButtonClick = () => {
     if (!isCopied) {
@@ -30,6 +42,15 @@ const Hero = () => {
       }, 1500);
     }
   }, [isCopied]);
+
+  useEffect(() => {
+    if (!animation) return;
+    if (isAnimationWrapperInView) {
+      animation.play();
+    } else {
+      animation.pause();
+    }
+  }, [animation, isAnimationWrapperInView]);
 
   return (
     <section className="hero safe-paddings relative overflow-hidden bg-black pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-9">
@@ -64,13 +85,14 @@ const Hero = () => {
           </Button>
         </div>
 
-        <div className="mt-18 lg:mt-16 md:mt-14 sm:mt-12">
-          <StaticImage
-            className="max-w-[1096px]"
-            src="./images/hero-illustration.png"
-            alt=""
-            loading="eager"
-          />
+        <div
+          className={clsx(
+            'mt-18 opacity-0 transition-opacity duration-200 lg:mt-16 md:mt-14 sm:mt-12',
+            isAnimationReady && 'opacity-100'
+          )}
+          ref={animationWrapperRef}
+        >
+          <div className="max-w-[1300px]" ref={animationRef} />
         </div>
       </div>
 
