@@ -49,12 +49,12 @@ const MobileMenu = ({ isOpen }) => {
   }, [isOpen, controls]);
   return (
     <motion.nav
-      className="fixed top-20 left-0 right-0 bottom-0 z-10 flex h-[90vh] w-full flex-col justify-around rounded bg-black pb-20"
+      className="fixed top-16 left-0 right-0 bottom-16 flex h-[screen-72px] w-full bg-black"
       initial="from"
       animate={controls}
       variants={variants}
     >
-      <ul className="flex flex-col overflow-scroll text-center">
+      <ul className="flex flex-grow flex-col justify-center overflow-x-hidden overflow-y-scroll">
         {MENUS.header.map(({ to, title }, index) => (
           <li key={index} className="">
             <Link
@@ -69,7 +69,7 @@ const MobileMenu = ({ isOpen }) => {
         ))}
       </ul>
 
-      <div className="fixed bottom-0 flex w-full justify-between bg-black px-4 pt-4 pb-7">
+      <div className="fixed bottom-0 flex w-full justify-between bg-black px-4 py-4">
         <Button
           className="mr-4 flex-auto"
           to={GITHUB.repoUrl}
