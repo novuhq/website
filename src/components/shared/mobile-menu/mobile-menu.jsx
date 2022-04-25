@@ -5,11 +5,11 @@ import React, { useEffect } from 'react';
 import Button from 'components/shared/button/button';
 import Link from 'components/shared/link';
 import GITHUB from 'constants/github';
+import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import GitHubLogo from 'images/logo-github.inline.svg';
 
 const RIGHT_BUTTON_TEXT = 'Get Started';
-const RIGHT_BUTTON_URL = '/';
 
 const ANIMATION_DURATION = 0.2;
 
@@ -56,13 +56,14 @@ const MobileMenu = ({ isOpen }) => {
         >
           <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
             <ul className="my-auto flex w-full flex-col">
-              {MENUS.header.map(({ to, title }, index) => (
+              {MENUS.header.map(({ to, title, target }, index) => (
                 <li key={index}>
                   <Link
                     className="block w-full py-6 text-center text-2xl"
                     theme="white"
                     size="xl"
                     to={to}
+                    target={target}
                   >
                     {title}
                   </Link>
@@ -87,9 +88,9 @@ const MobileMenu = ({ isOpen }) => {
 
                 <Button
                   className="w-full xs:text-xs"
-                  to={RIGHT_BUTTON_URL}
                   size="sm"
                   theme="white-filled"
+                  {...LINKS.getStarted}
                 >
                   {RIGHT_BUTTON_TEXT}
                 </Button>

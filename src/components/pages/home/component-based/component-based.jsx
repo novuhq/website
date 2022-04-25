@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
-import LINKS from 'constants/links.js';
+import LINKS from 'constants/links';
 import useLottie from 'hooks/use-lottie';
 
 import lottieData from './data/component-based-lottie-data.json';
@@ -12,7 +12,6 @@ const TITLE = 'Component based';
 const DESCRIPTION =
   'Notu API first approach, means that you can  use just what you need, when you need it.';
 const BUTTON_TEXT = 'Get Started';
-const BUTTON_URL = LINKS.getStarted;
 
 const ComponentBased = () => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
@@ -42,13 +41,7 @@ const ComponentBased = () => {
           <p className="mt-5 text-lg font-book leading-snug text-gray-8 xl:max-w-[464px] lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
             {DESCRIPTION}
           </p>
-          <Button
-            className="mt-7 md:mt-6"
-            to={BUTTON_URL}
-            size="sm"
-            theme="primary"
-            target="_blank"
-          >
+          <Button className="mt-7 md:mt-6" size="sm" theme="primary" {...LINKS.getStarted}>
             {BUTTON_TEXT}
           </Button>
         </div>

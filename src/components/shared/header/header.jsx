@@ -6,7 +6,7 @@ import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import GITHUB from 'constants/github';
-import LINKS from 'constants/links.js';
+import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import useGithubRepoStars from 'hooks/use-github-repo-stars';
 import GitHubLogo from 'images/logo-github.inline.svg';
@@ -18,7 +18,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
   return (
     <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black">
       <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
-        <Link to={LINKS.novu}>
+        <Link {...LINKS.home}>
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Notu</span>
         </Link>
@@ -26,9 +26,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
         <div className="flex items-center space-x-20 lg:space-x-14">
           <nav>
             <ul className="flex space-x-8 md:hidden">
-              {MENUS.header.map(({ to, title }, index) => (
+              {MENUS.header.map(({ to, title, target }, index) => (
                 <li key={index}>
-                  <Link to={to} theme="white" size="sm" target="_blank">
+                  <Link to={to} theme="white" size="sm" target={target}>
                     {title}
                   </Link>
                 </li>
@@ -39,10 +39,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
           <div className="flex space-x-5 md:hidden">
             <Button
               className="pl-3"
-              to={GITHUB.repoUrl}
-              target="_blank"
               size="xs"
               theme="gray-outline"
+              to={GITHUB.repoUrl}
+              target="_blank"
             >
               <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
               <span>Star us</span>
@@ -56,7 +56,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 {githubStars}
               </span>
             </Button>
-            <Button to={LINKS.getStarted} size="xs" theme="white-filled" target="_blank">
+            <Button size="xs" theme="white-filled" {...LINKS.getStarted}>
               Get Started
             </Button>
           </div>

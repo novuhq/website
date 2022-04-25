@@ -2,7 +2,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
-import LINKS from 'constants/links.js';
+import LINKS from 'constants/links';
 
 import providers from './images/providers.svg';
 import template from './images/template.svg';
@@ -10,7 +10,7 @@ import trigger from './images/trigger.svg';
 
 const TITLE = 'How it works?';
 const LINK_NAME = 'Read quick start guide';
-const LINK_URL = LINKS.quickStart;
+
 const CARDS = [
   {
     title: 'Create template',
@@ -47,10 +47,9 @@ const HowItWorks = () => (
       </Heading>
       <Link
         className="mt-7 lg:mt-6 sm:mt-5 sm:text-xs"
-        to={LINK_URL}
         theme="primary-underline"
         size="sm"
-        target="_blank"
+        {...LINKS.quickStart}
       >
         {LINK_NAME}
       </Link>

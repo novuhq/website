@@ -5,7 +5,7 @@ import React from 'react';
 import Heading from 'components/shared/heading/heading';
 import Link from 'components/shared/link/link';
 import GITHUB from 'constants/github';
-import LINKS from 'constants/links.js';
+import LINKS from 'constants/links';
 import useGithubRepoStars from 'hooks/use-github-repo-stars';
 
 import discord from './images/discord.svg';
@@ -19,16 +19,16 @@ const SOCIAL_TILE = 'Join the community:';
 const SOCIAL_ITEMS = [
   {
     icon: <img src={github} alt="" loading="lazy" width={46} height={45} />,
-    url: LINKS.github,
     countFollowers: true,
+    ...LINKS.github,
   },
   {
     icon: <img src={discord} alt="" loading="lazy" width={46} height={34} />,
-    url: LINKS.discord,
+    ...LINKS.discord,
   },
   {
     icon: <img src={twitter} alt="" loading="lazy" width={40} height={32} />,
-    url: LINKS.twitter,
+    ...LINKS.twitter,
   },
 ];
 
@@ -58,15 +58,15 @@ const Community = () => {
           <div className="mt-10 lg:mt-7">
             <h4 className="text-white">{SOCIAL_TILE}</h4>
             <div className="mt-5 flex space-x-6 md:justify-center sm:space-x-8 xs:justify-between xs:space-x-0">
-              {SOCIAL_ITEMS.map(({ icon, url, countFollowers }, index) => (
+              {SOCIAL_ITEMS.map(({ icon, to, target, countFollowers }, index) => (
                 <Link
                   className={clsx(
                     'group relative flex h-[88px] w-[88px] items-center justify-center rounded-2xl',
                     socialCardGradient
                   )}
-                  to={url}
+                  to={to}
                   key={index}
-                  target="_blank"
+                  target={target}
                 >
                   <div className="relative z-10">{icon}</div>
                   {countFollowers && (

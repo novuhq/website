@@ -2,7 +2,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
-import LINKS from 'constants/links.js';
+import LINKS from 'constants/links';
 
 import discord from './images/discord.svg';
 import mailgun from './images/mailgun.svg';
@@ -13,7 +13,7 @@ import twilio from './images/twilio.svg';
 
 const TITLE = 'Simple to use outgoing communication layer';
 const LINK_NAME = 'Show all services';
-const LINK_URL = LINKS.providers;
+
 const CARDS = [
   {
     icon: <img src={sendgrid} alt="" loading="lazy" width={30} height={30} />,
@@ -62,9 +62,9 @@ const SimpleUse = () => (
       </Heading>
       <Link
         className="mt-7 md:mt-8 sm:mt-5 sm:text-xs"
-        to={LINK_URL}
         theme="primary-underline"
         size="sm"
+        {...LINKS.providers}
       >
         {LINK_NAME}
       </Link>

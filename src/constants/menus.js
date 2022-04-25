@@ -4,56 +4,54 @@ const MENUS = {
   header: [
     {
       title: 'Documentation',
-      to: LINKS.documentation,
-      target: '_blank',
+      ...LINKS.documentation,
     },
     {
       title: 'Blog',
-      to: LINKS.blog,
+      ...LINKS.blog,
     },
     {
       title: 'FAQ',
-      to: LINKS.FAQ,
-      target: '_blank',
+      ...LINKS.faq,
     },
   ],
   footer: [
     [
-      { text: 'Blog', to: LINKS.blog },
-      { text: 'FAQ', to: LINKS.FAQ, target: '_blank' },
+      { text: 'Blog', ...LINKS.blog },
+      { text: 'FAQ', ...LINKS.faq },
     ],
     [
-      { text: 'Documentation', to: LINKS.documentation },
-      { text: 'Providers', to: LINKS.providers },
-      { text: 'SDK', to: LINKS.SDK },
+      { text: 'Documentation', ...LINKS.documentation },
+      { text: 'Providers', ...LINKS.providers },
+      { text: 'SDK', ...LINKS.sdk },
     ],
     [
-      { text: 'Contact Us', to: LINKS.contactUs },
-      { text: 'Discord', to: LINKS.discord, target: '_blank' },
+      { text: 'Contact Us', ...LINKS.contactUs },
+      { text: 'Discord', ...LINKS.discord },
     ],
     [
-      { text: 'Twitter', to: LINKS.twitter, target: '_blank' },
-      { text: 'Github', to: LINKS.github, target: '_blank' },
+      { text: 'Twitter', ...LINKS.twitter },
+      { text: 'Github', ...LINKS.github },
     ],
   ],
   footerSm: [
     [
-      { text: 'Documentation', to: LINKS.documentation, target: '_blank' },
-      { text: 'Providers', to: LINKS.providers },
-      { text: 'SDK', to: LINKS.providers, target: '_blank' },
+      { text: 'Documentation', ...LINKS.documentation },
+      { text: 'Providers', ...LINKS.providers },
+      { text: 'SDK', ...LINKS.providers },
     ],
     [
-      { text: 'Blog', to: LINKS.blog },
-      { text: 'FAQ', to: LINKS.FAQ, target: '_blank' },
+      { text: 'Blog', ...LINKS.blog },
+      { text: 'FAQ', ...LINKS.faq },
     ],
 
     [
-      { text: 'Contact Us', to: LINKS.contactUs },
-      { text: 'Discord', to: LINKS.discord, target: '_blank' },
+      { text: 'Contact Us', ...LINKS.contactUs },
+      { text: 'Discord', ...LINKS.discord },
     ],
     [
-      { text: 'Twitter', to: LINKS.twitter, target: '_blank' },
-      { text: 'Github', to: LINKS.github, target: '_blank' },
+      { text: 'Twitter', ...LINKS.twitter },
+      { text: 'Github', ...LINKS.github },
     ],
   ],
   mobile: [],

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
-import LINKS from 'constants/links.js';
+import LINKS from 'constants/links';
 
 import bg from './images/bg.svg';
 
@@ -13,12 +13,10 @@ const TITLE = 'Ready to send your first notification?';
 const LEFT_TITLE = 'Self-Hosted';
 const LEFT_DESCRIPTION = 'Run locally with docker-compose';
 const LEFT_BUTTON_TEXT = 'Read Docs';
-const LEFT_BUTTON_URL = LINKS.documentation;
 
 const RIGHT_TITLE = 'Cloud';
 const RIGHT_DESCRIPTION = 'Use our free serverless solution';
 const RIGHT_BUTTON_TEXT = 'Get Started';
-const RIGHT_BUTTON_URL = LINKS.github;
 
 const GetStarted = () => (
   <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-28 sm:py-18">
@@ -42,10 +40,9 @@ const GetStarted = () => (
           </p>
           <Button
             className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
-            to={LEFT_BUTTON_URL}
             size="sm"
             theme="gray-outline"
-            target="_blank"
+            {...LINKS.documentation}
           >
             {LEFT_BUTTON_TEXT}
           </Button>
@@ -65,10 +62,9 @@ const GetStarted = () => (
           </p>
           <Button
             className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
-            to={RIGHT_BUTTON_URL}
             size="sm"
             theme="black-filled"
-            target="_blank"
+            {...LINKS.github}
           >
             {RIGHT_BUTTON_TEXT}
           </Button>
