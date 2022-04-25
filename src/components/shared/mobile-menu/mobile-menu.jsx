@@ -24,7 +24,7 @@ const variants = {
     },
   },
   to: {
-    zIndex: 999,
+    zIndex: 40,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -49,7 +49,7 @@ const MobileMenu = ({ isOpen }) => {
   }, [isOpen, controls]);
   return (
     <motion.nav
-      className="fixed inset-0 mt-[60px] mb-[72px] flex w-full bg-black"
+      className="fixed inset-0 mt-[60px] flex h-[screen-72px] w-full bg-black pb-[72px]"
       initial="from"
       animate={controls}
       variants={variants}
@@ -70,7 +70,7 @@ const MobileMenu = ({ isOpen }) => {
           ))}
         </ul>
       </div>
-      <div className="fixed bottom-0 flex w-full justify-between bg-black px-4 py-4">
+      <div className="fixed bottom-0 flex w-full justify-between bg-black px-4 pb-7">
         <Button
           className="mr-4 flex-auto"
           to={GITHUB.repoUrl}
