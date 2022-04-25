@@ -49,26 +49,27 @@ const MobileMenu = ({ isOpen }) => {
   }, [isOpen, controls]);
   return (
     <motion.nav
-      className="fixed top-16 left-0 right-0 bottom-16 flex h-[screen-72px] w-full bg-black"
+      className="fixed inset-0 mt-[60px] mb-[72px] flex w-full bg-black"
       initial="from"
       animate={controls}
       variants={variants}
     >
-      <ul className="flex flex-grow flex-col justify-center overflow-x-hidden overflow-y-scroll">
-        {MENUS.header.map(({ to, title }, index) => (
-          <li key={index} className="">
-            <Link
-              className="block w-full py-6 text-center text-2xl"
-              theme="white"
-              size="xl"
-              to={to}
-            >
-              {title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
+      <div className="my-auto flex h-full w-full overflow-x-hidden overflow-y-scroll">
+        <ul className="my-auto flex flex-grow flex-col overflow-x-hidden overflow-y-scroll">
+          {MENUS.header.map(({ to, title }, index) => (
+            <li key={index} className="">
+              <Link
+                className="block w-full py-6 text-center text-2xl"
+                theme="white"
+                size="xl"
+                to={to}
+              >
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="fixed bottom-0 flex w-full justify-between bg-black px-4 py-4">
         <Button
           className="mr-4 flex-auto"
