@@ -2,9 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Button from 'components/shared/button';
 import GitHubLogo from 'images/logo-github.inline.svg';
-
-import Button from '../button';
 
 const ButtonGithubStars = ({ className }) => {
   const {
