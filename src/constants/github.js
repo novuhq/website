@@ -1,8 +1,10 @@
+import LINKS from 'constants/links.js';
+
 const GITHUB = {
   userName: 'novuhq',
   repoName: 'novu',
   apiUrl: 'https://api.github.com/repos',
-  repoUrl: 'https://github.com/novuhq/novu',
+  repoUrl: LINKS.github.to,
 };
 
 export default GITHUB;
