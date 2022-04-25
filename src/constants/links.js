@@ -6,11 +6,11 @@ export default {
   blog: {
     to: '/blog',
   },
-
-  // Other pages
   providers: {
     to: '/communication-providers',
   },
+
+  // Other pages
   documentation: {
     to: 'https://docs.novu.co/docs/overview/introduction',
     target: '_blank',
