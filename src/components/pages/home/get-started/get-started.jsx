@@ -64,7 +64,7 @@ const GetStarted = () => (
             className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
             size="sm"
             theme="black-filled"
-            {...LINKS.github}
+            {...LINKS.getStarted}
           >
             {RIGHT_BUTTON_TEXT}
           </Button>

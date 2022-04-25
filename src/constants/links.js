@@ -27,6 +27,10 @@ export default {
     to: 'https://www.novu.co/sections/content-3',
     target: '_blank',
   },
+  getStarted: {
+    to: 'https://github.com/novuhq/novu',
+    target: '_blank',
+  },
   quickStart: {
     to: 'https://docs.novu.co/docs/overview/quick-start',
     target: '_blank',
