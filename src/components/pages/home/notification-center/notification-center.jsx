@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
+import ImagePlaceholder from 'components/shared/image-placeholder';
 import LINKS from 'constants/links';
 import useLottie from 'hooks/use-lottie';
 
@@ -41,12 +42,13 @@ const NotificationCenter = () => {
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div
           className={clsx(
-            'col-start-1 col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8',
+            'relative col-start-1 col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8',
             isAnimationReady && 'opacity-100'
           )}
           ref={animationWrapperRef}
         >
-          <div className="w-full md:mx-auto md:max-w-[712px]" ref={animationRef} />
+          <ImagePlaceholder width={842} height={560} />
+          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
         </div>
 
         <div className="col-start-9 col-end-13 xl:col-start-8 md:order-1 md:text-center">

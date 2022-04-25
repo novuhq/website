@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
+import ImagePlaceholder from 'components/shared/image-placeholder';
 import LINKS from 'constants/links';
 import useLottie from 'hooks/use-lottie';
 
@@ -47,10 +48,11 @@ const ComponentBased = () => {
         </div>
 
         <div
-          className="col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full sm:mt-8"
+          className="relative col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full sm:mt-8"
           ref={animationWrapperRef}
         >
-          <div className="w-full md:mx-auto md:max-w-[712px]" ref={animationRef} />
+          <ImagePlaceholder width={842} height={560} />
+          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
         </div>
       </div>
     </section>
