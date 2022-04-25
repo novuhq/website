@@ -17,20 +17,23 @@ const ITEMS = [
     code: `import { Novu } from '@novu/node';
 
 const novu = new Novu(process.env.NOVU_API_KEY);
-    
-await novu.trigger('<EVENT_NAME>', {
-  $user_id: "<USER IDENTIFIER>",
-  firstName: "John",
-  lastName: "Doe",
-  organization: {
-    logo: 'https://happycorp.com/logo.png'
+
+await novu.trigger('<TRIGGER_NAME>',
+  {
+    to: {
+      subscriberId: '<UUNIQUE_IDENTIFIER>',
+      email: 'john@doemail.com',
+      firstName: 'John',
+      lastName: 'Doe',
+    },
+    payload: {
+      name: "Hello World",
+      organization: {
+        logo: 'https://happycorp.com/logo.png',
+      },
+    },
   }
-});
-
-
-
-
-
+);
   `,
   },
   {
