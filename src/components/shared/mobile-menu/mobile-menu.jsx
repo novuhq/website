@@ -24,7 +24,7 @@ const variants = {
     },
   },
   to: {
-    zIndex: 40,
+    zIndex: 39,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -49,12 +49,12 @@ const MobileMenu = ({ isOpen }) => {
   }, [isOpen, controls]);
   return (
     <motion.nav
-      className="fixed inset-0 mt-[60px] flex h-[screen-72px] w-full bg-black pb-[72px]"
+      className="fixed inset-0 flex h-full w-full bg-black pt-[60px] "
       initial="from"
       animate={controls}
       variants={variants}
     >
-      <div className="my-auto flex h-full w-full overflow-x-hidden overflow-y-scroll">
+      <div className="my-auto flex w-full overflow-x-hidden overflow-y-scroll pb-[72px]">
         <ul className="my-auto flex flex-grow flex-col overflow-x-hidden overflow-y-scroll">
           {MENUS.header.map(({ to, title }, index) => (
             <li key={index} className="">
