@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import clsx from 'clsx';
 import { graphql } from 'gatsby';
 import React from 'react';
 
@@ -49,7 +50,12 @@ const BlogPage = ({
   return (
     <Layout seo={seo}>
       <Hero {...hero} />
-      <div className="bg-gray-2">
+
+      <div
+        className={clsx('bg-gray-2', {
+          'pb-20': articlesList.items.length !== 7,
+        })}
+      >
         <Categories
           items={categories}
           activeCategoryId={pageContext.categoryId || 'none'}
@@ -67,8 +73,8 @@ const BlogPage = ({
             />
           </>
         )}
-        <Subscribe className="mt-20" />
       </div>
+      <Subscribe />
       <Separator />
     </Layout>
   );
