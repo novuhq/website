@@ -5,8 +5,9 @@ require('dotenv').config();
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
-    siteTitle: 'Pixel Point Gatsby Tailwind Starter',
-    siteDescription: 'Site Description',
+    siteTitle: 'Novu - Notification management simplified.',
+    siteDescription:
+      'The ultimate library for managing multi-channel transactional notifications with a single API.',
     siteImage: '/images/social-preview.jpg',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
