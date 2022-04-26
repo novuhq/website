@@ -1,4 +1,4 @@
-# Pixel Point Gatsby Tailwind Starter
+# Novu website
 
 ## Table of Contents
 
@@ -16,10 +16,10 @@
 
 ## Getting Started
 
-1. Clone this repository or hit "Use this template" button
+1. Clone this repository
 
 ```bash
-git clone git@github.com:pixel-point/gatsby-tailwind-starter.git
+git clone git@github.com:novuhq/website.git
 ```
 
 2. Install dependencies
