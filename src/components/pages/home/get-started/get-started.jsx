@@ -15,7 +15,7 @@ const LEFT_DESCRIPTION = 'Run locally with docker-compose';
 const LEFT_BUTTON_TEXT = 'Read Docs';
 
 const RIGHT_TITLE = 'Cloud';
-const RIGHT_DESCRIPTION = 'Use our free serverless solution';
+const RIGHT_DESCRIPTION = 'Use our free managed service';
 const RIGHT_BUTTON_TEXT = 'Get Started';
 
 const GetStarted = () => (
