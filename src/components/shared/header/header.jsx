@@ -17,7 +17,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
         <span className="sr-only">Novu</span>
       </Link>
 
-      <div className="flex items-center space-x-20 lg:space-x-14">
+      <div className="flex items-center space-x-16 lg:space-x-14">
         <nav>
           <ul className="flex space-x-8 md:hidden">
             {MENUS.header.map(({ to, title, target }, index) => (
