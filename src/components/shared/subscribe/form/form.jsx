@@ -58,16 +58,14 @@ const Form = () => {
       const loadingAnimationStartedTime = Date.now();
 
       try {
-        const url = `${process.env.GATSBY_MAILCHIMP_API_URL}/lists/2f2adc30e0/members`;
-        const response = await fetch(url, {
+        const response = await fetch(`${process.env.GATSBY_STRAPI_API_URL}/subscribe`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.GATSBY_MAILCHIMP_API_KEY}`,
           },
-          body: JSON.stringify({
+          body: {
             email_address: value,
-          }),
+          },
         });
 
         if (response.ok) {
