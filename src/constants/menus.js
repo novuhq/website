@@ -8,37 +8,23 @@ const MENUS = {
     },
   ],
   footer: [
-    [],
     [
       { text: 'Documentation', ...LINKS.documentation },
       { text: 'Providers', ...LINKS.providers },
-    ],
-    [
       { text: 'Contact Us', ...LINKS.contactUs },
-      { text: 'Discord', ...LINKS.discord },
     ],
     [
+      { text: 'Discord', ...LINKS.discord },
       { text: 'Twitter', ...LINKS.twitter },
       { text: 'Github', ...LINKS.github },
     ],
   ],
-  footerSm: [
-    [
-      { text: 'Documentation', ...LINKS.documentation },
-      { text: 'Providers', ...LINKS.providers },
-    ],
-    [{ text: 'Blog', ...LINKS.blog }],
-
-    [
-      { text: 'Contact Us', ...LINKS.contactUs },
-      { text: 'Discord', ...LINKS.discord },
-    ],
-    [
-      { text: 'Twitter', ...LINKS.twitter },
-      { text: 'Github', ...LINKS.github },
-    ],
+  mobile: [
+    {
+      title: 'Documentation',
+      ...LINKS.documentation,
+    },
   ],
-  mobile: [],
 };
 
 export default MENUS;
