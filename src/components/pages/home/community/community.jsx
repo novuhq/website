@@ -13,7 +13,7 @@ import github from './images/github.svg';
 import twitter from './images/twitter.svg';
 
 const TITLE = 'Built by the community';
-const DESCRIPTION = `Open-source is in the heart of Notu. We keep all the source code and work publicly available. Join our community driven project with <strong class="text-white">over 3,000+ developers</strong> from around the world who contribute code and help building the modern notification infrastructure.`;
+const DESCRIPTION = `Open-source is in the heart of Novu. We keep all the source code and work publicly available. Join our community driven project with <strong class="text-white">over 3,000+ developers</strong> from around the world who contribute code and help building the modern notification infrastructure.`;
 
 const SOCIAL_TILE = 'Join the community:';
 const SOCIAL_ITEMS = [

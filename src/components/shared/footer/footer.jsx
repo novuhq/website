@@ -13,7 +13,7 @@ const Footer = () => (
     <div className="container flex justify-between py-20 lg:flex-col lg:py-12 sm:block sm:py-10">
       <div className="flex flex-col items-start justify-between lg:flex-row lg:items-center">
         <Link {...LINKS.home}>
-          <span className="sr-only">Notu</span>
+          <span className="sr-only">Novu</span>
           <Logo className="h-8" aria-hidden />
         </Link>
         <p className="text-sm leading-none text-gray-8 lg:hidden">

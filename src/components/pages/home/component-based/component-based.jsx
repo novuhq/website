@@ -11,7 +11,7 @@ import lottieData from './data/component-based-lottie-data.json';
 
 const TITLE = 'Component based';
 const DESCRIPTION =
-  'Notu API first approach, means that you can  use just what you need, when you need it.';
+  'Novu API first approach, means that you can  use just what you need, when you need it.';
 const BUTTON_TEXT = 'Get Started';
 
 const ComponentBased = () => {
