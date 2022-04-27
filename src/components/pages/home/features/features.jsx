@@ -23,7 +23,7 @@ const ITEMS = [
     lottieData: preferences,
     title: 'User preferences',
     description:
-      'Using Notu API to handle all user preferences and subscriptions across channels. UI components included.',
+      'Using Novu API to handle all user preferences and subscriptions across channels. UI components included.',
   },
   {
     lottieData: priorityManagement,

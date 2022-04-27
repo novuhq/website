@@ -14,7 +14,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
     <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
       <Link {...LINKS.home}>
         <Logo className="h-8 sm:h-7" aria-hidden />
-        <span className="sr-only">Notu</span>
+        <span className="sr-only">Novu</span>
       </Link>
 
       <div className="flex items-center space-x-20 lg:space-x-14">

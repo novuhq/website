@@ -15,7 +15,7 @@ const TITLE = 'The open-source notification infrastructure for developers';
 const DESCRIPTION =
   'Simple components and APIs for managing all communication channels in one place: Email, SMS, Direct, and Push';
 
-const INPUT_TEXT = 'npx notu init';
+const INPUT_TEXT = 'npx novu init';
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
