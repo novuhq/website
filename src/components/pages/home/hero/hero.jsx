@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import ImagePlaceholder from 'components/shared/image-placeholder';
 import useLottie from 'hooks/use-lottie';
 
 import lottieData from './data/hero-lottie-data.json';
@@ -88,13 +87,12 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12',
+            'relative mt-18 opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12',
             isAnimationReady && 'opacity-100'
           )}
           ref={animationWrapperRef}
         >
-          <ImagePlaceholder width={1300} height={321} />
-          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
+          <div ref={animationRef} />
         </div>
       </div>
 
