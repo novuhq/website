@@ -16,17 +16,17 @@ const HomePage = () => (
   <Layout>
     <Hero />
     <HowItWorks />
-    <Separator />
+    <Separator backgroundColor="black" />
     <Features />
     <NotificationCenter />
-    <Separator />
+    <Separator backgroundColor="gray" />
     <Community />
     <ComponentBased />
     <SimpleUse />
-    <Separator />
+    <Separator backgroundColor="gray" />
     <Languages />
     <GetStarted />
-    <Separator />
+    <Separator backgroundColor="black" />
   </Layout>
 );
 
