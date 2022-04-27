@@ -7,12 +7,17 @@ export default {
     to: '/blog',
   },
   providers: {
-    to: '/communication-providers',
+    to: 'https://github.com/novuhq/novu/tree/main/providers',
+    target: '_blank',
   },
 
   // Other pages
   documentation: {
     to: 'https://docs.novu.co/docs/overview/introduction',
+    target: '_blank',
+  },
+  docker: {
+    to: 'https://docs.novu.co/docs/overview/docker-deploy',
     target: '_blank',
   },
   faq: {
@@ -28,7 +33,7 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://github.com/novuhq/novu',
+    to: 'https://web.novu.co',
     target: '_blank',
   },
   quickStart: {
