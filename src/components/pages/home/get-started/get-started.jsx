@@ -19,7 +19,7 @@ const RIGHT_DESCRIPTION = 'Use our free managed service';
 const RIGHT_BUTTON_TEXT = 'Get Started';
 
 const GetStarted = () => (
-  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-28 sm:py-18">
+  <section className="get-started safe-paddings relative overflow-hidden py-40 lg:py-32 md:py-28 sm:py-18">
     <div className="container relative z-10">
       <Heading size="md" tag="h2" className="text-center leading-tight md:text-3xl" theme="white">
         {TITLE}

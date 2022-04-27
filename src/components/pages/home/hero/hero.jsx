@@ -9,6 +9,7 @@ import ImagePlaceholder from 'components/shared/image-placeholder';
 import useLottie from 'hooks/use-lottie';
 
 import lottieData from './data/hero-lottie-data.json';
+import BashIcon from './images/bash-icon.inline.svg';
 import bg from './images/bg.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
@@ -55,7 +56,7 @@ const Hero = () => {
   }, [animation, isAnimationWrapperInView]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden bg-black pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-9">
+    <section className="hero safe-paddings relative overflow-hidden pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-12">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[26px]"
@@ -70,9 +71,12 @@ const Hero = () => {
         </p>
 
         <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
-          <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
-            {INPUT_TEXT}
-          </span>
+          <div className="flex items-center">
+            <BashIcon className="mr-5 h-4 sm:mr-2.5" aria-hidden />
+            <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
+              {INPUT_TEXT}
+            </span>
+          </div>
 
           <Button className="relative" size="xs" theme="white-filled" onClick={handleButtonClick}>
             <span className={clsx({ 'opacity-0': isCopied })}>Copy</span>
@@ -89,7 +93,7 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12',
+            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12 sm:hidden',
             isAnimationReady && 'opacity-100'
           )}
           ref={animationWrapperRef}
@@ -100,7 +104,7 @@ const Hero = () => {
       </div>
 
       <img
-        className="absolute -top-12 left-1/2 min-w-[1920px] -translate-x-1/2"
+        className="absolute top-0 left-1/2 h-[1000px] w-auto -translate-x-1/2 lg:h-[883px] md:h-[682px] sm:h-[530px]"
         src={bg}
         loading="eager"
         alt=""
