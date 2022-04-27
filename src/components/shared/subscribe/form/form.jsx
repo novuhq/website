@@ -44,7 +44,7 @@ const Form = () => {
 
   const handleInputChange = ({ currentTarget: { value } }) => setValue(value.trim());
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (!value) {
@@ -56,38 +56,39 @@ const Form = () => {
       setFormState(STATES.LOADING);
 
       const loadingAnimationStartedTime = Date.now();
-      // TODO: is test api, replace with real api
-      fetch('https://reqbin.com/echo/post/json', {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify({ value }),
-      })
-        .then((response) => {
-          if (response.ok) {
-            doNowOrAfterSomeTime(() => {
-              setFormState(STATES.SUCCESS);
-              setValue('Thanks for subscribing!');
-            }, loadingAnimationStartedTime);
-          } else {
-            doNowOrAfterSomeTime(() => {
-              setFormState(STATES.ERROR);
-              setErrorMessage(
-                'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
-              );
-            }, loadingAnimationStartedTime);
-          }
-        })
-        .catch(() => {
+
+      try {
+        const response = await fetch(`${process.env.GATSBY_STRAPI_API_URL}/subscribe`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: {
+            email_address: value,
+          },
+        });
+
+        if (response.ok) {
+          doNowOrAfterSomeTime(() => {
+            setFormState(STATES.SUCCESS);
+            setValue('Thanks for subscribing!');
+          }, loadingAnimationStartedTime);
+        } else {
           doNowOrAfterSomeTime(() => {
             setFormState(STATES.ERROR);
             setErrorMessage(
               'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
             );
           }, loadingAnimationStartedTime);
-        });
+        }
+      } catch (error) {
+        doNowOrAfterSomeTime(() => {
+          setFormState(STATES.ERROR);
+          setErrorMessage(
+            'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
+          );
+        }, loadingAnimationStartedTime);
+      }
     }
   };
 
