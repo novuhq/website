@@ -9,6 +9,7 @@ import ImagePlaceholder from 'components/shared/image-placeholder';
 import useLottie from 'hooks/use-lottie';
 
 import lottieData from './data/hero-lottie-data.json';
+import BashIcon from './images/bash-icon.inline.svg';
 import bg from './images/bg.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
@@ -71,20 +72,8 @@ const Hero = () => {
 
         <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
           <div className="flex items-center">
-            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden>
-              <path d="M1 1L9 8L1 15" stroke="white" strokeWidth="2" />
-              <rect
-                className="animate-pulse"
-                x="12.5"
-                y="14.5"
-                width="9"
-                height="1"
-                fill="white"
-                stroke="white"
-              />
-            </svg>
-
-            <span className="ml-5 whitespace-nowrap font-mono text-lg font-medium !leading-none text-white sm:ml-2.5">
+            <BashIcon className="mr-5 h-4 sm:mr-2.5" aria-hidden />
+            <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
               {INPUT_TEXT}
             </span>
           </div>
