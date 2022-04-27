@@ -42,7 +42,7 @@ const GetStarted = () => (
             className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
             size="sm"
             theme="gray-outline"
-            {...LINKS.documentation}
+            {...LINKS.docker}
           >
             {LEFT_BUTTON_TEXT}
           </Button>
