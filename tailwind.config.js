@@ -34,7 +34,7 @@ module.exports = {
       black: '#000000',
       white: '#ffffff',
       primary: {
-        1: '#00AAFF',
+        1: '#00D5FF',
       },
       secondary: {
         1: '#FF33DE',
