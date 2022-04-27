@@ -24,6 +24,7 @@ const Hero = () => {
   });
   const { animationRef, animation, isAnimationReady } = useLottie({
     lottieOptions: {
+      renderer: 'canvas',
       animationData: lottieData,
       loop: true,
     },
