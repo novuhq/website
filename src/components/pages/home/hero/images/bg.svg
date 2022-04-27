@@ -87,7 +87,7 @@
 <stop offset="1" stop-color="white" stop-opacity="0"/>
 </linearGradient>
 <radialGradient id="paint16_radial_2092_3784" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 341) rotate(90) scale(692 960)">
-<stop offset="0.154624" stop-opacity="0"/>
+<stop offset="0.106936" stop-opacity="0"/>
 <stop offset="0.760116"/>
 </radialGradient>
 </defs>

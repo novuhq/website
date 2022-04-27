@@ -70,9 +70,24 @@ const Hero = () => {
         </p>
 
         <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
-          <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
-            {INPUT_TEXT}
-          </span>
+          <div className="flex items-center">
+            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden>
+              <path d="M1 1L9 8L1 15" stroke="white" strokeWidth="2" />
+              <rect
+                className="animate-pulse"
+                x="12.5"
+                y="14.5"
+                width="9"
+                height="1"
+                fill="white"
+                stroke="white"
+              />
+            </svg>
+
+            <span className="ml-5 whitespace-nowrap font-mono text-lg font-medium !leading-none text-white sm:ml-2.5">
+              {INPUT_TEXT}
+            </span>
+          </div>
 
           <Button className="relative" size="xs" theme="white-filled" onClick={handleButtonClick}>
             <span className={clsx({ 'opacity-0': isCopied })}>Copy</span>
