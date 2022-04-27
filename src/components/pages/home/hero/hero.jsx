@@ -55,7 +55,7 @@ const Hero = () => {
   }, [animation, isAnimationWrapperInView]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-9">
+    <section className="hero safe-paddings relative overflow-hidden pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-12">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[26px]"
@@ -104,7 +104,7 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12',
+            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12 sm:hidden',
             isAnimationReady && 'opacity-100'
           )}
           ref={animationWrapperRef}
@@ -115,7 +115,7 @@ const Hero = () => {
       </div>
 
       <img
-        className="absolute -top-12 left-1/2 min-w-[1920px] -translate-x-1/2"
+        className="absolute top-0 left-1/2 h-[1000px] w-auto -translate-x-1/2 lg:h-[883px] md:h-[682px] sm:h-[530px]"
         src={bg}
         loading="eager"
         alt=""
