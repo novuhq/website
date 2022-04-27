@@ -10,7 +10,7 @@ import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
-  <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black">
+  <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
     <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
       <Link {...LINKS.home}>
         <Logo className="h-8 sm:h-7" aria-hidden />

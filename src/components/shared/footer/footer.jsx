@@ -9,7 +9,7 @@ import Logo from 'images/logo.inline.svg';
 const COPYRIGHT = 'Novu';
 
 const Footer = () => (
-  <footer className="safe-paddings bg-black">
+  <footer className="safe-paddings">
     <div className="container flex justify-between py-20 lg:flex-col lg:py-12 sm:block sm:py-10">
       <div className="flex flex-col items-start justify-between lg:flex-row lg:items-center">
         <Link {...LINKS.home}>
