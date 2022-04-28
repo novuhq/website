@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
@@ -36,13 +35,5 @@ const Subscribe = () => (
     />
   </section>
 );
-
-Subscribe.propTypes = {
-  className: PropTypes.string,
-};
-
-Subscribe.defaultProps = {
-  className: null,
-};
 
 export default Subscribe;
