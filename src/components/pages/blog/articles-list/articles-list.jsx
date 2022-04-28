@@ -1,78 +1,45 @@
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import ArticletCard from 'components/shared/article-card';
 
-const wrapperItemsClassNames =
-  'container-lg grid grid-cols-12 gap-x-10 gap-y-16 sm:block sm:space-y-10';
+import './articles-list.css';
+
+const getAdditionalProps = (index) => {
+  switch (index) {
+    // Define the element that should be stretched to the full width of the screen
+    case 6:
+      return {
+        // exit the width of the parent container to apply the background
+        className: 'col-span-12 ml-[calc(-50vw+50%)] w-screen bg-black',
+        size: 'lg',
+      };
+    default:
+      return {
+        className: 'col-span-4 md:col-span-6',
+        size: 'md',
+      };
+  }
+};
 
 const ArticlesList = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-10">
-    {/* The card that is being displayed on the desktop */}
-    <div className="sm:hidden">
-      <div className={clsx(wrapperItemsClassNames)}>
-        {items.slice(0, 6).map((item, index) => (
+    <div className="article-list-inner container-lg grid grid-cols-12 gap-x-10 gap-y-16">
+      {items.map((item, index) => {
+        const { className, size } = getAdditionalProps(index);
+
+        return (
           <ArticletCard
-            {...item}
-            className="col-span-4 md:col-span-6"
-            size="md"
-            image={item.imageMedium}
+            className={className}
+            size={size}
+            image={size === 'lg' ? item.imageLarge : item.imageMedium}
             author={item.author}
             blogPageURL={blogPageURL}
             key={index}
+            {...item}
           />
-        ))}
-      </div>
-
-      {!!items.slice(6, 7).length && (
-        <div className="mt-28 bg-black">
-          <div className={clsx(wrapperItemsClassNames)}>
-            {items.slice(6, 7).map((item, index) => (
-              <ArticletCard
-                {...item}
-                className="col-span-12 my-8 lg:my-8"
-                size="lg"
-                image={item.imageLarge}
-                author={item.author}
-                blogPageURL={blogPageURL}
-                key={index}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {!!items.slice(7, items.length).length && (
-        <div className={clsx('mt-28 sm:mt-0', wrapperItemsClassNames)}>
-          {items.slice(7, items.length).map((item, index) => (
-            <ArticletCard
-              {...item}
-              className="col-span-4 md:col-span-6"
-              size="md"
-              image={item.imageMedium}
-              author={item.author}
-              blogPageURL={blogPageURL}
-              key={index}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-
-    {/* The same card that is being displayed on the mobile */}
-    <div className={clsx('hidden', wrapperItemsClassNames)}>
-      {items.map((item, index) => (
-        <ArticletCard
-          {...item}
-          className="sm:mx-auto sm:max-w-[380px]"
-          size="md"
-          image={item.imageMedium}
-          author={item.author}
-          blogPageURL={blogPageURL}
-          key={index}
-        />
-      ))}
+        );
+      })}
     </div>
   </section>
 );

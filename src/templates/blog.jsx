@@ -51,11 +51,7 @@ const BlogPage = ({
     <Layout seo={seo}>
       <Hero {...hero} />
 
-      <div
-        className={clsx('bg-gray-2', {
-          'pb-20': articlesList.items.length !== 7,
-        })}
-      >
+      <div className={clsx('bg-gray-2 pb-20')}>
         <Categories
           items={categories}
           activeCategoryId={pageContext.categoryId || 'none'}
