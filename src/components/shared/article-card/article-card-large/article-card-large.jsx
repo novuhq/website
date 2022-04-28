@@ -20,7 +20,7 @@ const ArticleCardLarge = ({
   author,
   blogPageURL,
 }) => (
-  <article className={clsx('py-28 md:py-10', className)}>
+  <article className={clsx('safe-paddings py-28 md:py-10', className)}>
     <div className="container-lg grid grid-cols-2 items-center gap-x-16 md:flex md:flex-col">
       <div className="flex flex-col md:order-2 md:mt-5">
         <header>

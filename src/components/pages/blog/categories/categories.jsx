@@ -73,7 +73,7 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
 
         <div className="relative hidden after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-gray-4 md:block">
           <select
-            className="ml-auto w-full appearance-none rounded-full bg-gray-2 py-4 pr-8 text-sm font-medium uppercase outline-none"
+            className="ml-auto w-full appearance-none rounded-full bg-gray-2 py-4 pr-8 text-base font-medium uppercase outline-none"
             value={selectValue}
             onChange={handleSelectChange}
           >
