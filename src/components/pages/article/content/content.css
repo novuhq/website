@@ -93,10 +93,7 @@
         @apply text-primary-1;
       }
 
-      .token.operator,
-      .token.class-name,
-      .token.punctuation,
-      .token.property {
+      .token.class-name {
         @apply text-secondary-2;
       }
 
