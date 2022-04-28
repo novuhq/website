@@ -12,11 +12,12 @@ const styles = {
   },
   theme: {
     primary: 'bg-primary-1 text-black hover:bg-white',
-    'black-filled': 'bg-black text-white hover:bg-gray-4',
-    'white-filled': 'bg-white text-black hover:opacity-80',
+    'black-filled': 'bg-black text-white hover:bg-[rgba(0,0,0,0.8)]',
+    'white-filled': 'bg-white text-black hover:bg-[rgba(255,255,255,0.8)]',
     'black-outline':
       'bg-transparent text-black border border-black hover:bg-gray-5 hover:border-gray-5',
-    'gray-outline': 'bg-transparent text-white border border-gray-5 hover:bg-gray-5',
+    'gray-outline':
+      'bg-transparent text-white border border-gray-5 hover:bg-gray-4 hover:border-gray-4',
   },
 };
 

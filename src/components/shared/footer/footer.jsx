@@ -9,11 +9,11 @@ import Logo from 'images/logo.inline.svg';
 const COPYRIGHT = 'Novu';
 
 const Footer = () => (
-  <footer className="safe-paddings bg-black">
+  <footer className="safe-paddings">
     <div className="container flex justify-between py-20 lg:flex-col lg:py-12 sm:block sm:py-10">
       <div className="flex flex-col items-start justify-between lg:flex-row lg:items-center">
         <Link {...LINKS.home}>
-          <span className="sr-only">Notu</span>
+          <span className="sr-only">Novu</span>
           <Logo className="h-8" aria-hidden />
         </Link>
         <p className="text-sm leading-none text-gray-8 lg:hidden">
@@ -22,23 +22,9 @@ const Footer = () => (
       </div>
 
       <div className="flex space-x-30 lg:mt-8 lg:grid lg:grid-cols-12 lg:justify-between lg:gap-x-7 lg:space-x-0 sm:mt-9 sm:block">
-        <nav className="flex space-x-30 pt-1.5 lg:col-span-8 lg:w-full lg:justify-between lg:space-x-0 sm:hidden">
+        <nav className="flex justify-between space-x-30 pt-1.5 lg:col-span-8 lg:w-full lg:justify-start sm:grid sm:grid-cols-2 sm:space-x-0">
           {MENUS.footer.map((links, index) => (
-            <ul className="space-y-2.5 lg:space-y-2" key={index}>
-              {links.map(({ to, text, target }, index) => (
-                <li key={index}>
-                  <Link to={to} size="base" theme="white" target={target}>
-                    {text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ))}
-        </nav>
-
-        <nav className="hidden grid-cols-2 justify-between gap-y-7 sm:grid">
-          {MENUS.footerSm.map((links, index) => (
-            <ul className="space-y-2 sm:space-y-1" key={index}>
+            <ul className="space-y-2.5 lg:space-y-2 sm:space-y-1" key={index}>
               {links.map(({ to, text, target }, index) => (
                 <li key={index}>
                   <Link to={to} size="base" theme="white" target={target}>

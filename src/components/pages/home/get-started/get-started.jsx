@@ -15,11 +15,11 @@ const LEFT_DESCRIPTION = 'Run locally with docker-compose';
 const LEFT_BUTTON_TEXT = 'Read Docs';
 
 const RIGHT_TITLE = 'Cloud';
-const RIGHT_DESCRIPTION = 'Use our free serverless solution';
+const RIGHT_DESCRIPTION = 'Use our free managed service';
 const RIGHT_BUTTON_TEXT = 'Get Started';
 
 const GetStarted = () => (
-  <section className="get-started safe-paddings relative overflow-hidden bg-black py-40 lg:py-32 md:py-28 sm:py-18">
+  <section className="get-started safe-paddings relative overflow-hidden py-40 lg:py-32 md:py-28 sm:py-18">
     <div className="container relative z-10">
       <Heading size="md" tag="h2" className="text-center leading-tight md:text-3xl" theme="white">
         {TITLE}
@@ -42,7 +42,7 @@ const GetStarted = () => (
             className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
             size="sm"
             theme="gray-outline"
-            {...LINKS.documentation}
+            {...LINKS.docker}
           >
             {LEFT_BUTTON_TEXT}
           </Button>

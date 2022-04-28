@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -19,7 +20,7 @@ const ButtonGithubStars = ({ className }) => {
 
   return (
     <Button
-      className={className}
+      className={clsx('group', className)}
       size="xs"
       theme="gray-outline"
       to={url}
@@ -29,7 +30,7 @@ const ButtonGithubStars = ({ className }) => {
       <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
       <span>Star us</span>
       <span
-        className="flex items-center before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4"
+        className="flex items-center before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4 before:transition-colors before:duration-200 group-hover:before:bg-gray-5"
         aria-label={`${count} stars on Github`}
       >
         {`${(count / 1000).toFixed(1)}k`}

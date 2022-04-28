@@ -13,7 +13,7 @@ import github from './images/github.svg';
 import twitter from './images/twitter.svg';
 
 const TITLE = 'Built by the community';
-const DESCRIPTION = `Open-source is in the heart of Notu. We keep all the source code and work publicly available. Join our community driven project with <strong class="text-white">over 3,000+ developers</strong> from around the world who contribute code and help building the modern notification infrastructure.`;
+const DESCRIPTION = `Open-source is in the heart of Novu. We keep all the source code and work publicly available. Join our community driven project with <span class="text-white font-normal">over 3,000+ developers</span> from around the world who contribute code and help building the modern notification infrastructure.`;
 
 const SOCIAL_TILE = 'Join the community:';
 const SOCIAL_ITEMS = [
@@ -72,7 +72,7 @@ const Community = () => {
                   {countFollowers && (
                     <span
                       className={clsx(
-                        'absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-bold leading-none text-black opacity-0 transition-all duration-200 group-hover:bg-primary-1',
+                        'absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-bold leading-none text-black opacity-0',
                         { '!visible !opacity-100': githubStars }
                       )}
                       aria-label={`${githubStars} stars on Github`}

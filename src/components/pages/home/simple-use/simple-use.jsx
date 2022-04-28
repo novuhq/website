@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
@@ -117,14 +118,22 @@ const SimpleUse = () => (
           const Tag = to ? Link : 'div';
           return (
             <Tag
-              className="rounded-[20px] bg-black p-4 pb-5 lg:rounded-2xl"
+              className={clsx('rounded-[20px] bg-black p-4 pb-5 lg:rounded-2xl', {
+                group: to,
+              })}
               to={to}
               target={to && '_blank'}
               key={index}
             >
               <div className="flex flex-col items-center">
                 <img src={icon} width={52} height={52} loading="lazy" alt={title} />
-                <h3 className="mt-3 text-lg leading-tight">{title}</h3>
+                <h3
+                  className={clsx('mt-3 text-lg leading-tight', {
+                    'transition-colors duration-200 group-hover:text-primary-1': to,
+                  })}
+                >
+                  {title}
+                </h3>
                 <div className="relative mt-1">
                   {to ? (
                     <p className="text-sm leading-tight text-gray-8">{text}</p>

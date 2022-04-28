@@ -23,7 +23,7 @@ const ITEMS = [
     lottieData: preferences,
     title: 'User preferences',
     description:
-      'Using Notu API to handle all user preferences and subscriptions across channels. UI components included.',
+      'Using Novu API to handle all user preferences and subscriptions across channels. UI components included.',
   },
   {
     lottieData: priorityManagement,
@@ -50,7 +50,7 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden bg-black pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
+  <section className="features safe-paddings relative overflow-hidden pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
     <div className="container relative z-10">
       <Heading
         size="md"
