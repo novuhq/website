@@ -49,7 +49,7 @@ const CodeTabs = ({ className, items }) => {
       </ul>
 
       <SyntaxHighlighter
-        className="scrollbar-hidden h-full overflow-auto p-8 text-base md:p-6 md:!text-sm sm:p-4"
+        className="scrollbar-hidden h-full overflow-auto p-8 text-base font-normal md:p-6 md:!text-sm sm:p-4"
         language={items[activeIndex].language}
         useInlineStyles={false}
         showLineNumbers

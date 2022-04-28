@@ -1,6 +1,6 @@
 @layer components {
   .content {
-    @apply text-lg font-book sm:text-base;
+    @apply text-lg font-light sm:text-base;
 
     > *:first-child {
       @apply !mt-0;
@@ -53,7 +53,7 @@
 
     ul,
     ol {
-      @apply space-y-2 pl-14 md:space-y-2.5 md:pl-8;
+      @apply space-y-2 pl-11 md:space-y-2.5 md:pl-8;
     }
 
     ul {
@@ -85,7 +85,7 @@
     }
 
     pre {
-      @apply scrollbar-hidden overflow-scroll rounded-lg bg-gray-2 px-6 py-4 text-base md:px-4 md:py-3 md:text-sm;
+      @apply scrollbar-hidden overflow-scroll rounded-lg bg-gray-2 px-6 py-4 text-base font-normal md:px-4 md:py-3 md:text-sm;
 
       .token.atrule,
       .token.attr-value,
@@ -93,24 +93,11 @@
         @apply text-primary-1;
       }
 
-      .token.function {
-        @apply text-secondary-2;
-      }
-
       .token.operator,
       .token.class-name,
-      .token.punctuation {
-        @apply text-white;
-      }
-
-      .token.property,
-      .token.tag,
-      .token.boolean,
-      .token.number,
-      .token.constant,
-      .token.symbol,
-      .token.deleted {
-        @apply text-secondary-1;
+      .token.punctuation,
+      .token.property {
+        @apply text-secondary-2;
       }
 
       .token.selector,
@@ -120,17 +107,6 @@
       .token.builtin,
       .token.inserted {
         @apply text-secondary-3;
-      }
-
-      .token.punctuation {
-        @apply text-gray-6;
-      }
-
-      .token.comment,
-      .token.prolog,
-      .token.doctype,
-      .token.cdata {
-        @apply text-gray-6;
       }
     }
 

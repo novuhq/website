@@ -10,7 +10,7 @@ const DESCRIPTION =
   "Novu's latest articles, right in your inbox. Keep in touch with our news and updates.";
 
 const Subscribe = () => (
-  <section className="subscribe safe-paddings relative overflow-hidden pt-24 pb-24">
+  <section className="subscribe safe-paddings relative overflow-hidden py-24 sm:py-18">
     <div className="container relative z-10 flex flex-col items-center">
       <Heading
         className="max-w-[789px] text-center font-normal leading-tight md:text-4xl sm:text-3xl"

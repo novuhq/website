@@ -65,7 +65,7 @@ const ArticlesList = ({ items, blogPageURL }) => (
       {items.map((item, index) => (
         <ArticletCard
           {...item}
-          className="sm:mx-auto sm:max-w-[384px]"
+          className="sm:mx-auto sm:max-w-[380px]"
           size="md"
           image={item.imageMedium}
           author={item.author}

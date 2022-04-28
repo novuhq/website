@@ -1,15 +1,4 @@
 @layer base {
-  /* 
-  TODO: Commented fonts are not used yet. If these fonts are not to be used in the project, please remove them
-
-  @font-face {
-    font-family: 'Brother-1816';
-    src: url('/fonts/brother-1816/brother-1816-thin.woff2') format('woff2');
-    font-weight: 100;
-    font-style: normal;
-    font-display: fallback;
-  }
-
   @font-face {
     font-family: 'Brother-1816';
     src: url('/fonts/brother-1816/brother-1816-light.woff2') format('woff2');
@@ -17,7 +6,6 @@
     font-style: normal;
     font-display: fallback;
   }
-  */
 
   @font-face {
     font-family: 'Brother-1816';
@@ -53,8 +41,8 @@
 
   @font-face {
     font-family: 'IBM Plex Mono';
-    src: url('/fonts/ibm-plex-mono/ibm-plex-mono-light.woff2') format('woff2');
-    font-weight: 300;
+    src: url('/fonts/ibm-plex-mono/ibm-plex-mono-regular.woff2') format('woff2');
+    font-weight: 400;
     font-style: normal;
     font-display: fallback;
   }

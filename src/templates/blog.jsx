@@ -64,7 +64,7 @@ const BlogPage = ({
         <ArticlesList {...articlesList} />
         {pageContext.pageCount > 1 && (
           <>
-            <Separator className="mt-14" size="lg" />
+            <Separator className="mt-14" size="lg" backgroundColor="gray" />
             <Pagination
               pageCount={pageContext.pageCount}
               currentPageIndex={pageContext.currentPage}
@@ -75,7 +75,7 @@ const BlogPage = ({
         )}
       </div>
       <Subscribe />
-      <Separator />
+      <Separator backgroundColor="black" />
     </Layout>
   );
 };

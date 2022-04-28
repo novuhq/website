@@ -40,6 +40,7 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
     >
       {/* General */}
       <meta name="description" content={currentDescription} />
+      <link rel="canonical" href={currentCanonicalUrl} />
       {keywords && <meta name="keywords" content={keywords} />}
       {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
       {/* Open Graph */}
@@ -50,11 +51,6 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
       <meta property="og:type" content="website" />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={currentTitle} />
-      <meta name="twitter:image" content={currentImagePath} />
-      <meta name="twitter:url" content={currentUrl} />
-      <meta name="twitter:description" content={currentDescription} />
-      <link rel="canonical" href={currentCanonicalUrl} />
     </Helmet>
   );
 };
