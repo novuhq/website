@@ -1,0 +1,5 @@
+.article-list-inner {
+  @media (max-width: 639px) {
+    @apply block space-y-10;
+  }
+}

@@ -1,24 +1,44 @@
 code {
-  > span {
-    @apply items-center font-light;
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    @apply text-secondary-2;
   }
 
-  .token {
-    &.string {
-      @apply text-primary-1;
-    }
+  .token.function {
+    @apply text-secondary-1;
+  }
 
-    &.function {
-      @apply text-secondary-1;
-    }
+  .token.operator,
+  .token.class-name,
+  .token.punctuation,
+  .token.property {
+    @apply text-white;
+  }
 
-    &.keyword {
-      @apply text-secondary-2;
-    }
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    @apply text-secondary-1;
+  }
 
-    &.comment {
-      @apply text-gray-6;
-    }
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    @apply text-primary-1;
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    @apply text-gray-6;
   }
 
   .react-syntax-highlighter-line-number {

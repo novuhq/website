@@ -6,6 +6,7 @@ import Button from 'components/shared/button';
 
 import CheckIcon from './images/check.inline.svg';
 import LoadingIcon from './images/loading.inline.svg';
+import SendIcon from './images/send.inline.svg';
 
 const STATES = {
   DEFAULT: 'default',
@@ -58,7 +59,7 @@ const Form = () => {
       const loadingAnimationStartedTime = Date.now();
 
       try {
-        const response = await fetch(`${process.env.GATSBY_STRAPI_API_URL}/subscribe`, {
+        const response = await fetch(`${process.env.GATSBY_STRAPI_API_URL}/api/subscribe`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -101,7 +102,7 @@ const Form = () => {
       onSubmit={handleSubmit}
     >
       <input
-        className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none"
+        className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
         name="email"
         type="email"
         placeholder="Your email..."
@@ -139,14 +140,26 @@ const Form = () => {
       >
         <AnimatePresence>
           {(formState === STATES.DEFAULT || formState === STATES.ERROR) && (
-            <motion.span
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={appearAndExitAnimationVariants}
-            >
-              subscribe
-            </motion.span>
+            <>
+              <motion.span
+                className="sm:sr-only"
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={appearAndExitAnimationVariants}
+              >
+                Subscribe
+              </motion.span>
+              <motion.span
+                className="hidden sm:block"
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={appearAndExitAnimationVariants}
+              >
+                <SendIcon className="ml-1.5 h-6" aria-hidden />
+              </motion.span>
+            </>
           )}
           {formState === STATES.LOADING && (
             <motion.div

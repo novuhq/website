@@ -25,6 +25,28 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 716,
+              quality: 85,
+              withWebp: true,
+              showCaptions: true,
+              linkImagesToOriginal: false,
+              backgroundColor: '#262626',
+              disableBgImageOnAlpha: true,
+            },
+          },
+          'gatsby-remark-prismjs',
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
@@ -65,6 +87,34 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: process.env.GATSBY_STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: [
+          {
+            singularName: 'article',
+            queryParams: {
+              // Populate media and relations
+              // Make sure to not specify the fields key so the api always returns the updatedAt
+              populate: {
+                author: '*',
+                category: '*',
+                cover: '*',
+                seo: {
+                  populate: {
+                    ogImage: '*',
+                  },
+                },
+              },
+            },
+          },
+          'author',
+        ],
+        singleTypes: ['blog'],
       },
     },
     {
