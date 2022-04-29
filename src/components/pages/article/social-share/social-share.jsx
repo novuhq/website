@@ -9,7 +9,7 @@ import LinkedinIcon from './images/linkedin.inline.svg';
 import TwitterIcon from './images/twitter.inline.svg';
 
 const SocialShare = ({ author, date, url }) => (
-  <div className="relative flex items-center justify-between pt-8">
+  <div className="relative flex items-center justify-between gap-3.5 pt-8 sm:flex-col">
     <AuthorWithDate author={author} date={date} />
 
     <div className="flex space-x-4">

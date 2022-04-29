@@ -4,13 +4,13 @@ import React from 'react';
 import ArticleCard from 'components/shared/article-card';
 
 const RelatedArticles = ({ items, blogPageURL }) => (
-  <section className="safe-paddings mt-30 bg-gray-2 py-28">
+  <section className="safe-paddings mt-30 bg-gray-2 py-28 sm:mt-20 sm:py-20">
     <div className="container">
       <h2 className="text-[40px] leading-tight">Related Posts</h2>
-      <div className="grid-gap-x mt-14 grid grid-cols-3 xl:mt-8 lg:mt-7 lg:grid-cols-2 md:mt-5 md:block md:space-y-4">
+      <div className="grid-gap-x mt-14 grid grid-cols-3 xl:mt-8 lg:grid-cols-2 md:block md:space-y-10">
         {items.map((item, index) => (
           <ArticleCard
-            className="lg:last:hidden md:mx-auto md:block md:max-w-[384px]"
+            className="lg:last:hidden md:last:block"
             {...item}
             size="md"
             blogPageURL={blogPageURL}
@@ -34,7 +34,7 @@ RelatedArticles.propTypes = {
         color: PropTypes.string.isRequired,
       }),
       date: PropTypes.string.isRequired,
-      cover: PropTypes.shape({
+      image: PropTypes.shape({
         alternativeText: PropTypes.string,
         localFile: PropTypes.shape({
           childImageSharp: PropTypes.shape({

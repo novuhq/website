@@ -51,17 +51,17 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
 
   return (
     <Layout seo={seo}>
-      <article className="safe-paddings pt-40">
+      <article className="safe-paddings pt-40 sm:pt-28">
         <div className="container-sm">
           <Hero {...hero} />
           <Content {...content} />
-          <Separator className="mt-14" />
+          <Separator className="mt-14 px-0" backgroundColor="black" />
           <SocialShare {...socialShare} />
         </div>
       </article>
       <RelatedArticles {...relatedArticlesProps} />
       <Subscribe />
-      <Separator />
+      <Separator backgroundColor="black" />
     </Layout>
   );
 };
