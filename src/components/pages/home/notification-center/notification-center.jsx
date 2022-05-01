@@ -63,7 +63,7 @@ const NotificationCenter = () => {
           <p className="mt-5 text-lg font-book leading-snug text-gray-8 lg:mt-3 lg:text-base">
             {DESCRIPTION}
           </p>
-          <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.documentation}>
+          <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.inAppDocs}>
             {BUTTON_TEXT}
           </Button>
         </div>

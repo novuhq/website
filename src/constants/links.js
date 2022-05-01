@@ -16,6 +16,10 @@ export default {
     to: 'https://docs.novu.co/docs/overview/introduction',
     target: '_blank',
   },
+  inAppDocs: {
+    to: 'https://docs.novu.co/docs/notification-center/getting-started',
+    target: '_blank',
+  },
   docker: {
     to: 'https://docs.novu.co/docs/overview/docker-deploy',
     target: '_blank',
