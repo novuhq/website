@@ -11,7 +11,7 @@ const MENUS = {
     [
       { text: 'Documentation', ...LINKS.documentation },
       { text: 'Providers', ...LINKS.providers },
-      { text: 'Contact Us', ...LINKS.contactUs },
+      { text: 'Contact Us', ...LINKS.discord },
     ],
     [
       { text: 'Discord', ...LINKS.discord },
