@@ -16,12 +16,14 @@ const ITEMS = [
   {
     lottieData: digest,
     title: 'Digest',
+    comingSoon: true,
     description:
       'A digest engine that aggregates multiple events in to a single precise notification.',
   },
   {
     lottieData: preferences,
     title: 'User preferences',
+    comingSoon: true,
     description:
       'Using Novu API to handle all user preferences and subscriptions across channels. UI components included.',
   },
@@ -45,6 +47,7 @@ const ITEMS = [
   {
     lottieData: timezone,
     title: 'Timezone awareness',
+    comingSoon: true,
     description: "Send transactional notifications based on user's timezone and working hours.",
   },
 ];

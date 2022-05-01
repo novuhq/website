@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import Heading from 'components/shared/heading/heading';
 import useLottie from 'hooks/use-lottie';
 
-const Item = ({ lottieData, title, description }) => {
+const Item = ({ lottieData, title, description, comingSoon }) => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     triggerOnce: true,
     threshold: 0.6,
@@ -23,7 +23,14 @@ const Item = ({ lottieData, title, description }) => {
       <div className="h-16 max-w-[124px] sm:mx-auto sm:h-14" ref={animationRef} />
       <div className="mt-5">
         <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
-          {title}
+          {title}{' '}
+          {comingSoon ? (
+            <span className=" items-center text-xs font-book leading-none text-secondary-2 sm:text-xs">
+              Coming soon
+            </span>
+          ) : (
+            ''
+          )}
         </Heading>
         <p className="mt-3 max-w-[377px] font-book leading-snug text-gray-8 lg:mt-2 lg:max-w-none">
           {description}
@@ -37,6 +44,11 @@ Item.propTypes = {
   lottieData: PropTypes.objectOf(PropTypes.any).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  comingSoon: PropTypes.bool,
+};
+
+Item.defaultProps = {
+  comingSoon: false,
 };
 
 export default Item;
