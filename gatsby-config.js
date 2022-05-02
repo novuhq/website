@@ -98,6 +98,7 @@ module.exports = {
           {
             singularName: 'article',
             queryParams: {
+              publicationState: process.env.GATSBY_IS_PREVIEW === 'true' ? 'preview' : 'live',
               // Populate media and relations
               // Make sure to not specify the fields key so the api always returns the updatedAt
               populate: {
