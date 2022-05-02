@@ -197,6 +197,12 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   });
 };
 
+/* 
+TODO: We can get rid of this if at least one article inside the content contains an embedded image
+
+creating the STRAPI_ARTICLE_CONTENT_MEDIA type for the content,
+so as not to get an error when executing a GraphQL query in the article template (since this data is currently missing)
+*/
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
@@ -207,10 +213,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type STRAPI_ARTICLE_CONTENT @infer{
       medias: [STRAPI_ARTICLE_CONTENT_MEDIAS]
     }
-    type STRAPI_ARTICLE_CONTENT_MEDIAS {
-      alternativeText: String
+    type STRAPI_ARTICLE_CONTENT_MEDIAS @infer{
       src: String
-      url: String
       localFile: File @link(from: "localFile___NODE")
     }
   `;
