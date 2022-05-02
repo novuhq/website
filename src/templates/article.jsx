@@ -107,6 +107,16 @@ export const pageQuery = graphql`
             body
           }
         }
+
+        medias {
+          src
+          localFile {
+            url
+            childImageSharp {
+              gatsbyImageData(width: 716)
+            }
+          }
+        }
       }
 
       seo {

@@ -55,9 +55,9 @@ const Content = ({ className, content, contentMedia }) => {
     h2: Heading('h2'),
     h3: Heading('h3'),
     p: Paragraph,
-    img: ({ src, alt }) =>
-      contentMedia ? Image(contentMedia, src, alt) : <img src={src} alt={alt} loading="lazy" />,
+    img: ({ src, alt }) => Image(contentMedia, src, alt),
   };
+
   return (
     <div className="mt-10 md:mt-8">
       <div className={clsx('content', className)}>

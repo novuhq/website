@@ -196,3 +196,25 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     },
   });
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type STRAPI_ARTICLE implements Node {
+      title: String
+      content: STRAPI_ARTICLE_CONTENT
+    }
+    type STRAPI_ARTICLE_CONTENT {
+      medias: [STRAPI_ARTICLE_CONTENT_MEDIAS]
+    }
+    type STRAPI_ARTICLE_CONTENT_MEDIAS {
+      alternativeText: String
+      src: String
+      url: String
+      localFile: File @link(from: "localFile___NODE")
+    }
+  `;
+
+  createTypes(typeDefs);
+};
