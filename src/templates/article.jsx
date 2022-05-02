@@ -32,7 +32,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
 
   const content = {
     content: article.content.data.childrenMdx[0].body,
-    contentMedia: article.content.medias,
+    contentMedia: article.content?.medias,
   };
 
   const socialShare = {
@@ -59,7 +59,8 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
           <SocialShare {...socialShare} />
         </div>
       </article>
-      <RelatedArticles {...relatedArticlesProps} />
+      {!!relatedArticlesProps.items.length && <RelatedArticles {...relatedArticlesProps} />}
+
       <Subscribe />
       <Separator backgroundColor="black" />
     </Layout>
@@ -68,7 +69,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
 
 export const pageQuery = graphql`
   query ($id: String!, $categoryName: String!) {
-    strapiArticle(id: { eq: $id }) {
+    strapiArticle(id: { eq: $id }, publishedAt: { ne: null }) {
       id
       slug
       date(formatString: "MMMM D, YYYY")
@@ -106,15 +107,6 @@ export const pageQuery = graphql`
             body
           }
         }
-        medias {
-          src
-          localFile {
-            url
-            childImageSharp {
-              gatsbyImageData(width: 716)
-            }
-          }
-        }
       }
 
       seo {
@@ -133,7 +125,11 @@ export const pageQuery = graphql`
     relatedArticles: allStrapiArticle(
       limit: 3
       sort: { fields: createdAt, order: DESC }
-      filter: { category: { name: { eq: $categoryName } }, id: { ne: $id } }
+      filter: {
+        publishedAt: { ne: null }
+        category: { name: { eq: $categoryName } }
+        id: { ne: $id }
+      }
     ) {
       nodes {
         title

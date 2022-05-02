@@ -11,14 +11,16 @@ import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 
-const BlogPage = ({
-  data: {
-    strapiBlog: page,
-    allStrapiCategory: { nodes: categories },
-    allStrapiArticle: articles,
-  },
-  pageContext,
-}) => {
+const BlogPage = (props) => {
+  const {
+    data: {
+      strapiBlog: page,
+      allStrapiCategory: { nodes: categories },
+      allStrapiArticle: articles,
+    },
+    pageContext,
+  } = props;
+
   const seo = {
     title: page.seo?.title,
     description: page.seo?.description,
@@ -51,25 +53,30 @@ const BlogPage = ({
     <Layout seo={seo}>
       <Hero {...hero} />
 
-      <div className={clsx('bg-gray-2 pb-20')}>
-        <Categories
-          items={categories}
-          activeCategoryId={pageContext.categoryId || 'none'}
-          blogPageURL={pageContext.blogPageURL}
-        />
-        <ArticlesList {...articlesList} />
-        {pageContext.pageCount > 1 && (
-          <>
-            <Separator className="mt-14" size="lg" backgroundColor="gray" />
-            <Pagination
-              pageCount={pageContext.pageCount}
-              currentPageIndex={pageContext.currentPage}
+      {!!articlesList.items.length && (
+        <div className={clsx('bg-gray-2 pb-20')}>
+          {!!categories.length && (
+            <Categories
+              items={categories}
+              activeCategoryId={pageContext.categoryId || 'none'}
               blogPageURL={pageContext.blogPageURL}
-              categoryPath={pageContext.categoryPath}
             />
-          </>
-        )}
-      </div>
+          )}
+          <ArticlesList {...articlesList} />
+          {pageContext.pageCount > 1 && (
+            <>
+              <Separator className="mt-14" size="lg" backgroundColor="gray" />
+              <Pagination
+                pageCount={pageContext.pageCount}
+                currentPageIndex={pageContext.currentPage}
+                blogPageURL={pageContext.blogPageURL}
+                categoryPath={pageContext.categoryPath}
+              />
+            </>
+          )}
+        </div>
+      )}
+
       <Subscribe />
       <Separator backgroundColor="black" />
     </Layout>
@@ -77,7 +84,7 @@ const BlogPage = ({
 };
 
 export const pageQuery = graphql`
-  query ($featuredPostId: String!, $categoryId: String, $skip: Int!, $limit: Int!) {
+  query ($featuredPostId: String!, $categoryId: String, $skip: Int, $limit: Int) {
     strapiBlog {
       id
       slug
@@ -137,7 +144,11 @@ export const pageQuery = graphql`
     }
 
     allStrapiArticle(
-      filter: { id: { ne: $featuredPostId }, category: { id: { eq: $categoryId } } }
+      filter: {
+        publishedAt: { ne: null }
+        id: { ne: $featuredPostId }
+        category: { id: { eq: $categoryId } }
+      }
       sort: { fields: date, order: DESC }
       limit: $limit
       skip: $skip
