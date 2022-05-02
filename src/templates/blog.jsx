@@ -144,11 +144,7 @@ export const pageQuery = graphql`
     }
 
     allStrapiArticle(
-      filter: {
-        publishedAt: { ne: null }
-        id: { ne: $featuredPostId }
-        category: { id: { eq: $categoryId } }
-      }
+      filter: { id: { ne: $featuredPostId }, category: { id: { eq: $categoryId } } }
       sort: { fields: date, order: DESC }
       limit: $limit
       skip: $skip

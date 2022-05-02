@@ -19,7 +19,7 @@ const createBlogPage = async ({ graphql, actions, reporter }) => {
           }
         }
 
-        allStrapiArticle(filter: { publishedAt: { ne: null } }) {
+        allStrapiArticle {
           nodes {
             id
             slug
@@ -125,7 +125,7 @@ const createArticles = async ({ graphql, actions, reporter }) => {
           slug
         }
 
-        allStrapiArticle(filter: { publishedAt: { ne: null } }) {
+        allStrapiArticle {
           nodes {
             id
             slug
