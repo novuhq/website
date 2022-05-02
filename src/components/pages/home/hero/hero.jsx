@@ -73,7 +73,7 @@ const Hero = () => {
         <div className="input-border-gradient relative mt-10 flex h-16 w-full max-w-[464px] items-center justify-between rounded-md bg-black pl-5 pr-3">
           <div className="flex items-center">
             <BashIcon className="mr-5 h-4 sm:mr-2.5" aria-hidden />
-            <span className="whitespace-nowrap font-mono text-lg font-medium !leading-none text-white">
+            <span className="whitespace-nowrap font-mono text-lg !leading-none text-white">
               {INPUT_TEXT}
             </span>
           </div>

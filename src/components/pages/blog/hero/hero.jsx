@@ -21,7 +21,7 @@ const Hero = ({ title, category, date, slug, image, description, author, blogPag
             >
               {category.name}
             </CategoryLabel>
-            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-3xl">
+            <h1 className="mt-4 text-4xl font-medium leading-tight sm:text-3xl">
               <Link
                 className="inline-block align-top line-clamp-2 md:line-clamp-none"
                 to={slug}

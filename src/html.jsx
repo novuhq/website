@@ -6,7 +6,7 @@ const fontsBasePath = '/fonts';
 const fontsPaths = [
   '/brother-1816/brother-1816-regular.woff2',
   '/brother-1816/brother-1816-book.woff2',
-  '/ibm-plex-mono/ibm-plex-mono-medium.woff2',
+  '/ibm-plex-mono/ibm-plex-mono-regular.woff2',
 ];
 
 const HTML = ({

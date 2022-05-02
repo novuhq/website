@@ -32,25 +32,9 @@
   }
 
   @font-face {
-    font-family: 'Brother-1816';
-    src: url('/fonts/brother-1816/brother-1816-bold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: fallback;
-  }
-
-  @font-face {
     font-family: 'IBM Plex Mono';
     src: url('/fonts/ibm-plex-mono/ibm-plex-mono-regular.woff2') format('woff2');
     font-weight: 400;
-    font-style: normal;
-    font-display: fallback;
-  }
-
-  @font-face {
-    font-family: 'IBM Plex Mono';
-    src: url('/fonts/ibm-plex-mono/ibm-plex-mono-medium.woff2') format('woff2');
-    font-weight: 500;
     font-style: normal;
     font-display: fallback;
   }
