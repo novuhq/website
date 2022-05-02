@@ -202,10 +202,9 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   const typeDefs = `
     type STRAPI_ARTICLE implements Node {
-      title: String
       content: STRAPI_ARTICLE_CONTENT
     }
-    type STRAPI_ARTICLE_CONTENT {
+    type STRAPI_ARTICLE_CONTENT @infer{
       medias: [STRAPI_ARTICLE_CONTENT_MEDIAS]
     }
     type STRAPI_ARTICLE_CONTENT_MEDIAS {
