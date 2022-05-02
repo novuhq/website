@@ -23,18 +23,16 @@ const Item = ({ lottieData, title, description, comingSoon }) => {
       <div className="h-16 max-w-[124px] sm:mx-auto sm:h-14" ref={animationRef} />
       <div className="mt-5">
         <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
-          {title}{' '}
-          {comingSoon ? (
-            <span className=" items-center text-xs font-book leading-none text-secondary-2 sm:text-xs">
-              Coming soon
-            </span>
-          ) : (
-            ''
-          )}
+          {title}
         </Heading>
         <p className="mt-3 max-w-[377px] font-book leading-snug text-gray-8 lg:mt-2 lg:max-w-none">
           {description}
         </p>
+        {comingSoon && (
+          <span className="mt-2 block whitespace-nowrap text-sm font-normal leading-none text-secondary-2">
+            Coming soon...
+          </span>
+        )}
       </div>
     </li>
   );
