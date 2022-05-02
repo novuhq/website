@@ -10,6 +10,7 @@ import useLottie from 'hooks/use-lottie';
 
 import lottieData from './data/hero-lottie-data.json';
 import BashIcon from './images/bash-icon.inline.svg';
+import bgSm from './images/bg-sm.svg';
 import bg from './images/bg.svg';
 
 const TITLE = 'The open-source notification infrastructure for developers';
@@ -56,7 +57,7 @@ const Hero = () => {
   }, [animation, isAnimationWrapperInView]);
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-12">
+    <section className="hero safe-paddings relative overflow-hidden pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-32">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[26px]"
@@ -104,8 +105,15 @@ const Hero = () => {
       </div>
 
       <img
-        className="absolute top-0 left-1/2 min-w-[1920px] -translate-x-1/2"
+        className="absolute top-0 left-1/2 min-w-[1920px] -translate-x-1/2 sm:hidden sm:min-w-[360px]"
         src={bg}
+        loading="eager"
+        alt=""
+        aria-hidden
+      />
+      <img
+        className="absolute top-0 left-1/2 hidden min-w-[360px] -translate-x-1/2 sm:block"
+        src={bgSm}
         loading="eager"
         alt=""
         aria-hidden
