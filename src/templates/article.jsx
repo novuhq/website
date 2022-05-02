@@ -69,7 +69,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
 
 export const pageQuery = graphql`
   query ($id: String!, $categoryName: String!) {
-    strapiArticle(id: { eq: $id }, publishedAt: { ne: null }) {
+    strapiArticle(id: { eq: $id }) {
       id
       slug
       date(formatString: "MMMM D, YYYY")
