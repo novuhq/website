@@ -119,6 +119,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'G-DHRXGBJSKF',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-gatsby-cloud',
       options: {
         headers: {
