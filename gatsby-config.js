@@ -119,9 +119,17 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        id: 'G-DHRXGBJSKF',
+        trackingIds: ['G-DHRXGBJSKF'],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
       },
     },
     {
