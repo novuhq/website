@@ -19,6 +19,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.26.1",
     "clsx": "^1.1.1",
     "copy-to-clipboard": "^3.3.1",
     "framer-motion": "^6.2.8",

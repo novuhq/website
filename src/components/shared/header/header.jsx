@@ -8,6 +8,10 @@ import Logo from 'images/logo.inline.svg';
 
 const LINKS = [
   {
+    title: 'Contributors',
+    to: '/contributors/1',
+  },
+  {
     title: 'Documentation',
     to: '/',
   },
