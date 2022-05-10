@@ -1,118 +1,120 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import iconContributorMonth from './images/contributor-of-the-month.svg';
-import iconContributorYear from './images/contributor-of-the-year.svg';
-import iconMedalBronze from './images/medal-bronze.svg';
-import iconMedalGold from './images/medal-gold.svg';
-import iconMedalSilver from './images/medal-silver.svg';
-import iconRockStar from './images/rock-star.svg';
-import iconStarReporter from './images/star-reporter.svg';
-import iconTeamPlayer from './images/team-player.svg';
-import userPhoto1 from './images/user-photo1.jpg';
-import userPhoto2 from './images/user-photo2.jpg';
-import userPhoto3 from './images/user-photo3.jpg';
-import userPhoto4 from './images/user-photo4.jpg';
+import monthContributorIcon from './images/contributor-of-the-month.svg';
+import yearContributorIcon from './images/contributor-of-the-year.svg';
+import bronzeMedalIcon from './images/medal-bronze.svg';
+import goldMedalIcon from './images/medal-gold.svg';
+import silverMedalIcon from './images/medal-silver.svg';
+import rockStarIcon from './images/rock-star.svg';
+import starReporterIcon from './images/star-reporter.svg';
+import teamPlayerIcon from './images/team-player.svg';
+import davidSoderberg from './images/david-soderberg.jpg';
+import mrNewbie from './images/mr-newbie.jpg';
+import tylerDurden from './images/tyler-durden.jpg';
+import ainouzGali from './images/ainouz-gali.jpg';
 
 const ACHIEVEMENT_ITEMS = [
   {
-    icon: iconRockStar,
+    icon: rockStarIcon,
     title: 'Rock Star',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra. Eget et pharetra, arcu, egestas tortor libero turpis.',
     users: [
-      { name: 'davidsoderberg', photo: userPhoto2, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto3, activityDate: '3' },
-      { name: 'davidsoderberg', photo: userPhoto1, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto4, activityDate: '3' },
+      { userName: 'davidsoderberg', avatar: davidSoderberg, lastActivity: '1 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
+      { userName: 'tylerdurden', avatar: tylerDurden, activityDauserNe: '3 days ago' },
+      { userName: 'ainouzgali', avatar: ainouzGali, lastActivity: '4 days ago' },
     ],
   },
   {
-    icon: iconContributorYear,
+    icon: yearContributorIcon,
     title: 'Contributor of the year',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra. Eget et pharetra, arcu, egestas tortor libero turpis.',
     users: [
-      { name: 'davidsoderberg', photo: userPhoto1, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto3, activityDate: '3' },
+      { userName: 'davidsoderberg', avatar: davidSoderberg, lastActivity: '1 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
     ],
   },
   {
-    icon: iconContributorMonth,
+    icon: monthContributorIcon,
     title: 'Contributor of the month',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
     users: [
-      { name: 'davidsoderberg', photo: userPhoto1, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto2, activityDate: '3' },
-      { name: 'davidsoderberg', photo: userPhoto3, activityDate: '3' },
+      { userName: 'davidsoderberg', avatar: davidSoderberg, lastActivity: '1 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
+      { userName: 'tyler-durden', avatar: tylerDurden, lastActivity: '3 days ago' },
     ],
   },
   {
-    icon: iconStarReporter,
+    icon: starReporterIcon,
     title: 'Star Reporter',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra. Eget et pharetra, arcu, egestas tortor libero turpis.',
-    users: [{ name: 'davidsoderberg', photo: userPhoto2, activityDate: '3' }],
+    users: [{ userName: 'tyler-durden', avatar: tylerDurden, lastActivity: '3 days ago' }],
   },
   {
-    icon: iconTeamPlayer,
+    icon: teamPlayerIcon,
     title: 'Team Player',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     users: [
-      { name: 'davidsoderberg', photo: userPhoto1, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto2, activityDate: '3' },
-      { name: 'davidsoderberg', photo: userPhoto3, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto4, activityDate: '3' },
-      { name: 'davidsoderberg', photo: userPhoto3, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto2, activityDate: '3' },
+      { userName: 'davidsoderberg', avatar: davidSoderberg, lastActivity: '1 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
+      { userName: 'tyler-durden', avatar: tylerDurden, lastActivity: '3 days ago' },
+      { userName: 'ainouzgali', avatar: ainouzGali, lastActivity: '4 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
+      { userName: 'tyler-durden', avatar: tylerDurden, lastActivity: '3 days ago' },
     ],
   },
 ];
 
 const MEDAL_ITEMS = [
   {
-    icon: iconMedalGold,
+    icon: goldMedalIcon,
     title: 'Gold Medal',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
     users: [
-      { name: 'davidsoderberg', photo: userPhoto2, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto3, activityDate: '3' },
-      { name: 'davidsoderberg', photo: userPhoto4, activityDate: '3' },
+      { userName: 'davidsoderberg', avatar: davidSoderberg, lastActivity: '1 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
+      { userName: 'tyler-durden', avatar: tylerDurden, lastActivity: '3 days ago' },
     ],
   },
   {
-    icon: iconMedalSilver,
+    icon: silverMedalIcon,
     title: 'Silver Medal',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
     users: [
-      { name: 'davidsoderberg', photo: userPhoto1, activityDate: '3' },
-      { name: 'ainouzgali', photo: userPhoto4, activityDate: '3' },
+      { userName: 'davidsoderberg', avatar: davidSoderberg, lastActivity: '1 days ago' },
+      { userName: 'mr-newbie', avatar: mrNewbie, lastActivity: '2 days ago' },
     ],
   },
   {
-    icon: iconMedalBronze,
+    icon: bronzeMedalIcon,
     title: 'Bronze Medal',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
-    users: [{ name: 'davidsoderberg', photo: userPhoto4, activityDate: '3' }],
+    users: [{ userName: 'ainouzgali', avatar: ainouzGali, lastActivity: '4 days ago' }],
   },
 ];
 
 const Achievments = () => (
-  <section className="safe-paddings m-x-auto">
+  <section className="safe-paddings">
     <div className="bg-gray-2">
       <ul className="container flex max-w-[1008px] flex-col">
         {ACHIEVEMENT_ITEMS.map(({ icon, title, description, users }, index) => (
           <li
-            className="flex border-b-[1px] border-dashed border-gray-5 py-20 last:border-none"
+            className="flex border-b border-dashed border-gray-5 py-20 last:border-none"
             key={index}
           >
             <img
               src={icon}
-              className="max-h-[176px] max-w-[176px]"
+              className="h-44 w-44"
+              width={176}
+              height={176}
               loading="lazy"
               alt="achievment-icon"
             />
@@ -120,19 +122,21 @@ const Achievments = () => (
               <h3 className={clsx('text-4xl leading-tight')}>{title}</h3>
               <div className="mt-4 text-lg font-light leading-snug text-gray-10">{description}</div>
               <ul className="mt-8 flex w-full flex-wrap items-stretch justify-between ">
-                {users.map(({ name, photo, activityDate }, index) => (
+                {users.map(({ userName, avatar, lastActivity }, index) => (
                   <li className="my-4 flex min-w-[332px] rounded-[12px] bg-black p-5" key={index}>
                     <img
-                      className="mr-3 h-12 w-12 rounded-[24px]"
-                      src={photo}
-                      loading="eager"
+                      className="mr-3 rounded-full"
+                      width={48}
+                      height={48}
+                      src={avatar}
+                      loading="lazy"
                       alt="userphoto"
                     />
                     <div className="my-auto flex flex-col">
-                      <p className="text-lg text-primary-1">@{name}</p>
+                      <p className="text-lg text-primary-1">@{userName}</p>
                       <p className="text-sm">
                         Last activity:
-                        <span className="text-sm text-secondary-2"> {activityDate} days ago</span>
+                        <span className="text-sm text-secondary-2"> {lastActivity}</span>
                       </p>
                     </div>
                   </li>
@@ -143,7 +147,7 @@ const Achievments = () => (
         ))}
       </ul>
     </div>
-    <div className="bg-black">
+    <div className="">
       <ul className="container flex max-w-[1008px] flex-col">
         {MEDAL_ITEMS.map(({ icon, title, description, users }, index) => (
           <li
@@ -152,7 +156,9 @@ const Achievments = () => (
           >
             <img
               src={icon}
-              className="max-h-[210px] max-w-[176px]"
+              className="h-52 w-44"
+              width={176}
+              height={210}
               loading="lazy"
               alt="achievment-icon"
             />
@@ -160,19 +166,19 @@ const Achievments = () => (
               <h3 className={clsx('text-4xl leading-tight')}>{title}</h3>
               <div className="mt-4 text-lg font-light leading-snug text-gray-10">{description}</div>
               <ul className="mt-8 flex w-full flex-wrap justify-between ">
-                {users.map(({ name, photo, activityDate }, index) => (
+                {users.map(({ userName, avatar, lastActivity }, index) => (
                   <li className="my-4 flex min-w-[332px] rounded-[12px] bg-gray-2 p-5 " key={index}>
                     <img
                       className="mr-3 h-12 w-12 rounded-[24px]"
-                      src={photo}
-                      loading="eager"
+                      src={avatar}
+                      loading="lazy"
                       alt="userphoto"
                     />
                     <div className="my-auto flex flex-col">
-                      <p className="text-lg text-primary-1">@{name}</p>
+                      <p className="text-lg text-primary-1">@{userName}</p>
                       <p className="text-sm">
                         Last activity:
-                        <span className="text-sm text-secondary-2"> {activityDate} days ago</span>
+                        <span className="text-sm text-secondary-2"> {lastActivity}</span>
                       </p>
                     </div>
                   </li>
