@@ -169,7 +169,7 @@ const Achievments = () => (
                 {users.map(({ userName, avatar, lastActivity }, index) => (
                   <li className="my-4 flex min-w-[332px] rounded-[12px] bg-gray-2 p-5 " key={index}>
                     <img
-                      className="mr-3 h-12 w-12 rounded-[24px]"
+                      className="mr-3 h-12 w-12 rounded-full"
                       src={avatar}
                       loading="lazy"
                       alt="userphoto"
