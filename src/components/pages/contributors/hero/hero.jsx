@@ -1,10 +1,10 @@
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
 
 import bg from './images/bg.svg';
+import Illustration from './images/illustration-achievments.svg';
 
 const TITLE = 'Contributors';
 const DESCRIPTION =
@@ -32,12 +32,7 @@ const Hero = () => (
           </Button>
         </div>
         <div className="" aria-hidden>
-          <StaticImage
-            className="max-w-[560px]"
-            src="./images/illustration-achievments.png"
-            alt=""
-            loading="lazy"
-          />
+          <img className="" width={660} height={400} src={Illustration} alt="" loading="lazy" />
         </div>
       </div>
     </div>

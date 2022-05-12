@@ -1,18 +1,18 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import ainouzGali from './images/ainouz-gali.jpg';
 import monthContributorIcon from './images/contributor-of-the-month.svg';
 import yearContributorIcon from './images/contributor-of-the-year.svg';
+import davidSoderberg from './images/david-soderberg.jpg';
 import bronzeMedalIcon from './images/medal-bronze.svg';
 import goldMedalIcon from './images/medal-gold.svg';
 import silverMedalIcon from './images/medal-silver.svg';
+import mrNewbie from './images/mr-newbie.jpg';
 import rockStarIcon from './images/rock-star.svg';
 import starReporterIcon from './images/star-reporter.svg';
 import teamPlayerIcon from './images/team-player.svg';
-import davidSoderberg from './images/david-soderberg.jpg';
-import mrNewbie from './images/mr-newbie.jpg';
 import tylerDurden from './images/tyler-durden.jpg';
-import ainouzGali from './images/ainouz-gali.jpg';
 
 const ACHIEVEMENT_ITEMS = [
   {
@@ -112,16 +112,16 @@ const Achievments = () => (
           >
             <img
               src={icon}
-              className="h-44 w-44"
-              width={176}
-              height={176}
+              className="mr-1 h-[196px] w-[196px]"
+              width={196}
+              height={196}
               loading="lazy"
               alt="achievment-icon"
             />
-            <div className="ml-34 flex flex-col items-start">
+            <div className="ml-28 flex flex-col items-start">
               <h3 className={clsx('text-4xl leading-tight')}>{title}</h3>
               <div className="mt-4 text-lg font-light leading-snug text-gray-10">{description}</div>
-              <ul className="mt-8 flex w-full flex-wrap items-stretch justify-between ">
+              <ul className="mt-8 flex w-full flex-wrap justify-between">
                 {users.map(({ userName, avatar, lastActivity }, index) => (
                   <li className="my-4 flex min-w-[332px] rounded-[12px] bg-black p-5" key={index}>
                     <img
@@ -132,9 +132,9 @@ const Achievments = () => (
                       loading="lazy"
                       alt="userphoto"
                     />
-                    <div className="my-auto flex flex-col">
-                      <p className="text-lg text-primary-1">@{userName}</p>
-                      <p className="text-sm">
+                    <div className="flex flex-col justify-around">
+                      <p className="text-lg leading-denser text-primary-1">@{userName}</p>
+                      <p className="text-sm leading-denser">
                         Last activity:
                         <span className="text-sm text-secondary-2"> {lastActivity}</span>
                       </p>
@@ -156,29 +156,29 @@ const Achievments = () => (
           >
             <img
               src={icon}
-              className="h-52 w-44"
-              width={176}
-              height={210}
+              className="mr-1 h-[222px] w-[196px]"
+              height={222}
+              width={196}
               loading="lazy"
               alt="achievment-icon"
             />
-            <div className="ml-34 flex flex-col items-start">
+            <div className="ml-28 flex flex-col items-start">
               <h3 className={clsx('text-4xl leading-tight')}>{title}</h3>
               <div className="mt-4 text-lg font-light leading-snug text-gray-10">{description}</div>
-              <ul className="mt-8 flex w-full flex-wrap justify-between ">
+              <ul className="mt-8 flex w-full flex-wrap justify-between">
                 {users.map(({ userName, avatar, lastActivity }, index) => (
-                  <li className="my-4 flex min-w-[332px] rounded-[12px] bg-gray-2 p-5 " key={index}>
+                  <li className="my-4 flex min-w-[332px] rounded-[12px] bg-gray-2 p-5" key={index}>
                     <img
                       className="mr-3 h-12 w-12 rounded-full"
                       src={avatar}
                       loading="lazy"
                       alt="userphoto"
                     />
-                    <div className="my-auto flex flex-col">
-                      <p className="text-lg text-primary-1">@{userName}</p>
-                      <p className="text-sm">
+                    <div className="flex flex-col justify-around">
+                      <p className="text-lg leading-denser text-primary-1">@{userName}</p>
+                      <p className="text-sm leading-denser">
                         Last activity:
-                        <span className="text-sm text-secondary-2"> {lastActivity}</span>
+                        <span className="text-secondary-2"> {lastActivity}</span>
                       </p>
                     </div>
                   </li>

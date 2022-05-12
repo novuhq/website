@@ -36,35 +36,28 @@ const STAGE_ITEMS = [
 ];
 
 const HowItWorks = () => (
-  <section className="safe-paddings relative overflow-hidden bg-gray-2 py-40">
-    <div className="container-lg relative z-10">
-      <div className="">
-        <Heading
-          size="xl"
-          tag="h2"
-          className="text-4xl leading-tight lg:text-4xl sm:text-3xl"
-          theme="white"
-        >
-          {TITLE}
-        </Heading>
-        <ul className="mt-16 flex justify-start">
-          {STAGE_ITEMS.map(({ title, icon, description }, index) => (
-            <li
-              className="relative mr-12 flex w-[260px] flex-col items-start after:absolute after:top-9 after:left-22 after:z-10 after:h-[1px] after:w-[200px] after:border-t after:border-dashed after:border-gray-6 last:after:hidden"
-              key={index}
-            >
-              <img
-                className="max-h-[76px] max-w-[76px]"
-                src={icon}
-                loading="eager"
-                alt="stage-icon"
-              />
-              <div className="mt-6 text-xl font-medium text-white">{title}</div>
-              <div className="mt-3 text-base font-normal text-gray-8">{description}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
+  <section className="safe-paddings bg-gray-2 py-40">
+    <div className="container-lg">
+      <Heading size="xl" tag="h2" className="text-4xl leading-tight sm:text-3xl" theme="white">
+        {TITLE}
+      </Heading>
+      <ul className="mt-16 flex ">
+        {STAGE_ITEMS.map(({ title, icon, description }, index) => (
+          <li
+            className="relative mr-12 flex w-[260px] flex-col items-start after:absolute after:top-9 after:left-22 after:z-10 after:h-[1px] after:w-[200px] after:border-t after:border-dashed after:border-gray-6 last:mr-0 last:after:hidden"
+            key={index}
+          >
+            <img
+              className="max-h-[76px] max-w-[76px]"
+              src={icon}
+              loading="eager"
+              alt="stage-icon"
+            />
+            <div className="mt-6 text-xl font-medium leading-5 text-white">{title}</div>
+            <div className="mt-2 text-base font-normal leading-6 text-gray-8">{description}</div>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 );
