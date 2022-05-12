@@ -8,18 +8,34 @@ const personalIconClassNames = '-mx-5 -my-4 h-[216px] w-[216px] flex-shrink-0';
 const medalIconClassNames = '-mx-5 -my-2.5 h-[244px] w-[216px] flex-shrink-0';
 
 const icons = {
-  rockStar: <StaticImage className={personalIconClassNames} src="./images/rock-star.png" />,
+  rockStar: <StaticImage className={personalIconClassNames} src="./images/rock-star.png" alt="" />,
   contributorOfTheYear: (
-    <StaticImage className={personalIconClassNames} src="./images/contributor-of-the-year.png" />
+    <StaticImage
+      className={personalIconClassNames}
+      src="./images/contributor-of-the-year.png"
+      alt=""
+    />
   ),
   contributorOfTheMonth: (
-    <StaticImage className={personalIconClassNames} src="./images/contributor-of-the-month.png" />
+    <StaticImage
+      className={personalIconClassNames}
+      src="./images/contributor-of-the-month.png"
+      alt=""
+    />
   ),
-  reporterStar: <StaticImage className={personalIconClassNames} src="./images/reporter-star.png" />,
-  teamPlayer: <StaticImage className={personalIconClassNames} src="./images/team-player.png" />,
-  goldMedal: <StaticImage className={medalIconClassNames} src="./images/gold-medal.png" />,
-  silverMedal: <StaticImage className={medalIconClassNames} src="./images/silver-medal.png" />,
-  bronzeMedal: <StaticImage className={medalIconClassNames} src="./images/bronze-medal.png" />,
+  reporterStar: (
+    <StaticImage className={personalIconClassNames} src="./images/reporter-star.png" alt="" />
+  ),
+  teamPlayer: (
+    <StaticImage className={personalIconClassNames} src="./images/team-player.png" alt="" />
+  ),
+  goldMedal: <StaticImage className={medalIconClassNames} src="./images/gold-medal.png" alt="" />,
+  silverMedal: (
+    <StaticImage className={medalIconClassNames} src="./images/silver-medal.png" alt="" />
+  ),
+  bronzeMedal: (
+    <StaticImage className={medalIconClassNames} src="./images/bronze-medal.png" alt="" />
+  ),
 };
 
 const Achievments = () => (

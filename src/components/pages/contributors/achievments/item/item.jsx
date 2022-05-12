@@ -2,11 +2,15 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Heading from 'components/shared/heading';
+
 const Item = ({ icon, title, description, users, theme }) => (
   <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-5 py-20 first:pt-0 last:border-none last:pb-0">
     {icon}
     <div className="ml-34 flex w-full flex-col">
-      <h3 className="text-4xl leading-tight">{title}</h3>
+      <Heading className="leading-tight" size="md" tag="h3" theme="white">
+        {title}
+      </Heading>
       <div className="mt-4 text-lg font-light leading-snug text-gray-10">{description}</div>
 
       <div className="mt-10 grid w-full grid-cols-2 gap-8">
@@ -46,7 +50,7 @@ Item.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
       userName: PropTypes.string.isRequired,
-      avatar: PropTypes.element.isRequired,
+      avatar: PropTypes.string.isRequired,
       lastActivity: PropTypes.string.isRequired,
     })
   ).isRequired,

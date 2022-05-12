@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
+import LINKS from 'constants/links';
 
 import bg from './images/bg.svg';
 import Illustration from './images/illustration.svg';
@@ -12,7 +13,7 @@ const DESCRIPTION =
 const BUTTON_TEXT = 'How it works';
 
 const Hero = () => (
-  <section className="safe-paddings relative overflow-hidden pt-32 pb-30">
+  <section className="hero safe-paddings relative overflow-hidden pt-32 pb-30">
     <div className="container-lg relative z-10">
       <div className="flex items-center justify-between md:flex md:flex-col">
         <div className="max-w-[488px] md:max-w-none">
@@ -25,7 +26,7 @@ const Hero = () => (
             {TITLE}
           </Heading>
           <p className="mt-5 text-lg font-light leading-snug text-gray-8">{DESCRIPTION}</p>
-          <Button className="mt-7 md:mt-6" size="sm" theme="primary">
+          <Button className="mt-7 md:mt-6" size="sm" theme="primary" {...LINKS.home}>
             {BUTTON_TEXT}
           </Button>
         </div>
