@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
+import Banner from 'components/shared/banner';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
@@ -14,7 +15,8 @@ const Layout = ({ seo, children }) => {
   return (
     <>
       <SEO {...seo} />
-      <div className="flex min-h-screen flex-col">
+      <Banner />
+      <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
         <main className="flex-grow">{children}</main>
         <Footer />
