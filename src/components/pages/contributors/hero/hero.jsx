@@ -4,7 +4,7 @@ import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
 
 import bg from './images/bg.svg';
-import Illustration from './images/illustration-achievments.svg';
+import Illustration from './images/illustration.svg';
 
 const TITLE = 'Contributors';
 const DESCRIPTION =
@@ -12,10 +12,10 @@ const DESCRIPTION =
 const BUTTON_TEXT = 'How it works';
 
 const Hero = () => (
-  <section className="safe-paddings relative overflow-hidden py-36">
+  <section className="safe-paddings relative overflow-hidden pt-32 pb-30">
     <div className="container-lg relative z-10">
       <div className="flex items-center justify-between md:flex md:flex-col">
-        <div className="col-start-1 col-end-6 xl:col-end-6 md:text-center">
+        <div className="max-w-[488px] md:max-w-none">
           <Heading
             size="xl"
             tag="h2"
@@ -24,16 +24,21 @@ const Hero = () => (
           >
             {TITLE}
           </Heading>
-          <p className="mt-5 max-w-[488px] text-lg font-light leading-snug text-gray-8 lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
-            {DESCRIPTION}
-          </p>
+          <p className="mt-5 text-lg font-light leading-snug text-gray-8">{DESCRIPTION}</p>
           <Button className="mt-7 md:mt-6" size="sm" theme="primary">
             {BUTTON_TEXT}
           </Button>
         </div>
-        <div className="" aria-hidden>
-          <img className="" width={660} height={400} src={Illustration} alt="" loading="lazy" />
-        </div>
+
+        <img
+          className="-mt-2.5 -mr-2.5"
+          src={Illustration}
+          width={660}
+          height={420}
+          loading="eager"
+          alt=""
+          aria-hidden
+        />
       </div>
     </div>
 
