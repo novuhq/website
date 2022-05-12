@@ -19,7 +19,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
         justifyContent: 'center',
         alignItems: 'center',
         fontWeight: 'bold',
-        background: '#ab2151',
+        background: '#a92050',
       }}
       onClick={() => {
         window.location.href = '/blog/seed-funding';
