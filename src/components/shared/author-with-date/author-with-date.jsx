@@ -6,7 +6,8 @@ import React from 'react';
 const AuthorWithDate = ({ className, author: { name: authorName, avatar: authorPhoto }, date }) => (
   <div className={clsx('flex items-center', className)}>
     <GatsbyImage
-      imgClassName="rounded-full mr-4"
+      className="mr-4"
+      imgClassName="rounded-full"
       image={getImage(authorPhoto.localFile)}
       alt={authorPhoto.alternativeText || authorName}
       loading="eager"

@@ -119,10 +119,25 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-DHRXGBJSKF'],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-gatsby-cloud',
       options: {
         headers: {
-          '/fonts/*': ['Cache-Control: public, max-age: 31536000, immutable'],
+          '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
+          '/lottie-assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
         },
       },
     },

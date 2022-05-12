@@ -25,6 +25,7 @@
     "framer-motion": "^6.2.8",
     "gatsby": "^4.9.3",
     "gatsby-plugin-gatsby-cloud": "^4.13.0",
+    "gatsby-plugin-google-gtag": "^4.13.0",
     "gatsby-plugin-image": "^2.9.1",
     "gatsby-plugin-mdx": "^3.13.0",
     "gatsby-source-strapi": "^2.0.0",
