@@ -1,6 +1,6 @@
 @layer components {
   .content {
-    @apply text-lg font-light sm:text-base;
+    @apply text-lg font-book sm:text-base;
 
     > *:first-child {
       @apply !mt-0;
