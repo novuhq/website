@@ -123,7 +123,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 644, height: 360)
+              gatsbyImageData(width: 592, height: 360)
             }
           }
         }
@@ -194,7 +194,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 644, height: 360)
+              gatsbyImageData(width: 592, height: 360)
             }
           }
         }
