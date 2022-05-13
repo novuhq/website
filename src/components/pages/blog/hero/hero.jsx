@@ -8,17 +8,13 @@ import Link from 'components/shared/link';
 
 import bg from './images/bg.svg';
 
-const Hero = ({ title, category, date, slug, image, description, author, blogPageURL }) => (
+const Hero = ({ title, category, date, slug, image, description, author }) => (
   <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
     <div className="container-lg relative z-10">
       <article className="grid grid-cols-2 items-center gap-x-16 md:flex md:flex-col">
         <div className="flex flex-col md:order-2 md:mt-5">
           <header>
-            <CategoryLabel
-              url={`/${blogPageURL}/${category.slug}`}
-              theme={category.color}
-              size="xs"
-            >
+            <CategoryLabel url={category.url} theme={category.color} size="xs">
               {category.name}
             </CategoryLabel>
             <h1 className="mt-4 text-4xl font-medium leading-tight sm:text-3xl">
@@ -67,7 +63,7 @@ Hero.propTypes = {
   slug: PropTypes.string.isRequired,
   category: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
   }).isRequired,
   date: PropTypes.string.isRequired,
@@ -90,9 +86,6 @@ Hero.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  blogPageURL: PropTypes.string.isRequired,
 };
-
-Hero.defaultProps = {};
 
 export default Hero;

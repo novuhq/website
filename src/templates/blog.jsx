@@ -21,6 +21,11 @@ const BlogPage = (props) => {
     pageContext,
   } = props;
 
+  // categories that have articles without considering the featured article
+  const categoriesList = categories.filter((category) =>
+    articles.nodes.some((article) => article.category.id === category.id)
+  );
+
   const seo = {
     title: page.seo?.title,
     description: page.seo?.description,
@@ -34,11 +39,13 @@ const BlogPage = (props) => {
     title: page.featuredPost.title,
     description: page.featuredPost.description,
     slug: `/${pageContext.blogPageURL}/${page.featuredPost.slug}`,
-    category: page.featuredPost.category,
+    category: {
+      url: `/${pageContext.blogPageURL}/${page.featuredPost.category.slug}`,
+      ...page.featuredPost.category,
+    },
     image: page.featuredPost.cover,
     date: page.featuredPost.date,
     author: page.featuredPost.author,
-    blogPageURL: pageContext.blogPageURL,
   };
 
   const articlesList = {
@@ -55,9 +62,9 @@ const BlogPage = (props) => {
 
       {!!articlesList.items.length && (
         <div className={clsx('bg-gray-2 pb-20')}>
-          {!!categories.length && (
+          {!!categoriesList.length && (
             <Categories
-              items={categories}
+              items={categoriesList}
               activeCategoryId={pageContext.categoryId || 'none'}
               blogPageURL={pageContext.blogPageURL}
             />
@@ -154,6 +161,7 @@ export const pageQuery = graphql`
         slug
         date(formatString: "MMMM D, YYYY")
         category {
+          id
           color
           name
           slug
