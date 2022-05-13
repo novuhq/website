@@ -14,7 +14,7 @@ const Subscribe = () => (
     <div className="container relative z-10 flex flex-col items-center">
       <Heading
         className="max-w-[789px] text-center font-normal leading-tight md:text-4xl sm:text-3xl"
-        size="xl"
+        size="2xl"
         tag="h2"
         theme="white"
       >

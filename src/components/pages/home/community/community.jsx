@@ -43,7 +43,7 @@ const Community = () => {
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div className="col-start-1 col-end-5 lg:col-end-6 md:text-center">
           <Heading
-            size="lg"
+            size="xl"
             tag="h2"
             className="leading-tight lg:text-4xl sm:text-3xl"
             theme="white"

@@ -67,7 +67,7 @@ const Languages = () => (
         />
       </div>
       <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
-        <Heading size="lg" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
+        <Heading size="xl" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
           {TITLE}
         </Heading>
         <p className="mt-5 text-lg font-book leading-snug text-gray-8 md:mt-3 md:text-base">

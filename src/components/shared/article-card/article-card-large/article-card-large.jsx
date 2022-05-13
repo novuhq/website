@@ -5,6 +5,7 @@ import React from 'react';
 
 import AuthorWithDate from 'components/shared/author-with-date';
 import CategoryLabel from 'components/shared/category-label';
+import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 import ArticleCardPropTypes from '../article-card-prop-types';
@@ -27,7 +28,7 @@ const ArticleCardLarge = ({
           <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
             {category.name}
           </CategoryLabel>
-          <h1 className="mt-4 text-4xl font-medium leading-tight sm:text-3xl">
+          <Heading className="mt-4 font-medium leading-denser sm:text-3xl" size="lg" tag="h1">
             <Link
               className="inline-block align-top line-clamp-3 md:line-clamp-none"
               to={slug}
@@ -35,7 +36,7 @@ const ArticleCardLarge = ({
             >
               {title}
             </Link>
-          </h1>
+          </Heading>
           <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-none">
             {description}
           </p>

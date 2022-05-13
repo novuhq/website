@@ -53,7 +53,7 @@ const NotificationCenter = () => {
 
         <div className="col-start-9 col-end-13 xl:col-start-8 md:order-1 md:text-center">
           <Heading
-            size="lg"
+            size="xl"
             tag="h2"
             className="leading-tight lg:text-4xl sm:text-3xl"
             theme="white"
