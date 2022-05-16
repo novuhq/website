@@ -115,7 +115,21 @@ module.exports = {
           },
           'author',
         ],
-        singleTypes: ['blog'],
+        singleTypes: [
+          {
+            singularName: 'blog',
+            queryParams: {
+              populate: {
+                featuredPost: '*',
+                seo: {
+                  populate: {
+                    ogImage: '*',
+                  },
+                },
+              },
+            },
+          },
+        ],
       },
     },
     {

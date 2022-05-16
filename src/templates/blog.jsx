@@ -16,10 +16,16 @@ const BlogPage = (props) => {
     data: {
       strapiBlog: page,
       allStrapiCategory: { nodes: categories },
-      allStrapiArticle: articles,
+      allStrapiArticle: { nodes: articles },
+      allStrapiArticleForCategories: { nodes: articlesForCategories },
     },
     pageContext,
   } = props;
+
+  // categories that have articles without considering the featured article
+  const categoriesList = categories.filter((category) =>
+    articles.some((article) => article.category.id === category.id)
+  );
 
   const seo = {
     title: page.seo?.title,
@@ -34,15 +40,17 @@ const BlogPage = (props) => {
     title: page.featuredPost.title,
     description: page.featuredPost.description,
     slug: `/${pageContext.blogPageURL}/${page.featuredPost.slug}`,
-    category: page.featuredPost.category,
+    category: {
+      url: `/${pageContext.blogPageURL}/${page.featuredPost.category.slug}`,
+      ...page.featuredPost.category,
+    },
     image: page.featuredPost.cover,
     date: page.featuredPost.date,
     author: page.featuredPost.author,
-    blogPageURL: pageContext.blogPageURL,
   };
 
   const articlesList = {
-    items: articles.nodes.map((article) => ({
+    items: articlesForCategories.map((article) => ({
       ...article,
       slug: `/${pageContext.blogPageURL}/${article.slug}`,
     })),
@@ -55,9 +63,9 @@ const BlogPage = (props) => {
 
       {!!articlesList.items.length && (
         <div className={clsx('bg-gray-2 pb-20')}>
-          {!!categories.length && (
+          {!!categoriesList.length && (
             <Categories
-              items={categories}
+              items={categoriesList}
               activeCategoryId={pageContext.categoryId || 'none'}
               blogPageURL={pageContext.blogPageURL}
             />
@@ -94,6 +102,7 @@ export const pageQuery = graphql`
         description
         slug
         category {
+          id
           name
           slug
           color
@@ -116,7 +125,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 644, height: 360)
+              gatsbyImageData(width: 592, height: 333)
             }
           }
         }
@@ -143,7 +152,16 @@ export const pageQuery = graphql`
       }
     }
 
-    allStrapiArticle(
+    allStrapiArticle(filter: { id: { ne: $featuredPostId } }) {
+      nodes {
+        id
+        category {
+          id
+        }
+      }
+    }
+
+    allStrapiArticleForCategories: allStrapiArticle(
       filter: { id: { ne: $featuredPostId }, category: { id: { eq: $categoryId } } }
       sort: { fields: date, order: DESC }
       limit: $limit
@@ -154,6 +172,7 @@ export const pageQuery = graphql`
         slug
         date(formatString: "MMMM D, YYYY")
         category {
+          id
           color
           name
           slug
@@ -177,7 +196,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 380, height: 212)
+              gatsbyImageData(width: 384, height: 214)
             }
           }
         }
@@ -186,7 +205,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 644, height: 360)
+              gatsbyImageData(width: 592, height: 333)
             }
           }
         }

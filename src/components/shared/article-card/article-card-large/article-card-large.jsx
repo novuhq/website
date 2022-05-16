@@ -5,6 +5,7 @@ import React from 'react';
 
 import AuthorWithDate from 'components/shared/author-with-date';
 import CategoryLabel from 'components/shared/category-label';
+import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 import ArticleCardPropTypes from '../article-card-prop-types';
@@ -21,22 +22,22 @@ const ArticleCardLarge = ({
   blogPageURL,
 }) => (
   <article className={clsx('safe-paddings py-28 md:py-10', className)}>
-    <div className="container-lg grid grid-cols-2 items-center gap-x-16 md:flex md:flex-col">
-      <div className="flex flex-col md:order-2 md:mt-5">
+    <div className="container-lg grid grid-cols-12 items-center gap-x-8 lg:gap-x-7 md:flex md:flex-col">
+      <div className="col-start-1 col-end-6 flex flex-col md:order-2 md:mt-5">
         <header>
           <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
             {category.name}
           </CategoryLabel>
-          <h1 className="mt-4 text-4xl font-medium leading-tight sm:text-3xl">
+          <Heading className="mt-4 font-medium leading-denser sm:text-3xl" size="lg" tag="h1">
             <Link
-              className="inline-block align-top line-clamp-2 md:line-clamp-none"
+              className="inline-block align-top line-clamp-3 md:line-clamp-none"
               to={slug}
               theme="white"
             >
               {title}
             </Link>
-          </h1>
-          <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-1 md:line-clamp-none">
+          </Heading>
+          <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-3">
             {description}
           </p>
         </header>
@@ -45,7 +46,7 @@ const ArticleCardLarge = ({
         </footer>
       </div>
 
-      <Link className="w-full md:order-1 md:block" to={slug}>
+      <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={slug}>
         <GatsbyImage
           className="h-full w-full"
           imgClassName="rounded-lg"

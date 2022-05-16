@@ -4,33 +4,35 @@ import React from 'react';
 
 import AuthorWithDate from 'components/shared/author-with-date';
 import CategoryLabel from 'components/shared/category-label';
+import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 import bg from './images/bg.svg';
 
-const Hero = ({ title, category, date, slug, image, description, author, blogPageURL }) => (
+const Hero = ({ title, category, date, slug, image, description, author }) => (
   <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
     <div className="container-lg relative z-10">
-      <article className="grid grid-cols-2 items-center gap-x-16 md:flex md:flex-col">
-        <div className="flex flex-col md:order-2 md:mt-5">
+      <article className="grid grid-cols-12 items-center gap-x-8 lg:gap-x-7 md:flex md:flex-col">
+        <div className="col-start-1 col-end-6 flex flex-col md:order-2 md:mt-5">
           <header>
-            <CategoryLabel
-              url={`/${blogPageURL}/${category.slug}`}
-              theme={category.color}
-              size="xs"
-            >
+            <CategoryLabel url={category.url} theme={category.color} size="xs">
               {category.name}
             </CategoryLabel>
-            <h1 className="mt-4 text-4xl font-medium leading-tight sm:text-3xl">
+            <Heading
+              className="mt-4 font-medium leading-denser sm:text-3xl"
+              size="lg"
+              tag="h1"
+              theme="white"
+            >
               <Link
-                className="inline-block align-top line-clamp-2 md:line-clamp-none"
+                className="inline-block align-top line-clamp-3 md:line-clamp-none"
                 to={slug}
                 theme="white"
               >
                 {title}
               </Link>
-            </h1>
-            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-1 md:line-clamp-none">
+            </Heading>
+            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-3">
               {description}
             </p>
           </header>
@@ -40,7 +42,7 @@ const Hero = ({ title, category, date, slug, image, description, author, blogPag
           </footer>
         </div>
 
-        <Link className="w-full md:order-1 md:block" to={slug}>
+        <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={slug}>
           <GatsbyImage
             className="h-full w-full"
             imgClassName="rounded-lg"
@@ -67,7 +69,7 @@ Hero.propTypes = {
   slug: PropTypes.string.isRequired,
   category: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
   }).isRequired,
   date: PropTypes.string.isRequired,
@@ -90,9 +92,6 @@ Hero.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-  blogPageURL: PropTypes.string.isRequired,
 };
-
-Hero.defaultProps = {};
 
 export default Hero;

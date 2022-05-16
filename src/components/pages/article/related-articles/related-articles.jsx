@@ -5,9 +5,9 @@ import ArticleCard from 'components/shared/article-card';
 
 const RelatedArticles = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-30 bg-gray-2 py-28 sm:mt-20 sm:py-20">
-    <div className="container">
+    <div className="container-lg">
       <h2 className="text-[40px] leading-tight">Related Posts</h2>
-      <div className="grid-gap-x mt-14 grid grid-cols-3 xl:mt-8 lg:grid-cols-2 md:block md:space-y-10">
+      <div className="article-list-inner mt-14 grid grid-cols-3 gap-x-8 xl:mt-8 lg:grid-cols-2 lg:gap-x-7 md:gap-x-5">
         {items.map((item, index) => (
           <ArticleCard
             className="lg:last:hidden md:last:block"

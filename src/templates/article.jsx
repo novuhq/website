@@ -59,8 +59,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
           <SocialShare {...socialShare} />
         </div>
       </article>
-      {!!relatedArticlesProps.items.length && <RelatedArticles {...relatedArticlesProps} />}
-
+      {relatedArticlesProps.items.length >= 3 && <RelatedArticles {...relatedArticlesProps} />}
       <Subscribe />
       <Separator backgroundColor="black" />
     </Layout>
@@ -97,7 +96,7 @@ export const pageQuery = graphql`
         localFile {
           url
           childImageSharp {
-            gatsbyImageData(width: 716, height: 386)
+            gatsbyImageData(width: 800, height: 431)
           }
         }
       }
@@ -113,7 +112,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 716)
+              gatsbyImageData(width: 800)
             }
           }
         }
@@ -135,11 +134,7 @@ export const pageQuery = graphql`
     relatedArticles: allStrapiArticle(
       limit: 3
       sort: { fields: createdAt, order: DESC }
-      filter: {
-        publishedAt: { ne: null }
-        category: { name: { eq: $categoryName } }
-        id: { ne: $id }
-      }
+      filter: { category: { name: { eq: $categoryName } }, id: { ne: $id } }
     ) {
       nodes {
         title
@@ -168,7 +163,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 716, height: 386)
+              gatsbyImageData(width: 384, height: 214)
             }
           }
         }

@@ -34,7 +34,7 @@ const ArticleCardMedium = ({
         <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
-        <h1 className="text-[22px] font-normal lg:text-[18px] xs:text-[16px]">
+        <h1 className="text-[22px] font-medium leading-denser lg:text-[18px] xs:text-[16px]">
           <Link className="inline-block align-top line-clamp-2" to={slug} theme="white">
             {title}
           </Link>

@@ -11,10 +11,10 @@ const Hero = ({ title, description, author, date, image, category, blogPageURL }
     <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="sm">
       {category.name}
     </CategoryLabel>
-    <Heading className="mt-5 text-[40px] leading-tight" size="md" tag="h1" theme="white">
+    <Heading className="mt-5 leading-tight" size="lg" tag="h1" theme="white">
       {title}
     </Heading>
-    <p className="mt-5 text-lg font-book text-gray-8">{description}</p>
+    <p className="mt-5 text-lg text-gray-8">{description}</p>
     <AuthorWithDate className="mt-5" author={author} date={date} />
     <GatsbyImage
       className="mt-7 w-full"

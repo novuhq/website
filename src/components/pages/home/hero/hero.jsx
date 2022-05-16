@@ -61,7 +61,7 @@ const Hero = () => {
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
           className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[26px]"
-          size="xl"
+          size="2xl"
           tag="h1"
           theme="white"
         >

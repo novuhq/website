@@ -17,7 +17,7 @@ const Banner = () => (
         We are thrilled to announce our <span>$6.6m</span> seed funding
         <ArrowIcon
           className="ml-2.5 inline-block h-2.5 w-5 transition-colors duration-200 group-hover:text-primary-1"
-          arria-hidden
+          aria-hidden
         />
       </p>
 
@@ -26,14 +26,14 @@ const Banner = () => (
         src={illustrationLeft}
         alt=""
         loading="eager"
-        arria-hidden
+        aria-hidden
       />
       <img
         className="absolute right-24 xl:right-0 lg:-right-30 md:-right-60 sm:hidden"
         src={illustrationRight}
         alt=""
         loading="eager"
-        arria-hidden
+        aria-hidden
       />
     </div>
   </Link>
