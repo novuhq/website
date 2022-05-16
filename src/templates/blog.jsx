@@ -16,14 +16,15 @@ const BlogPage = (props) => {
     data: {
       strapiBlog: page,
       allStrapiCategory: { nodes: categories },
-      allStrapiArticle: articles,
+      allStrapiArticle: { nodes: articles },
+      allStrapiArticleForCategories: { nodes: articlesForCategories },
     },
     pageContext,
   } = props;
 
   // categories that have articles without considering the featured article
-  const categoriesList = categories.filter(
-    (category) => page.featuredPost.category.id !== category.id
+  const categoriesList = categories.filter((category) =>
+    articles.some((article) => article.category.id === category.id)
   );
 
   const seo = {
@@ -49,7 +50,7 @@ const BlogPage = (props) => {
   };
 
   const articlesList = {
-    items: articles.nodes.map((article) => ({
+    items: articlesForCategories.map((article) => ({
       ...article,
       slug: `/${pageContext.blogPageURL}/${article.slug}`,
     })),
@@ -151,7 +152,16 @@ export const pageQuery = graphql`
       }
     }
 
-    allStrapiArticle(
+    allStrapiArticle(filter: { id: { ne: $featuredPostId } }) {
+      nodes {
+        id
+        category {
+          id
+        }
+      }
+    }
+
+    allStrapiArticleForCategories: allStrapiArticle(
       filter: { id: { ne: $featuredPostId }, category: { id: { eq: $categoryId } } }
       sort: { fields: date, order: DESC }
       limit: $limit
