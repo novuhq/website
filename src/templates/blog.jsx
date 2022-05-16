@@ -22,8 +22,8 @@ const BlogPage = (props) => {
   } = props;
 
   // categories that have articles without considering the featured article
-  const categoriesList = categories.filter((category) =>
-    articles.nodes.some((article) => article.category.id === category.id)
+  const categoriesList = categories.filter(
+    (category) => page.featuredPost.category.id !== category.id
   );
 
   const seo = {
@@ -101,6 +101,7 @@ export const pageQuery = graphql`
         description
         slug
         category {
+          id
           name
           slug
           color
