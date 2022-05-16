@@ -32,7 +32,7 @@ const Hero = ({ title, category, date, slug, image, description, author }) => (
                 {title}
               </Link>
             </Heading>
-            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-none">
+            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-3">
               {description}
             </p>
           </header>
