@@ -144,5 +144,12 @@ module.exports = {
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: process.env.MIXPANEL_TOKEN,
+        enableOnDevMode: true,
+      },
+    },
   ],
 };
