@@ -13,26 +13,28 @@ const DESCRIPTION =
 const BUTTON_TEXT = 'How it works';
 
 const Hero = () => (
-  <section className="hero safe-paddings relative overflow-hidden pt-32 pb-30">
+  <section className="hero safe-paddings relative overflow-hidden pt-32 pb-30 md:pt-30 md:pb-20 sm:pt-22 sm:pb-16">
     <div className="container-lg relative z-10">
-      <div className="flex items-center justify-between md:flex md:flex-col">
-        <div className="max-w-[488px] md:max-w-none">
+      <div className="flex items-center justify-between sm:flex-col">
+        <div className="max-w-[488px] lg:max-w-[377px] md:max-w-[346px] sm:max-w-none sm:text-center">
           <Heading
-            size="xl"
+            size="2xl"
             tag="h2"
-            className="leading-tight lg:text-4xl sm:text-3xl"
+            className="leading-tight md:text-4xl sm:text-3xl"
             theme="white"
           >
             {TITLE}
           </Heading>
-          <p className="mt-5 text-lg font-light leading-snug text-gray-8">{DESCRIPTION}</p>
-          <Button className="mt-7 md:mt-6" size="sm" theme="primary" {...LINKS.home}>
+          <p className="mt-5 text-lg font-light leading-snug text-gray-8 md:text-base">
+            {DESCRIPTION}
+          </p>
+          <Button className="mt-7 md:mt-5" size="sm" theme="primary" {...LINKS.home}>
             {BUTTON_TEXT}
           </Button>
         </div>
 
         <img
-          className="-mt-2.5 -mr-2.5"
+          className="-mt-2.5 -mr-2.5 lg:max-w-[510px] md:max-w-[360px] sm:mr-0 sm:mt-10 sm:max-w-full"
           src={Illustration}
           width={660}
           height={420}

@@ -36,27 +36,32 @@ const STAGES = [
 ];
 
 const HowItWorks = () => (
-  <section className="how-it-works safe-paddings bg-gray-2 py-40">
+  <section className="how-it-works safe-paddings bg-gray-2 py-40 lg:py-32 md:py-20 sm:py-16">
     <div className="container-lg">
-      <Heading size="md" tag="h2" className="leading-tight" theme="white">
+      <Heading className="leading-tight md:text-4xl sm:text-3xl" size="lg" tag="h2" theme="white">
         {TITLE}
       </Heading>
-      <ul className="mt-16 flex space-x-[52px]">
+      <ul className="mt-16 grid grid-cols-12 gap-x-8 lg:gap-x-7 md:mt-14 md:block sm:mt-11">
         {STAGES.map(({ title, icon, description }, index) => (
           <li
-            className="relative flex max-w-[260px] flex-col after:absolute after:top-9 after:left-22 after:z-10 after:h-[1px] after:w-[200px] after:border-t after:border-dashed after:border-gray-6 last:mr-0 last:after:hidden"
+            className="group relative col-span-3 flex max-w-[260px] flex-col md:max-w-none md:flex-row"
             key={index}
           >
-            <img
-              src={icon}
-              width={76}
-              height={76}
-              loading="lazy"
-              alt={`stage number ${index + 1}`}
-            />
-
-            <h4 className="mt-6 text-xl font-medium leading-tight text-white">{title}</h4>
-            <p className="mt-2 text-base font-book leading-snug text-gray-8">{description}</p>
+            <div className="relative flex-shrink-0 md:mr-6" aria-hidden>
+              <img
+                className="lg:w-16 sm:w-14"
+                src={icon}
+                width={76}
+                height={76}
+                loading="lazy"
+                alt={`stage number ${index + 1}`}
+              />
+              <span className="absolute top-1/2 left-22 h-px w-[calc(100%)] -translate-y-1/2 border-t border-dashed border-gray-6 group-last:hidden xl:w-[calc(100%-76px)] lg:left-20 lg:w-[calc(100%-64px)] md:top-20 md:left-1/2 md:h-[calc(100%-92px)] md:w-px md:translate-y-0 md:-translate-x-1/2 md:border-t-0 md:border-l sm:top-16 sm:h-[calc(100%-72px)]" />
+            </div>
+            <div className="mt-6 lg:mt-9 md:mt-0 md:pb-10 md:group-last:pb-0 sm:pb-6">
+              <h4 className="text-xl font-medium leading-tight">{title}</h4>
+              <p className="mt-2 text-base font-book leading-snug text-gray-8">{description}</p>
+            </div>
           </li>
         ))}
       </ul>

@@ -4,8 +4,10 @@ import React from 'react';
 import { ACHIEVEMENT_PERSONAL, ACHIEVEMENT_MEDALS } from './constants/data';
 import Item from './item';
 
-const personalIconClassNames = '-mx-5 -my-4 h-[216px] w-[216px] flex-shrink-0';
-const medalIconClassNames = '-mx-5 -my-2.5 h-[244px] w-[216px] flex-shrink-0';
+const personalIconClassNames =
+  'h-[176px] w-[176px] lg:h-[134px] lg:w-[134px] flex-shrink-0 rounded-full shadow-[0px_5px_20px_#000000] mr-34 lg:mr-7 md:h-[102px] md:w-[102px] md:mr-5 sm:mr-0';
+const medalIconClassNames =
+  'h-[210px] w-[176px] lg:h-[160px] lg:w-[134px] flex-shrink-0 mr-34 lg:mr-7 md:h-[122px] md:w-[102px] md:mr-5 sm:mr-0';
 
 const icons = {
   rockStar: <StaticImage className={personalIconClassNames} src="./images/rock-star.png" alt="" />,
@@ -40,8 +42,8 @@ const icons = {
 
 const Achievments = () => (
   <>
-    <section className="achievments-personal safe-paddings bg-gray-2 py-40">
-      <div className="container-lg grid grid-cols-12 gap-x-8 md:flex md:flex-col">
+    <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16">
+      <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
         {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => {
           const icon = icons[iconName];
           return <Item icon={icon} {...props} key={index} />;
@@ -49,8 +51,8 @@ const Achievments = () => (
       </div>
     </section>
 
-    <section className="achievments-medals safe-paddings py-40">
-      <div className="container-lg grid grid-cols-12 gap-x-8 md:flex md:flex-col">
+    <section className="achievments-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
+      <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
         {ACHIEVEMENT_MEDALS.map(({ iconName, ...props }, index) => {
           const icon = icons[iconName];
           return <Item icon={icon} {...props} key={index} theme="gray" />;
