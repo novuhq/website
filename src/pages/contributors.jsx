@@ -7,8 +7,17 @@ import GetStarted from 'components/pages/home/get-started/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
+const SEO = {
+  title: 'Novu - Contributors',
+  description:
+    'The ultimate library for managing multi-channel transactional notifications with a single API.',
+  slug: 'contributors',
+  // TODO: this value allows you not to index the page in search engines, once the page is ready remove this value
+  preventIndexing: true,
+};
+
 const ContributorsPage = () => (
-  <Layout>
+  <Layout seo={SEO}>
     <Hero />
     <Achievments />
     <HowItWorks />
