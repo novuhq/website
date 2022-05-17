@@ -20,7 +20,7 @@ const GITHUB_URL = 'https://github.com/scopsy';
 const TWITTER_URL = 'https://twitter.com/dimagrossman';
 
 const Profile = () => (
-  <div className="profile col-span-4 rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] px-5 pt-10 pb-6">
+  <div className="profile sticky top-10 col-span-4 max-w-[312px] rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] px-5 pt-10 pb-6">
     <div className="profile-avatar">
       <img
         className="z-10 rounded-full grayscale"
