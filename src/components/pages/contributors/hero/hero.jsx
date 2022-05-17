@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Button from 'components/shared/button/button';
@@ -5,7 +6,6 @@ import Heading from 'components/shared/heading/heading';
 import LINKS from 'constants/links';
 
 import bg from './images/bg.svg';
-import Illustration from './images/illustration.svg';
 
 const TITLE = 'Contributors';
 const DESCRIPTION =
@@ -33,11 +33,9 @@ const Hero = () => (
           </Button>
         </div>
 
-        <img
-          className="-mt-2.5 -mr-2.5 lg:max-w-[510px] md:max-w-[360px] sm:mr-0 sm:mt-10 sm:w-full"
-          src={Illustration}
-          width={660}
-          height={420}
+        <StaticImage
+          className="-mt-2.5 -mr-2.5 max-w-[660px] lg:max-w-[510px] md:max-w-[360px] sm:mr-0 sm:mt-10 sm:w-full"
+          src="./images/illustration.png"
           loading="eager"
           alt=""
           aria-hidden
