@@ -173,13 +173,13 @@ const Achievements = () => {
   };
 
   return (
-    <section className="achievements">
-      <Heading className="leading-denser" tag="h2" size="md" theme="white">
+    <section className="achievements md:mt-20 sm:mt-16">
+      <Heading className="leading-denser md:text-[30px]" tag="h2" size="md" theme="white">
         {TITLE}
       </Heading>
-      <p className="mt-4 text-lg font-light text-gray-10">{DESCRIPTION}</p>
+      <p className="mt-4 text-lg font-light text-gray-10 md:text-base">{DESCRIPTION}</p>
 
-      <div className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10">
+      <div className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10 md:gap-x-7 sm:grid-cols-2 sm:gap-x-5">
         {ACHIEVEMENTS.map(({ iconName, title, tooltip, date, count }, index) => {
           const isActive = count > 0;
           const icon = achievementIcons[iconName];
@@ -198,6 +198,8 @@ const Achievements = () => {
               <div className="relative">
                 {isActive ? (
                   <GatsbyImage
+                    className="xs:h-[134px]"
+                    imgClassName="xs:!w-auto xs:!left-1/2 xs:!-translate-x-1/2"
                     image={getImage(icon.active)}
                     alt={`${title} icon`}
                     loading="eager"
@@ -205,7 +207,7 @@ const Achievements = () => {
                   />
                 ) : (
                   <img
-                    className="opacity-50"
+                    className="opacity-50 xs:h-[134px]"
                     src={icon.disabled}
                     alt={`${title} icon`}
                     loading="eager"
@@ -217,7 +219,9 @@ const Achievements = () => {
                   <div className="absolute top-0 right-0" aria-hidden>
                     <div className="relative flex items-center justify-center">
                       <img src={countIcon} height={38} width={38} loading="eager" alt="" />
-                      <span className="achievement-count">{count}</span>
+                      <span className="achievement-count absolute -mt-0.5 text-[22px] font-bold leading-none text-white sm:text-base">
+                        {count}
+                      </span>
                     </div>
                   </div>
                 )}

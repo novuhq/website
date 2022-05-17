@@ -121,7 +121,7 @@ const Activity = () => {
 
   return (
     <section className="activity">
-      <Heading className="leading-denser" tag="h2" size="md" theme="white">
+      <Heading className="leading-denser md:text-[30px]" tag="h2" size="md" theme="white">
         {TITLE}
       </Heading>
 
@@ -130,7 +130,7 @@ const Activity = () => {
           const icon = activityIcons[iconName];
           return (
             <li className="flex" key={index}>
-              <div className="mr-3.5 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-white to-[rgba(255,255,255,0.6)]">
+              <div className="mr-3.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-white to-[rgba(255,255,255,0.6)]">
                 <img src={icon} loading="lazy" alt={`${iconName} icon`} aria-hidden />
               </div>
               <div className="flex w-full flex-col">
@@ -139,7 +139,7 @@ const Activity = () => {
                   <span className="whitespace-nowrap text-sm font-light leading-none">{date}</span>
                 </div>
                 <div className="mt-4 border border-gray-3 px-4 py-3.5">
-                  <p className="text-lg">{commit}</p>
+                  <p className="text-lg sm:text-base">{commit}</p>
                 </div>
               </div>
             </li>
@@ -148,12 +148,12 @@ const Activity = () => {
       </ul>
       {!isShowMore && (
         <button
-          className="relative mt-8 ml-[54px] pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1"
+          className="relative mt-8 ml-[54px] pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 md:left-1/2 md:ml-0 md:-translate-x-1/2 sm:text-sm"
           type="button"
           onClick={() => setIsShowMore(true)}
           onMouseEnter={handleHover}
         >
-          show more activity
+          Show more activity
           <motion.span
             className="absolute bottom-0 left-0 h-px w-full rounded-full bg-primary-1"
             initial="initial"

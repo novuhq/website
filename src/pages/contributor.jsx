@@ -9,12 +9,12 @@ import Separator from 'components/shared/separator';
 
 const ContributorPage = () => (
   <Layout>
-    <div className="safe-paddings pt-44">
-      <div className="container-lg grid grid-cols-12 items-start gap-x-8">
+    <div className="safe-paddings pt-44 md:pt-30 sm:pt-22">
+      <div className="container-lg grid grid-cols-12 items-start gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
         <Profile />
         <div className="col-span-8">
           <Achievements />
-          <Separator className="py-20" backgroundColor="black" />
+          <Separator className="py-20 px-0 sm:py-16" backgroundColor="black" />
           <Activity />
         </div>
       </div>
