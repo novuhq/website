@@ -60,6 +60,7 @@ Item.propTypes = {
     PropTypes.shape({
       userName: PropTypes.string.isRequired,
       avatar: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
       lastActivity: PropTypes.string.isRequired,
     })
   ).isRequired,

@@ -10,28 +10,28 @@ import stage4Icon from './images/stage-4.svg';
 const TITLE = 'How it works';
 const STAGES = [
   {
+    icon: stage1Icon,
     title: 'Malesuada nisl risus erat amet netus egestas',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas quis tortor tristique ornare sed ac.',
-    icon: stage1Icon,
   },
   {
+    icon: stage2Icon,
     title: 'Lorem ipsum dolor sit amet',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc, in mi, aliquet purus.',
-    icon: stage2Icon,
   },
   {
+    icon: stage3Icon,
     title: 'Vitae sed sodales blandit eu diam cras a aliquet',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida sagittis, ullamcorper justo accumsan. Sit pellentesque molestie vitae, enim platea orci elementum.',
-    icon: stage3Icon,
   },
   {
+    icon: stage4Icon,
     title: 'Sem tincidunt est amet sit sem',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida sagittis, ullamcorper justo accumsan. Sit pellentesque molestie vitae, enim platea orci elementum.',
-    icon: stage4Icon,
   },
 ];
 
