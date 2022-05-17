@@ -186,15 +186,6 @@ const Achievements = () => {
 
           return (
             <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
-              {tooltip && (
-                <ReactTooltip
-                  className="max-w-[248px] !rounded-lg bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] !p-4 text-sm font-light leading-tight"
-                  place="top"
-                  delayHide={300}
-                  effect="solid"
-                  multiline
-                />
-              )}
               <div className="relative">
                 {isActive ? (
                   <GatsbyImage
@@ -209,6 +200,7 @@ const Achievements = () => {
                   <img
                     className="opacity-50 xs:h-[134px]"
                     src={icon.disabled}
+                    height={160}
                     alt={`${title} icon`}
                     loading="eager"
                     aria-hidden
@@ -236,6 +228,16 @@ const Achievements = () => {
                 </h4>
                 {date && <span className="text-sm leading-tight text-gray-6">{date}</span>}
               </div>
+
+              {tooltip && (
+                <ReactTooltip
+                  className="z-10 max-w-[248px] !rounded-lg bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] !p-4 text-sm font-light leading-tight"
+                  place="top"
+                  effect="solid"
+                  offset={{ top: 16 }}
+                  multiline
+                />
+              )}
             </div>
           );
         })}
