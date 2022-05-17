@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
 
 const Item = ({ icon, title, description, users, theme }) => (
   <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-5 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
@@ -21,12 +22,13 @@ const Item = ({ icon, title, description, users, theme }) => (
       </p>
 
       <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
-        {users.map(({ userName, avatar, lastActivity }, index) => (
-          <div
+        {users.map(({ userName, avatar, url, lastActivity }, index) => (
+          <Link
             className={clsx(
               'flex items-center rounded-xl p-5',
               theme === 'gray' ? 'bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)]' : 'bg-black'
             )}
+            to={url}
             key={index}
           >
             <img
@@ -43,7 +45,7 @@ const Item = ({ icon, title, description, users, theme }) => (
                 Last activity: <span className="text-secondary-2">{lastActivity}</span>
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

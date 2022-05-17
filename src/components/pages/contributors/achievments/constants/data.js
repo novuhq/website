@@ -13,21 +13,25 @@ const ACHIEVEMENT_PERSONAL = [
       {
         userName: 'davidsoderberg',
         avatar: davidSoderberg,
+        url: '/',
         lastActivity: '1d ago',
       },
       {
         userName: 'mrnewbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
       {
         userName: 'tylerdurden',
         avatar: tylerDurden,
+        url: '/',
         lastActivity: '3d ago',
       },
       {
         userName: 'ainouzgali',
         avatar: ainouzGali,
+        url: '/',
         lastActivity: '4d ago',
       },
     ],
@@ -41,11 +45,13 @@ const ACHIEVEMENT_PERSONAL = [
       {
         userName: 'davidsoderberg',
         avatar: davidSoderberg,
+        url: '/',
         lastActivity: '1d ago',
       },
       {
         userName: 'mrnewbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
     ],
@@ -59,16 +65,19 @@ const ACHIEVEMENT_PERSONAL = [
       {
         userName: 'davidsoderberg',
         avatar: davidSoderberg,
+        url: '/',
         lastActivity: '1d ago',
       },
       {
         userName: 'mrnewbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
       {
         userName: 'tylerdurden',
         avatar: tylerDurden,
+        url: '/',
         lastActivity: '3d ago',
       },
     ],
@@ -82,6 +91,7 @@ const ACHIEVEMENT_PERSONAL = [
       {
         userName: 'tylerdurden',
         avatar: tylerDurden,
+        url: '/',
         lastActivity: '3d ago',
       },
     ],
@@ -94,31 +104,37 @@ const ACHIEVEMENT_PERSONAL = [
       {
         userName: 'davidsoderberg',
         avatar: davidSoderberg,
+        url: '/',
         lastActivity: '1d ago',
       },
       {
         userName: 'mrnewbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
       {
         userName: 'tylerdurden',
         avatar: tylerDurden,
+        url: '/',
         lastActivity: '3d ago',
       },
       {
         userName: 'ainouzgali',
         avatar: ainouzGali,
+        url: '/',
         lastActivity: '4d ago',
       },
       {
         userName: 'mrnewbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
       {
         userName: 'tylerdurden',
         avatar: tylerDurden,
+        url: '/',
         lastActivity: '3d ago',
       },
     ],
@@ -135,16 +151,19 @@ const ACHIEVEMENT_MEDALS = [
       {
         userName: 'davidsoderberg',
         avatar: davidSoderberg,
+        url: '/',
         lastActivity: '1d ago',
       },
       {
         userName: 'mr-newbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
       {
         userName: 'tyler-durden',
         avatar: tylerDurden,
+        url: '/',
         lastActivity: '3d ago',
       },
     ],
@@ -158,11 +177,13 @@ const ACHIEVEMENT_MEDALS = [
       {
         userName: 'davidsoderberg',
         avatar: davidSoderberg,
+        url: '/',
         lastActivity: '1d ago',
       },
       {
         userName: 'mr-newbie',
         avatar: mrNewbie,
+        url: '/',
         lastActivity: '2d ago',
       },
     ],
@@ -176,6 +197,7 @@ const ACHIEVEMENT_MEDALS = [
       {
         userName: 'ainouzgali',
         avatar: ainouzGali,
+        url: '/',
         lastActivity: '4d ago',
       },
     ],
