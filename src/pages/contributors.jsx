@@ -7,7 +7,7 @@ import GetStarted from 'components/pages/home/get-started/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
-const HomePage = () => (
+const ContributorsPage = () => (
   <Layout>
     <Hero />
     <Achievments />
@@ -17,4 +17,4 @@ const HomePage = () => (
   </Layout>
 );
 
-export default HomePage;
+export default ContributorsPage;
