@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 
 import Heading from 'components/shared/heading';
+import ImagePlaceholder from 'components/shared/image-placeholder';
 
 import bronzeMedalIconDisabled from './images/bronze-medal.svg';
 import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.svg';
@@ -15,6 +15,7 @@ import reporterStarIconDisabled from './images/reporter-star.svg';
 import rockStarIconDisabled from './images/rock-star.svg';
 import silverMedalIconDisabled from './images/silver-medal.svg';
 import teamPlayerIconDisabled from './images/team-player.svg';
+import Tooltip from './tooltip';
 
 import './achievements.css';
 
@@ -92,46 +93,46 @@ const Achievements = () => {
     query {
       rockStar: file(relativePath: { eq: "contributors/achievements/rock-star.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 160, height: 160)
+          gatsbyImageData(width: 160)
         }
       }
       contributorOfTheYear: file(
         relativePath: { eq: "contributors/achievements/contributor-of-the-year.png" }
       ) {
         childImageSharp {
-          gatsbyImageData(width: 160, height: 160)
+          gatsbyImageData(width: 160)
         }
       }
       contributorOfTheMonth: file(
         relativePath: { eq: "contributors/achievements/contributor-of-the-month.png" }
       ) {
         childImageSharp {
-          gatsbyImageData(width: 160, height: 160)
+          gatsbyImageData(width: 160)
         }
       }
       reporterStar: file(relativePath: { eq: "contributors/achievements/reporter-star.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 160, height: 160)
+          gatsbyImageData(width: 160)
         }
       }
       teamPlayer: file(relativePath: { eq: "contributors/achievements/team-player.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 160, height: 160)
+          gatsbyImageData(width: 160)
         }
       }
       goldMedal: file(relativePath: { eq: "contributors/achievements/gold-medal.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 134, height: 160)
+          gatsbyImageData(width: 134)
         }
       }
       silverMedal: file(relativePath: { eq: "contributors/achievements/silver-medal.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 134, height: 160)
+          gatsbyImageData(width: 134)
         }
       }
       bronzeMedal: file(relativePath: { eq: "contributors/achievements/bronze-medal.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 134, height: 160)
+          gatsbyImageData(width: 134)
         }
       }
     }
@@ -186,25 +187,28 @@ const Achievements = () => {
 
           return (
             <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
+              {tooltip && <Tooltip text={tooltip} />}
               <div className="relative">
                 {isActive ? (
                   <GatsbyImage
-                    className="xs:h-[134px]"
-                    imgClassName="xs:!w-auto xs:!left-1/2 xs:!-translate-x-1/2"
+                    className="lg:h-[134px]"
+                    imgClassName="lg:!w-auto lg:!left-1/2 lg:!-translate-x-1/2"
                     image={getImage(icon.active)}
                     alt={`${title} icon`}
                     loading="eager"
                     aria-hidden
                   />
                 ) : (
-                  <img
-                    className="opacity-50 xs:h-[134px]"
-                    src={icon.disabled}
-                    height={160}
-                    alt={`${title} icon`}
-                    loading="eager"
-                    aria-hidden
-                  />
+                  <div className="relative">
+                    <ImagePlaceholder className="lg:h-[134px]" width={160} height={160} />
+                    <img
+                      className="absolute top-0 left-1/2 h-full w-auto -translate-x-1/2 opacity-50"
+                      src={icon.disabled}
+                      alt={`${title} icon`}
+                      loading="eager"
+                      aria-hidden
+                    />
+                  </div>
                 )}
 
                 {count > 1 && (
@@ -218,6 +222,7 @@ const Achievements = () => {
                   </div>
                 )}
               </div>
+
               <div className="mt-3.5 space-y-1.5 text-center">
                 <h4
                   className={clsx('text-base leading-tight', {
@@ -228,16 +233,6 @@ const Achievements = () => {
                 </h4>
                 {date && <span className="text-sm leading-tight text-gray-6">{date}</span>}
               </div>
-
-              {tooltip && (
-                <ReactTooltip
-                  className="z-10 max-w-[248px] !rounded-lg bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] !p-4 text-sm font-light leading-tight"
-                  place="top"
-                  effect="solid"
-                  offset={{ top: 16 }}
-                  multiline
-                />
-              )}
             </div>
           );
         })}
