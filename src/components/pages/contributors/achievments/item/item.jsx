@@ -1,13 +1,14 @@
 import clsx from 'clsx';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const Item = ({ icon, title, description, users, theme }) => (
+const Item = ({ imageClassNames, icon, title, description, users, theme }) => (
   <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-5 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
-    {icon}
+    <GatsbyImage className={imageClassNames} image={getImage(icon)} alt={`${title} icon`} />
     <div className="flex w-full flex-col sm:mt-6">
       <Heading
         className="leading-tight md:text-[30px] sm:text-3xl"
@@ -53,6 +54,7 @@ const Item = ({ icon, title, description, users, theme }) => (
 );
 
 Item.propTypes = {
+  imageClassNames: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 import { ACHIEVEMENT_PERSONAL, ACHIEVEMENT_MEDALS } from './constants/data';
@@ -9,57 +9,106 @@ const personalIconClassNames =
 const medalIconClassNames =
   'h-[210px] w-[176px] lg:h-[160px] lg:w-[134px] flex-shrink-0 mr-34 lg:mr-7 md:h-[122px] md:w-[102px] md:mr-5 sm:mr-0';
 
-const icons = {
-  rockStar: <StaticImage className={personalIconClassNames} src="./images/rock-star.png" alt="" />,
-  contributorOfTheYear: (
-    <StaticImage
-      className={personalIconClassNames}
-      src="./images/contributor-of-the-year.png"
-      alt=""
-    />
-  ),
-  contributorOfTheMonth: (
-    <StaticImage
-      className={personalIconClassNames}
-      src="./images/contributor-of-the-month.png"
-      alt=""
-    />
-  ),
-  reporterStar: (
-    <StaticImage className={personalIconClassNames} src="./images/reporter-star.png" alt="" />
-  ),
-  teamPlayer: (
-    <StaticImage className={personalIconClassNames} src="./images/team-player.png" alt="" />
-  ),
-  goldMedal: <StaticImage className={medalIconClassNames} src="./images/gold-medal.png" alt="" />,
-  silverMedal: (
-    <StaticImage className={medalIconClassNames} src="./images/silver-medal.png" alt="" />
-  ),
-  bronzeMedal: (
-    <StaticImage className={medalIconClassNames} src="./images/bronze-medal.png" alt="" />
-  ),
+const Achievments = () => {
+  const {
+    rockStar,
+    contributorOfTheYear,
+    contributorOfTheMonth,
+    reporterStar,
+    teamPlayer,
+    goldMedal,
+    silverMedal,
+    bronzeMedal,
+  } = useStaticQuery(graphql`
+    query {
+      rockStar: file(relativePath: { eq: "contributors/achievements/rock-star.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 176)
+        }
+      }
+      contributorOfTheYear: file(
+        relativePath: { eq: "contributors/achievements/contributor-of-the-year.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 176)
+        }
+      }
+      contributorOfTheMonth: file(
+        relativePath: { eq: "contributors/achievements/contributor-of-the-month.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 176)
+        }
+      }
+      reporterStar: file(relativePath: { eq: "contributors/achievements/reporter-star.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 176)
+        }
+      }
+      teamPlayer: file(relativePath: { eq: "contributors/achievements/team-player.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 176)
+        }
+      }
+      goldMedal: file(relativePath: { eq: "contributors/achievements/gold-medal.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 210)
+        }
+      }
+      silverMedal: file(relativePath: { eq: "contributors/achievements/silver-medal.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 210)
+        }
+      }
+      bronzeMedal: file(relativePath: { eq: "contributors/achievements/bronze-medal.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 176, height: 210)
+        }
+      }
+    }
+  `);
+
+  const achievementIcons = {
+    rockStar,
+    contributorOfTheYear,
+    contributorOfTheMonth,
+    reporterStar,
+    teamPlayer,
+    goldMedal,
+    silverMedal,
+    bronzeMedal,
+  };
+  return (
+    <>
+      <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16">
+        <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
+          {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => {
+            const icon = achievementIcons[iconName];
+            return (
+              <Item imageClassNames={personalIconClassNames} icon={icon} key={index} {...props} />
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="achievments-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
+        <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
+          {ACHIEVEMENT_MEDALS.map(({ iconName, ...props }, index) => {
+            const icon = achievementIcons[iconName];
+            return (
+              <Item
+                imageClassNames={medalIconClassNames}
+                icon={icon}
+                theme="gray"
+                key={index}
+                {...props}
+              />
+            );
+          })}
+        </div>
+      </section>
+    </>
+  );
 };
-
-const Achievments = () => (
-  <>
-    <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16">
-      <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
-        {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => {
-          const icon = icons[iconName];
-          return <Item icon={icon} {...props} key={index} />;
-        })}
-      </div>
-    </section>
-
-    <section className="achievments-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
-      <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
-        {ACHIEVEMENT_MEDALS.map(({ iconName, ...props }, index) => {
-          const icon = icons[iconName];
-          return <Item icon={icon} {...props} key={index} theme="gray" />;
-        })}
-      </div>
-    </section>
-  </>
-);
 
 export default Achievments;
