@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
-import GitHubLogo from 'images/logo-github.inline.svg';
+import GitHubIcon from 'icons/github.inline.svg';
 
 const ButtonGithubStars = ({ className }) => {
   const {
@@ -27,7 +27,7 @@ const ButtonGithubStars = ({ className }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
+      <GitHubIcon className="mr-2 h-[26px] w-[26px]" />
       <span>Star us</span>
       <span
         className="flex items-center before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4 before:transition-colors before:duration-200 group-hover:before:bg-gray-5"
