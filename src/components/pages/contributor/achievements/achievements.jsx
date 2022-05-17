@@ -6,15 +6,14 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import ImagePlaceholder from 'components/shared/image-placeholder';
 
-import bronzeMedalIconDisabled from './images/bronze-medal.svg';
-import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.svg';
-import contributorOfTheYearIconDisabled from './images/contributor-of-the-year.svg';
-import countIcon from './images/count.svg';
-import goldMedalIconDisabled from './images/gold-medal.svg';
-import reporterStarIconDisabled from './images/reporter-star.svg';
-import rockStarIconDisabled from './images/rock-star.svg';
-import silverMedalIconDisabled from './images/silver-medal.svg';
-import teamPlayerIconDisabled from './images/team-player.svg';
+import bronzeMedalIconDisabled from './images/bronze-medal.png';
+import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.png';
+import contributorOfTheYearIconDisabled from './images/contributor-of-the-year.png';
+import goldMedalIconDisabled from './images/gold-medal.png';
+import reporterStarIconDisabled from './images/reporter-star.png';
+import rockStarIconDisabled from './images/rock-star.png';
+import silverMedalIconDisabled from './images/silver-medal.png';
+import teamPlayerIconDisabled from './images/team-player.png';
 import Tooltip from './tooltip';
 
 import './achievements.css';
@@ -199,7 +198,7 @@ const Achievements = () => {
                     aria-hidden
                   />
                 ) : (
-                  <div className="relative">
+                  <>
                     <ImagePlaceholder className="lg:h-[134px]" width={160} height={160} />
                     <img
                       className="absolute top-0 left-1/2 h-full w-auto -translate-x-1/2 opacity-50"
@@ -208,17 +207,17 @@ const Achievements = () => {
                       loading="eager"
                       aria-hidden
                     />
-                  </div>
+                  </>
                 )}
 
                 {count > 1 && (
-                  <div className="absolute top-0 right-0" aria-hidden>
-                    <div className="relative flex items-center justify-center">
-                      <img src={countIcon} height={38} width={38} loading="eager" alt="" />
-                      <span className="achievement-count absolute -mt-0.5 text-[22px] font-bold leading-none text-white sm:text-base">
-                        {count}
-                      </span>
-                    </div>
+                  <div
+                    className="absolute -top-0.5 right-0 flex h-[38px] w-[38px] items-center justify-center rounded-full border-4 border-[#989481] bg-primary-1 shadow-[inset_0px_0px_4px_rgba(0,0,0,0.8),0px_0px_8px_rgba(0,0,0,0.8)] before:h-[33px] before:w-[33px] before:flex-shrink-0 before:rounded-[100%] before:border before:opacity-30 lg:-top-1.5 md:right-1.5 sm:-top-2"
+                    aria-hidden
+                  >
+                    <span className="achievement-count absolute -mt-0.5 text-[22px] font-bold leading-none text-white sm:text-base">
+                      {count}
+                    </span>
                   </div>
                 )}
               </div>
