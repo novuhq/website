@@ -173,8 +173,8 @@ const Achievements = () => {
   };
 
   return (
-    <section className="achievements col-span-8">
-      <Heading className="leading-denser" tag="h2" size="md">
+    <section className="achievements">
+      <Heading className="leading-denser" tag="h2" size="md" theme="white">
         {TITLE}
       </Heading>
       <p className="mt-4 text-lg font-light text-gray-10">{DESCRIPTION}</p>
@@ -216,7 +216,7 @@ const Achievements = () => {
                 {count > 1 && (
                   <div className="absolute top-0 right-0" aria-hidden>
                     <div className="relative flex items-center justify-center">
-                      <img src={countIcon} loading="eager" alt="" />
+                      <img src={countIcon} height={38} width={38} loading="eager" alt="" />
                       <span className="achievement-count">{count}</span>
                     </div>
                   </div>

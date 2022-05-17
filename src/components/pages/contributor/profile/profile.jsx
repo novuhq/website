@@ -31,7 +31,12 @@ const Profile = () => (
         alt={NAME}
       />
     </div>
-    <Heading className="mt-3 text-center font-medium leading-tight" tag="h1" size="xs">
+    <Heading
+      className="mt-3 text-center font-medium leading-tight"
+      tag="h1"
+      size="xs"
+      theme="white"
+    >
       {NAME}
     </Heading>
     <span className="mt-0.5 block text-center text-lg leading-tight text-primary-1">
