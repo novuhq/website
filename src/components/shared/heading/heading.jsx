@@ -9,6 +9,7 @@ const styles = {
     lg: 'text-5xl',
     md: 'text-4xl',
     sm: 'text-3xl',
+    xs: 'text-2xl',
   },
   theme: {
     white: 'text-white',
