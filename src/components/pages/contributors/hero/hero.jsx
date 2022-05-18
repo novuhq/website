@@ -34,7 +34,7 @@ const Hero = () => (
         </div>
 
         <StaticImage
-          className="-mt-2.5 -mr-2.5 max-w-[660px] lg:max-w-[510px] md:max-w-[360px] sm:mr-0 sm:mt-10 sm:w-full"
+          className="-mt-2.5 -mr-2.5 max-w-[660px] lg:max-w-[510px] md:max-w-[360px] sm:hidden"
           src="./images/contributors-hero-illustration.png"
           loading="eager"
           alt=""
