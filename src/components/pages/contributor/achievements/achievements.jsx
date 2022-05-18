@@ -26,7 +26,7 @@ const ACHIEVEMENTS = [
     iconName: 'rockStar',
     title: 'Contributor of the month',
     date: 'Last: April 2022',
-    count: 2,
+    count: 1,
   },
   {
     iconName: 'contributorOfTheYear',
@@ -74,7 +74,7 @@ const ACHIEVEMENTS = [
     iconName: 'bronzeMedal',
     title: 'Bronze Medal',
     date: 'April 2022',
-    count: 3,
+    count: 1,
   },
 ];
 
@@ -187,40 +187,28 @@ const Achievements = () => {
           return (
             <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
               {tooltip && <Tooltip text={tooltip} />}
-              <div className="relative">
-                {isActive ? (
-                  <GatsbyImage
-                    className="lg:h-[134px]"
-                    imgClassName="lg:!w-auto lg:!left-1/2 lg:!-translate-x-1/2"
-                    image={getImage(icon.active)}
+
+              {isActive ? (
+                <GatsbyImage
+                  className="lg:h-[134px]"
+                  imgClassName="lg:!w-auto lg:!left-1/2 lg:!-translate-x-1/2"
+                  image={getImage(icon.active)}
+                  alt={`${title} icon`}
+                  loading="eager"
+                  aria-hidden
+                />
+              ) : (
+                <div className="relative">
+                  <ImagePlaceholder className="lg:h-[134px]" width={160} height={160} />
+                  <img
+                    className="absolute top-0 left-1/2 h-full w-auto -translate-x-1/2 opacity-50"
+                    src={icon.disabled}
                     alt={`${title} icon`}
                     loading="eager"
                     aria-hidden
                   />
-                ) : (
-                  <>
-                    <ImagePlaceholder className="lg:h-[134px]" width={160} height={160} />
-                    <img
-                      className="absolute top-0 left-1/2 h-full w-auto -translate-x-1/2 opacity-50"
-                      src={icon.disabled}
-                      alt={`${title} icon`}
-                      loading="eager"
-                      aria-hidden
-                    />
-                  </>
-                )}
-
-                {count > 1 && (
-                  <div
-                    className="absolute -top-0.5 right-0 flex h-[38px] w-[38px] items-center justify-center rounded-full border-4 border-[#989481] bg-primary-1 shadow-[inset_0px_0px_4px_rgba(0,0,0,0.8),0px_0px_8px_rgba(0,0,0,0.8)] before:h-[33px] before:w-[33px] before:flex-shrink-0 before:rounded-[100%] before:border before:opacity-30 lg:-top-1.5 md:right-1.5 sm:-top-2"
-                    aria-hidden
-                  >
-                    <span className="achievement-count absolute -mt-0.5 text-[22px] font-bold leading-none text-white sm:text-base">
-                      {count}
-                    </span>
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
 
               <div className="mt-3.5 space-y-1.5 text-center">
                 <h4
