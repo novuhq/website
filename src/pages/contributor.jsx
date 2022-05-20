@@ -3,7 +3,7 @@ import React from 'react';
 import Achievements from 'components/pages/contributor/achievements';
 import Activity from 'components/pages/contributor/activity';
 import Profile from 'components/pages/contributor/profile';
-import GetStarted from 'components/pages/home/get-started/get-started';
+import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
