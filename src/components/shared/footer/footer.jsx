@@ -37,7 +37,7 @@ const Footer = () => (
         </nav>
 
         <div className="flex flex-col items-end justify-between lg:col-span-4 sm:mt-9 sm:items-start">
-          <ButtonGithubStars />
+          <ButtonGithubStars className="pl-3" />
 
           <p className="text-sm leading-none text-gray-8 lg:hidden">
             Design made by{' '}
