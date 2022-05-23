@@ -7,8 +7,10 @@ import Hero from 'components/pages/article/hero';
 import RelatedArticles from 'components/pages/article/related-articles';
 import SocialShare from 'components/pages/article/social-share';
 import Layout from 'components/shared/layout';
+import Link from 'components/shared/link';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
+import ArrowIcon from 'images/arrow.inline.svg';
 
 const Article = ({ data: { strapiArticle: article, relatedArticles }, location, pageContext }) => {
   const seo = {
@@ -52,15 +54,21 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
   return (
     <Layout seo={seo}>
       <article className="safe-paddings pt-40 sm:pt-28">
-        <div className="container-sm">
+        <div className="container-sm relative">
+          <Link
+            className="sticky top-8 z-10 -mb-8 -ml-28 flex h-8 w-8 items-center justify-center rounded-full bg-gray-2 transition-colors duration-200 hover:text-primary-1 lg:-ml-20 md:hidden"
+            to={`/${pageContext.blogPageURL}`}
+          >
+            <ArrowIcon className="h-2" />
+          </Link>
+
           <Hero {...hero} />
           <Content {...content} />
           <Separator className="mt-14 px-0" backgroundColor="black" />
           <SocialShare {...socialShare} />
         </div>
       </article>
-      {!!relatedArticlesProps.items.length && <RelatedArticles {...relatedArticlesProps} />}
-
+      {relatedArticlesProps.items.length >= 3 && <RelatedArticles {...relatedArticlesProps} />}
       <Subscribe />
       <Separator backgroundColor="black" />
     </Layout>
@@ -97,7 +105,7 @@ export const pageQuery = graphql`
         localFile {
           url
           childImageSharp {
-            gatsbyImageData(width: 716, height: 386)
+            gatsbyImageData(width: 800, height: 431)
           }
         }
       }
@@ -113,7 +121,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 716)
+              gatsbyImageData(width: 800)
             }
           }
         }
@@ -135,11 +143,7 @@ export const pageQuery = graphql`
     relatedArticles: allStrapiArticle(
       limit: 3
       sort: { fields: createdAt, order: DESC }
-      filter: {
-        publishedAt: { ne: null }
-        category: { name: { eq: $categoryName } }
-        id: { ne: $id }
-      }
+      filter: { category: { name: { eq: $categoryName } }, id: { ne: $id } }
     ) {
       nodes {
         title
@@ -168,7 +172,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 716, height: 386)
+              gatsbyImageData(width: 384, height: 214)
             }
           }
         }

@@ -18,7 +18,12 @@ const Hero = ({ title, category, date, slug, image, description, author }) => (
             <CategoryLabel url={category.url} theme={category.color} size="xs">
               {category.name}
             </CategoryLabel>
-            <Heading className="mt-4 font-medium leading-denser sm:text-3xl" size="lg" tag="h1">
+            <Heading
+              className="mt-4 font-medium leading-denser sm:text-3xl"
+              size="lg"
+              tag="h1"
+              theme="white"
+            >
               <Link
                 className="inline-block align-top line-clamp-3 md:line-clamp-none"
                 to={slug}
@@ -27,7 +32,7 @@ const Hero = ({ title, category, date, slug, image, description, author }) => (
                 {title}
               </Link>
             </Heading>
-            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-none">
+            <p className="mt-2.5 text-gray-8 line-clamp-3 xl:line-clamp-2 md:line-clamp-3">
               {description}
             </p>
           </header>

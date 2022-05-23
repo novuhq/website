@@ -16,14 +16,15 @@ const BlogPage = (props) => {
     data: {
       strapiBlog: page,
       allStrapiCategory: { nodes: categories },
-      allStrapiArticle: articles,
+      allStrapiArticle: { nodes: articles },
+      allStrapiArticleForCategories: { nodes: articlesForCategories },
     },
     pageContext,
   } = props;
 
   // categories that have articles without considering the featured article
   const categoriesList = categories.filter((category) =>
-    articles.nodes.some((article) => article.category.id === category.id)
+    articles.some((article) => article.category.id === category.id)
   );
 
   const seo = {
@@ -49,7 +50,7 @@ const BlogPage = (props) => {
   };
 
   const articlesList = {
-    items: articles.nodes.map((article) => ({
+    items: articlesForCategories.map((article) => ({
       ...article,
       slug: `/${pageContext.blogPageURL}/${article.slug}`,
     })),
@@ -101,6 +102,7 @@ export const pageQuery = graphql`
         description
         slug
         category {
+          id
           name
           slug
           color
@@ -123,7 +125,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 592, height: 360)
+              gatsbyImageData(width: 592, height: 333)
             }
           }
         }
@@ -150,7 +152,16 @@ export const pageQuery = graphql`
       }
     }
 
-    allStrapiArticle(
+    allStrapiArticle(filter: { id: { ne: $featuredPostId } }) {
+      nodes {
+        id
+        category {
+          id
+        }
+      }
+    }
+
+    allStrapiArticleForCategories: allStrapiArticle(
       filter: { id: { ne: $featuredPostId }, category: { id: { eq: $categoryId } } }
       sort: { fields: date, order: DESC }
       limit: $limit
@@ -185,7 +196,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 380, height: 212)
+              gatsbyImageData(width: 384, height: 214)
             }
           }
         }
@@ -194,7 +205,7 @@ export const pageQuery = graphql`
           localFile {
             url
             childImageSharp {
-              gatsbyImageData(width: 592, height: 360)
+              gatsbyImageData(width: 592, height: 333)
             }
           }
         }
