@@ -1,9 +1,13 @@
 @layer components {
   .container {
-    @apply mx-auto max-w-[1472px] xl:max-w-[1216px] lg:max-w-full lg:px-10 md:px-7 sm:px-4;
+    @apply mx-auto max-w-[1472px] xl:px-10 lg:max-w-none md:px-7 sm:px-4;
+  }
+
+  .container-lg {
+    @apply mx-auto max-w-[1216px] xl:px-10 lg:max-w-full md:px-7 sm:px-4;
   }
 
   .container-sm {
-    @apply mx-auto max-w-[968px] md:max-w-full md:px-7 sm:px-4;
+    @apply mx-auto max-w-[800px] md:px-7 sm:max-w-full sm:px-4;
   }
 }

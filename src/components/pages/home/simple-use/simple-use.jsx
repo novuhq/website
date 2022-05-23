@@ -1,125 +1,152 @@
+import clsx from 'clsx';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 
+import aws from './images/aws.svg';
 import discord from './images/discord.svg';
 import mailgun from './images/mailgun.svg';
+import mailjet from './images/mailjet.svg';
+import mandrill from './images/mandrill.svg';
 import msTeams from './images/ms-teams.svg';
+import plivo from './images/plivo.svg';
+import postmark from './images/postmark.svg';
 import sendgrid from './images/sendgrid.svg';
+import sendinBlue from './images/sendin-blue.svg';
 import slack from './images/slack.svg';
 import twilio from './images/twilio.svg';
 
 const TITLE = 'Simple to use outgoing communication layer';
 const LINK_NAME = 'Show all services';
-const LINK_URL = '/';
+
 const CARDS = [
   {
-    icon: <img src={sendgrid} alt="" loading="lazy" width={30} height={30} />,
-    title: 'Sendgrid',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-  },
-  {
-    icon: <img src={twilio} alt="" loading="lazy" width={36} height={36} />,
+    icon: twilio,
     title: 'Twilio',
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
+    text: 'SMS',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/twilio',
   },
   {
-    icon: <img src={mailgun} alt="" loading="lazy" width={32} height={32} />,
-    title: 'Mailgun',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-  },
-  {
-    icon: <img src={slack} alt="" loading="lazy" width={28} height={28} />,
+    icon: slack,
     title: 'Slack',
-    text: 'Lorem Ipsum is simply dummy text of the printing',
-    comingSoon: true,
+    text: 'Email',
   },
   {
-    icon: <img src={discord} alt="" loading="lazy" width={34} height={25} />,
-    title: 'Discord',
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
-    comingSoon: true,
+    icon: mailgun,
+    title: 'Mailgun',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/mailgun',
   },
   {
-    icon: <img src={msTeams} alt="" loading="lazy" width={36} height={33} />,
+    icon: postmark,
+    title: 'Postmark',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/postmark',
+  },
+  {
+    icon: sendgrid,
+    title: 'Sendgrid',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/sendgrid',
+  },
+  {
+    icon: msTeams,
     title: 'MS Teams',
-    text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+    text: 'Email',
+  },
+  {
+    icon: aws,
+    title: 'SES',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/ses',
+  },
+  {
+    icon: plivo,
+    title: 'Plivo',
+    text: 'SMS',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/plivo',
+  },
+  {
+    icon: sendinBlue,
+    title: 'SendinBlue',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/sendinblue',
+  },
+  {
+    icon: discord,
+    title: 'Discord',
+    text: 'Email',
+  },
+  {
+    icon: mailjet,
+    title: 'Mailjet',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/mailjet',
+  },
+  {
+    icon: mandrill,
+    title: 'Mandrill',
+    text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/mandrill',
   },
 ];
 
-// eslint-disable-next-line react/prop-types
-const Card = ({ icon, title, text, comingSoon }) => (
-  <div className="rounded-[20px] bg-black">
-    <div className="flex items-center p-4">
-      <div className="mr-3.5 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-white">
-        {icon}
-      </div>
-      <h3 className="text-lg leading-snug text-white">{title}</h3>
-    </div>
-    <div className="relative p-4 before:absolute before:top-0 before:left-0 before:h-px before:w-full before:bg-white before:opacity-10">
-      <p className="text-sm font-light leading-snug text-gray-8">{text}</p>
-      {comingSoon && <span className="mt-1 block text-sm text-secondary-2">Coming Soon...</span>}
-    </div>
-  </div>
-);
-
 const SimpleUse = () => (
-  <section className="simple-use safe-paddings bg-gray-2 pt-40 pb-28">
+  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-20 md:pb-18 sm:pt-18 sm:pb-12">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"
         tag="h2"
-        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        className="max-w-[764px] text-center leading-tight md:text-3xl"
         theme="white"
       >
         {TITLE}
       </Heading>
-      <Link className="mt-7 sm:mt-5 sm:text-xs" to={LINK_URL} theme="primary-underline" size="sm">
+      <Link
+        className="mt-7 md:mt-8 sm:mt-5 sm:text-xs"
+        theme="primary-underline"
+        size="sm"
+        {...LINKS.providers}
+      >
         {LINK_NAME}
       </Link>
 
-      {/* FIXME: optimize, this trick has been applied to be able to build a grid with different block heights - we need to find a simpler option for this */}
-      <div className="mt-10 grid grid-cols-6 items-start gap-x-10 xl:gap-x-7 lg:hidden sm:block sm:space-x-0 sm:space-y-5">
-        {CARDS.map((props, index) => (
-          <div className="grid grid-cols-1" key={index}>
-            <Card {...props} />
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 hidden grid-cols-3 items-start gap-x-7 lg:grid md:hidden">
-        {CARDS.reduce((acc, curr, index) => {
-          if (index % 2 === 0) {
-            acc.push([curr]);
-          } else {
-            acc[acc.length - 1].push(curr);
-          }
-          return acc;
-        }, []).map((column, index) => (
-          <div className="grid grid-cols-1 gap-y-5" key={index}>
-            {column.map((props, index) => (
-              <Card {...props} key={index} />
-            ))}
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 hidden grid-cols-2 items-start gap-x-7 md:grid sm:hidden">
-        {CARDS.reduce((acc, curr, index) => {
-          if (index % 3 === 0) {
-            acc.push([curr]);
-          } else {
-            acc[acc.length - 1].push(curr);
-          }
-          return acc;
-        }, []).map((column, index) => (
-          <div className="grid grid-cols-1 gap-y-5" key={index}>
-            {column.map((props, index) => (
-              <Card {...props} key={index} />
-            ))}
-          </div>
-        ))}
+      <div className="mt-10 grid w-full grid-cols-6 gap-10 xl:gap-7 lg:grid-cols-4 lg:items-stretch md:grid-cols-3 md:gap-5 sm:mt-8 sm:grid-cols-2 sm:gap-4 xs:grid-cols-1 xs:gap-x-0">
+        {CARDS.map(({ icon, title, text, to }, index) => {
+          const Tag = to ? Link : 'div';
+          return (
+            <Tag
+              className={clsx('rounded-[20px] bg-black p-4 pb-5 lg:rounded-2xl', {
+                group: to,
+              })}
+              to={to}
+              target={to && '_blank'}
+              key={index}
+            >
+              <div className="flex flex-col items-center">
+                <img src={icon} width={52} height={52} loading="lazy" alt={title} />
+                <h3
+                  className={clsx('mt-3 text-lg leading-tight', {
+                    'transition-colors duration-200 group-hover:text-primary-1': to,
+                  })}
+                >
+                  {title}
+                </h3>
+                <div className="relative mt-1">
+                  {to ? (
+                    <p className="text-sm leading-tight text-gray-8">{text}</p>
+                  ) : (
+                    <span className="block whitespace-nowrap text-sm leading-none text-secondary-2">
+                      Coming Soon...
+                    </span>
+                  )}
+                </div>
+              </div>
+            </Tag>
+          );
+        })}
       </div>
     </div>
   </section>

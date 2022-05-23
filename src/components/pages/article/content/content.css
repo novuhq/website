@@ -1,0 +1,115 @@
+@layer components {
+  .content {
+    @apply text-lg font-book sm:text-base;
+
+    > *:first-child {
+      @apply !mt-0;
+    }
+
+    > *:last-child {
+      @apply !mb-0;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-semibold leading-snug;
+    }
+
+    h2 {
+      @apply mt-12 mb-8 text-[30px] sm:mt-8 sm:mb-4 sm:text-2xl;
+    }
+
+    h3 {
+      @apply mt-10 mb-6 text-2xl sm:mt-6 sm:mb-4 sm:text-xl;
+    }
+
+    ul,
+    ol,
+    p {
+      @apply my-5 sm:my-4;
+    }
+
+    strong {
+      @apply font-medium;
+    }
+
+    a {
+      @apply relative font-normal text-primary-1 transition-colors duration-200 hover:text-white;
+    }
+
+    figure,
+    > .gatsby-resp-image-wrapper,
+    > img,
+    .gatsby-highlight {
+      @apply my-10 sm:my-8;
+    }
+
+    .gatsby-resp-image-figure figcaption {
+      @apply mt-2 text-center text-sm font-normal text-gray-8;
+    }
+
+    ul,
+    ol {
+      @apply space-y-2 pl-11 md:space-y-2.5 md:pl-8;
+    }
+
+    ul {
+      > li {
+        @apply relative;
+
+        &::before {
+          @apply absolute top-2.5 -left-2.5 h-1.5 w-1.5 -translate-x-full rounded-full bg-primary-1 content-[''];
+        }
+      }
+    }
+
+    ol {
+      counter-reset: custom-counter;
+
+      > li {
+        @apply relative;
+        counter-increment: custom-counter;
+
+        &::before {
+          @apply absolute top-0 -left-2.5 -translate-x-full font-normal text-primary-1;
+          content: counter(custom-counter) '. ' !important;
+        }
+      }
+    }
+
+    blockquote {
+      @apply border-l-2 border-primary-1 pl-4;
+    }
+
+    pre {
+      @apply scrollbar-hidden overflow-scroll rounded-lg bg-gray-2 px-6 py-4 text-base font-normal md:px-4 md:py-3 md:text-sm;
+
+      .token.atrule,
+      .token.attr-value,
+      .token.keyword {
+        @apply text-primary-1;
+      }
+
+      .token.class-name {
+        @apply text-secondary-2;
+      }
+
+      .token.selector,
+      .token.attr-name,
+      .token.string,
+      .token.char,
+      .token.builtin,
+      .token.inserted {
+        @apply text-secondary-3;
+      }
+    }
+
+    iframe,
+    video {
+      @apply mx-auto max-w-full;
+    }
+  }
+}

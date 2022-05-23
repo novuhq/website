@@ -1,66 +1,63 @@
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 
+import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
+import ButtonGithubStars from 'components/shared/button-github-stars';
 import Link from 'components/shared/link';
-import GitHubLogo from 'images/logo-github.inline.svg';
+import LINKS from 'constants/links';
+import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const LINKS = [
-  {
-    title: 'Contributors',
-    to: '/contributors/1',
-  },
-  {
-    title: 'Documentation',
-    to: '/',
-  },
-  {
-    title: 'Blog',
-    to: '/',
-  },
-  {
-    title: 'FAQ',
-    to: '/',
-  },
-];
+const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
+  const mixpanel = useMixpanel();
+  const trigger = useCallback(
+    (title) => () => {
+      mixpanel.track(`Go to page: ${title}`);
+    },
+    [mixpanel]
+  );
 
-// TODO: Implement mobile menu functionality and delete eslint comment below, example — https://user-images.githubusercontent.com/20713191/144221747-70dc933e-a5bd-4586-9019-08117afc13e0.png
-// eslint-disable-next-line no-unused-vars
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
-  <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full bg-black lg:relative">
-    <div className="flex items-center justify-between py-3 px-10 md:px-7 sm:px-4">
-      <Link to="/">
-        <Logo className="h-6" aria-hidden />
-        <span className="sr-only">Notu</span>
-      </Link>
+  return (
+    <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
+      <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
+        <Link {...LINKS.home}>
+          <Logo className="h-8 sm:h-7" aria-hidden />
+          <span className="sr-only">Novu</span>
+        </Link>
 
-      <div className="flex items-center space-x-20">
-        <nav>
-          <ul className="flex space-x-8 md:hidden">
-            {LINKS.map(({ to, title }, index) => (
-              <li key={index}>
-                <Link to={to} theme="white" size="sm">
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="flex items-center space-x-16 lg:space-x-14">
+          <nav>
+            <ul className="flex space-x-8 md:hidden">
+              {MENUS.header.map(({ to, title, target }, index) => (
+                <li key={index}>
+                  <Link to={to} theme="white" size="sm" target={target} onClick={trigger(title)}>
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="flex space-x-5">
-          <Button className="pl-3" to="/" size="xs" theme="gray-outline">
-            <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
-            Star us on Github
-          </Button>
-          <Button to="/" size="xs" theme="white-filled">
-            Get Started
-          </Button>
+          <div className="flex space-x-5 md:hidden">
+            <ButtonGithubStars className="pl-3" />
+            <Button
+              size="xs"
+              theme="white-filled"
+              {...LINKS.getStarted}
+              onClick={trigger('Get Started')}
+            >
+              Get Started
+            </Button>
+          </div>
         </div>
+
+        <Burger className="hidden md:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 Header.propTypes = {
   isMobileMenuOpen: PropTypes.bool,
