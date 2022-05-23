@@ -7,7 +7,7 @@ import Link from 'components/shared/link';
 import GITHUB from 'constants/github';
 import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
-import GitHubLogo from 'images/logo-github.inline.svg';
+import GitHubIcon from 'icons/github.inline.svg';
 
 const RIGHT_BUTTON_TEXT = 'Get Started';
 
@@ -82,7 +82,7 @@ const MobileMenu = ({ isOpen }) => {
                   size="sm"
                   theme="gray-outline"
                 >
-                  <GitHubLogo className="mr-2 h-[26px] w-[26px]" />
+                  <GitHubIcon className="mr-2 h-[26px] w-[26px]" />
                   <span>Star us</span>
                 </Button>
 

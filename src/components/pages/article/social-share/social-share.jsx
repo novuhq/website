@@ -3,10 +3,9 @@ import React from 'react';
 import { LinkedinShareButton, TwitterShareButton, FacebookMessengerShareButton } from 'react-share';
 
 import AuthorWithDate from 'components/shared/author-with-date';
-
-import FacebookIcon from './images/facebook.inline.svg';
-import LinkedinIcon from './images/linkedin.inline.svg';
-import TwitterIcon from './images/twitter.inline.svg';
+import FacebookIcon from 'icons/facebook.inline.svg';
+import LinkedinIcon from 'icons/linkedin.inline.svg';
+import TwitterIcon from 'icons/twitter.inline.svg';
 
 const SocialShare = ({ author, date, url }) => (
   <div className="relative flex items-center justify-between gap-3.5 pt-8 sm:flex-col">

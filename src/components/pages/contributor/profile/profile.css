@@ -1,0 +1,15 @@
+.profile-avatar::before {
+  @apply absolute left-0 top-0 right-0 bottom-0 rounded-[inherit] content-[''];
+
+  background: linear-gradient(
+    45deg,
+    #ffbb33 14.72%,
+    #ffffff 51.94%,
+    #e300bd 82.34%,
+    #ff006a 94.81%
+  );
+}
+
+.profile-avatar::after {
+  @apply absolute left-auto top-auto h-[224px] w-[224px] rounded-[inherit] bg-gray-2 content-[''];
+}
