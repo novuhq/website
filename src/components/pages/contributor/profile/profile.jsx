@@ -19,15 +19,11 @@ const Profile = ({ contributor }) => (
     <div className="profile-avatar relative mx-auto flex h-[232px] w-[232px] flex-shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-border md:mx-0 md:mr-10 sm:mx-auto">
       <img
         className="z-10 rounded-full grayscale"
-        src={contributor.avatar_url}
+        src={`https://avatars.githubusercontent.com/${contributor.github}?v=3`}
         height={192}
         width={192}
         loading="eager"
         alt={contributor.name || `@${contributor.github}`}
-        onError={(e) => {
-          // In cases where an image is unavailable for some reason, we retrieve it manually from Github
-          e.target.src = `https://avatars.githubusercontent.com/${contributor.github}?v=3`;
-        }}
       />
     </div>
     <div className="mt-3 w-full md:mt-0 sm:mt-3">
@@ -94,7 +90,6 @@ const Profile = ({ contributor }) => (
 
 Profile.propTypes = {
   contributor: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
     bio: PropTypes.string,
     github: PropTypes.string,
     location: PropTypes.string,

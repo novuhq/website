@@ -28,7 +28,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
           .sort(
             (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
           )
-          .map(({ pulls, name: userName, avatar_url: avatar, github: url }, index) => (
+          .map(({ pulls, name: userName, github: url }, index) => (
             <Link
               className={clsx(
                 'flex items-center rounded-xl p-5',
@@ -43,13 +43,9 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
                 className="mr-3 rounded-full grayscale"
                 width={48}
                 height={48}
-                src={avatar}
+                src={`https://avatars.githubusercontent.com/${url}?v=3`}
                 loading="lazy"
                 alt={`${userName} avatar`}
-                onError={(e) => {
-                  // In cases where an image is unavailable for some reason, we retrieve it manually from Github
-                  e.target.src = `https://avatars.githubusercontent.com/${url}?v=3`;
-                }}
               />
               <div className="flex flex-col">
                 <span className="text-lg leading-denser text-primary-1">
@@ -85,7 +81,6 @@ Item.propTypes = {
         })
       ).isRequired,
       name: PropTypes.string,
-      avatar_url: PropTypes.string.isRequired,
       github: PropTypes.string.isRequired,
     })
   ).isRequired,
