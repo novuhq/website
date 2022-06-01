@@ -18,13 +18,7 @@ const SEO = (contributor) => ({
   preventIndexing: true,
 });
 
-const ContributorPage = ({
-  pageResources: {
-    json: {
-      serverData: { contributor },
-    },
-  },
-}) => {
+const ContributorPage = ({ serverData: { contributor } }) => {
   const [SEO_DETAILS] = useState(!contributor ? '' : SEO(contributor));
   if (!contributor) {
     navigate('/not-found');

@@ -18,29 +18,24 @@ const SEO = {
 };
 
 const ContributorsPage = ({
-  pageResources: {
-    json: {
-      serverData: {
-        contributors: { list },
-      },
-    },
+  serverData: {
+    contributors: { list },
   },
 }) => (
-  <Layout seo={SEO}>
-    <Hero />
-    <Achievments list={list} />
-    <HowItWorks />
-    <GetStarted />
-    <Separator backgroundColor="black" />
-  </Layout>
-);
+    <Layout seo={SEO}>
+      <Hero />
+      <Achievments list={list} />
+      <HowItWorks />
+      <GetStarted />
+      <Separator backgroundColor="black" />
+    </Layout>
+  );
 
 export default ContributorsPage;
 
 export async function getServerData() {
   try {
     const contributors = await axios.get(`/contributors`);
-
     return {
       props: {
         contributors: contributors.data,
