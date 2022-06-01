@@ -41,7 +41,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               key={index}
             >
               <img
-                className="mr-3 rounded-full"
+                className="mr-3 rounded-full grayscale"
                 width={48}
                 height={48}
                 src={avatar}

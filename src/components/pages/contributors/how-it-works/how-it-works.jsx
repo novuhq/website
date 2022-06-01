@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Heading from 'components/shared/heading/heading';
+import Link from 'components/shared/link';
 
 import stage1Icon from './images/stage-1.svg';
 import stage2Icon from './images/stage-2.svg';
@@ -14,22 +15,24 @@ const STAGES = [
     title: 'Read the docs',
     description: (
       <>
-        Start by reading Novu's
-        <a
-          style={{ fontWeight: 'bold' }}
-          href="https://github.com/novuhq/novu/blob/main/CONTRIBUTING.md"
-          target="_blank" rel="noreferrer"
+        Start by reading Novu's{' '}
+        <Link
+          to="https://github.com/novuhq/novu/blob/main/CONTRIBUTING.md"
+          theme="primary"
+          target="_blank"
+          rel="noreferrer"
         >
           Contributing Guide
-        </a>{' '}
+        </Link>{' '}
         and{' '}
-        <a
-          style={{ fontWeight: 'bold' }}
-          href="https://docs.novu.co/docs/overview/introduction"
-          target="_blank" rel="noreferrer"
+        <Link
+          to="https://docs.novu.co/docs/overview/introduction"
+          theme="primary"
+          target="_blank"
+          rel="noreferrer"
         >
           Documentation
-        </a>
+        </Link>
         . Learn more about Novu, and set it up
       </>
     ),
@@ -40,21 +43,23 @@ const STAGES = [
     description: (
       <>
         Head over to{' '}
-        <a
-          style={{ fontWeight: 'bold' }}
-          href="https://github.com/novuhq/novu/issues"
-          target="_blank" rel="noreferrer"
+        <Link
+          to="https://github.com/novuhq/novu/issues"
+          theme="primary"
+          target="_blank"
+          rel="noreferrer"
         >
           Novu's issues page
-        </a>
+        </Link>
         , Comment on an issue and we will assign it to you. Do you want to open a new issue?{' '}
-        <a
-          style={{ fontWeight: 'bold' }}
-          href="https://github.com/novuhq/novu/issues/new?assignees=&labels=&template=bug_report.md&title="
-          target="_blank" rel="noreferrer"
+        <Link
+          to="https://github.com/novuhq/novu/issues/new?assignees=&labels=&template=bug_report.md&title="
+          theme="primary"
+          target="_blank"
+          rel="noreferrer"
         >
           Click here
-        </a>
+        </Link>
         .
       </>
     ),
@@ -66,9 +71,9 @@ const STAGES = [
       <>
         Solve the issue while following Novu's guidelines and create a Pull Request. Do you feel
         stuck? Join our{' '}
-        <a href="https://discord.gg/9wcGSf22PM" style={{ fontWeight: 'bold' }}>
+        <Link to="https://discord.gg/9wcGSf22PM" theme="primary">
           Discord
-        </a>
+        </Link>
         , The community will be super happy to help you
       </>
     ),
