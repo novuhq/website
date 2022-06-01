@@ -22,7 +22,6 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
       <p className="mt-4 text-lg font-light leading-snug text-gray-10 md:text-base">
         {description}
       </p>
-
       <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
         {list
           .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax)
@@ -47,6 +46,10 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
                 src={avatar}
                 loading="lazy"
                 alt={`${userName} avatar`}
+                onError={(e) => {
+                  // In cases where an image is unavailable for some reason, we retrieve it manually from Github
+                  e.target.src = `https://avatars.githubusercontent.com/${url}?v=3`;
+                }}
               />
               <div className="flex flex-col">
                 <span className="text-lg leading-denser text-primary-1">
@@ -73,12 +76,17 @@ Item.propTypes = {
   icon: PropTypes.element.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  users: PropTypes.arrayOf(
+  list: PropTypes.arrayOf(
     PropTypes.shape({
-      userName: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      lastActivity: PropTypes.string.isRequired,
+      totalPulls: PropTypes.number,
+      pulls: PropTypes.arrayOf(
+        PropTypes.shape({
+          merged_at: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      name: PropTypes.string,
+      avatar_url: PropTypes.string.isRequired,
+      github: PropTypes.string.isRequired,
     })
   ).isRequired,
   theme: PropTypes.string,

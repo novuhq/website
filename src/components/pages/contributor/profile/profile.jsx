@@ -1,4 +1,5 @@
 import EmojiConvertor from 'emoji-js';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
@@ -23,6 +24,10 @@ const Profile = ({ contributor }) => (
         width={192}
         loading="eager"
         alt={contributor.name || `@${contributor.github}`}
+        onError={(e) => {
+          // In cases where an image is unavailable for some reason, we retrieve it manually from Github
+          e.target.src = `https://avatars.githubusercontent.com/${contributor.github}?v=3`;
+        }}
       />
     </div>
     <div className="mt-3 w-full md:mt-0 sm:mt-3">
@@ -86,5 +91,17 @@ const Profile = ({ contributor }) => (
     </div>
   </div>
 );
+
+Profile.propTypes = {
+  contributor: PropTypes.shape({
+    avatar_url: PropTypes.string.isRequired,
+    bio: PropTypes.string,
+    github: PropTypes.string,
+    location: PropTypes.string,
+    name: PropTypes.string,
+    twitter: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
+};
 
 export default Profile;
