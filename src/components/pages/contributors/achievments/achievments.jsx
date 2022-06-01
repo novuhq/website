@@ -1,15 +1,16 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-import { ACHIEVEMENT_PERSONAL, ACHIEVEMENT_MEDALS } from './constants/data';
+import { ACHIEVEMENT_MEDALS } from './constants/data';
+// import { ACHIEVEMENT_PERSONAL, ACHIEVEMENT_MEDALS } from './constants/data';
 import Item from './item';
 
-const personalIconClassNames =
-  'h-[176px] w-[176px] lg:h-[134px] lg:w-[134px] flex-shrink-0 rounded-full shadow-[0px_5px_20px_#000000] mr-34 lg:mr-7 md:h-[102px] md:w-[102px] md:mr-5 sm:mr-0';
+// const personalIconClassNames =
+//   'h-[176px] w-[176px] lg:h-[134px] lg:w-[134px] flex-shrink-0 rounded-full shadow-[0px_5px_20px_#000000] mr-34 lg:mr-7 md:h-[102px] md:w-[102px] md:mr-5 sm:mr-0';
 const medalIconClassNames =
   'h-[210px] w-[176px] lg:h-[160px] lg:w-[134px] flex-shrink-0 mr-34 lg:mr-7 md:h-[122px] md:w-[102px] md:mr-5 sm:mr-0';
 
-const Achievments = () => {
+const Achievments = ({ list }) => {
   const {
     rockStar,
     contributorOfTheYear,
@@ -80,16 +81,16 @@ const Achievments = () => {
   };
   return (
     <>
-      <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16">
-        <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
-          {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => {
-            const icon = achievementIcons[iconName];
-            return (
-              <Item imageClassNames={personalIconClassNames} icon={icon} key={index} {...props} />
-            );
-          })}
-        </div>
-      </section>
+      {/* <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16"> */}
+      {/*   <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0"> */}
+      {/*     {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => { */}
+      {/*       const icon = achievementIcons[iconName]; */}
+      {/*       return ( */}
+      {/*         <Item imageClassNames={personalIconClassNames} icon={icon} key={index} {...props} /> */}
+      {/*       ); */}
+      {/*     })} */}
+      {/*   </div> */}
+      {/* </section> */}
 
       <section className="achievments-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
         <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
@@ -97,6 +98,7 @@ const Achievments = () => {
             const icon = achievementIcons[iconName];
             return (
               <Item
+                list={list}
                 imageClassNames={medalIconClassNames}
                 icon={icon}
                 theme="gray"

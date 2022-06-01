@@ -11,32 +11,85 @@ const TITLE = 'How it works';
 const STAGES = [
   {
     icon: stage1Icon,
-    title: 'Malesuada nisl risus erat amet netus egestas',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas quis tortor tristique ornare sed ac.',
+    title: 'Read the docs',
+    description: (
+      <>
+        Start by reading Novu's
+        <a
+          style={{ fontWeight: 'bold' }}
+          href="https://github.com/novuhq/novu/blob/main/CONTRIBUTING.md"
+          target="_blank" rel="noreferrer"
+        >
+          Contributing Guide
+        </a>{' '}
+        and{' '}
+        <a
+          style={{ fontWeight: 'bold' }}
+          href="https://docs.novu.co/docs/overview/introduction"
+          target="_blank" rel="noreferrer"
+        >
+          Documentation
+        </a>
+        . Learn more about Novu, and set it up
+      </>
+    ),
   },
   {
     icon: stage2Icon,
-    title: 'Lorem ipsum dolor sit amet',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc, in mi, aliquet purus.',
+    title: 'Pick an issue',
+    description: (
+      <>
+        Head over to{' '}
+        <a
+          style={{ fontWeight: 'bold' }}
+          href="https://github.com/novuhq/novu/issues"
+          target="_blank" rel="noreferrer"
+        >
+          Novu's issues page
+        </a>
+        , Comment on an issue and we will assign it to you. Do you want to open a new issue?{' '}
+        <a
+          style={{ fontWeight: 'bold' }}
+          href="https://github.com/novuhq/novu/issues/new?assignees=&labels=&template=bug_report.md&title="
+          target="_blank" rel="noreferrer"
+        >
+          Click here
+        </a>
+        .
+      </>
+    ),
   },
   {
     icon: stage3Icon,
-    title: 'Vitae sed sodales blandit eu diam cras a aliquet',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida sagittis, ullamcorper justo accumsan. Sit pellentesque molestie vitae, enim platea orci elementum.',
+    title: 'Solve it',
+    description: (
+      <>
+        Solve the issue while following Novu's guidelines and create a Pull Request. Do you feel
+        stuck? Join our{' '}
+        <a href="https://discord.gg/9wcGSf22PM" style={{ fontWeight: 'bold' }}>
+          Discord
+        </a>
+        , The community will be super happy to help you
+      </>
+    ),
   },
   {
     icon: stage4Icon,
-    title: 'Sem tincidunt est amet sit sem',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida sagittis, ullamcorper justo accumsan. Sit pellentesque molestie vitae, enim platea orci elementum.',
+    title: 'Earn your badge',
+    description: (
+      <>
+        You will automatically be listed here. Now it's the time to send it to your friends and show
+        them how awesome you are!
+      </>
+    ),
   },
 ];
 
 const HowItWorks = () => (
-  <section className="how-it-works safe-paddings bg-gray-2 py-40 lg:py-32 md:py-20 sm:py-16">
+  <section
+    className="how-it-works safe-paddings bg-gray-2 py-40 lg:py-32 md:py-20 sm:py-16"
+    id="started"
+  >
     <div className="container-lg">
       <Heading className="leading-tight md:text-4xl sm:text-3xl" size="lg" tag="h2" theme="white">
         {TITLE}

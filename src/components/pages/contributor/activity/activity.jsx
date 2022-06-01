@@ -1,5 +1,7 @@
+import EmojiConvertor from 'emoji-js';
 import { motion, useAnimation } from 'framer-motion';
-import React, { useState } from 'react';
+import moment from 'moment';
+import React, { useMemo, useState } from 'react';
 
 import Heading from 'components/shared/heading';
 import DEFAULT_EASE from 'constants/default-ease';
@@ -9,63 +11,13 @@ import commitIcon from './images/commit.svg';
 import pullRequestIcon from './images/pull-request.svg';
 
 const TITLE = 'Contribution activity';
-const ACTIVITIES = [
-  {
-    iconName: 'branch',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: '📝  Update quick start docs',
-  },
-  {
-    iconName: 'pullRequest',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: '🐛  Remove authorization header on signedurl upload',
-  },
-  {
-    iconName: 'commit',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: 'Update dal + api HMAC security support',
-  },
-  {
-    iconName: 'branch',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: 'Change Providers Constructor Into An Interface',
-  },
-
-  {
-    iconName: 'branch',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: '📝  Update quick start docs',
-  },
-  {
-    iconName: 'pullRequest',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: '🐛  Remove authorization header on signedurl upload',
-  },
-  {
-    iconName: 'commit',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: 'Update dal + api HMAC security support',
-  },
-  {
-    iconName: 'branch',
-    date: 'May 1',
-    message: 'Created a commit in novuhq/novu repository',
-    commit: 'Change Providers Constructor Into An Interface',
-  },
-];
 
 const activityIcons = {
   branch: branchIcon,
   commit: commitIcon,
   pullRequest: pullRequestIcon,
 };
+const emoji = new EmojiConvertor();
 
 const underlineVariants = {
   initial: {
@@ -103,11 +55,16 @@ const underlineVariants = {
   },
 };
 
-const Activity = () => {
+const Activity = ({ contributor }) => {
   const [isShowMore, setIsShowMore] = useState(false);
 
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
+
+  const pulls = useMemo(
+    () => (isShowMore ? contributor.pulls : contributor.pulls.slice(0, 3)),
+    [isShowMore, contributor]
+  );
 
   const handleHover = () => {
     if (!canAnimate) return;
@@ -117,8 +74,6 @@ const Activity = () => {
     controls.start('start').then(() => controls.start('finish').then(() => setCanAnimate(true)));
   };
 
-  const activities = isShowMore ? ACTIVITIES : ACTIVITIES.slice(0, 4);
-
   return (
     <section className="activity">
       <Heading className="leading-denser md:text-[30px]" tag="h2" size="md" theme="white">
@@ -126,27 +81,33 @@ const Activity = () => {
       </Heading>
 
       <ul className="mt-10 space-y-8">
-        {activities.map(({ iconName, date, message, commit }, index) => {
-          const icon = activityIcons[iconName];
+        {pulls.map(({ title, html_url, merged_at }, index) => {
+          const icon = activityIcons.pullRequest;
           return (
             <li className="flex" key={index}>
               <div className="mr-3.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-white to-[rgba(255,255,255,0.6)]">
-                <img src={icon} loading="lazy" alt={`${iconName} icon`} aria-hidden />
+                <img src={icon} loading="lazy" alt="pullRequest icon" aria-hidden />
               </div>
               <div className="flex w-full flex-col">
                 <div className="flex items-center justify-between pt-2">
-                  <p className="font-light leading-snug">{message}</p>
-                  <span className="whitespace-nowrap text-sm font-light leading-none">{date}</span>
+                  <p className="font-light leading-snug">Pull Request</p>
+                  <span className="whitespace-nowrap text-sm font-light leading-none">
+                    {moment(merged_at).format('DD/MM/YYYY')}
+                  </span>
                 </div>
                 <div className="mt-4 border border-gray-3 px-4 py-3.5">
-                  <p className="text-lg sm:text-base">{commit}</p>
+                  <p className="text-lg sm:text-base">
+                    <a href={html_url} target="_blank" rel="noreferrer">
+                      {emoji.replace_colons(title || '')}
+                    </a>
+                  </p>
                 </div>
               </div>
             </li>
           );
         })}
       </ul>
-      {!isShowMore && (
+      {!isShowMore && pulls.length !== contributor.pulls.length && (
         <button
           className="relative mt-8 ml-[54px] pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 md:left-1/2 md:ml-0 md:-translate-x-1/2 sm:text-sm"
           type="button"

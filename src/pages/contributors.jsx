@@ -1,3 +1,4 @@
+import { axios } from 'helpers/axios';
 import React from 'react';
 
 import Achievments from 'components/pages/contributors/achievments';
@@ -16,10 +17,18 @@ const SEO = {
   preventIndexing: true,
 };
 
-const ContributorsPage = () => (
+const ContributorsPage = ({
+  pageResources: {
+    json: {
+      serverData: {
+        contributors: { list },
+      },
+    },
+  },
+}) => (
   <Layout seo={SEO}>
     <Hero />
-    <Achievments />
+    <Achievments list={list} />
     <HowItWorks />
     <GetStarted />
     <Separator backgroundColor="black" />
@@ -27,3 +36,15 @@ const ContributorsPage = () => (
 );
 
 export default ContributorsPage;
+
+export async function getServerData() {
+  try {
+    const contributors = await axios.get(`/contributors`);
+
+    return {
+      props: {
+        contributors: contributors.data,
+      },
+    };
+  } catch (err) {}
+}

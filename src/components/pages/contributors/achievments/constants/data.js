@@ -145,8 +145,9 @@ const ACHIEVEMENT_MEDALS = [
   {
     iconName: 'goldMedal',
     title: 'Gold Medal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
+    starsMax: 2000,
+    starsMin: 7,
+    description: '',
     users: [
       {
         userName: 'davidsoderberg',
@@ -171,8 +172,9 @@ const ACHIEVEMENT_MEDALS = [
   {
     iconName: 'silverMedal',
     title: 'Silver Medal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
+    starsMin: 3,
+    starsMax: 6,
+    description: '',
     users: [
       {
         userName: 'davidsoderberg',
@@ -191,8 +193,9 @@ const ACHIEVEMENT_MEDALS = [
   {
     iconName: 'bronzeMedal',
     title: 'Bronze Medal',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
+    starsMin: 1,
+    starsMax: 2,
+    description: '',
     users: [
       {
         userName: 'ainouzgali',
