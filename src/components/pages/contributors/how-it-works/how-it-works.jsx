@@ -14,11 +14,12 @@ const STAGES = [
     title: 'Read the docs',
     description: (
       <>
-        Start by reading Novu's
+        Start by reading Novu's{' '}
         <a
           style={{ fontWeight: 'bold' }}
           href="https://github.com/novuhq/novu/blob/main/CONTRIBUTING.md"
-          target="_blank" rel="noreferrer"
+          target="_blank"
+          rel="noreferrer"
         >
           Contributing Guide
         </a>{' '}
@@ -26,7 +27,8 @@ const STAGES = [
         <a
           style={{ fontWeight: 'bold' }}
           href="https://docs.novu.co/docs/overview/introduction"
-          target="_blank" rel="noreferrer"
+          target="_blank"
+          rel="noreferrer"
         >
           Documentation
         </a>
@@ -43,7 +45,8 @@ const STAGES = [
         <a
           style={{ fontWeight: 'bold' }}
           href="https://github.com/novuhq/novu/issues"
-          target="_blank" rel="noreferrer"
+          target="_blank"
+          rel="noreferrer"
         >
           Novu's issues page
         </a>
@@ -51,7 +54,8 @@ const STAGES = [
         <a
           style={{ fontWeight: 'bold' }}
           href="https://github.com/novuhq/novu/issues/new?assignees=&labels=&template=bug_report.md&title="
-          target="_blank" rel="noreferrer"
+          target="_blank"
+          rel="noreferrer"
         >
           Click here
         </a>
