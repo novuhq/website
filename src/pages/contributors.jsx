@@ -46,5 +46,7 @@ export async function getServerData() {
         contributors: contributors.data,
       },
     };
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 }
