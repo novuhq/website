@@ -7,15 +7,11 @@ import Heading from 'components/shared/heading/heading';
 import bg from './images/bg.svg';
 
 const TITLE = 'Contributors';
-const Description = () => (
-  <>
-    Novu is being built for developers using the incredible power of the community! Here is a list
-    of these amazing individuals, working together to build the best open-source notification
-    infrastructure 🚀
-    <br />
-    Do you want to be listed here too?
-  </>
-);
+const DESCRIPTION = `Novu is being built for developers using the incredible power of the community! Here is a list
+of these amazing individuals, working together to build the best open-source notification
+infrastructure 🚀
+<br />
+Do you want to be listed here too?`;
 const BUTTON_TEXT = 'Become a contributor';
 
 const Hero = () => {
@@ -29,22 +25,23 @@ const Hero = () => {
           <div className="max-w-[488px] lg:max-w-[377px] md:max-w-[346px] sm:max-w-none sm:text-center">
             <Heading
               size="2xl"
-              tag="h2"
+              tag="h1"
               className="leading-tight md:text-4xl sm:text-3xl"
               theme="white"
             >
               {TITLE}
             </Heading>
-            <p className="mt-5 text-lg font-light leading-snug text-gray-8 md:text-base">
-              <Description />
-            </p>
+            <p
+              className="mt-5 text-lg font-light leading-snug text-gray-8 md:text-base"
+              dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
+            />
             <Button className="mt-7 md:mt-5" size="sm" theme="primary" onClick={scrollDown}>
               {BUTTON_TEXT}
             </Button>
           </div>
 
           <StaticImage
-            className="-mt-2.5 -mr-2.5 max-w-[660px] lg:max-w-[510px] md:max-w-[360px] sm:hidden"
+            className="-mt-2.5 -mr-2.5 max-w-[660px] lg:max-w-[510px] md:max-w-[360px] sm:!hidden"
             src="./images/contributors-hero-illustration.png"
             loading="eager"
             alt=""
