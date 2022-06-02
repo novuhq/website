@@ -64,9 +64,9 @@ const Form = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: {
-            email_address: value,
-          },
+          body: JSON.stringify({
+            email: value,
+          }),
         });
 
         if (response.ok) {
