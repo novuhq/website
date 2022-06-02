@@ -43,7 +43,7 @@ const Form = () => {
   const [formState, setFormState] = useState(STATES.DEFAULT);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleInputChange = ({ currentTarget: { value } }) => setValue(value.trim());
+  const handleInputChange = ({ target: { value } }) => setValue(value.trim());
 
   const handleSubmit = async (event) => {
     event.preventDefault();
