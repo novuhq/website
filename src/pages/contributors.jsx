@@ -22,14 +22,14 @@ const ContributorsPage = ({
     contributors: { list },
   },
 }) => (
-    <Layout seo={SEO}>
-      <Hero />
-      <Achievments list={list} />
-      <HowItWorks />
-      <GetStarted />
-      <Separator backgroundColor="black" />
-    </Layout>
-  );
+  <Layout seo={SEO}>
+    <Hero />
+    <Achievments list={list} />
+    <HowItWorks />
+    <GetStarted />
+    <Separator backgroundColor="black" />
+  </Layout>
+);
 
 export default ContributorsPage;
 

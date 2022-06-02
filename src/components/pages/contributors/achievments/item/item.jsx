@@ -22,14 +22,13 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
       <p className="mt-4 text-lg font-light leading-snug text-gray-10 md:text-base">
         {description}
       </p>
-
       <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
         {list
           .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax)
           .sort(
             (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
           )
-          .map(({ pulls, name: userName, avatar_url: avatar, github: url }, index) => (
+          .map(({ pulls, name: userName, github: url }, index) => (
             <Link
               className={clsx(
                 'flex items-center rounded-xl p-5',
@@ -41,10 +40,10 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               key={index}
             >
               <img
-                className="mr-3 rounded-full"
+                className="mr-3 rounded-full grayscale"
                 width={48}
                 height={48}
-                src={avatar}
+                src={`https://avatars.githubusercontent.com/${url}?v=3`}
                 loading="lazy"
                 alt={`${userName} avatar`}
               />
@@ -73,12 +72,16 @@ Item.propTypes = {
   icon: PropTypes.element.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  users: PropTypes.arrayOf(
+  list: PropTypes.arrayOf(
     PropTypes.shape({
-      userName: PropTypes.string.isRequired,
-      avatar: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      lastActivity: PropTypes.string.isRequired,
+      totalPulls: PropTypes.number,
+      pulls: PropTypes.arrayOf(
+        PropTypes.shape({
+          merged_at: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      name: PropTypes.string,
+      github: PropTypes.string.isRequired,
     })
   ).isRequired,
   theme: PropTypes.string,
