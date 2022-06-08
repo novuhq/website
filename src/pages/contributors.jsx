@@ -1,3 +1,5 @@
+import { graphql } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
 import { axios } from 'helpers/axios';
 import React from 'react';
 
@@ -8,28 +10,40 @@ import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
-const SEO = {
-  title: 'Novu - Contributors',
-  description:
-    'The ultimate library for managing multi-channel transactional notifications with a single API.',
-  slug: 'contributors',
-  // TODO: this value allows you not to index the page in search engines, once the page is ready remove this value
-  preventIndexing: false,
-};
-
 const ContributorsPage = ({
+  data: { ogImage },
   serverData: {
     contributors: { list },
   },
-}) => (
-  <Layout seo={SEO}>
-    <Hero />
-    <Achievments list={list} />
-    <HowItWorks />
-    <GetStarted />
-    <Separator backgroundColor="black" />
-  </Layout>
-);
+}) => {
+  const SEO = {
+    title: 'Novu - Contributors',
+    description:
+      'The ultimate library for managing multi-channel transactional notifications with a single API.',
+    slug: 'contributors',
+    preventIndexing: false,
+    ogImage: getSrc(ogImage.childImageSharp),
+  };
+  return (
+    <Layout seo={SEO}>
+      <Hero />
+      <Achievments list={list} />
+      <HowItWorks />
+      <GetStarted />
+      <Separator backgroundColor="black" />
+    </Layout>
+  );
+};
+
+export const pageQuery = graphql`
+  query {
+    ogImage: file(relativePath: { eq: "contributors/social-preview.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(formats: [JPG], width: 1200, height: 630)
+      }
+    }
+  }
+`;
 
 export default ContributorsPage;
 
