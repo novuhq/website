@@ -24,7 +24,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
       </p>
       <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
         {list
-          .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax)
+          .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
           .sort(
             (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
           )
