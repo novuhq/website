@@ -6,7 +6,7 @@ import Heading from 'components/shared/heading/heading';
 
 import bg from './images/bg.svg';
 
-const TITLE = 'Contributors';
+const TITLE = 'Community Heroes';
 const DESCRIPTION = `Novu is being built for developers using the incredible power of the community! Here is a list
 of these amazing individuals, working together to build the best open-source notification
 infrastructure 🚀
