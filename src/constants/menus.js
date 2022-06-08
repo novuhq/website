@@ -4,7 +4,7 @@ const MENUS = {
   header: [
     {
       title: 'Contributors',
-      ...LINKS.blog,
+      ...LINKS.contributors,
     },
     {
       title: 'Blog',

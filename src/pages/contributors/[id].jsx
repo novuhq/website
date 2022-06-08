@@ -15,7 +15,7 @@ const SEO = (contributor) => ({
   description: `Come and meet our awesome contributor ${contributor.github || contributor.name}`,
   slug: `contributor/${contributor.github}`,
   // TODO: this value allows you not to index the page in search engines, once the page is ready remove this value
-  preventIndexing: true,
+  preventIndexing: false,
 });
 
 const ContributorPage = ({ serverData: { contributor } }) => {

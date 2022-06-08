@@ -14,7 +14,7 @@ const SEO = {
     'The ultimate library for managing multi-channel transactional notifications with a single API.',
   slug: 'contributors',
   // TODO: this value allows you not to index the page in search engines, once the page is ready remove this value
-  preventIndexing: true,
+  preventIndexing: false,
 };
 
 const ContributorsPage = ({
