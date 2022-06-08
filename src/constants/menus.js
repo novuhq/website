@@ -3,11 +3,23 @@ import LINKS from 'constants/links.js';
 const MENUS = {
   header: [
     {
+      title: 'Contributors',
+      ...LINKS.blog,
+    },
+    {
+      title: 'Blog',
+      ...LINKS.blog,
+    },
+    {
       title: 'Documentation',
       ...LINKS.documentation,
     },
   ],
   footer: [
+    [
+      { text: 'Blog', ...LINKS.blog },
+      { text: 'Contributors', ...LINKS.contributors },
+    ],
     [
       { text: 'Documentation', ...LINKS.documentation },
       { text: 'Providers', ...LINKS.providers },
@@ -24,6 +36,8 @@ const MENUS = {
       title: 'Documentation',
       ...LINKS.documentation,
     },
+    { text: 'Blog', ...LINKS.blog },
+    { text: 'Contributors', ...LINKS.contributors },
   ],
 };
 

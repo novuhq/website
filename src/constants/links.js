@@ -6,11 +6,13 @@ export default {
   blog: {
     to: '/blog',
   },
+  contributors: {
+    to: '/contributors',
+  },
   providers: {
     to: 'https://github.com/novuhq/novu/tree/main/providers',
     target: '_blank',
   },
-
   // Other pages
   documentation: {
     to: 'https://docs.novu.co/docs/overview/introduction',
