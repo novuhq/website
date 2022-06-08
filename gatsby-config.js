@@ -13,6 +13,7 @@ module.exports = {
     siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
     authorName: 'Pixel Point',
   },
+  trailingSlash: 'always',
   plugins: [
     'gatsby-plugin-react-helmet',
     {
