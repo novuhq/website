@@ -28,7 +28,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
           .sort(
             (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
           )
-          .map(({ pulls, name: userName, github: url }, index) => (
+          .map(({ name: userName, github: url }, index) => (
             <Link
               className={clsx(
                 'flex items-center rounded-xl p-5',
@@ -51,14 +51,14 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
                 <span className="text-lg leading-denser text-primary-1">
                   {userName || `@${url}`}
                 </span>
-                <span className="mt-1.5 text-sm leading-denser">
-                  Last activity:{' '}
-                  <span className="text-secondary-2">
-                    {moment(moment()).diff(pulls[0].merged_at, 'day') === 0
-                      ? 'today'
-                      : `${moment(moment()).diff(pulls[0].merged_at, 'day')} days ago`}
-                  </span>
-                </span>
+                {/* <span className="mt-1.5 text-sm leading-denser"> */}
+                {/*   Last activity:{' '} */}
+                {/*   <span className="text-secondary-2"> */}
+                {/*     {moment(moment()).diff(pulls[0].merged_at, 'day') === 0 */}
+                {/*       ? 'today' */}
+                {/*       : `${moment(moment()).diff(pulls[0].merged_at, 'day')} days ago`} */}
+                {/*   </span> */}
+                {/* </span> */}
               </div>
             </Link>
           ))}
