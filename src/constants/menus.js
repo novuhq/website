@@ -36,8 +36,8 @@ const MENUS = {
       title: 'Documentation',
       ...LINKS.documentation,
     },
-    { text: 'Blog', ...LINKS.blog },
-    { text: 'Contributors', ...LINKS.contributors },
+    { title: 'Blog', ...LINKS.blog },
+    { title: 'Contributors', ...LINKS.contributors },
   ],
 };
 
