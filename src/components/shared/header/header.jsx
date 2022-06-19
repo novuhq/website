@@ -13,8 +13,8 @@ import Logo from 'images/logo.inline.svg';
 const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
   const mixpanel = useMixpanel();
   const trigger = useCallback(
-    (title) => () => {
-      mixpanel.track(`Go to page: ${title}`);
+    (text) => () => {
+      mixpanel.track(`Go to page: ${text}`);
     },
     [mixpanel]
   );
@@ -30,10 +30,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
         <div className="flex items-center space-x-16 lg:space-x-14">
           <nav>
             <ul className="flex space-x-8 md:hidden">
-              {MENUS.header.map(({ to, title, target }, index) => (
+              {MENUS.header.map(({ to, text, target }, index) => (
                 <li key={index}>
-                  <Link to={to} theme="white" size="sm" target={target} onClick={trigger(title)}>
-                    {title}
+                  <Link to={to} theme="white" size="sm" target={target} onClick={trigger(text)}>
+                    {text}
                   </Link>
                 </li>
               ))}

@@ -3,15 +3,15 @@ import LINKS from 'constants/links.js';
 const MENUS = {
   header: [
     {
-      title: 'Contributors',
+      text: 'Contributors',
       ...LINKS.contributors,
     },
     {
-      title: 'Blog',
+      text: 'Blog',
       ...LINKS.blog,
     },
     {
-      title: 'Documentation',
+      text: 'Documentation',
       ...LINKS.documentation,
     },
   ],
@@ -33,7 +33,7 @@ const MENUS = {
   ],
   mobile: [
     {
-      title: 'Documentation',
+      text: 'Documentation',
       ...LINKS.documentation,
     },
     { text: 'Blog', ...LINKS.blog },

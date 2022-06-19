@@ -56,7 +56,7 @@ const MobileMenu = ({ isOpen }) => {
         >
           <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
             <ul className="my-auto flex w-full flex-col">
-              {MENUS.mobile.map(({ to, title, target }, index) => (
+              {MENUS.mobile.map(({ to, text, target }, index) => (
                 <li key={index}>
                   <Link
                     className="block w-full py-6 text-center text-2xl"
@@ -65,7 +65,7 @@ const MobileMenu = ({ isOpen }) => {
                     to={to}
                     target={target}
                   >
-                    {title}
+                    {text}
                   </Link>
                 </li>
               ))}
