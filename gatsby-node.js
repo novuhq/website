@@ -1,7 +1,57 @@
 const fetch = require(`node-fetch`);
+const fs = require('fs');
 const path = require('path');
 
 const slash = require('slash');
+
+const createContributorsPage = async ({ actions, reporter }) => {
+  const { createPage } = actions;
+  try {
+    const data = await fetch('https://contributors.novu.co/contributors')
+      .then((response) => response.json())
+      .then((response) => response);
+
+    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
+    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+
+    createPage({
+      path: '/contributors/',
+      component: slash(templateMainPage),
+      context: {
+        contributors: data,
+      },
+    });
+
+    const contributors = data.list.filter(
+      ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
+    );
+
+    await contributors.map(async ({ github }) => {
+      const image = await fetch(`http://localhost:4000/api/achievement?userName=${github}`);
+      const buffer = await image.buffer();
+      const outputFolder = `./public/images/${github}`;
+
+      if (!fs.existsSync(outputFolder)) {
+        fs.mkdirSync(outputFolder);
+      }
+      fs.writeFile(`${outputFolder}/${github}.jpg`, buffer, () =>
+        console.log('finished downloading!')
+      );
+    });
+
+    contributors.forEach((contributor) => {
+      createPage({
+        path: `/contributors/${contributor.github}/`,
+        component: slash(templateDetailPage),
+        context: {
+          contributor,
+        },
+      });
+    });
+  } catch (err) {
+    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+  }
+};
 
 const createBlogPage = async ({ graphql, actions, reporter }) => {
   const POSTS_PER_PAGE = 13;
@@ -174,6 +224,7 @@ exports.createPages = async (args) => {
 
   await createBlogPage(params);
   await createArticles(params);
+  await createContributorsPage(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {

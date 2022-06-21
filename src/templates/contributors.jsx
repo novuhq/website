@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
-import { axios } from 'helpers/axios';
 import React from 'react';
 
 import Achievments from 'components/pages/contributors/achievments';
@@ -10,24 +9,19 @@ import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
-const ContributorsPage = ({
-  data: { ogImage },
-  serverData: {
-    contributors: { list },
-  },
-}) => {
+const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
   const SEO = {
     title: 'Novu - Contributors',
     description:
       'The ultimate library for managing multi-channel transactional notifications with a single API.',
     slug: 'contributors',
-    preventIndexing: false,
     ogImage: getSrc(ogImage.childImageSharp),
   };
+
   return (
     <Layout seo={SEO}>
       <Hero />
-      <Achievments list={list} />
+      <Achievments list={pageContext.contributors.list} />
       <HowItWorks />
       <GetStarted />
       <Separator backgroundColor="black" />
@@ -46,16 +40,3 @@ export const pageQuery = graphql`
 `;
 
 export default ContributorsPage;
-
-export async function getServerData() {
-  try {
-    const contributors = await axios.get(`/contributors`);
-    return {
-      props: {
-        contributors: contributors.data,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-  }
-}

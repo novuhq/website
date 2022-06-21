@@ -1,4 +1,3 @@
-import { navigate } from '@reach/router';
 import React, { useState } from 'react';
 
 import Achievements from 'components/pages/contributor/achievements';
@@ -8,8 +7,6 @@ import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
-import { axios } from '../../helpers/axios';
-
 const SEO = (contributor) => ({
   title: `Novu - ${contributor.github || contributor.name}`,
   description: `Come and meet our awesome contributor ${contributor.github || contributor.name}`,
@@ -17,12 +14,8 @@ const SEO = (contributor) => ({
   preventIndexing: false,
 });
 
-const ContributorPage = ({ serverData: { contributor } }) => {
+const ContributorPage = ({ pageContext: { contributor } }) => {
   const [SEO_DETAILS] = useState(!contributor ? '' : SEO(contributor));
-  if (!contributor) {
-    navigate('/not-found');
-    return <></>;
-  }
 
   return (
     <Layout seo={SEO_DETAILS}>
@@ -43,13 +36,3 @@ const ContributorPage = ({ serverData: { contributor } }) => {
 };
 
 export default ContributorPage;
-
-export async function getServerData(context) {
-  const contributor = await axios.get(`/contributor/${context.params.id}`);
-
-  return {
-    props: {
-      contributor: contributor.data,
-    },
-  };
-}
