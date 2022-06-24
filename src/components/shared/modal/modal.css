@@ -1,0 +1,39 @@
+.ReactModal__Overlay {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  //backdrop-filter: blur(10px);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity $transition-base;
+  overflow: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  transition: $transition-base;
+
+  @include section-paddings;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ReactModal__Content {
+  position: relative !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  max-width: 508px;
+  width: 100%;
+  padding: 16px !important;
+  border: none !important;
+  background: linear-gradient(180deg, #262626 0%, #1a1a1a 100%) !important;
+  border-radius: 8px !important;
+  margin: auto;
+  overflow: hidden !important;
+}
