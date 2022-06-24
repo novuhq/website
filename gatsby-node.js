@@ -5,6 +5,7 @@ const slash = require('slash');
 
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
+
   try {
     const data = await fetch('https://contributors.novu.co/contributors')
       .then((response) => response.json())
@@ -31,6 +32,7 @@ const createContributorsPage = async ({ actions, reporter }) => {
         component: slash(templateDetailPage),
         context: {
           contributor,
+          userName: contributor.github,
         },
       });
     });

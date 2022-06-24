@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import moment from 'moment';
-import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 
@@ -14,19 +15,11 @@ import reporterStarIconDisabled from './images/reporter-star.png';
 import rockStarIconDisabled from './images/rock-star.png';
 import silverMedalIconDisabled from './images/silver-medal.png';
 import teamPlayerIconDisabled from './images/team-player.png';
+import { Share, SHARE_TYPES } from './share';
 import Tooltip from './tooltip';
 
 import './achievements.css';
 
-const TITLE = 'Achievements';
-const Description = ({ contributor }) => (
-  <>
-    {contributor.name || contributor.github} has made{' '}
-    <strong>{contributor.pulls.length} pull requests.</strong>
-    <br />
-    Thank you for helping growing Novu!
-  </>
-);
 const ACHIEVEMENTS = [
   // {
   //   iconName: 'rockStar',
@@ -85,24 +78,26 @@ const ACHIEVEMENTS = [
   },
 ];
 
-const Achievements = ({ contributor }) => {
-  const findDates = useMemo(
-    () =>
-      contributor.pulls
-        .slice(0)
-        .reverse()
-        .reduce(
-          (all, current) => {
-            if (all.counter === 1 || all.counter === 3 || all.counter === 7) {
-              all.values[all.counter] = moment(current.merged_at).format('LL');
-            }
-            all.counter += 1;
-            return all;
-          },
-          { counter: 1, values: {} }
-        ),
-    [contributor]
-  );
+const findDates = (pulls) =>
+  pulls
+    .slice(0)
+    .reverse()
+    .reduce(
+      (all, current) => {
+        if (all.counter === 1 || all.counter === 3 || all.counter === 7) {
+          all.values[all.counter] = moment(current.merged_at).format('LL');
+        }
+        all.counter += 1;
+        return all;
+      },
+      { counter: 1, values: {} }
+    );
+
+const Achievements = ({
+  contributor: { name, github, pulls, totalPulls },
+  generatedImages,
+  url,
+}) => {
   const {
     rockStar,
     contributorOfTheYear,
@@ -196,17 +191,22 @@ const Achievements = ({ contributor }) => {
     },
   };
 
+  const ogImage = generatedImages.find(({ type }) => type === 'og:image');
+  const embedImage = generatedImages.find(({ type }) => type === 'embed:image');
+
   return (
     <section className="achievements md:mt-20 sm:mt-16">
       <Heading className="leading-denser md:text-[30px]" tag="h2" size="md" theme="white">
-        {TITLE}
+        Achievements
       </Heading>
       <p className="mt-4 text-lg font-light text-gray-10 md:text-base">
-        <Description contributor={contributor} />
+        {name || github} has made <strong>{pulls.length} pull requests.</strong>
+        <br />
+        Thank you for helping growing Novu!
       </p>
 
       <div className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10 md:gap-x-7 sm:grid-cols-2 sm:gap-x-5">
-        {ACHIEVEMENTS.filter((f) => f.minStars <= contributor.totalPulls).map(
+        {ACHIEVEMENTS.filter(({ minStars }) => minStars <= totalPulls).map(
           ({ iconName, title, tooltip, minStars }, index) => {
             const icon = achievementIcons[iconName];
 
@@ -226,7 +226,7 @@ const Achievements = ({ contributor }) => {
                 <div className="mt-3.5 space-y-1.5 text-center">
                   <h4 className={clsx('text-base leading-tight')}>{title}</h4>
                   <span className="text-sm leading-tight text-gray-6">
-                    {findDates.values[minStars]}
+                    {findDates(pulls).values[minStars]}
                   </span>
                 </div>
               </div>
@@ -234,8 +234,38 @@ const Achievements = ({ contributor }) => {
           }
         )}
       </div>
+
+      <div className="mt-9 flex space-x-10">
+        <Share type={SHARE_TYPES.social} image={ogImage} url={url} />
+        <Share type={SHARE_TYPES.embed} image={embedImage} url={url} />
+      </div>
     </section>
   );
+};
+
+Achievements.propTypes = {
+  contributor: PropTypes.shape({
+    name: PropTypes.string,
+    github: PropTypes.string.isRequired,
+    pulls: PropTypes.arrayOf(
+      PropTypes.shape({
+        merged_at: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    totalPulls: PropTypes.number,
+  }).isRequired,
+  generatedImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(['og:image', 'embed:image']).isRequired,
+      local: PropTypes.shape({
+        publicURL: PropTypes.string.isRequired,
+        childImageSharp: PropTypes.shape({
+          gatsbyImageData: PropTypes.any.isRequired,
+        }).isRequired,
+      }).isRequired,
+    })
+  ).isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default Achievements;
