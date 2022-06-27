@@ -26,14 +26,28 @@ const createContributorsPage = async ({ actions, reporter }) => {
       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
     );
 
-    contributors.forEach((contributor) => {
-      createPage({
-        path: `/contributors/${contributor.github}/`,
-        component: slash(templateDetailPage),
-        context: {
-          contributor,
-          userName: contributor.github,
-        },
+    await Promise.all(
+      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+      // so we have to make an additional request to extract this data
+      contributors.map(async (contributor) => {
+        const { pulls } = await fetch(
+          `https://contributors.novu.co/contributor/${contributor.github}`
+        )
+          .then((response) => response.json())
+          .then((response) => response);
+
+        return { ...contributor, pulls };
+      })
+    ).then((contributors) => {
+      contributors.forEach((contributor) => {
+        createPage({
+          path: `/contributors/${contributor.github}/`,
+          component: slash(templateDetailPage),
+          context: {
+            contributor,
+            userName: contributor.github,
+          },
+        });
       });
     });
   } catch (err) {
