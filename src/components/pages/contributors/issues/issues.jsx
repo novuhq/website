@@ -60,17 +60,9 @@ const Issues = () => {
 
   const getIssues = async () => {
     try {
-      const issues = await fetch('https://api.github.com/repos/novuhq/novu/issues?per_page=100')
-        .then((res) => res.json())
-        // The Github API returns both issues and pull requests, so we filter the incoming data to only keep issues
-        // Read more: https://docs.github.com/en/rest/issues/issues#list-repository-issues
-        .then((issues) =>
-          issues.filter(
-            (issue) =>
-              issue.html_url.includes('issues') &&
-              issue.labels.some((label) => label.name === 'good first issue')
-          )
-        );
+      const issues = await fetch(
+        'https://api.github.com/repos/novuhq/novu/issues?per_page=100&labels=good first issue'
+      ).then((res) => res.json());
 
       setIssues(issues);
     } catch (err) {
