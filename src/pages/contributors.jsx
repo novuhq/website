@@ -6,6 +6,7 @@ import React from 'react';
 import Achievments from 'components/pages/contributors/achievments';
 import Hero from 'components/pages/contributors/hero';
 import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works';
+import Issues from 'components/pages/contributors/issues';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
@@ -29,6 +30,7 @@ const ContributorsPage = ({
       <Hero />
       <Achievments list={list} />
       <HowItWorks />
+      <Issues />
       <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>
