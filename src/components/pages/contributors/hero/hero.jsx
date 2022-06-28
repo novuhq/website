@@ -6,9 +6,13 @@ import Heading from 'components/shared/heading/heading';
 import bg from './images/bg.svg';
 
 const TITLE = 'Community Heroes';
-const DESCRIPTION = `Novu is being built for developers using the incredible power of the community! Here is a list
+const DESCRIPTION = `
+Novu is being built for developers using the incredible power of the community!
+<br /> 
+Here is a list
 of these amazing individuals, working together to build the best open-source notification
 infrastructure 🚀
+<br />
 <br />
 Do you want to be listed here too?`;
 const BUTTON_TEXT = 'Become a contributor';
