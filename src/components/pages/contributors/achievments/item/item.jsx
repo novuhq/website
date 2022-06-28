@@ -31,7 +31,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
           .map(({ name: userName, github: url }, index) => (
             <Link
               className={clsx(
-                'flex items-center rounded-xl p-5',
+                'group flex items-center rounded-xl p-5',
                 theme === 'gray'
                   ? 'bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)]'
                   : 'bg-black'
@@ -48,17 +48,18 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
                 alt={`${userName} avatar`}
               />
               <div className="flex flex-col">
-                <span className="text-lg leading-denser text-primary-1">
-                  {userName || `@${url}`}
+                <span className="text-lg leading-denser">{userName || `@${url}`}</span>
+                <span className="mt-1.5 text-sm font-book text-primary-1 transition-colors duration-200 group-hover:text-white">
+                  View profile
                 </span>
-                {/* <span className="mt-1.5 text-sm leading-denser"> */}
-                {/*   Last activity:{' '} */}
-                {/*   <span className="text-secondary-2"> */}
-                {/*     {moment(moment()).diff(pulls[0].merged_at, 'day') === 0 */}
-                {/*       ? 'today' */}
-                {/*       : `${moment(moment()).diff(pulls[0].merged_at, 'day')} days ago`} */}
-                {/*   </span> */}
-                {/* </span> */}
+                {/* <span className="mt-1.5 text-sm leading-denser">
+                  Last activity:{' '}
+                  <span className="text-secondary-2">
+                    {moment(moment()).diff(pulls[0].merged_at, 'day') === 0
+                    ? 'today'
+                    : `${moment(moment()).diff(pulls[0].merged_at, 'day')} days ago`}
+                  </span>
+               </span> */}
               </div>
             </Link>
           ))}
