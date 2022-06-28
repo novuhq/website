@@ -4,8 +4,12 @@ import moment from 'moment';
 import React, { useMemo, useState } from 'react';
 
 import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
+import Separator from 'components/shared/separator';
 import DEFAULT_EASE from 'constants/default-ease';
+import LINKS from 'constants/links';
 
+import ArrowIcon from './images/arrow.inline.svg';
 import branchIcon from './images/branch.svg';
 import commitIcon from './images/commit.svg';
 import pullRequestIcon from './images/pull-request.svg';
@@ -124,6 +128,11 @@ const Activity = ({ contributor }) => {
           />
         </button>
       )}
+
+      <Separator className="px-0 pt-14 pb-8 sm:pt-9" theme="black" />
+      <Link className="flex items-center space-x-2.5" theme="white" {...LINKS.contributors}>
+        <ArrowIcon className="h-2" /> <span>Back to Contributors page</span>
+      </Link>
     </section>
   );
 };

@@ -29,7 +29,7 @@ const ContributorPage = ({ serverData: { contributor } }) => {
       <div className="safe-paddings pt-44 md:pt-30 sm:pt-22">
         <div className="container-lg grid grid-cols-12 items-start gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
           <Profile contributor={contributor} />
-          <div className="col-span-8">
+          <div className="col-span-8 md:w-full">
             <Achievements contributor={contributor} />
             <Separator className="py-20 px-0 sm:py-16" backgroundColor="black" />
             <Activity contributor={contributor} />
