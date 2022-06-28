@@ -64,7 +64,13 @@ const Issues = () => {
         .then((res) => res.json())
         // The Github API returns both issues and pull requests, so we filter the incoming data to only keep issues
         // Read more: https://docs.github.com/en/rest/issues/issues#list-repository-issues
-        .then((issues) => issues.filter((issue) => issue.html_url.includes('issues')));
+        .then((issues) =>
+          issues.filter(
+            (issue) =>
+              issue.html_url.includes('issues') &&
+              issue.labels.some((label) => label.name === 'good first issue')
+          )
+        );
 
       setIssues(issues);
     } catch (err) {

@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => (
-  <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-5 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
+  <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
     <GatsbyImage className={imageClassNames} image={getImage(icon)} alt={`${title} icon`} />
     <div className="flex w-full flex-col sm:mt-6">
       <Heading
@@ -70,7 +70,11 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
 
 Item.propTypes = {
   imageClassNames: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      gatsbyImageData: PropTypes.any.isRequired,
+    }).isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(

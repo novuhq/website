@@ -95,7 +95,7 @@ const Activity = ({ contributor }) => {
                     {moment(merged_at).format('DD/MM/YYYY')}
                   </span>
                 </div>
-                <div className="mt-4 border border-gray-3 px-4 py-3.5">
+                <div className="mt-4 rounded-md border border-gray-3 px-4 py-3.5">
                   <p className="text-lg sm:text-base">
                     <a href={html_url} target="_blank" rel="noreferrer">
                       {emoji.replace_colons(title || '')}
