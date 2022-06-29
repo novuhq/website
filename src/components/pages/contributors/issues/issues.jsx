@@ -61,8 +61,13 @@ const Issues = () => {
   const getIssues = async () => {
     try {
       const issues = await fetch(
-        'https://api.github.com/repos/novuhq/novu/issues?per_page=100&labels=good first issue'
-      ).then((res) => res.json());
+        `${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`
+          .then((res) => res.json())
+          .then((res) => {
+            const filteredIssues = res.filter(({ url }) => url.includes('issues'));
+            return filteredIssues;
+          })
+      );
 
       setIssues(issues);
     } catch (err) {
@@ -100,7 +105,7 @@ const Issues = () => {
         </div>
         <div className="mx-auto max-w-[904px]">
           <ul className="mt-10 space-y-8">
-            {list.map(({ title, html_url, created_at }, index) => (
+            {list.map(({ title, url, created_at }, index) => (
               <li className="flex items-center" key={index}>
                 <div className="mr-3.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-white to-[rgba(255,255,255,0.6)]">
                   <img src={issueIcon} loading="lazy" alt="Issue icon" aria-hidden />
@@ -108,7 +113,7 @@ const Issues = () => {
 
                 <Link
                   className="flex w-full justify-between space-x-3 font-light"
-                  to={html_url}
+                  to={url}
                   target="_blank"
                   rel="noreferrer"
                 >
