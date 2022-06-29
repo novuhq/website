@@ -1,0 +1,23 @@
+@layer base {
+  .text-highlighting-colorful-gradient {
+    span {
+      background: linear-gradient(
+        269.17deg,
+        #ffff00 0%,
+        #ffbb33 25.67%,
+        #e300bd 53.5%,
+        #ff006a 93.01%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .text-highlighting-secondary-2-gradient {
+    span {
+      background: linear-gradient(180deg, #ffe14d 38%, rgba(255, 225, 77, 0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}

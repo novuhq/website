@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Link from 'components/shared/link';
-import './banner.css';
 
 import ArrowIcon from './images/arrow.inline.svg';
 import illustrationLeft from './images/illustration-left.svg';
@@ -13,8 +12,9 @@ const Banner = () => (
     to="/blog/seed-funding"
   >
     <div className="container relative flex items-center justify-center">
-      <p className="banner-text">
-        We are thrilled to announce our <span>$6.6m</span> seed funding
+      <p className="text-highlighting-secondary-2-gradient text-center text-base sm:text-sm">
+        We are thrilled to announce our{' '}
+        <span className="text-xl font-bold sm:text-base">$6.6m</span> seed funding
         <ArrowIcon
           className="ml-2.5 inline-block h-2.5 w-5 transition-colors duration-200 group-hover:text-primary-1"
           aria-hidden
