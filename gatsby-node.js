@@ -6,13 +6,13 @@ const slash = require('slash');
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
+  const templateMainPage = path.resolve('./src/templates/contributors.jsx');
+  const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+
   try {
-    const data = await fetch('https://contributors.novu.co/contributors')
+    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`)
       .then((response) => response.json())
       .then((response) => response);
-
-    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
-    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
 
     createPage({
       path: '/contributors/',
@@ -31,12 +31,15 @@ const createContributorsPage = async ({ actions, reporter }) => {
       // so we have to make an additional request to extract this data
       contributors.map(async (contributor) => {
         const { pulls } = await fetch(
-          `https://contributors.novu.co/contributor/${contributor.github}`
+          `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
         )
           .then((response) => response.json())
           .then((response) => response);
 
-        return { ...contributor, pulls };
+        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+
+        return { ...contributor, pulls, images: { ogImage, embedImage } };
       })
     ).then((contributors) => {
       contributors.forEach((contributor) => {
@@ -45,7 +48,6 @@ const createContributorsPage = async ({ actions, reporter }) => {
           component: slash(templateDetailPage),
           context: {
             contributor,
-            userName: contributor.github,
           },
         });
       });

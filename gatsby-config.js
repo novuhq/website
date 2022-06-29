@@ -166,26 +166,5 @@ module.exports = {
         enableOnDevMode: true,
       },
     },
-    {
-      resolve: 'gatsby-source-custom-api',
-      options: {
-        url: {
-          development: 'http://localhost:4000/api/images', // on "gatsby develop"
-          production: 'http://localhost:4000/api/images', // on "gatsby build"
-        },
-        imageKeys: ['images'],
-        rootKey: 'imagesOfContributor',
-        schemas: {
-          posts: `
-                  userName: String
-                  images: [images]
-              `,
-          images: `
-                  type: String
-                  url: String
-              `,
-        },
-      },
-    },
   ],
 };

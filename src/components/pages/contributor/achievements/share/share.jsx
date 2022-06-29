@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
 import { AnimatePresence, motion } from 'framer-motion';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { LinkedinShareButton, TwitterShareButton, FacebookMessengerShareButton } from 'react-share';
@@ -43,7 +42,7 @@ const variants = {
   },
 };
 
-export const Share = ({ type, image, url }) => {
+export const Share = ({ type, imageUrl, url }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -52,9 +51,7 @@ export const Share = ({ type, image, url }) => {
   const buttonText = isSocialType ? 'Share' : 'Embed';
   const Icon = isSocialType ? ShareIcon : EmbedIcon;
 
-  const EMBED_CODE = `<a href="${url}"><img src="${
-    process.env.GATSBY_DEFAULT_SITE_URL + image.local.publicURL
-  }" height="170" width="450" alt="" /></a>`;
+  const EMBED_CODE = `<a href="${url}"><img src="${imageUrl}" height="170" width="450" alt="" /></a>`;
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -87,10 +84,11 @@ export const Share = ({ type, image, url }) => {
         <span>{buttonText}</span>
       </button>
       <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
-        <GatsbyImage
+        <img
           className="rounded-md"
-          imgClassName="rounded-md"
-          image={getImage(image.local)}
+          src={imageUrl}
+          width={476}
+          height={isSocialType ? 234 : 180}
           loading="eager"
           alt=""
           aria-hidden
@@ -127,7 +125,7 @@ export const Share = ({ type, image, url }) => {
           </div>
         ) : (
           <div className="relative mt-4 flex h-12 w-full items-center justify-between rounded-md bg-black pl-4 pr-32">
-            <span className="scrollbar-hidden max-w-full overflow-y-scroll whitespace-nowrap font-mono text-sm !leading-none text-white">
+            <span className="scrollbar-hidden max-w-full overflow-x-scroll whitespace-nowrap font-mono text-sm text-white">
               {EMBED_CODE}
             </span>
 
@@ -156,14 +154,6 @@ export const Share = ({ type, image, url }) => {
 
 Share.propTypes = {
   type: PropTypes.oneOf(Object.keys(SHARE_TYPES)).isRequired,
-  image: PropTypes.shape({
-    type: PropTypes.oneOf(['og:image', 'embed:image']).isRequired,
-    local: PropTypes.shape({
-      publicURL: PropTypes.string.isRequired,
-      childImageSharp: PropTypes.shape({
-        gatsbyImageData: PropTypes.any.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
+  imageUrl: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
 };

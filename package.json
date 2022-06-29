@@ -36,7 +36,6 @@
     "gatsby-plugin-image": "^2.16.1",
     "gatsby-plugin-mdx": "^3.16.0",
     "gatsby-plugin-mixpanel": "^3.6.0",
-    "gatsby-source-custom-api": "^2.3.6",
     "gatsby-source-strapi": "^2.0.0",
     "lottie-web": "^5.9.4",
     "mixpanel-browser": "^2.45.0",

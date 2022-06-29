@@ -93,11 +93,7 @@ const findDates = (pulls) =>
       { counter: 1, values: {} }
     );
 
-const Achievements = ({
-  contributor: { name, github, pulls, totalPulls },
-  generatedImages,
-  url,
-}) => {
+const Achievements = ({ contributor: { name, github, pulls, totalPulls, images }, url }) => {
   const {
     rockStar,
     contributorOfTheYear,
@@ -191,9 +187,6 @@ const Achievements = ({
     },
   };
 
-  const ogImage = generatedImages.find(({ type }) => type === 'og:image');
-  const embedImage = generatedImages.find(({ type }) => type === 'embed:image');
-
   return (
     <section className="achievements md:mt-20 sm:mt-16">
       <Heading className="leading-denser md:text-[30px]" tag="h2" size="md" theme="white">
@@ -236,8 +229,8 @@ const Achievements = ({
       </div>
 
       <div className="mt-9 flex space-x-10">
-        <Share type={SHARE_TYPES.social} image={ogImage} url={url} />
-        <Share type={SHARE_TYPES.embed} image={embedImage} url={url} />
+        <Share type={SHARE_TYPES.social} imageUrl={images.ogImage} url={url} />
+        <Share type={SHARE_TYPES.embed} imageUrl={images.embedImage} url={url} />
       </div>
     </section>
   );
@@ -253,18 +246,11 @@ Achievements.propTypes = {
       })
     ).isRequired,
     totalPulls: PropTypes.number,
+    images: PropTypes.shape({
+      ogImage: PropTypes.string.isRequired,
+      embedImage: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
-  generatedImages: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.oneOf(['og:image', 'embed:image']).isRequired,
-      local: PropTypes.shape({
-        publicURL: PropTypes.string.isRequired,
-        childImageSharp: PropTypes.shape({
-          gatsbyImageData: PropTypes.any.isRequired,
-        }).isRequired,
-      }).isRequired,
-    })
-  ).isRequired,
   url: PropTypes.string.isRequired,
 };
 
