@@ -60,14 +60,12 @@ const Issues = () => {
 
   const getIssues = async () => {
     try {
-      const issues = await fetch(
-        `${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`
-          .then((res) => res.json())
-          .then((res) => {
-            const filteredIssues = res.filter(({ url }) => url.includes('issues'));
-            return filteredIssues;
-          })
-      );
+      const issues = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`)
+        .then((res) => res.json())
+        .then((res) => {
+          const filteredIssues = res.filter(({ url }) => url.includes('issues'));
+          return filteredIssues;
+        });
 
       setIssues(issues);
     } catch (err) {
