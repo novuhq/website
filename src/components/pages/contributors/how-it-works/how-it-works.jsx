@@ -26,7 +26,7 @@ const STAGES = [
         </Link>{' '}
         and{' '}
         <Link
-          to="https://docs.novu.co/docs/overview/introduction"
+          to="https://docs.novu.co/overview/introduction"
           theme="primary"
           target="_blank"
           rel="noreferrer"

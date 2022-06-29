@@ -15,23 +15,23 @@ export default {
   },
   // Other pages
   documentation: {
-    to: 'https://docs.novu.co/docs/overview/introduction',
+    to: 'https://docs.novu.co/overview/introduction',
     target: '_blank',
   },
   inAppDocs: {
-    to: 'https://docs.novu.co/docs/notification-center/getting-started',
+    to: 'https://docs.novu.co/notification-center/getting-started',
     target: '_blank',
   },
   docker: {
-    to: 'https://docs.novu.co/docs/overview/docker-deploy',
+    to: 'https://docs.novu.co/overview/docker-deploy',
     target: '_blank',
   },
   faq: {
-    to: 'https://docs.novu.co/docs/overview/faq',
+    to: 'https://docs.novu.co/overview/faq',
     target: '_blank',
   },
   sdk: {
-    to: 'https://docs.novu.co/docs/community/contributing#development',
+    to: 'https://docs.novu.co/community/contributing#development',
     target: '_blank',
   },
   contactUs: {
@@ -43,7 +43,7 @@ export default {
     target: '_blank',
   },
   quickStart: {
-    to: 'https://docs.novu.co/docs/overview/quick-start',
+    to: 'https://docs.novu.co/overview/quick-start',
     target: '_blank',
   },
 
