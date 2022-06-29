@@ -167,6 +167,59 @@ const createArticles = async ({ graphql, actions, reporter }) => {
   }
 };
 
+const createPodcastPage = async ({ graphql, actions, reporter }) => {
+  const PODCASTS_PER_PAGE = 13;
+
+  const { createPage } = actions;
+
+  const result = await graphql(
+    `
+      {
+        allFeedPodcast {
+          nodes {
+            id
+          }
+        }
+      }
+    `
+  );
+
+  if (result.errors) {
+    reporter.panicOnBuild(result.errors);
+    return;
+  }
+
+  const {
+    allFeedPodcast: { nodes: podcasts },
+  } = result.data;
+
+  const podcastPageURL = '/podcast/';
+  const template = path.resolve('./src/templates/podcast.jsx');
+
+  createPage({
+    path: podcastPageURL,
+    component: slash(template),
+    context: {
+      podcastPageURL,
+    },
+  });
+
+  const pageCount = Math.ceil(podcasts.length / PODCASTS_PER_PAGE);
+
+  Array.from({ length: pageCount }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? `/${podcastPageURL}` : `/${podcastPageURL}/${index + 1}`,
+      component: slash(template),
+      context: {
+        limit: PODCASTS_PER_PAGE,
+        skip: index * PODCASTS_PER_PAGE,
+        pageCount,
+        currentPage: index,
+      },
+    });
+  });
+};
+
 exports.createPages = async (args) => {
   const params = {
     ...args,
@@ -174,6 +227,7 @@ exports.createPages = async (args) => {
 
   await createBlogPage(params);
   await createArticles(params);
+  await createPodcastPage(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
