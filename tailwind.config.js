@@ -23,6 +23,7 @@ module.exports = {
       '5xl': ['40px'],
       '6xl': ['48px'],
       '7xl': ['56px'],
+      '8xl': ['64px'],
     },
     fontWeight: {
       book: 350,
