@@ -8,8 +8,6 @@
   padding-top: 30px;
   padding-bottom: 30px;
   transition: $transition-base;
-
-  @include section-paddings;
 }
 
 .ReactModal__Overlay--after-open {
