@@ -23,7 +23,6 @@ const ContributorsPage = ({
     description:
       'The ultimate library for managing multi-channel transactional notifications with a single API.',
     slug: 'contributors',
-    preventIndexing: false,
     ogImage: getSrc(ogImage.childImageSharp),
   };
 

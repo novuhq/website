@@ -47,7 +47,10 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
       <meta property="og:title" content={currentTitle} />
       <meta property="og:description" content={currentDescription} />
       <meta property="og:url" content={currentUrl} />
-      <meta property="og:image" content={currentImagePath} />
+      <meta
+        property="og:image"
+        content={ogImage?.startsWith('https') ? ogImage : currentImagePath}
+      />
       <meta property="og:type" content="website" />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
