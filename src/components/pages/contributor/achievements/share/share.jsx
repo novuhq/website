@@ -83,7 +83,7 @@ export const Share = ({ type, imageUrl, url }) => {
         <Icon className="h-2.5" />
         <span>{buttonText}</span>
       </button>
-      <Modal isOpen={isOpen} onRequestClose={handleCloseModal}>
+      <Modal isOpen={isOpen} closeModal={handleCloseModal}>
         <img
           className="rounded-md"
           src={imageUrl}
