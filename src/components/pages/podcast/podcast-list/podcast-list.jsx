@@ -1,43 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import ArticletCard from 'components/shared/article-card';
+import Heading from 'components/shared/heading';
 
-const getAdditionalProps = (index) => {
-  switch (index) {
-    // Define the element that should be stretched to the full width of the screen
-    case 6:
-      return {
-        // exit the width of the parent container to apply the background
-        className: 'col-span-12 ml-[calc(-50vw+50%)] w-screen bg-black',
-        size: 'lg',
-      };
-    default:
-      return {
-        className: 'col-span-4 md:col-span-6',
-        size: 'md',
-      };
-  }
-};
+import Card from './card';
 
-const PodcastList = ({ items, blogPageURL }) => (
-  <section className="safe-paddings mt-10">
-    <div className="article-list-inner container-lg grid grid-cols-12 gap-x-8 gap-y-16 lg:gap-x-7 md:gap-x-5">
-      {items.map((item, index) => {
-        const { className, size } = getAdditionalProps(index);
-
-        return (
-          <ArticletCard
-            className={className}
-            size={size}
-            image={size === 'lg' ? item.imageLarge : item.imageMedium}
-            author={item.author}
-            blogPageURL={blogPageURL}
-            key={index}
-            {...item}
-          />
-        );
-      })}
+const PodcastList = ({ items }) => (
+  <section className="safe-paddings">
+    <div className="container-lg">
+      <Heading className="leading-tight" tag="h2" theme="white" size="md">
+        All episodes
+      </Heading>
+      <div className="grid grid-cols-12 gap-x-8 gap-y-16 lg:gap-x-7 md:gap-x-5">
+        {items.map((item, index) => (
+          <Card key={index} {...item} />
+        ))}
+      </div>
     </div>
   </section>
 );
@@ -46,44 +24,16 @@ PodcastList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      category: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        color: PropTypes.string.isRequired,
-      }),
-      date: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      episode: PropTypes.string.isRequired,
+      audio: PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+      }).isRequired,
       slug: PropTypes.string.isRequired,
-      imageMedium: PropTypes.shape({
-        alternativeText: PropTypes.string,
-        localFile: PropTypes.shape({
-          childImageSharp: PropTypes.shape({
-            gatsbyImageData: PropTypes.any.isRequired,
-          }).isRequired,
-        }).isRequired,
-      }).isRequired,
-      imageLarge: PropTypes.shape({
-        alternativeText: PropTypes.string,
-        localFile: PropTypes.shape({
-          childImageSharp: PropTypes.shape({
-            gatsbyImageData: PropTypes.any.isRequired,
-          }).isRequired,
-        }).isRequired,
-      }).isRequired,
-      description: PropTypes.string.isRequired,
-      author: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        avatar: PropTypes.shape({
-          alternativeText: PropTypes.string,
-          localFile: PropTypes.shape({
-            childImageSharp: PropTypes.shape({
-              gatsbyImageData: PropTypes.any.isRequired,
-            }).isRequired,
-          }).isRequired,
-        }).isRequired,
-      }).isRequired,
+      imageUrl: PropTypes.string.isRequired,
     })
   ).isRequired,
-  blogPageURL: PropTypes.string.isRequired,
 };
 
 export default PodcastList;

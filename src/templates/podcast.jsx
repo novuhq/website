@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
-import clsx from 'clsx';
+
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import ArticlesList from 'components/pages/blog/articles-list';
-import Categories from 'components/pages/blog/categories';
 import Pagination from 'components/pages/blog/pagination';
 import Hero from 'components/pages/podcast/hero';
+import PodcastList from 'components/pages/podcast/podcast-list';
+import AudioPlayer from 'components/shared/audio-player';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
+import { AudioProvider } from 'context/audio-player';
 
 const PodcastPage = (props) => {
   const {
@@ -29,35 +30,48 @@ const PodcastPage = (props) => {
   // };
 
   const podcastList = {
-    items: podcasts.map((podcast) => ({
-      ...podcast,
-      slug: `/${pageContext.podcastPageURL}/${podcast.title.toLowerCase().replace(/\s/g, '-')}/`,
-    })),
-    podcastPageURL: pageContext.podcastPageURL,
+    items: podcasts.map(
+      ({ title, enclosure: { url, type }, itunes: { episode, image }, ...props }) => ({
+        title,
+        episode,
+        audio: {
+          src: 'https://their-side-feed.vercel.app/episode-001.mp3',
+          type,
+        },
+        slug: `/${pageContext.podcastPageUrl}/${title.toLowerCase().replace(/\s/g, '-')}/`,
+        imageUrl: image,
+        ...props,
+      })
+    ),
   };
-  console.log(podcastList);
+
   return (
-    <Layout>
-      <Hero />
+    <AudioProvider>
+      <Layout>
+        <Hero />
 
-      <div className={clsx('bg-gray-2 pb-20')}>
-        {/* <ArticlesList {...articlesList} /> */}
-        {pageContext.pageCount > 1 && (
-          <>
-            <Separator className="mt-14" size="lg" backgroundColor="gray" />
-            <Pagination
-              pageCount={pageContext.pageCount}
-              currentPageIndex={pageContext.currentPage}
-              blogPageURL={pageContext.blogPageURL}
-              categoryPath={pageContext.categoryPath}
-            />
-          </>
-        )}
-      </div>
+        <div className="bg-gray-2 py-20">
+          <PodcastList {...podcastList} />
+          {pageContext.pageCount > 1 && (
+            <>
+              <Separator className="mt-14" size="lg" backgroundColor="gray" />
+              <Pagination
+                pageCount={pageContext.pageCount}
+                currentPageIndex={pageContext.currentPage}
+                blogPageURL={pageContext.blogPageURL}
+                categoryPath={pageContext.categoryPath}
+              />
+            </>
+          )}
+        </div>
 
-      <Subscribe />
-      <Separator backgroundColor="black" />
-    </Layout>
+        <Subscribe />
+        <Separator backgroundColor="black" />
+        <div className="lg:left-112 xl:left-120 fixed inset-x-0 right-0 bottom-0 z-10 rounded-lg">
+          <AudioPlayer />
+        </div>
+      </Layout>
+    </AudioProvider>
   );
 };
 
@@ -70,9 +84,11 @@ export const pageQuery = graphql`
         link
         itunes {
           episode
+          image
         }
         enclosure {
           url
+          type
         }
       }
     }
