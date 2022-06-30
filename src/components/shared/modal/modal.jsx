@@ -8,7 +8,7 @@ import './modal.css';
 const Modal = ({ className, isOpen, children, closeModal }) => (
   <ReactModal
     className={clsx(
-      'relative inset-0 m-auto w-full max-w-[508px] rounded-lg bg-gradient-to-b from-gray-3 to-gray-2 p-4',
+      'relative inset-0 m-auto w-full max-w-[508px] rounded-lg border-none bg-gradient-to-b from-gray-3 to-gray-2 p-4',
       className
     )}
     bodyOpenClassName="overflow-hidden touch-none"
