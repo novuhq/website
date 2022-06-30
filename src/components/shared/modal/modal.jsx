@@ -5,10 +5,20 @@ import ReactModal from 'react-modal';
 
 import './modal.css';
 
+const customStyles = {
+  overlay: {
+    display: 'flex',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    padding: '28px 14px',
+    zIndex: 40,
+  },
+};
+
 const Modal = ({ className, isOpen, children, closeModal }) => (
   <ReactModal
+    style={customStyles}
     className={clsx(
-      'relative inset-0 m-auto w-full max-w-[508px] rounded-lg border-none bg-gradient-to-b from-gray-3 to-gray-2 p-4',
+      'relative inset-0 m-auto w-full max-w-[508px] rounded-lg border-none bg-gradient-to-b from-gray-3 to-gray-2 p-4 outline-none',
       className
     )}
     bodyOpenClassName="overflow-hidden touch-none"

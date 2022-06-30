@@ -1,13 +1,6 @@
 .ReactModal__Overlay {
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  z-index: 40;
   opacity: 0;
-  transition: opacity $transition-base;
-  overflow: auto;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  transition: $transition-base;
+  transition: opacity 200ms ease-in-out;
 }
 
 .ReactModal__Overlay--after-open {
