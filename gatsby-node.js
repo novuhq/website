@@ -193,7 +193,7 @@ const createPodcastPage = async ({ graphql, actions, reporter }) => {
     allFeedPodcast: { nodes: podcasts },
   } = result.data;
 
-  const podcastPageURL = '/podcast/';
+  const podcastPageURL = 'podcast';
   const template = path.resolve('./src/templates/podcast.jsx');
 
   createPage({
@@ -215,6 +215,7 @@ const createPodcastPage = async ({ graphql, actions, reporter }) => {
         skip: index * PODCASTS_PER_PAGE,
         pageCount,
         currentPage: index,
+        podcastPageURL,
       },
     });
   });
