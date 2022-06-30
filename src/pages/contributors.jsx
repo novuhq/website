@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
+import { axios } from 'helpers/axios';
 import React from 'react';
 
 import Achievments from 'components/pages/contributors/achievments';
