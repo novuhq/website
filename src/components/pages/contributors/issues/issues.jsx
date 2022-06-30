@@ -1,6 +1,7 @@
 import { motion, useAnimation } from 'framer-motion';
 import moment from 'moment';
-import React, { useState, useEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import React, { useState, useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -48,34 +49,13 @@ const underlineVariants = {
   },
 };
 
-const Issues = () => {
-  const [issues, setIssues] = useState([]);
-
+const Issues = ({ issues }) => {
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
 
   const [isShowMore, setIsShowMore] = useState(false);
 
   const list = useMemo(() => (isShowMore ? issues : issues.slice(0, 5)), [isShowMore, issues]);
-
-  const getIssues = async () => {
-    try {
-      const issues = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`)
-        .then((res) => res.json())
-        .then((res) => {
-          const filteredIssues = res.filter(({ url }) => url.includes('issues'));
-          return filteredIssues;
-        });
-
-      setIssues(issues);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getIssues();
-  }, []);
 
   const handleHover = () => {
     if (!canAnimate) return;
@@ -102,9 +82,12 @@ const Issues = () => {
           </p>
         </div>
         <div className="mx-auto max-w-[904px]">
-          <ul className="mt-10 space-y-8">
+          <ul className="mt-10">
             {list.map(({ title, url, created_at }, index) => (
-              <li className="flex items-center" key={index}>
+              <li
+                className="relative flex items-center py-4 after:absolute after:bottom-0 after:right-0 after:h-px after:w-[calc(100%-54px)] after:bg-gray-3"
+                key={index}
+              >
                 <div className="mr-3.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-white to-[rgba(255,255,255,0.6)]">
                   <img src={issueIcon} loading="lazy" alt="Issue icon" aria-hidden />
                 </div>
@@ -126,7 +109,7 @@ const Issues = () => {
 
           {!isShowMore && list.length !== issues.length && (
             <button
-              className="relative mt-8 pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 md:left-1/2 md:-translate-x-1/2 sm:text-sm"
+              className="relative left-1/2 mt-8 -translate-x-1/2 pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 sm:text-sm"
               type="button"
               onClick={() => setIsShowMore(true)}
               onMouseEnter={handleHover}
@@ -145,6 +128,16 @@ const Issues = () => {
       </div>
     </section>
   );
+};
+
+Issues.propTypes = {
+  issues: PropTypes.arrayOf(
+    PropTypes.shape({
+      created_at: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Issues;

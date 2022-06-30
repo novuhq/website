@@ -15,6 +15,7 @@ const ContributorsPage = ({
   data: { ogImage },
   serverData: {
     contributors: { list },
+    issues,
   },
 }) => {
   const SEO = {
@@ -25,12 +26,13 @@ const ContributorsPage = ({
     preventIndexing: false,
     ogImage: getSrc(ogImage.childImageSharp),
   };
+
   return (
     <Layout seo={SEO}>
       <Hero />
       <Achievments list={list} />
       <HowItWorks />
-      <Issues />
+      <Issues issues={issues} />
       <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>
@@ -52,9 +54,12 @@ export default ContributorsPage;
 export async function getServerData() {
   try {
     const contributors = await axios.get(`/contributors`);
+    const issues = await axios.get(`/issues`);
+
     return {
       props: {
         contributors: contributors.data,
+        issues: issues.data.issues,
       },
     };
   } catch (err) {
