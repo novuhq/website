@@ -85,7 +85,7 @@ const Issues = ({ issues }) => {
           <ul className="mt-10">
             {list.map(({ title, url, created_at }, index) => (
               <li
-                className="relative flex items-center py-4 after:absolute after:bottom-0 after:right-0 after:h-px after:w-[calc(100%-54px)] after:bg-gray-3"
+                className="relative flex items-center py-4 after:absolute after:bottom-0 after:right-0 after:h-px after:w-[calc(100%-54px)] after:bg-gray-3 last:after:hidden"
                 key={index}
               >
                 <div className="mr-3.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-white to-[rgba(255,255,255,0.6)]">
