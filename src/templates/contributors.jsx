@@ -5,11 +5,18 @@ import React from 'react';
 import Achievments from 'components/pages/contributors/achievments';
 import Hero from 'components/pages/contributors/hero';
 import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works';
+import Issues from 'components/pages/contributors/issues';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
-const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
+const ContributorsPage = ({
+  data: { ogImage },
+  serverData: {
+    contributors: { list },
+    issues,
+  },
+}) => {
   const SEO = {
     title: 'Novu - Contributors',
     description:
@@ -21,8 +28,9 @@ const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
   return (
     <Layout seo={SEO}>
       <Hero />
-      <Achievments list={pageContext.contributors.list} />
+      <Achievments list={list} />
       <HowItWorks />
+      <Issues issues={issues} />
       <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>
@@ -40,3 +48,19 @@ export const pageQuery = graphql`
 `;
 
 export default ContributorsPage;
+
+export async function getServerData() {
+  try {
+    const contributors = await axios.get(`/contributors`);
+    const issues = await axios.get(`/issues`);
+
+    return {
+      props: {
+        contributors: contributors.data,
+        issues: issues.data.issues,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+  }
+}

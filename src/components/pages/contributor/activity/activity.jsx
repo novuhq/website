@@ -4,8 +4,12 @@ import moment from 'moment';
 import React, { useMemo, useState } from 'react';
 
 import Heading from 'components/shared/heading';
+import Link from 'components/shared/link';
+import Separator from 'components/shared/separator';
 import DEFAULT_EASE from 'constants/default-ease';
+import LINKS from 'constants/links';
 
+import ArrowIcon from './images/arrow.inline.svg';
 import branchIcon from './images/branch.svg';
 import commitIcon from './images/commit.svg';
 import pullRequestIcon from './images/pull-request.svg';
@@ -95,7 +99,7 @@ const Activity = ({ contributor }) => {
                     {moment(merged_at).format('DD/MM/YYYY')}
                   </span>
                 </div>
-                <div className="mt-4 border border-gray-3 px-4 py-3.5">
+                <div className="mt-4 rounded-md border border-gray-3 px-4 py-3.5">
                   <p className="text-lg sm:text-base">
                     <a href={html_url} target="_blank" rel="noreferrer">
                       {emoji.replace_colons(title || '')}
@@ -124,6 +128,11 @@ const Activity = ({ contributor }) => {
           />
         </button>
       )}
+
+      <Separator className="px-0 pt-14 pb-8 sm:pt-9" backgroundColor="black" />
+      <Link className="flex items-center space-x-2.5" theme="white" {...LINKS.contributors}>
+        <ArrowIcon className="h-2" /> <span>Back to Contributors page</span>
+      </Link>
     </section>
   );
 };
