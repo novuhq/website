@@ -3,7 +3,7 @@ import copyToClipboard from 'copy-to-clipboard';
 import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { LinkedinShareButton, TwitterShareButton, FacebookMessengerShareButton } from 'react-share';
+import { LinkedinShareButton, TwitterShareButton, FacebookShareButton } from 'react-share';
 
 import Button from 'components/shared/button';
 import Modal from 'components/shared/modal';
@@ -99,9 +99,9 @@ export const Share = ({ type, imageUrl, url }) => {
             <TwitterShareButton url={url} resetButtonStyle={false}>
               <TwitterIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
             </TwitterShareButton>
-            <FacebookMessengerShareButton url={url} resetButtonStyle={false}>
+            <FacebookShareButton url={url} resetButtonStyle={false}>
               <FacebookIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
-            </FacebookMessengerShareButton>
+            </FacebookShareButton>
             <LinkedinShareButton url={url} resetButtonStyle={false}>
               <LinkedinIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
             </LinkedinShareButton>
