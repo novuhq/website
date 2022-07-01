@@ -74,7 +74,7 @@ const createBlogPage = async ({ graphql, actions, reporter }) => {
 
   Array.from({ length: pageCount }).forEach((_, index) => {
     createPage({
-      path: index === 0 ? `/${blogPageURL}` : `/${blogPageURL}/${index + 1}`,
+      path: index === 0 ? `/${blogPageURL}/` : `/${blogPageURL}/${index + 1}/`,
       component: slash(template),
       context: {
         ...context,
@@ -98,8 +98,8 @@ const createBlogPage = async ({ graphql, actions, reporter }) => {
       createPage({
         path:
           index === 0
-            ? `/${blogPageURL}/${category.slug}`
-            : `/${blogPageURL}/${category.slug}/${index + 1}`,
+            ? `/${blogPageURL}/${category.slug}/`
+            : `/${blogPageURL}/${category.slug}/${index + 1}/`,
         component: slash(template),
         context: {
           ...context,
@@ -159,7 +159,7 @@ const createArticles = async ({ graphql, actions, reporter }) => {
       };
 
       createPage({
-        path: `/${blogPageURL}/${slug}`,
+        path: `/${blogPageURL}/${slug}/`,
         component: slash(template),
         context,
       });

@@ -22,7 +22,7 @@ const ContributorsPage = ({
     title: 'Novu - Contributors',
     description:
       'The ultimate library for managing multi-channel transactional notifications with a single API.',
-    slug: 'contributors',
+    slug: 'contributors/',
     ogImage: getSrc(ogImage.childImageSharp),
   };
 
