@@ -13,6 +13,10 @@ export default {
     to: 'https://github.com/novuhq/novu/tree/main/providers',
     target: '_blank',
   },
+  handbook: {
+    to: 'https://handbook.novu.co',
+    target: '_blank',
+  },
   // Other pages
   documentation: {
     to: 'https://docs.novu.co/overview/introduction',
