@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { LinkedinShareButton, TwitterShareButton, FacebookMessengerShareButton } from 'react-share';
+import { LinkedinShareButton, TwitterShareButton, FacebookShareButton } from 'react-share';
 
 import AuthorWithDate from 'components/shared/author-with-date';
 import FacebookIcon from 'icons/facebook.inline.svg';
@@ -18,9 +18,9 @@ const SocialShare = ({ author, date, url }) => (
       <LinkedinShareButton url={url} resetButtonStyle={false}>
         <LinkedinIcon className="h-6 transition-opacity duration-200 hover:opacity-80" />
       </LinkedinShareButton>
-      <FacebookMessengerShareButton url={url} resetButtonStyle={false}>
+      <FacebookShareButton url={url} resetButtonStyle={false}>
         <FacebookIcon className="h-6 transition-opacity duration-200 hover:opacity-80" />
-      </FacebookMessengerShareButton>
+      </FacebookShareButton>
     </div>
   </div>
 );

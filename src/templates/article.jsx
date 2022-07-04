@@ -16,7 +16,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
   const seo = {
     title: article.seo?.title,
     description: article.seo?.description,
-    slug: `${pageContext.blogPageURL}/${article.slug}`,
+    slug: `${pageContext.blogPageURL}/${article.slug}/`,
     preventIndexing: article.seo?.preventIndexing,
     keywords: article.seo?.keywords,
     ogImage: article.seo?.ogImage?.localFile.publicURL,
@@ -46,7 +46,7 @@ const Article = ({ data: { strapiArticle: article, relatedArticles }, location, 
   const relatedArticlesProps = {
     items: relatedArticles.nodes.map((article) => ({
       ...article,
-      slug: `/${pageContext.blogPageURL}/${article.slug}`,
+      slug: `/${pageContext.blogPageURL}/${article.slug}/`,
     })),
     blogPageURL: pageContext.blogPageURL,
   };

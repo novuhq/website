@@ -23,6 +23,7 @@ const MENUS = {
     [
       { text: 'Documentation', ...LINKS.documentation },
       { text: 'Providers', ...LINKS.providers },
+      { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', ...LINKS.discord },
     ],
     [
