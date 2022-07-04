@@ -19,23 +19,21 @@ function formatTime(seconds, total = seconds) {
 }
 
 const Thumb = (props) => {
-  const { state, trackRef, focusProps, isFocusVisible, index } = props;
+  const { state, trackRef, focusProps, index } = props;
   const inputRef = useRef(null);
   const { thumbProps, inputProps } = useSliderThumb({ index, trackRef, inputRef }, state);
 
   return (
     <div
-      className="absolute -top-1/2 -translate-x-1/2"
+      className="absolute top-1/2 -translate-y-1/2"
       style={{
         left: `${state.getThumbPercent(index) * 100}%`,
       }}
     >
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         {...thumbProps}
-        className={clsx(
-          'bg-slate-700 h-4 w-1 rounded-full',
-          isFocusVisible || state.isThumbDragging(index) ? 'bg-slate-900 w-1.5' : 'bg-slate-700 w-1'
-        )}
+        className="h-3 w-1 rounded-full bg-white"
         onMouseDown={(...args) => {
           thumbProps.onMouseDown(...args);
           props.onChangeStart?.();
@@ -65,13 +63,15 @@ const Slider = (props) => {
   return (
     <div
       {...groupProps}
-      className="relative inset-x-0 bottom-full flex flex-auto touch-none items-center gap-6 md:absolute"
+      className="relative flex flex-auto touch-none items-center gap-6 md:absolute md:inset-x-0 md:top-0"
     >
       {props.label && (
+        // eslint-disable-next-line jsx-a11y/label-has-for
         <label className="sr-only" {...labelProps}>
           {props.label}
         </label>
       )}
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         {...trackProps}
         ref={trackRef}
@@ -86,11 +86,9 @@ const Slider = (props) => {
         }}
       >
         <div
-          className={clsx(
-            'h-2 md:rounded-r-md md:rounded-l-xl',
-            isFocusVisible || state.isThumbDragging(0) ? 'bg-white' : 'bg-white'
-          )}
+          className="h-1 rounded-l-full"
           style={{
+            background: 'linear-gradient(270deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
             width:
               state.getThumbValue(0) === 0
                 ? 0
@@ -108,27 +106,16 @@ const Slider = (props) => {
           onChangeStart={props.onChangeStart}
         />
       </div>
-      <div className="flex items-center gap-2 md:hidden">
+      <div className="leading-dancer flex items-center gap-1 text-xs text-gray-8 md:hidden">
         <output
           {...outputProps}
           aria-live="off"
-          className={clsx(
-            'block rounded-md px-1 py-0.5 font-mono text-sm leading-6 md:hidden',
-            state.getThumbMaxValue(0) === 0 && 'opacity-0',
-            isFocusVisible || state.isThumbDragging(0)
-              ? 'bg-slate-100 text-slate-900'
-              : 'text-gray-8'
-          )}
+          className={clsx('block rounded-md', state.getThumbMaxValue(0) === 0 && 'opacity-0')}
         >
           {formatTime(currentTime, totalTime)}
         </output>
-        <span className="text-sm leading-6 text-gray-8">/</span>
-        <span
-          className={clsx(
-            'block rounded-md px-1 py-0.5 font-mono text-sm leading-6 text-gray-8 md:hidden',
-            state.getThumbMaxValue(0) === 0 && 'opacity-0'
-          )}
-        >
+        <span>/</span>
+        <span className={clsx('block rounded-md', state.getThumbMaxValue(0) === 0 && 'opacity-0')}>
           {formatTime(totalTime)}
         </span>
       </div>

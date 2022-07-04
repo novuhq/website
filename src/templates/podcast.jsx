@@ -35,7 +35,7 @@ const PodcastPage = (props) => {
         title,
         episode,
         audio: {
-          src: 'https://their-side-feed.vercel.app/episode-001.mp3',
+          src: url,
           type,
         },
         slug: `/${pageContext.podcastPageUrl}/${title.toLowerCase().replace(/\s/g, '-')}/`,
@@ -67,7 +67,7 @@ const PodcastPage = (props) => {
 
         <Subscribe />
         <Separator backgroundColor="black" />
-        <div className="lg:left-112 xl:left-120 fixed inset-x-0 right-0 bottom-0 z-10 rounded-lg">
+        <div className="fixed left-0 bottom-0 z-10 w-full">
           <AudioPlayer />
         </div>
       </Layout>

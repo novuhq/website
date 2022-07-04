@@ -43,7 +43,7 @@ export const AudioProvider = ({ children }) => {
       play(data) {
         if (data) {
           dispatch({ type: 'SET_META', payload: data });
-          console.log(playerRef.current);
+
           if (playerRef.current.currentSrc !== data.audio.src) {
             const { playbackRate } = playerRef.current;
             playerRef.current.src = data.audio.src;

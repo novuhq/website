@@ -13,9 +13,10 @@ const Card = ({ title, author, episode, audio, slug, imageUrl }) => {
     () => ({
       title,
       audio,
-      link: `/${title}`,
+      link: slug,
+      episode,
     }),
-    [title, audio]
+    [title, audio, episode, slug]
   );
   const player = useAudioPlayer(audioPlayerData);
 
