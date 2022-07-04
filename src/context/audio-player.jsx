@@ -123,9 +123,6 @@ export function useAudioPlayer(data) {
       toggle() {
         player.toggle(data);
       },
-      get playing() {
-        return player.isPlaying(data);
-      },
     }),
     [player, data]
   );
