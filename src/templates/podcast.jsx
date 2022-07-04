@@ -31,8 +31,9 @@ const PodcastPage = (props) => {
 
   const podcastList = {
     items: podcasts.map(
-      ({ title, enclosure: { url, type }, itunes: { episode, image }, ...props }) => ({
+      ({ title, enclosure: { url, type }, itunes: { episode, image, subtitle }, ...props }) => ({
         title,
+        subtitle,
         episode,
         audio: {
           src: url,
@@ -85,6 +86,7 @@ export const pageQuery = graphql`
         itunes {
           episode
           image
+          subtitle
         }
         enclosure {
           url

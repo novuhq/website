@@ -44,11 +44,23 @@ const AudioPlayer = () => {
               <span className="block text-[11px] font-medium uppercase leading-denser text-secondary-2">
                 Episode {player.meta.episode}
               </span>
-              <Link className="leading-denser" to={player.meta.link} theme="white">
-                <span className="truncate text-sm md:text-center" title={player.meta.title}>
+              {player.meta.link ? (
+                <Link to={player.meta.link} theme="white">
+                  <span
+                    className="truncate text-sm leading-denser md:text-center"
+                    title={player.meta.title}
+                  >
+                    {player.meta.title}
+                  </span>
+                </Link>
+              ) : (
+                <span
+                  className="truncate text-sm leading-denser md:text-center"
+                  title={player.meta.title}
+                >
                   {player.meta.title}
                 </span>
-              </Link>
+              )}
             </div>
 
             <div className="grid grid-cols-[76px_1fr] items-center gap-x-5 md:flex md:justify-center md:gap-x-0">

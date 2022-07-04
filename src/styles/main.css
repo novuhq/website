@@ -11,7 +11,7 @@
 
 /* Components */
 @import './container.css';
-@import '../components/pages/article/content/content.css';
+@import './content.css';
 @import './input-border-gradient.css';
 
 /* Utilities */

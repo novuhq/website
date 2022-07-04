@@ -4,28 +4,18 @@ import React, { useMemo } from 'react';
 
 import Link from 'components/shared/link';
 import { useAudioPlayer } from 'context/audio-player';
-import parseTime from 'utils/parse-time';
 
-function formatTime(seconds, total = seconds) {
-  const totalWithoutLeadingZeroes = total.slice(total.findIndex((x) => x !== 0));
-  return seconds
-    .slice(seconds.length - totalWithoutLeadingZeroes.length)
-    .map((x) => x.toString().padStart(2, '0'))
-    .join(':');
-}
-
-const Card = ({ title, episode, audio, slug, imageUrl }) => {
+const Card = ({ title, subtitle, episode, audio, slug, imageUrl }) => {
   const audioPlayerData = useMemo(
     () => ({
-      title,
+      title: `${title}. ${subtitle}`,
       audio,
       link: slug,
       episode,
     }),
-    [title, audio, episode, slug]
+    [title, subtitle, audio, episode, slug]
   );
   const player = useAudioPlayer(audioPlayerData);
-  const totalTime = !!player.duration && formatTime(parseTime(player.duration));
 
   return (
     <article className="col-span-6 flex space-x-7 sm:flex-col sm:space-x-0">
@@ -44,7 +34,7 @@ const Card = ({ title, episode, audio, slug, imageUrl }) => {
           <span className="text-xs font-medium uppercase text-secondary-2">Episode {episode}</span>
           <h1 className="mt-3.5 text-xl font-medium leading-denser md:text-lg">
             <Link className="inline-block align-top line-clamp-3" to={slug} theme="white">
-              {title}
+              {title}. {subtitle}
             </Link>
           </h1>
         </header>
@@ -91,13 +81,6 @@ const Card = ({ title, episode, audio, slug, imageUrl }) => {
           <Link className="leading-none sm:text-xs" to={slug} theme="primary">
             Show notes
           </Link>
-
-          {totalTime && (
-            <>
-              <span className="inline-block h-[18px] w-px bg-gray-4" />
-              <span className="font-book leading-none text-gray-8 sm:text-xs">{totalTime}</span>
-            </>
-          )}
         </footer>
       </div>
     </article>
@@ -106,6 +89,7 @@ const Card = ({ title, episode, audio, slug, imageUrl }) => {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
   episode: PropTypes.string.isRequired,
   audio: PropTypes.shape({
     src: PropTypes.string.isRequired,

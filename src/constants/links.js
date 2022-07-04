@@ -13,6 +13,7 @@ export default {
     to: 'https://github.com/novuhq/novu/tree/main/providers',
     target: '_blank',
   },
+
   // Other pages
   documentation: {
     to: 'https://docs.novu.co/overview/introduction',
@@ -62,6 +63,16 @@ export default {
   },
   pixelPoint: {
     to: 'https://pixelpoint.io/',
+    target: '_blank',
+  },
+
+  // Other
+  applePodcasts: {
+    to: 'https://podcasts.apple.com/il/podcast/sourcelife/id1632801980',
+    target: '_blank',
+  },
+  spotify: {
+    to: 'https://open.spotify.com/show/2OyQJkn07lnJPNdxFWft96',
     target: '_blank',
   },
 };

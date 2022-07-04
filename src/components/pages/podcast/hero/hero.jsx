@@ -2,6 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 import ApplePodcastIcon from 'icons/apple-podcast.inline.svg';
 import SpotifyIcon from 'icons/spotify.inline.svg';
 
@@ -29,7 +30,7 @@ const Hero = () => (
         <div className="mt-7 flex space-x-6 lg:mt-6 md:mt-5 md:space-x-4">
           <Link
             className="flex items-center space-x-2 rounded-md border border-gray-4 p-2 pr-4 sm:pr-2"
-            to="/"
+            {...LINKS.applePodcasts}
           >
             <ApplePodcastIcon className="h-9 flex-shrink-0 md:h-8" />
             <div className="flex flex-col">
@@ -41,7 +42,7 @@ const Hero = () => (
           </Link>
           <Link
             className="flex items-center space-x-2 rounded-md border border-gray-4 p-2 pr-4 sm:pr-2"
-            to="/"
+            {...LINKS.spotify}
           >
             <SpotifyIcon className="h-9 flex-shrink-0 md:h-8" />
             <div className="flex flex-col">

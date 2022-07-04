@@ -29,6 +29,7 @@ PodcastList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
       episode: PropTypes.string.isRequired,
       audio: PropTypes.shape({
         src: PropTypes.string.isRequired,
