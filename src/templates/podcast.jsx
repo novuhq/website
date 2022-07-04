@@ -22,8 +22,8 @@ const PodcastPage = (props) => {
 
   const seo = {
     title: `Novu Podcast`,
-    description: '',
-    slug: 'podcast/',
+    // description: '',
+    slug: `${pageContext.podcastPageUrl}/`,
   };
 
   const podcastList = {
