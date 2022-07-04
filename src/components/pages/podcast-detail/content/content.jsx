@@ -7,7 +7,9 @@ import Heading from 'components/shared/heading';
 import Separator from 'components/shared/separator';
 import { useAudioPlayer } from 'context/audio-player';
 
-const Content = ({ className, episode, title, subtitle, audio, text, date }) => {
+import ShareAndSubscribe from '../share-and-subscribe';
+
+const Content = ({ className, episode, title, subtitle, audio, text, date, url }) => {
   const audioPlayerData = useMemo(
     () => ({
       title: `${title}. ${subtitle}`,
@@ -19,7 +21,7 @@ const Content = ({ className, episode, title, subtitle, audio, text, date }) => 
   const player = useAudioPlayer(audioPlayerData);
 
   return (
-    <div className={className}>
+    <div className={clsx('sm:mt-10', className)}>
       <span className="text-sm font-medium uppercase text-secondary-2 md:text-xs">
         Episode {episode}
       </span>
@@ -28,6 +30,7 @@ const Content = ({ className, episode, title, subtitle, audio, text, date }) => 
         className="mt-5 leading-tight lg:mt-4 lg:text-4xl md:mt-3 sm:text-3xl"
         tag="h1"
         size="lg"
+        theme="white"
       >
         {title}
       </Heading>
@@ -82,6 +85,8 @@ const Content = ({ className, episode, title, subtitle, audio, text, date }) => 
 
       <Separator className="py-5 px-0" backgroundColor="black" />
       <div className="content" dangerouslySetInnerHTML={{ __html: text }} />
+
+      <ShareAndSubscribe className="mt-10 hidden sm:block" url={url} />
     </div>
   );
 };
@@ -96,6 +101,7 @@ Content.propTypes = {
     type: PropTypes.string.isRequired,
   }).isRequired,
   date: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 Content.defaultProps = {

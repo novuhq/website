@@ -11,7 +11,7 @@ const MuteButton = ({ player }) => (
 
     {player.muted ? (
       <svg
-        className="text-gray-8 transition-colors duration-200 group-hover:text-white"
+        className="text-gray-7 transition-colors duration-200 group-hover:text-white"
         width="18"
         height="17"
         viewBox="0 0 18 17"
@@ -29,7 +29,7 @@ const MuteButton = ({ player }) => (
       </svg>
     ) : (
       <svg
-        className="text-gray-8 transition-colors duration-200 group-hover:text-white"
+        className="text-gray-7 transition-colors duration-200 group-hover:text-white"
         width="18"
         height="17"
         viewBox="0 0 18 17"

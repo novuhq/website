@@ -11,19 +11,17 @@ import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 import { AudioProvider } from 'context/audio-player';
 
-const PodcastDetailPage = (props) => {
-  const {
-    data: { feedPodcast: podcast },
-  } = props;
+const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
+  const seo = {
+    title: `Novu Podcast - ${podcast.title}`,
+    description: `${podcast.subtitle}`,
+    slug: `podcast/${podcast.title.toLowerCase().replace(/\s/g, '-')}/`,
+  };
 
-  // const seo = {
-  //   title: page.seo?.title,
-  //   description: page.seo?.description,
-  //   slug: page.slug,
-  //   preventIndexing: page.seo?.preventIndexing,
-  //   keywords: page.seo?.keywords,
-  //   ogImage: page.seo?.ogImage?.localFile.publicURL,
-  // };
+  const hero = {
+    imageUrl: podcast.itunes.image,
+    url: location.href,
+  };
 
   const content = {
     title: podcast.title,
@@ -35,15 +33,16 @@ const PodcastDetailPage = (props) => {
     },
     text: podcast.content.encoded,
     date: podcast.pubDate,
+    url: location.href,
   };
 
   return (
     <AudioProvider>
-      <Layout>
+      <Layout seo={seo}>
         <section className="safe-paddings pt-36 pb-28 lg:pt-32 md:pt-28 md:pb-10 sm:pt-18">
           <div className="container">
             <div className="grid grid-cols-12 gap-x-8 gap-y-16 lg:gap-x-7 sm:flex sm:flex-col sm:gap-x-0 sm:gap-y-10">
-              <Hero className="col-span-4" imageUrl={podcast.itunes.image} />
+              <Hero className="col-span-4" {...hero} />
               <Content className="col-span-8" {...content} />
             </div>
           </div>

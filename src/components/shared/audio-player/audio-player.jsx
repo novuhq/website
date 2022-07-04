@@ -45,9 +45,9 @@ const AudioPlayer = () => {
                 Episode {player.meta.episode}
               </span>
               {player.meta.link ? (
-                <Link to={player.meta.link} theme="white">
+                <Link className="md:mt-2.5" to={player.meta.link} theme="white">
                   <span
-                    className="truncate text-sm leading-denser md:text-center"
+                    className="block text-center text-sm leading-denser line-clamp-1"
                     title={player.meta.title}
                   >
                     {player.meta.title}
@@ -55,7 +55,7 @@ const AudioPlayer = () => {
                 </Link>
               ) : (
                 <span
-                  className="truncate text-sm leading-denser md:text-center"
+                  className="block text-center text-sm leading-denser line-clamp-1 md:mt-2.5"
                   title={player.meta.title}
                 >
                   {player.meta.title}
