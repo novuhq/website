@@ -20,14 +20,11 @@ const PodcastPage = (props) => {
     pageContext,
   } = props;
 
-  // const seo = {
-  //   title: page.seo?.title,
-  //   description: page.seo?.description,
-  //   slug: page.slug,
-  //   preventIndexing: page.seo?.preventIndexing,
-  //   keywords: page.seo?.keywords,
-  //   ogImage: page.seo?.ogImage?.localFile.publicURL,
-  // };
+  const seo = {
+    title: `Novu Podcast`,
+    description: '',
+    slug: 'podcast/',
+  };
 
   const podcastList = {
     items: podcasts.map(
@@ -48,7 +45,7 @@ const PodcastPage = (props) => {
 
   return (
     <AudioProvider>
-      <Layout>
+      <Layout seo={seo}>
         <Hero />
 
         <div className="bg-gray-2 py-20 lg:py-16 md:py-14 sm:py-10">
