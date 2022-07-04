@@ -113,7 +113,7 @@ export const AudioProvider = ({ children }) => {
 
 export function useAudioPlayer(data) {
   const player = useContext(AudioPlayerContext);
-  console.log(data);
+
   return useMemo(
     () => ({
       ...player,

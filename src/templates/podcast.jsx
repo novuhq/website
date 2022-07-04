@@ -50,7 +50,7 @@ const PodcastPage = (props) => {
       <Layout>
         <Hero />
 
-        <div className="bg-gray-2 py-20">
+        <div className="bg-gray-2 py-20 lg:py-16 md:py-14 sm:py-10">
           <PodcastList {...podcastList} />
           {pageContext.pageCount > 1 && (
             <>

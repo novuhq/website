@@ -2,19 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Link from 'components/shared/link';
 import { useAudioPlayer } from 'context/audio-player';
+import parseTime from 'utils/parse-time';
 
 import ForwardButton from './forward-button';
 import MuteButton from './mute-button';
 import PlayButton from './play-button';
 import RewindButton from './rewind-button';
 import Slider from './slider';
-
-function parseTime(seconds) {
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds - hours * 3600) / 60);
-  seconds = seconds - hours * 3600 - minutes * 60;
-  return [hours, minutes, seconds];
-}
 
 function formatHumanTime(seconds) {
   const [h, m, s] = parseTime(seconds);

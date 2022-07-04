@@ -3,12 +3,7 @@ import React, { useRef } from 'react';
 import { mergeProps, useFocusRing, useSlider, useSliderThumb, VisuallyHidden } from 'react-aria';
 import { useSliderState } from 'react-stately';
 
-function parseTime(seconds) {
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.floor((seconds - hours * 3600) / 60);
-  seconds = seconds - hours * 3600 - minutes * 60;
-  return [hours, minutes, seconds];
-}
+import parseTime from 'utils/parse-time';
 
 function formatTime(seconds, total = seconds) {
   const totalWithoutLeadingZeroes = total.slice(total.findIndex((x) => x !== 0));

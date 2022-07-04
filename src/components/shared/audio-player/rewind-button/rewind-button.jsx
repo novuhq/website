@@ -1,7 +1,11 @@
 import React from 'react';
 
 const RewindButton = ({ player, amount = 10 }) => (
-  <button type="button" className="group focus:outline-none" onClick={() => player.seekBy(-amount)}>
+  <button
+    type="button"
+    className="group relative focus:outline-none"
+    onClick={() => player.seekBy(-amount)}
+  >
     <div className="absolute -inset-4 -right-2 hidden md:block" />
     <span className="sr-only">Rewind {amount} seconds</span>
 
