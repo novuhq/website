@@ -49,7 +49,12 @@ const Card = ({ title, subtitle, episode, audio, slug, imageUrl }) => {
               episode {episode.title}
             </span>
 
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary-1">
+            <span
+              className={clsx(
+                'flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-200 group-hover:bg-white',
+                player.playing ? 'bg-white' : 'bg-primary-1'
+              )}
+            >
               <svg
                 className={clsx('h-2.5 w-2.5 fill-current text-black', {
                   'ml-1': !player.playing,
@@ -71,10 +76,13 @@ const Card = ({ title, subtitle, episode, audio, slug, imageUrl }) => {
               </svg>
             </span>
             <span
-              className="ml-3 text-primary-1 transition-colors duration-200 group-hover:text-white sm:text-xs"
+              className={clsx(
+                'ml-3 transition-colors duration-200 group-hover:text-white sm:text-xs',
+                player.playing ? 'text-white' : 'text-primary-1'
+              )}
               aria-hidden="true"
             >
-              Listen
+              {player.playing ? 'Pause' : 'Listen'}
             </span>
           </button>
           <span className="inline-block h-[18px] w-px bg-gray-4" />

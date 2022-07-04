@@ -10,7 +10,6 @@ import AudioPlayer from 'components/shared/audio-player';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
-import { AudioProvider } from 'context/audio-player';
 
 const PodcastPage = (props) => {
   const {
@@ -44,32 +43,30 @@ const PodcastPage = (props) => {
   };
 
   return (
-    <AudioProvider>
-      <Layout seo={seo}>
-        <Hero />
+    <Layout seo={seo}>
+      <Hero />
 
-        <div className="bg-gray-2 py-20 lg:py-16 md:py-14 sm:py-10">
-          <PodcastList {...podcastList} />
-          {pageContext.pageCount > 1 && (
-            <>
-              <Separator className="mt-14" size="lg" backgroundColor="gray" />
-              <Pagination
-                pageCount={pageContext.pageCount}
-                currentPageIndex={pageContext.currentPage}
-                blogPageURL={pageContext.blogPageURL}
-                categoryPath={pageContext.categoryPath}
-              />
-            </>
-          )}
-        </div>
+      <div className="bg-gray-2 py-20 lg:py-16 md:py-14 sm:py-10">
+        <PodcastList {...podcastList} />
+        {pageContext.pageCount > 1 && (
+          <>
+            <Separator className="mt-14" size="lg" backgroundColor="gray" />
+            <Pagination
+              pageCount={pageContext.pageCount}
+              currentPageIndex={pageContext.currentPage}
+              blogPageURL={pageContext.blogPageURL}
+              categoryPath={pageContext.categoryPath}
+            />
+          </>
+        )}
+      </div>
 
-        <Subscribe />
-        <Separator backgroundColor="black" />
-        <div className="fixed left-0 bottom-0 z-10 w-full">
-          <AudioPlayer />
-        </div>
-      </Layout>
-    </AudioProvider>
+      <Subscribe />
+      <Separator backgroundColor="black" />
+      <div className="fixed left-0 bottom-0 z-10 w-full">
+        <AudioPlayer />
+      </div>
+    </Layout>
   );
 };
 

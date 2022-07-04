@@ -1,11 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react';
 
-// You can delete this file if you're not using it
 import './src/styles/main.css';
+import { AudioProvider } from 'context/audio-player';
 
 export const shouldUpdateScroll = ({ routerProps: { location } }) => {
   if (location.state && location.state.preventScroll === true) {
@@ -14,3 +10,5 @@ export const shouldUpdateScroll = ({ routerProps: { location } }) => {
 
   return true;
 };
+
+export const wrapRootElement = ({ element }) => <AudioProvider>{element}</AudioProvider>;
