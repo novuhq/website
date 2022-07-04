@@ -19,7 +19,7 @@ const Hero = () => (
     <div className="container relative z-10 grid grid-cols-12 gap-x-8 lg:gap-x-7 sm:flex sm:flex-col sm:gap-0 sm:space-y-10">
       <div className="col-start-1 col-end-7 flex flex-col">
         <h1
-          className="text-highlighting-colorful-gradient mt-4 text-[72px] font-bold leading-none lg:text-6xl md:text-4xl sm:text-[32px]"
+          className="text-highlighting-colorful-gradient mt-4 text-[72px] font-bold leading-none xl:text-6xl md:text-4xl sm:text-[32px]"
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
         <p

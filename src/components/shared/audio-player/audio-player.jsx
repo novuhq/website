@@ -32,7 +32,7 @@ const AudioPlayer = () => {
   }
 
   return (
-    <div className="relative border-t border-gray-4 bg-[rgba(0,0,0,.96)] py-4">
+    <div className="safe-paddings relative border-t border-gray-4 bg-[rgba(0,0,0,.96)] py-4">
       <div className="container-lg">
         <div className="flex items-center space-x-5 md:space-x-0">
           <div className="md:hidden">
@@ -47,7 +47,7 @@ const AudioPlayer = () => {
               {player.meta.link ? (
                 <Link className="md:mt-2.5" to={player.meta.link} theme="white">
                   <span
-                    className="block text-center text-sm leading-denser line-clamp-1"
+                    className="block text-sm leading-denser line-clamp-1 md:text-center"
                     title={player.meta.title}
                   >
                     {player.meta.title}
@@ -55,7 +55,7 @@ const AudioPlayer = () => {
                 </Link>
               ) : (
                 <span
-                  className="block text-center text-sm leading-denser line-clamp-1 md:mt-2.5"
+                  className="block text-sm leading-denser line-clamp-1 md:mt-2.5 md:text-center"
                   title={player.meta.title}
                 >
                   {player.meta.title}
