@@ -13,7 +13,7 @@ import Subscribe from 'components/shared/subscribe';
 const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
   const seo = {
     title: `Novu Podcast - ${podcast.title}`,
-    description: `${podcast.subtitle}`,
+    description: `${podcast.itunes.subtitle}`,
     slug: `podcast/${podcast.title.toLowerCase().replace(/\s/g, '-')}/`,
   };
 
