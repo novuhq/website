@@ -12,7 +12,7 @@ const TITLE = `Let's unravel top leaders decisions
 to build their
 <br>
 <span>COSS companies.</span>`;
-const DESCRIPTION = `A podcast by Novu where our hosts <strong>Tomer Barnea</strong> and <strong>Emillien Pearce</strong> talk with CEO, founders, and a wide range of People leaders about how people success is business success.`;
+const DESCRIPTION = `A podcast by Novu where our hosts <strong class="text-white">Tomer Barnea</strong> and <strong class="text-white">Emillien Pearce</strong> talk with CEO, founders, and a wide range of People leaders about how people success is business success.`;
 
 const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pt-36 pb-28 lg:pt-32 md:pt-28 md:pb-10 sm:pt-18">

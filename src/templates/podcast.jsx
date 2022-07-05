@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-
 import { graphql } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Pagination from 'components/pages/blog/pagination';
@@ -15,6 +15,7 @@ const PodcastPage = (props) => {
   const {
     data: {
       allFeedPodcast: { nodes: podcasts },
+      ogImage,
     },
     pageContext,
   } = props;
@@ -23,6 +24,7 @@ const PodcastPage = (props) => {
     title: `Novu Podcast`,
     // description: '',
     slug: `${pageContext.podcastPageUrl}/`,
+    ogImage: getSrc(ogImage.childImageSharp),
   };
 
   const podcastList = {
@@ -86,6 +88,12 @@ export const pageQuery = graphql`
           url
           type
         }
+      }
+    }
+
+    ogImage: file(relativePath: { eq: "podcast/social-preview.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(formats: [JPG], width: 1200, height: 630)
       }
     }
   }
