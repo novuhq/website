@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
 import Link from 'components/shared/link';
+import PodcastCover from 'components/shared/podcast-cover';
 import { useAudioPlayer } from 'context/audio-player';
 
-const Card = ({ title, subtitle, episode, audio, slug, imageUrl }) => {
+const Card = ({ title, author, subtitle, episode, audio, slug, imageUrl }) => {
   const audioPlayerData = useMemo(
     () => ({
       title: `${title}. ${subtitle}`,
@@ -20,14 +21,7 @@ const Card = ({ title, subtitle, episode, audio, slug, imageUrl }) => {
   return (
     <article className="col-span-6 flex space-x-7 sm:flex-col sm:space-x-0">
       <Link className="relative flex-shrink-0" to={slug}>
-        <img
-          className="rounded-lg sm:h-36 sm:w-36"
-          src={imageUrl}
-          loading="lazy"
-          height={160}
-          width={160}
-          alt=""
-        />
+        <PodcastCover imageUrl={imageUrl} author={author} imageLoading="lazy" />
       </Link>
       <div className="flex grow flex-col sm:mt-5">
         <header className="space-y-3.5">
@@ -97,6 +91,7 @@ const Card = ({ title, subtitle, episode, audio, slug, imageUrl }) => {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   episode: PropTypes.string.isRequired,
   audio: PropTypes.shape({

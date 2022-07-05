@@ -2,9 +2,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import PodcastCover from 'components/shared/podcast-cover';
+
 import ShareAndSubscribe from '../share-and-subscribe';
 
-const Hero = ({ className, imageUrl, url }) => (
+const Hero = ({ className, imageUrl, url, author }) => (
   <div className={className}>
     <div className="relative">
       <StaticImage
@@ -13,14 +15,10 @@ const Hero = ({ className, imageUrl, url }) => (
         alt=""
         loading="eager"
       />
-      <img
-        className="absolute left-7 -bottom-5 rounded-lg md:left-[30px] md:bottom-[-50px] sm:left-7 sm:-bottom-7 sm:h-36 sm:w-36"
-        src={imageUrl}
-        loading="eager"
-        alt=""
-        height={160}
-        width={160}
-      />
+
+      <div className="absolute left-7 -bottom-5 md:left-[30px] md:bottom-[-50px] sm:left-7 sm:-bottom-7">
+        <PodcastCover imageUrl={imageUrl} author={author} imageLoading="eager" />
+      </div>
     </div>
 
     <ShareAndSubscribe className="mt-14 md:mt-20 sm:mt-14 sm:hidden" url={url} />

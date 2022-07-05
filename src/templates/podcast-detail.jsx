@@ -20,6 +20,7 @@ const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
   const hero = {
     imageUrl: podcast.itunes.image,
     url: location.href,
+    author: podcast.author,
   };
 
   const content = {
