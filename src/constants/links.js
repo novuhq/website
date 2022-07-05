@@ -9,6 +9,9 @@ export default {
   contributors: {
     to: '/contributors',
   },
+  podcast: {
+    to: '/podcast',
+  },
 
   // Other pages
   documentation: {
