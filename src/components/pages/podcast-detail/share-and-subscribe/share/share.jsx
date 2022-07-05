@@ -2,7 +2,7 @@ import copyToClipboard from 'copy-to-clipboard';
 import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { LinkedinShareButton, TwitterShareButton, FacebookMessengerShareButton } from 'react-share';
+import { LinkedinShareButton, TwitterShareButton, FacebookShareButton } from 'react-share';
 
 import FacebookIcon from 'icons/facebook.inline.svg';
 
@@ -52,25 +52,25 @@ const Share = ({ url }) => {
   return (
     <div className="flex justify-center space-x-3 md:space-x-2 sm:space-x-3">
       <TwitterShareButton
-        className="flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
+        className="group flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
         url={url}
         resetButtonStyle={false}
       >
-        <TwitterIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
+        <TwitterIcon className="h-5 transition-opacity duration-200 group-hover:opacity-80" />
       </TwitterShareButton>
-      <FacebookMessengerShareButton
-        className="flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
+      <FacebookShareButton
+        className="group flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
         url={url}
         resetButtonStyle={false}
       >
-        <FacebookIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
-      </FacebookMessengerShareButton>
+        <FacebookIcon className="h-5 transition-opacity duration-200 group-hover:opacity-80" />
+      </FacebookShareButton>
       <LinkedinShareButton
-        className="flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
+        className="group flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
         url={url}
         resetButtonStyle={false}
       >
-        <LinkedinIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
+        <LinkedinIcon className="h-5 transition-opacity duration-200 group-hover:opacity-80" />
       </LinkedinShareButton>
       <button
         className="group relative flex h-9 w-14 items-center justify-center rounded-md border border-gray-4 md:h-8 md:w-[46px] sm:w-14"
