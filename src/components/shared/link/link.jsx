@@ -16,7 +16,7 @@ const styles = {
     'primary-underline':
       'text-primary-1 relative tracking-wide uppercase pb-1.5 transition-colors duration-200 hover:text-primary-1',
     white: 'text-white hover:text-primary-1 transition-colors duration-200',
-    gray: 'text-gray-8 hover:text-primary-1 transition-colors duration-200',
+    gray: 'text-gray-9 hover:text-primary-1 transition-colors duration-200',
     primary: 'text-primary-1 transition-colors duration-200 hover:text-white',
   },
 };

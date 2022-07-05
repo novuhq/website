@@ -118,7 +118,7 @@ const HowItWorks = () => (
             </div>
             <div className="mt-6 lg:mt-9 md:mt-0 md:pb-10 md:group-last:pb-0 sm:pb-6">
               <h4 className="text-xl font-medium leading-tight">{title}</h4>
-              <p className="mt-2 text-base font-book leading-snug text-gray-8">{description}</p>
+              <p className="mt-2 text-base font-book leading-snug text-gray-9">{description}</p>
             </div>
           </li>
         ))}

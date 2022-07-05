@@ -34,7 +34,7 @@ const Hero = () => {
             {TITLE}
           </Heading>
           <p
-            className="mt-5 text-lg font-book leading-snug text-gray-8 md:text-base"
+            className="mt-5 text-lg font-book leading-snug text-gray-9 md:text-base"
             dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
           />
           <Button className="mt-7 md:mt-5" size="sm" theme="white-filled" onClick={scrollDown}>

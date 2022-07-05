@@ -48,7 +48,7 @@
     }
 
     .gatsby-resp-image-figure figcaption {
-      @apply mt-2 text-center text-sm font-normal text-gray-8;
+      @apply mt-2 text-center text-sm font-normal text-gray-9;
     }
 
     ul,
