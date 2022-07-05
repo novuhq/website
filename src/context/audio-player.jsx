@@ -5,7 +5,7 @@ const AudioPlayerContext = createContext();
 
 const reducers = {
   SET_META(state, action) {
-    return { ...state, meta: action.payload };
+    return { ...state, meta: action.payload, isOpen: true };
   },
   PLAY(state, _action) {
     return { ...state, playing: true };
@@ -35,6 +35,7 @@ export const AudioProvider = ({ children }) => {
     duration: 0,
     currentTime: 0,
     meta: null,
+    isOpen: false,
   });
   const playerRef = useRef(null);
 

@@ -51,7 +51,7 @@ const Content = ({ className, episode, title, subtitle, audio, text, date, url }
 
           <span
             className={clsx(
-              'flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-200',
+              'flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-200 group-hover:bg-white',
               player.playing ? 'bg-white' : 'bg-primary-1'
             )}
           >
