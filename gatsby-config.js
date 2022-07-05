@@ -166,5 +166,12 @@ module.exports = {
         enableOnDevMode: true,
       },
     },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://feeds.transistor.fm/sourcelife`,
+        name: `Podcast`,
+      },
+    },
   ],
 };
