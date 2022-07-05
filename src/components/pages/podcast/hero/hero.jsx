@@ -12,7 +12,7 @@ const TITLE = `Let's unravel top leaders decisions
 to build their
 <br>
 <span>COSS companies.</span>`;
-const DESCRIPTION = `A podcast by Novu where our hosts <strong>Nevo David</strong> and <strong>Emillien Pearce</strong> talk with CEO, founders, and a wide range of People leaders about how people success is business success.`;
+const DESCRIPTION = `A podcast by Novu where our hosts <strong>Tomer Barnea</strong> and <strong>Emillien Pearce</strong> talk with CEO, founders, and a wide range of People leaders about how people success is business success.`;
 
 const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pt-36 pb-28 lg:pt-32 md:pt-28 md:pb-10 sm:pt-18">
@@ -23,7 +23,7 @@ const Hero = () => (
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
         <p
-          className="mt-6 max-w-[590px] text-lg font-book leading-tight text-gray-9 lg:mt-5 md:mt-4 md:text-base"
+          className="mt-6 max-w-[600px] text-lg font-book leading-tight text-gray-9 lg:mt-5 md:mt-4 md:text-base"
           dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
         />
 
