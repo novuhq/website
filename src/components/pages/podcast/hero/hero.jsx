@@ -8,7 +8,7 @@ import SpotifyIcon from 'icons/spotify.inline.svg';
 
 import bg from './images/bg.svg';
 
-const TITLE = `Let's unravel top founders decisions
+const TITLE = `Let's unravel top leaders decisions
 to build their
 <br>
 <span>COSS companies.</span>`;
