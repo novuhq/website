@@ -16,7 +16,7 @@ const Footer = () => (
           <span className="sr-only">Novu</span>
           <Logo className="h-8" aria-hidden />
         </Link>
-        <p className="text-sm leading-none text-gray-9 lg:hidden">
+        <p className="text-sm leading-none text-gray-8 lg:hidden">
           Ⓒ {new Date().getFullYear()} {COPYRIGHT}
         </p>
       </div>
@@ -39,7 +39,7 @@ const Footer = () => (
         <div className="flex flex-col items-end justify-between lg:col-span-4 sm:mt-9 sm:items-start">
           <ButtonGithubStars className="pl-3" />
 
-          <p className="text-sm leading-none text-gray-9 lg:hidden">
+          <p className="text-sm leading-none text-gray-8 lg:hidden">
             Design made by{' '}
             <Link theme="gray" rel="noopener" {...LINKS.pixelPoint}>
               Pixel Point
@@ -49,10 +49,10 @@ const Footer = () => (
       </div>
 
       <div className="hidden lg:mt-8 lg:flex lg:justify-between sm:mt-9 sm:flex-col sm:space-y-2.5">
-        <p className="text-sm leading-none text-gray-9">
+        <p className="text-sm leading-none text-gray-8">
           Ⓒ {new Date().getFullYear()} {COPYRIGHT}
         </p>
-        <p className="text-sm leading-none text-gray-9">
+        <p className="text-sm leading-none text-gray-8">
           Design made by{' '}
           <Link theme="gray" rel="noopener" {...LINKS.pixelPoint}>
             Pixel Point
