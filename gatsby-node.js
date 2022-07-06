@@ -167,6 +167,95 @@ const createArticles = async ({ graphql, actions, reporter }) => {
   }
 };
 
+const createPodcastPage = async ({ graphql, actions, reporter }) => {
+  const PODCASTS_PER_PAGE = 13;
+
+  const { createPage } = actions;
+
+  const result = await graphql(
+    `
+      {
+        allFeedPodcast {
+          nodes {
+            id
+          }
+        }
+      }
+    `
+  );
+
+  if (result.errors) {
+    reporter.panicOnBuild(result.errors);
+    return;
+  }
+
+  const {
+    allFeedPodcast: { nodes: podcasts },
+  } = result.data;
+
+  const podcastPageUrl = 'podcast';
+  const template = path.resolve('./src/templates/podcast.jsx');
+
+  createPage({
+    path: podcastPageUrl,
+    component: slash(template),
+    context: {
+      podcastPageUrl,
+    },
+  });
+
+  const pageCount = Math.ceil(podcasts.length / PODCASTS_PER_PAGE);
+
+  Array.from({ length: pageCount }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? `/${podcastPageUrl}` : `/${podcastPageUrl}/${index + 1}`,
+      component: slash(template),
+      context: {
+        limit: PODCASTS_PER_PAGE,
+        skip: index * PODCASTS_PER_PAGE,
+        pageCount,
+        currentPage: index,
+        podcastPageUrl,
+      },
+    });
+  });
+};
+
+async function createPodcastDetailPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allFeedPodcast {
+        nodes {
+          id
+          title
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    allFeedPodcast: { nodes: podcasts },
+  } = result.data;
+
+  podcasts.forEach(({ id, title }) => {
+    const templatePath = path.resolve('./src/templates/podcast-detail.jsx');
+
+    createPage({
+      path: `/podcast/${title.toLowerCase().replace(/\s/g, '-')}/`,
+      component: slash(templatePath),
+      context: {
+        id,
+      },
+    });
+  });
+}
+
 exports.createPages = async (args) => {
   const params = {
     ...args,
@@ -174,6 +263,8 @@ exports.createPages = async (args) => {
 
   await createBlogPage(params);
   await createArticles(params);
+  await createPodcastPage(params);
+  await createPodcastDetailPages(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {

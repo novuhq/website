@@ -19,6 +19,7 @@ const MENUS = {
     [
       { text: 'Blog', ...LINKS.blog },
       { text: 'Contributors', ...LINKS.contributors },
+      { text: 'Podcast', ...LINKS.podcast },
     ],
     [
       { text: 'Documentation', ...LINKS.documentation },

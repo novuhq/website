@@ -9,14 +9,10 @@ export default {
   contributors: {
     to: '/contributors',
   },
-  providers: {
-    to: 'https://github.com/novuhq/novu/tree/main/providers',
-    target: '_blank',
+  podcast: {
+    to: '/podcast',
   },
-  handbook: {
-    to: 'https://handbook.novu.co',
-    target: '_blank',
-  },
+
   // Other pages
   documentation: {
     to: 'https://docs.novu.co/overview/introduction',
@@ -48,6 +44,22 @@ export default {
   },
   quickStart: {
     to: 'https://docs.novu.co/overview/quick-start',
+    target: '_blank',
+  },
+  providers: {
+    to: 'https://github.com/novuhq/novu/tree/main/providers',
+    target: '_blank',
+  },
+  handbook: {
+    to: 'https://handbook.novu.co',
+    target: '_blank',
+  },
+  applePodcasts: {
+    to: 'https://podcasts.apple.com/il/podcast/sourcelife/id1632801980',
+    target: '_blank',
+  },
+  spotify: {
+    to: 'https://open.spotify.com/show/2OyQJkn07lnJPNdxFWft96',
     target: '_blank',
   },
 
