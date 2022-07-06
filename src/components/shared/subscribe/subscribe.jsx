@@ -20,7 +20,7 @@ const Subscribe = () => (
       >
         {TITLE}
       </Heading>
-      <p className="mt-5 text-center text-lg font-book text-gray-8 lg:max-w-[716px] md:text-base sm:mt-3">
+      <p className="mt-5 text-center text-lg font-book text-gray-9 lg:max-w-[716px] md:text-base sm:mt-3">
         {DESCRIPTION}
       </p>
       <Form />

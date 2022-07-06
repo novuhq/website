@@ -39,7 +39,7 @@ const ComponentBased = () => {
           >
             {TITLE}
           </Heading>
-          <p className="mt-5 text-lg font-book leading-snug text-gray-8 xl:max-w-[464px] lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
+          <p className="mt-5 text-lg font-book leading-snug text-gray-9 xl:max-w-[464px] lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
             {DESCRIPTION}
           </p>
           <Button className="mt-7 md:mt-6" size="sm" theme="primary" {...LINKS.getStarted}>

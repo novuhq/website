@@ -35,7 +35,7 @@ const GetStarted = () => (
           >
             {LEFT_TITLE}
           </Heading>
-          <p className="mt-3 text-center font-book leading-snug text-gray-8 sm:text-base">
+          <p className="mt-3 text-center font-book leading-snug text-gray-9 sm:text-base">
             {LEFT_DESCRIPTION}
           </p>
           <Button

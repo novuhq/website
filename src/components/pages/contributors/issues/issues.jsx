@@ -77,7 +77,7 @@ const Issues = ({ issues }) => {
           >
             {TITLE}
           </Heading>
-          <p className="mt-10 text-lg font-light leading-snug text-gray-8 md:text-base">
+          <p className="mt-10 text-lg font-light leading-snug text-gray-9 md:text-base">
             {DESCRIPTION}
           </p>
         </div>

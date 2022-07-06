@@ -39,7 +39,7 @@ const ArticleCardMedium = ({
             {title}
           </Link>
         </h1>
-        <p className="text-base font-book text-gray-8 line-clamp-3">{description}</p>
+        <p className="text-base font-book text-gray-9 line-clamp-3">{description}</p>
       </header>
       <footer className="mt-3.5 flex items-center space-x-3 md:mt-5">
         <AuthorWithDate author={author} date={date} />

@@ -25,7 +25,7 @@ const Item = ({ lottieData, title, description, comingSoon }) => {
         <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
           {title}
         </Heading>
-        <p className="mt-3 max-w-[377px] font-book leading-snug text-gray-8 lg:mt-2 lg:max-w-none">
+        <p className="mt-3 max-w-[377px] font-book leading-snug text-gray-9 lg:mt-2 lg:max-w-none">
           {description}
         </p>
         {comingSoon && (

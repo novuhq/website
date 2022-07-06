@@ -14,7 +14,7 @@ const Hero = ({ title, description, author, date, image, category, blogPageURL }
     <Heading className="mt-5 leading-tight" size="lg" tag="h1" theme="white">
       {title}
     </Heading>
-    <p className="mt-5 text-lg text-gray-8">{description}</p>
+    <p className="mt-5 text-lg text-gray-9">{description}</p>
     <AuthorWithDate className="mt-5" author={author} date={date} />
     <GatsbyImage
       className="mt-7 w-full"
