@@ -18,7 +18,7 @@ const ContributorPage = ({ serverData: { contributor }, location }) => {
   const SEO = {
     title: `Novu - ${contributor.github || contributor.name}`,
     description: `Come and meet our awesome contributor ${contributor.github || contributor.name}`,
-    slug: `contributors/${contributor.github}/`,
+    slug: `/contributors/${contributor.github}/`,
     preventIndexing: false,
     ogImage: contributor.images.ogImage,
   };

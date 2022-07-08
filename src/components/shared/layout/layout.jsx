@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -41,5 +42,39 @@ Layout.propTypes = {
 Layout.defaultProps = {
   seo: null,
 };
+
+export const query = graphql`
+  fragment wpPageSeo on WpPage {
+    seo {
+      title
+      description: metaDesc
+      preventIndexing: metaRobotsNoindex
+      slug: opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(formats: JPG, width: 1200, height: 630)
+          }
+        }
+      }
+    }
+  }
+
+  fragment wpPostSeo on WpPost {
+    seo {
+      title
+      description: metaDesc
+      preventIndexing: metaRobotsNoindex
+      slug: opengraphUrl
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(formats: JPG, width: 1200, height: 630)
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default Layout;
