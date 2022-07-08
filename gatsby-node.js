@@ -3,78 +3,93 @@ const path = require('path');
 
 const slash = require('slash');
 
-const createBlogPage = async ({ graphql, actions, reporter }) => {
-  const POSTS_PER_PAGE = 13;
+async function createBlogPages({ graphql, actions }) {
+  const POSTS_PER_PAGE = 12;
 
   const { createPage } = actions;
 
-  const result = await graphql(
-    `
-      {
-        strapiBlog {
-          id
-          slug
-          featuredPost {
-            id
-          }
-        }
+  const result = await graphql(`
+    {
+      wpPage(template: { templateName: { eq: "Blog" } }) {
+        id
+        uri
+      }
 
-        allStrapiArticle {
-          nodes {
-            id
-            slug
-            category {
+      allWpPost(sort: { fields: date, order: DESC }) {
+        nodes {
+          id
+          categories {
+            nodes {
               id
             }
           }
         }
+      }
 
-        allStrapiCategory(sort: { fields: name, order: ASC }) {
-          nodes {
-            id
-            slug
+      featuredPost: allWpPost(limit: 1, sort: { fields: date, order: DESC }) {
+        nodes {
+          id
+        }
+      }
+
+      allWpCategory(
+        filter: {
+          name: { nin: ["Uncategorized"] }
+          posts: { nodes: { elemMatch: { id: { ne: null } } } }
+        }
+        sort: { fields: name, order: ASC }
+      ) {
+        nodes {
+          id
+          slug
+          seo {
+            title
+            metaDesc
+            metaRobotsNoindex
+            opengraphUrl
+            opengraphImage {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(formats: JPG, width: 1200, height: 630)
+                }
+              }
+            }
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   if (result.errors) {
-    reporter.panicOnBuild(`There was an error loading your Strapi articles`, result.errors);
-
-    return;
+    throw new Error(result.errors);
   }
 
   const {
-    strapiBlog,
-    allStrapiArticle: { nodes: articles },
-    allStrapiCategory: { nodes: categories },
-  } = result.data;
-  const blogPageURL = strapiBlog.slug;
+    data: {
+      wpPage: page,
+      allWpPost: { nodes: posts },
+      featuredPost: {
+        nodes: { 0: featuredPost },
+      },
+      allWpCategory: { nodes: categories },
+    },
+  } = result;
 
-  const articlesWithoutArticleInHeroSection = articles.filter(
-    (post) => post.id !== strapiBlog.featuredPost.id
-  );
+  const postsWithoutPostsInHeroSection = posts.filter((post) => post.id !== featuredPost.id);
+
   const template = path.resolve('./src/templates/blog.jsx');
 
   const context = {
-    id: strapiBlog.id,
-    featuredPostId: strapiBlog.featuredPost.id,
-    blogPageURL,
+    id: page.id,
+    featuredPostId: featuredPost.id,
+    blogPageURL: page.uri,
   };
 
-  createPage({
-    path: blogPageURL,
-    component: slash(template),
-    context,
-  });
-
   // Creating non category pages
-  const pageCount = Math.ceil(articlesWithoutArticleInHeroSection.length / POSTS_PER_PAGE);
-
+  const pageCount = Math.ceil(postsWithoutPostsInHeroSection.length / POSTS_PER_PAGE);
   Array.from({ length: pageCount }).forEach((_, index) => {
     createPage({
-      path: index === 0 ? `/${blogPageURL}/` : `/${blogPageURL}/${index + 1}/`,
+      path: index === 0 ? page.uri : `${page.uri}${index + 1}/`,
       component: slash(template),
       context: {
         ...context,
@@ -88,18 +103,18 @@ const createBlogPage = async ({ graphql, actions, reporter }) => {
 
   // Creating pages for each category
   categories.forEach((category) => {
-    const articlesForCategory = articlesWithoutArticleInHeroSection.filter((article) => {
-      const articleCategoryId = article.category.id;
-      return articleCategoryId === category.id;
+    const postsForCategory = postsWithoutPostsInHeroSection.filter((post) => {
+      const postCategoryId = post.categories.nodes[0].id;
+      return postCategoryId === category.id;
     });
 
-    const pageCount = Math.ceil(articlesForCategory.length / POSTS_PER_PAGE);
+    const pageCount = Math.ceil(postsForCategory.length / POSTS_PER_PAGE);
     Array.from({ length: pageCount }).forEach((_, index) => {
       createPage({
         path:
           index === 0
-            ? `/${blogPageURL}/${category.slug}/`
-            : `/${blogPageURL}/${category.slug}/${index + 1}/`,
+            ? `${page.uri}${category.slug}/`
+            : `${page.uri}${category.slug}/${index + 1}/`,
         component: slash(template),
         context: {
           ...context,
@@ -109,63 +124,63 @@ const createBlogPage = async ({ graphql, actions, reporter }) => {
           currentPage: index,
           categoryId: category.id,
           categoryPath: `${category.slug}/`,
+          seo: category.seo,
         },
       });
     });
   });
-};
+}
 
-const createArticles = async ({ graphql, actions, reporter }) => {
+async function createPosts({ graphql, actions }) {
   const { createPage } = actions;
 
-  const result = await graphql(
-    `
-      {
-        strapiBlog {
-          slug
-        }
-
-        allStrapiArticle {
-          nodes {
-            id
-            slug
-            category {
-              name
+  const result = await graphql(`
+    {
+      allWpPost {
+        nodes {
+          id
+          uri
+          categories {
+            nodes {
+              slug
             }
           }
         }
       }
-    `
-  );
+
+      wpPage(template: { templateName: { eq: "Blog" } }) {
+        uri
+      }
+    }
+  `);
 
   if (result.errors) {
-    reporter.panicOnBuild(`There was an error loading your Strapi articles`, result.errors);
-
-    return;
+    throw new Error(result.errors);
   }
 
   const {
-    strapiBlog: { slug: blogPageURL },
-    allStrapiArticle: { nodes: articles },
-  } = result.data;
-  const template = path.resolve('./src/templates/article.jsx');
+    data: {
+      wpPage: { uri: blogPageURL },
+      allWpPost: { nodes: posts },
+    },
+  } = result;
 
-  if (articles.length) {
-    articles.forEach(({ id, slug, category: { name: categoryName } }) => {
-      const context = {
-        id,
-        categoryName,
-        blogPageURL,
-      };
+  const template = path.resolve('./src/templates/blog-post.jsx');
 
-      createPage({
-        path: `/${blogPageURL}/${slug}/`,
-        component: slash(template),
-        context,
-      });
+  posts.forEach(({ id, uri, categories }) => {
+    const context = {
+      id,
+      categorySlug: categories.nodes[0].slug,
+      blogPageURL,
+    };
+
+    createPage({
+      path: uri,
+      component: slash(template),
+      context,
     });
-  }
-};
+  });
+}
 
 const createPodcastPage = async ({ graphql, actions, reporter }) => {
   const PODCASTS_PER_PAGE = 13;
@@ -261,8 +276,8 @@ exports.createPages = async (args) => {
     ...args,
   };
 
-  await createBlogPage(params);
-  await createArticles(params);
+  await createBlogPages(params);
+  await createPosts(params);
   await createPodcastPage(params);
   await createPodcastDetailPages(params);
 };

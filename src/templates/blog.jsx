@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import clsx from 'clsx';
 import { graphql } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 
-import ArticlesList from 'components/pages/blog/articles-list';
 import Categories from 'components/pages/blog/categories';
 import Hero from 'components/pages/blog/hero';
 import Pagination from 'components/pages/blog/pagination';
+import PostList from 'components/pages/blog/post-list';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
@@ -14,76 +15,88 @@ import Subscribe from 'components/shared/subscribe';
 const BlogPage = (props) => {
   const {
     data: {
-      strapiBlog: page,
-      allStrapiCategory: { nodes: categories },
-      allStrapiArticle: { nodes: articles },
-      allStrapiArticleForCategories: { nodes: articlesForCategories },
+      wpPage: { seo },
+      featuredPost: {
+        nodes: { 0: featuredPost },
+      },
+      allWpCategory: { nodes: categories },
+      allWpPost: { nodes: articles },
     },
     pageContext,
   } = props;
 
-  // categories that have articles without considering the featured article
-  const categoriesList = categories.filter((category) =>
-    articles.some((article) => article.category.id === category.id)
-  );
-
-  const seo = {
-    title: page.seo?.title,
-    description: page.seo?.description,
-    slug: page.slug,
-    preventIndexing: page.seo?.preventIndexing,
-    keywords: page.seo?.keywords,
-    ogImage: page.seo?.ogImage?.localFile.publicURL,
-  };
+  const categoryPageSeo = pageContext.seo
+    ? {
+        title: pageContext.seo.title,
+        description: pageContext.seo.metaDesc,
+        preventIndexing: pageContext.seo.metaRobotsNoindex,
+        slug: pageContext.seo.opengraphUrl.replace('/category', ''),
+        ogImage: getSrc(pageContext.seo.opengraphImage?.childImageSharp),
+      }
+    : null;
 
   const hero = {
-    title: page.featuredPost.title,
-    description: page.featuredPost.description,
-    slug: `/${pageContext.blogPageURL}/${page.featuredPost.slug}`,
+    title: featuredPost.title,
+    description: featuredPost.pageBlogPost.description,
+    url: featuredPost.url,
     category: {
-      url: `/${pageContext.blogPageURL}/${page.featuredPost.category.slug}`,
-      ...page.featuredPost.category,
+      name: featuredPost.categories.nodes[0].name,
+      url: `${pageContext.blogPageURL}${featuredPost.categories.nodes[0].slug}/`,
+      color: featuredPost.categories.nodes[0].categories.color,
     },
-    image: page.featuredPost.cover,
-    date: page.featuredPost.date,
-    author: page.featuredPost.author,
+    image: featuredPost.pageBlogPost.image,
+    date: featuredPost.date,
+    author: {
+      name: featuredPost.pageBlogPost.author.title,
+      photo: featuredPost.pageBlogPost.author.postAuthor.photo,
+    },
   };
 
-  const articlesList = {
-    items: articlesForCategories.map((article) => ({
-      ...article,
-      slug: `/${pageContext.blogPageURL}/${article.slug}`,
+  const postsList = {
+    items: articles.map((post) => ({
+      title: post.title,
+      category: {
+        name: post.categories.nodes[0].name,
+        slug: post.categories.nodes[0].slug,
+        color: post.categories.nodes[0].categories.color,
+      },
+      date: post.date,
+      url: post.url,
+      imageMedium: post.pageBlogPost.imageMedium,
+      imageLarge: post.pageBlogPost.imageLarge,
+      description: post.pageBlogPost.description,
+      author: {
+        name: post.pageBlogPost.author.title,
+        photo: post.pageBlogPost.author.postAuthor.photo,
+      },
     })),
     blogPageURL: pageContext.blogPageURL,
   };
 
   return (
-    <Layout seo={seo}>
+    <Layout seo={categoryPageSeo || seo}>
       <Hero {...hero} />
 
-      {!!articlesList.items.length && (
-        <div className={clsx('bg-gray-2 pb-20')}>
-          {!!categoriesList.length && (
-            <Categories
-              items={categoriesList}
-              activeCategoryId={pageContext.categoryId || 'none'}
+      <div className={clsx('bg-gray-2 pb-20')}>
+        <Categories
+          items={categories}
+          activeCategoryId={pageContext.categoryId || 'none'}
+          blogPageURL={pageContext.blogPageURL}
+        />
+        <PostList {...postsList} />
+
+        {pageContext.pageCount > 1 && (
+          <>
+            <Separator className="mt-14" size="lg" backgroundColor="gray" />
+            <Pagination
+              pageCount={pageContext.pageCount}
+              currentPageIndex={pageContext.currentPage}
               blogPageURL={pageContext.blogPageURL}
+              categoryPath={pageContext.categoryPath}
             />
-          )}
-          <ArticlesList {...articlesList} />
-          {pageContext.pageCount > 1 && (
-            <>
-              <Separator className="mt-14" size="lg" backgroundColor="gray" />
-              <Pagination
-                pageCount={pageContext.pageCount}
-                currentPageIndex={pageContext.currentPage}
-                blogPageURL={pageContext.blogPageURL}
-                categoryPath={pageContext.categoryPath}
-              />
-            </>
-          )}
-        </div>
-      )}
+          </>
+        )}
+      </div>
 
       <Subscribe />
       <Separator backgroundColor="black" />
@@ -92,123 +105,119 @@ const BlogPage = (props) => {
 };
 
 export const pageQuery = graphql`
-  query ($featuredPostId: String!, $categoryId: String, $skip: Int, $limit: Int) {
-    strapiBlog {
-      id
-      slug
-      featuredPost {
-        id
+  query ($id: String!, $featuredPostId: String!, $categoryId: String, $skip: Int!, $limit: Int!) {
+    wpPage(id: { eq: $id }) {
+      ...wpPageSeo
+    }
+
+    featuredPost: allWpPost(filter: { id: { eq: $featuredPostId } }) {
+      nodes {
         title
-        description
-        slug
-        category {
-          id
-          name
-          slug
-          color
-        }
+        url: uri
         date(formatString: "MMMM D, YYYY")
-        author {
-          name
-          avatar {
-            alternativeText
-            localFile {
-              url
-              childImageSharp {
-                gatsbyImageData(width: 36, height: 36)
+        categories {
+          nodes {
+            name
+            slug
+            categories {
+              color
+            }
+          }
+        }
+        pageBlogPost {
+          description
+          author {
+            ... on WpPostAuthors {
+              title
+              postAuthor {
+                photo {
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(width: 36, height: 36)
+                    }
+                  }
+                }
               }
             }
           }
-        }
-        cover {
-          alternativeText
-          localFile {
-            url
-            childImageSharp {
-              gatsbyImageData(width: 592, height: 333)
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 592, height: 333)
+              }
             }
-          }
-        }
-      }
-
-      seo {
-        title
-        description
-        preventIndexing
-        keywords
-        ogImage {
-          localFile {
-            publicURL
+            altText
           }
         }
       }
     }
 
-    allStrapiCategory(sort: { fields: name, order: ASC }) {
-      nodes {
-        id
-        name
-        slug
+    allWpPost(
+      filter: {
+        id: { ne: $featuredPostId }
+        categories: { nodes: { elemMatch: { id: { eq: $categoryId } } } }
       }
-    }
-
-    allStrapiArticle(filter: { id: { ne: $featuredPostId } }) {
-      nodes {
-        id
-        category {
-          id
-        }
-      }
-    }
-
-    allStrapiArticleForCategories: allStrapiArticle(
-      filter: { id: { ne: $featuredPostId }, category: { id: { eq: $categoryId } } }
       sort: { fields: date, order: DESC }
       limit: $limit
       skip: $skip
     ) {
       nodes {
-        id
-        slug
-        date(formatString: "MMMM D, YYYY")
-        category {
-          id
-          color
-          name
-          slug
-        }
         title
-        description
-        author {
-          name
-          avatar {
-            alternativeText
-            localFile {
-              url
-              childImageSharp {
-                gatsbyImageData(width: 36, height: 36)
+        url: uri
+        date(formatString: "MMMM D, YYYY")
+        categories {
+          nodes {
+            name
+            slug
+            categories {
+              color
+            }
+          }
+        }
+        pageBlogPost {
+          description
+          author {
+            ... on WpPostAuthors {
+              title
+              postAuthor {
+                photo {
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(width: 36, height: 36)
+                    }
+                  }
+                }
               }
             }
           }
-        }
-        imageMedium: cover {
-          alternativeText
-          localFile {
-            url
-            childImageSharp {
-              gatsbyImageData(width: 384, height: 214)
+          imageMedium: image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 384, height: 214)
+              }
             }
+            altText
+          }
+          imageLarge: image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 592, height: 333)
+              }
+            }
+            altText
           }
         }
-        imageLarge: cover {
-          alternativeText
-          localFile {
-            url
-            childImageSharp {
-              gatsbyImageData(width: 592, height: 333)
-            }
-          }
-        }
+      }
+    }
+
+    allWpCategory(
+      filter: { posts: { nodes: { elemMatch: { id: { ne: null, nin: [$featuredPostId] } } } } }
+      sort: { fields: name, order: ASC }
+    ) {
+      nodes {
+        id
+        name
+        slug
       }
     }
   }

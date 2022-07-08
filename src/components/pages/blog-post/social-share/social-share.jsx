@@ -28,7 +28,7 @@ const SocialShare = ({ author, date, url }) => (
 SocialShare.propTypes = {
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    avatar: PropTypes.shape({
+    photo: PropTypes.shape({
       alternativeText: PropTypes.string,
       localFile: PropTypes.shape({
         childImageSharp: PropTypes.shape({

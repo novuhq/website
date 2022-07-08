@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 
 const Hero = ({ title, description, author, date, image, category, blogPageURL }) => (
   <section>
-    <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="sm">
+    <CategoryLabel url={blogPageURL + category.slug} theme={category.color} size="sm">
       {category.name}
     </CategoryLabel>
     <Heading className="mt-5 leading-tight" size="lg" tag="h1" theme="white">
@@ -20,7 +20,7 @@ const Hero = ({ title, description, author, date, image, category, blogPageURL }
       className="mt-7 w-full"
       imgClassName="rounded-xl"
       image={getImage(image.localFile)}
-      alt={image.alternativeText}
+      alt={image.altText}
       loading="eager"
     />
   </section>
@@ -31,8 +31,8 @@ Hero.propTypes = {
   description: PropTypes.string.isRequired,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    avatar: PropTypes.shape({
-      alternativeText: PropTypes.string,
+    photo: PropTypes.shape({
+      altText: PropTypes.string,
       localFile: PropTypes.shape({
         childImageSharp: PropTypes.shape({
           gatsbyImageData: PropTypes.any.isRequired,
@@ -47,7 +47,7 @@ Hero.propTypes = {
     color: PropTypes.string.isRequired,
   }).isRequired,
   image: PropTypes.shape({
-    alternativeText: PropTypes.string,
+    altText: PropTypes.string,
     localFile: PropTypes.shape({
       childImageSharp: PropTypes.shape({
         gatsbyImageData: PropTypes.any.isRequired,
