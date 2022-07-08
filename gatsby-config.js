@@ -26,28 +26,6 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          'gatsby-remark-copy-linked-files',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 716,
-              quality: 85,
-              withWebp: true,
-              showCaptions: true,
-              linkImagesToOriginal: false,
-              backgroundColor: '#262626',
-              disableBgImageOnAlpha: true,
-            },
-          },
-          'gatsby-remark-prismjs',
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
@@ -91,49 +69,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: process.env.GATSBY_STRAPI_API_URL,
-        accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: [
-          {
-            singularName: 'article',
-            queryParams: {
-              publicationState: process.env.GATSBY_IS_PREVIEW === 'true' ? 'preview' : 'live',
-              // Populate media and relations
-              // Make sure to not specify the fields key so the api always returns the updatedAt
-              populate: {
-                author: '*',
-                category: '*',
-                cover: '*',
-                seo: {
-                  populate: {
-                    ogImage: '*',
-                  },
-                },
-              },
-            },
-          },
-          'author',
-        ],
-        singleTypes: [
-          {
-            singularName: 'blog',
-            queryParams: {
-              populate: {
-                featuredPost: '*',
-                seo: {
-                  populate: {
-                    ogImage: '*',
-                  },
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ['G-DHRXGBJSKF'],
@@ -144,6 +79,28 @@ module.exports = {
         pluginConfig: {
           head: true,
           respectDNT: true,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        url: process.env.WP_GRAPHQL_URL,
+        auth: {
+          htaccess: {
+            username: process.env.WP_HTACCESS_USERNAME,
+            password: process.env.WP_HTACCESS_PASSWORD,
+          },
+        },
+        html: {
+          fallbackImageMaxWidth: 800, // max-width of the content area
+          imageQuality: 85,
+          generateWebpImages: true,
+        },
+        develop: {
+          nodeUpdateInterval: process.env.WP_NODE_UPDATE_INTERVAL || 5000,
+          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
+          hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },
       },
     },
