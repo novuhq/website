@@ -211,7 +211,7 @@ export const pageQuery = graphql`
     }
 
     allWpCategory(
-      filter: { posts: { nodes: { elemMatch: { id: { ne: null, nin: [$featuredPostId] } } } } }
+      filter: { posts: { nodes: { elemMatch: { id: { ne: null } } } } }
       sort: { fields: name, order: ASC }
     ) {
       nodes {
