@@ -61,27 +61,27 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allStrapiArticle } }) =>
-              allStrapiArticle.edges.map((edge) => ({
+            serialize: ({ query: { site, allWpPost } }) =>
+              allWpPost.edges.map((edge) => ({
                 title: edge.node.title,
-                description: edge.node.description,
-                url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}/`,
-                guid: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}/`,
+                description: edge.node.pageBlogPost.description,
+                url: site.siteMetadata.siteUrl + edge.node.uri,
+                guid: site.siteMetadata.siteUrl + edge.node.uri,
                 relDir: edge.relativeDirectory,
-                custom_elements: [{ 'content:encoded': edge.node.content.data.content }],
+                custom_elements: [{ 'content:encoded': edge.node.content }],
               })),
             query: `
               {
-                allStrapiArticle(sort: {fields: date, order: DESC}) {
+                allWpPost(
+                  sort: { fields: date, order: DESC }
+                )  {
                   edges {
                     node {
+                      content
                       title
-                      slug
-                      description
-                      content {
-                        data {
-                          content
-                        }
+                      uri
+                      pageBlogPost {
+                        description
                       }
                     }
                   }
