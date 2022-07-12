@@ -2,18 +2,22 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
+import cshtml from 'react-syntax-highlighter/dist/esm/languages/prism/cshtml';
 import go from 'react-syntax-highlighter/dist/esm/languages/prism/go';
 import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import php from 'react-syntax-highlighter/dist/esm/languages/prism/php';
 import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
 import ruby from 'react-syntax-highlighter/dist/esm/languages/prism/ruby';
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
 SyntaxHighlighter.registerLanguage('ruby', ruby);
 SyntaxHighlighter.registerLanguage('python', python);
 SyntaxHighlighter.registerLanguage('go', go);
 SyntaxHighlighter.registerLanguage('php', php);
 SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('cshtml', cshtml);
 
 const Code = ({ language, content }) => (
   <SyntaxHighlighter
@@ -27,7 +31,8 @@ const Code = ({ language, content }) => (
 );
 
 Code.propTypes = {
-  language: PropTypes.oneOf(['javascript', 'ruby', 'python', 'go', 'php', 'bash']).isRequired,
+  language: PropTypes.oneOf(['javascript', 'jsx', 'ruby', 'python', 'go', 'php', 'bash', 'cshtml'])
+    .isRequired,
   content: PropTypes.string.isRequired,
 };
 
