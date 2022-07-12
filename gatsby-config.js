@@ -45,6 +45,56 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allStrapiArticle } }) =>
+              allStrapiArticle.edges.map((edge) => ({
+                title: edge.node.title,
+                description: edge.node.description,
+                url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}/`,
+                guid: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}/`,
+                relDir: edge.relativeDirectory,
+                custom_elements: [{ 'content:encoded': edge.node.content.data.content }],
+              })),
+            query: `
+              {
+                allStrapiArticle(sort: {fields: date, order: DESC}) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      description
+                      content {
+                        data {
+                          content
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/blog/rss.xml',
+            title: 'Novu Blog',
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-svgr-svgo',
       options: {
         inlineSvgOptions: [
