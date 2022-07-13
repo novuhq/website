@@ -1,3 +1,4 @@
+import { axios } from 'helpers/axios';
 import React from 'react';
 
 import Heading from '../components/shared/heading';
@@ -56,3 +57,17 @@ const SchedulePage = () => (
 );
 
 export default SchedulePage;
+
+export async function getServerData() {
+  try {
+    const issues = await axios.get(`/issues`);
+
+    return {
+      props: {
+        issues: issues.data.issues,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+  }
+}
