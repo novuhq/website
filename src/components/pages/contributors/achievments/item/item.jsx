@@ -40,7 +40,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               key={index}
             >
               <img
-                className="mr-3 rounded-full grayscale"
+                className="mr-3 rounded-full grayscale transition-all duration-200 group-hover:grayscale-0"
                 width={48}
                 height={48}
                 src={`https://avatars.githubusercontent.com/${url}?v=3`}
