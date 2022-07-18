@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-const ArticleCardPropTypes = {
+const BlogPostCardPropTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   category: PropTypes.shape({
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
@@ -11,7 +11,7 @@ const ArticleCardPropTypes = {
   }).isRequired,
   date: PropTypes.string.isRequired,
   image: PropTypes.shape({
-    alternativeText: PropTypes.string,
+    altText: PropTypes.string,
     localFile: PropTypes.shape({
       childImageSharp: PropTypes.shape({
         gatsbyImageData: PropTypes.any.isRequired,
@@ -20,8 +20,8 @@ const ArticleCardPropTypes = {
   }).isRequired,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    avatar: PropTypes.shape({
-      alternativeText: PropTypes.string,
+    photo: PropTypes.shape({
+      altText: PropTypes.string,
       localFile: PropTypes.shape({
         childImageSharp: PropTypes.shape({
           gatsbyImageData: PropTypes.any.isRequired,
@@ -32,4 +32,4 @@ const ArticleCardPropTypes = {
   blogPageURL: PropTypes.string.isRequired,
 };
 
-export default ArticleCardPropTypes;
+export default BlogPostCardPropTypes;

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import ArticletCard from 'components/shared/article-card';
+import BlogPostCard from 'components/shared/blog-post-card';
 
-import './articles-list.css';
+import './post-list.css';
 
 const getAdditionalProps = (index) => {
   switch (index) {
@@ -22,14 +22,14 @@ const getAdditionalProps = (index) => {
   }
 };
 
-const ArticlesList = ({ items, blogPageURL }) => (
+const PostList = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-10 overflow-x-hidden">
     <div className="article-list-inner container-lg grid grid-cols-12 gap-x-8 gap-y-16 lg:gap-x-7 md:gap-x-5">
       {items.map((item, index) => {
         const { className, size } = getAdditionalProps(index);
 
         return (
-          <ArticletCard
+          <BlogPostCard
             className={className}
             size={size}
             image={size === 'lg' ? item.imageLarge : item.imageMedium}
@@ -44,7 +44,7 @@ const ArticlesList = ({ items, blogPageURL }) => (
   </section>
 );
 
-ArticlesList.propTypes = {
+PostList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -54,9 +54,9 @@ ArticlesList.propTypes = {
         color: PropTypes.string.isRequired,
       }),
       date: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
       imageMedium: PropTypes.shape({
-        alternativeText: PropTypes.string,
+        altText: PropTypes.string,
         localFile: PropTypes.shape({
           childImageSharp: PropTypes.shape({
             gatsbyImageData: PropTypes.any.isRequired,
@@ -64,7 +64,7 @@ ArticlesList.propTypes = {
         }).isRequired,
       }).isRequired,
       imageLarge: PropTypes.shape({
-        alternativeText: PropTypes.string,
+        altText: PropTypes.string,
         localFile: PropTypes.shape({
           childImageSharp: PropTypes.shape({
             gatsbyImageData: PropTypes.any.isRequired,
@@ -74,8 +74,8 @@ ArticlesList.propTypes = {
       description: PropTypes.string.isRequired,
       author: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        avatar: PropTypes.shape({
-          alternativeText: PropTypes.string,
+        photo: PropTypes.shape({
+          altText: PropTypes.string,
           localFile: PropTypes.shape({
             childImageSharp: PropTypes.shape({
               gatsbyImageData: PropTypes.any.isRequired,
@@ -88,4 +88,4 @@ ArticlesList.propTypes = {
   blogPageURL: PropTypes.string.isRequired,
 };
 
-export default ArticlesList;
+export default PostList;

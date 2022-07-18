@@ -8,14 +8,14 @@ import CategoryLabel from 'components/shared/category-label';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-import ArticleCardPropTypes from '../article-card-prop-types';
+import BlogPostCardPropTypes from '../blog-post-card-prop-types';
 
-const ArticleCardLarge = ({
+const BlogPostCardLarge = ({
   className,
   title,
   category,
   date,
-  slug,
+  url,
   image,
   description,
   author,
@@ -25,13 +25,18 @@ const ArticleCardLarge = ({
     <div className="container-lg grid grid-cols-12 items-center gap-x-8 lg:gap-x-7 md:flex md:flex-col">
       <div className="col-start-1 col-end-6 flex flex-col md:order-2 md:mt-5">
         <header>
-          <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
+          <CategoryLabel url={blogPageURL + category.slug} theme={category.color} size="xs">
             {category.name}
           </CategoryLabel>
-          <Heading className="mt-4 font-medium leading-denser sm:text-3xl" size="lg" tag="h1">
+          <Heading
+            className="mt-4 font-medium leading-denser sm:text-3xl"
+            size="lg"
+            tag="h1"
+            theme="white"
+          >
             <Link
               className="inline-block align-top line-clamp-3 md:line-clamp-none"
-              to={slug}
+              to={url}
               theme="white"
             >
               {title}
@@ -46,7 +51,7 @@ const ArticleCardLarge = ({
         </footer>
       </div>
 
-      <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={slug}>
+      <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={url}>
         <GatsbyImage
           className="h-full w-full"
           imgClassName="rounded-lg"
@@ -58,13 +63,13 @@ const ArticleCardLarge = ({
   </article>
 );
 
-ArticleCardLarge.propTypes = {
+BlogPostCardLarge.propTypes = {
   className: PropTypes.string,
-  ...ArticleCardPropTypes,
+  ...BlogPostCardPropTypes,
 };
 
-ArticleCardLarge.defaultProps = {
+BlogPostCardLarge.defaultProps = {
   className: null,
 };
 
-export default ArticleCardLarge;
+export default BlogPostCardLarge;

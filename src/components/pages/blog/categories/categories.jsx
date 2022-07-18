@@ -39,13 +39,13 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
     const categoryId = event.currentTarget.value;
 
     if (categoryId === 'none') {
-      navigateOnScrollEnd(`/${blogPageURL}/`);
+      navigateOnScrollEnd(blogPageURL);
       animateScroll();
       return;
     }
 
     const categorySlug = items.find((item) => item.id === categoryId).slug;
-    navigateOnScrollEnd(`/${blogPageURL}/${categorySlug}`);
+    navigateOnScrollEnd(`${blogPageURL}${categorySlug}/`);
     animateScroll();
   };
 
@@ -62,7 +62,7 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
                     ? 'text-primary-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-primary-1'
                     : 'transition-colors duration-200 hover:text-primary-1'
                 )}
-                to={slug ? `/${blogPageURL}/${slug}` : `/${blogPageURL}`}
+                to={slug ? `${blogPageURL}${slug}/` : blogPageURL}
                 onClick={handleLinkClick}
               >
                 {name}

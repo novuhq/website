@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import ArticleCard from 'components/shared/article-card';
+import BlogPostCard from 'components/shared/blog-post-card';
 
 const RelatedArticles = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-30 bg-gray-2 py-28 sm:mt-20 sm:py-20">
@@ -9,7 +9,7 @@ const RelatedArticles = ({ items, blogPageURL }) => (
       <h2 className="text-[40px] leading-tight">Related Posts</h2>
       <div className="article-list-inner mt-14 grid grid-cols-3 gap-x-8 xl:mt-8 lg:grid-cols-2 lg:gap-x-7 md:gap-x-5">
         {items.map((item, index) => (
-          <ArticleCard
+          <BlogPostCard
             className="lg:last:hidden md:last:block"
             {...item}
             size="md"
@@ -27,7 +27,7 @@ RelatedArticles.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
       category: PropTypes.shape({
         name: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
@@ -35,7 +35,7 @@ RelatedArticles.propTypes = {
       }),
       date: PropTypes.string.isRequired,
       image: PropTypes.shape({
-        alternativeText: PropTypes.string,
+        altText: PropTypes.string,
         localFile: PropTypes.shape({
           childImageSharp: PropTypes.shape({
             gatsbyImageData: PropTypes.any.isRequired,
@@ -44,8 +44,8 @@ RelatedArticles.propTypes = {
       }).isRequired,
       author: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        avatar: PropTypes.shape({
-          alternativeText: PropTypes.string,
+        photo: PropTypes.shape({
+          altText: PropTypes.string,
           localFile: PropTypes.shape({
             childImageSharp: PropTypes.shape({
               gatsbyImageData: PropTypes.any.isRequired,

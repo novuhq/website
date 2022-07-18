@@ -9,7 +9,7 @@ import Link from 'components/shared/link';
 
 import bg from './images/bg.svg';
 
-const Hero = ({ title, category, date, slug, image, description, author }) => (
+const Hero = ({ title, category, date, url, image, description, author }) => (
   <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
     <div className="container-lg relative z-10">
       <article className="grid grid-cols-12 items-center gap-x-8 lg:gap-x-7 md:flex md:flex-col">
@@ -26,7 +26,7 @@ const Hero = ({ title, category, date, slug, image, description, author }) => (
             >
               <Link
                 className="inline-block align-top line-clamp-3 md:line-clamp-none"
-                to={slug}
+                to={url}
                 theme="white"
               >
                 {title}
@@ -42,12 +42,12 @@ const Hero = ({ title, category, date, slug, image, description, author }) => (
           </footer>
         </div>
 
-        <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={slug}>
+        <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={url}>
           <GatsbyImage
             className="h-full w-full"
             imgClassName="rounded-lg"
             image={getImage(image.localFile)}
-            alt={image.alternativeText || ''}
+            alt={image.altText || ''}
           />
         </Link>
       </article>
@@ -66,7 +66,7 @@ const Hero = ({ title, category, date, slug, image, description, author }) => (
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   category: PropTypes.shape({
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
@@ -74,7 +74,7 @@ Hero.propTypes = {
   }).isRequired,
   date: PropTypes.string.isRequired,
   image: PropTypes.shape({
-    alternativeText: PropTypes.string,
+    altText: PropTypes.string,
     localFile: PropTypes.shape({
       childImageSharp: PropTypes.shape({
         gatsbyImageData: PropTypes.any.isRequired,
@@ -83,8 +83,8 @@ Hero.propTypes = {
   }).isRequired,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    avatar: PropTypes.shape({
-      alternativeText: PropTypes.string,
+    photo: PropTypes.shape({
+      altText: PropTypes.string,
       localFile: PropTypes.shape({
         childImageSharp: PropTypes.shape({
           gatsbyImageData: PropTypes.any.isRequired,

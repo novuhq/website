@@ -7,21 +7,21 @@ import AuthorWithDate from 'components/shared/author-with-date';
 import CategoryLabel from 'components/shared/category-label';
 import Link from 'components/shared/link';
 
-import ArticleCardPropTypes from '../article-card-prop-types';
+import BlogPostCardPropTypes from '../blog-post-card-prop-types';
 
-const ArticleCardMedium = ({
+const BlogPostCardMedium = ({
   className,
   title,
   category,
   date,
-  slug,
+  url,
   image,
   description,
   author,
   blogPageURL,
 }) => (
   <article className={clsx('flex flex-col', className)}>
-    <Link to={slug}>
+    <Link to={url}>
       <GatsbyImage
         className="w-full"
         imgClassName="rounded-lg"
@@ -31,11 +31,11 @@ const ArticleCardMedium = ({
     </Link>
     <div className="mt-5 flex grow flex-col">
       <header className="space-y-3.5">
-        <CategoryLabel url={`/${blogPageURL}/${category.slug}`} theme={category.color} size="xs">
+        <CategoryLabel url={blogPageURL + category.slug} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
         <h1 className="text-[22px] font-medium leading-denser lg:text-[18px] xs:text-[16px]">
-          <Link className="inline-block align-top line-clamp-2" to={slug} theme="white">
+          <Link className="inline-block align-top line-clamp-2" to={url} theme="white">
             {title}
           </Link>
         </h1>
@@ -48,13 +48,13 @@ const ArticleCardMedium = ({
   </article>
 );
 
-ArticleCardMedium.propTypes = {
+BlogPostCardMedium.propTypes = {
   className: PropTypes.string,
-  ...ArticleCardPropTypes,
+  ...BlogPostCardPropTypes,
 };
 
-ArticleCardMedium.defaultProps = {
+BlogPostCardMedium.defaultProps = {
   className: null,
 };
 
-export default ArticleCardMedium;
+export default BlogPostCardMedium;

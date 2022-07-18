@@ -3,13 +3,13 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const AuthorWithDate = ({ className, author: { name: authorName, avatar: authorPhoto }, date }) => (
+const AuthorWithDate = ({ className, author: { name: authorName, photo: authorPhoto }, date }) => (
   <div className={clsx('flex items-center', className)}>
     <GatsbyImage
       className="mr-4"
       imgClassName="rounded-full"
       image={getImage(authorPhoto.localFile)}
-      alt={authorPhoto.alternativeText || authorName}
+      alt={authorPhoto.altText || authorName}
       loading="eager"
     />
     <div className="flex items-center">
@@ -24,8 +24,8 @@ AuthorWithDate.propTypes = {
   className: PropTypes.string,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    avatar: PropTypes.shape({
-      alternativeText: PropTypes.string,
+    photo: PropTypes.shape({
+      altText: PropTypes.string,
       localFile: PropTypes.shape({
         childImageSharp: PropTypes.shape({
           gatsbyImageData: PropTypes.any.isRequired,

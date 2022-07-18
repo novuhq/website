@@ -26,28 +26,6 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          'gatsby-remark-copy-linked-files',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 716,
-              quality: 85,
-              withWebp: true,
-              showCaptions: true,
-              linkImagesToOriginal: false,
-              backgroundColor: '#262626',
-              disableBgImageOnAlpha: true,
-            },
-          },
-          'gatsby-remark-prismjs',
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
@@ -83,27 +61,27 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allStrapiArticle } }) =>
-              allStrapiArticle.edges.map((edge) => ({
+            serialize: ({ query: { site, allWpPost } }) =>
+              allWpPost.edges.map((edge) => ({
                 title: edge.node.title,
-                description: edge.node.description,
-                url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}/`,
-                guid: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug}/`,
+                description: edge.node.pageBlogPost.description,
+                url: site.siteMetadata.siteUrl + edge.node.uri,
+                guid: site.siteMetadata.siteUrl + edge.node.uri,
                 relDir: edge.relativeDirectory,
-                custom_elements: [{ 'content:encoded': edge.node.content.data.content }],
+                custom_elements: [{ 'content:encoded': edge.node.content }],
               })),
             query: `
               {
-                allStrapiArticle(sort: {fields: date, order: DESC}) {
+                allWpPost(
+                  sort: { fields: date, order: DESC }
+                )  {
                   edges {
                     node {
+                      content
                       title
-                      slug
-                      description
-                      content {
-                        data {
-                          content
-                        }
+                      uri
+                      pageBlogPost {
+                        description
                       }
                     }
                   }
@@ -141,49 +119,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: process.env.GATSBY_STRAPI_API_URL,
-        accessToken: process.env.STRAPI_TOKEN,
-        collectionTypes: [
-          {
-            singularName: 'article',
-            queryParams: {
-              publicationState: process.env.GATSBY_IS_PREVIEW === 'true' ? 'preview' : 'live',
-              // Populate media and relations
-              // Make sure to not specify the fields key so the api always returns the updatedAt
-              populate: {
-                author: '*',
-                category: '*',
-                cover: '*',
-                seo: {
-                  populate: {
-                    ogImage: '*',
-                  },
-                },
-              },
-            },
-          },
-          'author',
-        ],
-        singleTypes: [
-          {
-            singularName: 'blog',
-            queryParams: {
-              populate: {
-                featuredPost: '*',
-                seo: {
-                  populate: {
-                    ogImage: '*',
-                  },
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ['G-DHRXGBJSKF'],
@@ -194,6 +129,27 @@ module.exports = {
         pluginConfig: {
           head: true,
           respectDNT: true,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        url: process.env.WP_GRAPHQL_URL,
+        auth: {
+          htaccess: {
+            username: process.env.WP_HTACCESS_USERNAME,
+            password: process.env.WP_HTACCESS_PASSWORD,
+          },
+        },
+        html: {
+          fallbackImageMaxWidth: 800, // max-width of the content area
+          imageQuality: 85,
+        },
+        develop: {
+          nodeUpdateInterval: process.env.WP_NODE_UPDATE_INTERVAL || 5000,
+          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
+          hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },
       },
     },

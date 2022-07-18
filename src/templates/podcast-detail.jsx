@@ -31,7 +31,7 @@ const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
       src: podcast.enclosure.url,
       type: podcast.enclosure.type,
     },
-    text: podcast.content.encoded,
+    text: podcast?.content?.encoded,
     date: podcast.pubDate,
     url: location.href,
   };
