@@ -1,5 +1,5 @@
 .profile-avatar::before {
-  @apply absolute left-0 top-0 right-0 bottom-0 rounded-[inherit] content-[''];
+  @apply absolute left-0 top-0 right-0 bottom-0 rounded-[inherit] transition-all duration-200 content-[''];
 
   background: linear-gradient(
     45deg,
@@ -8,6 +8,10 @@
     #e300bd 82.34%,
     #ff006a 94.81%
   );
+}
+
+.profile-avatar:hover::before {
+  filter: grayscale(1);
 }
 
 .profile-avatar::after {

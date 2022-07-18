@@ -16,9 +16,9 @@ const emoji = new EmojiConvertor();
 
 const Profile = ({ contributor }) => (
   <div className="profile sticky top-10 col-span-4 max-w-[312px] rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] px-5 pt-10 pb-6 md:static md:flex md:w-full md:max-w-none md:px-10 sm:flex-col sm:p-5">
-    <div className="profile-avatar relative mx-auto flex h-[232px] w-[232px] flex-shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-border md:mx-0 md:mr-10 sm:mx-auto">
+    <div className="profile-avatar group relative mx-auto flex h-[232px] w-[232px] flex-shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-border md:mx-0 md:mr-10 sm:mx-auto">
       <img
-        className="z-10 rounded-full grayscale"
+        className="z-10 rounded-full grayscale transition-all duration-200 group-hover:grayscale-0"
         src={`https://avatars.githubusercontent.com/${contributor.github}?v=3`}
         height={192}
         width={192}
