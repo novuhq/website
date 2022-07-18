@@ -77,7 +77,11 @@ const BlogPage = (props) => {
     <Layout seo={categoryPageSeo || seo}>
       <Hero {...hero} />
 
-      <div className={clsx('bg-gray-2 pb-20')}>
+      <div
+        className={clsx('bg-gray-2 pb-20', {
+          '!pb-0': postsList.items.length === 7,
+        })}
+      >
         <Categories
           items={categories}
           activeCategoryId={pageContext.categoryId || 'none'}
@@ -97,7 +101,7 @@ const BlogPage = (props) => {
           </>
         )}
       </div>
-
+      {postsList.items.length === 7 && <Separator backgroundColor="black" />}
       <Subscribe />
       <Separator backgroundColor="black" />
     </Layout>
