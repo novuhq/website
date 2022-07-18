@@ -70,7 +70,9 @@ export const pageQuery = graphql`
         url
         type
       }
-
+      content {
+        encoded
+      }
       pubDate
     }
   }

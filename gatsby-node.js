@@ -302,3 +302,18 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     },
   });
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+    type FeedPodcast implements Node {
+      content: FeedPodcastContent
+    }
+    type FeedPodcastContent @infer{
+      encoded: String
+    }
+  `;
+
+  createTypes(typeDefs);
+};
