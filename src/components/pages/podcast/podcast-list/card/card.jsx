@@ -6,15 +6,15 @@ import Link from 'components/shared/link';
 import PodcastCover from 'components/shared/podcast-cover';
 import { useAudioPlayer } from 'context/audio-player';
 
-const Card = ({ title, author, subtitle, episode, audio, slug, imageUrl }) => {
+const Card = ({ title, author, episode, audio, slug, imageUrl }) => {
   const audioPlayerData = useMemo(
     () => ({
-      title: `${title}. ${subtitle}`,
+      title,
       audio,
       link: slug,
       episode,
     }),
-    [title, subtitle, audio, episode, slug]
+    [title, audio, episode, slug]
   );
   const player = useAudioPlayer(audioPlayerData);
 
@@ -28,7 +28,7 @@ const Card = ({ title, author, subtitle, episode, audio, slug, imageUrl }) => {
           <span className="text-xs font-medium uppercase text-secondary-2">Episode {episode}</span>
           <h1 className="mt-3.5 text-xl font-medium leading-denser md:text-lg">
             <Link className="inline-block align-top line-clamp-3" to={slug} theme="white">
-              {title}. {subtitle}
+              {title}
             </Link>
           </h1>
         </header>
@@ -92,7 +92,6 @@ const Card = ({ title, author, subtitle, episode, audio, slug, imageUrl }) => {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
   episode: PropTypes.string.isRequired,
   audio: PropTypes.shape({
     src: PropTypes.string.isRequired,

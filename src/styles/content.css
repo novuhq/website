@@ -41,14 +41,31 @@
     }
 
     figure,
-    > .gatsby-resp-image-wrapper,
     > img,
     .gatsby-highlight {
       @apply my-10 sm:my-8;
     }
 
-    .gatsby-resp-image-figure figcaption {
-      @apply mt-2 text-center text-sm font-normal text-gray-9;
+    figure {
+      figcaption {
+        @apply mt-2 text-center text-sm font-normal text-gray-9;
+      }
+    }
+
+    .wp-block-image {
+      @apply mx-auto my-10 text-center sm:my-8;
+
+      span {
+        @apply align-top;
+      }
+
+      img {
+        @apply mx-auto;
+      }
+    }
+
+    p > img {
+      @apply mx-auto mt-10 sm:mt-8;
     }
 
     ul,

@@ -11,7 +11,7 @@ const getAdditionalProps = (index) => {
     case 6:
       return {
         // exit the width of the parent container to apply the background
-        className: 'col-span-12 ml-[calc(-50vw+50%)] w-screen bg-black',
+        className: 'col-span-12 ml-[calc(-50vw+50%)] w-screen bg-gray-1',
         size: 'lg',
       };
     default:
