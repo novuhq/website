@@ -90,6 +90,7 @@ const BlogPost = (props) => {
     <Layout
       seo={{
         ...seo,
+        description: seo.description || seo.defaultDescription,
         ogImage: ogImage
           ? getSrc(ogImage?.localFile?.childImageSharp)
           : getSrc(defaultOgImage.localFile.childImageSharp),

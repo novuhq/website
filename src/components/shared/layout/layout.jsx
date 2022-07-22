@@ -64,6 +64,7 @@ export const query = graphql`
     seo {
       title
       description: metaDesc
+      defaultDescription: opengraphDescription
       preventIndexing: metaRobotsNoindex
       slug: opengraphUrl
       opengraphImage {
