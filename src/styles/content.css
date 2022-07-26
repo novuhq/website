@@ -92,7 +92,8 @@
 
         &::before {
           @apply absolute top-0 -left-2.5 -translate-x-full font-normal text-primary-1;
-          content: counter(custom-counter) '. ' !important;
+
+          content: counters(custom-counter, '.') '. ';
         }
       }
     }
