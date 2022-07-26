@@ -26,7 +26,7 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
   const currentDescription = description ?? siteDescription;
   const currentUrl = slug ? siteUrl + slug : siteUrl;
   const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
-  const currentCanonicalUrl = canonical || currentUrl;
+  const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 
   const isRobotsNoindexPage = preventIndexing && preventIndexing !== 'index';
 

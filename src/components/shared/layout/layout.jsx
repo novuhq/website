@@ -35,6 +35,7 @@ Layout.propTypes = {
     slug: PropTypes.string,
     preventIndexing: PropTypes.bool,
     keywords: PropTypes.string,
+    canonical: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
 };
@@ -50,6 +51,7 @@ export const query = graphql`
       description: metaDesc
       preventIndexing: metaRobotsNoindex
       slug: opengraphUrl
+      canonical
       opengraphImage {
         localFile {
           childImageSharp {
@@ -67,6 +69,7 @@ export const query = graphql`
       defaultDescription: opengraphDescription
       preventIndexing: metaRobotsNoindex
       slug: opengraphUrl
+      canonical
       opengraphImage {
         localFile {
           childImageSharp {
