@@ -4,10 +4,10 @@ import { getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Code from 'components/pages/blog-post/code';
-import Content from 'components/pages/blog-post/content';
 import Hero from 'components/pages/blog-post/hero';
 import RelatedArticles from 'components/pages/blog-post/related-articles';
 import SocialShare from 'components/pages/blog-post/social-share';
+import Content from 'components/shared/content';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
 import Separator from 'components/shared/separator';
