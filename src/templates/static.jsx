@@ -25,7 +25,7 @@ const StaticPage = ({
         >
           {title}
         </Heading>
-        <Content className="mt-16 lg:mt-12 md:mt-8" content={content} asHTML />
+        <Content content={content} asHTML />
       </div>
     </section>
 
