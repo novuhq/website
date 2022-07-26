@@ -12,6 +12,12 @@ export default {
   podcast: {
     to: '/podcast',
   },
+  termsOfUse: {
+    to: '/terms',
+  },
+  privacyPolicy: {
+    to: '/privacy',
+  },
 
   // Other pages
   documentation: {

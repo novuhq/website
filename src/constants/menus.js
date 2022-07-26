@@ -32,6 +32,10 @@ const MENUS = {
       { text: 'Twitter', ...LINKS.twitter },
       { text: 'Github', ...LINKS.github },
     ],
+    [
+      { text: 'Terms of Use', ...LINKS.termsOfUse },
+      { text: 'Privacy Policy', ...LINKS.privacyPolicy },
+    ],
   ],
   mobile: [
     {

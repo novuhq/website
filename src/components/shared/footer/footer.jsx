@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
 
         <div className="flex space-x-30 lg:mt-8 lg:grid lg:grid-cols-12 lg:justify-between lg:gap-x-7 lg:space-x-0 sm:mt-9 sm:block">
-          <nav className="flex justify-between space-x-30 pt-1.5 lg:col-span-8 lg:w-full lg:justify-start sm:grid sm:grid-cols-2 sm:space-x-0">
+          <nav className="flex justify-between space-x-30 pt-1.5 lg:col-span-9 lg:w-full lg:justify-start lg:space-x-22 md:grid md:grid-cols-2 md:gap-y-5 md:space-x-0">
             {MENUS.footer.map((links, index) => (
               <ul className="space-y-2.5 lg:space-y-2 sm:space-y-1" key={index}>
                 {links.map(({ to, text, target }, index) => (
@@ -48,7 +48,7 @@ const Footer = () => {
             ))}
           </nav>
 
-          <div className="flex flex-col items-end justify-between lg:col-span-4 sm:mt-9 sm:items-start">
+          <div className="flex flex-col items-end justify-between lg:col-span-3 sm:mt-9 sm:items-start">
             <ButtonGithubStars className="pl-3" />
 
             <p className="text-sm leading-none text-gray-8 lg:hidden">
