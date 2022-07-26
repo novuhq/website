@@ -14,7 +14,12 @@ const StaticPage = ({
     wpPage: { content, title, seo },
   },
 }) => (
-  <Layout seo={seo}>
+  <Layout
+    seo={{
+      ...seo,
+      description: seo.description || seo.defaultDescription,
+    }}
+  >
     <section className="safe-paddings pt-40 pb-28 sm:pt-28">
       <div className="container-sm">
         <Heading
