@@ -38,7 +38,7 @@ const BlogPost = (props) => {
     image,
     author: {
       name: author.title,
-      photo: author.postAuthor.photo,
+      photo: author.postAuthor?.photo,
     },
     date,
     category: {
@@ -53,7 +53,7 @@ const BlogPost = (props) => {
     url: location.href,
     author: {
       name: author.title,
-      photo: author.postAuthor.photo,
+      photo: author.postAuthor?.photo,
     },
     date,
   };
@@ -72,7 +72,7 @@ const BlogPost = (props) => {
       description: post.pageBlogPost.description,
       author: {
         name: post.pageBlogPost.author.title,
-        photo: post.pageBlogPost.author.postAuthor.photo,
+        photo: post.pageBlogPost.author.postAuthor?.photo,
       },
     })),
     blogPageURL: pageContext.blogPageURL,

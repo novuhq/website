@@ -8,8 +8,8 @@ const AuthorWithDate = ({ className, author: { name: authorName, photo: authorPh
     <GatsbyImage
       className="mr-4"
       imgClassName="rounded-full"
-      image={getImage(authorPhoto.localFile)}
-      alt={authorPhoto.altText || authorName}
+      image={getImage(authorPhoto?.localFile)}
+      alt={authorPhoto?.altText || authorName}
       loading="eager"
     />
     <div className="flex items-center">

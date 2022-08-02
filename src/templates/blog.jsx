@@ -48,7 +48,7 @@ const BlogPage = (props) => {
     date: featuredPost.date,
     author: {
       name: featuredPost.pageBlogPost.author.title,
-      photo: featuredPost.pageBlogPost.author.postAuthor.photo,
+      photo: featuredPost.pageBlogPost.author.postAuthor?.photo,
     },
   };
 
@@ -67,7 +67,7 @@ const BlogPage = (props) => {
       description: post.pageBlogPost.description,
       author: {
         name: post.pageBlogPost.author.title,
-        photo: post.pageBlogPost.author.postAuthor.photo,
+        photo: post.pageBlogPost.author.postAuthor?.photo,
       },
     })),
     blogPageURL: pageContext.blogPageURL,
