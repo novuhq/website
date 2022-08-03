@@ -74,7 +74,7 @@ const PodcastPage = (props) => {
 
 export const pageQuery = graphql`
   query ($skip: Int, $limit: Int) {
-    allFeedPodcast(limit: $limit, skip: $skip) {
+    allFeedPodcast(limit: $limit, skip: $skip, sort: { fields: itunes___episode, order: DESC }) {
       nodes {
         author
         title
