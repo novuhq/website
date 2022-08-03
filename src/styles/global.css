@@ -1,4 +1,8 @@
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
   body {
     @apply min-w-[320px] bg-black font-sans text-base leading-normal text-white antialiased;
     -webkit-tap-highlight-color: transparent;
