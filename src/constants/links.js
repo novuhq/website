@@ -72,6 +72,10 @@ export default {
     to: 'https://novustatus.com/',
     target: '_blank',
   },
+  pressKit: {
+    to: 'https://handbook.novu.co/logos-assets',
+    target: '_blank',
+  },
 
   // Social
   discord: {
