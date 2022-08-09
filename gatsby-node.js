@@ -46,7 +46,7 @@ async function createPages({ graphql, actions, reporter }) {
 }
 
 async function createBlogPages({ graphql, actions }) {
-  const POSTS_PER_PAGE = 12;
+  const POSTS_PER_PAGE = 13;
 
   const { createPage } = actions;
 
