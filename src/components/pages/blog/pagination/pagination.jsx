@@ -14,8 +14,8 @@ const Pagination = ({ currentPageIndex, pageCount, blogPageURL, categoryPath }) 
   const handlePageChange = ({ selected }) => {
     const navigatePath =
       selected === 0
-        ? `/${blogPageURL}/${categoryPath}`
-        : `/${blogPageURL}/${categoryPath}${selected + 1}`;
+        ? `${blogPageURL}${categoryPath || ''}`
+        : `${blogPageURL}${categoryPath || ''}${selected + 1}`;
     navigate(navigatePath);
   };
 
