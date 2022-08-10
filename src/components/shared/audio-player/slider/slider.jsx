@@ -80,6 +80,7 @@ const Slider = (props) => {
           props.onChangeStart?.();
         }}
       >
+        <div className="absolute -inset-3" />
         <div
           className="h-1 rounded-l-full"
           style={{
