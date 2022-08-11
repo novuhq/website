@@ -102,7 +102,7 @@ const Slider = (props) => {
           onChangeStart={props.onChangeStart}
         />
       </div>
-      <div className="leading-dancer flex items-center gap-1 text-xs text-gray-8 md:hidden">
+      <div className="leading-dancer flex w-[115px] items-center justify-end gap-1 text-xs text-gray-8 md:hidden">
         <output
           {...outputProps}
           aria-live="off"
