@@ -26,6 +26,7 @@ const MENUS = {
       { text: 'Providers', ...LINKS.providers },
       { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', ...LINKS.discord },
+      { text: 'Press Kit', ...LINKS.pressKit },
     ],
     [
       { text: 'Discord', ...LINKS.discord },
