@@ -35,6 +35,7 @@ const MENUS = {
     [
       { text: 'Terms of Use', ...LINKS.termsOfUse },
       { text: 'Privacy Policy', ...LINKS.privacyPolicy },
+      { text: 'Status Page', ...LINKS.statusPage },
     ],
   ],
   mobile: [

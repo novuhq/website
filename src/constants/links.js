@@ -68,6 +68,10 @@ export default {
     to: 'https://open.spotify.com/show/2OyQJkn07lnJPNdxFWft96',
     target: '_blank',
   },
+  statusPage: {
+    to: 'https://novustatus.com/',
+    target: '_blank',
+  },
 
   // Social
   discord: {
