@@ -26,6 +26,7 @@ const MENUS = {
       { text: 'Providers', ...LINKS.providers },
       { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', ...LINKS.discord },
+      { text: 'Press Kit', ...LINKS.pressKit },
     ],
     [
       { text: 'Discord', ...LINKS.discord },
@@ -35,6 +36,7 @@ const MENUS = {
     [
       { text: 'Terms of Use', ...LINKS.termsOfUse },
       { text: 'Privacy Policy', ...LINKS.privacyPolicy },
+      { text: 'Status Page', ...LINKS.statusPage },
     ],
   ],
   mobile: [
