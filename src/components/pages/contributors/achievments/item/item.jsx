@@ -1,34 +1,89 @@
 import clsx from 'clsx';
+import { motion, useAnimation } from 'framer-motion';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import DEFAULT_EASE from 'constants/default-ease';
 
-const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => (
-  <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
-    <GatsbyImage className={imageClassNames} image={getImage(icon)} alt={`${title} icon`} />
-    <div className="flex w-full flex-col sm:mt-6">
-      <Heading
-        className="leading-tight md:text-[30px] sm:text-3xl"
-        size="md"
-        tag="h3"
-        theme="white"
-      >
-        {title}
-      </Heading>
-      <p className="mt-4 text-lg font-light leading-snug text-gray-10 md:text-base">
-        {description}
-      </p>
-      <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
-        {list
-          .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
-          .sort(
-            (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
-          )
-          .map(({ name: userName, github: url }, index) => (
+const underlineVariants = {
+  initial: {
+    right: 0,
+    left: 'auto',
+    width: '100%',
+    scaleX: -1,
+  },
+  start: {
+    right: 0,
+    left: 'auto',
+    width: 0,
+    scaleX: -1,
+    transition: {
+      duration: 0.25,
+      ease: DEFAULT_EASE,
+    },
+    transitionEnd: {
+      right: 'auto',
+      left: 0,
+      scaleX: 1,
+    },
+  },
+  finish: {
+    width: '100%',
+    transition: {
+      duration: 0.25,
+      ease: DEFAULT_EASE,
+    },
+    transitionEnd: {
+      right: 0,
+      left: 'auto',
+      scaleX: -1,
+    },
+  },
+};
+
+const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => {
+  const [canAnimate, setCanAnimate] = useState(true);
+  const controls = useAnimation();
+
+  const [isShowMore, setIsShowMore] = useState(false);
+
+  const listFiltered = list
+    .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
+    .sort((a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate());
+
+  const items = useMemo(
+    () => (isShowMore ? listFiltered : listFiltered.slice(0, 6)),
+    [isShowMore, listFiltered]
+  );
+  const handleHover = () => {
+    if (!canAnimate) return;
+
+    setCanAnimate(false);
+
+    controls.start('start').then(() => controls.start('finish').then(() => setCanAnimate(true)));
+  };
+
+  return (
+    <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
+      <GatsbyImage className={imageClassNames} image={getImage(icon)} alt={`${title} icon`} />
+      <div className="flex w-full flex-col sm:mt-6">
+        <Heading
+          className="leading-tight md:text-[30px] sm:text-3xl"
+          size="md"
+          tag="h3"
+          theme="white"
+        >
+          {title}
+        </Heading>
+        <p className="mt-4 text-lg font-light leading-snug text-gray-10 md:text-base">
+          {description}
+        </p>
+        <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
+          {items.map(({ name: userName, github: url }, index) => (
             <Link
               className={clsx(
                 'group flex items-center rounded-xl p-5',
@@ -63,10 +118,28 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               </div>
             </Link>
           ))}
+        </div>
+        {!isShowMore && items.length !== listFiltered.length && (
+          <button
+            className="relative left-1/2 mt-8 max-w-fit -translate-x-1/2 pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 sm:text-sm"
+            type="button"
+            onClick={() => setIsShowMore(true)}
+            onMouseEnter={handleHover}
+          >
+            Show more
+            <motion.span
+              className="absolute bottom-0 left-0 h-px w-auto rounded-full bg-primary-1"
+              initial="initial"
+              variants={underlineVariants}
+              animate={controls}
+              aria-hidden
+            />
+          </button>
+        )}{' '}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 Item.propTypes = {
   imageClassNames: PropTypes.string.isRequired,
