@@ -61,6 +61,8 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
 
+  const Tag = to ? 'a' : 'button';
+
   const className = clsx(
     size && theme && styles.base,
     styles.size[size],
@@ -88,7 +90,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
     />
   );
 
-  if (to.startsWith('/')) {
+  if (Tag === 'a' && to.startsWith('/')) {
     return (
       <GatsbyLink
         className={className}
@@ -103,7 +105,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
   }
 
   return (
-    <a
+    <Tag
       className={className}
       href={to}
       onMouseEnter={isUnderline ? handleHover : undefined}
@@ -111,7 +113,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
     >
       {children}
       {isUnderline && underline}
-    </a>
+    </Tag>
   );
 };
 
