@@ -69,18 +69,18 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               </div>
             </Link>
           ))}
+          {!isShownMore && listFiltered.length > 6 && (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            <Link
+              className="max-w-fit uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 sm:text-sm"
+              type="button"
+              theme="primary-underline"
+              onClick={() => setIsShownMore(true)}
+            >
+              Show more
+            </Link>
+          )}{' '}
         </div>
-        {!isShownMore && listFiltered.length > 6 && (
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
-          <Link
-            className="relative left-1/2 mt-8 max-w-fit -translate-x-1/2 pb-1.5 uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 sm:text-sm"
-            type="button"
-            theme="primary-underline"
-            onClick={() => setIsShownMore(true)}
-          >
-            Show more
-          </Link>
-        )}{' '}
       </div>
     </div>
   );
