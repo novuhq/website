@@ -75,6 +75,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               className="max-w-fit uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 sm:text-sm"
               type="button"
               theme="primary-underline"
+              tag="button"
               onClick={() => setIsShownMore(true)}
             >
               Show more

@@ -57,11 +57,11 @@ const underlineVariants = {
   },
 };
 
-const Link = ({ className: additionalClassName, size, theme, to, children, ...props }) => {
+const Link = ({ className: additionalClassName, size, theme, to, tag, children, ...props }) => {
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
 
-  const Tag = to ? 'a' : 'button';
+  const Tag = tag || 'a';
 
   const className = clsx(
     size && theme && styles.base,
@@ -120,6 +120,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
 Link.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string,
+  tag: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)),
   children: PropTypes.node.isRequired,
@@ -128,6 +129,7 @@ Link.propTypes = {
 Link.defaultProps = {
   className: null,
   to: null,
+  tag: null,
   size: null,
   theme: null,
 };
