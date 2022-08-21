@@ -88,7 +88,7 @@ const LiveEvent = () => {
             description={
               <div className="content">
                 <p>
-                  We are super exicted to release <strong>Novu v0.7.0.</strong>
+                  We are super excited to release <strong>Novu v0.7.0.</strong>
                 </p>
                 <p>
                   Just a quick background about us. Novu is the first open-source notification
