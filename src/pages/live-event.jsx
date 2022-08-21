@@ -88,6 +88,9 @@ const LiveEvent = () => {
             description={
               <div className="content">
                 <p>
+                  <strong>Event Date:</strong> 24 August, 2022 at 4PM (UTC TIME)
+                </p>
+                <p>
                   We are super excited to release <strong>Novu v0.7.0.</strong>
                 </p>
                 <p>
@@ -97,7 +100,7 @@ const LiveEvent = () => {
                   so on.
                 </p>
                 <p>In this event we will talk about:</p>
-                <ul>
+                <ul style={{ marginBottom: 10 }}>
                   <li>Novu Managed Service</li>
                   <li>
                     Novu new features: Push/Chat notifications functionality and User Preferences
