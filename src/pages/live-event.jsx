@@ -72,7 +72,7 @@ const Register = () => {
 };
 const LiveEvent = () => {
   const SEO = {
-    title: 'Novu - Contributors',
+    title: 'Novu - Live Event',
     description:
       'The ultimate library for managing multi-channel transactional notifications with a single API.',
     slug: '/live-event/',
