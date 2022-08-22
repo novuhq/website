@@ -76,7 +76,7 @@ const LiveEvent = () => {
     description:
       'The ultimate library for managing multi-channel transactional notifications with a single API.',
     slug: '/live-event/',
-    ogImage: '',
+    ogImage: 'https://novu.co/images/social-preview.jpg',
   };
 
   return (
