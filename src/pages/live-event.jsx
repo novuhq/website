@@ -88,7 +88,7 @@ const LiveEvent = () => {
             description={
               <div className="content">
                 <p>
-                  <strong>Event Date:</strong> 24 August, 2022 at 4PM (UTC TIME)
+                  <strong>Event Date:</strong> 24 August, 2022 at (4PM UTC TIME, 12PM EST, 9AM PST)
                 </p>
                 <p>
                   We are super excited to release <strong>Novu v0.7.0.</strong>
@@ -99,12 +99,18 @@ const LiveEvent = () => {
                   be In-App (the bell icon like you have in Facebook - Websockets), Emails, SMSs and
                   so on.
                 </p>
-                <p>In this event we will talk about:</p>
+                <p>In this event, we will talk about:</p>
                 <ul style={{ marginBottom: 10 }}>
-                  <li>Novu Managed Service</li>
                   <li>
-                    Novu new features: Push/Chat notifications functionality and User Preferences
+                    Novu new features:
+                    <ul>
+                      <li>Mobile Push Channels</li>
+                      <li>Chat Channels</li>
+                      <li>User Notifications Preferences</li>
+                    </ul>
                   </li>
+                  <li>20+ Community Contributors Shoutout</li>
+                  <li>Novu Managed Service</li>
                   <li>Swag giveaway</li>
                   <li>Q&A</li>
                 </ul>
