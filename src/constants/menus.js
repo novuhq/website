@@ -31,7 +31,7 @@ const MENUS = {
     [
       { text: 'Discord', ...LINKS.discord },
       { text: 'Twitter', ...LINKS.twitter },
-      { text: 'Github', ...LINKS.github },
+      { text: 'GitHub', ...LINKS.github },
     ],
     [
       { text: 'Terms of Use', ...LINKS.termsOfUse },
