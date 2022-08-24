@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => {
-  const [isShowMore, setIsShowMore] = useState(false);
+  const [isShownMore, setIsShownMore] = useState(false);
 
   const listFiltered = useMemo(
     () =>
@@ -20,7 +20,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
     [list, starsMin, starsMax]
   );
 
-  const items = isShowMore ? listFiltered : listFiltered.slice(0, 6);
+  const items = isShownMore ? listFiltered : listFiltered.slice(0, 6);
 
   return (
     <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
@@ -75,7 +75,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
           ))}
         </div>
 
-        {!isShowMore && items.length !== list.length && (
+        {!isShownMore && items.length !== list.length && (
           <div className="mt-8 sm:text-center">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <Link
@@ -83,7 +83,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               size="sm"
               theme="primary-underline"
               tag="button"
-              onClick={() => setIsShowMore(true)}
+              onClick={() => setIsShownMore(true)}
             >
               Show more
             </Link>

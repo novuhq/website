@@ -12,9 +12,9 @@ const DESCRIPTION =
   'Check our good first issues that help you onboard to Novu project and get first achievement.';
 
 const Issues = ({ issues }) => {
-  const [isShowMore, setIsShowMore] = useState(false);
+  const [isShownMore, setIsShownMore] = useState(false);
 
-  const list = useMemo(() => (isShowMore ? issues : issues.slice(0, 5)), [isShowMore, issues]);
+  const list = useMemo(() => (isShownMore ? issues : issues.slice(0, 5)), [isShownMore, issues]);
 
   return (
     <section className="issues safe-paddings py-40 lg:py-32 md:py-20 sm:py-16">
@@ -58,7 +58,7 @@ const Issues = ({ issues }) => {
             ))}
           </ul>
 
-          {!isShowMore && list.length !== issues.length && (
+          {!isShownMore && list.length !== issues.length && (
             <div className="mt-8 text-center">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <Link
@@ -67,7 +67,7 @@ const Issues = ({ issues }) => {
                 size="base"
                 theme="primary-underline"
                 tag="button"
-                onClick={() => setIsShowMore(true)}
+                onClick={() => setIsShownMore(true)}
               >
                 Show more issues
               </Link>
