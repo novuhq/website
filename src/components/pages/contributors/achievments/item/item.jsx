@@ -8,15 +8,19 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => {
-  const [isShownMore, setIsShownMore] = useState(false);
+  const [isShowMore, setIsShowMore] = useState(false);
 
-  const listFiltered = list
-    .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
-    .sort((a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate());
+  const listFiltered = useMemo(
+    () =>
+      list
+        .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
+        .sort(
+          (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
+        ),
+    [list, starsMin, starsMax]
+  );
 
-  useMemo(() => listFiltered, [listFiltered]);
-
-  const items = isShownMore ? listFiltered : listFiltered.slice(0, 6);
+  const items = isShowMore ? listFiltered : listFiltered.slice(0, 6);
 
   return (
     <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
@@ -69,19 +73,22 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               </div>
             </Link>
           ))}
-          {!isShownMore && listFiltered.length > 6 && (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        </div>
+
+        {!isShowMore && items.length !== list.length && (
+          <div className="mt-8 sm:text-center">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <Link
-              className="max-w-fit uppercase leading-none tracking-wide text-primary-1 transition-colors duration-200 hover:text-primary-1 sm:text-sm"
               type="button"
+              size="sm"
               theme="primary-underline"
               tag="button"
-              onClick={() => setIsShownMore(true)}
+              onClick={() => setIsShowMore(true)}
             >
               Show more
             </Link>
-          )}{' '}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

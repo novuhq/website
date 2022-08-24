@@ -90,7 +90,7 @@ const Link = ({ className: additionalClassName, size, theme, to, tag, children, 
     />
   );
 
-  if (Tag === 'a' && to.startsWith('/')) {
+  if (to?.startsWith('/') && !tag) {
     return (
       <GatsbyLink
         className={className}
@@ -120,18 +120,18 @@ const Link = ({ className: additionalClassName, size, theme, to, tag, children, 
 Link.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string,
-  tag: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)),
+  tag: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
 Link.defaultProps = {
   className: null,
   to: null,
-  tag: null,
   size: null,
   theme: null,
+  tag: null,
 };
 
 export default Link;
