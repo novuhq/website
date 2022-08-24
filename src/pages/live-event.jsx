@@ -109,7 +109,7 @@ const LiveEvent = () => {
                       <li>User Notifications Preferences</li>
                     </ul>
                   </li>
-                  <li>20+ Community Contributors Shoutout</li>
+                  <li>Community Contributors Shoutout</li>
                   <li>Novu Managed Service</li>
                   <li>Swag giveaway</li>
                   <li>Q&A</li>
@@ -121,7 +121,7 @@ const LiveEvent = () => {
             date=""
             image={{ localFile: '' }}
             category={{ slug: '', name: '', color: '' }}
-            blogPageURL="/hello"
+            blogPageURL="/live-event"
           />
         </div>
       </article>
