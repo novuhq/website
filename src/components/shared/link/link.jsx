@@ -57,9 +57,11 @@ const underlineVariants = {
   },
 };
 
-const Link = ({ className: additionalClassName, size, theme, to, children, ...props }) => {
+const Link = ({ className: additionalClassName, size, theme, to, tag, children, ...props }) => {
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
+
+  const Tag = tag || 'a';
 
   const className = clsx(
     size && theme && styles.base,
@@ -88,7 +90,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
     />
   );
 
-  if (to.startsWith('/')) {
+  if (to?.startsWith('/') && !tag) {
     return (
       <GatsbyLink
         className={className}
@@ -103,7 +105,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
   }
 
   return (
-    <a
+    <Tag
       className={className}
       href={to}
       onMouseEnter={isUnderline ? handleHover : undefined}
@@ -111,7 +113,7 @@ const Link = ({ className: additionalClassName, size, theme, to, children, ...pr
     >
       {children}
       {isUnderline && underline}
-    </a>
+    </Tag>
   );
 };
 
@@ -120,6 +122,7 @@ Link.propTypes = {
   to: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)),
+  tag: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
@@ -128,6 +131,7 @@ Link.defaultProps = {
   to: null,
   size: null,
   theme: null,
+  tag: null,
 };
 
 export default Link;
