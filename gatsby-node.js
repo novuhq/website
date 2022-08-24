@@ -4,6 +4,55 @@ const path = require('path');
 const fetch = require(`node-fetch`);
 const slash = require('slash');
 
+const createContributorsPage = async ({ actions, reporter }) => {
+  const { createPage } = actions;
+
+  try {
+    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`)
+      .then((response) => response.json())
+      .then((response) => response);
+    const { issues } = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`)
+      .then((response) => response.json())
+      .then((response) => response);
+
+    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
+    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+
+    createPage({
+      path: '/contributors/',
+      component: slash(templateMainPage),
+      context: {
+        contributors: data,
+        issues,
+      },
+    });
+
+    const contributors = data.list.filter(
+      ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
+    );
+
+    contributors.forEach((contributor) => {
+      const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+      const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+
+      createPage({
+        path: `/contributors/${contributor.github}/`,
+        component: slash(templateDetailPage),
+        context: {
+          contributor: {
+            ...contributor,
+            images: {
+              ogImage,
+              embedImage,
+            },
+          },
+        },
+      });
+    });
+  } catch (err) {
+    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+  }
+};
 async function createPages({ graphql, actions, reporter }) {
   const { createPage } = actions;
 
@@ -323,6 +372,7 @@ exports.createPages = async (args) => {
   await createPosts(params);
   await createPodcastPage(params);
   await createPodcastDetailPages(params);
+  await createContributorsPage(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {

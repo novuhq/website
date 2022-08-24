@@ -1,7 +1,7 @@
 import { motion, useAnimation } from 'framer-motion';
+import { axios } from 'helpers/axios';
 import moment from 'moment';
-import PropTypes from 'prop-types';
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -49,7 +49,8 @@ const underlineVariants = {
   },
 };
 
-const Issues = ({ issues }) => {
+const Issues = () => {
+  const [issues, setIssues] = useState([]);
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
 
@@ -64,6 +65,18 @@ const Issues = ({ issues }) => {
 
     controls.start('start').then(() => controls.start('finish').then(() => setCanAnimate(true)));
   };
+
+  const fetchData = async () => {
+    const {
+      data: { issues },
+    } = await axios.get('/api/issues');
+
+    setIssues(issues);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <section className="issues safe-paddings py-40 lg:py-32 md:py-20 sm:py-16">
@@ -128,16 +141,6 @@ const Issues = ({ issues }) => {
       </div>
     </section>
   );
-};
-
-Issues.propTypes = {
-  issues: PropTypes.arrayOf(
-    PropTypes.shape({
-      created_at: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default Issues;
