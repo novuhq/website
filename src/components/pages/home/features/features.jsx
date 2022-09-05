@@ -14,36 +14,36 @@ import Item from './item';
 const TITLE = "We've built it so you don't have to";
 const ITEMS = [
   {
-    lottieData: digest,
+    animationData: digest,
     title: 'Digest',
     description:
       'A digest engine that aggregates multiple events in to a single precise notification.',
   },
   {
-    lottieData: preferences,
+    animationData: preferences,
     title: 'User preferences',
     description:
       'Using Novu API to handle all user preferences and subscriptions across channels. UI components included.',
   },
   {
-    lottieData: priorityManagement,
+    animationData: priorityManagement,
     title: 'Priority management',
     description:
       'A smart API to centralize all communication channels in a single place: E-mail, SMS, Direct, Push and many more...',
   },
   {
-    lottieData: monitoring,
+    animationData: monitoring,
     title: 'Monitoring',
     description: 'Debug deliverability and analyze sending patterns  across multiple channels',
   },
   {
-    lottieData: contentManagement,
+    animationData: contentManagement,
     title: 'Content management',
     description:
       'Manage content for all channels and in multiple languages without the need to redeploy your code',
   },
   {
-    lottieData: timezone,
+    animationData: timezone,
     title: 'Timezone awareness',
     comingSoon: true,
     description: "Send transactional notifications based on user's timezone and working hours.",

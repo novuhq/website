@@ -3,24 +3,24 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Heading from 'components/shared/heading/heading';
-import useLottie from 'hooks/use-lottie';
+import LottieAnimation from 'components/shared/lottie-animation';
 
-const Item = ({ lottieData, title, description, comingSoon }) => {
+const Item = ({ animationData, title, description, comingSoon }) => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     triggerOnce: true,
     threshold: 0.6,
   });
 
-  const { animationRef } = useLottie({
+  const lottieData = {
     lottieOptions: {
-      animationData: lottieData,
+      animationData,
     },
     isInView: isAnimationWrapperInView,
-  });
+  };
 
   return (
     <li className="sm:max-w-[410px]" ref={animationWrapperRef}>
-      <div className="h-16 max-w-[124px] sm:mx-auto sm:h-14" ref={animationRef} />
+      <LottieAnimation className="h-16 max-w-[124px] sm:mx-auto sm:h-14" {...lottieData} />
       <div className="mt-5">
         <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
           {title}

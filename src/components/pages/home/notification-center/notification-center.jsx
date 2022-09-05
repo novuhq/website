@@ -1,14 +1,12 @@
-import clsx from 'clsx';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
-import ImagePlaceholder from 'components/shared/image-placeholder';
+import LottieAnimation from 'components/shared/lottie-animation';
 import LINKS from 'constants/links';
-import useLottie from 'hooks/use-lottie';
 
-import lottieData from './data/notification-center-lottie-data.json';
+import animationData from './data/notification-center-lottie-data.json';
 
 const TITLE = 'Fully featured notification center in minutes';
 const DESCRIPTION =
@@ -20,35 +18,22 @@ const NotificationCenter = () => {
     threshold: 0.6,
   });
 
-  const { animationRef, animation, isAnimationReady } = useLottie({
+  const lottieData = {
     lottieOptions: {
-      animationData: lottieData,
+      animationData,
       loop: true,
     },
     isInView: isAnimationWrapperInView,
-  });
-
-  useEffect(() => {
-    if (!animation) return;
-    if (isAnimationWrapperInView) {
-      animation.play();
-    } else {
-      animation.pause();
-    }
-  }, [animation, isAnimationWrapperInView]);
+  };
 
   return (
     <section className="notification-center safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-28 md:pb-18 sm:pt-18 sm:pb-12">
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div
-          className={clsx(
-            'relative col-start-1 col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8',
-            isAnimationReady && 'opacity-100'
-          )}
+          className="relative col-start-1 col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8"
           ref={animationWrapperRef}
         >
-          <ImagePlaceholder width={842} height={560} />
-          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
+          <LottieAnimation {...lottieData} />
         </div>
 
         <div className="col-start-9 col-end-13 xl:col-start-8 md:order-1 md:text-center">

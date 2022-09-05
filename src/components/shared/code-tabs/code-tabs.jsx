@@ -20,7 +20,7 @@ const CodeTabs = ({ className, items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className={clsx('rounded-[20px] bg-black lg:rounded-2xl', className)} aria-hidden>
+    <div className={clsx('rounded-[20px] bg-black lg:rounded-2xl', className)}>
       <ul className="scrollbar-hidden flex items-center space-x-2.5 overflow-x-auto overflow-y-hidden pl-8 pt-8 after:h-px after:w-8 after:flex-shrink-0 md:pl-6 md:pt-6 md:after:w-6 sm:space-x-2 sm:pl-4 sm:pt-4 sm:after:w-4">
         {items.map(({ name, code }, index) => (
           <li key={index}>
@@ -42,7 +42,10 @@ const CodeTabs = ({ className, items }) => {
           </li>
         ))}
         {!items.every((item) => item.code) && (
-          <li className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-book leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs">
+          <li
+            className="!ml-2.5 flex items-center whitespace-nowrap text-sm font-book leading-none text-secondary-2 before:mr-3 before:content-['—'] sm:text-xs"
+            aria-hidden
+          >
             Coming Soon...
           </li>
         )}
@@ -53,6 +56,7 @@ const CodeTabs = ({ className, items }) => {
         language={items[activeIndex].language}
         useInlineStyles={false}
         showLineNumbers
+        aria-hidden
       >
         {items[activeIndex].code}
       </SyntaxHighlighter>
