@@ -3,11 +3,10 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
-import ImagePlaceholder from 'components/shared/image-placeholder';
+import LottieAnimation from 'components/shared/lottie-animation';
 import LINKS from 'constants/links';
-import useLottie from 'hooks/use-lottie';
 
-import lottieData from './data/component-based-lottie-data.json';
+import animationData from './data/component-based-lottie-data.json';
 
 const TITLE = 'Component based';
 const DESCRIPTION =
@@ -20,12 +19,12 @@ const ComponentBased = () => {
     threshold: 0.6,
   });
 
-  const { animationRef } = useLottie({
+  const lottieData = {
     lottieOptions: {
-      animationData: lottieData,
+      animationData,
     },
     isInView: isAnimationWrapperInView,
-  });
+  };
 
   return (
     <section className="component-based safe-paddings py-40 lg:py-32 md:py-28 sm:py-18">
@@ -51,8 +50,7 @@ const ComponentBased = () => {
           className="relative col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full sm:mt-8"
           ref={animationWrapperRef}
         >
-          <ImagePlaceholder width={842} height={560} />
-          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
+          <LottieAnimation className="absolute top-0 left-0 h-full w-full" {...lottieData} />
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
     className={clsx('relative h-8 w-6', additionalClassName)}
     type="button"
     animate={isToggled ? 'toggled' : 'initial'}
+    aria-label="Menu"
     onClick={onClick}
   >
     <motion.span

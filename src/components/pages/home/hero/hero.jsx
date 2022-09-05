@@ -6,10 +6,9 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import ImagePlaceholder from 'components/shared/image-placeholder';
-import useLottie from 'hooks/use-lottie';
+import LottieAnimation from 'components/shared/lottie-animation';
 
-import lottieData from './data/hero-lottie-data.json';
+import animationData from './data/hero-lottie-data.json';
 import BashIcon from './images/bash-icon.inline.svg';
 import bgSm from './images/bg-sm.svg';
 import bg from './images/bg.svg';
@@ -26,14 +25,15 @@ const Hero = () => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     threshold: 0.6,
   });
-  const { animationRef, animation, isAnimationReady } = useLottie({
+
+  const lottieData = {
     lottieOptions: {
       renderer: 'canvas',
-      animationData: lottieData,
+      animationData,
       loop: true,
     },
     isInView: isAnimationWrapperInView,
-  });
+  };
 
   const handleButtonClick = () => {
     if (!isCopied) {
@@ -49,15 +49,6 @@ const Hero = () => {
       }, 1500);
     }
   }, [isCopied]);
-
-  useEffect(() => {
-    if (!animation) return;
-    if (isAnimationWrapperInView) {
-      animation.play();
-    } else {
-      animation.pause();
-    }
-  }, [animation, isAnimationWrapperInView]);
 
   return (
     <section className="hero safe-paddings relative overflow-hidden pt-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-32">
@@ -96,14 +87,10 @@ const Hero = () => {
         </div>
 
         <div
-          className={clsx(
-            'relative mt-18 max-w-[1300px] opacity-0 transition-opacity duration-500 lg:mt-16 md:mt-14 sm:mt-12 sm:hidden',
-            isAnimationReady && 'opacity-100'
-          )}
+          className="relative mt-18 max-w-[1300px] lg:mt-16 md:mt-14 sm:mt-12 sm:hidden"
           ref={animationWrapperRef}
         >
-          <ImagePlaceholder width={1300} height={321} />
-          <div className="absolute top-0 left-0 h-full w-full" ref={animationRef} />
+          <LottieAnimation {...lottieData} />
         </div>
       </div>
 

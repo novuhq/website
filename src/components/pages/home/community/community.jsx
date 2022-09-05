@@ -56,7 +56,7 @@ const Community = () => {
           />
 
           <div className="mt-10 lg:mt-7">
-            <h4 className="text-white">{SOCIAL_TILE}</h4>
+            <h3 className="text-white">{SOCIAL_TILE}</h3>
             <div className="mt-5 flex space-x-6 md:justify-center sm:space-x-8 xs:justify-between xs:space-x-0">
               {SOCIAL_ITEMS.map(({ icon, to, target, countFollowers }, index) => (
                 <Link
@@ -67,6 +67,7 @@ const Community = () => {
                   to={to}
                   key={index}
                   target={target}
+                  aria-label="Community social link"
                 >
                   <div className="relative z-10">{icon}</div>
                   {countFollowers && (
