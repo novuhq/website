@@ -10,6 +10,7 @@ import AudioPlayer from 'components/shared/audio-player';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
+import getSlugForPodcast from 'utils/get-slug-for-podcast';
 
 const PodcastPage = (props) => {
   const {
@@ -30,14 +31,14 @@ const PodcastPage = (props) => {
   const podcastList = {
     items: podcasts.map(
       ({ title, enclosure: { url, type }, itunes: { episode, image, subtitle }, ...props }) => ({
-        title,
+        title: title.replace(/w\//g, ''),
         subtitle,
         episode,
         audio: {
           src: url,
           type,
         },
-        slug: `/${pageContext.podcastPageUrl}/${title.toLowerCase().replace(/\s/g, '-')}/`,
+        slug: `/${pageContext.podcastPageUrl}/${getSlugForPodcast(title)}/`,
         imageUrl: image,
         ...props,
       })

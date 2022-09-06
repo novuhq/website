@@ -9,12 +9,13 @@ import AudioPlayer from 'components/shared/audio-player';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
+import getSlugForPodcast from 'utils/get-slug-for-podcast';
 
 const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
   const seo = {
-    title: `Novu Podcast - ${podcast.title}`,
+    title: `Novu Podcast - ${podcast.title.replace(/w\//g, '')}`,
     description: `${podcast.itunes.subtitle}`,
-    slug: `podcast/${podcast.title.toLowerCase().replace(/\s/g, '-')}/`,
+    slug: `podcast/${getSlugForPodcast(podcast.title)}/`,
   };
 
   const hero = {
@@ -24,7 +25,7 @@ const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
   };
 
   const content = {
-    title: podcast.title,
+    title: podcast.title.replace(/w\//g, ''),
     subtitle: podcast.itunes.subtitle,
     episode: podcast.itunes.episode,
     audio: {

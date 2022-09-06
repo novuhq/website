@@ -4,6 +4,9 @@ const path = require('path');
 const fetch = require(`node-fetch`);
 const slash = require('slash');
 
+const redirects = require('./redirects.json');
+const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
+
 async function createPages({ graphql, actions, reporter }) {
   const { createPage } = actions;
 
@@ -302,9 +305,10 @@ async function createPodcastDetailPages({ graphql, actions }) {
 
   podcasts.forEach(({ id, title }) => {
     const templatePath = path.resolve('./src/templates/podcast-detail.jsx');
+    const slug = getSlugForPodcast(title);
 
     createPage({
-      path: `/podcast/${title.toLowerCase().replace(/\s/g, '-')}/`,
+      path: `/podcast/${slug}/`,
       component: slash(templatePath),
       context: {
         id,
@@ -314,9 +318,20 @@ async function createPodcastDetailPages({ graphql, actions }) {
 }
 
 exports.createPages = async (args) => {
+  const { createRedirect } = args.actions;
+
   const params = {
     ...args,
   };
+
+  redirects.forEach((redirect) =>
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+      statusCode: redirect.statusCode,
+      force: redirect.force,
+    })
+  );
 
   await createPages(params);
   await createBlogPages(params);
