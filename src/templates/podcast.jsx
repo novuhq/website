@@ -24,7 +24,7 @@ const PodcastPage = (props) => {
   const seo = {
     title: `Novu Podcast`,
     // description: '',
-    slug: `${pageContext.podcastPageUrl}/`,
+    slug: `/${pageContext.podcastPageUrl}/`,
     ogImage: getSrc(ogImage.childImageSharp),
   };
 

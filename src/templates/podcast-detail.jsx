@@ -15,7 +15,7 @@ const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
   const seo = {
     title: `Novu Podcast - ${podcast.title.replace(/w\//g, '')}`,
     description: `${podcast.itunes.subtitle}`,
-    slug: `podcast/${getSlugForPodcast(podcast.title)}/`,
+    slug: `/podcast/${getSlugForPodcast(podcast.title)}/`,
   };
 
   const hero = {
