@@ -5,7 +5,6 @@ import React from 'react';
 
 import Content from 'components/pages/podcast-detail/content';
 import Hero from 'components/pages/podcast-detail/hero';
-import AudioPlayer from 'components/shared/audio-player';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
@@ -49,9 +48,6 @@ const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
       </section>
       <Subscribe />
       <Separator backgroundColor="black" />
-      <div className="fixed left-0 bottom-0 z-10 w-full">
-        <AudioPlayer />
-      </div>
     </Layout>
   );
 };
