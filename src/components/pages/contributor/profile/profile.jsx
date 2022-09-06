@@ -45,7 +45,7 @@ const Profile = ({ contributor }) => (
       />
 
       <div className="mt-3 space-y-1.5 md:flex md:gap-x-5 md:gap-y-1.5 md:space-y-0 sm:flex-wrap sm:justify-center">
-        {!!contributor.location && (
+        {!!contributor.location && contributor.location !== 'undefined' && (
           <span className="flex text-sm leading-denser">
             <LocationIcon className="mr-1.5 h-4" />
             {contributor.location}
@@ -54,7 +54,7 @@ const Profile = ({ contributor }) => (
         {!!contributor.url && (
           <Link
             className="flex text-sm leading-denser"
-            to={contributor.url}
+            to={contributor.url.startsWith('http') ? contributor.url : `https://${contributor.url}`}
             target="__blank"
             theme="white"
           >
