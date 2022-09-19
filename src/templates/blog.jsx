@@ -79,7 +79,7 @@ const BlogPage = (props) => {
 
       <div
         className={clsx('bg-gray-2 pb-20', {
-          '!pb-0': postsList.items.length === 7,
+          '!pb-0': postsList.items.length === 7 && pageContext.pageCount <= 1,
         })}
       >
         <Categories
@@ -101,7 +101,9 @@ const BlogPage = (props) => {
           </>
         )}
       </div>
-      {postsList.items.length === 7 && <Separator backgroundColor="black" />}
+      {postsList.items.length === 7 && pageContext.pageCount <= 1 && (
+        <Separator backgroundColor="black" />
+      )}
       <Subscribe />
       <Separator backgroundColor="black" />
     </Layout>
