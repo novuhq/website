@@ -15,7 +15,6 @@ module.exports = {
   },
   trailingSlash: 'always',
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
