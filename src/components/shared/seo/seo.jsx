@@ -1,12 +1,20 @@
 /* eslint-disable react/prop-types */
 import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
-const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, ogImage }) => {
+const SEO = ({
+  title,
+  description,
+  slug,
+  canonical,
+  preventIndexing,
+  keywords,
+  ogImage,
+  children,
+}) => {
   const {
     site: {
-      siteMetadata: { siteTitle, siteDescription, siteUrl, siteImage, siteLanguage },
+      siteMetadata: { siteTitle, siteDescription, siteUrl, siteImage },
     },
   } = useStaticQuery(graphql`
     query SEO {
@@ -16,7 +24,6 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
           siteDescription
           siteUrl
           siteImage
-          siteLanguage
         }
       }
     }
@@ -31,18 +38,13 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
   const isRobotsNoindexPage = preventIndexing && preventIndexing !== 'index';
 
   return (
-    <Helmet
-      title={currentTitle}
-      htmlAttributes={{
-        lang: siteLanguage,
-        prefix: 'og: http://ogp.me/ns#',
-      }}
-    >
+    <>
+      <title>{currentTitle}</title>
       {/* General */}
       <meta name="description" content={currentDescription} />
       <link rel="canonical" href={currentCanonicalUrl} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
+      {keywords ? <meta name="keywords" content={keywords} /> : null}
+      {isRobotsNoindexPage ? <meta name="robots" content="noindex" /> : null}
       {/* Open Graph */}
       <meta property="og:title" content={currentTitle} />
       <meta property="og:description" content={currentDescription} />
@@ -54,7 +56,8 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
       <meta property="og:type" content="website" />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-    </Helmet>
+      {children}
+    </>
   );
 };
 

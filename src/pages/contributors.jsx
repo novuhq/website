@@ -1,5 +1,3 @@
-import { graphql } from 'gatsby';
-import { getSrc } from 'gatsby-plugin-image';
 import { axios } from 'helpers/axios';
 import React from 'react';
 
@@ -12,44 +10,24 @@ import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
 const ContributorsPage = ({
-  data: { ogImage },
   serverData: {
     contributors: { list },
     issues,
   },
-}) => {
-  const SEO = {
-    title: 'Novu - Contributors',
-    description:
-      'The ultimate library for managing multi-channel transactional notifications with a single API.',
-    slug: '/contributors/',
-    ogImage: getSrc(ogImage.childImageSharp),
-  };
-
-  return (
-    <Layout seo={SEO}>
-      <Hero />
-      <Achievments list={list} />
-      <HowItWorks />
-      <Issues issues={issues} />
-      <GetStarted />
-      <Separator backgroundColor="black" />
-    </Layout>
-  );
-};
-
-export const pageQuery = graphql`
-  query {
-    ogImage: file(relativePath: { eq: "contributors/social-preview.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(formats: [JPG], width: 1200, height: 630)
-      }
-    }
-  }
-`;
+}) => (
+  <Layout>
+    <Hero />
+    <Achievments list={list} />
+    <HowItWorks />
+    <Issues issues={issues} />
+    <GetStarted />
+    <Separator backgroundColor="black" />
+  </Layout>
+);
 
 export default ContributorsPage;
 
+/* eslint-disable-next-line consistent-return */
 export async function getServerData() {
   try {
     const contributors = await axios.get(`/contributors`);
@@ -62,6 +40,9 @@ export async function getServerData() {
       },
     };
   } catch (err) {
+    /* eslint-disable-next-line no-console */
     console.log(err);
   }
 }
+
+export { Head } from 'components/pages/contributors/contributors-head/contributors-head';

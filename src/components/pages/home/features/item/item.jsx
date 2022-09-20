@@ -39,7 +39,7 @@ const Item = ({ animationData, title, description, comingSoon }) => {
 };
 
 Item.propTypes = {
-  lottieData: PropTypes.objectOf(PropTypes.any).isRequired,
+  lottieData: PropTypes.objectOf(PropTypes.any),
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   comingSoon: PropTypes.bool,
@@ -47,6 +47,7 @@ Item.propTypes = {
 
 Item.defaultProps = {
   comingSoon: false,
+  lottieData: null,
 };
 
 export default Item;

@@ -1,17 +1,12 @@
 import React from 'react';
 
+import SEO from 'components/shared/seo';
+
 import Heading from '../components/shared/heading';
 import Layout from '../components/shared/layout';
 
 const SchedulePage = () => (
-  <Layout
-    seo={{
-      slug: '/schedule',
-      title: 'Schedule',
-      preventIndexing: true,
-      description: 'Schedule Eventt',
-    }}
-  >
+  <Layout>
     <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
       <div className="container relative z-10">
         <article>
@@ -56,3 +51,13 @@ const SchedulePage = () => (
 );
 
 export default SchedulePage;
+
+export const Head = () => {
+  const pageMetadata = {
+    slug: '/schedule',
+    title: 'Schedule',
+    preventIndexing: true,
+    description: 'Schedule Event',
+  };
+  return <SEO {...pageMetadata} />;
+};
