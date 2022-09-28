@@ -3,9 +3,21 @@ import React from 'react';
 
 import Issues from 'components/pages/contributors/issues';
 import Hero from 'components/pages/hacktoberfest/hero';
+import CommunityHeroes from 'components/shared/community-heroes';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import LINKS from 'constants/links';
+
+const COMMUNITY_HEROES = {
+  titleSize: 'xl',
+  titleTag: 'h2',
+  titleClassName: 'font-normal',
+  description:
+    "Novu is more than just a notification system. It's a community. We want to let other people achieve a better status in our community by offering incentives unrelated to money.",
+  buttonUrl: '/contributors',
+  buttonText: 'How it works',
+  bgTheme: 'blue',
+};
 
 const GET_STARTED = {
   title: 'Join to our community',
@@ -24,6 +36,7 @@ const HacktoberfestPage = ({ serverData: { issues } }) => (
   <Layout>
     <Hero />
     <Issues className="mt-32 bg-gray-2" issues={issues} />
+    <CommunityHeroes className="pt-20" {...COMMUNITY_HEROES} />
     <GetStarted {...GET_STARTED} />
   </Layout>
 );
