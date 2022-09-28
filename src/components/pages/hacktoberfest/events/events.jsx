@@ -38,42 +38,54 @@ const ITEMS = [
 const Events = () => (
   <section className="safe-paddings py-32 md:py-20 sm:py-16">
     <div className="container-lg text-center">
-      <Heading className="md:text-5xl sm:text-4xl" tag="h2" size="xl" theme="white">
+      <Heading className="leading-tight md:text-5xl sm:text-4xl" tag="h2" size="xl" theme="white">
         {TITLE}
       </Heading>
-      <p className="mx-auto mt-11 max-w-[716px] text-gray-9 md:mt-8 md:max-w-none">{DESCRIPTION}</p>
+      <p className="mx-auto mt-11 max-w-[716px] text-lg text-gray-9 md:mt-8 md:max-w-none md:text-base">
+        {DESCRIPTION}
+      </p>
       <div className="mt-16 grid auto-rows-fr grid-cols-4 gap-x-10 gap-y-7 xl:grid-cols-2 md:mt-12 sm:mt-10 sm:auto-rows-auto sm:grid-cols-1 sm:gap-y-6">
-        {ITEMS.map(({ title, date, time, description, link }, index) => (
-          <div
-            className="flex flex-col rounded-[20px] py-6 px-5"
-            style={{
-              background:
-                'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%), #000000',
-            }}
-            key={index}
-          >
-            <Heading
-              className="mb-5 font-medium leading-snug md:text-xl"
-              tag="h3"
-              size="xs"
-              theme="purple"
+        {ITEMS.map(({ title, date, time, description, link }, index) => {
+          const isExternal = link.startsWith('http');
+          return (
+            <div
+              className="flex flex-col rounded-[20px] py-6 px-5"
+              style={{
+                background:
+                  'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%), #000000',
+              }}
+              key={index}
             >
-              {title}
-            </Heading>
-            <div className="mt-auto flex shrink flex-col">
-              <span className="flex justify-center space-x-5 text-lg font-medium sm:text-base">
-                <date>{date}</date>
-                <time>{time}</time>
-              </span>
-              <span className="mt-1 mb-5 text-lg text-gray-9 sm:text-base">
-                {description || 'TBD'}
-              </span>
-              <Button className="mt-auto h-7 self-center" theme="yellow" to={link} size="xs">
-                Learn more
-              </Button>
+              <Heading
+                className="mb-5 font-medium leading-snug md:text-xl"
+                tag="h3"
+                size="xs"
+                theme="purple"
+              >
+                {title}
+              </Heading>
+              <div className="mt-auto flex shrink flex-col">
+                <span className="flex justify-center space-x-5 text-lg font-medium sm:text-base">
+                  <date>{date}</date>
+                  <time>{time}</time>
+                </span>
+                <span className="mt-1 mb-5 text-lg text-gray-9 sm:text-base">
+                  {description || 'TBD'}
+                </span>
+                <Button
+                  className="mt-auto h-7 self-center"
+                  theme="yellow"
+                  to={link}
+                  target={isExternal ? '_blank' : null}
+                  rel={isExternal ? 'noopener noreferrer' : null}
+                  size="xs"
+                >
+                  Learn more
+                </Button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

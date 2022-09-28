@@ -3,6 +3,7 @@ import React from 'react';
 
 import Issues from 'components/pages/contributors/issues';
 import Events from 'components/pages/hacktoberfest/events';
+import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
 import CommunityHeroes from 'components/shared/community-heroes';
 import GetStarted from 'components/shared/get-started';
@@ -38,7 +39,8 @@ const HacktoberfestPage = ({ serverData: { issues } }) => (
     <Hero />
     <Issues className="mt-32 bg-gray-2 md:mt-20 sm:mt-16" issues={issues} />
     <Events />
-    <CommunityHeroes className="pt-20" {...COMMUNITY_HEROES} />
+    <GlobalEvents />
+    <CommunityHeroes className="pt-20 sm:pt-16" {...COMMUNITY_HEROES} />
     <GetStarted {...GET_STARTED} />
   </Layout>
 );
