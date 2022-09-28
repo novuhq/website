@@ -1,0 +1,17 @@
+@layer utilities {
+  .flat-none br {
+    content: none;
+  }
+
+  .flat-none br::after {
+    content: none;
+  }
+
+  .flat-breaks br {
+    content: '';
+  }
+
+  .flat-breaks br::after {
+    content: ' ';
+  }
+}
