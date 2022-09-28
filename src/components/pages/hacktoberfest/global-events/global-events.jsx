@@ -79,7 +79,7 @@ const GlobalEvents = () => {
   const list = useMemo(() => (isShownMore ? ITEMS : ITEMS.slice(0, 7)), [isShownMore]);
 
   return (
-    <section className="safe-paddings bg-gray-2 pt-32 pb-20 md:pt-20 sm:pt-16 sm:pb-16">
+    <section className="global-events safe-paddings bg-gray-2 pt-32 pb-20 md:pt-20 sm:pt-16 sm:pb-16">
       <div className="container-lg">
         <Heading
           className="text-center leading-tight md:text-5xl sm:text-4xl"
@@ -94,32 +94,29 @@ const GlobalEvents = () => {
         </p>
         <div className="mt-12 md:mt-10 sm:mt-8 sm:overflow-x-auto">
           <table className="w-full min-w-[650px] divide-y divide-gray-4 text-lg md:text-base">
-            {list.map(({ date, time, utc, title, link }, index) => (
-              <tr key={index}>
-                <td className="pr-5 font-medium md:pr-3.5">
-                  <date>{date}</date>
-                </td>
-                <td className="pr-5 font-medium md:pr-3.5">
-                  <time>{time}</time>
-                </td>
-                <td className="pr-5 text-gray-9 md:pr-3.5">{utc}</td>
-                <td className="pr-5 font-medium md:pr-3.5">{title}</td>
-                <td className="!ml-auto flex justify-center py-4">
-                  <Button className="!h-7" theme="yellow" size="xs" to={link}>
-                    Learn more
-                  </Button>
-                </td>
-              </tr>
-            ))}
+            <tbody>
+              {list.map(({ date, time, utc, title, link }, index) => (
+                <tr key={index}>
+                  <td className="pr-5 font-medium md:pr-3.5">{date}</td>
+                  <td className="pr-5 font-medium md:pr-3.5">{time}</td>
+                  <td className="pr-5 text-gray-9 md:pr-3.5">{utc}</td>
+                  <td className="pr-5 font-medium md:pr-3.5">{title}</td>
+                  <td className="!ml-auto flex justify-center py-4">
+                    <Button className="!h-7" theme="yellow" size="xs" to={link}>
+                      Learn more
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
         {!isShownMore && list.length !== ITEMS.length && (
           <div className="mt-8 text-center">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <Link
-              className="sm:text-sm"
               type="button"
-              size="base"
+              size="sm"
               theme="primary-underline"
               tag="button"
               onClick={() => setIsShownMore(true)}

@@ -37,7 +37,7 @@ const GET_STARTED = {
 const HacktoberfestPage = ({ serverData: { issues } }) => (
   <Layout>
     <Hero />
-    <Issues className="mt-32 bg-gray-2 md:mt-20 sm:mt-16" issues={issues} />
+    <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={issues} />
     <Events />
     <GlobalEvents />
     <CommunityHeroes className="pt-20 sm:pt-16" {...COMMUNITY_HEROES} />

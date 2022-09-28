@@ -10,7 +10,7 @@ import Item from './item';
 const medalIconClassNames =
   'h-[210px] w-[176px] lg:h-[160px] lg:w-[134px] flex-shrink-0 mr-34 lg:mr-7 md:h-[122px] md:w-[102px] md:mr-5 sm:mr-0';
 
-const Achievments = ({ list }) => {
+const Achievements = ({ list }) => {
   const {
     rockStar,
     contributorOfTheYear,
@@ -113,4 +113,4 @@ const Achievments = ({ list }) => {
   );
 };
 
-export default Achievments;
+export default Achievements;

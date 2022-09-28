@@ -18,7 +18,7 @@ const Issues = ({ className, issues }) => {
   const list = useMemo(() => (isShownMore ? issues : issues.slice(0, 5)), [isShownMore, issues]);
 
   return (
-    <section className={clsx('issues safe-paddings py-40 lg:py-32 md:py-20 sm:py-16', className)}>
+    <section className={clsx('issues safe-paddings', className)}>
       <div className="container-lg">
         <div className="mx-auto max-w-[787px] text-center">
           <Heading

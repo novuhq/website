@@ -1,9 +1,9 @@
+import Achievements from 'components/pages/contributors/achievments';
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 import { axios } from 'helpers/axios';
 import React, { useCallback } from 'react';
 
-import Achievements from 'components/pages/contributors/achievments';
 import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works';
 import Issues from 'components/pages/contributors/issues';
 import CommunityHeroes from 'components/shared/community-heroes';
@@ -35,7 +35,7 @@ const ContributorsPage = ({
       <CommunityHeroes className="pt-32 md:pt-30 sm:pt-22" onClickButton={scrollDown} />
       <Achievements list={list} />
       <HowItWorks />
-      <Issues issues={issues} />
+      <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" issues={issues} />
       <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>

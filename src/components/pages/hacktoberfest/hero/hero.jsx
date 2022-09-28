@@ -54,7 +54,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="safe-paddings pt-36 lg:pt-32 md:pt-28 sm:pt-18">
+    <section className="hero safe-paddings pt-36 lg:pt-32 md:pt-28 sm:pt-18">
       <div className="relative flex items-center bg-hero-gradient bg-cover bg-center bg-no-repeat pt-[42px] pb-[52px] md:pt-8 md:pb-10">
         <Heading
           className="text-highlighting-blue-gradient container text-center text-[72px] font-bold leading-denser lg:text-6xl md:text-5xl"
@@ -66,7 +66,7 @@ const Hero = () => {
           {PAGE_TITLE}
         </Heading>
       </div>
-      <div className="container mt-14 flex flex-col md:mt-10 sm:mt-9">
+      <div className="container-lg mt-14 flex flex-col md:mt-10 sm:mt-9">
         <Button className="mx-auto" size="sm" theme="blue-gradient" to={BUTTON_URL}>
           {BUTTON_TEXT}
         </Button>
@@ -74,7 +74,7 @@ const Hero = () => {
         <div className="mt-32 flex space-x-8 lg:mt-24 lg:flex-col lg:items-center lg:space-x-0 lg:space-y-10 lg:text-center md:mt-20 sm:mt-16">
           <div className="flex-1">
             <Heading
-              className="font-bold md:text-4xl sm:text-3xl"
+              className="font-bold leading-tight md:text-4xl sm:text-3xl"
               tag="h2"
               size="lg"
               theme="white"
