@@ -1,5 +1,7 @@
+import { axios } from 'helpers/axios';
 import React from 'react';
 
+import Issues from 'components/pages/contributors/issues';
 import Hero from 'components/pages/hacktoberfest/hero';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
@@ -18,11 +20,26 @@ const GET_STARTED = {
   themeClassName: 'get-started-blue-gradient-multicolor',
 };
 
-const HacktoberfestPage = () => (
+const HacktoberfestPage = ({ serverData: { issues } }) => (
   <Layout>
     <Hero />
+    <Issues className="mt-32 bg-gray-2" issues={issues} />
     <GetStarted {...GET_STARTED} />
   </Layout>
 );
 
 export default HacktoberfestPage;
+
+export async function getServerData() {
+  try {
+    const issues = await axios.get(`/issues`);
+
+    return {
+      props: {
+        issues: issues.data.issues,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+  }
+}

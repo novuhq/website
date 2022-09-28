@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
@@ -11,13 +12,13 @@ const TITLE = 'Don’t know where to start?';
 const DESCRIPTION =
   'Check our good first issues that help you onboard to Novu project and get first achievement.';
 
-const Issues = ({ issues }) => {
+const Issues = ({ className, issues }) => {
   const [isShownMore, setIsShownMore] = useState(false);
 
   const list = useMemo(() => (isShownMore ? issues : issues.slice(0, 5)), [isShownMore, issues]);
 
   return (
-    <section className="issues safe-paddings py-40 lg:py-32 md:py-20 sm:py-16">
+    <section className={clsx('issues safe-paddings py-40 lg:py-32 md:py-20 sm:py-16', className)}>
       <div className="container-lg">
         <div className="mx-auto max-w-[787px] text-center">
           <Heading

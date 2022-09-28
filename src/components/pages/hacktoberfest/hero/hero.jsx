@@ -60,6 +60,7 @@ const Hero = () => {
           className="text-highlighting-blue-gradient container lg:flat-breaks flat-none text-center text-[72px] font-bold leading-denser"
           tag="h1"
           size="3xl"
+          theme="white"
           asHTML
         >
           {PAGE_TITLE}
@@ -72,15 +73,13 @@ const Hero = () => {
 
         <div className="mt-32 flex">
           <div className="flex-1">
-            <Heading className="font-bold" tag="h2" size="lg" asHTML>
+            <Heading className="font-bold" tag="h2" size="lg" theme="white" asHTML>
               {TITLE}
             </Heading>
             <p className="mt-5 max-w-[504px] text-gray-9">{DESCRIPTION}</p>
           </div>
           <div className="flex-1 font-medium">
-            <Heading className="text-lg uppercase leading-none" tag="h3">
-              {TITLE_2}
-            </Heading>
+            <h3 className="text-lg uppercase leading-none text-white">{TITLE_2}</h3>
             <div className="mt-7 flex space-x-20">
               {items.map(({ number, title }, index) => (
                 <div className="flex flex-col items-center leading-none" key={index}>
