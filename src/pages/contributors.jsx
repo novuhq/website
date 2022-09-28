@@ -1,9 +1,9 @@
-import Achievements from 'components/pages/contributors/achievments';
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 import { axios } from 'helpers/axios';
 import React, { useCallback } from 'react';
 
+import Achievements from 'components/pages/contributors/achievements';
 import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works';
 import Issues from 'components/pages/contributors/issues';
 import CommunityHeroes from 'components/shared/community-heroes';
