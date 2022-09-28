@@ -54,7 +54,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="pt-36 lg:pt-32 md:pt-28 sm:pt-18">
+    <section className="safe-paddings pt-36 lg:pt-32 md:pt-28 sm:pt-18">
       <div className="relative flex items-center bg-hero-gradient bg-cover bg-center bg-no-repeat pt-[42px] pb-[52px] md:pt-8 md:pb-10">
         <Heading
           className="text-highlighting-blue-gradient container text-center text-[72px] font-bold leading-denser md:text-5xl sm:text-4xl"
