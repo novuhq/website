@@ -81,7 +81,7 @@ const Achievements = ({ list }) => {
   };
   return (
     <>
-      {/* <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16"> */}
+      {/* <section className="achievements-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16"> */}
       {/*   <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0"> */}
       {/*     {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => { */}
       {/*       const icon = achievementIcons[iconName]; */}
@@ -92,7 +92,7 @@ const Achievements = ({ list }) => {
       {/*   </div> */}
       {/* </section> */}
 
-      <section className="achievments-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
+      <section className="achievements-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
         <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
           {ACHIEVEMENT_MEDALS.map(({ iconName, ...props }, index) => {
             const icon = achievementIcons[iconName];
