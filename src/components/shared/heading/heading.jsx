@@ -15,6 +15,7 @@ const styles = {
   theme: {
     white: 'text-white',
     black: 'text-black',
+    purple: 'text-purple',
   },
 };
 
