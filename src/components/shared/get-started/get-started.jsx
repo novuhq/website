@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button/button';
@@ -19,17 +20,22 @@ const RIGHT_TITLE = 'Cloud';
 const RIGHT_DESCRIPTION = 'Use our free managed service';
 const RIGHT_BUTTON_TEXT = 'Get Started';
 
+const themeClassNames = {
+  pink: 'get-started-gradient-multicolor',
+  blue: 'get-started-blue-gradient-multicolor',
+};
+
 const GetStarted = ({
-  title = TITLE,
-  leftTitle = LEFT_TITLE,
-  leftDescription = LEFT_DESCRIPTION,
-  leftButtonLink = LINKS.docker,
-  leftButtonText = LEFT_BUTTON_TEXT,
-  rightTitle = RIGHT_TITLE,
-  rightDescription = RIGHT_DESCRIPTION,
-  rightButtonLink = LINKS.getStarted,
-  rightButtonText = RIGHT_BUTTON_TEXT,
-  themeClassName = 'get-started-gradient-multicolor',
+  title,
+  leftTitle,
+  leftDescription,
+  leftButtonLink,
+  leftButtonText,
+  rightTitle,
+  rightDescription,
+  rightButtonLink,
+  rightButtonText,
+  theme,
 }) => (
   <section className="get-started safe-paddings relative overflow-hidden py-40 lg:py-28 md:py-16 sm:py-11">
     <div className="container relative z-10">
@@ -63,7 +69,7 @@ const GetStarted = ({
         <div
           className={clsx(
             'flex flex-col items-center rounded-[20px] p-8 pb-10 lg:rounded-2xl sm:order-1 sm:p-5',
-            themeClassName
+            themeClassNames[theme]
           )}
         >
           <Heading
@@ -98,5 +104,37 @@ const GetStarted = ({
     />
   </section>
 );
+
+GetStarted.propTypes = {
+  title: PropTypes.string,
+  leftTitle: PropTypes.string,
+  leftDescription: PropTypes.string,
+  leftButtonLink: PropTypes.shape({
+    to: PropTypes.string,
+    target: PropTypes.string,
+  }),
+  leftButtonText: PropTypes.string,
+  rightTitle: PropTypes.string,
+  rightDescription: PropTypes.string,
+  rightButtonLink: PropTypes.shape({
+    to: PropTypes.string,
+    target: PropTypes.string,
+  }),
+  rightButtonText: PropTypes.string,
+  theme: PropTypes.oneOf(Object.keys(themeClassNames)),
+};
+
+GetStarted.defaultProps = {
+  title: TITLE,
+  leftTitle: LEFT_TITLE,
+  leftDescription: LEFT_DESCRIPTION,
+  leftButtonLink: LINKS.docker,
+  leftButtonText: LEFT_BUTTON_TEXT,
+  rightTitle: RIGHT_TITLE,
+  rightDescription: RIGHT_DESCRIPTION,
+  rightButtonLink: LINKS.getStarted,
+  rightButtonText: RIGHT_BUTTON_TEXT,
+  theme: 'pink',
+};
 
 export default GetStarted;

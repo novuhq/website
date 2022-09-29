@@ -12,9 +12,47 @@ const DESCRIPTION =
 
 const getZeroPad = (number) => (number < 10 ? `0${number}` : number);
 
-const getCountItems = (title, count) => ({
-  title,
-  items: [
+const getCountTime = (distance) => {
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
+};
+
+const countDownLaunchDate = new Date('Oct 1, 2022 00:00:00').getTime();
+const countDownEndDate = new Date('Oct 31, 2022 00:00:00').getTime();
+
+const Hero = () => {
+  const [count, setCount] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isLaunched, setIsLaunched] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countDownLaunchDate - now;
+      const distanceEnd = countDownEndDate - now;
+
+      const launchCountTime = getCountTime(distance);
+      const endCountTime = getCountTime(distanceEnd);
+
+      if (distance < 0) {
+        setCount({ ...endCountTime });
+        setIsLaunched(true);
+      } else {
+        setCount({ ...launchCountTime });
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const items = [
     {
       number: count.days,
       title: 'Days',
@@ -31,49 +69,6 @@ const getCountItems = (title, count) => ({
       number: count.seconds,
       title: 'Seconds',
     },
-  ],
-});
-
-const getCountTime = (distance) => {
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  return {
-    days,
-    hours,
-    minutes,
-    seconds,
-  };
-};
-
-const Hero = () => {
-  const [launchCount, setLaunchCount] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [endCount, setEndCount] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  const countDownLaunchDate = new Date('Oct 1, 2022 00:00:00').getTime();
-  const countDownEndDate = new Date('Oct 31, 2022 00:00:00').getTime();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countDownLaunchDate - now;
-      const distanceEnd = countDownEndDate - now;
-
-      const launchCountTime = getCountTime(distance);
-      const endCountTime = getCountTime(distanceEnd);
-
-      setLaunchCount({ ...launchCountTime });
-      setEndCount({ ...endCountTime });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [countDownEndDate, countDownLaunchDate]);
-
-  const countItems = [
-    getCountItems('Time to launch', launchCount),
-    getCountItems('Time to end', endCount),
   ];
 
   return (
@@ -114,24 +109,22 @@ const Hero = () => {
             </Heading>
             <p className="mt-5 max-w-[504px] text-gray-9">{DESCRIPTION}</p>
           </div>
-          <div className="flex flex-1 flex-col space-y-12 font-medium">
-            {countItems.map(({ title, items }) => (
-              <div key={title} className="">
-                <h3 className="text-lg uppercase leading-none text-white">{title}</h3>
-                <div className="mt-7 flex space-x-20 md:space-x-16 sm:space-x-10 xs:space-x-8">
-                  {items.map(({ number, title }, index) => (
-                    <div className="flex flex-col items-center leading-none" key={index}>
-                      <span className="text-8xl md:text-7xl sm:text-5xl xs:text-3xl">
-                        {getZeroPad(number)}
-                      </span>
-                      <span className="mt-2.5 uppercase text-gray-6 sm:text-sm xs:text-xs">
-                        {title}
-                      </span>
-                    </div>
-                  ))}
+          <div className="flex-1 font-medium">
+            <h3 className="text-lg uppercase leading-none text-white">
+              {isLaunched ? 'Time to end' : 'Time to launch'}
+            </h3>
+            <div className="mt-7 flex space-x-20 md:space-x-16 sm:space-x-10 xs:space-x-8">
+              {items.map(({ number, title }, index) => (
+                <div className="flex flex-col items-center leading-none" key={index}>
+                  <span className="text-8xl md:text-7xl sm:text-5xl xs:text-3xl">
+                    {getZeroPad(number)}
+                  </span>
+                  <span className="mt-2.5 uppercase text-gray-6 sm:text-sm xs:text-xs">
+                    {title}
+                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

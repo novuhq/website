@@ -1,25 +1,14 @@
 import { axios } from 'helpers/axios';
 import React from 'react';
 
-import Issues from 'components/pages/contributors/issues';
+import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
 import Events from 'components/pages/hacktoberfest/events';
 import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
-import CommunityHeroes from 'components/shared/community-heroes';
 import GetStarted from 'components/shared/get-started';
+import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
 import LINKS from 'constants/links';
-
-const COMMUNITY_HEROES = {
-  titleSize: 'xl',
-  titleTag: 'h2',
-  titleClassName: '!font-normal',
-  description:
-    "Novu is more than just a notification system. It's a community. We want to let other people achieve a better status in our community by offering incentives unrelated to money.",
-  buttonUrl: '/contributors',
-  buttonText: 'How it works',
-  bgTheme: 'blue',
-};
 
 const GET_STARTED = {
   title: 'Join to our community',
@@ -31,7 +20,7 @@ const GET_STARTED = {
   rightDescription: 'Join our community and get help from our team.',
   rightButtonLink: LINKS.discord,
   rightButtonText: 'Join the Novu discord',
-  themeClassName: 'get-started-blue-gradient-multicolor',
+  theme: 'blue',
 };
 
 const HacktoberfestPage = ({ serverData: { issues } }) => (
@@ -40,7 +29,7 @@ const HacktoberfestPage = ({ serverData: { issues } }) => (
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={issues} />
     <Events />
     <GlobalEvents />
-    <CommunityHeroes className="pt-20 sm:pt-16" {...COMMUNITY_HEROES} />
+    <CommunityHeroes />
     <GetStarted {...GET_STARTED} />
   </Layout>
 );

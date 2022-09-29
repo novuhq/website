@@ -1,13 +1,13 @@
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 import { axios } from 'helpers/axios';
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import Achievements from 'components/pages/contributors/achievements';
+import Hero from 'components/pages/contributors/hero';
 import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works';
-import Issues from 'components/pages/contributors/issues';
-import CommunityHeroes from 'components/shared/community-heroes';
 import GetStarted from 'components/shared/get-started';
+import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
@@ -26,13 +26,9 @@ const ContributorsPage = ({
     ogImage: getSrc(ogImage.childImageSharp),
   };
 
-  const scrollDown = useCallback(() => {
-    document.querySelector('#started').scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
   return (
     <Layout seo={SEO}>
-      <CommunityHeroes className="pt-32 md:pt-30 sm:pt-22" onClickButton={scrollDown} />
+      <Hero />
       <Achievements list={list} />
       <HowItWorks />
       <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" issues={issues} />
