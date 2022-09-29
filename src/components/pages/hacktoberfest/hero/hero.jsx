@@ -116,9 +116,12 @@ const Hero = () => {
             <h3 className="text-lg uppercase leading-none text-white">
               {isLaunched ? 'Time to end' : 'Time to launch'}
             </h3>
-            <div className="mt-7 flex space-x-20 md:space-x-16 sm:space-x-10 xs:space-x-8">
+            <div className="mt-7 flex space-x-20 md:space-x-16 sm:space-x-10 xs:space-x-6">
               {items.map(({ number, title }, index) => (
-                <div className="flex flex-col items-center leading-none" key={index}>
+                <div
+                  className="flex w-[86px] flex-col items-center justify-center leading-none md:w-[76px] sm:w-14"
+                  key={index}
+                >
                   <span className="text-8xl md:text-7xl sm:text-5xl xs:text-3xl">
                     {getZeroPad(number)}
                   </span>
