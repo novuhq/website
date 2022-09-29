@@ -12,7 +12,7 @@ const BUTTON_URL = '/contributors';
 const BUTTON_TEXT = 'How it works';
 
 const CommunityHeroes = () => (
-  <section className="hero safe-paddings relative overflow-hidden pt-20 sm:pt-16">
+  <section className="community-heroes safe-paddings relative overflow-hidden pt-20 sm:pt-16">
     <div className="container-sm relative z-10 text-center">
       <Heading size="xl" tag="h2" className="leading-tight md:text-5xl sm:text-4xl" theme="white">
         {TITLE}
