@@ -80,11 +80,11 @@ const GetStarted = ({
           >
             {rightTitle}
           </Heading>
-          <p className="mt-3 text-center leading-snug text-black sm:text-base">
+          <p className="mt-3 mb-7 text-center leading-snug text-black sm:mb-5 sm:text-base">
             {rightDescription}
           </p>
           <Button
-            className="mt-7 sm:mt-5 sm:h-10 sm:text-xs"
+            className="mt-auto sm:h-10 sm:text-xs"
             size="sm"
             theme="black-filled"
             {...rightButtonLink}

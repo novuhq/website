@@ -23,8 +23,15 @@ const GET_STARTED = {
   theme: 'blue',
 };
 
+const SEO = {
+  title: 'Novu - Hacktoberfest',
+  description:
+    'Whether it’s your first time — or your ninth — it’s almost time to hack out four pristine pull/merge requests and complete your mission for open source.',
+  slug: '/hacktoberfest/',
+};
+
 const HacktoberfestPage = ({ serverData: { issues } }) => (
-  <Layout>
+  <Layout seo={SEO}>
     <Hero />
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={issues} />
     <Events />
