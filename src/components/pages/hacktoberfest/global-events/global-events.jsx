@@ -93,8 +93,8 @@ const GlobalEvents = () => {
           {DESCRIPTION}
         </p>
         <div className="mt-12 md:mt-10 sm:mt-8 sm:overflow-x-auto">
-          <table className="w-full min-w-[650px] divide-y divide-gray-4 text-lg md:text-base">
-            <tbody>
+          <table className="w-full min-w-[650px] text-lg md:text-base">
+            <tbody className="divide-y divide-gray-4">
               {list.map(({ date, time, utc, title, link }, index) => (
                 <tr key={index}>
                   <td className="pr-5 font-medium md:pr-3.5">{date}</td>
