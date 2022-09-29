@@ -29,23 +29,26 @@ const getCountTime = (distance) => {
 const countDownLaunchDate = new Date('Oct 1, 2022 00:00:00').getTime();
 const countDownEndDate = new Date('Oct 31, 2022 00:00:00').getTime();
 
+const tick = () => {
+  const now = new Date().getTime();
+  const distance = countDownLaunchDate - now;
+
+  if (distance < 0) {
+    return getCountTime(countDownEndDate - now);
+  }
+
+  return getCountTime(distance);
+};
+
 const Hero = () => {
-  const [count, setCount] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [isLaunched, setIsLaunched] = useState(false);
+  const [count, setCount] = useState(() => tick());
+  const [isLaunched, setIsLaunched] = useState(countDownLaunchDate < new Date().getTime());
+
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countDownLaunchDate - now;
-      const distanceEnd = countDownEndDate - now;
-
-      const launchCountTime = getCountTime(distance);
-      const endCountTime = getCountTime(distanceEnd);
-
-      if (distance < 0) {
-        setCount({ ...endCountTime });
+      setCount(tick());
+      if (countDownLaunchDate < new Date().getTime()) {
         setIsLaunched(true);
-      } else {
-        setCount({ ...launchCountTime });
       }
     }, 1000);
 
