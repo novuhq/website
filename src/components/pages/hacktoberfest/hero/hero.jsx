@@ -16,7 +16,7 @@ const getZeroPad = (number) => (number < 10 ? `0${number}` : number);
 const Hero = () => {
   const [count, setCount] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  const countDownDate = new Date('Oct 31, 2022 00:00:00').getTime();
+  const countDownDate = new Date('Oct 1, 2022 00:00:00').getTime();
 
   useEffect(() => {
     const interval = setInterval(() => {
