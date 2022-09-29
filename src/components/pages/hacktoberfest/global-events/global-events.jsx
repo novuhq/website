@@ -102,7 +102,14 @@ const GlobalEvents = () => {
                   <td className="pr-5 text-gray-9 md:pr-3.5">{utc}</td>
                   <td className="pr-5 font-medium md:pr-3.5">{title}</td>
                   <td className="!ml-auto flex justify-center py-4">
-                    <Button className="!h-7" theme="yellow" size="xs" to={link}>
+                    <Button
+                      className="!h-7"
+                      theme="yellow"
+                      size="xs"
+                      to={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Learn more
                     </Button>
                   </td>

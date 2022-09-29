@@ -5,7 +5,7 @@ import Heading from 'components/shared/heading';
 
 const PAGE_TITLE = 'We are happy to take part in<br /><span>Hacktoberfest 2022</span>';
 const BUTTON_TEXT = 'Join hacktoberfest';
-const BUTTON_URL = '/';
+const BUTTON_URL = 'https://hacktoberfest.com/';
 const TITLE = 'Sep 26<br/>Registration begins';
 const DESCRIPTION =
   'Whether it’s your first time — or your ninth — it’s almost time to hack out four pristine pull/merge requests and complete your mission for open source.';
@@ -67,7 +67,14 @@ const Hero = () => {
         </Heading>
       </div>
       <div className="container-lg mt-14 flex flex-col md:mt-10 sm:mt-9">
-        <Button className="mx-auto" size="sm" theme="blue-gradient" to={BUTTON_URL}>
+        <Button
+          className="mx-auto"
+          size="sm"
+          theme="blue-gradient"
+          to={BUTTON_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {BUTTON_TEXT}
         </Button>
 
