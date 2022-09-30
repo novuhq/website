@@ -2,33 +2,43 @@ import clsx from 'clsx';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => (
-  <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
-    <GatsbyImage className={imageClassNames} image={getImage(icon)} alt={`${title} icon`} />
-    <div className="flex w-full flex-col sm:mt-6">
-      <Heading
-        className="leading-tight md:text-[30px] sm:text-3xl"
-        size="md"
-        tag="h3"
-        theme="white"
-      >
-        {title}
-      </Heading>
-      <p className="mt-4 text-lg font-light leading-snug text-gray-10 md:text-base">
-        {description}
-      </p>
-      <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
-        {list
-          .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
-          .sort(
-            (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
-          )
-          .map(({ name: userName, github: url }, index) => (
+const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, description, theme }) => {
+  const [isShownMore, setIsShownMore] = useState(false);
+
+  const listFiltered = useMemo(
+    () =>
+      list
+        .filter((l) => l.totalPulls >= starsMin && l.totalPulls <= starsMax && !l.teammate)
+        .sort(
+          (a, b) => moment(b.pulls[0].merged_at).toDate() - moment(a.pulls[0].merged_at).toDate()
+        ),
+    [list, starsMin, starsMax]
+  );
+
+  const items = isShownMore ? listFiltered : listFiltered.slice(0, 6);
+
+  return (
+    <div className="col-start-2 col-end-12 flex border-b border-dashed border-gray-4 py-20 first:pt-0 last:border-none last:pb-0 lg:py-16 sm:flex-col sm:py-11">
+      <GatsbyImage className={imageClassNames} image={getImage(icon)} alt={`${title} icon`} />
+      <div className="flex w-full flex-col sm:mt-6">
+        <Heading
+          className="leading-tight md:text-[30px] sm:text-3xl"
+          size="md"
+          tag="h3"
+          theme="white"
+        >
+          {title}
+        </Heading>
+        <p className="mt-4 text-lg font-light leading-snug text-gray-10 md:text-base">
+          {description}
+        </p>
+        <div className="mt-10 grid w-full grid-cols-2 gap-8 lg:gap-7 md:mt-8 md:gap-5 sm:mt-6 sm:flex sm:flex-col sm:gap-0 sm:space-y-4">
+          {items.map(({ name: userName, github: url }, index) => (
             <Link
               className={clsx(
                 'group flex items-center rounded-xl p-5',
@@ -63,10 +73,26 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
               </div>
             </Link>
           ))}
+        </div>
+
+        {!isShownMore && items.length !== list.length && (
+          <div className="mt-8 sm:text-center">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <Link
+              type="button"
+              size="sm"
+              theme="primary-underline"
+              tag="button"
+              onClick={() => setIsShownMore(true)}
+            >
+              Show more
+            </Link>
+          </div>
+        )}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 Item.propTypes = {
   imageClassNames: PropTypes.string.isRequired,

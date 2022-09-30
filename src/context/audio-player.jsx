@@ -1,5 +1,30 @@
 /* eslint-disable no-unused-vars */
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { createContext, useContext, useMemo, useReducer, useRef } from 'react';
+
+import AudioPlayer from 'components/shared/audio-player';
+
+const ANIMATION_DURATION = 0.2;
+const MOTION_EASY = [0.25, 0.1, 0.25, 1];
+
+const variants = {
+  hidden: {
+    opacity: 0,
+    y: '100%',
+    transition: {
+      duration: ANIMATION_DURATION,
+      ease: MOTION_EASY,
+    },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: ANIMATION_DURATION,
+      ease: MOTION_EASY,
+    },
+  },
+};
 
 const AudioPlayerContext = createContext();
 
@@ -88,7 +113,23 @@ export const AudioProvider = ({ children }) => {
 
   return (
     <>
-      <AudioPlayerContext.Provider value={api}>{children}</AudioPlayerContext.Provider>
+      <AudioPlayerContext.Provider value={api}>
+        {children}
+
+        <AnimatePresence>
+          {state.isOpen && (
+            <motion.div
+              className="fixed left-0 bottom-0 z-10 w-full translate-y-full"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={variants}
+            >
+              <AudioPlayer />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </AudioPlayerContext.Provider>
       <audio
         ref={playerRef}
         className="hidden"

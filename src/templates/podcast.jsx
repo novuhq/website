@@ -6,10 +6,10 @@ import React from 'react';
 import Pagination from 'components/pages/blog/pagination';
 import Hero from 'components/pages/podcast/hero';
 import PodcastList from 'components/pages/podcast/podcast-list';
-import AudioPlayer from 'components/shared/audio-player';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
+import getSlugForPodcast from 'utils/get-slug-for-podcast';
 
 const PodcastPage = (props) => {
   const {
@@ -23,21 +23,21 @@ const PodcastPage = (props) => {
   const seo = {
     title: `Novu Podcast`,
     // description: '',
-    slug: `${pageContext.podcastPageUrl}/`,
+    slug: `/${pageContext.podcastPageUrl}/`,
     ogImage: getSrc(ogImage.childImageSharp),
   };
 
   const podcastList = {
     items: podcasts.map(
       ({ title, enclosure: { url, type }, itunes: { episode, image, subtitle }, ...props }) => ({
-        title,
+        title: title.replace(/w\//g, ''),
         subtitle,
         episode,
         audio: {
           src: url,
           type,
         },
-        slug: `/${pageContext.podcastPageUrl}/${title.toLowerCase().replace(/\s/g, '-')}/`,
+        slug: `/${pageContext.podcastPageUrl}/${getSlugForPodcast(title)}/`,
         imageUrl: image,
         ...props,
       })
@@ -65,9 +65,6 @@ const PodcastPage = (props) => {
 
       <Subscribe />
       <Separator backgroundColor="black" />
-      <div className="fixed left-0 bottom-0 z-10 w-full">
-        <AudioPlayer />
-      </div>
     </Layout>
   );
 };

@@ -1,0 +1,18 @@
+[
+  {
+    "fromPath": "/podcast/internal-team-vs.-external-team-(or-actually-with)/",
+    "toPath": "/podcast/internal-team-vs-external-team-or-actually-with/"
+  },
+  {
+    "fromPath": "/podcast/open-source-trendings-w/-igor-kotua/",
+    "toPath": "/podcast/open-source-trendings-igor-kotua/"
+  },
+  {
+    "fromPath": "/podcast/open-source-redesigned-w/-alex-barashkov/",
+    "toPath": "/podcast/opensource-redesigned-alex-barashkov/"
+  },
+  {
+    "fromPath": "/podcast/how-to-talk-to-developers-w/-ran-ribenzaft/",
+    "toPath": "/podcast/how-to-talk-to-developers-ran-ribenzaft/"
+  }
+]

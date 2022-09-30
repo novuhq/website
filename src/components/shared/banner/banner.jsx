@@ -13,8 +13,7 @@ const Banner = () => (
   >
     <div className="container relative flex items-center justify-center">
       <p className="text-highlighting-secondary-2-gradient text-center text-base sm:text-sm">
-        We are thrilled to announce our{' '}
-        <span className="text-xl font-bold sm:text-base">$6.6m</span> seed funding
+        Novu raised <span className="text-xl font-bold sm:text-base">$6.6m</span> seed funding
         <ArrowIcon
           className="ml-2.5 inline-block h-2.5 w-5 transition-colors duration-200 group-hover:text-primary-1"
           aria-hidden
@@ -22,14 +21,14 @@ const Banner = () => (
       </p>
 
       <img
-        className="absolute left-24 xl:left-0 lg:-left-30 md:-left-60 sm:hidden"
+        className="absolute left-24 xl:left-0 lg:-left-30 md:-left-60 sm:-left-80"
         src={illustrationLeft}
         alt=""
         loading="eager"
         aria-hidden
       />
       <img
-        className="absolute right-24 xl:right-0 lg:-right-30 md:-right-60 sm:hidden"
+        className="absolute right-24 xl:right-0 lg:-right-30 md:-right-60 sm:-right-80"
         src={illustrationRight}
         alt=""
         loading="eager"

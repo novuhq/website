@@ -29,7 +29,7 @@ const GetStarted = () => (
         <div className="flex flex-col items-center rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 pb-10 lg:rounded-2xl sm:order-2 sm:p-5">
           <Heading
             size="sm"
-            tag="h4"
+            tag="h3"
             className="font-medium leading-snug sm:text-2xl"
             theme="white"
           >
@@ -51,7 +51,7 @@ const GetStarted = () => (
         <div className="get-started-gradient-multicolor flex flex-col items-center rounded-[20px] p-8 pb-10 lg:rounded-2xl sm:order-1 sm:p-5">
           <Heading
             size="sm"
-            tag="h4"
+            tag="h3"
             className="font-medium leading-snug sm:text-2xl"
             theme="black"
           >

@@ -32,6 +32,7 @@ const CARDS = [
     icon: slack,
     title: 'Slack',
     text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/slack',
   },
   {
     icon: mailgun,
@@ -78,6 +79,7 @@ const CARDS = [
     icon: discord,
     title: 'Discord',
     text: 'Email',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/discord',
   },
   {
     icon: mailjet,
