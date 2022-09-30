@@ -31,22 +31,34 @@ const createContributorsPage = async ({ actions, reporter }) => {
       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
     );
 
-    contributors.forEach((contributor) => {
-      const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
-      const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+    await Promise.all(
+      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+      // so we have to make an additional request to extract this data
+      contributors.map(async (contributor) => {
+        const { pulls } = await fetch(
+          `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
+        ).then((response) => response.json());
 
-      createPage({
-        path: `/contributors/${contributor.github}/`,
-        component: slash(templateDetailPage),
-        context: {
-          contributor: {
-            ...contributor,
-            images: {
-              ogImage,
-              embedImage,
+        return { ...contributor, pulls };
+      })
+    ).then((contributors) => {
+      contributors.forEach((contributor) => {
+        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+
+        createPage({
+          path: `/contributors/${contributor.github}/`,
+          component: slash(templateDetailPage),
+          context: {
+            contributor: {
+              ...contributor,
+              images: {
+                ogImage,
+                embedImage,
+              },
             },
           },
-        },
+        });
       });
     });
   } catch (err) {

@@ -24,7 +24,7 @@ const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
       <Hero />
       <Achievments list={pageContext.contributors.list} />
       <HowItWorks />
-      <Issues />
+      <Issues issues={pageContext.issues} />
       <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>
