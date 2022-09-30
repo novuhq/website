@@ -36,7 +36,7 @@ const ITEMS = [
   },
 ];
 const Events = () => (
-  <section className="events safe-paddings py-32 md:py-20 sm:py-16">
+  <section className="events safe-paddings mt-8 py-32 md:py-20 sm:py-16">
     <div className="container-lg text-center">
       <Heading className="leading-tight md:text-5xl sm:text-4xl" tag="h2" size="xl" theme="white">
         {TITLE}
