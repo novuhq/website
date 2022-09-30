@@ -50,6 +50,7 @@ const createContributorsPage = async ({ actions, reporter }) => {
           path: `/contributors/${contributor.github}/`,
           component: slash(templateDetailPage),
           context: {
+            userName: contributor.github,
             contributor: {
               ...contributor,
               images: {
