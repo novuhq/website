@@ -12,7 +12,7 @@ const TITLE = 'How to contribute';
 const ITEMS = [
   {
     icon: contributionsIcon,
-    title: 'Contributions to open issues',
+    title: 'Contributions<br/> to open issues',
     description:
       'We have a curated list of Hacktoberfest issues that are ready for you to pick up.',
     url: '/',
@@ -66,7 +66,13 @@ const Contribute = () => (
               loading="lazy"
               aria-hidden
             />
-            <Heading className="mt-5 font-medium sm:text-xl" tag="h3" theme="white" size="xs">
+            <Heading
+              className="mt-5 font-medium sm:text-xl"
+              tag="h3"
+              theme="white"
+              size="xs"
+              asHTML
+            >
               {title}
             </Heading>
             <p className="mt-3 text-gray-9">{description}</p>
