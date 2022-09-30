@@ -2,6 +2,7 @@ import { axios } from 'helpers/axios';
 import React from 'react';
 
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
+import Contribute from 'components/pages/hacktoberfest/contribute';
 import Events from 'components/pages/hacktoberfest/events';
 import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
@@ -33,6 +34,7 @@ const SEO = {
 const HacktoberfestPage = ({ serverData: { issues } }) => (
   <Layout seo={SEO}>
     <Hero />
+    <Contribute />
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={issues} />
     <Events />
     <GlobalEvents />
