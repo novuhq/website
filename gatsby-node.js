@@ -11,12 +11,12 @@ const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
   try {
-    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`)
-      .then((response) => response.json())
-      .then((response) => response);
-    const { issues } = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`)
-      .then((response) => response.json())
-      .then((response) => response);
+    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
+      (response) => response.json()
+    );
+    const { issues } = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+      (response) => response.json()
+    );
 
     const templateMainPage = path.resolve('./src/templates/contributors.jsx');
     const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
