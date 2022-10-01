@@ -93,7 +93,11 @@ const findDates = (pulls) =>
       { counter: 1, values: {} }
     );
 
-const Achievements = ({ contributor: { name, github, pulls, totalPulls, images }, url }) => {
+const Achievements = ({
+  contributor: { name, github, pulls, totalPulls, images },
+  url,
+  additionalAchievements,
+}) => {
   const {
     rockStar,
     contributorOfTheYear,
@@ -199,6 +203,27 @@ const Achievements = ({ contributor: { name, github, pulls, totalPulls, images }
       </p>
 
       <div className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10 md:gap-x-7 sm:grid-cols-2 sm:gap-x-5">
+        {additionalAchievements &&
+          additionalAchievements.map(({ title, date, achievement: { badge, tooltip } }, index) => (
+            <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
+              {tooltip && <Tooltip text={tooltip} />}
+
+              <GatsbyImage
+                className="lg:h-[134px]"
+                imgClassName="lg:!w-auto lg:!left-1/2 lg:!-translate-x-1/2"
+                image={getImage(badge.localFile)}
+                alt={`${badge?.altText} icon`}
+                loading="eager"
+                aria-hidden
+              />
+
+              <div className="mt-3.5 space-y-1.5 text-center">
+                <h4 className={clsx('text-base leading-tight')}>{title}</h4>
+                <span className="text-sm leading-tight text-gray-6">{date}</span>
+              </div>
+            </div>
+          ))}
+
         {ACHIEVEMENTS.filter(({ minStars }) => minStars <= totalPulls).map(
           ({ iconName, title, tooltip, minStars }, index) => {
             const icon = achievementIcons[iconName];
