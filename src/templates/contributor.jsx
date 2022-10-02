@@ -17,7 +17,7 @@ const ContributorPage = ({
     title: `Novu - ${contributor.github || contributor.name}`,
     description: `Come and meet our awesome contributor ${contributor.github || contributor.name}`,
     slug: `/contributors/${contributor.github}/`,
-    ogImage: contributor.images.ogImage,
+    ogImage: `https://avatars.githubusercontent.com/${contributor.github}?v=3`,
   };
 
   return (
