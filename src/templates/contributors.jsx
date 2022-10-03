@@ -2,11 +2,11 @@ import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 
-import Achievments from 'components/pages/contributors/achievments';
+import Achievements from 'components/pages/contributors/achievements';
 import Hero from 'components/pages/contributors/hero';
 import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works';
-import Issues from 'components/pages/contributors/issues';
 import GetStarted from 'components/shared/get-started';
+import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
@@ -22,7 +22,7 @@ const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
   return (
     <Layout seo={SEO}>
       <Hero />
-      <Achievments list={pageContext.contributors.list} />
+      <Achievements list={pageContext.contributors.list} />
       <HowItWorks />
       <Issues issues={pageContext.issues} />
       <GetStarted />
