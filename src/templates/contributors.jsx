@@ -11,12 +11,12 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
-const ContributorsPage = ({ data: { issues }, pageContext }) => (
+const ContributorsPage = ({ pageContext }) => (
   <Layout>
     <Hero />
     <Achievements list={pageContext.contributors.list} />
     <HowItWorks />
-    <Issues issues={issues.data} />
+    <Issues />
     <GetStarted />
     <Separator backgroundColor="black" />
   </Layout>
@@ -29,13 +29,6 @@ export const pageQuery = graphql`
     ogImage: file(relativePath: { eq: "contributors/social-preview.jpg" }) {
       childImageSharp {
         gatsbyImageData(formats: [JPG], width: 1200, height: 630)
-      }
-    }
-    issues {
-      data {
-        title
-        url
-        created_at
       }
     }
   }

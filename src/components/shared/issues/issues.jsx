@@ -1,6 +1,6 @@
 import clsx from 'clsx';
+import { graphql, useStaticQuery } from 'gatsby';
 import moment from 'moment';
-import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
@@ -12,10 +12,24 @@ const TITLE = 'Don’t know where to start?';
 const DESCRIPTION =
   'Check our good first issues that help you onboard to Novu project and get first achievement.';
 
-const Issues = ({ className, issues }) => {
+const Issues = ({ className }) => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const list = useMemo(() => (isShownMore ? issues : issues.slice(0, 5)), [isShownMore, issues]);
+  const {
+    issues: { data },
+  } = useStaticQuery(graphql`
+    query issuesQuery {
+      issues {
+        data {
+          title
+          url
+          created_at
+        }
+      }
+    }
+  `);
+
+  const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
 
   return (
     <section className={clsx('issues safe-paddings', className)}>
@@ -59,7 +73,7 @@ const Issues = ({ className, issues }) => {
             ))}
           </ul>
 
-          {!isShownMore && list.length !== issues.length && (
+          {!isShownMore && list.length !== data.length && (
             <div className="mt-8 text-center">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <Link
@@ -78,16 +92,6 @@ const Issues = ({ className, issues }) => {
       </div>
     </section>
   );
-};
-
-Issues.propTypes = {
-  issues: PropTypes.arrayOf(
-    PropTypes.shape({
-      created_at: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    })
-  ).isRequired,
 };
 
 export default Issues;

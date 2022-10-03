@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
@@ -26,33 +25,18 @@ const GET_STARTED = {
   theme: 'blue',
 };
 
-const HacktoberfestPage = () => {
-  const {
-    issues: { data },
-  } = useStaticQuery(graphql`
-    query issuesQuery {
-      issues {
-        data {
-          title
-          url
-          created_at
-        }
-      }
-    }
-  `);
-  return (
-    <Layout>
-      <Hero />
-      <Contribute />
-      <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={data} />
-      <Swag />
-      <Events />
-      <GlobalEvents />
-      <CommunityHeroes />
-      <GetStarted {...GET_STARTED} />
-    </Layout>
-  );
-};
+const HacktoberfestPage = () => (
+  <Layout>
+    <Hero />
+    <Contribute />
+    <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
+    <Swag />
+    <Events />
+    <GlobalEvents />
+    <CommunityHeroes />
+    <GetStarted {...GET_STARTED} />
+  </Layout>
+);
 
 export default HacktoberfestPage;
 
