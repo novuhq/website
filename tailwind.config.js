@@ -55,10 +55,18 @@ module.exports = {
         9: '#CCCCCC',
         10: '#E6E6E6',
       },
+      yellow: {
+        DEFAULT: '#FFE27D',
+      },
+      purple: {
+        DEFAULT: '#9092FF',
+      },
     }),
     backgroundImage: {
       'input-gradient':
         'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
+      'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
+      'blue-gradient': 'linear-gradient(135deg, #FFE27D 14.04%, #64E3FF 50.5%, #9192FF 86.21%)',
       ...defaultTheme.backgroundImage,
     },
     screens: {

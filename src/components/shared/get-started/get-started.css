@@ -2,3 +2,8 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 54.67%, rgba(0, 0, 0, 0.3) 100%),
     linear-gradient(257.22deg, #ffbb33 21.09%, #e300bd 55.18%, #ff006a 92.64%);
 }
+
+.get-started-blue-gradient-multicolor {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 54.67%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(257.22deg, #64e3ff 21.09%, #9092ff 92.64%);
+}

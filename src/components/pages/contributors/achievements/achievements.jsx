@@ -10,7 +10,7 @@ import Item from './item';
 const medalIconClassNames =
   'h-[210px] w-[176px] lg:h-[160px] lg:w-[134px] flex-shrink-0 mr-34 lg:mr-7 md:h-[122px] md:w-[102px] md:mr-5 sm:mr-0';
 
-const Achievments = ({ list }) => {
+const Achievements = ({ list }) => {
   const {
     rockStar,
     contributorOfTheYear,
@@ -81,7 +81,7 @@ const Achievments = ({ list }) => {
   };
   return (
     <>
-      {/* <section className="achievments-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16"> */}
+      {/* <section className="achievements-personal safe-paddings bg-gray-2 py-40 lg:py-36 md:py-20 sm:py-16"> */}
       {/*   <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0"> */}
       {/*     {ACHIEVEMENT_PERSONAL.map(({ iconName, ...props }, index) => { */}
       {/*       const icon = achievementIcons[iconName]; */}
@@ -92,7 +92,7 @@ const Achievments = ({ list }) => {
       {/*   </div> */}
       {/* </section> */}
 
-      <section className="achievments-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
+      <section className="achievements-medals safe-paddings py-40 lg:py-36 md:py-20 sm:py-16">
         <div className="container-lg grid grid-cols-12 gap-x-8 lg:gap-x-7 md:flex md:flex-col md:gap-x-0">
           {ACHIEVEMENT_MEDALS.map(({ iconName, ...props }, index) => {
             const icon = achievementIcons[iconName];
@@ -113,4 +113,4 @@ const Achievments = ({ list }) => {
   );
 };
 
-export default Achievments;
+export default Achievements;
