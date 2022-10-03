@@ -1,4 +1,4 @@
-import { axios } from 'helpers/axios';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
@@ -32,31 +32,32 @@ const SEO = {
   slug: '/hacktoberfest/',
 };
 
-const HacktoberfestPage = ({ serverData: { issues } }) => (
-  <Layout seo={SEO}>
-    <Hero />
-    <Contribute />
-    <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={issues} />
-    <Swag />
-    <Events />
-    <GlobalEvents />
-    <CommunityHeroes />
-    <GetStarted {...GET_STARTED} />
-  </Layout>
-);
+const HacktoberfestPage = () => {
+  const {
+    issues: { data },
+  } = useStaticQuery(graphql`
+    query issuesQuery {
+      issues {
+        data {
+          title
+          url
+          created_at
+        }
+      }
+    }
+  `);
+  return (
+    <Layout seo={SEO}>
+      <Hero />
+      <Contribute />
+      <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={data} />
+      <Swag />
+      <Events />
+      <GlobalEvents />
+      <CommunityHeroes />
+      <GetStarted {...GET_STARTED} />
+    </Layout>
+  );
+};
 
 export default HacktoberfestPage;
-
-export async function getServerData() {
-  try {
-    const issues = await axios.get(`/issues`);
-
-    return {
-      props: {
-        issues: issues.data.issues,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-  }
-}
