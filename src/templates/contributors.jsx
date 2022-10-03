@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
-import { axios } from 'helpers/axios';
 import React from 'react';
 
 import Achievements from 'components/pages/contributors/achievements';
@@ -11,13 +10,7 @@ import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
 import Separator from 'components/shared/separator';
 
-const ContributorsPage = ({
-  data: { ogImage },
-  serverData: {
-    contributors: { list },
-    issues,
-  },
-}) => {
+const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
   const SEO = {
     title: 'Novu - Contributors',
     description:
@@ -29,14 +22,16 @@ const ContributorsPage = ({
   return (
     <Layout seo={SEO}>
       <Hero />
-      <Achievements list={list} />
+      <Achievments list={pageContext.contributors.list} />
       <HowItWorks />
-      <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" issues={issues} />
+      <Issues issues={pageContext.issues} />
       <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>
   );
 };
+
+export default ContributorsPage;
 
 export const pageQuery = graphql`
   query {
@@ -47,21 +42,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-export default ContributorsPage;
-
-export async function getServerData() {
-  try {
-    const contributors = await axios.get(`/contributors`);
-    const issues = await axios.get(`/issues`);
-
-    return {
-      props: {
-        contributors: contributors.data,
-        issues: issues.data.issues,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-  }
-}
