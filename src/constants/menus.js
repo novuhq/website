@@ -3,6 +3,10 @@ import LINKS from 'constants/links.js';
 const MENUS = {
   header: [
     {
+      text: 'Hacktoberfest',
+      ...LINKS.hacktoberfest,
+    },
+    {
       text: 'Contributors',
       ...LINKS.contributors,
     },
@@ -14,6 +18,7 @@ const MENUS = {
       text: 'Documentation',
       ...LINKS.documentation,
     },
+    
   ],
   footer: [
     [

@@ -18,6 +18,9 @@ export default {
   privacyPolicy: {
     to: '/privacy',
   },
+  hacktoberfest: {
+    to: '/hacktoberfest',
+  },
 
   // Other pages
   documentation: {
