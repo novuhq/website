@@ -14,9 +14,6 @@ const createContributorsPage = async ({ actions, reporter }) => {
     const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
       (response) => response.json()
     );
-    const { issues } = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-      (response) => response.json()
-    );
 
     const templateMainPage = path.resolve('./src/templates/contributors.jsx');
     const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
@@ -26,7 +23,6 @@ const createContributorsPage = async ({ actions, reporter }) => {
       component: slash(templateMainPage),
       context: {
         contributors: data,
-        issues,
       },
     });
 
@@ -406,21 +402,36 @@ exports.createPages = async (args) => {
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   // get data from GitHub API at build time
-  const result = await fetch(`https://api.github.com/repos/novuhq/novu`);
-  const resultData = await result.json();
+  const githubData = await fetch(`https://api.github.com/repos/novuhq/novu`).then((response) =>
+    response.json()
+  );
   // create node for build time data example in the docs
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
-    nameWithOwner: resultData.full_name,
-    url: resultData.html_url,
-    count: resultData.stargazers_count,
+    nameWithOwner: githubData.full_name,
+    url: githubData.html_url,
+    count: githubData.stargazers_count,
     // required fields
     id: `github-data`,
     parent: null,
     children: [],
     internal: {
       type: `Github`,
-      contentDigest: createContentDigest(resultData),
+      contentDigest: createContentDigest(githubData),
+    },
+  });
+
+  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+    (response) => response.json()
+  );
+  createNode({
+    data: issuesData.issues,
+    id: `issues-data`,
+    parent: null,
+    children: [],
+    internal: {
+      type: `Issues`,
+      contentDigest: createContentDigest(issuesData),
     },
   });
 };

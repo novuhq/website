@@ -1,4 +1,3 @@
-import { axios } from 'helpers/axios';
 import React from 'react';
 
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
@@ -10,6 +9,7 @@ import Swag from 'components/pages/hacktoberfest/swag';
 import GetStarted from 'components/shared/get-started';
 import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 import LINKS from 'constants/links';
 
 const GET_STARTED = {
@@ -25,18 +25,11 @@ const GET_STARTED = {
   theme: 'blue',
 };
 
-const SEO = {
-  title: 'Novu - Hacktoberfest',
-  description:
-    'Whether it’s your first time — or your ninth — it’s almost time to hack out four pristine pull/merge requests and complete your mission for open source.',
-  slug: '/hacktoberfest/',
-};
-
-const HacktoberfestPage = ({ serverData: { issues } }) => (
-  <Layout seo={SEO}>
+const HacktoberfestPage = () => (
+  <Layout>
     <Hero />
     <Contribute />
-    <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" issues={issues} />
+    <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
     <Swag />
     <Events />
     <GlobalEvents />
@@ -47,16 +40,12 @@ const HacktoberfestPage = ({ serverData: { issues } }) => (
 
 export default HacktoberfestPage;
 
-export async function getServerData() {
-  try {
-    const issues = await axios.get(`/issues`);
-
-    return {
-      props: {
-        issues: issues.data.issues,
-      },
-    };
-  } catch (err) {
-    console.log(err);
-  }
-}
+export const Head = () => {
+  const pageMetadata = {
+    title: 'Novu - Hacktoberfest',
+    description:
+      'Whether it’s your first time — or your ninth — it’s almost time to hack out four pristine pull/merge requests and complete your mission for open source.',
+    slug: '/hacktoberfest/',
+  };
+  return <SEO {...pageMetadata} />;
+};

@@ -9,13 +9,13 @@ import Hero from 'components/pages/blog/hero';
 import Pagination from 'components/pages/blog/pagination';
 import PostList from 'components/pages/blog/post-list';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 
 const BlogPage = (props) => {
   const {
     data: {
-      wpPage: { seo },
       featuredPost: {
         nodes: { 0: featuredPost },
       },
@@ -24,16 +24,6 @@ const BlogPage = (props) => {
     },
     pageContext,
   } = props;
-
-  const categoryPageSeo = pageContext.seo
-    ? {
-        title: pageContext.seo.title,
-        description: pageContext.seo.metaDesc,
-        preventIndexing: pageContext.seo.metaRobotsNoindex,
-        slug: pageContext.seo.opengraphUrl.replace('/category', ''),
-        ogImage: getSrc(pageContext.seo.opengraphImage?.childImageSharp),
-      }
-    : null;
 
   const hero = {
     title: featuredPost.title,
@@ -74,7 +64,7 @@ const BlogPage = (props) => {
   };
 
   return (
-    <Layout seo={categoryPageSeo || seo}>
+    <Layout>
       <Hero {...hero} />
 
       <div
@@ -230,3 +220,22 @@ export const pageQuery = graphql`
 `;
 
 export default BlogPage;
+
+export const Head = ({
+  data: {
+    wpPage: { seo },
+  },
+  pageContext,
+}) => {
+  const categoryPageSeo = pageContext.seo
+    ? {
+        title: pageContext.seo.title,
+        description: pageContext.seo.metaDesc,
+        preventIndexing: pageContext.seo.metaRobotsNoindex,
+        slug: pageContext.seo.opengraphUrl.replace('/category', ''),
+        ogImage: getSrc(pageContext.seo.opengraphImage?.childImageSharp),
+      }
+    : null;
+  const pageMetadata = categoryPageSeo || seo;
+  return <SEO {...pageMetadata} />;
+};

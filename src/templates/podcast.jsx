@@ -7,6 +7,7 @@ import Pagination from 'components/pages/blog/pagination';
 import Hero from 'components/pages/podcast/hero';
 import PodcastList from 'components/pages/podcast/podcast-list';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 import getSlugForPodcast from 'utils/get-slug-for-podcast';
@@ -15,17 +16,9 @@ const PodcastPage = (props) => {
   const {
     data: {
       allFeedPodcast: { nodes: podcasts },
-      ogImage,
     },
     pageContext,
   } = props;
-
-  const seo = {
-    title: `Novu Podcast`,
-    // description: '',
-    slug: `/${pageContext.podcastPageUrl}/`,
-    ogImage: getSrc(ogImage.childImageSharp),
-  };
 
   const podcastList = {
     items: podcasts.map(
@@ -45,9 +38,8 @@ const PodcastPage = (props) => {
   };
 
   return (
-    <Layout seo={seo}>
+    <Layout>
       <Hero />
-
       <div className="bg-gray-2 py-20 lg:py-16 md:py-14 sm:py-10">
         <PodcastList {...podcastList} />
         {pageContext.pageCount > 1 && (
@@ -97,3 +89,13 @@ export const pageQuery = graphql`
 `;
 
 export default PodcastPage;
+
+export const Head = ({ data: { ogImage }, pageContext }) => {
+  const pageMetadata = {
+    title: `Novu Podcast`,
+    // description: '',
+    slug: `/${pageContext.podcastPageUrl}/`,
+    ogImage: getSrc(ogImage.childImageSharp),
+  };
+  return <SEO {...pageMetadata} />;
+};

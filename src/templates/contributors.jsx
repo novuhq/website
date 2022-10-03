@@ -8,28 +8,19 @@ import HowItWorks from 'components/pages/contributors/how-it-works/how-it-works'
 import GetStarted from 'components/shared/get-started';
 import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
-const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
-  const SEO = {
-    title: 'Novu - Contributors',
-    description:
-      'The ultimate library for managing multi-channel transactional notifications with a single API.',
-    slug: '/contributors/',
-    ogImage: getSrc(ogImage.childImageSharp),
-  };
-
-  return (
-    <Layout seo={SEO}>
-      <Hero />
-      <Achievements list={pageContext.contributors.list} />
-      <HowItWorks />
-      <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" issues={pageContext.issues} />
-      <GetStarted />
-      <Separator backgroundColor="black" />
-    </Layout>
-  );
-};
+const ContributorsPage = ({ pageContext }) => (
+  <Layout>
+    <Hero />
+    <Achievements list={pageContext.contributors.list} />
+    <HowItWorks />
+    <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" />
+    <GetStarted />
+    <Separator backgroundColor="black" />
+  </Layout>
+);
 
 export default ContributorsPage;
 
@@ -42,3 +33,14 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ data: { ogImage } }) => {
+  const pageMetadata = {
+    title: 'Novu - Contributors',
+    description:
+      'The ultimate library for managing multi-channel transactional notifications with a single API.',
+    slug: '/contributors/',
+    ogImage: getSrc(ogImage.childImageSharp),
+  };
+  return <SEO {...pageMetadata} />;
+};
