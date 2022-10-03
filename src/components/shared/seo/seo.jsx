@@ -43,8 +43,8 @@ const SEO = ({
       {/* General */}
       <meta name="description" content={currentDescription} />
       <link rel="canonical" href={currentCanonicalUrl} />
-      {keywords ? <meta name="keywords" content={keywords} /> : null}
-      {isRobotsNoindexPage ? <meta name="robots" content="noindex" /> : null}
+      {keywords && <meta name="keywords" content={keywords} />}
+      {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
       {/* Open Graph */}
       <meta property="og:title" content={currentTitle} />
       <meta property="og:description" content={currentDescription} />
