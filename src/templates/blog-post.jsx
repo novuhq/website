@@ -10,6 +10,7 @@ import SocialShare from 'components/pages/blog-post/social-share';
 import Content from 'components/shared/content';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
+import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 import ArrowIcon from 'images/arrow.inline.svg';
@@ -23,8 +24,7 @@ const BlogPost = (props) => {
         title,
         date,
         categories,
-        pageBlogPost: { description, image, ogImage, defaultOgImage, author },
-        seo,
+        pageBlogPost: { description, image, author },
       },
       relatedArticles,
     },
@@ -87,15 +87,7 @@ const BlogPost = (props) => {
   );
 
   return (
-    <Layout
-      seo={{
-        ...seo,
-        description: seo.description || seo.defaultDescription,
-        ogImage: ogImage
-          ? getSrc(ogImage?.localFile?.childImageSharp)
-          : getSrc(defaultOgImage.localFile.childImageSharp),
-      }}
-    >
+    <Layout seo={{}}>
       <article className="safe-paddings pt-40 sm:pt-28">
         <div className="container-sm relative">
           <Link
@@ -229,3 +221,21 @@ export const pageQuery = graphql`
 `;
 
 export default BlogPost;
+
+export const Head = ({
+  data: {
+    wpPost: {
+      seo,
+      pageBlogPost: { ogImage, defaultOgImage },
+    },
+  },
+}) => {
+  const pageMetadata = {
+    ...seo,
+    description: seo.description || seo.defaultDescription,
+    ogImage: ogImage
+      ? getSrc(ogImage?.localFile?.childImageSharp)
+      : getSrc(defaultOgImage.localFile.childImageSharp),
+  };
+  return <SEO {...pageMetadata} />;
+};

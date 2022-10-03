@@ -14,7 +14,7 @@ const SEO = ({
 }) => {
   const {
     site: {
-      siteMetadata: { siteTitle, siteDescription, siteUrl },
+      siteMetadata: { siteTitle, siteDescription, siteUrl, siteImage },
     },
   } = useStaticQuery(graphql`
     query SEO {
@@ -23,6 +23,7 @@ const SEO = ({
           siteTitle
           siteDescription
           siteUrl
+          siteImage
         }
       }
     }
@@ -31,6 +32,7 @@ const SEO = ({
   const currentTitle = title ?? siteTitle;
   const currentDescription = description ?? siteDescription;
   const currentUrl = slug ? siteUrl + slug : siteUrl;
+  const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
   const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 
   const isRobotsNoindexPage = preventIndexing && preventIndexing !== 'index';
@@ -47,7 +49,10 @@ const SEO = ({
       <meta property="og:title" content={currentTitle} />
       <meta property="og:description" content={currentDescription} />
       <meta property="og:url" content={currentUrl} />
-      <meta property="og:image" content={ogImage} />
+      <meta
+        property="og:image"
+        content={ogImage?.startsWith('https') ? ogImage : currentImagePath}
+      />
       <meta property="og:type" content="website" />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

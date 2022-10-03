@@ -6,20 +6,16 @@ import React from 'react';
 import Content from 'components/shared/content/content';
 import Heading from 'components/shared/heading';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 
 const StaticPage = ({
   data: {
-    wpPage: { content, title, seo },
+    wpPage: { content, title },
   },
 }) => (
-  <Layout
-    seo={{
-      ...seo,
-      description: seo.description || seo.defaultDescription,
-    }}
-  >
+  <Layout>
     <section className="safe-paddings pt-40 pb-28 sm:pt-28">
       <div className="container-sm">
         <Heading
@@ -51,3 +47,15 @@ export const query = graphql`
 `;
 
 export default StaticPage;
+
+export const Head = ({
+  data: {
+    wpPage: { seo },
+  },
+}) => {
+  const pageMetadata = {
+    ...seo,
+    description: seo.description || seo.defaultDescription,
+  };
+  return <SEO {...pageMetadata} />;
+};

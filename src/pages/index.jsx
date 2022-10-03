@@ -10,6 +10,7 @@ import NotificationCenter from 'components/pages/home/notification-center';
 import SimpleUse from 'components/pages/home/simple-use';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
 const HomePage = () => (
@@ -31,3 +32,5 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
+export const Head = () => <SEO />;
