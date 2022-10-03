@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, ogImage }) => {
   const {
     site: {
-      siteMetadata: { siteTitle, siteDescription, siteUrl, siteImage, siteLanguage },
+      siteMetadata: { siteTitle, siteDescription, siteUrl, siteLanguage },
     },
   } = useStaticQuery(graphql`
     query SEO {
@@ -15,7 +15,6 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
           siteTitle
           siteDescription
           siteUrl
-          siteImage
           siteLanguage
         }
       }
@@ -25,7 +24,6 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
   const currentTitle = title ?? siteTitle;
   const currentDescription = description ?? siteDescription;
   const currentUrl = slug ? siteUrl + slug : siteUrl;
-  const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
   const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 
   const isRobotsNoindexPage = preventIndexing && preventIndexing !== 'index';
@@ -49,7 +47,7 @@ const SEO = ({ title, description, slug, canonical, preventIndexing, keywords, o
       <meta property="og:url" content={currentUrl} />
       <meta
         property="og:image"
-        content={ogImage?.startsWith('https') ? ogImage : currentImagePath}
+        content={ogImage}
       />
       <meta property="og:type" content="website" />
       {/* Twitter */}
