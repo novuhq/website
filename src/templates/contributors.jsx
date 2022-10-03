@@ -16,7 +16,7 @@ const ContributorsPage = ({ pageContext }) => (
     <Hero />
     <Achievements list={pageContext.contributors.list} />
     <HowItWorks />
-    <Issues />
+    <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" />
     <GetStarted />
     <Separator backgroundColor="black" />
   </Layout>
