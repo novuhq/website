@@ -22,7 +22,7 @@ const ContributorsPage = ({ data: { ogImage }, pageContext }) => {
   return (
     <Layout seo={SEO}>
       <Hero />
-      <Achievments list={pageContext.contributors.list} />
+      <Achievements list={pageContext.contributors.list} />
       <HowItWorks />
       <Issues issues={pageContext.issues} />
       <GetStarted />
