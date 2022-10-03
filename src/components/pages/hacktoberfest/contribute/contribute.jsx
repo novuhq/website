@@ -21,21 +21,21 @@ const ITEMS = [
     icon: buildIcon,
     title: 'Build a demo app',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien turpis elementum non.',
+      'Build a demo app of your choice using Novu to deliver notifications',
     url: '/',
   },
   {
     icon: blogIcon,
     title: 'Write a blog post',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien turpis elementum non.',
+      'Made a PR? Have used Novu in a recent project? Tell the world about it in form of an blog post, article or guide',
     url: '/',
   },
   {
     icon: tutorialIcon,
     title: 'Make a tutorial',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sapien turpis elementum non.',
+      'Create a video tutorial or a written one, help new users and maintainers get started with Novu!',
     url: '/',
   },
 ];
