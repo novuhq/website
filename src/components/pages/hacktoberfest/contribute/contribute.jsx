@@ -36,7 +36,7 @@ const ITEMS = [
     title: 'Make a tutorial',
     description:
       'Create a video tutorial or a written one, help new users and maintainers get started with Novu!',
-    url: '/',
+    url: 'https://docs.novu.co/overview/quick-start',
   },
 ];
 
