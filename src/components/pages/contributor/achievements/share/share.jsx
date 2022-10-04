@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { LinkedinShareButton, TwitterShareButton, FacebookShareButton } from 'react-share';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Button from 'components/shared/button';
 import Modal from 'components/shared/modal';
