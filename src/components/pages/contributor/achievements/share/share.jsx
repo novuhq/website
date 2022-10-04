@@ -51,7 +51,22 @@ export const Share = ({ type, imageUrl, url }) => {
   const buttonText = isSocialType ? 'Share' : 'Embed';
   const Icon = isSocialType ? ShareIcon : EmbedIcon;
 
-  const EMBED_CODE = `<a href="${url}"><img src="${imageUrl}" height="170" width="450" alt="" /></a>`;
+  const {
+    site: {
+      siteMetadata: { siteUrl, siteImage },
+    },
+  } = useStaticQuery(graphql`
+    query SEO {
+      site {
+        siteMetadata {
+          siteUrl
+          siteImage
+        }
+      }
+    }
+  `);
+
+  const EMBED_CODE = `<a href="${url}"><img src="${imageUrl}" height="170" width="450" alt="" onerror="this.onerror=null;this.src='${siteUrl + siteImage}';"/></a>`;
 
   const handleCloseModal = () => {
     setIsOpen(false);
@@ -91,6 +106,10 @@ export const Share = ({ type, imageUrl, url }) => {
           height={isSocialType ? 234 : 180}
           loading="eager"
           alt=""
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null;
+            currentTarget.src = siteUrl + siteImage;
+          }}
           aria-hidden
         />
 
