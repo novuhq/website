@@ -15,21 +15,21 @@ const ITEMS = [
     title: 'Contributions<br/> to open issues',
     description:
       'We have a curated list of Hacktoberfest issues that are ready for you to pick up.',
-    url: '/',
+    url: 'https://github.com/novuhq/novu/issues',
   },
   {
     icon: buildIcon,
     title: 'Build a demo app',
     description:
       'Build a demo app of your choice using Novu to deliver notifications',
-    url: '/',
+    url: 'https://docs.novu.co/overview/introduction/',
   },
   {
     icon: blogIcon,
     title: 'Write a blog post',
     description:
       'Made a PR? Have used Novu in a recent project? Tell the world about it in form of an blog post, article or guide',
-    url: '/',
+    url: 'https://novu.co/blog/',
   },
   {
     icon: tutorialIcon,
