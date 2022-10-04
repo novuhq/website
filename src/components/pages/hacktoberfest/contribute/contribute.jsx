@@ -15,7 +15,7 @@ const ITEMS = [
     title: 'Contributions<br/> to open issues',
     description:
       'We have a curated list of Hacktoberfest issues that are ready for you to pick up.',
-    url: '/',
+    url: 'https://github.com/novuhq/novu/issues?q=is%3Aopen+is%3Aissue+label%3AHacktoberfest',
   },
   {
     icon: buildIcon,
