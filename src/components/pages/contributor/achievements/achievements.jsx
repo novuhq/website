@@ -58,7 +58,8 @@ const ACHIEVEMENTS = [
   {
     iconName: 'goldMedal',
     title: 'Gold Medal',
-    tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
+    tooltip:
+      'This medal is given to the experienced contributors with many thanks from the Novu team.',
     date: null,
     count: 0,
     minStars: 7,
@@ -66,8 +67,7 @@ const ACHIEVEMENTS = [
   {
     iconName: 'silverMedal',
     title: 'Silver Medal',
-    tooltip:
-      'This one is held by the people who made at least three PRs to make Novu better. Way to go!',
+    tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
     date: 'April 2022',
     count: 1,
     minStars: 3,
