@@ -203,7 +203,7 @@ const Achievements = ({
       <p className="mt-4 text-lg font-light text-gray-10 md:text-base">
         {name || github} has made <strong>{pulls.length} pull requests.</strong>
         <br />
-        Thank you for helping growing Novu!
+        Thank you for helping Novu grow!
       </p>
 
       <div className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10 md:gap-x-7 sm:grid-cols-2 sm:gap-x-5">
