@@ -10,7 +10,7 @@ import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
 const ContributorPage = ({
-  data: { wpUserAchievements },
+  data: { wpUserAchievement },
   location,
   pageContext: { contributor },
 }) => (
@@ -22,7 +22,7 @@ const ContributorPage = ({
           <Achievements
             contributor={contributor}
             url={location.href}
-            additionalAchievements={wpUserAchievements?.userAchievement.achievements}
+            additionalAchievements={wpUserAchievement?.userAchievement.achievementsList}
           />
           <Separator className="px-0 pt-8 pb-20 sm:pb-16" backgroundColor="black" />
           <Activity contributor={contributor} />
@@ -36,19 +36,21 @@ const ContributorPage = ({
 
 export const query = graphql`
   query ($userName: String!) {
-    wpUserAchievements(title: { eq: $userName }) {
+    wpUserAchievement(title: { eq: $userName }) {
       userAchievement {
-        achievements {
-          ... on WpAchievements {
-            title
-            date(formatString: "MMMM D, YYYY")
-            achievement {
-              tooltip
-              badge {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(width: 160)
+        achievementsList {
+          achievementDate
+          achievement {
+            ... on WpAchievement {
+              title
+              achievement {
+                tooltip
+                badge {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(width: 160)
+                    }
                   }
                 }
               }
