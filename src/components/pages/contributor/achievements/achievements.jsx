@@ -58,27 +58,27 @@ const ACHIEVEMENTS = [
   {
     iconName: 'goldMedal',
     title: 'Gold Medal',
+    tooltip:
+      'This medal is given to the experienced contributors with many thanks from the Novu team.',
     date: null,
     count: 0,
     minStars: 7,
-    tooltip:
-      'This medal is given to the experienced contributors with many thanks from the Novu team.',
   },
   {
     iconName: 'silverMedal',
     title: 'Silver Medal',
+    tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
     date: 'April 2022',
     count: 1,
     minStars: 3,
-    tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
   },
   {
     iconName: 'bronzeMedal',
     title: 'Bronze Medal',
+    tooltip: 'This medal is a great start of your relationship with the Novu project.',
     date: 'April 2022',
     count: 1,
     minStars: 1,
-    tooltip: 'This medal is a great start of your relationship with the Novu project.',
   },
 ];
 
@@ -208,11 +208,11 @@ const Achievements = ({
 
       <div className="mt-10 grid grid-cols-4 gap-x-8 gap-y-10 md:gap-x-7 sm:grid-cols-2 sm:gap-x-5">
         {additionalAchievements &&
-          additionalAchievements.map(({ achievementsDate, achievements }, index) => {
+          additionalAchievements.map(({ achievementDate, achievement }, index) => {
             const {
               title,
               achievement: { badge, tooltip },
-            } = achievements[0];
+            } = achievement;
 
             return (
               <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
@@ -229,7 +229,7 @@ const Achievements = ({
 
                 <div className="mt-3.5 space-y-1.5 text-center">
                   <h4 className={clsx('text-base leading-tight')}>{title}</h4>
-                  <span className="text-sm leading-tight text-gray-6">{achievementsDate}</span>
+                  <span className="text-sm leading-tight text-gray-6">{achievementDate}</span>
                 </div>
               </div>
             );

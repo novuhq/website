@@ -39,9 +39,9 @@ export const query = graphql`
     wpUserAchievements(title: { eq: $userName }) {
       userAchievement {
         achievementsList {
-          achievementsDate
-          achievements {
-            ... on WpAchievements {
+          achievementDate
+          achievement {
+            ... on WpAchievement {
               title
               achievement {
                 tooltip
