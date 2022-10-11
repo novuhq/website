@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-import Link from 'components/shared/link';
 
 import blogIcon from './images/blog.svg';
 import buildIcon from './images/build.svg';
@@ -20,8 +19,7 @@ const ITEMS = [
   {
     icon: buildIcon,
     title: 'Build a demo app',
-    description:
-      'Build a demo app of your choice using Novu to deliver notifications',
+    description: 'Build a demo app of your choice using Novu to deliver notifications',
     url: 'https://docs.novu.co/overview/introduction',
   },
   {
@@ -52,7 +50,7 @@ const Contribute = () => (
         {TITLE}
       </Heading>
       <ul className="mt-20 grid grid-cols-4 gap-x-10 lg:auto-rows-fr lg:grid-cols-2 lg:gap-y-16 lg:gap-x-16 md:mt-16 md:gap-x-10 md:gap-y-10 sm:mt-12 sm:grid-cols-1">
-        {ITEMS.map(({ icon, title, description, url }, index) => (
+        {ITEMS.map(({ icon, title, description }, index) => (
           <li
             className="flex flex-col items-start lg:max-w-sm sm:mx-auto sm:max-w-[410px] sm:items-center sm:text-center"
             key={index}
@@ -76,9 +74,6 @@ const Contribute = () => (
               {title}
             </Heading>
             <p className="mt-3 text-gray-9">{description}</p>
-            <Link className="mt-5" size="sm" theme="primary-underline" to={url}>
-              View issue
-            </Link>
           </li>
         ))}
       </ul>
