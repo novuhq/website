@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Win a swag pack for just 3 PRs!';
+const TITLE = 'Win a swag pack for just 3 merged PRs!';
 const SUBTITLE = 'Very special Novu T-shirts + Stickers pack';
 const BUTTON_TEXT = 'Join hacktoberfest';
 const BUTTON_URL = 'https://hacktoberfest.com/';

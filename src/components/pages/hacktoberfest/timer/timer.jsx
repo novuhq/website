@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Sep 26<br/>Registration begins';
+const TITLE = 'Hacktoberfest 2022';
 const DESCRIPTION =
-  'Whether it’s your first time — or your ninth — it’s almost time to hack out four pristine pull/merge requests and complete your mission for open source.';
+  'Make your open source contribution today.';
 
 const getZeroPad = (number) => (number < 10 ? `0${number}` : number);
 
