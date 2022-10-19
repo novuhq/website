@@ -2,7 +2,7 @@ import React from 'react';
 
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
 import Contribute from 'components/pages/hacktoberfest/contribute';
-import Events from 'components/pages/hacktoberfest/events';
+// import Events from 'components/pages/hacktoberfest/events';
 import Hero from 'components/pages/hacktoberfest/hero';
 import Swag from 'components/pages/hacktoberfest/swag';
 import Timer from 'components/pages/hacktoberfest/timer';
@@ -31,7 +31,7 @@ const HacktoberfestPage = () => (
     <Contribute />
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
     <Swag />
-    <Events />
+    {/* <Events /> */}
     <Timer />
     <CommunityHeroes />
     <GetStarted {...GET_STARTED} />
