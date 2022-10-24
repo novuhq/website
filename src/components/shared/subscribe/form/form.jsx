@@ -78,7 +78,7 @@ const Form = () => {
           doNowOrAfterSomeTime(() => {
             setFormState(STATES.ERROR);
             setErrorMessage(
-              'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
+              'Oops! Something went wrong. There might be a problem with internet or you are already subscribed'
             );
           }, loadingAnimationStartedTime);
         }
@@ -86,7 +86,7 @@ const Form = () => {
         doNowOrAfterSomeTime(() => {
           setFormState(STATES.ERROR);
           setErrorMessage(
-            'Oops! Something went wrong.  Please, try to submit the form again or reload the page.'
+            'Oops! Something went wrong. There might be a problem with internet or you are already subscribed'
           );
         }, loadingAnimationStartedTime);
       }
