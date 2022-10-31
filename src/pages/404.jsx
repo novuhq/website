@@ -3,6 +3,7 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import Layout from 'components/shared/layout';
+import SEO from 'components/shared/seo';
 
 const NotFoundPage = () => (
   <Layout>
@@ -22,3 +23,12 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
+export const Head = () => {
+  const pageMetadata = {
+    title: '404 - Page not found',
+    description: 'Sorry, we couldn’t find the page you’re looking for',
+    slug: '/404/',
+  };
+  return <SEO {...pageMetadata} />;
+};
