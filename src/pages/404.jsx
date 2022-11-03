@@ -24,11 +24,12 @@ const NotFoundPage = () => (
 
 export default NotFoundPage;
 
-export const Head = () => {
+export const Head = ({ location: { pathname } }) => {
   const pageMetadata = {
     title: '404 - Page not found',
     description: 'Sorry, we couldn’t find the page you’re looking for',
-    slug: '/404/',
+    slug: pathname,
   };
+
   return <SEO {...pageMetadata} />;
 };
