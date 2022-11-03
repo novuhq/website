@@ -147,7 +147,8 @@ const ACHIEVEMENT_MEDALS = [
     title: 'Gold Medal',
     starsMax: 2000,
     starsMin: 7,
-    description: '',
+    description:
+      'This medal is given to the experienced contributors only, with many thanks from the whole Novu team!',
     users: [
       {
         userName: 'davidsoderberg',
@@ -174,7 +175,8 @@ const ACHIEVEMENT_MEDALS = [
     title: 'Silver Medal',
     starsMin: 3,
     starsMax: 6,
-    description: '',
+    description:
+      'This one is held by the people who made at least three PRs to make Novu better. Way to go!',
     users: [
       {
         userName: 'davidsoderberg',
@@ -195,7 +197,7 @@ const ACHIEVEMENT_MEDALS = [
     title: 'Bronze Medal',
     starsMin: 1,
     starsMax: 2,
-    description: '',
+    description: `This medal is a great start of your relationship with the Novu project. Don't stop there!`,
     users: [
       {
         userName: 'ainouzgali',
