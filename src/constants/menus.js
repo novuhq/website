@@ -11,6 +11,10 @@ const MENUS = {
       ...LINKS.contributors,
     },
     {
+      text: 'Pricing',
+      ...LINKS.pricing,
+    },
+    {
       text: 'Blog',
       ...LINKS.blog,
     },
@@ -18,13 +22,13 @@ const MENUS = {
       text: 'Documentation',
       ...LINKS.documentation,
     },
-    
   ],
   footer: [
     [
       { text: 'Blog', ...LINKS.blog },
       { text: 'Contributors', ...LINKS.contributors },
       { text: 'Podcast', ...LINKS.podcast },
+      { text: 'Pricing', ...LINKS.pricing },
     ],
     [
       { text: 'Documentation', ...LINKS.documentation },

@@ -36,19 +36,21 @@ const ContributorPage = ({
 
 export const query = graphql`
   query ($userName: String!) {
-    wpUserAchievements(title: { eq: $userName }) {
+    wpUserAchievement(title: { eq: $userName }) {
       userAchievement {
-        achievements {
-          ... on WpAchievements {
-            title
-            date(formatString: "MMMM D, YYYY")
-            achievement {
-              tooltip
-              badge {
-                altText
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(width: 160)
+        achievementsList {
+          achievementDate
+          achievement {
+            ... on WpAchievement {
+              title
+              achievement {
+                tooltip
+                badge {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData(width: 160)
+                    }
                   }
                 }
               }

@@ -40,13 +40,14 @@ Button.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(styles.size)).isRequired,
-  theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
+  theme: PropTypes.oneOf(Object.keys(styles.theme)),
   children: PropTypes.node.isRequired,
 };
 
 Button.defaultProps = {
   className: null,
   to: null,
+  theme: null,
 };
 
 export default Button;

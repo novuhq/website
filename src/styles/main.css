@@ -13,6 +13,7 @@
 @import './container.css';
 @import './content.css';
 @import './input-border-gradient.css';
+@import '../components/shared/input-range/input-range.css';
 
 /* Utilities */
 @import './remove-autocomplete-styles.css';
