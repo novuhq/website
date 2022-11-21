@@ -27,6 +27,10 @@ export default {
     to: 'https://docs.novu.co/overview/introduction',
     target: '_blank',
   },
+  careers: {
+    to: 'https://novuhq.notion.site/Careers-Page-9bec066eb286421299a78a192c0bebf0',
+    target: '_blank',
+  },
   inAppDocs: {
     to: 'https://docs.novu.co/notification-center/getting-started',
     target: '_blank',
