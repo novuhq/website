@@ -4,8 +4,8 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 const PAGE_TITLE = 'We are happy to take part in<br /><span>Hacktoberfest 2022</span>';
-const BUTTON_TEXT = 'Join hacktoberfest';
-const BUTTON_URL = 'https://hacktoberfest.com/';
+const BUTTON_TEXT = "CLAIM YOUR NOVU'S SWAG 🎉";
+const BUTTON_URL = 'https://hacksquad.dev/novu';
 
 const Hero = () => (
   <section className="hero safe-paddings pt-36 lg:pt-32 md:pt-28 sm:pt-18">
