@@ -114,7 +114,6 @@ const renderedPrice = (prices, value, startingPrice) => {
 
 const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
   const [pricingPlan, setPricingPlan] = useState(PRICING_PLANS.cloud.value);
-  // const [activeTier, setActiveTier] = useState(findActiveTier(INITIAL_SLIDER_VALUE));
   const [value, setValue] = useState(INITIAL_SLIDER_VALUE);
   const maxValue = 170;
 
