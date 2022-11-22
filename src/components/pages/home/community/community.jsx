@@ -73,7 +73,7 @@ const Community = () => {
                   {countFollowers && (
                     <span
                       className={clsx(
-                        'absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 font-medium leading-none text-black opacity-0',
+                        'absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 text-xs font-bold leading-none text-black opacity-0',
                         { '!visible !opacity-100': githubStars }
                       )}
                       aria-label={`${githubStars} stars on Github`}

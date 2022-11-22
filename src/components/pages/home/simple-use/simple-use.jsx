@@ -31,7 +31,7 @@ const CARDS = [
   {
     icon: slack,
     title: 'Slack',
-    text: 'Email',
+    text: 'Chat',
     to: 'https://github.com/novuhq/novu/tree/main/providers/slack',
   },
   {
@@ -55,7 +55,7 @@ const CARDS = [
   {
     icon: msTeams,
     title: 'MS Teams',
-    text: 'Email',
+    text: 'Chat',
   },
   {
     icon: aws,
@@ -78,7 +78,7 @@ const CARDS = [
   {
     icon: discord,
     title: 'Discord',
-    text: 'Email',
+    text: 'Chat',
     to: 'https://github.com/novuhq/novu/tree/main/providers/discord',
   },
   {
