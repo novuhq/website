@@ -68,7 +68,8 @@ module.exports = {
         'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
       'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
       'blue-gradient': 'linear-gradient(135deg, #FFE27D 14.04%, #64E3FF 50.5%, #9192FF 86.21%)',
-      'slider-gradient': 'linear-gradient(270deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
+      'pink-yellow-gradient':
+        'linear-gradient(235deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
       'gray-gradient': 'linear-gradient(180deg, #262626 0%, #1A1A1A 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
       ...defaultTheme.backgroundImage,
@@ -93,6 +94,9 @@ module.exports = {
         22: '5.75rem',
         30: '7.5rem',
         34: '8.5rem',
+      },
+      width: {
+        'square-diagonal': `${Math.sqrt(2) * 100  }%`,
       },
     },
   },

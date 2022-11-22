@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
+import CheckIcon from 'images/check.inline.svg';
 
-import CheckIcon from './images/check.inline.svg';
 import LoadingIcon from './images/loading.inline.svg';
 import SendIcon from './images/send.inline.svg';
 
@@ -178,7 +178,7 @@ const Form = () => {
               exit="exit"
               variants={appearAndExitAnimationVariants}
             >
-              <CheckIcon class="h-3 w-4" />
+              <CheckIcon class="h-3 w-4 text-black" />
             </motion.div>
           )}
         </AnimatePresence>

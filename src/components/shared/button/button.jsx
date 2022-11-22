@@ -20,6 +20,8 @@ const styles = {
       'bg-transparent text-white border border-gray-5 hover:bg-gray-4 hover:border-gray-4',
     'blue-gradient':
       'text-black bg-blue-gradient relative before:absolute before:-z-10 before:h-[calc(100%+4px)] before:w-[calc(100%+4px)] before:rounded before:bg-blue-gradient before:blur-[3px] before:opacity-100 hover:before:opacity-0 before:transition-opacity before:duration-200',
+    'pink-to-yellow-gradient':
+      'text-black bg-pink-yellow-gradient relative before:absolute before:h-[calc(100%+4px)] before:w-[calc(100%+4px)] before:rounded before:bg-pink-yellow-gradient before:blur-[3px] before:opacity-100 hover:before:opacity-0 before:transition-opacity before:duration-200',
     yellow: 'bg-yellow text-black hover:bg-white',
   },
 };
