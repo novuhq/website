@@ -11,6 +11,7 @@ const styles = {
     md: 'text-4xl',
     sm: 'text-3xl',
     xs: 'text-2xl',
+    '2xs': 'text-xl',
   },
   theme: {
     white: 'text-white',

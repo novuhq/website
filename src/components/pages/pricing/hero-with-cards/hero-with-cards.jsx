@@ -105,14 +105,6 @@ const RANGES = {
   170: '5000000',
 };
 
-const findActiveTier = (value) => {
-  if (value >= 150) {
-    return 'enterprise';
-  }
-  if (value <= 60) return 'indie';
-  return 'business';
-};
-
 const renderedPrice = (prices, value, startingPrice) => {
   const values = Object.keys(prices).map((key) => Number(key));
   if (RANGES[value].toString() in prices) return prices[RANGES[value]];
@@ -120,9 +112,9 @@ const renderedPrice = (prices, value, startingPrice) => {
   return prices[Math.max(...values)];
 };
 
-const Hero = () => {
+const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
   const [pricingPlan, setPricingPlan] = useState(PRICING_PLANS.cloud.value);
-  const [activeTier, setActiveTier] = useState(findActiveTier(INITIAL_SLIDER_VALUE));
+  // const [activeTier, setActiveTier] = useState(findActiveTier(INITIAL_SLIDER_VALUE));
   const [value, setValue] = useState(INITIAL_SLIDER_VALUE);
   const maxValue = 170;
 
@@ -135,7 +127,7 @@ const Hero = () => {
   const blurDisplay = Number(value) === 0 ? 'none' : 'block';
 
   return (
-    <section className="safe-paddings relative mt-36 overflow-hidden pb-32 lg:mt-32 md:mt-28 sm:mt-20">
+    <section className="safe-paddings relative mt-36 overflow-hidden lg:mt-32 md:mt-28 sm:mt-20">
       <div className="container">
         <Heading
           className="mx-auto max-w-[1020px] text-center text-[72px] font-bold leading-denser lg:text-6xl md:text-5xl"
@@ -298,6 +290,9 @@ const Hero = () => {
             }
           )}
         </ul>
+        <p className="col-span-full mt-12 text-center text-sm leading-snug text-gray-8 sm:mt-8">
+          *During Open Beta, all tariffs except Enterprise are free to use.
+        </p>
       </div>
     </section>
   );
