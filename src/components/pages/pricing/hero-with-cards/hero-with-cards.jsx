@@ -153,7 +153,7 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
               </Button>
             ))}
           </div>
-          <p className="mt-16 text-center text-3xl font-light md:mt-14 sm:mt-11">
+          <p className="mt-16 text-center text-3xl font-book md:mt-14 sm:mt-11">
             How many events do you need per month?
           </p>
           <div className="relative mx-auto mt-11 w-full max-w-[968px]">

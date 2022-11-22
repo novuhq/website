@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Hero from 'components/pages/pricing/hero-with-cards';
 import PricingTable from 'components/pages/pricing/pricing-table';
+import FAQ from 'components/shared/faq';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
 
@@ -28,7 +29,7 @@ const PricingPage = () => {
         setActiveTier={setActiveTier}
         findActiveTier={findActiveTier}
       />
-      {/* <FAQ /> */}
+      <FAQ />
       <Subscribe />
     </Layout>
   );
