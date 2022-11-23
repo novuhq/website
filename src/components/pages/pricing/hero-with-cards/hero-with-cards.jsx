@@ -323,14 +323,11 @@ const Hero = ({
                             ))}
                           </ul>
                           <Button
-                            className="relative w-full"
                             to={buttonUrl}
                             theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
                             size="sm"
                           >
-                            <span className="absolute top-1/2 left-1/2 z-50 -translate-y-1/2 -translate-x-1/2">
-                              {buttonText}
-                            </span>
+                            {buttonText}
                           </Button>
                         </div>
                       </div>

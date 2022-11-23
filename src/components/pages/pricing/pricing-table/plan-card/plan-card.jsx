@@ -42,14 +42,12 @@ const PlanCard = ({
         </Heading>
         {linkText && linkUrl && (
           <Button
-            className="relative mx-auto mt-5 w-[140px] md:mt-3"
+            className="mx-auto mt-5 md:mt-3"
             theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
             size="xs"
             to={linkUrl}
           >
-            <span className="absolute top-1/2 left-1/2 z-50 -translate-y-1/2 -translate-x-1/2">
-              {linkText}
-            </span>
+            {linkText}
           </Button>
         )}
         <FeatureList feature={platform} />
