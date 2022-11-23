@@ -117,7 +117,7 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
   const [value, setValue] = useState(INITIAL_SLIDER_VALUE);
   const maxValue = 170;
 
-  const eventsFormatter = Intl.NumberFormat('en', { notation: 'compact' });
+  const eventsFormatter = Intl.NumberFormat('en-US');
 
   const thumbPosition = `calc(${thumbWidth / 2}px + ${(value / maxValue) * 100}% - ${
     value / maxValue
@@ -155,14 +155,14 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
           <p className="mt-16 text-center text-3xl font-book md:mt-14 sm:mt-11">
             How many events do you need per month?
           </p>
-          <div className="relative mx-auto mt-11 w-full max-w-[968px]">
+          <div className="relative mx-auto mt-12 w-full max-w-[968px]">
             <output
-              className="absolute -top-[85%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
+              className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
               style={{
                 left: thumbPosition,
               }}
             >
-              {Intl.NumberFormat('en-US').format(RANGES[value])}
+              {eventsFormatter.format(RANGES[value])}
             </output>
             <InputRange
               type="range"
@@ -182,23 +182,26 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
               }}
             />
             <div className="mt-4 flex justify-between bg-black text-white">
-              {Object.keys(RANGES).map((range, index) => (
-                <span
-                  className="relative w-5 cursor-pointer text-sm leading-denser"
-                  key={index}
-                  aria-hidden
-                  onClick={() => {
-                    setValue(range);
-                    setActiveTier(findActiveTier(range));
-                  }}
-                >
-                  <span className="absolute top-0 left-1/2 z-50 -translate-x-1/2 text-white">
-                    {RANGES[range] > 4999999
-                      ? `${eventsFormatter.format(RANGES[range])}+`
-                      : eventsFormatter.format(RANGES[range])}
-                  </span>
-                </span>
-              ))}
+              <span
+                className="cursor-pointer text-sm leading-denser"
+                aria-hidden
+                onClick={() => {
+                  setValue(10000);
+                  setActiveTier(findActiveTier(10000));
+                }}
+              >
+                {eventsFormatter.format(10000)}
+              </span>
+              <span
+                className="cursor-pointer text-sm leading-denser"
+                aria-hidden
+                onClick={() => {
+                  setValue(5000000);
+                  setActiveTier(findActiveTier(5000000));
+                }}
+              >
+                {`${eventsFormatter.format(5000000)}+`}
+              </span>
             </div>
           </div>
         </div>
