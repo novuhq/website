@@ -49,6 +49,7 @@ const PricingPlans = ({ activeTier, pricingPlan }) =>
       </div>
     </section>
   ) : (
+    // TODO: add the necessary content when the self-hosted page version is ready
     <></>
   );
 
