@@ -179,27 +179,14 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
               }}
               onChange={(e) => {
                 setValue(e.target.value);
+                setActiveTier(findActiveTier(e.target.value));
               }}
             />
             <div className="mt-4 flex justify-between bg-black text-white">
-              <span
-                className="cursor-pointer text-sm leading-denser"
-                aria-hidden
-                onClick={() => {
-                  setValue(10000);
-                  setActiveTier(findActiveTier(10000));
-                }}
-              >
+              <span className="cursor-pointer text-sm leading-denser" aria-hidden>
                 {eventsFormatter.format(10000)}
               </span>
-              <span
-                className="cursor-pointer text-sm leading-denser"
-                aria-hidden
-                onClick={() => {
-                  setValue(5000000);
-                  setActiveTier(findActiveTier(5000000));
-                }}
-              >
+              <span className="cursor-pointer text-sm leading-denser" aria-hidden>
                 {`${eventsFormatter.format(5000000)}+`}
               </span>
             </div>
