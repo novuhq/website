@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-import plans from 'utils/data/pricing-plans';
+import { labels, plans } from 'utils/data/pricing-plans';
 
-import FeatureList from './feature-list/feature-list';
-import TableHeader from './table-header/table-header';
+import PlanCard from './plan-card';
 
 const title = 'Compare our plans';
 
@@ -15,15 +14,37 @@ const PricingPlans = ({ activeTier, pricingPlan }) =>
         <Heading className="text-center" tag="h2" size="md">
           {title}
         </Heading>
-        <div className="scrollbar-hidden mt-16 overflow-x-scroll rounded md:mt-14 sm:mt-11 ">
-          <div className="grid min-w-[924px] grid-cols-10 items-start gap-x-8 md:gap-x-6">
-            {plans.headers.map((item, index) => (
-              <TableHeader {...item} activeTier={activeTier} key={index} />
+        <div className="scrollbar-hidden mt-16 overflow-x-scroll md:mt-14 sm:mt-11">
+          <div className="grid min-w-[924px] grid-cols-10 items-start">
+            <div className="col-span-2 mt-[117px]">
+              {labels.map(({ title, items }, index) => (
+                <div className="mt-8 border-b border-gray-2 first:mt-0" key={index}>
+                  <span className="text-lg font-medium leading-normal lg:text-base">{title}</span>
+                  <ul className="flex flex-col divide-y divide-gray-2">
+                    {items.map((item, index) => (
+                      <li
+                        className="py-2.5 text-sm font-book leading-normal text-gray-10 first:pt-4"
+                        key={index}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            {Object.keys(plans).map((plan, index) => (
+              <PlanCard
+                className="col-span-2"
+                key={index}
+                activeTier={activeTier}
+                cardStyle={{
+                  'grid-column-start': `calc(${index * 2 + 3}`,
+                }}
+                {...plans[plan]}
+              />
             ))}
           </div>
-          {plans.features.map((edition, index) => (
-            <FeatureList {...edition} key={index} />
-          ))}
         </div>
       </div>
     </section>

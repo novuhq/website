@@ -75,7 +75,7 @@ const PRICING_DATA = [
       'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
     items: ['1M events/month included', 'Unlimited events'],
     buttonText: 'Contact sales',
-    buttonUrl: '/',
+    buttonUrl: 'https://discord.gg/9wcGSf22PM',
     isOpenBeta: false,
   },
 ];
@@ -160,7 +160,13 @@ const Hero = ({
             <p className="mt-12 text-center text-2xl font-book md:mt-14 sm:mt-11">
               Run locally with docker-compose
             </p>
-            <Link className="mt-4" theme="primary-underline" size="sm" to="/docs">
+            <Link
+              className="mt-4"
+              theme="primary-underline"
+              size="sm"
+              to="https://docs.novu.co/overview/docker-deploy/"
+              target="_blank"
+            >
               Read docs
             </Link>
 
@@ -187,7 +193,13 @@ const Hero = ({
                     <span>Unlimited events</span>
                   </li>
                 </ul>
-                <Button className="w-full" to="/contact-us" theme="gray-outline" size="sm">
+                <Button
+                  className="w-full"
+                  to="https://discord.gg/9wcGSf22PM"
+                  target="_blank"
+                  theme="gray-outline"
+                  size="sm"
+                >
                   Contact us
                 </Button>
               </div>
