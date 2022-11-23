@@ -8,9 +8,9 @@ import TableHeader from './table-header/table-header';
 
 const title = 'Compare our plans';
 
-const PricingPlans = ({ activeTier, pricingPlan }) => (
-  <section className="safe-paddings py-32 xl:py-28 lg:py-24 md:py-20">
-    {pricingPlan === 'cloud' && (
+const PricingPlans = ({ activeTier, pricingPlan }) =>
+  pricingPlan === 'cloud' ? (
+    <section className="safe-paddings py-32 xl:py-28 lg:py-24 md:py-20">
       <div className="container">
         <Heading className="text-center" tag="h2" size="md">
           {title}
@@ -26,8 +26,9 @@ const PricingPlans = ({ activeTier, pricingPlan }) => (
           ))}
         </div>
       </div>
-    )}
-  </section>
-);
+    </section>
+  ) : (
+    <></>
+  );
 
 export default PricingPlans;
