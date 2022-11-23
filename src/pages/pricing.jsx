@@ -18,17 +18,26 @@ const findActiveTier = (value) => {
   return 'business';
 };
 
+const PRICING_PLANS = {
+  cloud: { title: 'Cloud', value: 'cloud' },
+  'self-hosted': { title: 'Self-hosted', value: 'self-hosted' },
+};
+
 const PricingPage = () => {
+  const [pricingPlan, setPricingPlan] = useState(PRICING_PLANS.cloud.value);
   const [activeTier, setActiveTier] = useState(findActiveTier(INITIAL_SLIDER_VALUE));
 
   return (
     <Layout>
-      <Hero activeTier={activeTier} setActiveTier={setActiveTier} findActiveTier={findActiveTier} />
-      <PricingTable
+      <Hero
         activeTier={activeTier}
         setActiveTier={setActiveTier}
         findActiveTier={findActiveTier}
+        pricingPlan={pricingPlan}
+        setPricingPlan={setPricingPlan}
+        pricingPlansData={PRICING_PLANS}
       />
+      <PricingTable activeTier={activeTier} pricingPlan={pricingPlan} />
       <FAQ />
       <Subscribe />
     </Layout>

@@ -10,11 +10,6 @@ const thumbWidth = 28; // in pixels
 // this is the initial value used in the input so that the thumb doesn't render at zero
 const INITIAL_SLIDER_VALUE = 20;
 
-const PRICING_PLANS = {
-  cloud: { title: 'Cloud', value: 'cloud' },
-  'self-hosted': { title: 'Self-hosted', value: 'self-hosted' },
-};
-
 const PRICING_DATA = [
   {
     title: 'Free',
@@ -112,8 +107,14 @@ const renderedPrice = (prices, value, startingPrice) => {
   return prices[Math.max(...values)];
 };
 
-const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
-  const [pricingPlan, setPricingPlan] = useState(PRICING_PLANS.cloud.value);
+const Hero = ({
+  activeTier,
+  setActiveTier,
+  findActiveTier,
+  pricingPlan,
+  setPricingPlan,
+  pricingPlansData,
+}) => {
   const [value, setValue] = useState(INITIAL_SLIDER_VALUE);
   const maxValue = 170;
 
@@ -138,7 +139,7 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
         </Heading>
         <div className="mx-auto mt-14 flex flex-col md:mt-10 sm:mt-9">
           <div className="flex w-[337px] max-w-sm space-x-4 self-center rounded-[36px] border border-gray-3 p-1.5">
-            {Object.keys(PRICING_PLANS).map((plan, index) => (
+            {Object.keys(pricingPlansData).map((plan, index) => (
               <Button
                 className={clsx(
                   'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase',
@@ -146,142 +147,152 @@ const Hero = ({ activeTier, setActiveTier, findActiveTier }) => {
                 )}
                 key={index}
                 size="xs"
-                onClick={() => setPricingPlan(PRICING_PLANS[plan].value)}
+                onClick={() => setPricingPlan(pricingPlansData[plan].value)}
               >
-                {PRICING_PLANS[plan].title}
+                {pricingPlansData[plan].title}
               </Button>
             ))}
           </div>
-          <p className="mt-16 text-center text-3xl font-book md:mt-14 sm:mt-11">
-            How many events do you need per month?
-          </p>
-          <div className="relative mx-auto mt-12 w-full max-w-[968px]">
-            <output
-              className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
-              style={{
-                left: thumbPosition,
-              }}
-            >
-              {eventsFormatter.format(RANGES[value])}
-            </output>
-            <InputRange
-              type="range"
-              min="0"
-              max={maxValue}
-              step="10"
-              value={value}
-              styleSliderTrackWidth={{
-                width: thumbPosition,
-              }}
-              blurStyles={{
-                left: thumbPosition,
-                display: blurDisplay,
-              }}
-              onChange={(e) => {
-                setValue(e.target.value);
-                setActiveTier(findActiveTier(e.target.value));
-              }}
-            />
-            <div className="mt-4 flex justify-between bg-black text-white">
-              <span className="cursor-pointer text-sm leading-denser" aria-hidden>
-                {eventsFormatter.format(10000)}
-              </span>
-              <span className="cursor-pointer text-sm leading-denser" aria-hidden>
-                {`${eventsFormatter.format(5000000)}+`}
-              </span>
-            </div>
-          </div>
         </div>
-        <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 sm:grid-cols-1">
-          {PRICING_DATA.map(
-            (
-              {
-                title,
-                name,
-                startingPrice,
-                description,
-                prices,
-                items,
-                buttonText,
-                buttonUrl,
-                isOpenBeta,
-              },
-              index
-            ) => {
-              const isActiveTier = activeTier === name;
 
-              return (
-                <li
-                  className={clsx(
-                    'relative overflow-hidden rounded-xl p-[1px] text-center',
-                    isActiveTier && 'bg-pink-yellow-gradient'
-                  )}
-                  key={index}
-                >
-                  {isOpenBeta && (
-                    <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
-                      <a
-                        href="/"
-                        className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black"
-                      >
-                        Open Beta*
-                      </a>
-                    </div>
-                  )}
-                  <div className="flex h-full flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
-                    <div className="flex-flex-col space-y-5">
-                      <span className="text-lg font-medium uppercase leading-none">{title}</span>
-                      <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-                        {description}
-                      </p>
-                    </div>
+        {pricingPlan === 'cloud' && (
+          <>
+            <p className="mt-16 text-center text-3xl font-book md:mt-14 sm:mt-11">
+              How many events do you need per month?
+            </p>
+            <div className="relative mx-auto mt-12 w-full max-w-[968px]">
+              <output
+                className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
+                style={{
+                  left: thumbPosition,
+                }}
+              >
+                {eventsFormatter.format(RANGES[value])}
+              </output>
+              <InputRange
+                type="range"
+                min="0"
+                max={maxValue}
+                step="10"
+                value={value}
+                styleSliderTrackWidth={{
+                  width: thumbPosition,
+                }}
+                blurStyles={{
+                  left: thumbPosition,
+                  display: blurDisplay,
+                }}
+                onChange={(e) => {
+                  setValue(e.target.value);
+                  setActiveTier(findActiveTier(e.target.value));
+                }}
+              />
+              <div className="mt-4 flex justify-between bg-black text-white">
+                <span className="cursor-pointer text-sm leading-denser" aria-hidden>
+                  {eventsFormatter.format(10000)}
+                </span>
+                <span className="cursor-pointer text-sm leading-denser" aria-hidden>
+                  {`${eventsFormatter.format(5000000)}+`}
+                </span>
+              </div>
+            </div>
 
-                    {typeof startingPrice === 'number' ? (
-                      <div className="mt-12 mb-8 flex flex-col">
-                        <p className="text-[72px] font-medium leading-none xl:text-8xl">
-                          <span className="relative">
-                            <span className="absolute -left-6 top-6 text-3xl">$</span>
-                            {prices ? renderedPrice(prices, value, startingPrice) : startingPrice}
+            <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 sm:grid-cols-1">
+              {PRICING_DATA.map(
+                (
+                  {
+                    title,
+                    name,
+                    startingPrice,
+                    description,
+                    prices,
+                    items,
+                    buttonText,
+                    buttonUrl,
+                    isOpenBeta,
+                  },
+                  index
+                ) => {
+                  const isActiveTier = activeTier === name;
+
+                  return (
+                    <li
+                      className={clsx(
+                        'relative overflow-hidden rounded-xl p-[1px] text-center',
+                        isActiveTier && 'bg-pink-yellow-gradient'
+                      )}
+                      key={index}
+                    >
+                      {isOpenBeta && (
+                        <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
+                          <a
+                            href="/"
+                            className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black"
+                          >
+                            Open Beta*
+                          </a>
+                        </div>
+                      )}
+                      <div className="flex h-full flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
+                        <div className="flex-flex-col space-y-5">
+                          <span className="text-lg font-medium uppercase leading-none">
+                            {title}
                           </span>
-                        </p>
-                        <span className="mt-2.5 text-base leading-tight text-gray-8">
-                          per month
-                        </span>
+                          <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                            {description}
+                          </p>
+                        </div>
+
+                        {typeof startingPrice === 'number' ? (
+                          <div className="mt-12 mb-8 flex flex-col">
+                            <p className="text-[72px] font-medium leading-none xl:text-8xl">
+                              <span className="relative">
+                                <span className="absolute -left-6 top-6 text-3xl">$</span>
+                                {prices
+                                  ? renderedPrice(prices, value, startingPrice)
+                                  : startingPrice}
+                              </span>
+                            </p>
+                            <span className="mt-2.5 text-base leading-tight text-gray-8">
+                              per month
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+                            {startingPrice}
+                          </span>
+                        )}
+                        <div className="mt-auto flex flex-col justify-between space-y-8">
+                          <ul className="flex flex-col space-y-2.5">
+                            {items.map((item, index) => (
+                              <li className="flex items-center space-x-3" key={index}>
+                                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button
+                            className="relative w-full"
+                            to={buttonUrl}
+                            theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                            size="sm"
+                          >
+                            <span className="absolute top-1/2 left-1/2 z-50 -translate-y-1/2 -translate-x-1/2">
+                              {buttonText}
+                            </span>
+                          </Button>
+                        </div>
                       </div>
-                    ) : (
-                      <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-                        {startingPrice}
-                      </span>
-                    )}
-                    <div className="mt-auto flex flex-col justify-between space-y-8">
-                      <ul className="flex flex-col space-y-2.5">
-                        {items.map((item, index) => (
-                          <li className="flex items-center space-x-3" key={index}>
-                            <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button
-                        className="relative w-full"
-                        to={buttonUrl}
-                        theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                        size="sm"
-                      >
-                        <span className="absolute top-1/2 left-1/2 z-50 -translate-y-1/2 -translate-x-1/2">
-                          {buttonText}
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                </li>
-              );
-            }
-          )}
-        </ul>
-        <p className="col-span-full mt-12 text-center text-sm leading-snug text-gray-8 sm:mt-8">
-          *During Open Beta, all tariffs except Enterprise are free to use.
-        </p>
+                    </li>
+                  );
+                }
+              )}
+            </ul>
+            <p className="col-span-full mt-12 text-center text-sm leading-snug text-gray-8 sm:mt-8">
+              *During Open Beta, all tariffs except Enterprise are free to use.
+            </p>
+          </>
+        )}
       </div>
     </section>
   );
