@@ -9,7 +9,7 @@ const themeStyles = {
 };
 
 const Tooltip = ({ className, theme }) => {
-  const [isTooltipVisible, setTooltipVisibility] = useState(true);
+  const [isTooltipVisible, setTooltipVisibility] = useState(false);
 
   useEffect(() => {
     setTooltipVisibility(true);
