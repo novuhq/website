@@ -19,11 +19,11 @@ const renderFeature = (feature) => {
 };
 
 const FeatureList = ({ feature }) => (
-  <div className="col-span-2 mt-[75px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-center first-of-type:mt-[43px]">
+  <div className="col-span-2 mt-[75px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-center first-of-type:mt-[49px]">
     {Object.keys(feature).map((item, index) => (
       <span
         key={index}
-        className="!min-h-[21px] w-full py-2.5 text-sm font-book leading-normal text-gray-10 first:pt-0"
+        className="h-fit !min-h-[21px] w-full py-2.5 text-sm font-book leading-normal text-gray-10 first:pt-0"
       >
         {renderFeature(feature[item])}
       </span>

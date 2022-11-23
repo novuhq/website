@@ -37,7 +37,7 @@ const PlanCard = ({
         )}
         style={cardStyle}
       >
-        <Heading tag="h3" size="xs">
+        <Heading tag="h3" size="2xs" theme="white">
           {title}
         </Heading>
         {linkText && linkUrl && (

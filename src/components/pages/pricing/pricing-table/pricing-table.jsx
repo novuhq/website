@@ -11,7 +11,7 @@ const PricingPlans = ({ activeTier, pricingPlan }) =>
   pricingPlan === 'cloud' ? (
     <section className="safe-paddings py-32 xl:py-28 lg:py-24 md:py-20">
       <div className="container">
-        <Heading className="text-center" tag="h2" size="md">
+        <Heading className="text-center" tag="h2" size="md" theme="white">
           {title}
         </Heading>
         <div className="scrollbar-hidden mt-16 overflow-x-scroll md:mt-14 sm:mt-11">
@@ -39,7 +39,7 @@ const PricingPlans = ({ activeTier, pricingPlan }) =>
                 key={index}
                 activeTier={activeTier}
                 cardStyle={{
-                  'grid-column-start': `calc(${index * 2 + 3}`,
+                  gridColumnStart: `calc(${index * 2 + 3}`,
                 }}
                 {...plans[plan]}
               />

@@ -5,11 +5,16 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import InputRange from 'components/shared/input-range';
 import Link from 'components/shared/link';
+import Tooltip from 'components/shared/tooltip/';
+import QuestionIcon from 'icons/question.inline.svg';
 import CheckIcon from 'images/check.inline.svg';
 
 const thumbWidth = 28; // in pixels
 // this is the initial value used in the input so that the thumb doesn't render at zero
 const INITIAL_SLIDER_VALUE = 20;
+
+const tooltip =
+  'Trigger event is the main (and the only) way to send notification to subscribers. The trigger identifier is used to match the particular template associated with it. Additional information can be passed according the the body interface below.';
 
 const PRICING_DATA = [
   {
@@ -174,6 +179,7 @@ const Hero = ({
               <div className="flex-flex-col space-y-5">
                 <span className="text-lg font-medium uppercase leading-none">On-premises</span>
                 <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                  {/* TODO: add real description */}
                   Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus
                   est tempus purus ut at nisl id sit mattis.
                 </p>
@@ -208,9 +214,11 @@ const Hero = ({
         )}
         {pricingPlan === 'cloud' && (
           <>
-            <p className="mt-16 text-center text-3xl font-book md:mt-14 sm:mt-11">
-              How many events do you need per month?
-            </p>
+            <div className="mt-16 flex items-center justify-center space-x-2.5 text-center text-3xl font-book md:mt-14 sm:mt-11">
+              <span>How many events do you need per month?</span>
+              <QuestionIcon className="h-5 w-5 shrink-0" data-tip={tooltip} />
+              <Tooltip text={tooltip} className="max-w-[398px]" theme="white" />
+            </div>
             <div className="relative mx-auto mt-12 w-full max-w-[968px]">
               <output
                 className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
@@ -247,98 +255,134 @@ const Hero = ({
                 </span>
               </div>
             </div>
+            {value < 170 ? (
+              <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 sm:grid-cols-1">
+                {PRICING_DATA.map(
+                  (
+                    {
+                      title,
+                      name,
+                      startingPrice,
+                      description,
+                      prices,
+                      items,
+                      buttonText,
+                      buttonUrl,
+                      isOpenBeta,
+                    },
+                    index
+                  ) => {
+                    const isActiveTier = activeTier === name;
 
-            <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 sm:grid-cols-1">
-              {PRICING_DATA.map(
-                (
-                  {
-                    title,
-                    name,
-                    startingPrice,
-                    description,
-                    prices,
-                    items,
-                    buttonText,
-                    buttonUrl,
-                    isOpenBeta,
-                  },
-                  index
-                ) => {
-                  const isActiveTier = activeTier === name;
-
-                  return (
-                    <li
-                      className={clsx(
-                        'relative overflow-hidden rounded-xl p-[1px] text-center',
-                        isActiveTier && 'bg-pink-yellow-gradient'
-                      )}
-                      key={index}
-                    >
-                      {isOpenBeta && (
-                        <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
-                          <a
-                            href="/"
-                            className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black"
-                          >
-                            Open Beta*
-                          </a>
-                        </div>
-                      )}
-                      <div className="flex h-full flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
-                        <div className="flex-flex-col space-y-5">
-                          <span className="text-lg font-medium uppercase leading-none">
-                            {title}
-                          </span>
-                          <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-                            {description}
-                          </p>
-                        </div>
-
-                        {typeof startingPrice === 'number' ? (
-                          <div className="mt-12 mb-8 flex flex-col">
-                            <p className="text-[72px] font-medium leading-none xl:text-8xl">
-                              <span className="relative">
-                                <span className="absolute -left-6 top-6 text-3xl">$</span>
-                                {prices
-                                  ? renderedPrice(prices, value, startingPrice)
-                                  : startingPrice}
-                              </span>
-                            </p>
-                            <span className="mt-2.5 text-base leading-tight text-gray-8">
-                              per month
-                            </span>
-                          </div>
-                        ) : (
-                          <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-                            {startingPrice}
-                          </span>
+                    return (
+                      <li
+                        className={clsx(
+                          'relative overflow-hidden rounded-xl p-[1px] text-center',
+                          isActiveTier && 'bg-pink-yellow-gradient'
                         )}
-                        <div className="mt-auto flex flex-col justify-between space-y-8">
-                          <ul className="flex flex-col space-y-2.5">
-                            {items.map((item, index) => (
-                              <li className="flex items-center space-x-3" key={index}>
-                                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          <Button
-                            to={buttonUrl}
-                            theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                            size="sm"
-                          >
-                            {buttonText}
-                          </Button>
+                        key={index}
+                      >
+                        {isOpenBeta && (
+                          <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
+                            <a
+                              href="/"
+                              className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black"
+                            >
+                              Open Beta*
+                            </a>
+                          </div>
+                        )}
+                        <div className="flex h-full flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
+                          <div className="flex-flex-col space-y-5">
+                            <span className="text-lg font-medium uppercase leading-none">
+                              {title}
+                            </span>
+                            <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                              {description}
+                            </p>
+                          </div>
+
+                          {typeof startingPrice === 'number' ? (
+                            <div className="mt-12 mb-8 flex flex-col">
+                              <p className="text-[72px] font-medium leading-none xl:text-8xl">
+                                <span className="relative">
+                                  <span className="absolute -left-6 top-6 text-3xl">$</span>
+                                  {prices
+                                    ? renderedPrice(prices, value, startingPrice)
+                                    : startingPrice}
+                                </span>
+                              </p>
+                              <span className="mt-2.5 text-base leading-tight text-gray-8">
+                                per month
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+                              {startingPrice}
+                            </span>
+                          )}
+                          <div className="mt-auto flex flex-col justify-between space-y-8">
+                            <ul className="flex flex-col space-y-2.5">
+                              {items.map((item, index) => (
+                                <li className="flex items-center space-x-3" key={index}>
+                                  <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                            <Button
+                              to={buttonUrl}
+                              theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                              size="sm"
+                            >
+                              {buttonText}
+                            </Button>
+                          </div>
                         </div>
-                      </div>
+                      </li>
+                    );
+                  }
+                )}
+                <p className="col-span-full mt-12 text-center text-sm leading-snug text-gray-8 sm:mt-8">
+                  *During Open Beta, all tariffs except Enterprise are free to use.
+                </p>
+              </ul>
+            ) : (
+              <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
+                <div className="flex-flex-col space-y-5">
+                  <span className="text-lg font-medium uppercase leading-none">Custom</span>
+                  <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                    Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus
+                    est tempus purus ut at nisl id sit mattis.
+                  </p>
+                </div>
+                <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+                  Contact us
+                </span>
+
+                <div className="mt-auto flex flex-col justify-between space-y-8">
+                  <ul className="flex flex-col space-y-2.5">
+                    <li className="flex items-center space-x-3">
+                      <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                      <span>Volume discounts</span>
                     </li>
-                  );
-                }
-              )}
-            </ul>
-            <p className="col-span-full mt-12 text-center text-sm leading-snug text-gray-8 sm:mt-8">
-              *During Open Beta, all tariffs except Enterprise are free to use.
-            </p>
+                    <li className="flex items-center space-x-3">
+                      <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                      <span>Country-specific rates</span>
+                    </li>
+                  </ul>
+                  <Button
+                    className="w-full"
+                    to="https://discord.gg/9wcGSf22PM"
+                    target="_blank"
+                    theme="gray-outline"
+                    size="sm"
+                  >
+                    Contact us
+                  </Button>
+                </div>
+              </div>
+            )}
           </>
         )}
       </div>
