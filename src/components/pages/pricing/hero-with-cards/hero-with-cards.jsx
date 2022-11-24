@@ -148,8 +148,8 @@ const Hero = ({
             {Object.keys(pricingPlansData).map((plan, index) => (
               <Button
                 className={clsx(
-                  'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase',
-                  pricingPlan === plan && '!bg-white !text-black hover:!bg-[rgba(255,255,255,0.8)]'
+                  'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase hover:bg-gray-3',
+                  pricingPlan === plan && '!bg-white !text-black'
                 )}
                 key={index}
                 size="xs"
@@ -247,10 +247,10 @@ const Hero = ({
                 }}
               />
               <div className="mt-4 flex justify-between bg-black text-white">
-                <span className="cursor-pointer text-sm leading-denser" aria-hidden>
+                <span className="text-sm leading-denser" aria-hidden>
                   {eventsFormatter.format(10000)}
                 </span>
-                <span className="cursor-pointer text-sm leading-denser" aria-hidden>
+                <span className="text-sm leading-denser" aria-hidden>
                   {`${eventsFormatter.format(5000000)}+`}
                 </span>
               </div>
@@ -343,7 +343,7 @@ const Hero = ({
                     );
                   }
                 )}
-                <p className="col-span-full mt-12 text-center text-sm leading-snug text-gray-8 sm:mt-8">
+                <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8 lg:mt-2.5 sm:mt-8">
                   *During Open Beta, all tariffs except Enterprise are free to use.
                 </p>
               </ul>

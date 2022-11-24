@@ -25,7 +25,7 @@ const faqData = [
 const FAQ = () => (
   <section className="safe-paddings bg-gray-2 py-20 lg:py-16 md:py-12 sm:py-10">
     <div className="container-md text-center">
-      <Heading size="md" tag="h2">
+      <Heading size="md" tag="h2" theme="white">
         Frequently Asked Questions
       </Heading>
       <p className="mt-7 text-lg font-book text-gray-9">

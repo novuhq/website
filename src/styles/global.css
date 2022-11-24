@@ -8,3 +8,9 @@
     -webkit-tap-highlight-color: transparent;
   }
 }
+
+@layer components {
+  .table-hover {
+    @apply bg-[#101010];
+  }
+}

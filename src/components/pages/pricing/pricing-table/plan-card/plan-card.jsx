@@ -31,18 +31,18 @@ const PlanCard = ({
     >
       <div
         className={clsx(
-          'flex flex-col rounded-lg py-5 text-center',
+          'flex flex-col rounded-lg py-5 text-left',
           isActive && 'bg-[#0D0D0D]',
           className
         )}
         style={cardStyle}
       >
-        <Heading tag="h3" size="2xs" theme="white">
+        <Heading tag="h3" size="2xs" theme="white" className="px-[52px]">
           {title}
         </Heading>
         {linkText && linkUrl && (
           <Button
-            className="mx-auto mt-5 md:mt-3"
+            className="mx-[52px] mt-5 max-w-[140px] md:mt-3"
             theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
             size="xs"
             to={linkUrl}
@@ -50,10 +50,10 @@ const PlanCard = ({
             {linkText}
           </Button>
         )}
-        <FeatureList feature={platform} />
-        <FeatureList feature={inApp} />
-        <FeatureList feature={advancedFeatures} />
-        <FeatureList feature={security} />
+        <FeatureList feature={platform} id="platform" />
+        <FeatureList feature={inApp} id="in-app" />
+        <FeatureList feature={advancedFeatures} id="advancedFeatures" />
+        <FeatureList feature={security} id="security" />
       </div>
     </div>
   );

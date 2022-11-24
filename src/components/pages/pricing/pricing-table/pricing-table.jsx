@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
@@ -10,7 +11,7 @@ const title = 'Compare our plans';
 const PricingPlans = ({ activeTier, pricingPlan }) =>
   pricingPlan === 'cloud' ? (
     <section className="safe-paddings py-32 xl:py-28 lg:py-24 md:py-20">
-      <div className="container">
+      <div className="container-lg">
         <Heading className="text-center" tag="h2" size="md" theme="white">
           {title}
         </Heading>
@@ -23,7 +24,10 @@ const PricingPlans = ({ activeTier, pricingPlan }) =>
                   <ul className="flex flex-col divide-y divide-gray-2">
                     {items.map((item, index) => (
                       <li
-                        className="py-2.5 text-sm font-book leading-normal text-gray-10 first:pt-4"
+                        className={clsx(
+                          'py-2.5 text-sm font-book leading-normal text-gray-10 first:pt-4',
+                          item.toLowerCase() === 'support' && 'min-h-[189px]'
+                        )}
                         key={index}
                       >
                         {item}
