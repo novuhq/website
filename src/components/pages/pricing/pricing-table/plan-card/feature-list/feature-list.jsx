@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import CheckIcon from 'images/check.inline.svg';
 
@@ -19,9 +19,7 @@ const renderFeature = (feature) => {
   return feature;
 };
 
-const FeatureList = ({ feature, id }) => {
-  const [currentRow, setCurrentRow] = useState('');
-  const [previousRow, setPreviousRow] = useState('');
+const FeatureList = ({ feature, id, currentRow, setCurrentRow, previousRow, setPreviousRow }) => {
   useEffect(() => {
     const cells = currentRow ? document.querySelectorAll(`[data-row=${currentRow}]`) : null;
     const previousCells = previousRow

@@ -17,6 +17,10 @@ const PlanCard = ({
   security,
   activeTier,
   className,
+  currentRow,
+  setCurrentRow,
+  previousRow,
+  setPreviousRow,
 }) => {
   const isActive = activeTier === title.toLowerCase();
 
@@ -50,10 +54,38 @@ const PlanCard = ({
             {linkText}
           </Button>
         )}
-        <FeatureList feature={platform} id="platform" />
-        <FeatureList feature={inApp} id="in-app" />
-        <FeatureList feature={advancedFeatures} id="advancedFeatures" />
-        <FeatureList feature={security} id="security" />
+        <FeatureList
+          currentRow={currentRow}
+          setCurrentRow={setCurrentRow}
+          previousRow={previousRow}
+          setPreviousRow={setPreviousRow}
+          feature={platform}
+          id="platform"
+        />
+        <FeatureList
+          currentRow={currentRow}
+          setCurrentRow={setCurrentRow}
+          previousRow={previousRow}
+          setPreviousRow={setPreviousRow}
+          feature={inApp}
+          id="in-app"
+        />
+        <FeatureList
+          currentRow={currentRow}
+          setCurrentRow={setCurrentRow}
+          previousRow={previousRow}
+          setPreviousRow={setPreviousRow}
+          feature={advancedFeatures}
+          id="advancedFeatures"
+        />
+        <FeatureList
+          currentRow={currentRow}
+          setCurrentRow={setCurrentRow}
+          previousRow={previousRow}
+          setPreviousRow={setPreviousRow}
+          feature={security}
+          id="security"
+        />
       </div>
     </div>
   );
