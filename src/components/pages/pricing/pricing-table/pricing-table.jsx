@@ -31,7 +31,7 @@ const PricingPlans = ({ activeTier, pricingPlan }) => {
           <Heading className="text-center" tag="h2" size="md" theme="white">
             {title}
           </Heading>
-          <div className="scrollbar-hidden mt-16 overflow-x-scroll md:-mx-7 md:mt-14 md:px-7 sm:mt-11">
+          <div className="scrollbar-hidden mt-16 overflow-x-auto md:-mx-7 md:mt-14 md:px-7 sm:-mx-4 sm:mt-11 sm:px-4">
             <div className="grid min-w-[924px] grid-cols-10 items-start">
               <div className="col-span-2 mt-[117px]">
                 {labels.map(({ title, items }, index) => (
