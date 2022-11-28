@@ -5,10 +5,10 @@ import React, { useEffect } from 'react';
 import CheckIcon from 'images/check.inline.svg';
 
 const presentFeature = (
-  <CheckIcon className="my-[6.5px] h-2 w-3 text-primary-1" aria-label="Present Feature" />
+  <CheckIcon className="my-[5.5px] h-2.5 w-4 text-primary-1" aria-label="Present Feature" />
 );
 const missingFeature = (
-  <CheckIcon className="invisible my-[6.5px] h-2 w-3" aria-label="Missing Feature" />
+  <CheckIcon className="invisible my-[5.5px] h-2.5 w-4" aria-label="Missing Feature" />
 );
 
 const renderFeature = (feature) => {

@@ -67,7 +67,7 @@ const PricingPlans = ({ activeTier }) => {
                 key={index}
                 activeTier={activeTier}
                 cardStyle={{
-                  gridColumnStart: `calc(${index * 2 + 3}`,
+                  gridColumnStart: `calc(${index * 2 + 3})`,
                 }}
                 currentRow={currentRow}
                 setCurrentRow={setCurrentRow}
