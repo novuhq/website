@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
@@ -174,126 +175,151 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
           </span>
         </div>
       </div>
-      {value < 170 ? (
-        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-10 sm:grid-cols-1">
-          {PRICING_DATA.map(
-            (
-              {
-                title,
-                name,
-                startingPrice,
-                description,
-                prices,
-                items,
-                buttonText,
-                buttonUrl,
-                isOpenBeta,
-              },
-              index
-            ) => {
-              const isActive = activeTier === name;
+      <AnimatePresence>
+        {Number(value) < 170 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0 }}
+          >
+            <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-10 sm:grid-cols-1">
+              {PRICING_DATA.map(
+                (
+                  {
+                    title,
+                    name,
+                    startingPrice,
+                    description,
+                    prices,
+                    items,
+                    buttonText,
+                    buttonUrl,
+                    isOpenBeta,
+                  },
+                  index
+                ) => {
+                  const isActive = activeTier === name;
 
-              return (
-                <li
-                  className={clsx(
-                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out lg:mx-0 lg:min-w-0 lg:max-w-none',
-                    isActive && 'after:opacity-100'
-                  )}
-                  key={index}
-                >
-                  {isOpenBeta && (
-                    <div className="absolute -top-2 -left-2 aspect-square w-24 overflow-hidden rounded-sm">
-                      <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
-                        Open Beta*
-                      </div>
-                    </div>
-                  )}
-                  <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:mx-0 lg:min-w-0 lg:max-w-none">
-                    <div className="flex-flex-col space-y-4">
-                      <span className="text-lg font-medium uppercase leading-none">{title}</span>
-                      <p className="min-h-[38px] text-sm leading-snug text-gray-8 xl:min-h-0">
-                        {description}
-                      </p>
-                    </div>
-
-                    {typeof startingPrice === 'number' ? (
-                      <div className="mt-12 mb-8 flex flex-col">
-                        <p className="text-[72px] font-medium leading-none xl:text-8xl">
-                          <span className="relative">
-                            <span className="absolute -left-6 top-6 text-3xl">$</span>
-                            {prices ? renderedPrice(prices, value, startingPrice) : startingPrice}
+                  return (
+                    <li
+                      className={clsx(
+                        'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out lg:mx-0 lg:min-w-0 lg:max-w-none',
+                        isActive && 'after:opacity-100'
+                      )}
+                      key={index}
+                    >
+                      {isOpenBeta && (
+                        <div className="absolute -top-2 -left-2 aspect-square w-24 overflow-hidden rounded-sm">
+                          <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
+                            Open Beta*
+                          </div>
+                        </div>
+                      )}
+                      <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:mx-0 lg:min-w-0 lg:max-w-none">
+                        <div className="flex-flex-col space-y-4">
+                          <span className="text-lg font-medium uppercase leading-none">
+                            {title}
                           </span>
-                        </p>
-                        <span className="mt-2 text-base leading-tight text-gray-8">per month</span>
-                      </div>
-                    ) : (
-                      <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-                        {startingPrice}
-                      </span>
-                    )}
-                    <div className="mt-auto flex w-full flex-col justify-between space-y-8">
-                      <ul className="flex flex-col space-y-2">
-                        {items.map((item, index) => (
-                          <li className="flex items-center space-x-3" key={index}>
-                            <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button
-                        className="w-full"
-                        to={buttonUrl}
-                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                        size="sm"
-                      >
-                        {buttonText}
-                      </Button>
-                    </div>
-                  </div>
-                </li>
-              );
-            }
-          )}
-          <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8">
-            *During Open Beta, all tariffs except Enterprise are free to use.
-          </p>
-        </ul>
-      ) : (
-        <div className="mx-auto mt-12 mb-[68px] flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-10 sm:max-w-none">
-          <div className="flex-flex-col space-y-5">
-            <span className="text-lg font-medium uppercase leading-none">Custom</span>
-            <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-              Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus est
-              tempus purus ut at nisl id sit mattis.
-            </p>
-          </div>
-          <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-            Contact us
-          </span>
+                          <p className="min-h-[38px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                            {description}
+                          </p>
+                        </div>
 
-          <div className="mt-auto flex flex-col justify-between space-y-8">
-            <ul className="flex flex-col space-y-2.5">
-              <li className="flex items-center space-x-3">
-                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                <span>Volume discounts</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                <span>Country-specific rates</span>
-              </li>
+                        {typeof startingPrice === 'number' ? (
+                          <div className="mt-12 mb-8 flex flex-col">
+                            <p className="text-[72px] font-medium leading-none xl:text-8xl">
+                              <span className="relative">
+                                <span className="absolute -left-6 top-6 text-3xl">$</span>
+                                {prices
+                                  ? renderedPrice(prices, value, startingPrice)
+                                  : startingPrice}
+                              </span>
+                            </p>
+                            <span className="mt-2 text-base leading-tight text-gray-8">
+                              per month
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+                            {startingPrice}
+                          </span>
+                        )}
+                        <div className="mt-auto flex w-full flex-col justify-between space-y-8">
+                          <ul className="flex flex-col space-y-2">
+                            {items.map((item, index) => (
+                              <li className="flex items-center space-x-3" key={index}>
+                                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button
+                            className="w-full"
+                            to={buttonUrl}
+                            theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                            size="sm"
+                          >
+                            {buttonText}
+                          </Button>
+                        </div>
+                      </div>
+                    </li>
+                  );
+                }
+              )}
+              <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8">
+                *During Open Beta, all tariffs except Enterprise are free to use.
+              </p>
             </ul>
-            <Button
-              className="w-full"
-              to="https://discord.gg/9wcGSf22PM"
-              target="_blank"
-              theme="gray-outline"
-              size="sm"
-            >
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {Number(value) === 170 && (
+          <motion.div
+            className="mx-auto mt-12 mb-[68px] flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-10 sm:max-w-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0 }}
+          >
+            <div className="flex-flex-col space-y-5">
+              <span className="text-lg font-medium uppercase leading-none">Custom</span>
+              <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus est
+                tempus purus ut at nisl id sit mattis.
+              </p>
+            </div>
+            <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
               Contact us
-            </Button>
-          </div>
-        </div>
-      )}
+            </span>
+
+            <div className="mt-auto flex flex-col justify-between space-y-8">
+              <ul className="flex flex-col space-y-2.5">
+                <li className="flex items-center space-x-3">
+                  <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                  <span>Volume discounts</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                  <span>Country-specific rates</span>
+                </li>
+              </ul>
+              <Button
+                className="w-full"
+                to="https://discord.gg/9wcGSf22PM"
+                target="_blank"
+                theme="gray-outline"
+                size="sm"
+              >
+                Contact us
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
