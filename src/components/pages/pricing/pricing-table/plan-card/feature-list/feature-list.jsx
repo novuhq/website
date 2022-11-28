@@ -43,7 +43,8 @@ const FeatureList = ({ feature, id, currentRow, setCurrentRow, previousRow, setP
           key={index}
           className={clsx(
             'hover:bg-gray h-fit min-h-[21px] w-full py-2.5 px-[52px] text-sm font-book leading-normal text-gray-10 lg:px-10 md:px-8',
-            item === 'support' && '!min-h-[189px]'
+            item === 'support' && '!min-h-[189px]',
+            item === 'channels' && 'md:!min-h-[63px]'
           )}
           data-row={item + index}
           onMouseEnter={() => {
