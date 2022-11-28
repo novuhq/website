@@ -42,7 +42,7 @@ const FeatureList = ({ feature, id, currentRow, setCurrentRow, previousRow, setP
         <span
           key={index}
           className={clsx(
-            'hover:bg-gray h-fit min-h-[21px] w-full py-2.5 px-[52px] text-sm font-book leading-normal text-gray-10',
+            'hover:bg-gray h-fit min-h-[21px] w-full py-2.5 px-[52px] text-sm font-book leading-normal text-gray-10 lg:px-10 md:px-8',
             item === 'support' && '!min-h-[189px]'
           )}
           data-row={item + index}

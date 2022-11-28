@@ -175,7 +175,7 @@ const Hero = ({
               Read docs
             </Link>
 
-            <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
+            <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center sm:max-w-none">
               <div className="flex-flex-col space-y-5">
                 <span className="text-lg font-medium uppercase leading-none">On-premises</span>
                 <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
@@ -214,9 +214,11 @@ const Hero = ({
         )}
         {pricingPlan === 'cloud' && (
           <>
-            <div className="mt-16 flex items-center justify-center space-x-2.5 text-center text-3xl font-book md:mt-14 sm:mt-11">
-              <span>How many events do you need per month?</span>
-              <QuestionIcon className="h-5 w-5 shrink-0" data-tip={tooltip} />
+            <div className="mt-16 text-center md:mt-14  sm:mt-11">
+              <span className="text-center text-3xl font-book md:text-2xl">
+                How many events do you need per month?
+                <QuestionIcon className="ml-2.5 inline h-5 w-5 shrink-0" data-tip={tooltip} />
+              </span>
               <Tooltip text={tooltip} className="max-w-[398px]" theme="white" />
             </div>
             <div className="relative mx-auto mt-12 w-full max-w-[968px]">
@@ -256,7 +258,7 @@ const Hero = ({
               </div>
             </div>
             {value < 170 ? (
-              <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 sm:grid-cols-1">
+              <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-16 sm:mt-12 sm:grid-cols-1">
                 {PRICING_DATA.map(
                   (
                     {
@@ -277,22 +279,19 @@ const Hero = ({
                     return (
                       <li
                         className={clsx(
-                          'relative overflow-hidden rounded-xl p-[1px] text-center',
+                          'relative mx-auto min-w-[338px] max-w-[338px] overflow-hidden rounded-xl p-[1px] text-center lg:mx-0 lg:min-w-0 lg:max-w-none',
                           isActiveTier && 'bg-pink-yellow-gradient'
                         )}
                         key={index}
                       >
                         {isOpenBeta && (
                           <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
-                            <a
-                              href="/"
-                              className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black"
-                            >
+                            <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
                               Open Beta*
-                            </a>
+                            </div>
                           </div>
                         )}
-                        <div className="flex h-full flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
+                        <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:mx-0 lg:min-w-0 lg:max-w-none">
                           <div className="flex-flex-col space-y-5">
                             <span className="text-lg font-medium uppercase leading-none">
                               {title}
@@ -348,7 +347,7 @@ const Hero = ({
                 </p>
               </ul>
             ) : (
-              <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:p-6">
+              <div className="mx-auto mt-20 mb-[68px] flex min-h-[485px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-16 sm:mt-12 sm:max-w-none">
                 <div className="flex-flex-col space-y-5">
                   <span className="text-lg font-medium uppercase leading-none">Custom</span>
                   <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">

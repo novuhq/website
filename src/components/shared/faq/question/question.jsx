@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 
 import ChevronIcon from 'icons/chevron.inline.svg';
 
-const ANIMATION_DURATION = 0.2;
+const ANIMATION_DURATION = 0.3;
 
 const variantsAnimation = {
-  hidden: { opacity: 0, display: 'none' },
-  visible: { opacity: 1, height: 'auto', display: 'block' },
+  hidden: { height: 0 },
+  visible: { height: 'auto' },
 };
 
 const Question = ({ question, answer }) => {
@@ -32,13 +32,15 @@ const Question = ({ question, answer }) => {
         />
       </button>
       <motion.div
-        className="pt-3 pb-5 text-left text-lg font-book text-gray-10 md:text-base sm:text-center sm:text-sm"
+        className="overflow-hidden"
         initial="hidden"
         animate={isOpen ? 'visible' : 'hidden'}
         variants={variantsAnimation}
         transition={{ duration: ANIMATION_DURATION }}
       >
-        {answer}
+        <div className="pt-3 pb-5 text-left text-lg font-book text-gray-10 md:text-base sm:text-center sm:text-sm">
+          {answer}
+        </div>
       </motion.div>
     </li>
   );

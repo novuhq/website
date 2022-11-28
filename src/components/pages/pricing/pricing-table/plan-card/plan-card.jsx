@@ -27,7 +27,7 @@ const PlanCard = ({
   return (
     <div
       className={clsx(
-        'flex flex-col rounded-lg p-[1px] text-center ',
+        'flex flex-col rounded-lg p-[1px] text-center',
         isActive && 'bg-pink-yellow-gradient',
         className
       )}
@@ -41,12 +41,12 @@ const PlanCard = ({
         )}
         style={cardStyle}
       >
-        <Heading tag="h3" size="2xs" theme="white" className="px-[52px]">
+        <Heading tag="h3" size="2xs" theme="white" className="mx-[52px] lg:mx-10 md:mx-8">
           {title}
         </Heading>
         {linkText && linkUrl && (
           <Button
-            className="mx-[52px] mt-5 max-w-[140px] md:mt-3"
+            className="mx-[52px] mt-5 max-w-[140px] lg:mx-10 md:mx-8 md:mt-3"
             theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
             size="xs"
             to={linkUrl}
