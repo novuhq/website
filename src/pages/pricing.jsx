@@ -11,9 +11,7 @@ import Layout from '../components/shared/layout';
 const INITIAL_SLIDER_VALUE = 20;
 
 const findActiveTier = (value) => {
-  if (value >= 150) {
-    return 'enterprise';
-  }
+  if (value >= 150) return 'enterprise';
   if (value <= 60) return 'indie';
   return 'business';
 };
@@ -37,7 +35,9 @@ const PricingPage = () => {
         setPricingPlan={setPricingPlan}
         pricingPlansData={PRICING_PLANS}
       />
-      <PricingTable activeTier={activeTier} pricingPlan={pricingPlan} />
+      {pricingPlan === PRICING_PLANS.cloud.value && (
+        <PricingTable activeTier={activeTier} pricingPlan={pricingPlan} />
+      )}
       <FAQ />
       <Subscribe />
     </Layout>
@@ -48,7 +48,7 @@ export default PricingPage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/pricing',
+    slug: '/pricing/',
     title: 'Pricing',
     description: 'Pricing Plans',
   };
