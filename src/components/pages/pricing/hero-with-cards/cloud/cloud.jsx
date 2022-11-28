@@ -106,8 +106,15 @@ const PRICING_DATA = [
 
 const renderedPrice = (prices, value, startingPrice) => {
   const values = Object.keys(prices).map((key) => Number(key));
-  if (RANGES[value].toString() in prices) return prices[RANGES[value]];
-  if (RANGES[value] < Math.min(...values)) return startingPrice;
+
+  if (RANGES[value].toString() in prices) {
+    return prices[RANGES[value]];
+  }
+
+  if (RANGES[value] < Math.min(...values)) {
+    return startingPrice;
+  }
+
   return prices[Math.max(...values)];
 };
 
@@ -124,7 +131,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
   const blurDisplay = Number(value) === 0 ? 'none' : 'block';
   return (
     <>
-      <div className="mt-16 text-center md:mt-14  sm:mt-11">
+      <div className="mt-16 text-center md:mt-14 sm:mt-11">
         <span className="text-center text-3xl font-book md:text-2xl">
           How many events do you need per month?
           <QuestionIcon className="ml-2.5 inline h-5 w-5 shrink-0" data-tip={tooltip} />
@@ -184,13 +191,13 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
               },
               index
             ) => {
-              const isActiveTier = activeTier === name;
+              const isActive = activeTier === name;
 
               return (
                 <li
                   className={clsx(
-                    'relative mx-auto min-w-[338px] max-w-[338px] overflow-hidden rounded-xl p-[1px] text-center lg:mx-0 lg:min-w-0 lg:max-w-none',
-                    isActiveTier && 'bg-pink-yellow-gradient'
+                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out lg:mx-0 lg:min-w-0 lg:max-w-none',
+                    isActive && 'after:opacity-100'
                   )}
                   key={index}
                 >
@@ -236,7 +243,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                       <Button
                         className="w-full"
                         to={buttonUrl}
-                        theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
                         size="sm"
                       >
                         {buttonText}
@@ -247,7 +254,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
               );
             }
           )}
-          <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8 lg:mt-2.5 sm:mt-8">
+          <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8">
             *During Open Beta, all tariffs except Enterprise are free to use.
           </p>
         </ul>

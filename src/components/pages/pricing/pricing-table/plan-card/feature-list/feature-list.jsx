@@ -19,25 +19,23 @@ const renderFeature = (feature) => {
   return feature;
 };
 
-const FeatureList = ({ feature, id, currentRow }) => (
-  <div
-    id={id}
-    className="col-span-2 mt-[65px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-left [&:nth-child(2)]:mt-[39px] lg:[&:nth-child(2)]:mt-9"
-  >
-    {Object.keys(feature).map((item, index) => {
-      const isActive = item + index === currentRow;
+const FeatureList = ({ features, currentRow }) => (
+  <div className="mt-[64px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-left lg:mt-[61px] [&:nth-child(2)]:mt-[50px] lg:[&:nth-child(2)]:mt-[47px]">
+    {Object.keys(features).map((item, index) => {
+      const isActive = `${item}-${index}` === currentRow;
       return (
         <span
-          key={index}
           className={clsx(
-            'hover:bg-gray h-fit min-h-[21px] w-full py-2.5 px-[52px] text-sm font-book leading-normal text-gray-10 lg:px-10 md:px-8',
-            item === 'support' && '!min-h-[189px]',
-            item === 'channels' && 'md:!min-h-[63px]',
-            isActive && 'table-hover'
+            'flex h-10 w-full items-center px-[52px] text-sm font-book leading-snug text-gray-10 lg:px-10 md:px-8',
+            {
+              'bg-[#101010]': isActive,
+              'min-h-[189px] !items-start py-2.5': item === 'support',
+            }
           )}
-          data-row={item + index}
+          data-row-id={`${item}-${index}`}
+          key={index}
         >
-          {renderFeature(feature[item])}
+          {renderFeature(features[item])}
         </span>
       );
     })}
@@ -45,7 +43,7 @@ const FeatureList = ({ feature, id, currentRow }) => (
 );
 
 FeatureList.propTypes = {
-  feature: PropTypes.shape({}).isRequired,
+  features: PropTypes.shape({}).isRequired,
 };
 
 export default FeatureList;

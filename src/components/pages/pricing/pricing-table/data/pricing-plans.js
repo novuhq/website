@@ -1,4 +1,4 @@
-export const plans = {
+const PLANS = {
   free: {
     title: 'Free',
     linkText: 'Get started',
@@ -162,7 +162,7 @@ export const plans = {
   },
 };
 
-export const labels = [
+const LABELS = [
   {
     title: 'Platform',
     items: {
@@ -207,3 +207,5 @@ export const labels = [
     },
   },
 ];
+
+export { PLANS, LABELS };

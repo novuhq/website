@@ -21,9 +21,7 @@ const Question = ({ question, answer }) => {
         type="button"
         onClick={handleButtonClick}
       >
-        <span className="text-2xl leading-denser lg:text-xl md:text-lg md:leading-tight">
-          {question}
-        </span>
+        <span className="text-2xl leading-denser lg:text-xl md:text-lg">{question}</span>
         <ChevronIcon
           className={clsx(
             'h-auto w-4 shrink-0 transition-transform duration-200 md:w-3 xs:w-2.5',

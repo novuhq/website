@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
+import FAQ from 'components/pages/pricing/faq';
 import Hero from 'components/pages/pricing/hero-with-cards';
 import PricingTable from 'components/pages/pricing/pricing-table';
-import FAQ from 'components/shared/faq';
+import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
-
-import Layout from '../components/shared/layout';
 
 const INITIAL_SLIDER_VALUE = 20;
 

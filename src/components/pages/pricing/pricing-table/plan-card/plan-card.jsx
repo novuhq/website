@@ -2,12 +2,10 @@ import clsx from 'clsx';
 import React from 'react';
 
 import Button from 'components/shared/button';
-import Heading from 'components/shared/heading';
 
 import FeatureList from './feature-list';
 
 const PlanCard = ({
-  cardStyle,
   title,
   linkText,
   linkUrl,
@@ -24,27 +22,21 @@ const PlanCard = ({
   return (
     <div
       className={clsx(
-        'flex flex-col rounded-lg text-center',
-        isActive && 'bg-pink-yellow-gradient p-[1px]',
+        'relative flex flex-col overflow-hidden rounded-lg text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
+        isActive && 'p-px after:opacity-100',
         className
       )}
-      style={cardStyle}
     >
       <div
         className={clsx(
           'flex flex-col rounded-lg py-5 text-left',
-          isActive && 'bg-[#0D0D0D]',
-          className
+          isActive ? 'bg-gray-1' : 'bg-black'
         )}
-        style={cardStyle}
       >
-        <div className="flex flex-col space-y-5">
-          <Heading tag="h3" size="2xs" theme="white" className="mx-[52px] lg:mx-10 md:mx-8">
-            {title}
-          </Heading>
+        <div className="flex flex-col space-y-3 px-[52px] lg:px-10 md:px-8">
+          <h3 className="text-xl">{title}</h3>
           {linkText && linkUrl && (
             <Button
-              className="mx-[52px] max-w-[140px] lg:mx-10 md:mx-8"
               theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
               size="xs"
               to={linkUrl}
@@ -53,17 +45,13 @@ const PlanCard = ({
             </Button>
           )}
         </div>
-        <FeatureList currentRow={currentRow} feature={platform} />
-        <FeatureList currentRow={currentRow} feature={inApp} />
-        <FeatureList currentRow={currentRow} feature={advancedFeatures} />
-        <FeatureList currentRow={currentRow} feature={security} />
+        <FeatureList features={platform} currentRow={currentRow} />
+        <FeatureList features={inApp} currentRow={currentRow} />
+        <FeatureList features={advancedFeatures} currentRow={currentRow} />
+        <FeatureList features={security} currentRow={currentRow} />
       </div>
     </div>
   );
 };
-
-PlanCard.propTypes = {};
-
-PlanCard.defaultProps = {};
 
 export default PlanCard;

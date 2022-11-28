@@ -33,8 +33,8 @@ const Hero = ({
                 'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase hover:bg-gray-3',
                 pricingPlan === plan && '!bg-white !text-black'
               )}
-              key={index}
               size="xs"
+              key={index}
               onClick={() => setPricingPlan(pricingPlansData[plan].value)}
             >
               {pricingPlansData[plan].title}
@@ -42,7 +42,6 @@ const Hero = ({
           ))}
         </div>
       </div>
-      {pricingPlan === 'self-hosted' && <SelfHosted />}
       {pricingPlan === 'cloud' && (
         <Cloud
           activeTier={activeTier}
@@ -50,6 +49,7 @@ const Hero = ({
           findActiveTier={findActiveTier}
         />
       )}
+      {pricingPlan === 'self-hosted' && <SelfHosted />}
     </div>
   </section>
 );

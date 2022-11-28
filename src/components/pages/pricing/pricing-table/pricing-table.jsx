@@ -2,30 +2,30 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
 import Heading from 'components/shared/heading';
-import { labels, plans } from 'utils/data/pricing-plans';
 
+import { LABELS, PLANS } from './data/pricing-plans';
 import PlanCard from './plan-card';
 
-const title = 'Compare our plans';
+const TITLE = 'Compare our plans';
 
 const PricingPlans = ({ activeTier }) => {
   const [currentRow, setCurrentRow] = useState('');
 
   useEffect(() => {
-    const cells = document.querySelectorAll(`[data-row]`);
+    const cells = document.querySelectorAll(`[data-row-id]`);
 
     cells.forEach((cell) => {
-      const data = cell.getAttribute('data-row');
+      const rowId = cell.getAttribute('data-row-id');
 
-      cell.addEventListener('mouseenter', () => setCurrentRow(data));
+      cell.addEventListener('mouseenter', () => setCurrentRow(rowId));
       cell.addEventListener('mouseleave', () => setCurrentRow(''));
     });
 
     return () => {
       cells.forEach((cell) => {
-        const data = cell.getAttribute('data-row');
+        const rowId = cell.getAttribute('data-row-id');
 
-        cell.removeEventListener('mouseenter', () => setCurrentRow(data));
+        cell.removeEventListener('mouseenter', () => setCurrentRow(rowId));
         cell.removeEventListener('mouseleave', () => setCurrentRow(''));
       });
     };
@@ -33,27 +33,29 @@ const PricingPlans = ({ activeTier }) => {
 
   return (
     <section className="safe-paddings py-32 xl:py-28 lg:py-24 md:py-20">
-      <div className="container-lg">
-        <Heading className="text-center" tag="h2" size="md" theme="white">
-          {title}
+      <div className="container">
+        <Heading className="text-center md:text-4xl" tag="h2" size="xl" theme="white">
+          {TITLE}
         </Heading>
-        <div className="scrollbar-hidden mt-16 overflow-x-auto md:-mx-7 md:mt-14 md:px-7 sm:-mx-4 sm:mt-11 sm:px-4">
+        <div className="md:scrollbar-hidden mx-auto mt-16 max-w-[1220px] md:-mx-7 md:mt-14 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-11 sm:px-4">
           <div className="grid min-w-[924px] grid-cols-10 items-start">
-            <div className="col-span-2 mt-[117px]">
-              {labels.map(({ title, items }, index) => (
+            <div className="col-span-2 mt-[120px]">
+              {LABELS.map(({ title, items }, index) => (
                 <div className="mt-8 border-b border-gray-2 first:mt-0" key={index}>
                   <span className="text-lg font-medium leading-normal lg:text-base">{title}</span>
                   <ul className="mt-[5px] flex flex-col divide-y divide-gray-2">
                     {Object.keys(items).map((item, index) => {
-                      const isActive = item + index === currentRow;
+                      const isActive = `${item}-${index}` === currentRow;
                       return (
                         <li
                           className={clsx(
-                            'py-2.5 text-sm font-book leading-normal text-gray-10',
-                            item.toLowerCase() === 'support' && 'min-h-[189px]',
-                            isActive && 'table-hover'
+                            'flex h-10 items-center text-sm font-book leading-snug text-gray-10',
+                            {
+                              'bg-[#101010]': isActive,
+                              'min-h-[189px] !items-start py-2.5': item.toLowerCase() === 'support',
+                            }
                           )}
-                          data-row={item + index}
+                          data-row-id={`${item}-${index}`}
                           key={index}
                         >
                           {items[item]}
@@ -64,14 +66,13 @@ const PricingPlans = ({ activeTier }) => {
                 </div>
               ))}
             </div>
-            {Object.keys(plans).map((plan, index) => (
+            {Object.keys(PLANS).map((plan, index) => (
               <PlanCard
                 className="col-span-2"
-                key={index}
                 activeTier={activeTier}
                 currentRow={currentRow}
-                setCurrentRow={setCurrentRow}
-                {...plans[plan]}
+                key={index}
+                {...PLANS[plan]}
               />
             ))}
           </div>
