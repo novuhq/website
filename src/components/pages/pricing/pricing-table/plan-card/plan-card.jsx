@@ -27,8 +27,8 @@ const PlanCard = ({
   return (
     <div
       className={clsx(
-        'flex flex-col rounded-lg p-[1px] text-center',
-        isActive && 'bg-pink-yellow-gradient',
+        'flex flex-col rounded-lg text-center',
+        isActive && 'bg-pink-yellow-gradient p-[1px]',
         className
       )}
       style={cardStyle}
