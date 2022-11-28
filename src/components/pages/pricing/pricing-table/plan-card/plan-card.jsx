@@ -41,19 +41,21 @@ const PlanCard = ({
         )}
         style={cardStyle}
       >
-        <Heading tag="h3" size="2xs" theme="white" className="mx-[52px] lg:mx-10 md:mx-8">
-          {title}
-        </Heading>
-        {linkText && linkUrl && (
-          <Button
-            className="mx-[52px] mt-5 max-w-[140px] lg:mx-10 md:mx-8 md:mt-3"
-            theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-            size="xs"
-            to={linkUrl}
-          >
-            {linkText}
-          </Button>
-        )}
+        <div className="flex flex-col space-y-5">
+          <Heading tag="h3" size="2xs" theme="white" className="mx-[52px] lg:mx-10 md:mx-8">
+            {title}
+          </Heading>
+          {linkText && linkUrl && (
+            <Button
+              className="mx-[52px] max-w-[140px] lg:mx-10 md:mx-8"
+              theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+              size="xs"
+              to={linkUrl}
+            >
+              {linkText}
+            </Button>
+          )}
+        </div>
         <FeatureList
           currentRow={currentRow}
           setCurrentRow={setCurrentRow}

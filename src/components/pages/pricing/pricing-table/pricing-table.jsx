@@ -37,7 +37,7 @@ const PricingPlans = ({ activeTier, pricingPlan }) => {
                 {labels.map(({ title, items }, index) => (
                   <div className="mt-8 border-b border-gray-2 first:mt-0" key={index}>
                     <span className="text-lg font-medium leading-normal lg:text-base">{title}</span>
-                    <ul className="mt-1.5 flex flex-col divide-y divide-gray-2">
+                    <ul className="mt-[5px] flex flex-col divide-y divide-gray-2">
                       {Object.keys(items).map((item, index) => (
                         <li
                           className={clsx(

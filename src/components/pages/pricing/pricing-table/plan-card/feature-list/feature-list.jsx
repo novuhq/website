@@ -36,7 +36,7 @@ const FeatureList = ({ feature, id, currentRow, setCurrentRow, previousRow, setP
   return (
     <div
       id={id}
-      className="col-span-2 mt-[65px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-left first-of-type:mt-[39px]"
+      className="col-span-2 mt-[65px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-left [&:nth-child(2)]:mt-[39px] lg:[&:nth-child(2)]:mt-9"
     >
       {Object.keys(feature).map((item, index) => (
         <span
