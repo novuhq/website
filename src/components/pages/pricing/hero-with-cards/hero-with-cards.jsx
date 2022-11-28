@@ -1,117 +1,11 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import InputRange from 'components/shared/input-range';
-import Link from 'components/shared/link';
-import Tooltip from 'components/shared/tooltip/';
-import QuestionIcon from 'icons/question.inline.svg';
-import CheckIcon from 'images/check.inline.svg';
 
-const thumbWidth = 28; // in pixels
-// this is the initial value used in the input so that the thumb doesn't render at zero
-const INITIAL_SLIDER_VALUE = 20;
-
-const tooltip =
-  'Trigger event is the main (and the only) way to send notification to subscribers. The trigger identifier is used to match the particular template associated with it. Additional information can be passed according the the body interface below.';
-
-const PRICING_DATA = [
-  {
-    title: 'Free',
-    name: 'free',
-    startingPrice: 0,
-    description: 'For testing and evaluation or small-scale deployments.',
-    items: ['Up to 10K events a month'],
-    buttonText: 'Get started for free',
-    buttonUrl: '/',
-    isOpenBeta: true,
-  },
-  {
-    title: 'Indie Developer',
-    name: 'indie',
-    startingPrice: 25,
-    prices: {
-      10000: 25,
-      30000: 25,
-      35000: 37.5,
-      40000: 43.75,
-      50000: 49.11,
-      60000: 59.82,
-      80000: 70.54,
-      100000: 128.04,
-      125000: 185.54,
-    },
-    description: 'Small projects by up to 2 indie-hackers.',
-    items: ['20K events/month included', 'Up to 100K events a month'],
-    buttonText: 'Get started',
-    buttonUrl: '/',
-    isOpenBeta: true,
-  },
-  {
-    title: 'Business',
-    name: 'business',
-    startingPrice: 200,
-    prices: {
-      80000: 273.33,
-      100000: 346.67,
-      120000: 420,
-      200000: 575,
-      250000: 670,
-      500000: 1385,
-      750000: 1845,
-      1000000: 2393.33,
-      1500000: 2995,
-      2000000: 3900,
-      3000000: 5500,
-      5000000: 8700,
-    },
-    description: 'Good place for bigger projects, startups, and full fledge businesses.',
-    items: ['60K events/month included', 'Up to 5M events a month'],
-    buttonText: 'Get started',
-    buttonUrl: '/',
-    isOpenBeta: true,
-  },
-  {
-    title: 'Enterprise',
-    name: 'enterprise',
-    startingPrice: 'Contact us',
-    description:
-      'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
-    items: ['1M events/month included', 'Unlimited events'],
-    buttonText: 'Contact sales',
-    buttonUrl: 'https://discord.gg/9wcGSf22PM',
-    isOpenBeta: false,
-  },
-];
-
-const RANGES = {
-  0: '10000',
-  10: '30000',
-  20: '35000',
-  30: '40000',
-  40: '50000',
-  50: '60000',
-  60: '80000',
-  70: '100000',
-  80: '120000',
-  90: '200000',
-  100: '250000',
-  110: '500000',
-  120: '750000',
-  130: '1000000',
-  140: '1500000',
-  150: '2000000',
-  160: '3000000',
-  170: '5000000',
-};
-
-const renderedPrice = (prices, value, startingPrice) => {
-  const values = Object.keys(prices).map((key) => Number(key));
-  if (RANGES[value].toString() in prices) return prices[RANGES[value]];
-  if (RANGES[value] < Math.min(...values)) return startingPrice;
-  return prices[Math.max(...values)];
-};
+import Cloud from './cloud';
+import SelfHosted from './self-hosted';
 
 const Hero = ({
   activeTier,
@@ -120,272 +14,44 @@ const Hero = ({
   pricingPlan,
   setPricingPlan,
   pricingPlansData,
-}) => {
-  const [value, setValue] = useState(INITIAL_SLIDER_VALUE);
-  const maxValue = 170;
-
-  const eventsFormatter = Intl.NumberFormat('en-US');
-
-  const thumbPosition = `calc(${thumbWidth / 2}px + ${(value / maxValue) * 100}% - ${
-    value / maxValue
-  } * ${thumbWidth}px)`;
-
-  const blurDisplay = Number(value) === 0 ? 'none' : 'block';
-
-  return (
-    <section className="safe-paddings relative mt-36 overflow-hidden lg:mt-32 md:mt-28 sm:mt-20">
-      <div className="container">
-        <Heading
-          className="mx-auto max-w-[1020px] text-center text-[72px] font-bold leading-denser lg:text-6xl md:text-5xl"
-          size="3xl"
-          tag="h1"
-          theme="white"
-        >
-          Flexible pricing for companies and developers
-        </Heading>
-        <div className="mx-auto mt-14 flex flex-col md:mt-10 sm:mt-9">
-          <div className="flex w-[337px] max-w-sm space-x-4 self-center rounded-[36px] border border-gray-3 p-1.5">
-            {Object.keys(pricingPlansData).map((plan, index) => (
-              <Button
-                className={clsx(
-                  'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase hover:bg-gray-3',
-                  pricingPlan === plan && '!bg-white !text-black'
-                )}
-                key={index}
-                size="xs"
-                onClick={() => setPricingPlan(pricingPlansData[plan].value)}
-              >
-                {pricingPlansData[plan].title}
-              </Button>
-            ))}
-          </div>
-        </div>
-        {pricingPlan === 'self-hosted' && (
-          <div className="container pb-32 text-center xl:pb-28 lg:pb-24 md:pb-20">
-            <p className="mt-12 text-center text-2xl font-book md:mt-14 sm:mt-11">
-              Run locally with docker-compose
-            </p>
-            <Link
-              className="mt-4"
-              theme="primary-underline"
-              size="sm"
-              to="https://docs.novu.co/overview/docker-deploy/"
-              target="_blank"
+}) => (
+  <section className="safe-paddings relative mt-36 overflow-hidden lg:mt-32 md:mt-28 sm:mt-20">
+    <div className="container">
+      <Heading
+        className="mx-auto max-w-[1020px] text-center text-[72px] font-bold leading-denser lg:text-6xl md:text-5xl"
+        size="3xl"
+        tag="h1"
+        theme="white"
+      >
+        Flexible pricing for companies and developers
+      </Heading>
+      <div className="mx-auto mt-14 flex flex-col md:mt-10 sm:mt-9">
+        <div className="flex w-[337px] max-w-sm space-x-4 self-center rounded-[36px] border border-gray-3 p-1.5">
+          {Object.keys(pricingPlansData).map((plan, index) => (
+            <Button
+              className={clsx(
+                'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase hover:bg-gray-3',
+                pricingPlan === plan && '!bg-white !text-black'
+              )}
+              key={index}
+              size="xs"
+              onClick={() => setPricingPlan(pricingPlansData[plan].value)}
             >
-              Read docs
-            </Link>
-
-            <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center sm:max-w-none">
-              <div className="flex-flex-col space-y-5">
-                <span className="text-lg font-medium uppercase leading-none">On-premises</span>
-                <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-                  {/* TODO: add real description */}
-                  Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus
-                  est tempus purus ut at nisl id sit mattis.
-                </p>
-              </div>
-              <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-                Contact us
-              </span>
-
-              <div className="mt-auto flex flex-col justify-between space-y-8">
-                <ul className="flex flex-col space-y-2.5">
-                  <li className="flex items-center space-x-3">
-                    <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                    <span>1M events/month included</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                    <span>Unlimited events</span>
-                  </li>
-                </ul>
-                <Button
-                  className="w-full"
-                  to="https://discord.gg/9wcGSf22PM"
-                  target="_blank"
-                  theme="gray-outline"
-                  size="sm"
-                >
-                  Contact us
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
-        {pricingPlan === 'cloud' && (
-          <>
-            <div className="mt-16 text-center md:mt-14  sm:mt-11">
-              <span className="text-center text-3xl font-book md:text-2xl">
-                How many events do you need per month?
-                <QuestionIcon className="ml-2.5 inline h-5 w-5 shrink-0" data-tip={tooltip} />
-              </span>
-              <Tooltip text={tooltip} className="max-w-[398px]" theme="white" />
-            </div>
-            <div className="relative mx-auto mt-12 w-full max-w-[968px]">
-              <output
-                className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
-                style={{
-                  left: thumbPosition,
-                }}
-              >
-                {eventsFormatter.format(RANGES[value])}
-              </output>
-              <InputRange
-                type="range"
-                min="0"
-                max={maxValue}
-                step="10"
-                value={value}
-                styleSliderTrackWidth={{
-                  width: thumbPosition,
-                }}
-                blurStyles={{
-                  left: thumbPosition,
-                  display: blurDisplay,
-                }}
-                onChange={(e) => {
-                  setValue(e.target.value);
-                  setActiveTier(findActiveTier(e.target.value));
-                }}
-              />
-              <div className="mt-4 flex justify-between bg-black text-white">
-                <span className="text-sm leading-denser" aria-hidden>
-                  {eventsFormatter.format(10000)}
-                </span>
-                <span className="text-sm leading-denser" aria-hidden>
-                  {`${eventsFormatter.format(5000000)}+`}
-                </span>
-              </div>
-            </div>
-            {value < 170 ? (
-              <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-16 sm:mt-12 sm:grid-cols-1">
-                {PRICING_DATA.map(
-                  (
-                    {
-                      title,
-                      name,
-                      startingPrice,
-                      description,
-                      prices,
-                      items,
-                      buttonText,
-                      buttonUrl,
-                      isOpenBeta,
-                    },
-                    index
-                  ) => {
-                    const isActiveTier = activeTier === name;
-
-                    return (
-                      <li
-                        className={clsx(
-                          'relative mx-auto min-w-[338px] max-w-[338px] overflow-hidden rounded-xl p-[1px] text-center lg:mx-0 lg:min-w-0 lg:max-w-none',
-                          isActiveTier && 'bg-pink-yellow-gradient'
-                        )}
-                        key={index}
-                      >
-                        {isOpenBeta && (
-                          <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
-                            <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
-                              Open Beta*
-                            </div>
-                          </div>
-                        )}
-                        <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:mx-0 lg:min-w-0 lg:max-w-none">
-                          <div className="flex-flex-col space-y-5">
-                            <span className="text-lg font-medium uppercase leading-none">
-                              {title}
-                            </span>
-                            <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-                              {description}
-                            </p>
-                          </div>
-
-                          {typeof startingPrice === 'number' ? (
-                            <div className="mt-12 mb-8 flex flex-col">
-                              <p className="text-[72px] font-medium leading-none xl:text-8xl">
-                                <span className="relative">
-                                  <span className="absolute -left-6 top-6 text-3xl">$</span>
-                                  {prices
-                                    ? renderedPrice(prices, value, startingPrice)
-                                    : startingPrice}
-                                </span>
-                              </p>
-                              <span className="mt-2.5 text-base leading-tight text-gray-8">
-                                per month
-                              </span>
-                            </div>
-                          ) : (
-                            <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-                              {startingPrice}
-                            </span>
-                          )}
-                          <div className="mt-auto flex flex-col justify-between space-y-8">
-                            <ul className="flex flex-col space-y-2.5">
-                              {items.map((item, index) => (
-                                <li className="flex items-center space-x-3" key={index}>
-                                  <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                            <Button
-                              to={buttonUrl}
-                              theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                              size="sm"
-                            >
-                              {buttonText}
-                            </Button>
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  }
-                )}
-                <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8 lg:mt-2.5 sm:mt-8">
-                  *During Open Beta, all tariffs except Enterprise are free to use.
-                </p>
-              </ul>
-            ) : (
-              <div className="mx-auto mt-20 mb-[68px] flex min-h-[485px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-16 sm:mt-12 sm:max-w-none">
-                <div className="flex-flex-col space-y-5">
-                  <span className="text-lg font-medium uppercase leading-none">Custom</span>
-                  <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-                    Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus
-                    est tempus purus ut at nisl id sit mattis.
-                  </p>
-                </div>
-                <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
-                  Contact us
-                </span>
-
-                <div className="mt-auto flex flex-col justify-between space-y-8">
-                  <ul className="flex flex-col space-y-2.5">
-                    <li className="flex items-center space-x-3">
-                      <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                      <span>Volume discounts</span>
-                    </li>
-                    <li className="flex items-center space-x-3">
-                      <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                      <span>Country-specific rates</span>
-                    </li>
-                  </ul>
-                  <Button
-                    className="w-full"
-                    to="https://discord.gg/9wcGSf22PM"
-                    target="_blank"
-                    theme="gray-outline"
-                    size="sm"
-                  >
-                    Contact us
-                  </Button>
-                </div>
-              </div>
-            )}
-          </>
-        )}
+              {pricingPlansData[plan].title}
+            </Button>
+          ))}
+        </div>
       </div>
-    </section>
-  );
-};
+      {pricingPlan === 'self-hosted' && <SelfHosted />}
+      {pricingPlan === 'cloud' && (
+        <Cloud
+          activeTier={activeTier}
+          setActiveTier={setActiveTier}
+          findActiveTier={findActiveTier}
+        />
+      )}
+    </div>
+  </section>
+);
+
 export default Hero;
