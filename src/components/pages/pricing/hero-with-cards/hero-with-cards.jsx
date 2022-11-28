@@ -18,12 +18,12 @@ const Hero = ({
   <section className="safe-paddings relative mt-36 overflow-hidden lg:mt-32 md:mt-28 sm:mt-20">
     <div className="container">
       <Heading
-        className="mx-auto max-w-[1020px] text-center text-[72px] font-bold leading-denser lg:text-6xl md:text-5xl"
+        className="flat-breaks sm:flat-none mx-auto text-center text-[72px] font-bold leading-denser lg:text-6xl md:text-5xl"
         size="3xl"
         tag="h1"
         theme="white"
       >
-        Flexible pricing for companies and developers
+        Flexible pricing <br /> for companies and developers
       </Heading>
       <div className="mx-auto mt-14 flex flex-col md:mt-10 sm:mt-9">
         <div className="flex w-[337px] max-w-sm space-x-4 self-center rounded-[36px] border border-gray-3 p-1.5">

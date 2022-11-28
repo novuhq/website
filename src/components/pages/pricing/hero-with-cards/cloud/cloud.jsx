@@ -158,7 +158,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
             setActiveTier(findActiveTier(e.target.value));
           }}
         />
-        <div className="mt-4 flex justify-between bg-black text-white">
+        <div className="mt-1.5 flex justify-between bg-black text-white">
           <span className="text-sm leading-denser" aria-hidden>
             {eventsFormatter.format(10000)}
           </span>
@@ -168,7 +168,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
         </div>
       </div>
       {value < 170 ? (
-        <ul className="mt-20 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-16 sm:mt-12 sm:grid-cols-1">
+        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-10 sm:grid-cols-1">
           {PRICING_DATA.map(
             (
               {
@@ -195,16 +195,16 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                   key={index}
                 >
                   {isOpenBeta && (
-                    <div className="absolute -top-2 -left-2 aspect-square w-28 overflow-hidden rounded-sm xs:w-24">
+                    <div className="absolute -top-2 -left-2 aspect-square w-24 overflow-hidden rounded-sm">
                       <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
                         Open Beta*
                       </div>
                     </div>
                   )}
                   <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:mx-0 lg:min-w-0 lg:max-w-none">
-                    <div className="flex-flex-col space-y-5">
+                    <div className="flex-flex-col space-y-4">
                       <span className="text-lg font-medium uppercase leading-none">{title}</span>
-                      <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                      <p className="min-h-[38px] text-sm leading-snug text-gray-8 xl:min-h-0">
                         {description}
                       </p>
                     </div>
@@ -217,17 +217,15 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                             {prices ? renderedPrice(prices, value, startingPrice) : startingPrice}
                           </span>
                         </p>
-                        <span className="mt-2.5 text-base leading-tight text-gray-8">
-                          per month
-                        </span>
+                        <span className="mt-2 text-base leading-tight text-gray-8">per month</span>
                       </div>
                     ) : (
                       <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
                         {startingPrice}
                       </span>
                     )}
-                    <div className="mt-auto flex flex-col justify-between space-y-8">
-                      <ul className="flex flex-col space-y-2.5">
+                    <div className="mt-auto flex w-full flex-col justify-between space-y-8">
+                      <ul className="flex flex-col space-y-2">
                         {items.map((item, index) => (
                           <li className="flex items-center space-x-3" key={index}>
                             <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
@@ -236,6 +234,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                         ))}
                       </ul>
                       <Button
+                        className="w-full"
                         to={buttonUrl}
                         theme={isActiveTier ? 'pink-to-yellow-gradient' : 'gray-outline'}
                         size="sm"
@@ -253,7 +252,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
           </p>
         </ul>
       ) : (
-        <div className="mx-auto mt-20 mb-[68px] flex min-h-[485px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-16 sm:mt-12 sm:max-w-none">
+        <div className="mx-auto mt-12 mb-[68px] flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-10 sm:max-w-none">
           <div className="flex-flex-col space-y-5">
             <span className="text-lg font-medium uppercase leading-none">Custom</span>
             <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
