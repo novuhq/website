@@ -246,7 +246,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                           </span>
                         )}
                         <div className="mt-auto flex w-full flex-col justify-between space-y-8">
-                          <ul className="flex flex-col space-y-2">
+                          <ul className="flex flex-col space-y-2 leading-tight">
                             {items.map((item, index) => (
                               <li className="flex items-center space-x-3" key={index}>
                                 <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
@@ -296,8 +296,8 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
               Contact us
             </span>
 
-            <div className="mt-auto flex flex-col justify-between space-y-8">
-              <ul className="flex flex-col space-y-2.5">
+            <div className="mt-auto flex w-full flex-col justify-between space-y-8">
+              <ul className="flex flex-col space-y-2 leading-tight">
                 <li className="flex items-center space-x-3">
                   <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
                   <span>Volume discounts</span>
@@ -314,7 +314,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                 theme="gray-outline"
                 size="sm"
               >
-                Contact us
+                Contact sales
               </Button>
             </div>
           </motion.div>

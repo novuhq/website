@@ -28,18 +28,22 @@ const SelfHosted = () => (
           purus ut at nisl id sit mattis.
         </p>
       </div>
-      <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+      <span className="mt-12 mb-16 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
         Contact us
       </span>
 
-      <div className="mt-auto flex flex-col justify-between space-y-8">
-        <ul className="flex flex-col space-y-2.5">
+      <div className="mt-auto flex w-full flex-col justify-between space-y-8">
+        <ul className="flex flex-col space-y-2 leading-tight">
           <li className="flex items-center space-x-3">
-            <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+            <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
             <span>1M events/month included</span>
           </li>
           <li className="flex items-center space-x-3">
-            <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+            <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
+            <span>Unlimited events</span>
+          </li>
+          <li className="flex items-center space-x-3">
+            <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
             <span>Unlimited events</span>
           </li>
         </ul>

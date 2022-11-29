@@ -7,6 +7,9 @@ import Heading from 'components/shared/heading';
 import Cloud from './cloud';
 import SelfHosted from './self-hosted';
 
+const title = 'Flexible pricing <br /> for companies and developers';
+const selfHostedTitle = 'Find a plan that works for you';
+
 const Hero = ({
   activeTier,
   setActiveTier,
@@ -22,15 +25,16 @@ const Hero = ({
         size="3xl"
         tag="h1"
         theme="white"
+        asHTML
       >
-        Flexible pricing <br /> for companies and developers
+        {pricingPlan === 'cloud' ? title : selfHostedTitle}
       </Heading>
       <div className="mx-auto mt-14 flex flex-col md:mt-10 sm:mt-9">
         <div className="flex w-[337px] max-w-sm space-x-4 self-center rounded-[36px] border border-gray-3 p-1.5">
           {Object.keys(pricingPlansData).map((plan, index) => (
             <Button
               className={clsx(
-                'grow basis-1/2 rounded-[60px] bg-gray-2 font-semibold uppercase hover:bg-gray-3',
+                'grow basis-1/2 rounded-[60px] bg-gray-2 !text-sm font-semibold uppercase hover:bg-gray-3',
                 pricingPlan === plan && '!bg-white !text-black'
               )}
               size="xs"
