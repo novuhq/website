@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 
 import Button from 'components/shared/button';
 import InputRange from 'components/shared/input-range';
@@ -9,8 +9,6 @@ import QuestionIcon from 'icons/question.inline.svg';
 import CheckIcon from 'images/check.inline.svg';
 
 const thumbWidth = 28; // in pixels
-// this is the initial value used in the input so that the thumb doesn't render at zero
-const INITIAL_SLIDER_VALUE = 20;
 
 const RANGES = {
   0: '10000',
@@ -119,17 +117,16 @@ const renderedPrice = (prices, value, startingPrice) => {
   return prices[Math.max(...values)];
 };
 
-const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
-  const [value, setValue] = useState(INITIAL_SLIDER_VALUE);
+const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
   const maxValue = 170;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
 
-  const thumbPosition = `calc(${thumbWidth / 2}px + ${(value / maxValue) * 100}% - ${
-    value / maxValue
+  const thumbPosition = `calc(${thumbWidth / 2}px + ${(rangeValue / maxValue) * 100}% - ${
+    rangeValue / maxValue
   } * ${thumbWidth}px)`;
 
-  const blurDisplay = Number(value) === 0 ? 'none' : 'block';
+  const blurDisplay = Number(rangeValue) === 0 ? 'none' : 'block';
   return (
     <>
       <div className="mt-16 text-center md:mt-14 sm:mt-11">
@@ -146,14 +143,14 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
             left: thumbPosition,
           }}
         >
-          {eventsFormatter.format(RANGES[value])}
+          {eventsFormatter.format(RANGES[rangeValue])}
         </output>
         <InputRange
           type="range"
           min="0"
           max={maxValue}
           step="10"
-          value={value}
+          value={rangeValue}
           styleSliderTrackWidth={{
             width: thumbPosition,
           }}
@@ -162,7 +159,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
             display: blurDisplay,
           }}
           onChange={(e) => {
-            setValue(e.target.value);
+            setRangeValue(e.target.value);
             setActiveTier(findActiveTier(e.target.value));
           }}
         />
@@ -176,7 +173,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
         </div>
       </div>
       <AnimatePresence>
-        {Number(value) < 170 && (
+        {Number(rangeValue) < 170 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
@@ -232,7 +229,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
                               <span className="relative">
                                 <span className="absolute -left-6 top-6 text-3xl">$</span>
                                 {prices
-                                  ? renderedPrice(prices, value, startingPrice)
+                                  ? renderedPrice(prices, rangeValue, startingPrice)
                                   : startingPrice}
                               </span>
                             </p>
@@ -277,7 +274,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier }) => {
       </AnimatePresence>
 
       <AnimatePresence>
-        {Number(value) === 170 && (
+        {Number(rangeValue) === 170 && (
           <motion.div
             className="mx-auto mt-12 mb-[68px] flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-10 sm:max-w-none"
             initial={{ opacity: 0, y: 20 }}
