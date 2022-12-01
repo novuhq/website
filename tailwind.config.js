@@ -82,7 +82,9 @@ module.exports = {
       xl: { max: '1535px' },
       lg: { max: '1279px' },
       md: { max: '1023px' },
+      'md-sm': { max: '900px' },
       sm: { max: '767px' },
+      'sm-xs': { max: '500px' },
       xs: { max: '359px' },
     },
     extend: {
@@ -96,7 +98,7 @@ module.exports = {
         34: '8.5rem',
       },
       width: {
-        'square-diagonal': `${Math.sqrt(2) * 100  }%`,
+        'square-diagonal': `${Math.sqrt(2) * 100}%`,
       },
     },
   },
