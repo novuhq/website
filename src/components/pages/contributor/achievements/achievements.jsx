@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-
-import Tooltip from '../../../shared/tooltip';
+import Tooltip from 'components/shared/tooltip';
 
 import bronzeMedalIconDisabled from './images/bronze-medal.png';
 import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.png';

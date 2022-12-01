@@ -133,7 +133,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
           How many events do you need per month?
           <QuestionIcon className="ml-2.5 inline h-5 w-5 shrink-0" data-tip={tooltip} />
         </span>
-        <Tooltip text={tooltip} className="max-w-[398px]" theme="white" />
+        <Tooltip className="max-w-[398px]" text={tooltip} theme="white" />
       </div>
       <div className="relative mx-auto mt-12 w-full max-w-[968px]">
         <output
