@@ -17,11 +17,13 @@ const Question = ({ question, answer }) => {
   return (
     <li>
       <button
-        className="inline-flex w-full items-center justify-between pt-5 pb-4"
+        className="inline-flex w-full items-center justify-between pt-5 pb-4 sm:space-x-10"
         type="button"
         onClick={handleButtonClick}
       >
-        <span className="text-2xl leading-denser lg:text-xl md:text-lg">{question}</span>
+        <span className="text-left text-2xl leading-denser md:text-[22px] sm:text-lg sm:leading-tight">
+          {question}
+        </span>
         <ChevronIcon
           className={clsx(
             'h-auto w-4 shrink-0 transition-transform duration-200 md:w-3 xs:w-2.5',
@@ -36,7 +38,7 @@ const Question = ({ question, answer }) => {
         variants={variantsAnimation}
         transition={{ duration: ANIMATION_DURATION }}
       >
-        <div className="pt-3 pb-5 text-left text-lg font-book text-gray-10 md:text-base sm:text-center sm:text-sm">
+        <div className="pt-3 pb-5 text-left text-lg font-book text-gray-10 md:mr-14 sm:mr-7 sm:text-base">
           {answer}
         </div>
       </motion.div>
