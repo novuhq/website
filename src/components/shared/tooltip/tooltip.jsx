@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 
 const themeStyles = {
-  gray: '!bg-gradient-to-b !from-gray-2 !to-gray-2',
-  white: '!text-black !bg-gradient-to-b !from-gray-11 !to-gray-9',
+  gray: '!bg-gradient-to-b !from-gray-2 !to-gray-2 font-light text-sm leading-tight',
+  white: '!text-black !bg-gradient-to-b !from-gray-11 !to-gray-9 text-xs !opacity-100 leading-snug',
 };
 
 const Tooltip = ({ className, theme }) => {
@@ -18,11 +18,7 @@ const Tooltip = ({ className, theme }) => {
   return (
     isTooltipVisible && (
       <ReactTooltip
-        className={clsx(
-          'z-10 !rounded-lg !p-4 text-sm font-light leading-tight before:hidden',
-          className,
-          themeStyles[theme]
-        )}
+        className={clsx('z-10 !rounded-lg !p-4 before:hidden', className, themeStyles[theme])}
         place="top"
         effect="solid"
         arrowColor={theme === 'gray' ? '#1A1A1A' : '#CCCCCC'}
