@@ -173,7 +173,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
       </div>
 
       {Number(rangeValue) < 170 ? (
-        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center lg:gap-8 md:mx-24 md:mt-10 md:grid-cols-2 md:gap-7 md-sm:mx-20 sm:mx-0 sm-xs:mx-12 sm-xs:grid-cols-1 xs:mx-0">
+        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mx-24 md:mt-10 md:grid-cols-2 md:gap-7 md-sm:mx-20 sm:mx-0 sm-xs:mx-12 sm-xs:grid-cols-1 xs:mx-0">
           {PRICING_DATA.map(
             (
               {
@@ -208,7 +208,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                   )}
                   <div
                     className={clsx(
-                      'mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center transition-all duration-500 ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none xl:p-4 lg:p-3',
+                      'mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center transition-all duration-500 ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none xl:px-4 lg:px-3 md:px-6',
                       isActive && 'bg-active-gray-gradient'
                     )}
                   >
@@ -220,7 +220,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                     </div>
 
                     {typeof startingPrice === 'number' ? (
-                      <div className="mt-10 mb-8 flex flex-col md:mt-5">
+                      <div className="mt-10 flex min-h-[102px] flex-col md:mt-5">
                         <p className="text-[72px] font-medium leading-none xl:text-8xl lg:text-6xl md:text-[72px] sm:text-8xl">
                           <span className="relative">
                             <span className="absolute -left-6 top-6 text-3xl">$</span>
@@ -232,28 +232,35 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                         <span className="mt-2 text-base leading-tight text-gray-8">per month</span>
                       </div>
                     ) : (
-                      <span className="mt-10 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
+                      <span className="mt-10 min-h-[102px] text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
                         {startingPrice}
                       </span>
                     )}
-                    <div className="mt-auto flex w-full flex-col justify-between space-y-8">
-                      <ul className="flex flex-col space-y-2 leading-tight">
-                        {items.map((item, index) => (
-                          <li className="flex items-center space-x-3 xl:space-x-1.5" key={index}>
-                            <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                            <span className="text-left text-base xl:text-sm">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button
-                        className="w-full lg:text-xs"
-                        to={buttonUrl}
-                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                        size="sm"
-                      >
-                        {buttonText}
-                      </Button>
-                    </div>
+                    <ul
+                      className={clsx(
+                        'mb-8 flex flex-col space-y-2 leading-tight',
+                        typeof startingPrice === 'number'
+                          ? 'mt-8 xl:mt-5 md:mt-8'
+                          : 'mt-3 xl:mt-5 md:mt-8 sm:mt-3'
+                      )}
+                    >
+                      {items.map((item, index) => (
+                        <li className="flex items-center space-x-3 xl:space-x-1.5" key={index}>
+                          <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                          <span className="text-left text-base lg:text-sm md:text-base">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      className="mt-auto w-full lg:text-xs"
+                      to={buttonUrl}
+                      theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                      size="sm"
+                    >
+                      {buttonText}
+                    </Button>
                   </div>
                 </li>
               );
