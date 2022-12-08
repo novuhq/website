@@ -194,7 +194,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
               return (
                 <li
                   className={clsx(
-                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none',
+                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none',
                     isActive && 'after:opacity-100'
                   )}
                   key={index}
