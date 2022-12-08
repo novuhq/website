@@ -17,7 +17,7 @@ const PlanCard = ({
   className,
   currentRow,
 }) => {
-  const isActive = activeTier === title.toLowerCase();
+  const isActive = activeTier === title.split(' ')[0].toLowerCase();
 
   return (
     <div
