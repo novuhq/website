@@ -206,7 +206,12 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                       </div>
                     </div>
                   )}
-                  <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center xl:mx-0 xl:min-w-0 xl:max-w-none xl:p-4 lg:p-3">
+                  <div
+                    className={clsx(
+                      'mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center transition-all duration-500 ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none xl:p-4 lg:p-3',
+                      isActive && 'bg-active-gray-gradient'
+                    )}
+                  >
                     <div className="flex-flex-col space-y-4">
                       <span className="text-lg font-medium uppercase leading-none">{title}</span>
                       <p className="mx-auto min-h-[38px] max-w-[95%] text-sm leading-snug text-gray-8 xl:min-h-[77px] sm:min-h-0">
