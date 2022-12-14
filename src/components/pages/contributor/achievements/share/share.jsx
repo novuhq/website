@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { LinkedinShareButton, TwitterShareButton, FacebookShareButton } from 'react-share';
@@ -106,19 +106,21 @@ export const Share = ({ type, imageUrl, url }) => {
               <LinkedinIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
             </LinkedinShareButton>
             <button className="group relative" type="button" onClick={handleCopy(url)}>
-              <AnimatePresence>
-                {isCopied && (
-                  <motion.span
-                    className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black py-1 px-1.5 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={variants}
-                  >
-                    Copied!
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              <LazyMotion features={domAnimation}>
+                <AnimatePresence>
+                  {isCopied && (
+                    <m.span
+                      className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black py-1 px-1.5 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      variants={variants}
+                    >
+                      Copied!
+                    </m.span>
+                  )}
+                </AnimatePresence>
+              </LazyMotion>
 
               <LinkIcon className="h-5 transition-opacity duration-200 group-hover:opacity-80" />
             </button>

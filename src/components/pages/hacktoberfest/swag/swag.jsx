@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
@@ -73,21 +73,23 @@ const Swag = () => {
         </Heading>
         <div className="mt-16 grid grid-cols-10 gap-x-10 md:mt-12 md:gap-x-8 sm:mt-10 sm:gap-y-8">
           <div className="col-span-7 sm:col-span-full">
-            <AnimatePresence initial={false} exitBeforeEnter>
-              {swagPacks.map(({ childImageSharp }, index) =>
-                index === activeItem ? (
-                  <motion.div key={index} {...swagAnimationProps}>
-                    <GatsbyImage
-                      className="rounded-[20px] md:rounded-2xl"
-                      imgClassName="rounded-[20px] md:rounded-2xl"
-                      image={getImage(childImageSharp)}
-                      alt={`Swag pack ${index + 1}`}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                ) : null
-              )}
-            </AnimatePresence>
+            <LazyMotion features={domAnimation}>
+              <AnimatePresence initial={false} exitBeforeEnter>
+                {swagPacks.map(({ childImageSharp }, index) =>
+                  index === activeItem ? (
+                    <m.div key={index} {...swagAnimationProps}>
+                      <GatsbyImage
+                        className="rounded-[20px] md:rounded-2xl"
+                        imgClassName="rounded-[20px] md:rounded-2xl"
+                        image={getImage(childImageSharp)}
+                        alt={`Swag pack ${index + 1}`}
+                        loading="lazy"
+                      />
+                    </m.div>
+                  ) : null
+                )}
+              </AnimatePresence>
+            </LazyMotion>
           </div>
           <div className="col-span-3 flex flex-col sm:col-span-full sm:items-center">
             <Heading
