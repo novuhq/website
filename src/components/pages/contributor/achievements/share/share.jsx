@@ -106,9 +106,9 @@ export const Share = ({ type, imageUrl, url }) => {
               <LinkedinIcon className="h-5 transition-opacity duration-200 hover:opacity-80" />
             </LinkedinShareButton>
             <button className="group relative" type="button" onClick={handleCopy(url)}>
-              <LazyMotion features={domAnimation}>
-                <AnimatePresence>
-                  {isCopied && (
+              {isCopied && (
+                <LazyMotion features={domAnimation}>
+                  <AnimatePresence>
                     <m.span
                       className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black py-1 px-1.5 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
                       initial="hidden"
@@ -118,9 +118,9 @@ export const Share = ({ type, imageUrl, url }) => {
                     >
                       Copied!
                     </m.span>
-                  )}
-                </AnimatePresence>
-              </LazyMotion>
+                  </AnimatePresence>
+                </LazyMotion>
+              )}
 
               <LinkIcon className="h-5 transition-opacity duration-200 group-hover:opacity-80" />
             </button>
