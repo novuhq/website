@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
@@ -101,88 +101,90 @@ const Form = () => {
       noValidate
       onSubmit={handleSubmit}
     >
-      <input
-        className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
-        name="email"
-        type="email"
-        placeholder="Your email..."
-        autoComplete="email"
-        value={value}
-        readOnly={isStateLoadingOrSuccess}
-        onChange={handleInputChange}
-      />
+      <LazyMotion features={domAnimation}>
+        <input
+          className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
+          name="email"
+          type="email"
+          placeholder="Your email..."
+          autoComplete="email"
+          value={value}
+          readOnly={isStateLoadingOrSuccess}
+          onChange={handleInputChange}
+        />
 
-      <AnimatePresence>
         {errorMessage && (
-          <motion.span
-            className="absolute left-1/2 -bottom-2 w-full max-w-[330px] -translate-x-1/2 translate-y-full text-center text-sm text-gray-8"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={appearAndExitAnimationVariants}
-          >
-            {errorMessage}
-          </motion.span>
+          <AnimatePresence>
+            <m.span
+              className="absolute left-1/2 -bottom-2 w-full max-w-[330px] -translate-x-1/2 translate-y-full text-center text-sm text-gray-8"
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={appearAndExitAnimationVariants}
+            >
+              {errorMessage}
+            </m.span>
+          </AnimatePresence>
         )}
-      </AnimatePresence>
 
-      <Button
-        className={clsx('absolute top-1/2 right-3 -translate-y-1/2', {
-          'w-[108px]': formState === STATES.LOADING,
-          'w-10 px-0': formState === STATES.SUCCESS,
-          'pointer-events-none': isStateLoadingOrSuccess,
-        })}
-        size="xs"
-        theme="white-filled"
-        name="subscribe"
-        type="submit"
-        disabled={isStateLoadingOrSuccess}
-      >
-        <AnimatePresence>
-          {(formState === STATES.DEFAULT || formState === STATES.ERROR) && (
-            <>
-              <motion.span
-                className="sm:sr-only"
+        <Button
+          className={clsx('absolute top-1/2 right-3 -translate-y-1/2', {
+            'w-[108px]': formState === STATES.LOADING,
+            'w-10 px-0': formState === STATES.SUCCESS,
+            'pointer-events-none': isStateLoadingOrSuccess,
+          })}
+          size="xs"
+          theme="white-filled"
+          name="subscribe"
+          type="submit"
+          disabled={isStateLoadingOrSuccess}
+        >
+          <AnimatePresence>
+            {(formState === STATES.DEFAULT || formState === STATES.ERROR) && (
+              <>
+                <m.span
+                  className="sm:sr-only"
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={appearAndExitAnimationVariants}
+                >
+                  Subscribe
+                </m.span>
+                <m.span
+                  className="hidden sm:block"
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={appearAndExitAnimationVariants}
+                >
+                  <SendIcon className="ml-1.5 h-6" aria-hidden />
+                </m.span>
+              </>
+            )}
+            {formState === STATES.LOADING && (
+              <m.div
                 initial="initial"
                 animate="animate"
                 exit="exit"
                 variants={appearAndExitAnimationVariants}
               >
-                Subscribe
-              </motion.span>
-              <motion.span
-                className="hidden sm:block"
+                <LoadingIcon className="h-6 w-6 animate-spin" />
+              </m.div>
+            )}
+            {formState === STATES.SUCCESS && (
+              <m.div
                 initial="initial"
                 animate="animate"
                 exit="exit"
                 variants={appearAndExitAnimationVariants}
               >
-                <SendIcon className="ml-1.5 h-6" aria-hidden />
-              </motion.span>
-            </>
-          )}
-          {formState === STATES.LOADING && (
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={appearAndExitAnimationVariants}
-            >
-              <LoadingIcon className="h-6 w-6 animate-spin" />
-            </motion.div>
-          )}
-          {formState === STATES.SUCCESS && (
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={appearAndExitAnimationVariants}
-            >
-              <CheckIcon class="h-3 w-4" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </Button>
+                <CheckIcon class="h-3 w-4" />
+              </m.div>
+            )}
+          </AnimatePresence>
+        </Button>
+      </LazyMotion>
     </form>
   );
 };

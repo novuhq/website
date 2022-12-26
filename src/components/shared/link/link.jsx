@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, useAnimation } from 'framer-motion';
+import { m, LazyMotion, domAnimation, useAnimation } from 'framer-motion';
 import { Link as GatsbyLink } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -81,13 +81,15 @@ const Link = ({ className: additionalClassName, size, theme, to, tag, children, 
   const isUnderline = theme === 'primary-underline';
 
   const underline = (
-    <motion.span
-      className="absolute bottom-0 left-0 h-px w-full rounded-full bg-primary-1"
-      initial="initial"
-      variants={underlineVariants}
-      animate={controls}
-      aria-hidden
-    />
+    <LazyMotion features={domAnimation}>
+      <m.span
+        className="absolute bottom-0 left-0 h-px w-full rounded-full bg-primary-1"
+        initial="initial"
+        variants={underlineVariants}
+        animate={controls}
+        aria-hidden
+      />
+    </LazyMotion>
   );
 
   if (to?.startsWith('/') && !tag) {
