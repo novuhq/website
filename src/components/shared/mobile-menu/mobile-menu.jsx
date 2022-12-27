@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useAnimation } from 'framer-motion';
+import { AnimatePresence, m, LazyMotion, domAnimation, useAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
@@ -45,61 +45,63 @@ const MobileMenu = ({ isOpen }) => {
   }, [isOpen, controls]);
 
   return (
-    <AnimatePresence>
+    <LazyMotion features={domAnimation}>
       {isOpen && (
-        <motion.div
-          className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16 sm:pt-[60px]"
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          variants={variants}
-        >
-          <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
-            <ul className="my-auto flex w-full flex-col">
-              {MENUS.mobile.map(({ to, text, target }, index) => (
-                <li key={index}>
-                  <Link
-                    className="block w-full py-6 text-center text-2xl"
-                    theme="white"
-                    size="xl"
-                    to={to}
-                    target={target}
+        <AnimatePresence>
+          <m.div
+            className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16 sm:pt-[60px]"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={variants}
+          >
+            <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
+              <ul className="my-auto flex w-full flex-col">
+                {MENUS.mobile.map(({ to, text, target }, index) => (
+                  <li key={index}>
+                    <Link
+                      className="block w-full py-6 text-center text-2xl"
+                      theme="white"
+                      size="xl"
+                      to={to}
+                      target={target}
+                    >
+                      {text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="sticky bottom-0 bg-black">
+              <div className="container">
+                <div className="flex w-full justify-between space-x-4 py-7">
+                  <Button
+                    className="w-full xs:text-xs"
+                    to={GITHUB.repoUrl}
+                    target="_blank"
+                    size="sm"
+                    theme="gray-outline"
                   >
-                    {text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                    <GitHubIcon className="mr-2 h-[26px] w-[26px]" />
+                    <span>Star us</span>
+                  </Button>
 
-          <div className="sticky bottom-0 bg-black">
-            <div className="container">
-              <div className="flex w-full justify-between space-x-4 py-7">
-                <Button
-                  className="w-full xs:text-xs"
-                  to={GITHUB.repoUrl}
-                  target="_blank"
-                  size="sm"
-                  theme="gray-outline"
-                >
-                  <GitHubIcon className="mr-2 h-[26px] w-[26px]" />
-                  <span>Star us</span>
-                </Button>
-
-                <Button
-                  className="w-full xs:text-xs"
-                  size="sm"
-                  theme="white-filled"
-                  {...LINKS.getStarted}
-                >
-                  {RIGHT_BUTTON_TEXT}
-                </Button>
+                  <Button
+                    className="w-full xs:text-xs"
+                    size="sm"
+                    theme="white-filled"
+                    {...LINKS.getStarted}
+                  >
+                    {RIGHT_BUTTON_TEXT}
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </m.div>
+        </AnimatePresence>
       )}
-    </AnimatePresence>
+    </LazyMotion>
   );
 };
 
