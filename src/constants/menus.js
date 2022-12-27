@@ -54,6 +54,10 @@ const MENUS = {
     { text: 'Blog', ...LINKS.blog },
     { text: 'Contributors', ...LINKS.contributors },
     { text: 'Careers', ...LINKS.careers },
+    {
+      text: 'Pricing',
+      ...LINKS.pricing,
+    },
   ],
 };
 

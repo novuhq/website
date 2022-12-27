@@ -45,19 +45,19 @@ const PRICING_DATA = [
     isOpenBeta: true,
   },
   {
-    title: 'Indie Developer',
+    title: 'Indie Dev',
     name: 'indie',
     startingPrice: 25,
     prices: {
       10000: 25,
       30000: 25,
-      35000: 37.5,
-      40000: 43.75,
-      50000: 49.11,
-      60000: 59.82,
-      80000: 70.54,
-      100000: 128.04,
-      125000: 185.54,
+      35000: 38,
+      40000: 44,
+      50000: 49,
+      60000: 60,
+      80000: 71,
+      100000: 128,
+      125000: 186,
     },
     description: 'Small projects by up to 2 indie-hackers.',
     items: ['20K events/month included', 'Up to 100K events a month'],
@@ -70,14 +70,14 @@ const PRICING_DATA = [
     name: 'business',
     startingPrice: 200,
     prices: {
-      80000: 273.33,
-      100000: 346.67,
+      80000: 273,
+      100000: 347,
       120000: 420,
       200000: 575,
       250000: 670,
       500000: 1385,
       750000: 1845,
-      1000000: 2393.33,
+      1000000: 2393,
       1500000: 2995,
       2000000: 3900,
       3000000: 5500,
@@ -173,7 +173,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
       </div>
 
       {Number(rangeValue) < 170 ? (
-        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:grid-cols-3 lg:grid-cols-2 lg:gap-8 md:mt-10 sm:grid-cols-1">
+        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mx-24 md:mt-10 md:grid-cols-2 md:gap-7 md-sm:mx-20 sm:mx-0 sm-xs:mx-12 sm-xs:grid-cols-1 xs:mx-0">
           {PRICING_DATA.map(
             (
               {
@@ -194,7 +194,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
               return (
                 <li
                   className={clsx(
-                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out lg:mx-0 lg:min-w-0 lg:max-w-none',
+                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none',
                     isActive && 'after:opacity-100'
                   )}
                   key={index}
@@ -206,17 +206,22 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                       </div>
                     </div>
                   )}
-                  <div className="mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:mx-0 lg:min-w-0 lg:max-w-none">
+                  <div
+                    className={clsx(
+                      'mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center transition-all duration-500 ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none xl:px-4 lg:px-3 md:px-6',
+                      isActive && 'bg-active-gray-gradient'
+                    )}
+                  >
                     <div className="flex-flex-col space-y-4">
                       <span className="text-lg font-medium uppercase leading-none">{title}</span>
-                      <p className="min-h-[38px] text-sm leading-snug text-gray-8 xl:min-h-0">
+                      <p className="mx-auto min-h-[38px] max-w-[95%] text-sm leading-snug text-gray-8 xl:min-h-[77px] sm:min-h-0">
                         {description}
                       </p>
                     </div>
 
                     {typeof startingPrice === 'number' ? (
-                      <div className="mt-12 mb-8 flex flex-col">
-                        <p className="text-[72px] font-medium leading-none xl:text-8xl">
+                      <div className="mt-10 flex min-h-[102px] flex-col md:mt-5">
+                        <p className="text-[72px] font-medium leading-none xl:text-8xl lg:text-6xl md:text-[72px] sm:text-8xl">
                           <span className="relative">
                             <span className="absolute -left-6 top-6 text-3xl">$</span>
                             {prices
@@ -227,28 +232,35 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                         <span className="mt-2 text-base leading-tight text-gray-8">per month</span>
                       </div>
                     ) : (
-                      <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+                      <span className="mt-10 min-h-[102px] text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
                         {startingPrice}
                       </span>
                     )}
-                    <div className="mt-auto flex w-full flex-col justify-between space-y-8">
-                      <ul className="flex flex-col space-y-2 leading-tight">
-                        {items.map((item, index) => (
-                          <li className="flex items-center space-x-3" key={index}>
-                            <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button
-                        className="w-full"
-                        to={buttonUrl}
-                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                        size="sm"
-                      >
-                        {buttonText}
-                      </Button>
-                    </div>
+                    <ul
+                      className={clsx(
+                        'mb-8 flex flex-col space-y-2 leading-tight',
+                        typeof startingPrice === 'number'
+                          ? 'mt-8 xl:mt-5 md:mt-8'
+                          : 'mt-3 xl:mt-5 md:mt-8 sm:mt-3'
+                      )}
+                    >
+                      {items.map((item, index) => (
+                        <li className="flex items-center space-x-3 xl:space-x-1.5" key={index}>
+                          <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+                          <span className="text-left text-base lg:text-sm md:text-base">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      className="mt-auto w-full lg:text-xs"
+                      to={buttonUrl}
+                      theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                      size="sm"
+                    >
+                      {buttonText}
+                    </Button>
                   </div>
                 </li>
               );
@@ -259,13 +271,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
           </p>
         </ul>
       ) : (
-        <div
-          className="mx-auto mt-12 mb-[68px] flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center lg:min-h-0 md:mt-10 sm:max-w-none"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0 }}
-        >
+        <div className="mx-auto mt-12 mb-16 flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center xl:p-6 lg:min-h-[412px] lg:p-4 md:mt-10 md:min-h-0 xs:max-w-none">
           <div className="flex-flex-col space-y-5">
             <span className="text-lg font-medium uppercase leading-none">Custom</span>
             <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
@@ -273,7 +279,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
               tempus purus ut at nisl id sit mattis.
             </p>
           </div>
-          <span className="mt-12 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+          <span className="mt-10 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
             Contact us
           </span>
 

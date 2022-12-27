@@ -17,12 +17,12 @@ const PlanCard = ({
   className,
   currentRow,
 }) => {
-  const isActive = activeTier === title.toLowerCase();
+  const isActive = activeTier === title.split(' ')[0].toLowerCase();
 
   return (
     <div
       className={clsx(
-        'relative flex flex-col overflow-hidden rounded-lg text-center after:absolute after:inset-0 after:-z-10 after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
+        'relative flex flex-col overflow-hidden rounded-lg text-center after:absolute after:inset-0 after:-z-10 after:rounded-lg after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
         isActive && 'p-px after:opacity-100',
         className
       )}

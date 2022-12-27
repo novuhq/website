@@ -40,7 +40,7 @@ const PLANS = {
     },
   },
   indie: {
-    title: 'Indie',
+    title: 'Indie Dev',
     linkText: 'Get started',
     linkUrl: '/',
     platform: {

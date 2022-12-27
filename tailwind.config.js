@@ -69,8 +69,9 @@ module.exports = {
       'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
       'blue-gradient': 'linear-gradient(135deg, #FFE27D 14.04%, #64E3FF 50.5%, #9192FF 86.21%)',
       'pink-yellow-gradient':
-        'linear-gradient(235deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
-      'gray-gradient': 'linear-gradient(180deg, #262626 0%, #1A1A1A 100%)',
+        'linear-gradient(257.22deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
+      'gray-gradient': 'linear-gradient(180deg, #262626 0%, #171717 100%)',
+      'active-gray-gradient': 'linear-gradient(180deg, #131313 0%, #0B0B0B 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
       ...defaultTheme.backgroundImage,
     },
@@ -82,7 +83,9 @@ module.exports = {
       xl: { max: '1535px' },
       lg: { max: '1279px' },
       md: { max: '1023px' },
+      'md-sm': { max: '900px' },
       sm: { max: '767px' },
+      'sm-xs': { max: '500px' },
       xs: { max: '359px' },
     },
     extend: {
@@ -96,7 +99,7 @@ module.exports = {
         34: '8.5rem',
       },
       width: {
-        'square-diagonal': `${Math.sqrt(2) * 100  }%`,
+        'square-diagonal': `${Math.sqrt(2) * 100}%`,
       },
     },
   },

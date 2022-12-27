@@ -19,7 +19,7 @@ const SelfHosted = () => (
       Read docs
     </Link>
 
-    <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center sm:max-w-none">
+    <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center xl:p-6 lg:p-4 xs:max-w-none">
       <div className="flex-flex-col space-y-5">
         <span className="text-lg font-medium uppercase leading-none">On-premises</span>
         <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
@@ -28,7 +28,7 @@ const SelfHosted = () => (
           purus ut at nisl id sit mattis.
         </p>
       </div>
-      <span className="mt-12 mb-16 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl">
+      <span className="mt-12 mb-16 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
         Contact us
       </span>
 
