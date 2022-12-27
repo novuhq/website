@@ -10,24 +10,26 @@ import CheckIcon from 'images/check.inline.svg';
 const thumbWidth = 28; // in pixels
 
 const RANGES = {
-  0: '10000',
-  10: '30000',
-  20: '35000',
-  30: '40000',
-  40: '50000',
-  50: '60000',
-  60: '80000',
-  70: '100000',
-  80: '120000',
-  90: '200000',
-  100: '250000',
-  110: '500000',
-  120: '750000',
-  130: '1000000',
-  140: '1500000',
-  150: '2000000',
-  160: '3000000',
-  170: '5000000',
+  0: '0',
+  10: '10000',
+  20: '30000',
+  30: '35000',
+  40: '40000',
+  50: '50000',
+  60: '60000',
+  70: '80000',
+  80: '100000',
+  90: '120000',
+  100: '200000',
+  110: '250000',
+  120: '500000',
+  130: '750000',
+  140: '1000000',
+  150: '1500000',
+  160: '2000000',
+  170: '3000000',
+  180: '4500000',
+  190: '5000000',
 };
 
 const tooltip =
@@ -35,89 +37,102 @@ const tooltip =
 
 const PRICING_DATA = [
   {
-    title: 'Free',
+    titles: {
+      default: 'Free',
+    },
     name: 'free',
-    startingPrice: 0,
+    prices: {
+      default: 0,
+    },
     description: 'For testing and evaluation or small-scale deployments.',
     items: ['Up to 10K events a month'],
-    buttonText: 'Get started for free',
-    buttonUrl: '/',
+    buttons: {
+      default: {
+        text: 'Get started for free',
+        url: '/',
+      },
+    },
     isOpenBeta: true,
   },
   {
-    title: 'Indie Dev',
+    titles: {
+      default: 'Indie Dev',
+      20: 'Indie Dev 100k',
+    },
     name: 'indie',
-    startingPrice: 25,
     prices: {
-      10000: 25,
-      30000: 25,
-      35000: 38,
-      40000: 44,
-      50000: 49,
-      60000: 60,
-      80000: 71,
-      100000: 128,
-      125000: 186,
+      default: 25,
+      20: 70,
     },
     description: 'Small projects by up to 2 indie-hackers.',
     items: ['20K events/month included', 'Up to 100K events a month'],
-    buttonText: 'Get started',
-    buttonUrl: '/',
+    buttons: {
+      default: {
+        text: 'Get started',
+        url: '/',
+      },
+    },
     isOpenBeta: true,
   },
   {
-    title: 'Business',
+    titles: {
+      default: 'Business',
+      70: 'Business 120k',
+      100: 'Business 250k',
+      120: 'Business 750k',
+      140: 'Business 1.5M',
+      160: 'Business 5M',
+    },
     name: 'business',
-    startingPrice: 200,
     prices: {
-      80000: 273,
-      100000: 347,
-      120000: 420,
-      200000: 575,
-      250000: 670,
-      500000: 1385,
-      750000: 1845,
-      1000000: 2393,
-      1500000: 2995,
-      2000000: 3900,
-      3000000: 5500,
-      5000000: 8700,
+      default: 200,
+      70: 345,
+      100: 670,
+      120: 1845,
+      140: 2995,
+      160: 3900,
     },
     description: 'Good place for bigger projects, startups, and full fledge businesses.',
     items: ['60K events/month included', 'Up to 5M events a month'],
-    buttonText: 'Get started',
-    buttonUrl: '/',
+    buttons: {
+      default: {
+        text: 'Get started',
+        url: '/',
+      },
+    },
+
     isOpenBeta: true,
   },
   {
-    title: 'Enterprise',
+    titles: {
+      default: 'Enterprise',
+      150: 'Custom',
+    },
     name: 'enterprise',
-    startingPrice: 'Contact us',
+    prices: {
+      default: 3395,
+      150: 'Contact us',
+    },
     description:
       'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
     items: ['1M events/month included', 'Unlimited events'],
-    buttonText: 'Contact sales',
-    buttonUrl: 'https://discord.gg/9wcGSf22PM',
+    buttons: {
+      default: {
+        text: 'Get started',
+        url: '/',
+      },
+      150: {
+        text: 'Contact sales',
+        url: 'https://discord.gg/9wcGSf22PM',
+      },
+    },
+    buttonUrl: '/',
     isOpenBeta: false,
   },
 ];
 
-const renderedPrice = (prices, value, startingPrice) => {
-  const values = Object.keys(prices).map((key) => Number(key));
-
-  if (RANGES[value].toString() in prices) {
-    return prices[RANGES[value]];
-  }
-
-  if (RANGES[value] < Math.min(...values)) {
-    return startingPrice;
-  }
-
-  return prices[Math.max(...values)];
-};
-
 const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
-  const maxValue = 170;
+  const maxValue = 190;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
 
@@ -126,6 +141,12 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
   } * ${thumbWidth}px)`;
 
   const blurDisplay = Number(rangeValue) === 0 ? 'none' : 'block';
+
+  const getNearestKey = (obj) =>
+    Object.keys(obj)
+      .filter((key) => Number(key) <= Number(rangeValue))
+      .sort((a, b) => Number(b) - Number(a))[0];
+
   return (
     <>
       <div className="mt-16 text-center md:mt-14 sm:mt-11">
@@ -164,7 +185,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
         />
         <div className="mt-1.5 flex justify-between bg-black text-white">
           <span className="text-sm leading-denser" aria-hidden>
-            {eventsFormatter.format(10000)}
+            {eventsFormatter.format(0)}
           </span>
           <span className="text-sm leading-denser" aria-hidden>
             {`${eventsFormatter.format(5000000)}+`}
@@ -172,23 +193,10 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
         </div>
       </div>
 
-      {Number(rangeValue) < 170 ? (
+      {Number(rangeValue) < maxValue ? (
         <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mx-24 md:mt-10 md:grid-cols-2 md:gap-7 md-sm:mx-20 sm:mx-0 sm-xs:mx-12 sm-xs:grid-cols-1 xs:mx-0">
           {PRICING_DATA.map(
-            (
-              {
-                title,
-                name,
-                startingPrice,
-                description,
-                prices,
-                items,
-                buttonText,
-                buttonUrl,
-                isOpenBeta,
-              },
-              index
-            ) => {
+            ({ titles, name, description, prices, items, buttons, isOpenBeta }, index) => {
               const isActive = activeTier === name;
 
               return (
@@ -213,37 +221,35 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                     )}
                   >
                     <div className="flex-flex-col space-y-4">
-                      <span className="text-lg font-medium uppercase leading-none">{title}</span>
+                      <span className="text-lg font-medium uppercase leading-none">
+                        {titles[getNearestKey(titles)] || titles.default}
+                      </span>
                       <p className="mx-auto min-h-[38px] max-w-[95%] text-sm leading-snug text-gray-8 xl:min-h-[77px] sm:min-h-0">
                         {description}
                       </p>
                     </div>
 
-                    {typeof startingPrice === 'number' ? (
-                      <div className="mt-10 flex min-h-[102px] flex-col md:mt-5">
-                        <p className="text-[72px] font-medium leading-none xl:text-8xl lg:text-6xl md:text-[72px] sm:text-8xl">
-                          <span className="relative">
-                            <span className="absolute -left-6 top-6 text-3xl">$</span>
-                            {prices
-                              ? renderedPrice(prices, rangeValue, startingPrice)
-                              : startingPrice}
-                          </span>
+                    <div className="mt-10 flex min-h-[102px] flex-col md:mt-5">
+                      {typeof prices[getNearestKey(prices)] === 'string' ? (
+                        <p className="text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
+                          {prices[getNearestKey(prices)]}
                         </p>
-                        <span className="mt-2 text-base leading-tight text-gray-8">per month</span>
-                      </div>
-                    ) : (
-                      <span className="mt-10 min-h-[102px] text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
-                        {startingPrice}
-                      </span>
-                    )}
-                    <ul
-                      className={clsx(
-                        'mb-8 flex flex-col space-y-2 leading-tight',
-                        typeof startingPrice === 'number'
-                          ? 'mt-8 xl:mt-5 md:mt-8'
-                          : 'mt-3 xl:mt-5 md:mt-8 sm:mt-3'
+                      ) : (
+                        <>
+                          <p className="text-[72px] font-medium leading-none xl:text-8xl lg:text-6xl md:text-[72px] sm:text-8xl">
+                            <span className="relative">
+                              <span className="absolute -left-6 top-6 text-3xl">$</span>
+                              {prices[getNearestKey(prices)] || prices.default}
+                            </span>
+                          </p>
+                          <span className="mt-2 text-base leading-tight text-gray-8">
+                            per month
+                          </span>
+                        </>
                       )}
-                    >
+                    </div>
+
+                    <ul className="mb-8 mt-8 flex flex-col space-y-2 leading-tight xl:mt-5 md:mt-8">
                       {items.map((item, index) => (
                         <li className="flex items-center space-x-3 xl:space-x-1.5" key={index}>
                           <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
@@ -253,14 +259,25 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                         </li>
                       ))}
                     </ul>
-                    <Button
-                      className="mt-auto w-full lg:text-xs"
-                      to={buttonUrl}
-                      theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                      size="sm"
-                    >
-                      {buttonText}
-                    </Button>
+                    {buttons[getNearestKey(buttons)] ? (
+                      <Button
+                        className="mt-auto w-full lg:text-xs"
+                        to={buttons[getNearestKey(buttons)].url}
+                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                        size="sm"
+                      >
+                        {buttons[getNearestKey(buttons)].text}
+                      </Button>
+                    ) : (
+                      <Button
+                        className="mt-auto w-full lg:text-xs"
+                        to={buttons.default.url}
+                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                        size="sm"
+                      >
+                        {buttons.default.text}
+                      </Button>
+                    )}
                   </div>
                 </li>
               );

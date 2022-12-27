@@ -20,8 +20,7 @@ const Hero = ({
   setPricingPlan,
   pricingPlansData,
 }) => {
-  // // this is the initial value used in the input so that the thumb doesn't render at zero
-  const [rangeValue, setRangeValue] = useState(20);
+  const [rangeValue, setRangeValue] = useState(0);
 
   return (
     <section className="safe-paddings relative overflow-hidden pt-36 lg:pt-32 md:pt-28 sm:pt-20">

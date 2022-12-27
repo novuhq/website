@@ -7,11 +7,12 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
 
-const INITIAL_SLIDER_VALUE = 20;
+const INITIAL_SLIDER_VALUE = 0;
 
 const findActiveTier = (value) => {
-  if (value >= 150) return 'enterprise';
-  if (value <= 60) return 'indie';
+  if (value >= 140) return 'enterprise';
+  if (value < 60 && value >= 10) return 'indie';
+  if (value < 10) return 'free';
   return 'business';
 };
 
