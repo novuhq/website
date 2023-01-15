@@ -150,6 +150,9 @@ module.exports = {
           hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
           hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },
+        schema: {
+          timeout: 60000,
+        },
       },
     },
     {
