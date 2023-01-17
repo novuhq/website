@@ -59,7 +59,7 @@ const Form = () => {
       const loadingAnimationStartedTime = Date.now();
 
       try {
-        const response = await fetch(`${process.env.GATSBY_STRAPI_API_URL}/api/subscribe`, {
+        const response = await fetch(`/api/submit`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
