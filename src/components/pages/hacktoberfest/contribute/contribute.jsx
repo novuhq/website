@@ -26,7 +26,7 @@ const ITEMS = [
     icon: blogIcon,
     title: 'Write a blog post',
     description:
-      'Made a PR? Have used Novu in a recent project? Tell the world about it in form of an blog post, article or guide',
+      'Made a PR? Have you used Novu in a recent project? Tell the world about it in the form of a blog post, article or guide',
     url: 'https://novu.co/blog',
   },
   {
