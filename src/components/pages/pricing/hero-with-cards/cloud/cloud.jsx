@@ -4,6 +4,7 @@ import React from 'react';
 import Button from 'components/shared/button';
 import InputRange from 'components/shared/input-range';
 import Tooltip from 'components/shared/tooltip/';
+import LINKS from 'constants/links';
 import QuestionIcon from 'icons/question.inline.svg';
 import CheckIcon from 'images/check.inline.svg';
 
@@ -49,7 +50,7 @@ const PRICING_DATA = [
     buttons: {
       default: {
         text: 'Get started for free',
-        url: '/',
+        url: LINKS.getStarted.to,
       },
     },
     isOpenBeta: true,
@@ -68,8 +69,8 @@ const PRICING_DATA = [
     items: ['20K events/month included', 'Up to 100K events a month'],
     buttons: {
       default: {
-        text: 'Get started',
-        url: '/',
+        text: 'Get started for free',
+        url: LINKS.getStarted.to,
       },
     },
     isOpenBeta: true,
@@ -96,8 +97,8 @@ const PRICING_DATA = [
     items: ['60K events/month included', 'Up to 5M events a month'],
     buttons: {
       default: {
-        text: 'Get started',
-        url: '/',
+        text: 'Get started for free',
+        url: LINKS.getStarted.to,
       },
     },
 
@@ -110,20 +111,15 @@ const PRICING_DATA = [
     },
     name: 'enterprise',
     prices: {
-      default: 3395,
-      150: 'Contact us',
+      0: 'Contact us',
     },
     description:
       'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
     items: ['1M events/month included', 'Unlimited events'],
     buttons: {
       default: {
-        text: 'Get started',
-        url: '/',
-      },
-      150: {
         text: 'Contact sales',
-        url: 'https://discord.gg/9wcGSf22PM',
+        url: 'https://calendly.com/novuhq/novu-meeting',
       },
     },
     buttonUrl: '/',

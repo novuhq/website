@@ -19,43 +19,41 @@ const SelfHosted = () => (
       Read docs
     </Link>
 
-    <div className="mx-auto mt-12 flex max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center xl:p-6 lg:p-4 xs:max-w-none">
-      <div className="flex-flex-col space-y-5">
-        <span className="text-lg font-medium uppercase leading-none">On-premises</span>
-        <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
-          {/* TODO: add real description */}
-          Lorem ipsum dolor sit amet consectetur. Odio mi ac dui tristique ipsum. A netus est tempus
-          purus ut at nisl id sit mattis.
-        </p>
-      </div>
-      <span className="mt-12 mb-16 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
-        Contact us
-      </span>
-
-      <div className="mt-auto flex w-full flex-col justify-between space-y-8">
-        <ul className="flex flex-col space-y-2 leading-tight">
-          <li className="flex items-center space-x-3">
-            <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
-            <span>1M events/month included</span>
-          </li>
-          <li className="flex items-center space-x-3">
-            <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
-            <span>Unlimited events</span>
-          </li>
-          <li className="flex items-center space-x-3">
-            <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
-            <span>Unlimited events</span>
-          </li>
-        </ul>
-        <Button
-          className="w-full"
-          to="https://discord.gg/9wcGSf22PM"
-          target="_blank"
-          theme="gray-outline"
-          size="sm"
-        >
+    <div className="relative mx-auto mt-12 w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient xl:mx-0 xl:min-w-0 xl:max-w-none">
+      <div className="text-centerxl:mx-0 mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-active-gray-gradient p-8 xl:min-w-0 xl:max-w-none xl:px-4 lg:px-3 md:px-6">
+        <div className="flex-flex-col space-y-5">
+          <span className="text-lg font-medium uppercase leading-none">On-premises</span>
+          <p className="text-sm leading-snug text-gray-8">Run Novu on you own servers.</p>
+        </div>
+        <span className="mt-12 mb-16 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
           Contact us
-        </Button>
+        </span>
+
+        <div className="mt-auto flex w-full flex-col justify-between space-y-8">
+          <ul className="flex flex-col space-y-2 leading-tight">
+            <li className="flex items-center space-x-3">
+              <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
+              <span>Unlimited Events</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
+              <span>UMIT license</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
+              <span>Free</span>
+            </li>
+          </ul>
+          <Button
+            className="w-full"
+            to="https://calendly.com/novuhq/novu-meeting"
+            target="_blank"
+            theme="gray-outline"
+            size="sm"
+          >
+            Contact us
+          </Button>
+        </div>
       </div>
     </div>
   </div>
