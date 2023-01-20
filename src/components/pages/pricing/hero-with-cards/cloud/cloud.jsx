@@ -231,7 +231,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
       </div>
 
       {Number(rangeValue) < maxValue ? (
-        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mt-10 md:grid-cols-2 md:gap-7 sm:grid-cols-1">
+        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-6 lg:mx-24 lg:grid-cols-2 lg:gap-6 md:mx-0 md:mt-10 md:gap-7 sm:grid-cols-1">
           {getPricingData(rangeValue).map(
             (
               { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
@@ -242,7 +242,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
               return (
                 <li
                   className={clsx(
-                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none',
+                    'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none sm:mx-auto sm:max-w-[380px]',
                     isActive && 'after:opacity-100'
                   )}
                   key={index}
@@ -264,19 +264,19 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                       <span className="text-lg font-medium uppercase leading-none">
                         {titles[getNearestKey(titles)] || titles.default}
                       </span>
-                      <p className="mx-auto min-h-[38px] max-w-[95%] text-sm leading-snug text-gray-8 xl:min-h-[77px] sm:min-h-0">
+                      <p className="mx-auto min-h-[38px] max-w-[95%] text-sm leading-snug text-gray-8 xl:min-h-[71px] sm:min-h-0">
                         {description}
                       </p>
                     </div>
 
                     <div className="mt-10 flex min-h-[81px] flex-col md:mt-5">
                       {typeof prices[getNearestKey(prices)] === 'string' ? (
-                        <p className="text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
+                        <p className="text-6xl font-medium leading-none xl:text-5xl lg:text-6xl md:mt-5 sm:text-5xl">
                           {prices[getNearestKey(prices)]}
                         </p>
                       ) : (
                         <>
-                          <p className="text-[72px] font-medium leading-none xl:text-8xl lg:text-6xl md:text-[72px] sm:text-8xl">
+                          <p className="text-[72px] font-medium leading-none xl:text-8xl md:text-[72px] sm:text-8xl">
                             <span className="relative">
                               <span className="absolute -left-6 top-6 text-3xl">$</span>
                               {prices[getNearestKey(prices)] || prices.default}
@@ -321,8 +321,8 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                           </Button>
 
                           {extraOvercharge && extraOvercharge[getNearestKey(extraOvercharge)] && (
-                            <span className="absolute -top-6 left-0 w-full text-xs font-book leading-tight text-gray-8">
-                              * $ {extraOvercharge[getNearestKey(extraOvercharge)]} for another 1K
+                            <span className="absolute -top-6 left-0 w-full text-xs font-book leading-tight text-gray-8 xl:text-[11px] lg:text-xs">
+                              * ${extraOvercharge[getNearestKey(extraOvercharge)]} for another 1K
                               events extra/overcharge
                             </span>
                           )}
