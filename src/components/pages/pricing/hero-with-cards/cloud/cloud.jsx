@@ -339,7 +339,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
           </p>
         </ul>
       ) : (
-        <div className="mx-auto mt-12 mb-16 flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center xl:p-6 lg:min-h-[412px] lg:p-4 md:mt-10 md:min-h-0 xs:max-w-none">
+        <div className="mx-auto mt-12 mb-16 flex min-h-[458px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center xl:px-4 lg:min-h-[412px] lg:px-3 md:mt-10 md:min-h-0 md:px-6 xs:max-w-none">
           <div className="flex-flex-col space-y-5">
             <span className="text-lg font-medium uppercase leading-none">Custom</span>
             <p className="min-h-[57px] text-sm leading-snug text-gray-8 xl:min-h-0">
