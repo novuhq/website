@@ -31,12 +31,13 @@ const RANGES = {
   170: '3000000',
   180: '4500000',
   190: '5000000',
+  200: '5000000',
 };
 
 const tooltip =
   'Trigger event is the main (and the only) way to send notification to subscribers. The trigger identifier is used to match the particular template associated with it. Additional information can be passed according the the body interface below.';
 
-const PRICING_DATA = [
+const getPricingData = (rangeValue) => [
   {
     titles: {
       default: 'Free',
@@ -46,7 +47,7 @@ const PRICING_DATA = [
       default: 0,
     },
     description: 'For testing and evaluation or small-scale deployments.',
-    items: ['Up to 10K events a month'],
+    items: [`Up to 10K events a month`],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -58,15 +59,22 @@ const PRICING_DATA = [
   {
     titles: {
       default: 'Indie Dev',
-      20: 'Indie Dev 100k',
     },
     name: 'indie',
     prices: {
       default: 25,
       20: 70,
     },
+    extraOvercharge: {
+      60: 2.88,
+    },
     description: 'Small projects by up to 2 indie-hackers.',
-    items: ['20K events/month included', 'Up to 100K events a month'],
+    items: [
+      `${
+        rangeValue < 20 ? 20 : rangeValue > 80 ? 100 : (RANGES[rangeValue] / 1000).toFixed(0)
+      }K events/month included`,
+      'Up to 100K events a month',
+    ],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -78,11 +86,6 @@ const PRICING_DATA = [
   {
     titles: {
       default: 'Business',
-      70: 'Business 120k',
-      100: 'Business 250k',
-      120: 'Business 750k',
-      140: 'Business 1.5M',
-      160: 'Business 5M',
     },
     name: 'business',
     prices: {
@@ -93,8 +96,30 @@ const PRICING_DATA = [
       140: 2995,
       160: 3900,
     },
+    extraOvercharge: {
+      60: 3.67,
+      90: 2.88,
+      110: 2.88,
+      130: 2.19,
+      150: 1.8,
+      160: 1.6,
+      170: 1.6,
+      180: 1.6,
+      190: 1.6,
+    },
     description: 'Good place for bigger projects, startups, and full fledge businesses.',
-    items: ['60K events/month included', 'Up to 5M events a month'],
+    items: [
+      `${
+        rangeValue < 60
+          ? `${60}K`
+          : rangeValue > 130
+          ? `${(RANGES[rangeValue] / 1000000).toFixed(
+              Number(rangeValue) === 150 || Number(rangeValue) === 180 ? 1 : 0
+            )}M`
+          : `${(RANGES[rangeValue] / 1000).toFixed(0)}K`
+      } events/month included`,
+      'Up to 5M events a month',
+    ],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -107,15 +132,29 @@ const PRICING_DATA = [
   {
     titles: {
       default: 'Enterprise',
-      150: 'Custom',
     },
     name: 'enterprise',
     prices: {
       0: 'Contact us',
     },
+    extraOvercharge: {
+      160: 1.6,
+      170: 1.6,
+      180: 1.6,
+      190: 1.6,
+    },
     description:
       'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
-    items: ['1M events/month included', 'Unlimited events'],
+    items: [
+      `${
+        rangeValue < 140
+          ? `${1}M`
+          : `${(RANGES[rangeValue] / 1000000).toFixed(
+              Number(rangeValue) === 150 || Number(rangeValue) === 180 ? 1 : 0
+            )}M`
+      } events/month included`,
+      'Unlimited events',
+    ],
     buttons: {
       default: {
         text: 'Contact sales',
@@ -128,7 +167,7 @@ const PRICING_DATA = [
 ];
 
 const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
-  const maxValue = 190;
+  const maxValue = 200;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
 
@@ -159,7 +198,9 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             left: thumbPosition,
           }}
         >
-          {eventsFormatter.format(RANGES[rangeValue])}
+          {Number(rangeValue) === maxValue
+            ? `${eventsFormatter.format(RANGES[rangeValue])}+`
+            : eventsFormatter.format(RANGES[rangeValue])}
         </output>
         <InputRange
           type="range"
@@ -191,8 +232,11 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
 
       {Number(rangeValue) < maxValue ? (
         <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mx-24 md:mt-10 md:grid-cols-2 md:gap-7 md-sm:mx-20 sm:mx-0 sm-xs:mx-12 sm-xs:grid-cols-1 xs:mx-0">
-          {PRICING_DATA.map(
-            ({ titles, name, description, prices, items, buttons, isOpenBeta }, index) => {
+          {getPricingData(rangeValue).map(
+            (
+              { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
+              index
+            ) => {
               const isActive = activeTier === name;
 
               return (
@@ -225,7 +269,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                       </p>
                     </div>
 
-                    <div className="mt-10 flex min-h-[102px] flex-col md:mt-5">
+                    <div className="mt-10 flex min-h-[81px] flex-col md:mt-5">
                       {typeof prices[getNearestKey(prices)] === 'string' ? (
                         <p className="text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
                           {prices[getNearestKey(prices)]}
@@ -245,7 +289,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                       )}
                     </div>
 
-                    <ul className="mb-8 mt-8 flex flex-col space-y-2 leading-tight xl:mt-5 md:mt-8">
+                    <ul className="mb-12 mt-8 flex flex-col space-y-2 leading-tight xl:mt-5 md:mt-8">
                       {items.map((item, index) => (
                         <li className="flex items-center space-x-3 xl:space-x-1.5" key={index}>
                           <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
@@ -255,25 +299,36 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                         </li>
                       ))}
                     </ul>
-                    {buttons[getNearestKey(buttons)] ? (
-                      <Button
-                        className="mt-auto w-full lg:text-xs"
-                        to={buttons[getNearestKey(buttons)].url}
-                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                        size="sm"
-                      >
-                        {buttons[getNearestKey(buttons)].text}
-                      </Button>
-                    ) : (
-                      <Button
-                        className="mt-auto w-full lg:text-xs"
-                        to={buttons.default.url}
-                        theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
-                        size="sm"
-                      >
-                        {buttons.default.text}
-                      </Button>
-                    )}
+                    <div className="relative w-full">
+                      {buttons[getNearestKey(buttons)] ? (
+                        <Button
+                          className="mt-auto w-full lg:text-xs"
+                          to={buttons[getNearestKey(buttons)].url}
+                          theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                          size="sm"
+                        >
+                          {buttons[getNearestKey(buttons)].text}
+                        </Button>
+                      ) : (
+                        <>
+                          <Button
+                            className="mt-auto w-full lg:text-xs"
+                            to={buttons.default.url}
+                            theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+                            size="sm"
+                          >
+                            {buttons.default.text}
+                          </Button>
+
+                          {extraOvercharge && extraOvercharge[getNearestKey(extraOvercharge)] && (
+                            <span className="absolute -top-6 left-0 w-full text-xs font-book leading-tight text-gray-8">
+                              * $ {extraOvercharge[getNearestKey(extraOvercharge)]} for another 1K
+                              events extra/overcharge
+                            </span>
+                          )}
+                        </>
+                      )}
+                    </div>
                   </div>
                 </li>
               );
@@ -292,7 +347,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
               tempus purus ut at nisl id sit mattis.
             </p>
           </div>
-          <span className="mt-10 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
+          <span className="mt-10 mb-10 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
             Contact us
           </span>
 
@@ -309,7 +364,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             </ul>
             <Button
               className="w-full"
-              to="https://discord.gg/9wcGSf22PM"
+              to="https://calendly.com/novuhq/novu-meeting"
               target="_blank"
               theme="gray-outline"
               size="sm"
