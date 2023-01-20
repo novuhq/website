@@ -289,7 +289,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                       )}
                     </div>
 
-                    <ul className="mb-12 mt-8 flex flex-col space-y-2 leading-tight xl:mt-5 md:mt-8">
+                    <ul className="mb-14 mt-8 flex flex-col space-y-2 leading-tight xl:mt-5 md:mt-8">
                       {items.map((item, index) => (
                         <li className="flex items-center space-x-3 xl:space-x-1.5" key={index}>
                           <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
@@ -347,31 +347,29 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
               tempus purus ut at nisl id sit mattis.
             </p>
           </div>
-          <span className="mt-10 mb-10 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
+          <span className="mt-10 mb-8 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
             Contact us
           </span>
 
-          <div className="mt-auto flex w-full flex-col justify-between space-y-8">
-            <ul className="flex flex-col space-y-2 leading-tight">
-              <li className="flex items-center space-x-3">
-                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                <span>Volume discounts</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
-                <span>Country-specific rates</span>
-              </li>
-            </ul>
-            <Button
-              className="w-full"
-              to="https://calendly.com/novuhq/novu-meeting"
-              target="_blank"
-              theme="gray-outline"
-              size="sm"
-            >
-              Contact sales
-            </Button>
-          </div>
+          <ul className="mb-14 mt-8 flex w-full flex-col space-y-2 leading-tight">
+            <li className="flex items-center space-x-3">
+              <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+              <span>Volume discounts</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <CheckIcon className="h-1.5 w-2.5 shrink-0 text-primary-1" />
+              <span>Country-specific rates</span>
+            </li>
+          </ul>
+          <Button
+            className="w-full"
+            to="https://calendly.com/novuhq/novu-meeting"
+            target="_blank"
+            theme="gray-outline"
+            size="sm"
+          >
+            Contact sales
+          </Button>
         </div>
       )}
     </>
