@@ -231,7 +231,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
       </div>
 
       {Number(rangeValue) < maxValue ? (
-        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mx-24 md:mt-10 md:grid-cols-2 md:gap-7 md-sm:mx-20 sm:mx-0 sm-xs:mx-12 sm-xs:grid-cols-1 xs:mx-0">
+        <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-8 lg:gap-6 md:mt-10 md:grid-cols-2 md:gap-7 sm:grid-cols-1">
           {getPricingData(rangeValue).map(
             (
               { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
