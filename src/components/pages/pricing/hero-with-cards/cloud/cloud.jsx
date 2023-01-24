@@ -36,6 +36,19 @@ const RANGES = {
 const tooltip =
   'Trigger event is the main (and the only) way to send notification to subscribers. The trigger identifier is used to match the particular template associated with it. Additional information can be passed according the the body interface below.';
 
+const getBusinessItem = (rangeValue) => {
+  if (rangeValue <= 60) return '60K';
+  if (rangeValue < 90) return '60K';
+  if (rangeValue < 110) return '120K';
+  if (rangeValue < 140) return '250K';
+  if (rangeValue < 160) {
+    return '1M';
+  }
+  return '2M';
+
+  return '60K';
+};
+
 const getPricingData = (rangeValue) => [
   {
     titles: {
@@ -62,18 +75,14 @@ const getPricingData = (rangeValue) => [
     name: 'indie',
     prices: {
       default: 25,
-      20: 70,
+      60: 70,
     },
     extraOvercharge: {
+      20: 3.67,
       60: 2.88,
     },
     description: 'Small projects by up to 2 indie-hackers.',
-    items: [
-      `${
-        rangeValue < 20 ? 20 : rangeValue > 80 ? 100 : (RANGES[rangeValue] / 1000).toFixed(0)
-      }K events/month included`,
-      'Up to 100K events a month',
-    ],
+    items: [`${rangeValue < 60 ? 20 : 60}K events/month included`, 'Up to 100K events a month'],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -89,36 +98,23 @@ const getPricingData = (rangeValue) => [
     name: 'business',
     prices: {
       default: 200,
-      70: 345,
-      100: 670,
-      120: 1845,
-      140: 2995,
+      90: 350,
+      110: 575,
+      140: 2200,
       160: 3900,
     },
     extraOvercharge: {
       60: 3.67,
       90: 2.88,
       110: 2.88,
-      130: 2.19,
-      150: 1.8,
+      140: 2.19,
       160: 1.6,
       170: 1.6,
       180: 1.6,
       190: 1.6,
     },
     description: 'Good place for bigger projects, startups, and full fledge businesses.',
-    items: [
-      `${
-        rangeValue < 60
-          ? `${60}K`
-          : rangeValue > 130
-          ? `${(RANGES[rangeValue] / 1000000).toFixed(
-              Number(rangeValue) === 150 || Number(rangeValue) === 180 ? 1 : 0
-            )}M`
-          : `${(RANGES[rangeValue] / 1000).toFixed(0)}K`
-      } events/month included`,
-      'Up to 5M events a month',
-    ],
+    items: [`${getBusinessItem(rangeValue)} events/month included`, 'Up to 5M events a month'],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -137,23 +133,14 @@ const getPricingData = (rangeValue) => [
       0: 'Contact us',
     },
     extraOvercharge: {
-      160: 1.6,
+      140: 1.6,
       170: 1.6,
       180: 1.6,
       190: 1.6,
     },
     description:
       'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
-    items: [
-      `${
-        rangeValue < 140
-          ? `${1}M`
-          : `${(RANGES[rangeValue] / 1000000).toFixed(
-              Number(rangeValue) === 150 || Number(rangeValue) === 180 ? 1 : 0
-            )}M`
-      } events/month included`,
-      'Unlimited events',
-    ],
+    items: [`1M events/month included`, 'Unlimited events'],
     buttons: {
       default: {
         text: 'Contact sales',

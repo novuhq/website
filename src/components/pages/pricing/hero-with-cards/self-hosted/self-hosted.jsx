@@ -37,7 +37,7 @@ const SelfHosted = () => (
             </li>
             <li className="flex items-center space-x-3">
               <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />
-              <span>UMIT license</span>
+              <span>MIT license</span>
             </li>
             <li className="flex items-center space-x-3">
               <CheckIcon className="h-2 w-3 shrink-0 text-primary-1" />

@@ -18,6 +18,7 @@ const PLANS = {
     inApp: {
       ui: true,
       'remove-branding': false,
+      feed_retention: '30 days',
       'feed-api': true,
     },
     advancedFeatures: {
@@ -63,6 +64,7 @@ const PLANS = {
     inApp: {
       ui: true,
       'remove-branding': false,
+      feed_retention: '90 days',
       'feed-api': true,
     },
     advancedFeatures: {
@@ -108,6 +110,7 @@ const PLANS = {
     inApp: {
       ui: true,
       'remove-branding': true,
+      feed_retention: '1 year',
       'feed-api': true,
     },
     advancedFeatures: {
@@ -153,6 +156,7 @@ const PLANS = {
     inApp: {
       ui: true,
       'remove-branding': true,
+      feed_retention: '3 years',
       'feed-api': true,
     },
     advancedFeatures: {
@@ -200,7 +204,12 @@ const LABELS = [
   },
   {
     title: 'In-App',
-    items: { ui: 'In-App UI', 'remove-branding': 'Remove Novu Branding', 'feed-api': 'Feed API' },
+    items: {
+      ui: 'In-App UI',
+      'remove-branding': 'Remove Novu Branding',
+      feed_retention: 'Feed Retention',
+      'feed-api': 'Feed API',
+    },
   },
   {
     title: 'Advanced Features',

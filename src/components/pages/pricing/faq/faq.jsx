@@ -7,9 +7,9 @@ import Question from './question';
 
 const FAQ_DATA = [
   {
-    question: '🚧 What is a trigger event?',
+    question: 'What is a trigger event?',
     answer:
-      'A trigger event (also called an event) is a request that kicks off a process in our trigger engine (API call to /v1/events/trigger for example). A trigger event can make many different types of actions, including digests, waiting, and/or sending notifications to various channels, as well filters and user preference checks. You are charged by us for the trigger event that starts a process in the trigger engine for each unique subscriber.',
+      'A trigger event (also called an event) is a request that kicks off a process in Novu logic engine (API call to /v1/events/trigger for example). A trigger event can make many different types of actions, including digests, delays, and sending notifications to various channels, as well filters and user preference checks. You are charged for trigger event that starts a process in the logic engine for each unique subscriber.',
   },
   {
     question: 'What is a notification?',
@@ -24,11 +24,11 @@ const FAQ_DATA = [
         <Link to="https://github.com/novuhq/novu" target="_blank" rel="noreferrer" theme="primary">
           Open source
         </Link>{' '}
-        is a technology available under an MIT license, build and maintained by Novu community, you
+        is a technology available under an MIT license, build and maintained by Novu community. You
         can adapt it to your needs, contribute, or simply use docker files and run it. Novu Cloud is
         a managed service run, managed, and maintained by Novu, Cloud version is scalable and robust
-        by design, and uptime SLAs, and includes more business-facing features, that are not
-        available under the Open Source version.
+        by design, including uptime SLAs, and more business-facing features, that are not available
+        under the Open Source version.
       </>
     ),
   },
