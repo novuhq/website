@@ -82,7 +82,7 @@ const getPricingData = (rangeValue) => [
       60: 2.88,
     },
     description: 'Small projects by up to 2 indie-hackers.',
-    items: [`${rangeValue < 60 ? 20 : 60}K events/month included`, 'Up to 100K events a month'],
+    items: [`${rangeValue < 60 ? 20 : 60}K events/month included`],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -114,7 +114,7 @@ const getPricingData = (rangeValue) => [
       190: 1.6,
     },
     description: 'Good place for bigger projects, startups, and full fledge businesses.',
-    items: [`${getBusinessItem(rangeValue)} events/month included`, 'Up to 5M events a month'],
+    items: [`${getBusinessItem(rangeValue)} events/month included`],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -140,7 +140,7 @@ const getPricingData = (rangeValue) => [
     },
     description:
       'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
-    items: [`1M events/month included`, 'Unlimited events'],
+    items: [`1M events/month included`],
     buttons: {
       default: {
         text: 'Contact sales',
