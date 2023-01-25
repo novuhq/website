@@ -17,7 +17,7 @@ const PlanCard = ({
   className,
   currentRow,
 }) => {
-  const isActive = activeTier === title.split(' ')[0].toLowerCase();
+  const isActive = activeTier.value === title.split(' ')[0].toLowerCase();
 
   return (
     <div
@@ -40,6 +40,12 @@ const PlanCard = ({
               theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
               size="xs"
               to={linkUrl}
+              onClick={() =>
+                window.analytics.track('Pricing Event: Click the CTA Button in the table', {
+                  packageType: title,
+                  sliderValue: activeTier.rangeValue,
+                })
+              }
             >
               {linkText}
             </Button>

@@ -13,7 +13,13 @@ const variantsAnimation = {
 
 const Question = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleButtonClick = () => setIsOpen((currentState) => !currentState);
+  const handleButtonClick = () => {
+    setIsOpen((currentState) => !currentState);
+
+    window.analytics.track('Pricing Event: Click on an item in the FAQ section', {
+      item: question,
+    });
+  };
   return (
     <li>
       <button

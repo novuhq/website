@@ -34,7 +34,7 @@ const RANGES = {
 };
 
 const tooltip =
-  'Trigger event is the main (and the only) way to send notification to subscribers. The trigger identifier is used to match the particular template associated with it. Additional information can be passed according the the body interface below.';
+  'A trigger event (also called an event) is a request that kicks off a process in Novu logic engine (API call to /v1/events/trigger for example). A trigger event can make many different types of actions, including digests, delays, and sending notifications to various channels, as well filters and user preference checks. You are charged for trigger event that starts a process in the logic engine for each unique subscriber.';
 
 const getBusinessItem = (rangeValue) => {
   if (rangeValue <= 60) return '60K';
@@ -45,8 +45,6 @@ const getBusinessItem = (rangeValue) => {
     return '1M';
   }
   return '2M';
-
-  return '60K';
 };
 
 const getPricingData = (rangeValue) => [
@@ -64,6 +62,11 @@ const getPricingData = (rangeValue) => [
       default: {
         text: 'Get started for free',
         url: LINKS.getStarted.to,
+        onClick: () =>
+          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+            packageType: 'Free',
+            sliderValue: RANGES[rangeValue],
+          }),
       },
     },
     isOpenBeta: true,
@@ -87,6 +90,11 @@ const getPricingData = (rangeValue) => [
       default: {
         text: 'Get started for free',
         url: LINKS.getStarted.to,
+        onClick: () =>
+          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+            packageType: 'Indie Dev',
+            sliderValue: RANGES[rangeValue],
+          }),
       },
     },
     isOpenBeta: true,
@@ -119,6 +127,11 @@ const getPricingData = (rangeValue) => [
       default: {
         text: 'Get started for free',
         url: LINKS.getStarted.to,
+        onClick: () =>
+          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+            packageType: 'Business',
+            sliderValue: RANGES[rangeValue],
+          }),
       },
     },
 
@@ -145,6 +158,11 @@ const getPricingData = (rangeValue) => [
       default: {
         text: 'Contact sales',
         url: 'https://calendly.com/novuhq/novu-meeting',
+        onClick: () =>
+          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+            packageType: 'Enterprise',
+            sliderValue: RANGES[rangeValue],
+          }),
       },
     },
     buttonUrl: '/',
@@ -203,7 +221,10 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
           }}
           onChange={(e) => {
             setRangeValue(e.target.value);
-            setActiveTier(findActiveTier(e.target.value));
+            setActiveTier({
+              value: findActiveTier(e.target.value),
+              rangeValue: RANGES[rangeValue],
+            });
           }}
         />
         <div className="mt-1.5 flex justify-between bg-black text-white">
@@ -296,6 +317,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                           to={buttons.default.url}
                           theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
                           size="sm"
+                          onClick={buttons.default?.onClick}
                         >
                           {buttons.default.text}
                         </Button>

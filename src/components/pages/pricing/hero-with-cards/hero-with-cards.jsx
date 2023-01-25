@@ -40,11 +40,16 @@ const Hero = ({
               <Button
                 className={clsx(
                   'grow basis-1/2 rounded-[60px] bg-gray-2 !text-sm font-semibold uppercase hover:bg-gray-3 lg:!text-xs',
-                  pricingPlan === plan && '!bg-white !text-black'
+                  pricingPlan === plan && 'pointer-events-none !bg-white !text-black'
                 )}
                 size="xs"
                 key={index}
-                onClick={() => setPricingPlan(pricingPlansData[plan].value)}
+                onClick={() => {
+                  setPricingPlan(pricingPlansData[plan].value);
+                  window.analytics.track('Pricing Event: Click on the Tab Button', {
+                    value: plan,
+                  });
+                }}
               >
                 {pricingPlansData[plan].title}
               </Button>
@@ -53,7 +58,7 @@ const Hero = ({
         </div>
         {pricingPlan === 'cloud' && (
           <Cloud
-            activeTier={activeTier}
+            activeTier={activeTier.value}
             setActiveTier={setActiveTier}
             findActiveTier={findActiveTier}
             rangeValue={rangeValue}

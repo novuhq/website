@@ -15,6 +15,7 @@ const SelfHosted = () => (
       size="sm"
       to="https://docs.novu.co/overview/docker-deploy/"
       target="_blank"
+      onClick={() => window.analytics.track('Pricing Event: Click on the link Read Docs')}
     >
       Read docs
     </Link>
@@ -50,6 +51,11 @@ const SelfHosted = () => (
             target="_blank"
             theme="gray-outline"
             size="sm"
+            onClick={() =>
+              window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+                packageType: 'On-premises',
+              })
+            }
           >
             Contact us
           </Button>
