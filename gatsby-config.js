@@ -175,6 +175,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-segment-js`,
+      options: {
+        prodKey: process.env.GATSBY_SEGMENT_WRITE_KEY,
+      },
+    },
+    {
       resolve: `gatsby-source-rss-feed`,
       options: {
         url: `https://feeds.transistor.fm/sourcelife`,
