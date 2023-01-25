@@ -23,7 +23,10 @@ const PRICING_PLANS = {
 
 const PricingPage = () => {
   const [pricingPlan, setPricingPlan] = useState(PRICING_PLANS.cloud.value);
-  const [activeTier, setActiveTier] = useState(findActiveTier(INITIAL_SLIDER_VALUE));
+  const [activeTier, setActiveTier] = useState({
+    value: findActiveTier(INITIAL_SLIDER_VALUE),
+    rangeValue: INITIAL_SLIDER_VALUE,
+  });
 
   return (
     <Layout>
