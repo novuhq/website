@@ -7,6 +7,10 @@ const MENUS = {
       ...LINKS.contributors,
     },
     {
+      text: 'Pricing',
+      ...LINKS.pricing,
+    },
+    {
       text: 'Blog',
       ...LINKS.blog,
     },
@@ -21,6 +25,7 @@ const MENUS = {
       { text: 'Blog', ...LINKS.blog },
       { text: 'Contributors', ...LINKS.contributors },
       { text: 'Podcast', ...LINKS.podcast },
+      { text: 'Pricing', ...LINKS.pricing },
       { text: 'Careers', ...LINKS.careers },
     ],
     [
@@ -49,6 +54,10 @@ const MENUS = {
     { text: 'Blog', ...LINKS.blog },
     { text: 'Contributors', ...LINKS.contributors },
     { text: 'Careers', ...LINKS.careers },
+    {
+      text: 'Pricing',
+      ...LINKS.pricing,
+    },
   ],
 };
 

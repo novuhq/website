@@ -3,8 +3,8 @@ import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
+import CheckIcon from 'images/check.inline.svg';
 
-import CheckIcon from './images/check.inline.svg';
 import LoadingIcon from './images/loading.inline.svg';
 import SendIcon from './images/send.inline.svg';
 

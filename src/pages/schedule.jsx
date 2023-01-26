@@ -54,7 +54,7 @@ export default SchedulePage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/schedule',
+    slug: '/schedule/',
     title: 'Schedule',
     preventIndexing: true,
     description: 'Schedule Event',

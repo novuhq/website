@@ -1,0 +1,15 @@
+@layer components {
+  .input-range {
+    -webkit-appearance: none;
+
+    &::-webkit-slider-thumb {
+      @apply relative z-20 h-7 w-7 cursor-pointer appearance-none rounded-full border-4 border-solid border-white bg-gray-11;
+      -webkit-appearance: none;
+    }
+
+    &::-moz-range-thumb {
+      @apply relative z-20 h-5 w-5 cursor-pointer appearance-none rounded-full border-4 border-solid border-white bg-gray-11;
+      -webkit-appearance: none;
+    }
+  }
+}

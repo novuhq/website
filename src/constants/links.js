@@ -21,6 +21,9 @@ export default {
   hacktoberfest: {
     to: '/hacktoberfest',
   },
+  pricing: {
+    to: '/pricing',
+  },
 
   // Other pages
   documentation: {

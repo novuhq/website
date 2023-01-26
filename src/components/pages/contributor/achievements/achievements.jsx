@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
+import Tooltip from 'components/shared/tooltip';
 
 import bronzeMedalIconDisabled from './images/bronze-medal.png';
 import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.png';
@@ -16,7 +17,6 @@ import rockStarIconDisabled from './images/rock-star.png';
 import silverMedalIconDisabled from './images/silver-medal.png';
 import teamPlayerIconDisabled from './images/team-player.png';
 import { Share, SHARE_TYPES } from './share';
-import Tooltip from './tooltip';
 
 import './achievements.css';
 
@@ -241,7 +241,7 @@ const Achievements = ({
 
             return (
               <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
-                {tooltip && <Tooltip text={tooltip} />}
+                {tooltip && <Tooltip text={tooltip} className="max-w-[248px]" theme="gray" />}
 
                 <GatsbyImage
                   className="lg:h-[134px]"

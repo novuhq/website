@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Heading from 'components/shared/heading';
 
 const TITLE = 'Hacktoberfest 2022';
-const DESCRIPTION =
-  'Make your open source contribution today.';
+const DESCRIPTION = 'Make your open source contribution today.';
 
 const getZeroPad = (number) => (number < 10 ? `0${number}` : number);
 

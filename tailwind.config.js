@@ -54,6 +54,7 @@ module.exports = {
         8: '#999999',
         9: '#CCCCCC',
         10: '#E6E6E6',
+        11: '#F5F5F5',
       },
       yellow: {
         DEFAULT: '#FFE27D',
@@ -67,14 +68,24 @@ module.exports = {
         'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
       'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
       'blue-gradient': 'linear-gradient(135deg, #FFE27D 14.04%, #64E3FF 50.5%, #9192FF 86.21%)',
+      'pink-yellow-gradient':
+        'linear-gradient(257.22deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
+      'gray-gradient': 'linear-gradient(180deg, #262626 0%, #171717 100%)',
+      'active-gray-gradient': 'linear-gradient(180deg, #131313 0%, #0B0B0B 100%)',
+      'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
       ...defaultTheme.backgroundImage,
+    },
+    boxShadow: {
+      output: '0px 10px 20px #000000',
     },
     screens: {
       '2xl': { max: '1919px' },
       xl: { max: '1535px' },
       lg: { max: '1279px' },
       md: { max: '1023px' },
+      'md-sm': { max: '900px' },
       sm: { max: '767px' },
+      'sm-xs': { max: '500px' },
       xs: { max: '359px' },
     },
     extend: {
@@ -86,6 +97,9 @@ module.exports = {
         22: '5.75rem',
         30: '7.5rem',
         34: '8.5rem',
+      },
+      width: {
+        'square-diagonal': `${Math.sqrt(2) * 100}%`,
       },
     },
   },
