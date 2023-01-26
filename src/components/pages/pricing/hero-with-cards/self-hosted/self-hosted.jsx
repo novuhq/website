@@ -20,8 +20,8 @@ const SelfHosted = () => (
       Read docs
     </Link>
 
-    <div className="relative mx-auto mt-12 w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient xl:mx-0 xl:min-w-0 xl:max-w-none">
-      <div className="text-centerxl:mx-0 mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-active-gray-gradient p-8 xl:min-w-0 xl:max-w-none xl:px-4 lg:px-3 md:px-6">
+    <div className="relative mx-auto mt-12 w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient lg:max-w-[380px]">
+      <div className="flex h-full flex-col items-center justify-between rounded-xl bg-active-gray-gradient p-8 text-center xl:px-4 lg:px-3 md:px-6">
         <div className="flex-flex-col space-y-5">
           <span className="text-lg font-medium uppercase leading-none">On-premises</span>
           <p className="text-sm leading-snug text-gray-8">Run Novu on you own servers.</p>
