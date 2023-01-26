@@ -52,8 +52,8 @@ export default PricingPage;
 export const Head = () => {
   const pageMetadata = {
     slug: '/pricing/',
-    title: 'Pricing',
-    description: 'Pricing Plans',
+    title: 'Pricing - Novu',
+    description: 'Flexible pricing for companies and developers',
   };
   return <SEO {...pageMetadata} />;
 };
