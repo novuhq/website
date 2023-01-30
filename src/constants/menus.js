@@ -34,6 +34,7 @@ const MENUS = {
       { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', ...LINKS.discord },
       { text: 'Press Kit', ...LINKS.pressKit },
+      { text: 'Polishing Season', ...LINKS.polishing },
     ],
     [
       { text: 'Discord', ...LINKS.discord },
