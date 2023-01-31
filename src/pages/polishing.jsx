@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
+import Sticky from 'react-stickynode';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
@@ -37,6 +38,45 @@ const PolishedBy = ({ assignie = undefined }) => {
   );
 };
 
+const CtaBar = () => {
+  const [sticky, setSticky] = useState(false);
+
+  return (
+    <Sticky
+      top={0}
+      innerZ={999}
+      enableTransforms={false}
+      enabled
+      onStateChange={(status) => {
+        if (status.status === 2) {
+          setSticky(true);
+          return;
+        }
+        setSticky(false);
+      }}
+    >
+      <div className={sticky ? 'w-full bg-black py-3' : undefined}>
+        <div className="text-center">
+          <Button
+            to="https://github.com/novuhq/novu/issues/new/choose"
+            target="_blank"
+            rel="noreferrer"
+            size="xs"
+            theme="pink-to-yellow-gradient"
+            onClick={() => {
+              window.analytics.track(
+                'Polishing Event: Click the CTA Button on the page to create issue'
+              );
+            }}
+          >
+            If Novu could only...
+          </Button>
+        </div>
+      </div>
+    </Sticky>
+  );
+};
+
 const PolishingPage = ({ data }) => (
   <Layout>
     <div className="container relative mx-auto mt-36">
@@ -48,28 +88,30 @@ const PolishingPage = ({ data }) => (
           theme="white"
           asHTML
         >
-          Polishing Season 2023
+          Polishing Season
         </Heading>
         <div className="mx-auto max-w-3xl">
           <p className="mt-4 text-center">
-            Every product has bugs. More than we can ever fix. Papercuts, usability issues,
-            imperfections. We all have a long backlog of fixes and improvements we intend to get to
-            someday.
+            2022 has been amazing - we were able to launch our first version of Novu ever, and
+            delivery the features you wanted the most such as Digest, User Preferences, Delays and
+            so much more. It was fast. Fast has its price - loose ties, paper-cuts, unresolved
+            flows.
           </p>
-          <div className="mt-4 text-center">
-            <Button
-              to="https://github.com/novuhq/novu/issues/new/choose"
-              target="_blank"
-              rel="noreferrer"
-              size="xs"
-              theme="pink-to-yellow-gradient"
-            >
-              Create new issue
-            </Button>
+          <p className="mt-4 text-center">
+            The objective of the Polishing Season is to prioritize the quality of work and transform
+            what has been mentioned as "one day" into what our product is. The focus of this period
+            will be dedicated to enhancing the product's overall aesthetic and user experience.
+          </p>
+          <p className="mt-4 text-center">
+            Our product is led by our community needs and shaped by our community’s feedback. We are
+            excited to learn what will be the features you need most!
+          </p>
+          <div className="mt-4">
+            <CtaBar />
           </div>
         </div>
       </div>
-      <div className="mt-10 flex justify-center">
+      <div className="mt-20 flex justify-center">
         <ul className="grid max-w-3xl gap-4">
           {data.githubData.rawResult.data.repository.issues.nodes.map((issue) => (
             <li
@@ -100,7 +142,7 @@ const PolishingPage = ({ data }) => (
                         target="_blank"
                         rel="noreferrer"
                       >
-                        {issue.title.split('] ').at(1)}
+                        {issue.title.split('] ').at(-1)}
                       </a>
                     </div>
                     <div className="col-span-2 text-right">
