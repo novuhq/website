@@ -104,4 +104,8 @@ export default {
     to: 'https://pixelpoint.io/',
     target: '_blank',
   },
+
+  polishing: {
+    to: '/polishing',
+  },
 };
