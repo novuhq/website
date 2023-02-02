@@ -58,7 +58,7 @@ const CtaBar = () => {
       <div className={sticky ? 'w-full bg-black py-3' : undefined}>
         <div className="text-center">
           <Button
-            to="https://github.com/novuhq/novu/issues/new/choose"
+            to="https://github.com/novuhq/novu/issues/new?assignees=&labels=polishing&template=polishing.yml&title=%E2%9C%A8+Polishing%3A+"
             target="_blank"
             rel="noreferrer"
             size="xs"
@@ -69,7 +69,7 @@ const CtaBar = () => {
               );
             }}
           >
-            If Novu could only...
+            Submit an issue
           </Button>
         </div>
       </div>
