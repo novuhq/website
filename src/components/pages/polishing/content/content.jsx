@@ -143,7 +143,7 @@ const Content = ({ issues }) => {
                       </div>
                       <div className="mt-6 flex justify-between">
                         {getCleanedTitle(issue.title).type && (
-                          <span className="rounded-[50px] bg-gray-3 py-1 px-2 text-xs leading-none text-gray-8">
+                          <span className="flex h-6 items-center rounded-[50px] bg-gray-3 px-2 text-xs leading-none text-gray-8">
                             {getCleanedTitle(issue.title).type}
                           </span>
                         )}
@@ -178,20 +178,23 @@ const Content = ({ issues }) => {
                       </div>
                       <div className="mt-6 flex justify-between">
                         {getCleanedTitle(issue.title).type && (
-                          <span className="rounded-[50px] bg-gray-3 py-1 px-2 text-xs leading-none text-gray-8">
+                          <span className="flex h-6 items-center rounded-[50px] bg-gray-3 px-2 text-xs leading-none text-gray-8">
                             {getCleanedTitle(issue.title).type}
                           </span>
                         )}
                         <div className="ml-auto flex items-center space-x-2">
-                          <img
-                            className="h-6 rounded-full"
-                            src={issue.author.avatarUrl}
-                            height={24}
-                            width={24}
-                            alt=""
-                          />
+                          {issue.assignees.nodes[0]?.avatarUrl && (
+                            <img
+                              className="h-6 rounded-full"
+                              src={issue.assignees.nodes[0].avatarUrl}
+                              height={24}
+                              width={24}
+                              alt=""
+                            />
+                          )}
                           <span className="text-xs text-gray-8">
-                            Polished by {issue.author.login}
+                            Polishing by{' '}
+                            {issue.assignees.nodes[0]?.login || issue.assignees.nodes[0]?.name}
                           </span>
                         </div>
                       </div>
@@ -222,12 +225,15 @@ const Content = ({ issues }) => {
                       </div>
                       <div className="mt-6 flex justify-between">
                         {getCleanedTitle(issue.title).type && (
-                          <span className="rounded-[50px] bg-gray-3 py-1 px-2 text-xs leading-none text-gray-8">
+                          <span className="flex h-6 items-center rounded-[50px] bg-gray-3 px-2 text-xs leading-none text-gray-8">
                             {getCleanedTitle(issue.title).type}
                           </span>
                         )}
                         <span className="ml-auto text-xs text-gray-8">
-                          Requested by {issue.author.login}
+                          Polished by{' '}
+                          {issue.assignees.nodes[0]?.login ||
+                            issue.assignees.nodes[0]?.name ||
+                            issue.author.login}
                         </span>
                       </div>
                     </a>
