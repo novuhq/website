@@ -133,7 +133,7 @@ const Content = ({ issues }) => {
               <ul className="mt-6 space-y-4">
                 {backlogIssues.map((issue, index) => (
                   <li
-                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:lg:left-[-68px] before:md:hidden"
+                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:transition-colors before:duration-200 hover:before:bg-white before:lg:left-[-68px] before:md:hidden"
                     key={index}
                   >
                     <a href={issue.url} target="_blank" rel="noreferrer">
@@ -168,7 +168,7 @@ const Content = ({ issues }) => {
               <ul className="mt-6 space-y-4">
                 {polishingIssues.map((issue, index) => (
                   <li
-                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:lg:left-[-68px] before:md:hidden"
+                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:transition-colors before:duration-200 hover:before:bg-white before:lg:left-[-68px] before:md:hidden"
                     key={index}
                   >
                     <a href={issue.url} target="_blank" rel="noreferrer">
@@ -212,7 +212,7 @@ const Content = ({ issues }) => {
               <ul className="mt-6 space-y-4">
                 {completedIssues.map((issue, index) => (
                   <li
-                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:lg:left-[-68px] before:md:hidden"
+                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:transition-colors before:duration-200 hover:before:bg-white before:lg:left-[-68px] before:md:hidden"
                     key={index}
                   >
                     <a href={issue.url} target="_blank" rel="noreferrer">
