@@ -114,7 +114,7 @@ const Content = ({ issues }) => {
               className="group flex items-center space-x-1.5 rounded-[64px] bg-gray-2 px-5 py-3.5 transition-colors duration-200 hover:bg-white sm:flex-1 sm:justify-center"
               href="#completedIssues"
             >
-              <CompletedIcon className="h-3.5 text-primary-1" />
+              <CompletedIcon className="h-3.5 text-secondary-3" />
               <span className="text-sm font-medium uppercase leading-none group-hover:text-black">
                 Completed
               </span>
@@ -133,7 +133,7 @@ const Content = ({ issues }) => {
               <ul className="mt-6 space-y-4">
                 {backlogIssues.map((issue, index) => (
                   <li
-                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:transition-colors before:duration-200 hover:before:bg-white before:lg:left-[-68px] before:md:hidden"
+                    className="relative rounded-2xl border border-gray-2 bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-3 transition-colors duration-200 before:absolute before:left-[-84px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:border before:border-gray-6 before:bg-black before:transition-colors before:duration-200 hover:from-black hover:before:bg-white before:lg:left-[-68px] before:md:hidden"
                     key={index}
                   >
                     <a href={issue.url} target="_blank" rel="noreferrer">
