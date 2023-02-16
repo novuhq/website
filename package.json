@@ -37,6 +37,7 @@
     "gatsby-plugin-mixpanel": "^3.7.0",
     "gatsby-plugin-segment-js": "^4.0.3",
     "gatsby-source-github-api": "^1.0.0",
+    "gatsby-source-rest-api": "^0.2.3",
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-source-wordpress": "^6.23.0",
     "html-react-parser": "^1.4.14",
