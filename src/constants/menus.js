@@ -35,6 +35,7 @@ const MENUS = {
       { text: 'Contact Us', ...LINKS.discord },
       { text: 'Press Kit', ...LINKS.pressKit },
       { text: 'Polishing Season', ...LINKS.polishing },
+      { text: 'Notifications Directory', ...LINKS.notificationDirectory },
     ],
     [
       { text: 'Discord', ...LINKS.discord },
