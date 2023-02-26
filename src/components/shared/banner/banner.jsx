@@ -9,7 +9,7 @@ import illustrationRight from './images/illustration-right.svg';
 const Banner = () => (
   <Link
     className="group relative z-20 block overflow-hidden bg-gray-3 py-2.5"
-    to="/blog/seed-funding"
+    to="https://github.com/novuhq/novu"
   >
     <div className="container relative flex items-center justify-center">
       <p className="text-highlighting-secondary-2-gradient text-center text-base sm:text-sm">
