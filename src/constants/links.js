@@ -31,7 +31,7 @@ export default {
     target: '_blank',
   },
   careers: {
-    to: 'https://novuhq.notion.site/Careers-Page-9bec066eb286421299a78a192c0bebf0',
+    to: 'https://novuhq.notion.site/Careers-page-00bffbc69d8b44b790badfeadb7e44c5',
     target: '_blank',
   },
   inAppDocs: {
