@@ -53,7 +53,14 @@ const Timeline = () => {
         </h1>
       </div>
       <div className="relative mt-12">
-        <img className="absolute -top-28" src={topGradient} width={2120} height={296} alt="" />
+        <img
+          className="absolute -top-28"
+          src={topGradient}
+          width={2120}
+          height={296}
+          loading="eager"
+          alt=""
+        />
 
         <div
           className="scrollbar-hidden relative z-20 overflow-auto px-10 md:px-7 sm:px-4"
@@ -63,7 +70,7 @@ const Timeline = () => {
             className="absolute top-[15px] left-[135px] z-10 h-[calc(100%-51px)] opacity-0 transition-[left] duration-500"
             id="timelineProgressBar"
           >
-            <span className="timeline-progress-bar block h-9 w-9" />
+            <span className="timeline-progress-bar-circle flex h-9 w-9 items-center justify-center" />
             <span className="timeline-progress-bar-line block" />
           </div>
 
@@ -133,6 +140,7 @@ const Timeline = () => {
             alt=""
             width={1920}
             height={616}
+            loading="eager"
           />
           <span />
         </div>

@@ -46,11 +46,22 @@
     }
   }
 
-  .timeline-progress-bar {
+  .timeline-progress-bar-circle {
     border: 1px solid #fff;
     border-radius: 100%;
     box-shadow: 0 0 1px #fff, 0 0 1px #e300bd, 0 0 15px #e300bd, inset 0 0 10px #e300bd;
     height: calc(100% - 36px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      background: linear-gradient(257.22deg, #ffbb33 21.09%, #e300bd 55.18%, #ff006a 92.64%);
+      opacity: 0.25;
+      filter: blur(85px);
+      z-index: -1;
+    }
   }
 
   .timeline-progress-bar-line {
