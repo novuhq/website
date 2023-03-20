@@ -66,12 +66,6 @@ module.exports = {
     backgroundImage: {
       'input-gradient':
         'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
-      'timeline-item-gradient':
-        'linear-gradient(268.91deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.12))',
-      'hover-timeline-item-gradient':
-        'linear-gradient(268.91deg, rgba(255, 255, 255, 0.48),rgba(255, 255, 255, 0.8),rgba(255, 102, 229, 0.8),rgba(255, 102, 229, 0.8))',
-      'slider-timeline-gradient':
-        'linear-gradient(257.22deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
       'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
       'blue-gradient': 'linear-gradient(135deg, #FFE27D 14.04%, #64E3FF 50.5%, #9192FF 86.21%)',
       'pink-yellow-gradient':

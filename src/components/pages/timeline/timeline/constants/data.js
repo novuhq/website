@@ -1,4 +1,4 @@
-const TIMELINE_DATA = [
+const data = [
   // Jan
   {
     date: '2019-01-01',
@@ -377,5 +377,34 @@ const TIMELINE_DATA = [
     date: '2019-12-31',
   },
 ];
+
+const TIMELINE_DATA = data.reduce((acc, item) => {
+  const date = new Date(item.date);
+  const month = date.toLocaleString('default', { month: 'short' });
+  const day = date.getDate();
+  const monthIndex = acc.findIndex((m) => m.month === month);
+  if (monthIndex === -1) {
+    acc.push({
+      month,
+      events: [
+        {
+          day,
+          items: [item],
+        },
+      ],
+    });
+  } else {
+    const dayIndex = acc[monthIndex].events.findIndex((d) => d.day === day);
+    if (dayIndex === -1) {
+      acc[monthIndex].events.push({
+        day,
+        items: [item],
+      });
+    } else {
+      acc[monthIndex].events[dayIndex].items.push(item);
+    }
+  }
+  return acc;
+}, []);
 
 export default TIMELINE_DATA;
