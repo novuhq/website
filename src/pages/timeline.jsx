@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Timeline from 'components/pages/timeline/timeline';
+import SEO from 'components/shared/seo';
 
 import Layout from '../components/shared/layout';
 
@@ -11,3 +12,12 @@ const TimelinePage = () => (
 );
 
 export default TimelinePage;
+
+export const Head = () => {
+  const pageMetadata = {
+    slug: '/timeline/',
+    title: 'Novu 2022 Events',
+    ogImage: `/images/social-preview-polishing.jpg`,
+  };
+  return <SEO {...pageMetadata} />;
+};
