@@ -376,16 +376,39 @@ const data = [
   {
     date: '2022-12-31',
   },
+  // Jan
+  {
+    date: '2023-01-01',
+    custom: true,
+  },
+  {
+    date: '2023-01-04',
+  },
+  {
+    date: '2023-01-12',
+  },
+  {
+    date: '2023-01-20',
+  },
+  {
+    date: '2023-01-24',
+  },
+  {
+    date: '2023-01-31',
+  },
 ];
 
 const TIMELINE_DATA = data.reduce((acc, item) => {
   const date = new Date(item.date);
   const month = date.toLocaleString('default', { month: 'short' });
+  const year = date.getFullYear();
   const day = date.getDate();
-  const monthIndex = acc.findIndex((m) => m.month === month);
-  if (monthIndex === -1) {
+  const dateIndex = acc.findIndex((m) => m.month === month && m.year === year);
+  if (dateIndex === -1) {
     acc.push({
       month,
+      year,
+      custom: item?.custom || false,
       events: [
         {
           day,
@@ -394,14 +417,14 @@ const TIMELINE_DATA = data.reduce((acc, item) => {
       ],
     });
   } else {
-    const dayIndex = acc[monthIndex].events.findIndex((d) => d.day === day);
+    const dayIndex = acc[dateIndex].events.findIndex((d) => d.day === day);
     if (dayIndex === -1) {
-      acc[monthIndex].events.push({
+      acc[dateIndex].events.push({
         day,
         items: [item],
       });
     } else {
-      acc[monthIndex].events[dayIndex].items.push(item);
+      acc[dateIndex].events[dayIndex].items.push(item);
     }
   }
   return acc;

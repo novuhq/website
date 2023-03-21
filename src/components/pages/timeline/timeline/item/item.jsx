@@ -36,7 +36,7 @@ const icons = {
   shine: shineIcon,
 };
 
-const Item = ({ date, title, description, iconName, animationDelay, isActive }) => {
+const Item = ({ date, title, description, iconName, animationDelay, isActive, zIndex }) => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     triggerOnce: true,
     threshold: 0.6,
@@ -52,10 +52,13 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive }) 
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        className={clsx('timeline-item group absolute left-[10px] z-10 h-fit w-max', {
-          'cursor-pointer': description,
-          'z-20': isOpen,
-        })}
+        className={clsx(
+          'timeline-item group absolute left-[10px] h-fit w-max before:absolute before:bottom-full before:left-[22px] before:h-[800px] before:w-px before:border-l before:border-dashed before:opacity-[0.15]',
+          {
+            'cursor-pointer': description,
+            'z-40': isOpen,
+          }
+        )}
         role={description && 'button'}
         tabIndex={0}
         initial={{ opacity: 0, y: -10 }}
@@ -63,6 +66,9 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive }) 
         transition={{ duration: 0.5, delay: animationDelay }}
         ref={animationWrapperRef}
         data-date={date}
+        style={{
+          zIndex: 40 - zIndex,
+        }}
         onClick={description && handleClick}
         onKeyDown={description && handleClick}
       >
