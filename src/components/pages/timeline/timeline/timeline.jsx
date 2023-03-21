@@ -63,13 +63,13 @@ const Timeline = () => {
   }, []);
 
   return (
-    <section className="safe-paddings relative pt-24 sm:pt-20">
+    <section className="safe-paddings relative flex h-[calc(100vh-50px)] min-h-[824px] flex-col pt-24 sm:pt-20">
       <div className="px-10 md:px-7 sm:px-4">
         <h1 className="text-highlighting-gray-light-gradient text-7xl font-normal leading-denser tracking-tight sm:text-5xl xs:text-3xl">
           Novu 2022 Events
         </h1>
       </div>
-      <div className="timeline relative mt-12">
+      <div className="timeline relative mt-12 flex h-full flex-1 flex-col">
         <img
           className="absolute -top-28 -z-10"
           src={topGradient}
@@ -81,7 +81,7 @@ const Timeline = () => {
         />
 
         <div
-          className="scrollbar-hidden relative z-20 overflow-auto px-10 md:px-7 sm:px-4"
+          className="scrollbar-hidden relative z-20 flex flex-1 flex-col overflow-auto px-10 md:px-7 sm:px-4"
           id="timelineWrapper"
         >
           <div
@@ -126,63 +126,56 @@ const Timeline = () => {
           </div>
 
           <div
-            className="grid w-fit min-w-[1920px] overflow-hidden border border-t-0 border-[rgba(255,255,255,0.1)] pb-24"
+            className="grid h-full w-fit min-w-[1920px] flex-1 overflow-hidden border border-t-0 border-[rgba(255,255,255,0.1)] pb-24"
             style={{
               gridTemplateColumns: `repeat(${TIMELINE_DATA.length},1fr)`,
             }}
           >
             {TIMELINE_DATA.map(({ year, events, custom }, index) => (
-              <div className="grid" key={index}>
-                <div
-                  className="relative grid h-[454px] px-[50px] pt-9"
-                  style={{
-                    gridTemplateColumns: `repeat(${events.length + 1},70px)`,
-                    gridTemplateRows: `repeat(7,1fr)`,
-                  }}
-                >
-                  {custom ? (
-                    <div
-                      className="absolute flex h-full w-full flex-col items-center justify-center"
-                      aria-hidden
-                    >
-                      <img
-                        src={rocketIllustration}
-                        width={232}
-                        height={311}
-                        loading="lazy"
-                        alt=""
-                      />
-                      <div className="absolute bottom-0 inline-flex rounded-[32px] border border-gray-5 bg-gray-gradient-2 px-5 py-2">
-                        <span className="text-lg leading-none text-gray-8">{year}</span>
-                      </div>
+              <div
+                className="relative grid h-full px-[50px] pt-9"
+                style={{
+                  gridTemplateColumns: `repeat(${events.length + 1},70px)`,
+                  gridTemplateRows: `repeat(7,1fr)`,
+                }}
+                key={index}
+              >
+                {custom ? (
+                  <div
+                    className="absolute flex h-full w-full flex-col items-center justify-center"
+                    aria-hidden
+                  >
+                    <img src={rocketIllustration} width={232} height={311} loading="lazy" alt="" />
+                    <div className="absolute bottom-0 inline-flex rounded-[32px] border border-gray-5 bg-gray-gradient-2 px-5 py-2">
+                      <span className="text-lg leading-none text-gray-8">{year}</span>
                     </div>
-                  ) : (
-                    events.map((event, index) => (
-                      <div
-                        className="relative grid"
-                        key={`${index}-items`}
-                        style={{
-                          gridColumnStart: index + 2,
-                          gridColumnEnd: index + 7,
-                          gridRowStart: index + 1,
-                        }}
-                      >
-                        {event.items
-                          .filter((item) => item?.title)
-                          .map((item) => (
-                            <Item
-                              animationDelay={index * 0.1}
-                              zIndex={index}
-                              date={item.date}
-                              isActive={item.date === isActiveDate}
-                              key={`${index}-item`}
-                              {...item}
-                            />
-                          ))}
-                      </div>
-                    ))
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  events.map((event, index) => (
+                    <div
+                      className="relative grid"
+                      key={`${index}-items`}
+                      style={{
+                        gridColumnStart: index + 2,
+                        gridColumnEnd: index + 7,
+                        gridRowStart: index + 1,
+                      }}
+                    >
+                      {event.items
+                        .filter((item) => item?.title)
+                        .map((item) => (
+                          <Item
+                            animationDelay={index * 0.1}
+                            zIndex={index}
+                            date={item.date}
+                            isActive={item.date === isActiveDate}
+                            key={`${index}-item`}
+                            {...item}
+                          />
+                        ))}
+                    </div>
+                  ))
+                )}
               </div>
             ))}
           </div>
