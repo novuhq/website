@@ -17,7 +17,7 @@ export const Head = () => {
   const pageMetadata = {
     slug: '/timeline/',
     title: 'Novu 2022 Events',
-    ogImage: `/images/social-preview-polishing.jpg`,
+    ogImage: `/images/social-preview-timeline.jpg`,
   };
   return <SEO {...pageMetadata} />;
 };
