@@ -10,6 +10,7 @@ import ballonIcon from './images/ballon.svg';
 import bookmarkIcon from './images/bookmark.svg';
 import boxIcon from './images/box.svg';
 import checkIcon from './images/check.svg';
+import closeIcon from './images/close.svg';
 import codeIcon from './images/code.svg';
 import githubIcon from './images/github.svg';
 import lightningIcon from './images/lightning.svg';
@@ -80,7 +81,13 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive }) 
             </span>
             {description && (
               <div className="ml-auto flex h-4 w-4 items-center justify-center rounded-full bg-[linear-gradient(180deg,#FFFFFF_0%,rgba(255,255,255,0.4)_100%)]">
-                <img src={arrowIcon} width={8} height={6} loading="eager" alt="" />
+                <AnimatePresence>
+                  {isOpen ? (
+                    <img src={closeIcon} width={8} height={6} loading="eager" alt="" />
+                  ) : (
+                    <img src={arrowIcon} width={8} height={6} loading="eager" alt="" />
+                  )}
+                </AnimatePresence>
               </div>
             )}
           </div>
@@ -88,7 +95,7 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive }) 
             <AnimatePresence>
               {isOpen && (
                 <m.p
-                  className="max-w-[340px] text-sm text-gray-7 group-hover:text-white"
+                  className="max-w-[340px] pb-3 text-sm text-gray-7 group-hover:text-white"
                   initial={{ opacity: 0, height: 0, y: 0, transition: { duration: 0 } }}
                   animate={{ opacity: 1, height: 'auto', y: 6, transition: { duration: 0.2 } }}
                   exit={{ opacity: 0, height: 0, y: 0, transition: { duration: 0 } }}
