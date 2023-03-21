@@ -35,7 +35,7 @@ const icons = {
   shine: shineIcon,
 };
 
-const Item = ({ date, title, description, iconName, animationDelay }) => {
+const Item = ({ date, title, description, iconName, animationDelay, isActive }) => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     triggerOnce: true,
     threshold: 0.6,
@@ -51,7 +51,7 @@ const Item = ({ date, title, description, iconName, animationDelay }) => {
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        className={clsx('timeline-item group absolute left-[-22px] z-10 h-fit w-max', {
+        className={clsx('timeline-item group absolute left-[10px] z-10 h-fit w-max', {
           'cursor-pointer': description,
           'z-20': isOpen,
         })}
@@ -65,10 +65,17 @@ const Item = ({ date, title, description, iconName, animationDelay }) => {
         onClick={description && handleClick}
         onKeyDown={description && handleClick}
       >
-        <div className="timeline-item-border-gradient flex flex-col rounded-md p-3">
-          <div className="flex items-center gap-x-3">
+        <div
+          className={clsx(
+            'timeline-item-border-gradient group:first:active flex flex-col rounded-md py-2 px-2.5',
+            {
+              active: isActive,
+            }
+          )}
+        >
+          <div className="flex items-center gap-x-2">
             <img src={icon} height={24} width={24} loading="eager" alt="" />
-            <span className="text-white opacity-70 transition-opacity duration-200 group-hover:opacity-100">
+            <span className="text-base leading-none text-white opacity-70 transition-opacity duration-200 group-hover:opacity-100">
               {title}
             </span>
             {description && (

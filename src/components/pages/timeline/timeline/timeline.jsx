@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 
-import TIMELINE_DATA from './constants/data';
-import bg from './images/bg.png';
+import { TIMELINE_DATA, ACTIVE_DATE } from './constants/data';
+import bg from './images/bg.jpg';
 import topGradient from './images/top-gradient.svg';
 import Item from './item';
 
 const Timeline = () => {
+  // Handling the position of the progress bar when hovering over the elements, as well as adding active styles to the elements
   const handleOnMouseEnter = (event) => {
     const { date } = event.currentTarget.dataset;
 
@@ -20,46 +21,67 @@ const Timeline = () => {
 
     const timeline = document.getElementById('timelineWrapper');
     const timelineItemDay = document.querySelector(`.timeline-day[data-date="${date}"]`);
-    const datePositionleft =
+    const dateOffsetLeft =
       timelineItemDay.getBoundingClientRect().left -
       timeline.getBoundingClientRect().left +
       timeline.scrollLeft;
 
-    const isAbove = new Date(date).getDate() > 9;
-
     const progressBar = document.getElementById('timelineProgressBar');
-    const progressBarLeftPosition = isAbove ? datePositionleft - 10 : datePositionleft - 14;
+    const progressBarLeftPosition = dateOffsetLeft + 17;
     progressBar.style.left = `${progressBarLeftPosition}px`;
     progressBar.style.opacity = 1;
   };
 
+  // Is used to add a gradient at the beginning and the end of the timeline when scrolling
+  const handleTimelineScroll = (event) => {
+    const timeline = document.querySelector('.timeline');
+    const { currentTarget } = event;
+
+    if (currentTarget.scrollLeft > 40) {
+      timeline.classList.add('timeline-scrolling');
+    } else {
+      timeline.classList.remove('timeline-scrolling');
+    }
+
+    if (currentTarget.scrollLeft + currentTarget.clientWidth >= currentTarget.scrollWidth) {
+      timeline.classList.add('timeline-scrolled');
+    } else {
+      timeline.classList.remove('timeline-scrolled');
+    }
+  };
+
   useEffect(() => {
+    const timeline = document.getElementById('timelineWrapper');
     const timelineItems = document.querySelectorAll('.timeline-item');
+
+    timeline.addEventListener('scroll', handleTimelineScroll);
     timelineItems.forEach((item) => {
       item.addEventListener('mouseenter', handleOnMouseEnter);
     });
     return () => {
+      timeline.removeEventListener('scroll', handleTimelineScroll);
       timelineItems.forEach((item) => {
         item.removeEventListener('mouseenter', handleOnMouseEnter);
       });
     };
-  });
+  }, []);
 
   return (
-    <section className="safe-paddings relative pt-36 lg:pt-32 md:pt-28 sm:pt-20">
+    <section className="safe-paddings relative pt-24 sm:pt-20">
       <div className="px-10 md:px-7 sm:px-4">
-        <h1 className="text-highlighting-gray-light-gradient text-7xl sm:text-5xl xs:text-3xl">
+        <h1 className="text-highlighting-gray-light-gradient text-7xl font-normal leading-denser tracking-tight sm:text-5xl xs:text-3xl">
           Novu 2022 Events
         </h1>
       </div>
-      <div className="relative mt-12">
+      <div className="timeline relative mt-12">
         <img
-          className="absolute -top-28"
+          className="absolute -top-28 -z-10"
           src={topGradient}
           width={2120}
           height={296}
           loading="eager"
           alt=""
+          aria-hidden
         />
 
         <div
@@ -67,7 +89,7 @@ const Timeline = () => {
           id="timelineWrapper"
         >
           <div
-            className="absolute top-[15px] left-[135px] z-10 h-[calc(100%-51px)] opacity-0 transition-[left] duration-500"
+            className="absolute top-[15px] left-[178px] z-10 h-[calc(100%-51px)] transition-[left] duration-500"
             id="timelineProgressBar"
           >
             <span className="timeline-progress-bar-circle flex h-9 w-9 items-center justify-center" />
@@ -85,15 +107,15 @@ const Timeline = () => {
                 <div
                   className="grid border-t border-b border-[rgba(255,255,255,0.1)] bg-black py-5 px-[50px]"
                   style={{
-                    gridTemplateColumns: `repeat(${events.length + 1},100px)`,
+                    gridTemplateColumns: `repeat(${events.length + 1},70px)`,
                   }}
                 >
                   <div className="font-bold uppercase text-[#80BDFF]">{month}</div>
                   {events.map((event, index) => (
-                    <div key={`${index}-day`}>
+                    <div key={index}>
                       {event.items.map((item, index) => (
                         <span
-                          className="timeline-day block font-medium text-white opacity-80"
+                          className="timeline-day block text-center text-white opacity-80"
                           data-date={item.date}
                           key={index}
                         >
@@ -104,7 +126,7 @@ const Timeline = () => {
                   ))}
                 </div>
                 <div
-                  className="grid h-[552px] px-[50px] pt-9"
+                  className="grid h-[454px] px-[50px] pt-9"
                   style={{
                     gridTemplateColumns: `repeat(${events.length + 1},1fr)`,
                     gridTemplateRows: `repeat(7,1fr)`,
@@ -113,7 +135,7 @@ const Timeline = () => {
                   {events.map((event, index) => (
                     <div
                       className="relative grid"
-                      key={`${index}-event`}
+                      key={index}
                       style={{
                         gridColumnStart: index + 2,
                         gridColumnEnd: index + 7,
@@ -122,8 +144,14 @@ const Timeline = () => {
                     >
                       {event.items
                         .filter((item) => item?.title)
-                        .map((item) => (
-                          <Item animationDelay={index * 0.1} date={item.date} {...item} />
+                        .map((item, index) => (
+                          <Item
+                            animationDelay={index * 0.1}
+                            date={item.date}
+                            isActive={item.date === ACTIVE_DATE}
+                            key={index}
+                            {...item}
+                          />
                         ))}
                     </div>
                   ))}
@@ -133,7 +161,7 @@ const Timeline = () => {
           </div>
         </div>
 
-        <div className="test">
+        <div className="timeline-bg absolute inset-0" aria-hidden>
           <img
             className="absolute bottom-0 left-1/2 min-w-[1920px] -translate-x-1/2"
             src={bg}
@@ -142,7 +170,6 @@ const Timeline = () => {
             height={616}
             loading="eager"
           />
-          <span />
         </div>
       </div>
     </section>

@@ -1,4 +1,44 @@
+ {
+  /* TODO: rewrite the css styles using tailwind classes */
+}
+
 @layer components {
+  .timeline {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 170px;
+      height: 100%;
+      background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      z-index: 50;
+      transition: opacity 0.7s;
+    }
+
+    &::before {
+      left: 0;
+      transform: rotate(-180deg);
+      opacity: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    &-scrolling {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &-scrolled {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
   .timeline-item-border-gradient {
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(7.5px);
@@ -22,7 +62,7 @@
           rgba(255, 255, 255, 0.2),
           rgba(255, 255, 255, 0.12)
         )
-        border-box; /*3*/
+        border-box;
     }
 
     &::after {
@@ -34,7 +74,7 @@
           rgba(255, 102, 229, 0.8),
           rgba(255, 102, 229, 0.8)
         )
-        border-box; /*3*/
+        border-box;
     }
 
     &.active::before {
@@ -97,13 +137,17 @@
     }
   }
 
-  .test {
-    span {
+  .timeline-bg {
+    overflow: hidden;
+    &::after {
+      content: '';
       position: absolute;
+      left: 50%;
       bottom: 0;
-      display: block;
-      width: 100%;
       height: 400px;
+      width: 100%;
+      max-width: 1920px;
+      transform: translateX(-50%);
       background: radial-gradient(
         100% 100% at 50.05% 100%,
         rgba(0, 147, 177, 0.26) 15.55%,
