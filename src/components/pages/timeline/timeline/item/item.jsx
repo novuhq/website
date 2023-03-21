@@ -53,7 +53,7 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive, zI
     <LazyMotion features={domAnimation}>
       <m.div
         className={clsx(
-          'timeline-item group absolute left-[10px] h-fit w-max before:absolute before:bottom-full before:left-[22px] before:h-[800px] before:w-px before:border-l before:border-dashed before:opacity-[0.15]',
+          'timeline-item group absolute left-[12px] h-fit w-max before:absolute before:bottom-full before:left-[22px] before:h-[800px] before:w-px before:border-l before:border-dashed before:opacity-[0.15]',
           {
             'cursor-pointer': description,
             'z-40': isOpen,
