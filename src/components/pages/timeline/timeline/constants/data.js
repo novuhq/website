@@ -75,7 +75,7 @@ const data = [
   {
     date: '2022-03-23',
     title: 'Silent product launch',
-    iconName: 'speaker',
+    iconName: 'mutted',
   },
   {
     date: '2022-03-28',

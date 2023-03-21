@@ -14,6 +14,7 @@ import closeIcon from './images/close.svg';
 import codeIcon from './images/code.svg';
 import githubIcon from './images/github.svg';
 import lightningIcon from './images/lightning.svg';
+import muttedIcon from './images/mutted.svg';
 import shineIcon from './images/shine.svg';
 import speakerIcon from './images/speaker.svg';
 import swagIcon from './images/swag.svg';
@@ -34,6 +35,7 @@ const icons = {
   swag: swagIcon,
   bookmark: bookmarkIcon,
   shine: shineIcon,
+  mutted: muttedIcon,
 };
 
 const Item = ({ date, title, description, iconName, animationDelay, isActive, zIndex }) => {
