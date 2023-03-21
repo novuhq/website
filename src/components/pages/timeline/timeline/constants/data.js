@@ -400,7 +400,7 @@ const data = [
 
 const TIMELINE_DATA = data.reduce((acc, item) => {
   const date = new Date(item.date);
-  const month = date.toLocaleString('default', { month: 'short' });
+  const month = date.toLocaleString('en-GB', { month: 'short' });
   const year = date.getFullYear();
   const day = date.getDate();
   const dateIndex = acc.findIndex((m) => m.month === month && m.year === year);

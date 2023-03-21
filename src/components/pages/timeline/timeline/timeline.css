@@ -102,6 +102,8 @@
       background: linear-gradient(257.22deg, #ffbb33 21.09%, #e300bd 55.18%, #ff006a 92.64%);
       opacity: 0.25;
       filter: blur(85px);
+      -webkit-filter: blur(85px);
+      will-change: transform;
       z-index: -1;
     }
   }
@@ -136,28 +138,6 @@
       opacity: 0.6;
       background: #e300bd;
       filter: blur(10px);
-    }
-  }
-
-  .timeline-bg {
-    overflow: hidden;
-    &::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      height: 400px;
-      width: 100%;
-      max-width: 1920px;
-      transform: translateX(-50%);
-      background: radial-gradient(
-        100% 100% at 50.05% 100%,
-        rgba(0, 147, 177, 0.26) 15.55%,
-        rgba(31, 31, 122, 0.156) 57.07%,
-        rgba(0, 0, 0, 0.0338) 77.93%,
-        rgba(0, 0, 0, 0.078) 100%
-      );
-      filter: blur(107.5px);
     }
   }
 }

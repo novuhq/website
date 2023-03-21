@@ -1,24 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { TIMELINE_DATA, ACTIVE_DATE } from './constants/data';
+import bgGradient from './images/bg-gradient.svg';
 import bg from './images/bg.jpg';
 import rocketIllustration from './images/rocket.svg';
 import topGradient from './images/top-gradient.svg';
 import Item from './item';
 
 const Timeline = () => {
+  const [isActiveDate, setIsActiveDate] = useState(ACTIVE_DATE);
   // Handling the position of the progress bar when hovering over the elements, as well as adding active styles to the elements
   const handleOnMouseEnter = (event) => {
     const { date } = event.currentTarget.dataset;
 
-    event.currentTarget.firstElementChild.classList.add('active');
-
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach((item) => {
-      if (item !== event.currentTarget) {
-        item.firstElementChild.classList.remove('active');
-      }
-    });
+    setIsActiveDate(date);
 
     const timeline = document.getElementById('timelineWrapper');
     const timelineItemDay = document.querySelector(`.timeline-day[data-date="${date}"]`);
@@ -93,7 +88,7 @@ const Timeline = () => {
             className="absolute top-[15px] left-[178px] z-10 h-[calc(100%-51px)] transition-[left] duration-500"
             id="timelineProgressBar"
           >
-            <span className="timeline-progress-bar-circle flex h-9 w-9 items-center justify-center" />
+            <span className="timeline-progress-bar-circle relative flex h-9 w-9 items-center justify-center" />
             <span className="timeline-progress-bar-line block" />
           </div>
 
@@ -179,7 +174,7 @@ const Timeline = () => {
                               animationDelay={index * 0.1}
                               zIndex={index}
                               date={item.date}
-                              isActive={item.date === ACTIVE_DATE}
+                              isActive={item.date === isActiveDate}
                               key={`${index}-item`}
                               {...item}
                             />
@@ -193,13 +188,21 @@ const Timeline = () => {
           </div>
         </div>
 
-        <div className="timeline-bg absolute inset-0" aria-hidden>
+        <div className="absolute inset-0 overflow-hidden" aria-hidden>
           <img
             className="absolute bottom-0 left-1/2 min-w-[1920px] -translate-x-1/2"
             src={bg}
             alt=""
             width={1920}
             height={616}
+            loading="eager"
+          />
+          <img
+            className="absolute -bottom-40 left-1/2 min-w-[1920px] -translate-x-1/2"
+            src={bgGradient}
+            alt=""
+            width={1920}
+            height={400}
             loading="eager"
           />
         </div>
