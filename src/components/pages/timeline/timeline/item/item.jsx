@@ -103,7 +103,7 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive, zI
             <AnimatePresence>
               {isOpen && (
                 <m.p
-                  className="max-w-[340px] pb-3 text-sm text-gray-7 group-hover:text-white"
+                  className="max-w-[340px] pb-3 text-sm text-gray-7 transition-colors duration-200 group-hover:text-white"
                   initial={{ y: 0, transition: { duration: 0 } }}
                   animate={{ y: 6, transition: { duration: 0.2 } }}
                   exit={{ y: 0, transition: { duration: 0 } }}
