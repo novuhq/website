@@ -29,7 +29,7 @@ const data = [
     date: '2022-02-01',
     title: 'Seed funding finalized $6.6M',
     description:
-      'Following the engineering community traction we had, Novu has secured our seed funding to further support our growth and build an amazing team of individuals to help us get there.',
+      'Following the engineering community traction, Novu has secured a seed funding to further support our growth and build an amazing team of individuals to help us get there.',
     iconName: 'check',
   },
   {
@@ -100,9 +100,9 @@ const data = [
   },
   {
     date: '2022-04-25',
-    title: 'Company Handbook released to public',
+    title: 'Company Handbook released to public view',
     description:
-      'One of our core values in Novu is transparency, that is why our handbook is public and containd a lot of information about who we are and how we operate. It is a living space for employees to get information, create different requests and share ideas.',
+      'One of our core values in Novu is transparency, that is why our handbook is public and contains a lot of information about who we are and how we operate. It is a living space for employees to get information, create different requests and share ideas.',
     iconName: 'bookmark',
   },
   {
@@ -128,7 +128,9 @@ const data = [
   // May
   {
     date: '2022-05-02',
-    title: 'Release the first stable version (0.4.0)',
+    title: 'Released the first stable version (0.4.0)',
+    description:
+      'This is the first time we introduced the term Notification Infrastructure based on our community suggestion. This version included many items, all of them together is building the full infrastructure, that includes: Novu API, Notification management web interface, Notification Center API, Multi Environment Support, Integration Store, and many more.',
     iconName: 'shine',
   },
   {
@@ -143,7 +145,7 @@ const data = [
     date: '2022-05-16',
     title: 'Community Heroes Launched',
     description:
-      'Novu is being built for developers using the incredible power of the community! With Community Heroes, contributors get badges and medals for taking part in making novu awesome. They can share their achivements in social media as they move up thae ranks of the heroes program.',
+      'Novu is being built for developers using the incredible power of the community! With Community Heroes, contributors get badges and medals for taking part in making novu awesome. They can share their achivements in social media as they move up the ranks of the heroes program.',
     iconName: 'airplane',
   },
   {
@@ -175,7 +177,7 @@ const data = [
     date: '2022-06-28',
     title: 'V 0.5.0 release party',
     description:
-      'As part of establishing a process of goal setting and accountability in the company, and after a lot of work we released our company roadmap for the first time in August. This is a continious journy of planning ahead, learning, and improving as we go.',
+      'We had a release party with our community celebrating a big release including first version of the newly designed Notification Template Editor allowing ease of use while crating notifications, fully refactored backend trigger engine with better scalability and more modularity for future updates.',
     iconName: 'ballon',
   },
   {
@@ -264,8 +266,6 @@ const data = [
   },
   {
     date: '2022-09-18',
-    title: '10,000 Stars',
-    iconName: 'github',
   },
   {
     date: '2022-09-24',
@@ -283,7 +283,7 @@ const data = [
   },
   {
     date: '2022-10-03',
-    title: '10K GitHub stars',
+    title: '10K stars in GH',
     description:
       'Crushed our goal to reach 10K stars in GitHub 9 month ahead of deadline! since then we have adjusted our metrical goals, keeping them motivating and ambitious.',
     iconName: 'github',

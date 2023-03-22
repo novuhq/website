@@ -1,7 +1,3 @@
- {
-  /* TODO: rewrite the css styles using tailwind classes */
-}
-
 @layer components {
   .timeline {
     &::before,
