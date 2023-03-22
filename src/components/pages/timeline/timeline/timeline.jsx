@@ -85,7 +85,7 @@ const Timeline = () => {
           id="timelineWrapper"
         >
           <div
-            className="absolute top-[15px] left-[178px] z-10 h-[calc(100%-51px)] transition-[left] duration-500"
+            className="absolute top-[15px] left-[178px] z-10 h-[calc(100%-51px)] transition-[left] duration-500 md:left-[166px] sm:left-[154px]"
             id="timelineProgressBar"
           >
             <span className="timeline-progress-bar-circle relative flex h-9 w-9 items-center justify-center" />
@@ -99,7 +99,7 @@ const Timeline = () => {
             }}
           >
             {TIMELINE_DATA.map(({ month, events }, index) => (
-              <div className="grid" key={index}>
+              <div key={index}>
                 <div
                   className="grid border-t border-b border-[rgba(255,255,255,0.1)] bg-black py-5 px-[50px]"
                   style={{
