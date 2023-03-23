@@ -64,13 +64,6 @@ const data = [
   },
   {
     date: '2022-03-14',
-    title: '3,368 Stars',
-    iconName: 'github',
-  },
-  {
-    date: '2022-03-18',
-    title: 'David Joined!',
-    iconName: 'user',
   },
   {
     date: '2022-03-23',
@@ -78,11 +71,21 @@ const data = [
     iconName: 'mutted',
   },
   {
+    date: '2022-03-25',
+    title: '3,368 Stars',
+    iconName: 'github',
+  },
+  {
     date: '2022-03-28',
     title: 'Nordle event',
     description:
       'We started as Noti-fire and soon decided to change our name. After a process of rebranding, we engaged our community in a Wordle type event with a competition to try and guess our new name! ended up sending cool swag to 70 happy winners!',
     iconName: 'lightning',
+  },
+  {
+    date: '2022-03-31',
+    title: 'David Joined!',
+    iconName: 'user',
   },
   // Apr
   {
@@ -106,24 +109,24 @@ const data = [
     iconName: 'bookmark',
   },
   {
-    date: '2022-04-26',
-    title: '3,531 Stars',
-    iconName: 'github',
-  },
-  {
     date: '2022-04-27',
     title: 'Working on the Workflow Editor',
     iconName: 'code',
   },
   {
     date: '2022-04-28',
-    title: 'Omer Joined!',
-    iconName: 'user',
+    title: '3,531 Stars',
+    iconName: 'github',
   },
   {
     date: '2022-04-30',
     title: 'Employee swag kit',
     iconName: 'swag',
+  },
+  {
+    date: '2022-04-31',
+    title: 'Omer Joined!',
+    iconName: 'user',
   },
   // May
   {
@@ -298,8 +301,6 @@ const data = [
   },
   {
     date: '2022-10-16',
-    title: 'Pawel Joined!',
-    iconName: 'user',
   },
   {
     date: '2022-10-26',
@@ -312,6 +313,8 @@ const data = [
   // Nov
   {
     date: '2022-11-01',
+    title: 'Pawel Joined!',
+    iconName: 'user',
   },
   {
     date: '2022-11-07',
