@@ -1,0 +1,139 @@
+@layer components {
+  .timeline {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 170px;
+      height: 100%;
+      background: linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+      z-index: 50;
+      transition: opacity 0.7s;
+
+      @apply xl:w-[100px] sm:hidden;
+    }
+
+    &::before {
+      left: 0;
+      transform: rotate(-180deg);
+      opacity: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+
+    &-scrolling {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &-scrolled {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  .timeline-item-border-gradient {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(7.5px);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      transition: all 0.7s;
+    }
+    &::before {
+      background: linear-gradient(
+          268.91deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.12)
+        )
+        border-box;
+    }
+
+    &::after {
+      opacity: 0;
+      background: linear-gradient(
+          268.91deg,
+          rgba(255, 255, 255, 0.48),
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 102, 229, 0.8),
+          rgba(255, 102, 229, 0.8)
+        )
+        border-box;
+    }
+
+    &.active::before {
+      opacity: 0;
+    }
+
+    &.active::after {
+      opacity: 1;
+    }
+  }
+
+  .timeline-progress-bar-circle {
+    border: 1px solid #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 1px #fff, 0 0 1px #e300bd, 0 0 15px #e300bd, inset 0 0 10px #e300bd;
+    height: calc(100% - 36px);
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      background: linear-gradient(257.22deg, #ffbb33 21.09%, #e300bd 55.18%, #ff006a 92.64%);
+      opacity: 0.25;
+      filter: blur(85px);
+      -webkit-filter: blur(85px);
+      will-change: transform;
+      z-index: -1;
+    }
+  }
+
+  .timeline-progress-bar-line {
+    position: absolute;
+    top: 36px;
+    width: 1px;
+    left: 17px;
+    height: 100%;
+    background-color: #fff;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      opacity: 0.4;
+      background: #e300bd;
+      filter: blur(3px);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      opacity: 0.6;
+      background: #e300bd;
+      filter: blur(10px);
+    }
+  }
+}
