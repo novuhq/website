@@ -118,20 +118,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ['G-DHRXGBJSKF'],
-        gtagConfig: {
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-source-wordpress',
       options: {
         url: process.env.WP_GRAPHQL_URL,

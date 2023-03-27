@@ -32,7 +32,6 @@
     "gatsby": "^4.23.0",
     "gatsby-plugin-feed": "^4.23.0",
     "gatsby-plugin-gatsby-cloud": "^4.23.0",
-    "gatsby-plugin-google-gtag": "^4.23.0",
     "gatsby-plugin-image": "^2.23.0",
     "gatsby-plugin-mixpanel": "^3.7.0",
     "gatsby-plugin-segment-js": "^4.0.3",
