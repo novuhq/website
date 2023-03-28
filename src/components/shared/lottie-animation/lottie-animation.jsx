@@ -13,7 +13,8 @@ const LottieAnimation = ({ className, lottieOptions, events = {}, isInView, widt
   const [animation, setAnimation] = useState(lottieOptions.autoplay);
 
   useEffect(() => {
-    if (!isWrapperInView) return null;
+    if (!isWrapperInView) return;
+
     const lottieAnimation =
       isWrapperInView &&
       lottie.loadAnimation({

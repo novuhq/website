@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 
 import Channels from 'components/pages/use-cases/channels';
@@ -5,169 +6,26 @@ import Content from 'components/pages/use-cases/content';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 
-const channels = [
-  {
-    name: 'Email',
-    value: 'email',
-  },
-  {
-    name: 'In-app',
-    value: 'in-app',
-  },
-  {
-    name: 'Push',
-    value: 'push',
-  },
-  {
-    name: 'SMS',
-    value: 'sms',
-  },
-  {
-    name: 'Chat',
-    value: 'chat',
-  },
-];
-
-const content = {
-  title: 'Technical Use Cases',
-  description:
-    'Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push',
-  items: [
-    {
-      title: 'Implement In-App + User preferences',
-      channels: [
-        {
-          name: 'In-app',
-          value: 'in-app',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Implement In-App + User preferences + 4 hours email digest',
-      channels: [
-        {
-          name: 'In-app',
-          value: 'in-app',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Implement email+Chat',
-      channels: [
-        {
-          name: 'Email',
-          value: 'email',
-        },
-        {
-          name: 'Chat',
-          value: 'chat',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Implement Push + Email with Translations and Timezone',
-      channels: [
-        {
-          name: 'Email',
-          value: 'email',
-        },
-        {
-          name: 'Push',
-          value: 'push',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'In-app + delay + email notifications',
-      channels: [
-        {
-          name: 'In-app',
-          value: 'in-app',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Email + SMS',
-      channels: [
-        {
-          name: 'Email',
-          value: 'email',
-        },
-        {
-          name: 'SMS',
-          value: 'sms',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Implement Push + Email with Translations and Timezone',
-      channels: [
-        {
-          name: 'Email',
-          value: 'email',
-        },
-        {
-          name: 'Push',
-          value: 'push',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Email + SMS',
-      channels: [
-        {
-          name: 'Email',
-          value: 'email',
-        },
-        {
-          name: 'SMS',
-          value: 'sms',
-        },
-      ],
-      url: '/',
-    },
-    {
-      title: 'Implement Push + Email with Translations and Timezone',
-      channels: [
-        {
-          name: 'Email',
-          value: 'email',
-        },
-        {
-          name: 'Push',
-          value: 'push',
-        },
-      ],
-      url: '/',
-    },
-  ],
-};
-
-const TechnicalUseCasesPage = () => {
+const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
   const [selectedChannels, setSelectedChannels] = useState([]);
-  const [filteredItems, setFilteredItems] = useState(content.items);
+  const [filteredItems, setFilteredItems] = useState(useCases.nodes);
 
   useEffect(() => {
     if (selectedChannels.length) {
-      const filteredItems = content.items.filter((item) =>
-        item.channels.some((channel) => selectedChannels.includes(channel.value))
+      const filteredItems = useCases.nodes.filter((item) =>
+        item.channels.some((channel) => selectedChannels.includes(channel.channel.value.current))
       );
       setFilteredItems(filteredItems);
     } else {
-      setFilteredItems(content.items);
+      setFilteredItems(useCases.nodes);
     }
-  }, [selectedChannels]);
+  }, [selectedChannels, useCases.nodes]);
 
-  const channelsWithItems = channels.map((channel) => {
-    const items = content.items.filter((item) =>
-      item.channels.some((itemChannel) => itemChannel.value === channel.value)
+  const channelsWithItems = channels.nodes.map((channel) => {
+    const items = useCases.nodes.filter((item) =>
+      item.channels.some(
+        (itemChannel) => itemChannel.channel.value.current === channel.value.current
+      )
     );
     return {
       ...channel,
@@ -183,11 +41,16 @@ const TechnicalUseCasesPage = () => {
             <Channels
               className="col-span-3"
               items={channelsWithItems}
-              numberOfItems={content.items.length}
+              numberOfItems={useCases.nodes.length}
               selectedChannels={selectedChannels}
               setSelectedChannels={setSelectedChannels}
             />
-            <Content className="col-span-7" {...content} items={filteredItems} />
+            <Content
+              className="col-span-7"
+              title="Technical Use Cases"
+              description="Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push"
+              items={filteredItems}
+            />
           </div>
         </div>
       </div>
@@ -196,6 +59,36 @@ const TechnicalUseCasesPage = () => {
 };
 
 export default TechnicalUseCasesPage;
+
+export const pageQuery = graphql`
+  query {
+    channels: allSanityChannel {
+      nodes {
+        name
+        value {
+          current
+        }
+      }
+    }
+
+    useCases: allSanityTechnicalUseCase {
+      nodes {
+        title
+        slug {
+          current
+        }
+        channels {
+          channel {
+            name
+            value {
+              current
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export const Head = () => {
   const pageMetadata = {

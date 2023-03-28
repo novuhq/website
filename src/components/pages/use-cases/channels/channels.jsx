@@ -31,19 +31,19 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
             className={clsx(
               'flex cursor-pointer items-center justify-between text-base text-gray-10',
               {
-                'text-primary-1': selectedChannels.includes(value),
+                'text-primary-1': selectedChannels.includes(value.current),
               }
             )}
             key={index}
             tabIndex={0}
             role="button"
-            onClick={handleOnClick(value)}
-            onKeyDown={handleOnClick(value)}
+            onClick={handleOnClick(value.current)}
+            onKeyDown={handleOnClick(value.current)}
           >
             <div className="flex items-center gap-x-2">
               <CheckIcon
                 className={clsx('h-4 text-gray-3', {
-                  '!text-primary-1': selectedChannels.includes(value),
+                  '!text-primary-1': selectedChannels.includes(value.current),
                 })}
               />
               <span>{name}</span>

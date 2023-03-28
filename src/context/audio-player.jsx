@@ -114,24 +114,27 @@ export const AudioProvider = ({ children }) => {
   return (
     <>
       <AudioPlayerContext.Provider value={api}>
-        {children}
+        <div>
+          {children}
 
-        {state.isOpen && (
-          <LazyMotion features={domAnimation}>
-            <AnimatePresence>
-              <m.div
-                className="fixed left-0 bottom-0 z-10 w-full translate-y-full"
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={variants}
-              >
-                <AudioPlayer />
-              </m.div>
-            </AnimatePresence>
-          </LazyMotion>
-        )}
+          {state.isOpen && (
+            <LazyMotion features={domAnimation}>
+              <AnimatePresence>
+                <m.div
+                  className="fixed left-0 bottom-0 z-10 w-full translate-y-full"
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={variants}
+                >
+                  <AudioPlayer />
+                </m.div>
+              </AnimatePresence>
+            </LazyMotion>
+          )}
+        </div>
       </AudioPlayerContext.Provider>
+
       <audio
         ref={playerRef}
         className="hidden"
