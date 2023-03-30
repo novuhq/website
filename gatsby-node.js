@@ -7,15 +7,6 @@ const slash = require('slash');
 const redirects = require('./redirects.json');
 const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
-// const createAPIRouteForNotificationTemplates = async ({ actions }) => {
-//   const { createPage } = actions;
-
-//   createPage({
-//     path: '/api/notification-templates',
-//     component: require.resolve('./src/pages/api/notification-templates.js'),
-//   });
-// };
-
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
@@ -385,13 +376,36 @@ async function createPodcastDetailPages({ graphql, actions }) {
   });
 }
 
-async function createTechnicalUseCasePages({ graphql, actions }) {
+async function createUseCasePages({ graphql, actions }) {
   const { createPage } = actions;
 
   const result = await graphql(`
     {
       allSanityTechnicalUseCase {
         nodes {
+          id
+          title
+          description
+          slug {
+            current
+          }
+          body: _rawBody
+          channels {
+            channel {
+              name
+            }
+          }
+          providers {
+            provider {
+              name
+            }
+          }
+        }
+      }
+
+      allSanityFeatureUseCase {
+        nodes {
+          id
           title
           description
           slug {
@@ -418,16 +432,30 @@ async function createTechnicalUseCasePages({ graphql, actions }) {
   }
 
   const {
-    allSanityTechnicalUseCase: { nodes: useCases },
+    allSanityTechnicalUseCase: { nodes: technicalUseCases },
+    allSanityFeatureUseCase: { nodes: featureUseCases },
   } = result.data;
 
-  useCases.forEach((useCase) => {
-    const templatePath = path.resolve('./src/templates/use-case.jsx');
+  const technicalTemplatePath = path.resolve('./src/templates/technical-use-case.jsx');
+  const featureTemplatePath = path.resolve('./src/templates/feature-use-case.jsx');
 
+  technicalUseCases.forEach((useCase) => {
     createPage({
       path: `/technical-use-cases/${useCase.slug.current}/`,
-      component: slash(templatePath),
+      component: slash(technicalTemplatePath),
       context: {
+        parentPageUrl: '/technical-use-cases/',
+        ...useCase,
+      },
+    });
+  });
+
+  featureUseCases.forEach((useCase) => {
+    createPage({
+      path: `/feature-use-cases/${useCase.slug.current}/`,
+      component: slash(featureTemplatePath),
+      context: {
+        parentPageUrl: '/feature-use-cases/',
         ...useCase,
       },
     });
@@ -456,8 +484,7 @@ exports.createPages = async (args) => {
   await createPodcastPage(params);
   await createPodcastDetailPages(params);
   await createContributorsPage(params);
-  await createTechnicalUseCasePages(params);
-  // await createAPIRouteForNotificationTemplates(params);
+  await createUseCasePages(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {

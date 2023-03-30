@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -7,7 +8,11 @@ import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 
-const Layout = ({ children }) => {
+const backgroundColors = {
+  'gray-1': 'bg-gray-1',
+};
+
+const Layout = ({ headerWithBorder, footerWithBorder, backgroundColor, children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,9 +21,19 @@ const Layout = ({ children }) => {
     <>
       <Banner />
       <div className="relative flex min-h-screen flex-col">
-        <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <Header
+          isMobileMenuOpen={isMobileMenuOpen}
+          withBorder={headerWithBorder}
+          onBurgerClick={handleHeaderBurgerClick}
+        />
+        <main
+          className={clsx('flex-grow', {
+            [backgroundColors[backgroundColor]]: backgroundColor,
+          })}
+        >
+          {children}
+        </main>
+        <Footer withBorder={footerWithBorder} />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
     </>
@@ -26,7 +41,16 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
+  headerWithBorder: PropTypes.bool,
+  footerWithBorder: PropTypes.bool,
+  backgroundColor: PropTypes.oneOf(Object.keys(backgroundColors)),
   children: PropTypes.node.isRequired,
+};
+
+Layout.defaultProps = {
+  headerWithBorder: false,
+  footerWithBorder: false,
+  backgroundColor: null,
 };
 
 export const query = graphql`

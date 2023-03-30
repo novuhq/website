@@ -6,7 +6,7 @@ import Content from 'components/pages/use-cases/content';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 
-const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
+const FeatureUseCasesPage = ({ data: { channels, useCases } }) => {
   const [selectedChannels, setSelectedChannels] = useState([]);
   const [filteredItems, setFilteredItems] = useState(useCases.nodes);
 
@@ -47,7 +47,7 @@ const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
             />
             <Content
               className="col-span-7"
-              title="Technical Use Cases"
+              title="Feature Use Cases"
               description="Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push"
               items={filteredItems}
             />
@@ -58,7 +58,7 @@ const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
   );
 };
 
-export default TechnicalUseCasesPage;
+export default FeatureUseCasesPage;
 
 export const pageQuery = graphql`
   query {
@@ -71,7 +71,7 @@ export const pageQuery = graphql`
       }
     }
 
-    useCases: allSanityTechnicalUseCase(sort: { fields: _createdAt, order: DESC }) {
+    useCases: allSanityFeatureUseCase(sort: { fields: _createdAt, order: DESC }) {
       nodes {
         title
         slug {
@@ -92,8 +92,8 @@ export const pageQuery = graphql`
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/technical-use-cases/',
-    title: 'Technical Use Cases - Novu',
+    slug: '/feature-use-cases/',
+    title: 'Feature Use Cases - Novu',
   };
   return <SEO {...pageMetadata} />;
 };

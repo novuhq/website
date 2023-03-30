@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import ButtonGithubStars from 'components/shared/button-github-stars';
@@ -10,11 +11,15 @@ import Logo from 'images/logo.inline.svg';
 
 const COPYRIGHT = 'Novu';
 
-const Footer = () => {
+const Footer = ({ withBorder }) => {
   const { isOpen } = useAudioPlayer();
 
   return (
-    <footer className="safe-paddings">
+    <footer
+      className={clsx('safe-paddings', {
+        'border-t border-dashed border-gray-3': withBorder,
+      })}
+    >
       <div
         className={clsx(
           'container flex justify-between py-20 lg:flex-col lg:py-12 sm:block sm:py-10',
@@ -74,6 +79,14 @@ const Footer = () => {
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  withBorder: PropTypes.bool,
+};
+
+Footer.defaultProps = {
+  withBorder: false,
 };
 
 export default Footer;

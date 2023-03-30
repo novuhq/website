@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
@@ -10,7 +11,7 @@ import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
+const Header = ({ isMobileMenuOpen, onBurgerClick, withBorder }) => {
   const mixpanel = useMixpanel();
   const trigger = useCallback(
     (text) => () => {
@@ -20,8 +21,12 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
   );
 
   return (
-    <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
-      <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
+    <header
+      className={clsx('safe-paddings absolute left-0 right-0 top-0 z-40 w-full', {
+        'border-b border-dashed border-gray-3': withBorder,
+      })}
+    >
+      <div className="flex items-center justify-between px-10 py-3 md:px-7 md:py-4 sm:px-4 sm:py-3.5">
         <Link {...LINKS.home}>
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Novu</span>
@@ -62,10 +67,12 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 Header.propTypes = {
   isMobileMenuOpen: PropTypes.bool,
   onBurgerClick: PropTypes.func.isRequired,
+  withBorder: PropTypes.bool,
 };
 
 Header.defaultProps = {
   isMobileMenuOpen: false,
+  withBorder: false,
 };
 
 export default Header;
