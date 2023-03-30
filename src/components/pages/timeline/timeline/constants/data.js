@@ -401,11 +401,14 @@ const data = [
   },
 ];
 
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 const TIMELINE_DATA = data.reduce((acc, item) => {
-  const date = new Date(item.date);
-  const month = date.toLocaleString('en-GB', { month: 'short' });
-  const year = date.getFullYear();
-  const day = date.getDate();
+  const month = MONTHS[parseInt(item.date.split('-')[1]) - 1];
+  const year = item.date.split('-')[0];
+  const day =
+    item.date.split('-')[2][0] === '0' ? item.date.split('-')[2][1] : item.date.split('-')[2];
+
   const dateIndex = acc.findIndex((m) => m.month === month && m.year === year);
   if (dateIndex === -1) {
     acc.push({
