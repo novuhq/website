@@ -51,6 +51,8 @@ const FeatureUseCasesPage = ({ data: { channels, useCases } }) => {
               description="Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push"
               items={filteredItems}
               channels={channelsWithItems}
+              selectedChannels={selectedChannels}
+              setSelectedChannels={setSelectedChannels}
             />
           </div>
         </div>
