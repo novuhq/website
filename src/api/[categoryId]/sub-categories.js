@@ -3,7 +3,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://api.notifications.directory/categories/${req.params.categoryId}/sub/`
+      `${process.env.GATSBY_NOTIFICATIONS_API_URL}/categories/${req.params.categoryId}/sub/`
     );
     const data = await response.json();
     res.status(200).json(data);
