@@ -3,7 +3,7 @@
 require('dotenv').config();
 
 module.exports = {
-  flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false, FUNCTIONS: true },
+  flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
     siteTitle: 'Novu - The open-source notification infrastructure',
     siteDescription:
