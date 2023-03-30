@@ -37,19 +37,20 @@ const FeatureUseCasesPage = ({ data: { channels, useCases } }) => {
     <Layout backgroundColor="gray-1" headerWithBorder footerWithBorder>
       <div className="safe-paddings pb-40 pt-32 sm:pt-20">
         <div className="container">
-          <div className="grid-gap-x grid grid-cols-12">
+          <div className="grid-gap-x grid grid-cols-12 md:block md:gap-0">
             <Channels
-              className="col-span-3"
+              className="col-span-3 md:hidden"
               items={channelsWithItems}
               numberOfItems={useCases.nodes.length}
               selectedChannels={selectedChannels}
               setSelectedChannels={setSelectedChannels}
             />
             <Content
-              className="col-span-7"
+              className="col-span-7 lg:col-span-9"
               title="Feature Use Cases"
               description="Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push"
               items={filteredItems}
+              channels={channelsWithItems}
             />
           </div>
         </div>

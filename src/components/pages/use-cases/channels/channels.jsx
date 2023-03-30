@@ -7,6 +7,33 @@ import Button from 'components/shared/button';
 import CheckIcon from './images/check.inline.svg';
 import ResetIcon from './images/reset.inline.svg';
 
+const Item = ({ name, value, numberOfItems, handleOnClick, isActive }) => (
+  <li
+    className={clsx(
+      'group flex cursor-pointer items-center justify-between py-2 text-base text-gray-10',
+      {
+        'text-primary-1': isActive,
+      }
+    )}
+    tabIndex={0}
+    role="button"
+    onClick={handleOnClick(value.current)}
+    onKeyDown={handleOnClick(value.current)}
+  >
+    <div className="flex items-center gap-x-2">
+      <CheckIcon
+        className={clsx('h-4 text-gray-3', {
+          '!text-primary-1': isActive,
+        })}
+      />
+      <span className="text-base transition-colors duration-200 group-hover:text-primary-1">
+        {name}
+      </span>
+    </div>
+    <span className="text-xs text-gray-8">{numberOfItems}</span>
+  </li>
+);
+
 const Channels = ({ className, items, numberOfItems, selectedChannels, setSelectedChannels }) => {
   const handleOnClick = (value) => () => {
     const index = selectedChannels.indexOf(value);
@@ -28,32 +55,11 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
         <span className="text-lg font-medium">Chanels</span>
         <span className="text-xs text-gray-8">{numberOfItems}</span>
       </div>
-      <ul className="mt-4 flex flex-col gap-y-4">
-        {items.map(({ name, value, numberOfItems }, index) => (
-          <li
-            className={clsx(
-              'flex cursor-pointer items-center justify-between text-base text-gray-10',
-              {
-                'text-primary-1': selectedChannels.includes(value.current),
-              }
-            )}
-            key={index}
-            tabIndex={0}
-            role="button"
-            onClick={handleOnClick(value.current)}
-            onKeyDown={handleOnClick(value.current)}
-          >
-            <div className="flex items-center gap-x-2">
-              <CheckIcon
-                className={clsx('h-4 text-gray-3', {
-                  '!text-primary-1': selectedChannels.includes(value.current),
-                })}
-              />
-              <span className="text-base">{name}</span>
-            </div>
-            <span className="text-xs text-gray-8">{numberOfItems}</span>
-          </li>
-        ))}
+      <ul className="mt-2 flex flex-col">
+        {items.map((item) => {
+          const isActive = selectedChannels.includes(item.value.current);
+          return <Item handleOnClick={handleOnClick} isActive={isActive} {...item} />;
+        })}
       </ul>
       {selectedChannels.length > 0 && (
         <Button
