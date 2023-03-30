@@ -35,7 +35,7 @@ const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
 
   return (
     <Layout>
-      <div className="safe-paddings pt-24 sm:pt-20">
+      <div className="safe-paddings pb-40 pt-24 sm:pt-20">
         <div className="container">
           <div className="grid-gap-x grid grid-cols-12">
             <Channels
@@ -71,7 +71,7 @@ export const pageQuery = graphql`
       }
     }
 
-    useCases: allSanityTechnicalUseCase {
+    useCases: allSanityTechnicalUseCase(sort: { fields: _createdAt, order: DESC }) {
       nodes {
         title
         slug {
@@ -92,11 +92,8 @@ export const pageQuery = graphql`
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/polishing/',
-    title: 'Polishing Season - Novu',
-    description:
-      'Polishing season is about turning that “someday” into “today”. It’s about dedicating time to quality work. To replace flaws and friction with polish and delight.',
-    ogImage: `/images/social-preview-polishing.jpg`,
+    slug: '/technical-use-cases/',
+    title: 'Technical Use Cases - Novu',
   };
   return <SEO {...pageMetadata} />;
 };

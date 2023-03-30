@@ -38,6 +38,7 @@
     "gatsby-plugin-segment-js": "^4.0.3",
     "gatsby-source-github-api": "^1.0.0",
     "gatsby-source-rss-feed": "^1.2.2",
+    "gatsby-source-sanity": "^7.6.3",
     "gatsby-source-wordpress": "^6.23.0",
     "html-react-parser": "^1.4.14",
     "lodash.isboolean": "^3.0.3",

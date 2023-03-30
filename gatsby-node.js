@@ -7,6 +7,15 @@ const slash = require('slash');
 const redirects = require('./redirects.json');
 const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
+// const createAPIRouteForNotificationTemplates = async ({ actions }) => {
+//   const { createPage } = actions;
+
+//   createPage({
+//     path: '/api/notification-templates',
+//     component: require.resolve('./src/pages/api/notification-templates.js'),
+//   });
+// };
+
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
@@ -376,6 +385,55 @@ async function createPodcastDetailPages({ graphql, actions }) {
   });
 }
 
+async function createTechnicalUseCasePages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allSanityTechnicalUseCase {
+        nodes {
+          title
+          description
+          slug {
+            current
+          }
+          body: _rawBody
+          channels {
+            channel {
+              name
+            }
+          }
+          providers {
+            provider {
+              name
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    allSanityTechnicalUseCase: { nodes: useCases },
+  } = result.data;
+
+  useCases.forEach((useCase) => {
+    const templatePath = path.resolve('./src/templates/use-case.jsx');
+
+    createPage({
+      path: `/technical-use-cases/${useCase.slug.current}/`,
+      component: slash(templatePath),
+      context: {
+        ...useCase,
+      },
+    });
+  });
+}
+
 exports.createPages = async (args) => {
   const { createRedirect } = args.actions;
 
@@ -398,6 +456,8 @@ exports.createPages = async (args) => {
   await createPodcastPage(params);
   await createPodcastDetailPages(params);
   await createContributorsPage(params);
+  await createTechnicalUseCasePages(params);
+  // await createAPIRouteForNotificationTemplates(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {

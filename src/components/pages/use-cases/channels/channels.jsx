@@ -2,7 +2,10 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Button from 'components/shared/button';
+
 import CheckIcon from './images/check.inline.svg';
+import ResetIcon from './images/reset.inline.svg';
 
 const Channels = ({ className, items, numberOfItems, selectedChannels, setSelectedChannels }) => {
   const handleOnClick = (value) => () => {
@@ -17,7 +20,7 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
   return (
     <div
       className={clsx(
-        'sticky top-10 h-fit max-w-[224px] rounded-[20px] border border-gray-3 py-5 px-6',
+        'sticky top-10 h-fit max-w-[224px] rounded-[20px] border border-gray-3 px-6 py-5',
         className
       )}
     >
@@ -25,7 +28,7 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
         <span className="text-lg font-medium">Chanels</span>
         <span className="text-xs text-gray-8">{numberOfItems}</span>
       </div>
-      <ul className="mt-4 gap-y-4">
+      <ul className="mt-4 flex flex-col gap-y-4">
         {items.map(({ name, value, numberOfItems }, index) => (
           <li
             className={clsx(
@@ -46,12 +49,23 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
                   '!text-primary-1': selectedChannels.includes(value.current),
                 })}
               />
-              <span>{name}</span>
+              <span className="text-base">{name}</span>
             </div>
             <span className="text-xs text-gray-8">{numberOfItems}</span>
           </li>
         ))}
       </ul>
+      {selectedChannels.length > 0 && (
+        <Button
+          className="mt-6 w-full space-x-2.5"
+          theme="gray-outline"
+          size="xs"
+          onClick={() => setSelectedChannels([])}
+        >
+          <ResetIcon className="w-3 flex-shrink-0 text-white" />
+          <span>Reset all filters</span>
+        </Button>
+      )}
     </div>
   );
 };
