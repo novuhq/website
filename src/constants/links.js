@@ -24,6 +24,9 @@ export default {
   pricing: {
     to: '/pricing',
   },
+  timeline: {
+    to: '/timeline',
+  },
 
   // Other pages
   documentation: {
