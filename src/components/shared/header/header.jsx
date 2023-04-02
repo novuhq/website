@@ -1,6 +1,5 @@
-import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
@@ -10,16 +9,7 @@ import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
-  const mixpanel = useMixpanel();
-  const trigger = useCallback(
-    (text) => () => {
-      mixpanel.track(`Go to page: ${text}`);
-    },
-    [mixpanel]
-  );
-
-  return (
+const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
     <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
       <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
         <Link {...LINKS.home}>
@@ -32,7 +22,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
             <ul className="flex space-x-8 md:hidden">
               {MENUS.header.map(({ to, text, target }, index) => (
                 <li key={index}>
-                  <Link to={to} theme="white" size="sm" target={target} onClick={trigger(text)}>
+                  <Link to={to} theme="white" size="sm" target={target}>
                     {text}
                   </Link>
                 </li>
@@ -42,12 +32,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 
           <div className="flex space-x-5 md:hidden">
             <ButtonGithubStars className="pl-3" />
-            <Button
-              size="xs"
-              theme="white-filled"
-              {...LINKS.getStarted}
-              onClick={trigger('Get Started')}
-            >
+            <Button size="xs" theme="white-filled" {...LINKS.getStarted}>
               Get Started
             </Button>
           </div>
@@ -57,7 +42,6 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
       </div>
     </header>
   );
-};
 
 Header.propTypes = {
   isMobileMenuOpen: PropTypes.bool,

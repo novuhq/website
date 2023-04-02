@@ -154,13 +154,6 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
     {
-      resolve: 'gatsby-plugin-mixpanel',
-      options: {
-        apiToken: process.env.MIXPANEL_TOKEN,
-        enableOnDevMode: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-segment-js`,
       options: {
         prodKey: process.env.GATSBY_SEGMENT_WRITE_KEY,
