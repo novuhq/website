@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
-import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -20,7 +19,6 @@ const DESCRIPTION =
 const INPUT_TEXT = 'npx novu init';
 
 const Hero = () => {
-  const mixpanel = useMixpanel();
   const [isCopied, setIsCopied] = useState(false);
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     threshold: 0.6,
@@ -37,7 +35,6 @@ const Hero = () => {
 
   const handleButtonClick = () => {
     if (!isCopied) {
-      mixpanel.track('Copied to clipboard');
       copyToClipboard(INPUT_TEXT, { onCopy: setIsCopied(true) });
     }
   };
