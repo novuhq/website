@@ -19,7 +19,7 @@ export default {
     to: '/privacy',
   },
   dataProcessingAgreement: {
-    to: '/data-processing-agreement',
+    to: '/dpa',
   },
   hacktoberfest: {
     to: '/hacktoberfest',
