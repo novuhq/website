@@ -31,7 +31,6 @@
     "framer-motion": "^6.5.1",
     "gatsby": "^4.23.0",
     "gatsby-plugin-feed": "^4.23.0",
-    "gatsby-plugin-gatsby-cloud": "^4.23.0",
     "gatsby-plugin-image": "^2.23.0",
     "gatsby-plugin-segment-js": "^4.0.3",
     "gatsby-source-github-api": "^1.0.0",

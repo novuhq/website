@@ -141,16 +141,6 @@ module.exports = {
         },
       },
     },
-    // TODO: to give up this plugin after a complete move to Netlify
-    {
-      resolve: 'gatsby-plugin-gatsby-cloud',
-      options: {
-        headers: {
-          '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
-          '/lottie-assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
