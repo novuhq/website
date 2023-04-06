@@ -1,11 +1,11 @@
 [[redirects]]
-  from = "/api"
-  to = "/api/overview/"
+  from = "/api-test"
+  to = "/api-test/overview/"
   status = 301
   force = false
 
 [[redirects]]
-  from = "/api/:splat/"
+  from = "/api-test/:splat/"
   to = "https://novu-api-docs.netlify.app/api/:splat/"
   status = 200
   force = true
