@@ -19,7 +19,7 @@ const PodcastDetailPage = ({ data: { feedPodcast: podcast }, location }) => {
   };
 
   const content = {
-    title: podcast.title.replace(/w\//g, ''),
+    title: podcast.title,
     subtitle: podcast.itunes.subtitle,
     episode: podcast.itunes.episode,
     audio: {
