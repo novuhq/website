@@ -23,7 +23,7 @@ const PodcastPage = (props) => {
   const podcastList = {
     items: podcasts.map(
       ({ title, enclosure: { url, type }, itunes: { episode, image, subtitle }, ...props }) => ({
-        title: title.replace(/w\//g, ''),
+        title,
         subtitle,
         episode,
         audio: {
