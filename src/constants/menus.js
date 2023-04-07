@@ -46,6 +46,7 @@ const MENUS = {
     [
       { text: 'Terms of Use', ...LINKS.termsOfUse },
       { text: 'Privacy Policy', ...LINKS.privacyPolicy },
+      { text: 'DPA', ...LINKS.dataProcessingAgreement },
       { text: 'Status Page', ...LINKS.statusPage },
     ],
   ],

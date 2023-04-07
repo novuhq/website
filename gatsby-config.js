@@ -149,7 +149,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-gatsby-cloud',
+      resolve: 'gatsby-plugin-netlify',
       options: {
         headers: {
           '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
@@ -160,13 +160,6 @@ module.exports = {
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-mixpanel',
-      options: {
-        apiToken: process.env.MIXPANEL_TOKEN,
-        enableOnDevMode: true,
-      },
-    },
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {
