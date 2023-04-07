@@ -78,7 +78,7 @@ const Content = ({
                 ref={dropdownRef}
               >
                 {channels.map(({ name, value, numberOfItems }, index) => {
-                  const isActive = selectedChannels.includes(value.current);
+                  const isActive = selectedChannels.includes(value);
                   return (
                     <li
                       className={clsx(
@@ -90,8 +90,8 @@ const Content = ({
                       key={index}
                       tabIndex={0}
                       role="button"
-                      onClick={handleOnClick(value.current)}
-                      onKeyDown={handleOnClick(value.current)}
+                      onClick={handleOnClick(value)}
+                      onKeyDown={handleOnClick(value)}
                     >
                       <div className="flex items-center gap-x-2">
                         <CheckIcon
@@ -120,12 +120,12 @@ const Content = ({
             <div>
               <h3 className="text-lg leading-tight">{title}</h3>
               <ul className="mt-3 flex gap-x-1.5">
-                {channels.map(({ channel }, index) => (
+                {channels.map(({ name }, index) => (
                   <li
                     className="flex h-6 items-center rounded-xl border border-gray-3 px-2 text-xs font-medium leading-none text-gray-7"
                     key={index}
                   >
-                    {channel.name}
+                    {name}
                   </li>
                 ))}
               </ul>

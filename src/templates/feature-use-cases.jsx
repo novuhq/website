@@ -1,4 +1,3 @@
-import { graphql } from 'gatsby';
 import React, { useState, useEffect } from 'react';
 
 import Channels from 'components/pages/use-cases/channels';
@@ -6,32 +5,35 @@ import Content from 'components/pages/use-cases/content';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 
-const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
+const FeatureUseCasesPage = ({ pageContext: { useCases } }) => {
   const [selectedChannels, setSelectedChannels] = useState([]);
-  const [filteredItems, setFilteredItems] = useState(useCases.nodes);
+  const [filteredItems, setFilteredItems] = useState(useCases);
 
   useEffect(() => {
     if (selectedChannels.length) {
-      const filteredItems = useCases.nodes.filter((item) =>
-        item.channels.some((channel) => selectedChannels.includes(channel.channel.value.current))
+      const filteredItems = useCases.filter((item) =>
+        item.channels.some((channel) => selectedChannels.includes(channel.value))
       );
       setFilteredItems(filteredItems);
     } else {
-      setFilteredItems(useCases.nodes);
+      setFilteredItems(useCases);
     }
-  }, [selectedChannels, useCases.nodes]);
+  }, [selectedChannels, useCases]);
 
-  const channelsWithItems = channels.nodes.map((channel) => {
-    const items = useCases.nodes.filter((item) =>
-      item.channels.some(
-        (itemChannel) => itemChannel.channel.value.current === channel.value.current
-      )
-    );
-    return {
-      ...channel,
-      numberOfItems: items.length,
-    };
-  });
+  const channelsWithItems = useCases.reduce((acc, item) => {
+    item.channels.forEach((channel) => {
+      if (!acc.some((item) => item.value === channel.value)) {
+        acc.push({
+          ...channel,
+          numberOfItems: 1,
+        });
+      } else {
+        const index = acc.findIndex((item) => item.value === channel.value);
+        acc[index].numberOfItems += 1;
+      }
+    });
+    return acc;
+  }, []);
 
   return (
     <Layout backgroundColor="gray-1" headerWithBorder footerWithBorder>
@@ -41,13 +43,13 @@ const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
             <Channels
               className="col-span-3 md:hidden"
               items={channelsWithItems}
-              numberOfItems={useCases.nodes.length}
+              numberOfItems={useCases.length}
               selectedChannels={selectedChannels}
               setSelectedChannels={setSelectedChannels}
             />
             <Content
               className="col-span-7 lg:col-span-9"
-              title="Technical Use Cases"
+              title="Feature Use Cases"
               description="Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push"
               items={filteredItems}
               channels={channelsWithItems}
@@ -61,42 +63,12 @@ const TechnicalUseCasesPage = ({ data: { channels, useCases } }) => {
   );
 };
 
-export default TechnicalUseCasesPage;
-
-export const pageQuery = graphql`
-  query {
-    channels: allSanityChannel {
-      nodes {
-        name
-        value {
-          current
-        }
-      }
-    }
-
-    useCases: allSanityTechnicalUseCase(sort: { fields: _createdAt, order: DESC }) {
-      nodes {
-        title
-        slug {
-          current
-        }
-        channels {
-          channel {
-            name
-            value {
-              current
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export default FeatureUseCasesPage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/technical-use-cases/',
-    title: 'Technical Use Cases - Novu',
+    slug: '/feature-use-cases/',
+    title: 'Feature Use Cases - Novu',
   };
   return <SEO {...pageMetadata} />;
 };

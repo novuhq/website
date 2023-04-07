@@ -16,7 +16,7 @@ const ReadMore = ({ items }) => (
             <div>
               <h3 className="text-lg leading-tight">{title}</h3>
               <ul className="mt-3 flex gap-x-1.5">
-                {channels.map(({ channel }, index) => (
+                {channels?.map(({ channel }, index) => (
                   <li
                     className="flex h-6 items-center rounded-xl border border-gray-3 px-2 text-xs font-medium leading-none text-gray-7"
                     key={index}

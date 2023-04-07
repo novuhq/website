@@ -5,6 +5,7 @@ import React from 'react';
 
 import Content from 'components/pages/use-case/content';
 import Hero from 'components/pages/use-case/hero';
+import Workflow from 'components/pages/use-case/workflow';
 import ReadMore from 'components/pages/use-cases/read-more';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
@@ -31,6 +32,7 @@ const UseCasePage = ({ data, pageContext }) => (
           channels={pageContext.channels}
           providers={pageContext.providers}
         />
+        <Workflow {...pageContext.templateWorkflowData} />
         <Content content={pageContext.body} />
 
         {data.otherUseCases.nodes.length > 0 && (
@@ -51,14 +53,6 @@ export const pageQuery = graphql`
         title
         slug {
           current
-        }
-        channels {
-          channel {
-            name
-            value {
-              current
-            }
-          }
         }
       }
     }

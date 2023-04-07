@@ -17,15 +17,13 @@ const Hero = ({ title, description, channels, providers }) => (
     <div className="mt-10">
       <div className="flex">
         <span className="text-lg font-medium">Channels:</span>
-        <div className="ml-2 text-lg font-light">
-          {channels.map(({ channel }) => channel.name).join(', ')}
-        </div>
+        <div className="ml-2 text-lg font-light">{channels.map(({ name }) => name).join(', ')}</div>
       </div>
 
       <div className="flex">
         <span className="text-lg font-medium">Providers:</span>
         <div className="ml-2 text-lg font-light">
-          {providers.map(({ provider }) => provider.name).join(', ')}
+          {providers?.map(({ provider }) => provider.name).join(', ')}
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ const fetch = require(`node-fetch`);
 const slash = require('slash');
 
 const redirects = require('./redirects.json');
+const getChannelName = require('./src/utils/get-channel-name');
 const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
@@ -376,52 +377,47 @@ async function createPodcastDetailPages({ graphql, actions }) {
   });
 }
 
-async function createUseCasePages({ graphql, actions }) {
+async function createUseCasePages({ graphql, actions, reporter }) {
   const { createPage } = actions;
+
+  const templates = {
+    'technical-use-case': {
+      slug: '/technical-use-cases/',
+      template: path.resolve('./src/templates/technical-use-case.jsx'),
+    },
+    'feature-use-case': {
+      slug: '/feature-use-cases/',
+      template: path.resolve('./src/templates/feature-use-case.jsx'),
+    },
+  };
 
   const result = await graphql(`
     {
       allSanityTechnicalUseCase {
         nodes {
           id
+          templateType: _type
           title
           description
           slug {
             current
           }
           body: _rawBody
-          channels {
-            channel {
-              name
-            }
-          }
-          providers {
-            provider {
-              name
-            }
-          }
+          templateIndetifiers
         }
       }
 
       allSanityFeatureUseCase {
         nodes {
           id
+          templateType: _type
           title
           description
           slug {
             current
           }
           body: _rawBody
-          channels {
-            channel {
-              name
-            }
-          }
-          providers {
-            provider {
-              name
-            }
-          }
+          templateIndetifiers
         }
       }
     }
@@ -431,35 +427,70 @@ async function createUseCasePages({ graphql, actions }) {
     throw new Error(result.errors);
   }
 
-  const {
-    allSanityTechnicalUseCase: { nodes: technicalUseCases },
-    allSanityFeatureUseCase: { nodes: featureUseCases },
-  } = result.data;
+  try {
+    const useCases = [
+      ...result.data.allSanityTechnicalUseCase.nodes,
+      ...result.data.allSanityFeatureUseCase.nodes,
+    ];
 
-  const technicalTemplatePath = path.resolve('./src/templates/technical-use-case.jsx');
-  const featureTemplatePath = path.resolve('./src/templates/feature-use-case.jsx');
+    await Promise.all(
+      useCases.map(async (useCase) => {
+        const { data } = await fetch(
+          `https://api.novu.co/v1/notification-templates/${useCase.templateIndetifiers}`,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `ApiKey ${process.env.GATSBY_NOVU_API_KEY}`,
+            },
+          }
+        ).then((response) => response.json());
 
-  technicalUseCases.forEach((useCase) => {
-    createPage({
-      path: `/technical-use-cases/${useCase.slug.current}/`,
-      component: slash(technicalTemplatePath),
-      context: {
-        parentPageUrl: '/technical-use-cases/',
-        ...useCase,
-      },
+        const parentPageUrl = templates[useCase.templateType].slug;
+        const { template } = templates[useCase.templateType];
+
+        const channels = data?.steps
+          ?.filter((step) => step.template.type !== 'digest' && step.template.type !== 'delay')
+          .map((step) => ({
+            name: getChannelName(step.template.type),
+            value: step.template.type,
+          }));
+
+        createPage({
+          path: `${parentPageUrl}${useCase.slug.current}/`,
+          component: slash(template),
+          context: {
+            parentPageUrl,
+            ...useCase,
+            channels,
+            templateWorkflowData: data,
+          },
+        });
+
+        return { ...useCase, templateWorkflowData: data, channels };
+      })
+    ).then((useCases) => {
+      const technicalTemplate = path.resolve('./src/templates/technical-use-cases.jsx');
+      const featureTemplate = path.resolve('./src/templates/feature-use-cases.jsx');
+
+      createPage({
+        path: '/technical-use-cases/',
+        component: slash(technicalTemplate),
+        context: {
+          useCases: useCases.filter((useCase) => useCase.templateType === 'technical-use-case'),
+        },
+      });
+
+      createPage({
+        path: '/feature-use-cases/',
+        component: slash(featureTemplate),
+        context: {
+          useCases: useCases.filter((useCase) => useCase.templateType === 'feature-use-case'),
+        },
+      });
     });
-  });
-
-  featureUseCases.forEach((useCase) => {
-    createPage({
-      path: `/feature-use-cases/${useCase.slug.current}/`,
-      component: slash(featureTemplatePath),
-      context: {
-        parentPageUrl: '/feature-use-cases/',
-        ...useCase,
-      },
-    });
-  });
+  } catch (error) {
+    reporter.panicOnBuild('Error in createUseCasePages:', error);
+  }
 }
 
 exports.createPages = async (args) => {

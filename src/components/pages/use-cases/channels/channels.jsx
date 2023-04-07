@@ -17,8 +17,8 @@ const Item = ({ name, value, numberOfItems, handleOnClick, isActive }) => (
     )}
     tabIndex={0}
     role="button"
-    onClick={handleOnClick(value.current)}
-    onKeyDown={handleOnClick(value.current)}
+    onClick={handleOnClick(value)}
+    onKeyDown={handleOnClick(value)}
   >
     <div className="flex items-center gap-x-2">
       <CheckIcon
@@ -52,12 +52,12 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
       )}
     >
       <div className="flex items-center justify-between">
-        <span className="text-lg font-medium">Chanels</span>
+        <span className="text-lg font-medium">Channels</span>
         <span className="text-xs text-gray-8">{numberOfItems}</span>
       </div>
       <ul className="mt-2 flex flex-col">
         {items.map((item) => {
-          const isActive = selectedChannels.includes(item.value.current);
+          const isActive = selectedChannels.includes(item.value);
           return <Item handleOnClick={handleOnClick} isActive={isActive} {...item} />;
         })}
       </ul>
