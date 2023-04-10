@@ -5,7 +5,7 @@ import Content from 'components/pages/use-cases/content';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 
-const FeatureUseCasesPage = ({ pageContext: { useCases } }) => {
+const UseCasesPage = ({ pageContext: { title, description, useCases } }) => {
   const [selectedChannels, setSelectedChannels] = useState([]);
   const [filteredItems, setFilteredItems] = useState(useCases);
 
@@ -49,8 +49,8 @@ const FeatureUseCasesPage = ({ pageContext: { useCases } }) => {
             />
             <Content
               className="col-span-7 lg:col-span-9"
-              title="Feature Use Cases"
-              description="Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push"
+              title={title}
+              description={description}
               items={filteredItems}
               channels={channelsWithItems}
               selectedChannels={selectedChannels}
@@ -63,12 +63,6 @@ const FeatureUseCasesPage = ({ pageContext: { useCases } }) => {
   );
 };
 
-export default FeatureUseCasesPage;
+export default UseCasesPage;
 
-export const Head = () => {
-  const pageMetadata = {
-    slug: '/feature-use-cases/',
-    title: 'Feature Use Cases - Novu',
-  };
-  return <SEO {...pageMetadata} />;
-};
+export const Head = ({ pageContext }) => <SEO {...pageContext.pageMetadata} />;

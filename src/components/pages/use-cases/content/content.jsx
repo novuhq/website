@@ -91,7 +91,6 @@ const Content = ({
                       tabIndex={0}
                       role="button"
                       onClick={handleOnClick(value)}
-                      onKeyDown={handleOnClick(value)}
                     >
                       <div className="flex items-center gap-x-2">
                         <CheckIcon
@@ -152,7 +151,9 @@ Content.propTypes = {
           name: PropTypes.string.isRequired,
         }).isRequired
       ).isRequired,
-      url: PropTypes.string.isRequired,
+      slug: PropTypes.shape({
+        current: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired
   ).isRequired,
 };

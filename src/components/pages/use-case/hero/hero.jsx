@@ -5,12 +5,7 @@ import Heading from 'components/shared/heading';
 
 const Hero = ({ title, description, channels, providers }) => (
   <div>
-    <Heading
-      className="mt-4 font-medium leading-denser sm:text-3xl"
-      size="lg"
-      tag="h1"
-      theme="white"
-    >
+    <Heading className="font-medium leading-denser sm:text-3xl" size="lg" tag="h1" theme="white">
       {title}
     </Heading>
     <p className="mt-10 text-lg font-light md:text-base">{description}</p>
@@ -35,9 +30,7 @@ Hero.propTypes = {
   description: PropTypes.string.isRequired,
   channels: PropTypes.arrayOf(
     PropTypes.shape({
-      channel: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-      }).isRequired,
+      name: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
   providers: PropTypes.arrayOf(

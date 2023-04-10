@@ -112,7 +112,7 @@ const Workflow = ({ steps }) => (
         <img src={addIcon} height={30} width={30} loading="eager" alt="" />
       </ul>
 
-      <div className="h-max w-full max-w-[250px] rounded-[7px] bg-[#23232B] p-5">
+      <div className="h-max w-full max-w-[250px] rounded-[7px] bg-[#23232B] p-5 sm:hidden">
         <div className="flex flex-col gap-y-4">
           {CHANNELS_AND_ACTIONS.map(({ title, items }, index) => (
             <div key={index}>

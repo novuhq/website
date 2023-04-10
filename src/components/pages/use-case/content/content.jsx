@@ -33,7 +33,7 @@ const Content = ({ content }) => {
         <PortableText value={content} components={components} />
       </div>
       <div className="mt-14 flex justify-end">
-        <Button to="/" theme="primary" size="sm">
+        <Button to="https://web.novu.co/" theme="primary" size="sm">
           Build with Novu
         </Button>
       </div>

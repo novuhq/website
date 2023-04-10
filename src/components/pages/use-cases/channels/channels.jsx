@@ -18,7 +18,6 @@ const Item = ({ name, value, numberOfItems, handleOnClick, isActive }) => (
     tabIndex={0}
     role="button"
     onClick={handleOnClick(value)}
-    onKeyDown={handleOnClick(value)}
   >
     <div className="flex items-center gap-x-2">
       <CheckIcon
@@ -56,9 +55,9 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
         <span className="text-xs text-gray-8">{numberOfItems}</span>
       </div>
       <ul className="mt-2 flex flex-col">
-        {items.map((item) => {
+        {items.map((item, index) => {
           const isActive = selectedChannels.includes(item.value);
-          return <Item handleOnClick={handleOnClick} isActive={isActive} {...item} />;
+          return <Item handleOnClick={handleOnClick} isActive={isActive} key={index} {...item} />;
         })}
       </ul>
       {selectedChannels.length > 0 && (

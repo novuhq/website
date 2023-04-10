@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import clsx from 'clsx';
-import { graphql } from 'gatsby';
 import React from 'react';
 
 import Content from 'components/pages/use-case/content';
@@ -12,11 +11,11 @@ import Link from 'components/shared/link';
 import Separator from 'components/shared/separator';
 import ArrowIcon from 'images/arrow.inline.svg';
 
-const UseCasePage = ({ data, pageContext }) => (
+const UseCasePage = ({ pageContext }) => (
   <Layout backgroundColor="gray-1" headerWithBorder footerWithBorder>
     <article
       className={clsx('safe-paddings pt-40 sm:pt-28', {
-        'pb-40 sm:pb-28': !data.otherUseCases.nodes.length,
+        'pb-40 sm:pb-28': !pageContext.otherUseCases.length,
       })}
     >
       <div className="container-sm relative">
@@ -35,28 +34,15 @@ const UseCasePage = ({ data, pageContext }) => (
         <Workflow {...pageContext.templateWorkflowData} />
         <Content content={pageContext.body} />
 
-        {data.otherUseCases.nodes.length > 0 && (
+        {pageContext.otherUseCases.length > 0 && (
           <>
             <Separator className="mt-28 px-0" backgroundColor="black" />
-            <ReadMore items={data.otherUseCases.nodes} />
+            <ReadMore items={pageContext.otherUseCases} />
           </>
         )}
       </div>
     </article>
   </Layout>
 );
-
-export const pageQuery = graphql`
-  query ($id: String!) {
-    otherUseCases: allSanityFeatureUseCase(filter: { id: { ne: $id } }, limit: 2) {
-      nodes {
-        title
-        slug {
-          current
-        }
-      }
-    }
-  }
-`;
 
 export default UseCasePage;
