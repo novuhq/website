@@ -6,7 +6,7 @@ const slash = require('slash');
 
 const redirects = require('./redirects.json');
 const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
-const getUseCasesWithChannels = require('./src/utils/get-use-cases-with-channels');
+const getUseCases = require('./src/utils/get-use-cases');
 
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
@@ -422,7 +422,7 @@ async function createUseCasePages({ graphql, actions, reporter }) {
       ...result.data.allSanityFeatureUseCase.nodes,
     ];
 
-    const useCasesWithChannels = await getUseCasesWithChannels(useCases);
+    const useCasesWithFullData = await getUseCases(useCases);
     const useCaseTemplate = path.resolve('./src/templates/use-case.jsx');
     const useCaseTemplateTypes = {
       'technical-use-case': {
@@ -433,11 +433,11 @@ async function createUseCasePages({ graphql, actions, reporter }) {
       },
     };
 
-    useCasesWithChannels.map((useCase) => {
+    useCasesWithFullData.map((useCase) => {
       const { templateType, slug } = useCase;
 
       const parentPageUrl = useCaseTemplateTypes[templateType].slug;
-      const otherUseCases = useCasesWithChannels
+      const otherUseCases = useCasesWithFullData
         .filter(
           (otherUseCase) =>
             otherUseCase.id !== useCase.id && otherUseCase.templateType === templateType
@@ -468,7 +468,7 @@ async function createUseCasePages({ graphql, actions, reporter }) {
         title: 'Technical Use Cases',
         description:
           'Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push',
-        useCases: useCasesWithChannels.filter(
+        useCases: useCasesWithFullData.filter(
           (useCase) => useCase.templateType === 'technical-use-case'
         ),
         pageMetadata: {
@@ -485,7 +485,7 @@ async function createUseCasePages({ graphql, actions, reporter }) {
         title: 'Feature Use Cases',
         description:
           'Simple components and APIs for managing all communication channels  in one place: Email, SMS, Direct, and Push',
-        useCases: useCasesWithChannels.filter(
+        useCases: useCasesWithFullData.filter(
           (useCase) => useCase.templateType === 'feature-use-case'
         ),
         pageMetadata: {
