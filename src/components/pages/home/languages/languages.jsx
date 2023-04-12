@@ -206,6 +206,7 @@ const Languages = () => (
           items={ITEMS}
         />
       </div>
+
       <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
         <Heading size="xl" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
           {TITLE}
@@ -213,11 +214,16 @@ const Languages = () => (
         <p className="mt-5 text-lg font-book leading-snug text-gray-9 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
-        <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.documentation}>
-          {BUTTON_TEXT}
-        </Button>
-        <Button className="mt-7 ml-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.libraries}>
+        <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.libraries}>
           {SDK_BUTTON_TEXT}
+        </Button>
+        <Button
+          className="mt-7 ml-7 md:mt-6"
+          size="sm"
+          theme="gray-outline"
+          {...LINKS.documentation}
+        >
+          {BUTTON_TEXT}
         </Button>
       </div>
     </div>
