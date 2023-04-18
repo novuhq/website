@@ -95,7 +95,7 @@ export default {
 
   // Social
   discord: {
-    to: 'https://discord.gg/9wcGSf22PM',
+    to: 'https://discord.novu.co',
     target: '_blank',
   },
   twitter: {
