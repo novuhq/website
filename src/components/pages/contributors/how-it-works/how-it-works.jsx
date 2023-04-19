@@ -71,7 +71,7 @@ const STAGES = [
       <>
         Solve the issue while following Novu's guidelines and create a Pull Request. Do you feel
         stuck? Join our{' '}
-        <Link to="https://discord.gg/9wcGSf22PM" theme="primary">
+        <Link to="https://discord.novu.co" theme="primary">
           Discord
         </Link>
         , The community will be super happy to help you
