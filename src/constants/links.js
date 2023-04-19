@@ -92,6 +92,10 @@ export default {
     to: 'https://handbook.novu.co/logos-assets',
     target: '_blank',
   },
+  libraries: {
+    to: 'https://docs.novu.co/api/client-libraries',
+    target: '_blank',
+  },
 
   // Social
   discord: {

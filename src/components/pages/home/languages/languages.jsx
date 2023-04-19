@@ -8,6 +8,7 @@ import LINKS from 'constants/links';
 const TITLE = 'An infrastructure that speaks your language';
 const DESCRIPTION = "Community built server-side SDK's for your preferred programming language";
 const BUTTON_TEXT = 'Read Docs';
+const SDK_BUTTON_TEXT = 'View SDKs';
 
 const ITEMS = [
   {
@@ -17,10 +18,10 @@ const ITEMS = [
 
 const novu = new Novu(process.env.NOVU_API_KEY);
 
-await novu.trigger('<TRIGGER_NAME>',
+await novu.trigger('<NOTIFICATION_TEMPLATE_TRIGGER_ID>',
   {
     to: {
-      subscriberId: '<UNIQUE_IDENTIFIER>',
+      subscriberId: '<UNIQUE_SUBSCRIBER_IDENTIFIER>',
       email: 'john@doemail.com',
       firstName: 'John',
       lastName: 'Doe',
@@ -38,22 +39,161 @@ await novu.trigger('<TRIGGER_NAME>',
   {
     name: 'Ruby',
     language: 'ruby',
+    code: `require 'novu';
+
+client = Novu::Client.new('NOVU_API_KEY')
+
+body = {
+  name: "<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+  payload: {
+    name: "Hello World",
+    organization: {
+      logo: "https://happycorp.com/logo.png",
+    },
+  },
+  to: {
+    firstName: "John",
+    lastName: "Doe",
+    email: "john@doemail.com",
+    phone: "07983882199",
+  },
+}.to_json
+
+client.trigger_event(body)
+  `,
   },
   {
     name: 'Python',
     language: 'python',
-  },
-  {
-    name: 'Go',
-    language: 'go',
+    code: `from novu.api import EventApi
+
+event_api = EventApi("https://api.novu.co/api/", "<NOVU_API_KEY>")
+event_api.trigger(
+    name="<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+    recipients="<YOUR_SUBSCRIBER_ID>",
+    payload={
+      'name': 'Hello World',
+      'organization': {
+        'logo': 'https://happycorp.com/logo.png'
+      }
+    },
+)
+  `,
   },
   {
     name: 'PHP',
     language: 'php',
+    code: `use Novu\\SDK\\Novu;
+
+$novu = new Novu(<NOVU_API_KEY>);
+
+$novu->triggerEvent([
+  'name' => '<NOTIFICATION_TEMPLATE_TRIGGER_ID>',
+  'payload' => [
+    'name' => 'Hello World',
+    'organization' => [
+			'logo': 'https://happycorp.com/logo.png',
+		],
+  ],
+  'to' => [
+      'subscriberId' => '<UNIQUE_SUBSCRIBER_IDENTIFIER>',
+      'phone' => '07983882186',
+      'email' => 'john@doemail.com',
+      'firstName' => 'John',
+      'lastName'  => 'Doe',
+  ]
+]);
+  `,
+  },
+  {
+    name: 'KOTLIN',
+    language: 'javascript',
+    code: `import co.novu.Novu
+import co.novu.extensions.subscribers
+import co.novu.dto.request.TriggerEventRequest
+import co.novu.dto.request.SubscriberRequest
+
+fun main() {
+    val novu = Novu(apiKey = "NOVU_API_KEY")
+
+    novu.trigger(TriggerEventRequest.Companion.invoke
+        ( 
+            name = "<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+            to = SubscriberRequest(
+                    subscriberId = "harry_potter"
+                    firstName = "Harry",
+                    lastName = "Potter",
+                    phone = "97X98XX98X1",
+                    email = "email@email.com",
+                    loacal = "locale",
+                    avatar = "avatar",
+            ),
+            payload = mapOf("name" to "Hello World")
+        )
+    )
+} 
+  `,
   },
   {
     name: 'Curl',
     language: 'bash',
+    code: `curl -X POST
+    -H "Content-Type: application/json"
+    -H "Authorization: ApiKey REPLACE_WITH_API_KEY"
+    -d '{
+      "name": "<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+      "payload": {
+        "name": "Hello World"
+      },
+      "to": {
+        "subscriberId": "<UNIQUE_SUBSCRIBER_IDENTIFIER>",
+        "email": "john@doemail.com",
+        "firstName": "John",
+        "lastName": "Doe",
+      }
+    }' 
+  `,
+  },
+  {
+    name: 'Go',
+    language: 'go',
+    code: `import (
+      "context"
+      "fmt"
+      novu "github.com/novuhq/go-novu/lib"
+      "log"
+    )
+
+subscriberID := "<UNIQUE_SUBSCRIBER_IDENTIFIER>"
+apiKey := "<NOVU_API_KEY>"
+eventId := "<NOTIFICATION_TEMPLATE_TRIGGER_ID>"
+
+ctx := context.Background()
+to := map[string]interface{}{
+  "lastName":     "Doe",
+  "firstName":    "John",
+  "subscriberId": subscriberID,
+  "email":        "john@doemail.com",
+}
+
+payload := map[string]interface{}{
+  "name": "Hello World",
+  "organization": map[string]interface{}{
+    "logo": "https://happycorp.com/logo.png",
+  },
+}
+
+data := novu.ITriggerPayloadOptions{To: to, Payload: payload}
+novuClient := novu.NewAPIClient(apiKey, &novu.Config{})
+
+resp, err := novuClient.EventApi.Trigger(ctx, eventId, data)
+if err != nil {
+  log.Fatal("novu error", err.Error())
+  return
+}
+
+fmt.Println(resp)
+  `,
   },
 ];
 
@@ -66,6 +206,7 @@ const Languages = () => (
           items={ITEMS}
         />
       </div>
+
       <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
         <Heading size="xl" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
           {TITLE}
@@ -73,7 +214,15 @@ const Languages = () => (
         <p className="mt-5 text-lg font-book leading-snug text-gray-9 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
-        <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.documentation}>
+        <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.libraries}>
+          {SDK_BUTTON_TEXT}
+        </Button>
+        <Button
+          className="mt-7 ml-7 md:mt-6"
+          size="sm"
+          theme="gray-outline"
+          {...LINKS.documentation}
+        >
           {BUTTON_TEXT}
         </Button>
       </div>
