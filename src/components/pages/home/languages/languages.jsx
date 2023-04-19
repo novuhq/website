@@ -81,47 +81,6 @@ event_api.trigger(
   `,
   },
   {
-    name: 'Go',
-    language: 'go',
-    code: `import (
-      "context"
-      "fmt"
-      novu "github.com/novuhq/go-novu/lib"
-      "log"
-    )
-
-subscriberID := "<UNIQUE_SUBSCRIBER_IDENTIFIER>"
-apiKey := "<NOVU_API_KEY>"
-eventId := "<NOTIFICATION_TEMPLATE_TRIGGER_ID>"
-
-ctx := context.Background()
-to := map[string]interface{}{
-  "lastName":     "Doe",
-  "firstName":    "John",
-  "subscriberId": subscriberID,
-  "email":        "john@doemail.com",
-}
-
-payload := map[string]interface{}{
-  "name": "Hello World",
-  "organization": map[string]interface{}{
-    "logo": "https://happycorp.com/logo.png",
-  },
-}
-
-data := novu.ITriggerPayloadOptions{To: to, Payload: payload}
-novuClient := novu.NewAPIClient(apiKey, &novu.Config{})
-
-resp, err := novuClient.EventApi.Trigger(ctx, eventId, data)
-if err != nil {
-  log.Fatal("novu error", err.Error())
-  return
-}
-
-fmt.Println(resp)
-  `,
-  },
-  {
     name: 'PHP',
     language: 'php',
     code: `use Novu\\SDK\\Novu;
@@ -193,6 +152,47 @@ fun main() {
         "lastName": "Doe",
       }
     }' 
+  `,
+  },
+  {
+    name: 'Go',
+    language: 'go',
+    code: `import (
+      "context"
+      "fmt"
+      novu "github.com/novuhq/go-novu/lib"
+      "log"
+    )
+
+subscriberID := "<UNIQUE_SUBSCRIBER_IDENTIFIER>"
+apiKey := "<NOVU_API_KEY>"
+eventId := "<NOTIFICATION_TEMPLATE_TRIGGER_ID>"
+
+ctx := context.Background()
+to := map[string]interface{}{
+  "lastName":     "Doe",
+  "firstName":    "John",
+  "subscriberId": subscriberID,
+  "email":        "john@doemail.com",
+}
+
+payload := map[string]interface{}{
+  "name": "Hello World",
+  "organization": map[string]interface{}{
+    "logo": "https://happycorp.com/logo.png",
+  },
+}
+
+data := novu.ITriggerPayloadOptions{To: to, Payload: payload}
+novuClient := novu.NewAPIClient(apiKey, &novu.Config{})
+
+resp, err := novuClient.EventApi.Trigger(ctx, eventId, data)
+if err != nil {
+  log.Fatal("novu error", err.Error())
+  return
+}
+
+fmt.Println(resp)
   `,
   },
 ];
