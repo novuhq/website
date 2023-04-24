@@ -11,6 +11,7 @@ const customStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     padding: '28px 14px',
     zIndex: 40,
+    overflowY: 'auto',
   },
 };
 
