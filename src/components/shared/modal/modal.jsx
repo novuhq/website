@@ -8,7 +8,7 @@ import './modal.css';
 const customStyles = {
   overlay: {
     display: 'flex',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     backdropFilter: 'blur(10px)',
     webkitBackdropFilter: 'blur(10px)',
     padding: '28px 14px',

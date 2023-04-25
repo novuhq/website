@@ -32,7 +32,7 @@ const Settings = ({ productAnalyticsValue, setProductAnalyticsValue, handleClose
           onChange={handleCheckboxChange}
         />
       </div>
-      <div className="mt-10 flex justify-end gap-x-5">
+      <div className="mt-12 flex justify-end gap-x-5">
         <Button theme="gray-outline" size="xs" onClick={handleCloseModal}>
           Cancel
         </Button>
