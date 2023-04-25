@@ -10,12 +10,12 @@ const Settings = ({ productAnalyticsValue, setProductAnalyticsValue, handleClose
 
   return (
     <>
-      <h3 className="text-center text-3xl leading-snug">Cookie preferences</h3>
-      <p className="mx-auto mt-3 text-center text-sm text-gray-8">
+      <h3 className="text-center text-[30px] leading-denser sm:text-3xl">Cookie preferences</h3>
+      <p className="mx-auto mt-3 text-center text-base font-book leading-tight text-gray-8">
         We are using cookies to measure and improve your experience.
       </p>
 
-      <div className="mt-7 flex flex-col gap-y-6">
+      <div className="mt-7 flex flex-col">
         <Checkbox
           id="essentialCookiesCheckbox"
           labelTitle="Essential Cookies"
@@ -23,6 +23,7 @@ const Settings = ({ productAnalyticsValue, setProductAnalyticsValue, handleClose
           isChecked
           isDisabled
         />
+        <span className="my-5 h-px bg-gray-3" aria-hidden />
         <Checkbox
           id="productAnalyticsCheckbox"
           labelTitle="Product analytics"
@@ -31,12 +32,12 @@ const Settings = ({ productAnalyticsValue, setProductAnalyticsValue, handleClose
           onChange={handleCheckboxChange}
         />
       </div>
-      <div className="mt-10 flex gap-x-5">
-        <Button className="flex-1" theme="gray-outline" size="sm" onClick={handleCloseModal}>
+      <div className="mt-10 flex justify-end gap-x-5">
+        <Button theme="gray-outline" size="xs" onClick={handleCloseModal}>
           Cancel
         </Button>
-        <Button className="flex-1" theme="primary" size="sm" onClick={handleCloseModal}>
-          Save
+        <Button theme="primary" size="xs" onClick={handleCloseModal}>
+          Save settings
         </Button>
       </div>
     </>

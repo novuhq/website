@@ -43,12 +43,10 @@ const CookieBanner = () => {
   useEffect(() => {
     if (!cookieValue) {
       setIsOpen(true);
-    }
-
-    if (cookieValue === COOKIE_VALUE_NON_PRODUCT_ANALYTICS) {
-      window?.analytics?.track('Cookie Banner', {
-        disableClientPersistence: true,
-      });
+    } else if (cookieValue === COOKIE_VALUE_TRUE) {
+      window?.analytics?.track('Cookie Banner', { disableClientPersistence: false });
+    } else {
+      window?.analytics?.load('Cookie Banner', { disableClientPersistence: true });
     }
   }, [cookieValue]);
 
@@ -58,15 +56,15 @@ const CookieBanner = () => {
         {isOpen && (
           <>
             <m.div
-              className="fixed bottom-14 left-8 z-40 max-w-[354px] rounded-xl bg-gradient-to-b from-gray-3 to-gray-2 px-6 py-5 md:bottom-8 sm:bottom-0 sm:left-0 sm:w-full sm:max-w-none sm:rounded-none sm:px-4 sm:py-4"
+              className="fixed bottom-14 left-8 z-40 max-w-[354px] overflow-hidden rounded-[10px] border border-[rgba(255,255,255,0.15)] px-5 py-[18px] before:absolute before:inset-0 before:-z-10 before:bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] before:backdrop-blur-[15px] md:bottom-8 sm:bottom-0 sm:left-0 sm:w-full sm:max-w-none sm:rounded-none sm:border-b-0 sm:border-l-0 sm:border-r-0 sm:px-4 sm:py-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <p className="text-sm leading-snug text-gray-8 sm:text-center">{TEXT}</p>
+              <p className="text-sm leading-tight text-gray-8 sm:text-center">{TEXT}</p>
 
-              <div className="mt-5 flex items-center justify-between sm:justify-center sm:gap-x-5">
+              <div className="mt-4 flex items-center justify-between sm:justify-center sm:gap-x-5">
                 <Link tag="button" theme="white-underline" size="xs" onClick={handleOpenModal}>
                   Manage
                 </Link>
@@ -81,7 +79,8 @@ const CookieBanner = () => {
               </div>
             </m.div>
             <Modal
-              className="!max-w-[464px] px-10 py-8 sm:px-4"
+              className="!max-w-[448px] px-8 pb-12 pt-8 sm:px-4"
+              theme="gradient-with-blur"
               isOpen={isModalOpen}
               closeModal={handleCloseModal}
             >
