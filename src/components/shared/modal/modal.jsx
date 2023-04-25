@@ -9,8 +9,8 @@ const customStyles = {
   overlay: {
     display: 'flex',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    backdropFilter: 'blur(10px)',
-    webkitBackdropFilter: 'blur(10px)',
+    backdropFilter: 'blur(15px)',
+    webkitBackdropFilter: 'blur(15px)',
     padding: '28px 14px',
     zIndex: 40,
     overflowY: 'auto',
