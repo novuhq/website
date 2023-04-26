@@ -9,7 +9,7 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Code from 'components/shared/code';
 
-const Content = ({ content }) => {
+const Content = ({ content, templateId }) => {
   const components = {
     types: {
       image: (image) => {
@@ -33,7 +33,7 @@ const Content = ({ content }) => {
         <PortableText value={content} components={components} />
       </div>
       <div className="mt-14 flex justify-end">
-        <Button to="https://web.novu.co/" theme="primary" size="sm">
+        <Button to={`https://web.novu.co/?blueprintId=${templateId}`} theme="primary" size="sm">
           Build with Novu
         </Button>
       </div>
@@ -45,4 +45,5 @@ export default Content;
 
 Content.propTypes = {
   content: PropTypes.arrayOf(PropTypes.object).isRequired,
+  templateId: PropTypes.string.isRequired,
 };

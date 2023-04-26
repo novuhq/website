@@ -409,6 +409,20 @@ async function createUseCasePages({ graphql, actions, reporter }) {
           templateIndetifiers
         }
       }
+
+      allSanityProvider {
+        nodes {
+          name
+          channels {
+            channel {
+              name
+              value {
+                current
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -421,8 +435,9 @@ async function createUseCasePages({ graphql, actions, reporter }) {
       ...result.data.allSanityTechnicalUseCase.nodes,
       ...result.data.allSanityFeatureUseCase.nodes,
     ];
+    const allProviders = result.data.allSanityProvider.nodes;
 
-    const useCasesWithFullData = await getUseCases(useCases);
+    const useCasesWithFullData = await getUseCases(useCases, allProviders);
     const useCaseTemplate = path.resolve('./src/templates/use-case.jsx');
     const useCaseTemplateTypes = {
       'technical-use-case': {

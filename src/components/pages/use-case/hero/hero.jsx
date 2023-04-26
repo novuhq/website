@@ -18,7 +18,7 @@ const Hero = ({ title, description, channels, providers }) => (
       <div className="flex">
         <span className="text-lg font-medium">Providers:</span>
         <div className="ml-2 text-lg font-light">
-          {providers.map(({ providerId }) => providerId).join(', ')}
+          {providers.map(({ name }) => name).join(', ')}
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ Hero.propTypes = {
   ).isRequired,
   providers: PropTypes.arrayOf(
     PropTypes.shape({
-      providerId: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };

@@ -32,7 +32,7 @@ const UseCasePage = ({ pageContext }) => (
           providers={pageContext.providers}
         />
         <Workflow {...pageContext.templateWorkflowData} />
-        <Content content={pageContext.body} />
+        <Content content={pageContext.body} templateId={pageContext.templateIndetifiers} />
 
         {pageContext.otherUseCases.length > 0 && (
           <>
