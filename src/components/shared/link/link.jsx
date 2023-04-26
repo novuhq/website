@@ -12,6 +12,7 @@ const styles = {
     base: 'text-base',
     sm: 'text-sm',
     xs: 'text-xs',
+    xxs: 'text-[11px]',
   },
   theme: {
     'primary-underline':

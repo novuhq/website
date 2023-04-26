@@ -9,6 +9,7 @@ const styles = {
   size: {
     sm: 'h-12 px-6 text-sm',
     xs: 'h-10 px-5 text-xs',
+    xxs: 'h-8 px-4 text-[11px]',
   },
   theme: {
     primary: 'bg-primary-1 text-black hover:bg-white',

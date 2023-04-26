@@ -65,14 +65,14 @@ const CookieBanner = () => {
               <p className="text-sm leading-tight text-gray-8 sm:text-center">{TEXT}</p>
 
               <div className="mt-4 flex items-center justify-between sm:justify-center sm:gap-x-5">
-                <Link tag="button" theme="white-underline" size="xs" onClick={handleOpenModal}>
+                <Link tag="button" theme="white-underline" size="xxs" onClick={handleOpenModal}>
                   Manage
                 </Link>
                 <div className="flex gap-x-3">
-                  <Button theme="gray-outline" size="xs" onClick={handleDeclineClick}>
+                  <Button theme="gray-outline" size="xxs" onClick={handleDeclineClick}>
                     Decline
                   </Button>
-                  <Button theme="primary" size="xs" onClick={handleAcceptClick}>
+                  <Button theme="primary" size="xxs" onClick={handleAcceptClick}>
                     Accept
                   </Button>
                 </div>
