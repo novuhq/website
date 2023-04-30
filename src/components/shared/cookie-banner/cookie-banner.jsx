@@ -46,7 +46,7 @@ const CookieBanner = () => {
     } else if (cookieValue === COOKIE_VALUE_TRUE) {
       window?.analytics?.track('Cookie Banner', { disableClientPersistence: false });
     } else {
-      window?.analytics?.load('Cookie Banner', { disableClientPersistence: true });
+      window?.analytics?.track('Cookie Banner', { disableClientPersistence: true });
     }
   }, [cookieValue]);
 
