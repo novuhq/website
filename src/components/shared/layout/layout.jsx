@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Banner from 'components/shared/banner';
+import ConversionInitiator from 'components/shared/conversions/landing.simple.tracking';
 import CookieBanner from 'components/shared/cookie-banner';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <ConversionInitiator />
       <Banner />
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
