@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 
-const useLandingSimpleTracking = () => useCallback(() => {
+const useLandingSimpleTracking = () =>
+  useCallback(() => {
     if (typeof window === 'undefined') {
       return;
     }
@@ -14,7 +15,9 @@ const useLandingSimpleTracking = () => useCallback(() => {
 
     localStorage.setItem('converted', 'true');
     window?.plausible('SignupClick', {
-      landing: url,
+      props: {
+        landing: url,
+      },
     });
   }, []);
 
