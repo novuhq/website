@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import Banner from 'components/shared/banner';
 import CookieBanner from 'components/shared/cookie-banner';
+import FloatingButton from 'components/shared/floating-button';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
       <CookieBanner />
+      <FloatingButton />
     </>
   );
 };

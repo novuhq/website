@@ -1,6 +1,6 @@
 import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
-import { useCookie } from 'react-use';
+import useCookie from 'react-use/lib/useCookie';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
