@@ -14,7 +14,7 @@ const animationVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 1,
+      duration: 0.4,
       ease: 'easeInOut',
     },
   },
@@ -22,7 +22,7 @@ const animationVariants = {
     opacity: 0,
     x: 50,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: 'easeIn',
     },
   },
@@ -40,10 +40,9 @@ const FloatingButton = () => {
     });
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setIsCookieBannerVisible(document.cookie.includes(COOKIE_KEY));
-  });
+  }, []);
 
   return (
     <LazyMotion features={domAnimation}>
