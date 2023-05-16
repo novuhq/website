@@ -9,7 +9,12 @@ import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
+import useLandingSimpleTracking from '../conversions/use.landing.simple.tracking';
+
+const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
+  const click = useLandingSimpleTracking();
+
+  return (
     <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full">
       <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
         <Link {...LINKS.home}>
@@ -32,7 +37,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
 
           <div className="flex space-x-5 md:hidden">
             <ButtonGithubStars className="pl-3" />
-            <Button size="xs" theme="white-filled" {...LINKS.getStarted}>
+            <Button size="xs" theme="white-filled" {...LINKS.getStarted} onClick={click}>
               Get Started
             </Button>
           </div>
@@ -42,6 +47,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
       </div>
     </header>
   );
+};
 
 Header.propTypes = {
   isMobileMenuOpen: PropTypes.bool,
