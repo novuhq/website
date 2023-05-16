@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -43,6 +42,8 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
             </Button>
           </div>
         </div>
+
+        <Burger className="hidden md:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
       </div>
     </header>
   );
