@@ -159,14 +159,14 @@ module.exports = {
         prodKey: process.env.GATSBY_SEGMENT_WRITE_KEY,
       },
     },
-    {
-      resolve: `gatsby-source-rss-feed`,
-      options: {
-        url: `https://feeds.transistor.fm/sourcelife`,
-        name: `Podcast`,
-      },
-    },
-
+    // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
+    // {
+    //   resolve: `gatsby-source-rss-feed`,
+    //   options: {
+    //     url: `https://feeds.transistor.fm/sourcelife`,
+    //     name: `Podcast`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-github-api`,
       options: {

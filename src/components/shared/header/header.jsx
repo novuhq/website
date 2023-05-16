@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -9,39 +10,43 @@ import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import Logo from 'images/logo.inline.svg';
 
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => (
-  <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full" id="scroll-ref">
-    <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
-      <Link {...LINKS.home}>
-        <Logo className="h-8 sm:h-7" aria-hidden />
-        <span className="sr-only">Novu</span>
-      </Link>
+import useLandingSimpleTracking from '../conversions/use.landing.simple.tracking';
 
-      <div className="flex items-center space-x-16 lg:space-x-14">
-        <nav>
-          <ul className="flex space-x-8 md:hidden">
-            {MENUS.header.map(({ to, text, target }, index) => (
-              <li key={index}>
-                <Link to={to} theme="white" size="sm" target={target}>
-                  {text}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
+  const click = useLandingSimpleTracking();
 
-        <div className="flex space-x-5 md:hidden">
-          <ButtonGithubStars className="pl-3" />
-          <Button size="xs" theme="white-filled" {...LINKS.getStarted}>
-            Get Started
-          </Button>
+  return (
+    <header className="safe-paddings absolute top-0 left-0 right-0 z-40 w-full" id="scroll-ref">
+      <div className="flex items-center justify-between py-3 px-10 md:py-4 md:px-7 sm:py-3.5 sm:px-4">
+        <Link {...LINKS.home}>
+          <Logo className="h-8 sm:h-7" aria-hidden />
+          <span className="sr-only">Novu</span>
+        </Link>
+
+        <div className="flex items-center space-x-16 lg:space-x-14">
+          <nav>
+            <ul className="flex space-x-8 md:hidden">
+              {MENUS.header.map(({ to, text, target }, index) => (
+                <li key={index}>
+                  <Link to={to} theme="white" size="sm" target={target}>
+                    {text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="flex space-x-5 md:hidden">
+            <ButtonGithubStars className="pl-3" />
+            <Button size="xs" theme="white-filled" {...LINKS.getStarted} onClick={click}>
+              Get Started
+            </Button>
+          </div>
         </div>
       </div>
-
-      <Burger className="hidden md:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 Header.propTypes = {
   isMobileMenuOpen: PropTypes.bool,
