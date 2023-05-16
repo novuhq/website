@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 
 import { COOKIE_KEY } from 'constants/cookie';
@@ -10,7 +10,7 @@ const SCROLL_THRESHOLD = 200;
 
 const animationVariants = {
   hidden: { opacity: 0, x: 50 },
-  show: {
+  visible: {
     opacity: 1,
     x: 0,
     transition: {
@@ -18,12 +18,20 @@ const animationVariants = {
       ease: 'easeInOut',
     },
   },
+  exit: {
+    opacity: 0,
+    x: 50,
+    transition: {
+      duration: 0.5,
+      ease: 'easeIn',
+    },
+  },
 };
 
 const FloatingButton = () => {
-  const [isСookieBannerVisible, setIsСookieBannerVisible] = useState(false);
+  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
-  const threshold = useScrollPosition(SCROLL_THRESHOLD);
+  const isVisible = useScrollPosition(SCROLL_THRESHOLD);
 
   const handleClick = () => {
     window.scrollTo({
@@ -34,24 +42,30 @@ const FloatingButton = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    setIsСookieBannerVisible(document.cookie.includes(COOKIE_KEY));
+    setIsCookieBannerVisible(document.cookie.includes(COOKIE_KEY));
   });
 
   return (
     <LazyMotion features={domAnimation}>
-      <m.button
-        className={clsx(
-          'fixed right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-gray-6 bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] text-gray-6 backdrop-blur-[5px] transition-colors duration-200 hover:bg-gray-6 hover:text-white',
-          isСookieBannerVisible ? 'bottom-7' : 'bottom-7 sm:bottom-32'
+      <AnimatePresence>
+        {isVisible && (
+          <m.button
+            className={clsx(
+              'fixed right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-gray-6 bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] text-gray-6 backdrop-blur-[5px] transition-colors duration-200 hover:bg-gray-6 hover:text-white',
+              isCookieBannerVisible ? 'bottom-7' : 'bottom-7 sm:bottom-32'
+            )}
+            key="floating-button"
+            variants={animationVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            type="button"
+            onClick={handleClick}
+          >
+            <Arrow className="h-[18px] w-3" />
+          </m.button>
         )}
-        variants={animationVariants}
-        initial="hidden"
-        animate={threshold ? 'show' : 'hidden'}
-        type="button"
-        onClick={handleClick}
-      >
-        <Arrow className="h-[18px] w-3" />
-      </m.button>
+      </AnimatePresence>
     </LazyMotion>
   );
 };
