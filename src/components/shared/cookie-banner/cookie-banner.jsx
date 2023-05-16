@@ -5,15 +5,16 @@ import useCookie from 'react-use/lib/useCookie';
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import Modal from 'components/shared/modal';
+import {
+  COOKIE_KEY,
+  COOKIE_VALUE_TRUE,
+  COOKIE_VALUE_NON_PRODUCT_ANALYTICS,
+  COOKIE_VALUE_FALSE,
+} from 'constants/cookie';
 
 import Settings from './settings';
 
 const TEXT = 'This site uses cookies to measure and improve your experience.';
-
-const COOKIE_KEY = 'user-cookies';
-const COOKIE_VALUE_TRUE = 'accepted';
-const COOKIE_VALUE_NON_PRODUCT_ANALYTICS = 'accepted-non-pruduct-analytics';
-const COOKIE_VALUE_FALSE = 'declined';
 
 const CookieBanner = () => {
   const [cookieValue, updateCookie] = useCookie(COOKIE_KEY);
