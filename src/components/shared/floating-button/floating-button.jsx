@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import { COOKIE_KEY } from 'constants/cookie';
 import useScrollPosition from 'hooks/use-scroll-position';
 import Arrow from 'icons/arrow.inline.svg';
 
@@ -28,9 +27,7 @@ const animationVariants = {
   },
 };
 
-const FloatingButton = () => {
-  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
-
+const FloatingButton = ({ isCookieBannerVisible }) => {
   const isVisible = useScrollPosition(SCROLL_THRESHOLD);
 
   const handleClick = () => {
@@ -40,18 +37,16 @@ const FloatingButton = () => {
     });
   };
 
-  useEffect(() => {
-    setIsCookieBannerVisible(document.cookie.includes(COOKIE_KEY));
-  }, []);
-
   return (
     <LazyMotion features={domAnimation}>
       <AnimatePresence>
         {isVisible && (
           <m.button
             className={clsx(
-              'fixed right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-gray-6 bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] text-gray-6 backdrop-blur-[5px] transition-colors duration-200 hover:bg-gray-6 hover:text-white',
-              isCookieBannerVisible ? 'bottom-7' : 'bottom-7 sm:bottom-32'
+              'fixed bottom-7 right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-gray-6 bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] text-gray-6 backdrop-blur-[5px] transition-colors duration-200 hover:bg-gray-6 hover:text-white',
+              {
+                'sm:bottom-32': isCookieBannerVisible,
+              }
             )}
             key="floating-button"
             variants={animationVariants}

@@ -12,6 +12,7 @@ import MobileMenu from 'components/shared/mobile-menu';
 
 const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -25,8 +26,11 @@ const Layout = ({ children }) => {
         <Footer />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
-      <CookieBanner />
-      <FloatingButton />
+      <CookieBanner
+        isCookieBannerVisible={isCookieBannerVisible}
+        setIsCookieBannerVisible={setIsCookieBannerVisible}
+      />
+      <FloatingButton isCookieBannerVisible={isCookieBannerVisible} />
     </>
   );
 };
