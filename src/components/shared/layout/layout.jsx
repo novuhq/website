@@ -5,12 +5,14 @@ import React, { useState } from 'react';
 import Banner from 'components/shared/banner';
 import ConversionInitiator from 'components/shared/conversions/landing.simple.tracking';
 import CookieBanner from 'components/shared/cookie-banner';
+import FloatingButton from 'components/shared/floating-button';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 
 const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -24,7 +26,11 @@ const Layout = ({ children }) => {
         <Footer />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
-      <CookieBanner />
+      <CookieBanner
+        isCookieBannerVisible={isCookieBannerVisible}
+        setIsCookieBannerVisible={setIsCookieBannerVisible}
+      />
+      <FloatingButton isCookieBannerVisible={isCookieBannerVisible} />
     </>
   );
 };

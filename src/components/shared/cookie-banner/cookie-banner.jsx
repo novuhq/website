@@ -1,32 +1,32 @@
 import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
-import { useCookie } from 'react-use';
+import useCookie from 'react-use/lib/useCookie';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import Modal from 'components/shared/modal';
+import {
+  COOKIE_KEY,
+  COOKIE_VALUE_TRUE,
+  COOKIE_VALUE_NON_PRODUCT_ANALYTICS,
+  COOKIE_VALUE_FALSE,
+} from 'constants/cookie';
 
 import Settings from './settings';
 
 const TEXT = 'This site uses cookies to measure and improve your experience.';
 
-const COOKIE_KEY = 'user-cookies';
-const COOKIE_VALUE_TRUE = 'accepted';
-const COOKIE_VALUE_NON_PRODUCT_ANALYTICS = 'accepted-non-pruduct-analytics';
-const COOKIE_VALUE_FALSE = 'declined';
-
-const CookieBanner = () => {
+const CookieBanner = ({ isCookieBannerVisible, setIsCookieBannerVisible }) => {
   const [cookieValue, updateCookie] = useCookie(COOKIE_KEY);
   const [productAnalyticsValue, setProductAnalyticsValue] = useState(true);
 
-  const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
   const handleAcceptClick = () => {
-    setIsOpen(false);
+    setIsCookieBannerVisible(false);
 
     if (productAnalyticsValue) {
       updateCookie(COOKIE_VALUE_TRUE, { expires: 365 });
@@ -36,24 +36,24 @@ const CookieBanner = () => {
   };
 
   const handleDeclineClick = () => {
-    setIsOpen(false);
+    setIsCookieBannerVisible(false);
     updateCookie(COOKIE_VALUE_FALSE, { expires: 365 });
   };
 
   useEffect(() => {
     if (!cookieValue) {
-      setIsOpen(true);
+      setIsCookieBannerVisible(true);
     } else if (cookieValue === COOKIE_VALUE_TRUE) {
       window?.analytics?.track('Cookie Banner', { disableClientPersistence: false });
     } else {
       window?.analytics?.track('Cookie Banner', { disableClientPersistence: true });
     }
-  }, [cookieValue]);
+  }, [cookieValue, setIsCookieBannerVisible]);
 
   return (
     <LazyMotion features={domAnimation}>
       <AnimatePresence>
-        {isOpen && (
+        {isCookieBannerVisible && (
           <>
             <m.div
               className="fixed bottom-7 left-8 z-40 max-w-[354px] overflow-hidden rounded-[10px] border border-[rgba(255,255,255,0.15)] px-5 py-[18px] before:absolute before:inset-0 before:-z-10 before:bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] before:backdrop-blur-[15px] md:bottom-8 sm:bottom-0 sm:left-0 sm:w-full sm:max-w-none sm:rounded-none sm:border-b-0 sm:border-l-0 sm:border-r-0 sm:px-4 sm:py-4"
