@@ -39,7 +39,6 @@ const Item = ({ animationData, title, description, comingSoon }) => {
 };
 
 Item.propTypes = {
-  lottieData: PropTypes.objectOf(PropTypes.any).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   comingSoon: PropTypes.bool,
