@@ -215,8 +215,13 @@ const Achievements = ({
             } = achievement;
 
             return (
-              <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
-                {tooltip && <Tooltip text={tooltip} />}
+              <div
+                className="flex flex-col items-center"
+                key={index}
+                data-tooltip-id={`additional-${index}`}
+                data-tooltip-content={tooltip}
+              >
+                {tooltip && <Tooltip className="max-w-[248px]" id={`additional-${index}`} />}
 
                 <GatsbyImage
                   className="lg:h-[134px]"
@@ -228,7 +233,7 @@ const Achievements = ({
                 />
 
                 <div className="mt-3.5 space-y-1.5 text-center">
-                  <h4 className={clsx('text-base leading-tight')}>{title}</h4>
+                  <h4 className="text-base leading-tight">{title}</h4>
                   <span className="text-sm leading-tight text-gray-6">{achievementDate}</span>
                 </div>
               </div>
@@ -240,8 +245,15 @@ const Achievements = ({
             const icon = achievementIcons[iconName];
 
             return (
-              <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
-                {tooltip && <Tooltip text={tooltip} className="max-w-[248px]" theme="gray" />}
+              <div
+                className="flex flex-col items-center"
+                key={index}
+                data-tooltip-id={`tooltip-${index}`}
+                data-tooltip-content={tooltip}
+              >
+                {tooltip && (
+                  <Tooltip className="max-w-[248px]" theme="gray" id={`tooltip-${index}`} />
+                )}
 
                 <GatsbyImage
                   className="lg:h-[134px]"
