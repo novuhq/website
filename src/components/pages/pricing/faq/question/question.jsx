@@ -16,14 +16,14 @@ const Question = ({ question, answer }) => {
   const handleButtonClick = () => {
     setIsOpen((currentState) => !currentState);
 
-    window.analytics.track('Pricing Event: Click on an item in the FAQ section', {
+    window?.analytics?.track('Pricing Event: Click on an item in the FAQ section', {
       item: question,
     });
   };
   return (
     <li>
       <button
-        className="inline-flex w-full items-center justify-between pt-5 pb-4 sm:space-x-10"
+        className="inline-flex w-full items-center justify-between pb-4 pt-5 sm:space-x-10"
         type="button"
         onClick={handleButtonClick}
       >
@@ -44,7 +44,7 @@ const Question = ({ question, answer }) => {
         variants={variantsAnimation}
         transition={{ duration: ANIMATION_DURATION }}
       >
-        <div className="pt-3 pb-5 text-left text-lg font-book text-gray-10 md:mr-14 sm:mr-7 sm:text-base">
+        <div className="pb-5 pt-3 text-left text-lg font-book text-gray-10 md:mr-14 sm:mr-7 sm:text-base">
           {answer}
         </div>
       </motion.div>

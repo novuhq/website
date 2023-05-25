@@ -63,7 +63,7 @@ const getPricingData = (rangeValue) => [
         text: 'Get started for free',
         url: LINKS.getStarted.to,
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
             sliderValue: RANGES[rangeValue],
           }),
@@ -91,7 +91,7 @@ const getPricingData = (rangeValue) => [
         text: 'Get started for free',
         url: LINKS.getStarted.to,
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Indie Dev',
             sliderValue: RANGES[rangeValue],
           }),
@@ -128,7 +128,7 @@ const getPricingData = (rangeValue) => [
         text: 'Get started for free',
         url: LINKS.getStarted.to,
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Business',
             sliderValue: RANGES[rangeValue],
           }),
@@ -159,7 +159,7 @@ const getPricingData = (rangeValue) => [
         text: 'Contact sales',
         url: 'https://calendly.com/novuhq/novu-meeting',
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
             sliderValue: RANGES[rangeValue],
           }),
@@ -253,7 +253,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                 key={index}
               >
                 {isOpenBeta && (
-                  <div className="absolute -top-2 -left-2 aspect-square w-24 overflow-hidden rounded-sm">
+                  <div className="absolute -left-2 -top-2 aspect-square w-24 overflow-hidden rounded-sm">
                     <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
                       Open Beta*
                     </div>
