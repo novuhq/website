@@ -34,10 +34,10 @@ const Swag = () => {
     thumbnails: { nodes: thumbnails },
     swagPacks: { nodes: swagPacks },
   } = useStaticQuery(graphql`
-    query {
+    {
       thumbnails: allFile(
         filter: { relativePath: { regex: "/hacktoberfest/swag/image/" } }
-        sort: { fields: name, order: ASC }
+        sort: { name: ASC }
       ) {
         nodes {
           childImageSharp {
@@ -47,7 +47,7 @@ const Swag = () => {
       }
       swagPacks: allFile(
         filter: { relativePath: { regex: "/hacktoberfest/swag/swag/" } }
-        sort: { fields: name, order: ASC }
+        sort: { name: ASC }
       ) {
         nodes {
           childImageSharp {

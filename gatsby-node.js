@@ -118,8 +118,7 @@ async function createBlogPages({ graphql, actions }) {
         id
         uri
       }
-
-      allWpPost(sort: { fields: date, order: DESC }) {
+      allWpPost(sort: { date: DESC }) {
         nodes {
           id
           categories {
@@ -129,19 +128,17 @@ async function createBlogPages({ graphql, actions }) {
           }
         }
       }
-
-      featuredPost: allWpPost(limit: 1, sort: { fields: date, order: DESC }) {
+      featuredPost: allWpPost(limit: 1, sort: { date: DESC }) {
         nodes {
           id
         }
       }
-
       allWpCategory(
         filter: {
           name: { nin: ["Uncategorized"] }
           posts: { nodes: { elemMatch: { id: { ne: null } } } }
         }
-        sort: { fields: name, order: ASC }
+        sort: { name: ASC }
       ) {
         nodes {
           id
