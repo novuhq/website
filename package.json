@@ -31,6 +31,7 @@
     "gatsby": "^5.10.0",
     "gatsby-plugin-feed": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-segment-js": "^5.0.0",
     "gatsby-source-github-api": "^1.0.0",
     "gatsby-source-rss-feed": "^1.2.2",
