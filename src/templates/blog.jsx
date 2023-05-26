@@ -65,6 +65,7 @@ const BlogPage = (props) => {
 
   return (
     <Layout>
+      <h1 className="sr-only">Novu blog</h1>
       <Hero {...hero} />
 
       <div
