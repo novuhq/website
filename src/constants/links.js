@@ -89,7 +89,7 @@ export default {
     target: '_blank',
   },
   pressKit: {
-    to: 'https://handbook.novu.co/logos-assets',
+    to: 'https://handbook.novu.co/',
     target: '_blank',
   },
   libraries: {
