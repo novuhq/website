@@ -1,3 +1,5 @@
+# 📦 Dependency updates
+
 This is a reference on how to perform a safe dependencies update. It consists of step-by-step instruction and a list of known issues. Do not hesitate to contribute when facing outdated information or encountering a new issue.
 
 ## 🦾 Engine support
@@ -33,12 +35,12 @@ The most common/best practice is to never allow automatic updates to versions th
 
 <details>
   <summary>Example output</summary>
-    <img width="795" alt="" src="https://user-images.githubusercontent.com/17677196/172698954-49d348ec-18a6-4851-a97c-b5b3b6da1c7b.png">
+  [_](https://user-images.githubusercontent.com/17677196/172698954-49d348ec-18a6-4851-a97c-b5b3b6da1c7b.png)
 </details>
 
 Use the `npm install <packageName>@latest` command to update the dependencies, in this case we recommend updating each dependency in stages, going back to step 3 and 4 to check that the project is working
 
-6. If you are done, commit the changes and make a PR
+1. If you are done, commit the changes and make a PR
 
 ## Alternative dependency update routine
 
@@ -54,23 +56,23 @@ In case `npm update` malfunctioning or need to update deps to the latest version
 2. Run `npx npm-check-updates` to get the list of packages that are out of date
 
 Example output
-<img width="958" alt="" src="https://user-images.githubusercontent.com/17677196/172212672-9d4c68e3-b488-4b8f-a979-c84c7913a21d.png">
+[\_](https://user-images.githubusercontent.com/17677196/172212672-9d4c68e3-b488-4b8f-a979-c84c7913a21d.png)
 
 As you may have noticed, `ncu` is colorizing the possible updates into 3 colors: green, cyan and red.
 
-**🟢 Green updates**
+### 🟢 Green updates
 
 All the libraries that are in green can be updated safely without really looking at the changelogs (it only concerns patches updates)... So far, we haven't faced any issue when we were updating green dependencies. So usually, just select all of them and update them together.
 
-**🔵 Cyan updates**
+### 🔵 Cyan updates
 
 Cyan updates are related to minor updates. So normally, you should be able to update them without any problem but we'd suggest you to do it one by one and by running tests after each update. It'll take time but it'll be safer.
 
-**🔴 Red updates**
+### 🔴 Red updates
 
 Red updates are for major updates. So somehow it means that the version you've specified in the package.json is really permissive. For sure here, you have to update them one by one and have a real look at the changelogs !
 
-3. Run `npx npm-check-updates -u` to update all the versions in your package.json
+1. Run `npx npm-check-updates -u` to update all the versions in your package.json
 
 In this case you'd want to check out changes in `package.json` and revert particular lines which contain major version update.
 
@@ -100,5 +102,18 @@ Add information if you're having trouble updating any dependencies, this could b
 - **Last stable version:** x.x.x
 
 Space for a free-form description of the problem
+
+</details>
+
+<details>
+  <summary>slash</summary>
+
+### slash
+
+- **Issue found on:** 5 May, 2023
+- **Problematic version:** 5.1.0
+- **Last stable version:** 3.0.0
+
+import/require error. Plugin needs dynamic import() to be supported
 
 </details>

@@ -1,4 +1,7 @@
 {
   "line-length": false,
-  "ol-prefix": false
+  "ol-prefix": false,
+  "MD033": {
+    "allowed_elements": ["details", "summary"]
+  }
 }

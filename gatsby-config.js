@@ -71,9 +71,7 @@ module.exports = {
               })),
             query: `
               {
-                allWpPost(
-                  sort: { fields: date, order: DESC }
-                )  {
+                allWpPost(sort: {date: DESC}) {
                   edges {
                     node {
                       content

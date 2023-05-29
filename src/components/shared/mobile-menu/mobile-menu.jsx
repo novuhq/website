@@ -22,7 +22,7 @@ const variants = {
     },
   },
   visible: {
-    zIndex: 10,
+    zIndex: 20,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -60,7 +60,7 @@ const MobileMenu = ({ isOpen }) => {
                 {MENUS.mobile.map(({ to, text, target }, index) => (
                   <li key={index}>
                     <Link
-                      className="block w-full py-6 text-center text-2xl"
+                      className="block w-full py-6 text-center"
                       theme="white"
                       size="xl"
                       to={to}

@@ -29,20 +29,16 @@ const BlogPostCardLarge = ({
             {category.name}
           </CategoryLabel>
           <Heading
-            className="mt-4 font-medium leading-denser sm:text-3xl"
+            className="mt-4 line-clamp-3 font-medium leading-denser md:line-clamp-none sm:text-3xl"
             size="lg"
             tag="h1"
             theme="white"
           >
-            <Link
-              className="inline-block align-top line-clamp-3 md:line-clamp-none"
-              to={url}
-              theme="white"
-            >
+            <Link className="align-top" to={url} theme="white">
               {title}
             </Link>
           </Heading>
-          <p className="mt-2.5 text-gray-9 line-clamp-3 xl:line-clamp-2 md:line-clamp-3">
+          <p className="mt-2.5 line-clamp-3 text-gray-9 xl:line-clamp-2 md:line-clamp-3">
             {description}
           </p>
         </header>
