@@ -78,20 +78,22 @@ module.exports = {
                 relDir: edge.relativeDirectory,
                 custom_elements: [{ 'content:encoded': edge.node.content }],
               })),
-            query: `{
-  allWpPost(sort: {date: DESC}) {
-    edges {
-      node {
-        content
-        title
-        uri
-        pageBlogPost {
-          description
-        }
-      }
-    }
-  }
-}`,
+            query: `
+              {
+                allWpPost(sort: {date: DESC}) {
+                  edges {
+                    node {
+                      content
+                      title
+                      uri
+                      pageBlogPost {
+                        description
+                      }
+                    }
+                  }
+                }
+              }
+            `,
             output: '/blog/rss.xml',
             title: 'Novu Blog',
           },
