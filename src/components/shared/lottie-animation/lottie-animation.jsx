@@ -14,7 +14,6 @@ const LottieAnimation = ({ className, lottieOptions, events = {}, isInView, widt
 
   useEffect(() => {
     if (!isWrapperInView) return;
-
     const lottieAnimation =
       isWrapperInView &&
       lottie.loadAnimation({

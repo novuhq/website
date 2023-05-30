@@ -9,12 +9,17 @@ import DEFAULT_EASE from 'constants/default-ease';
 const styles = {
   base: 'inline-block leading-none',
   size: {
+    xl: 'text-2xl',
     base: 'text-base',
     sm: 'text-sm',
+    xs: 'text-xs',
+    xxs: 'text-[11px]',
   },
   theme: {
     'primary-underline':
       'text-primary-1 relative tracking-wide uppercase pb-1.5 transition-colors duration-200 hover:text-primary-1',
+    'white-underline':
+      'text-white relative tracking-wide uppercase pb-1.5 transition-colors duration-200',
     white: 'text-white hover:text-primary-1 transition-colors duration-200',
     gray: 'text-gray-8 hover:text-primary-1 transition-colors duration-200',
     primary: 'text-primary-1 transition-colors duration-200 hover:text-white',
@@ -78,12 +83,15 @@ const Link = ({ className: additionalClassName, size, theme, to, tag, children, 
     controls.start('start').then(() => controls.start('finish').then(() => setCanAnimate(true)));
   };
 
-  const isUnderline = theme === 'primary-underline';
+  const isUnderline = theme === 'primary-underline' || theme === 'white-underline';
 
   const underline = (
     <LazyMotion features={domAnimation}>
       <m.span
-        className="absolute bottom-0 left-0 h-px w-full rounded-full bg-primary-1"
+        className={clsx('absolute bottom-0 left-0 h-px w-full rounded-full', {
+          'bg-primary-1': theme === 'primary-underline',
+          'bg-white': theme === 'white-underline',
+        })}
         initial="initial"
         variants={underlineVariants}
         animate={controls}

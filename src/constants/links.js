@@ -89,13 +89,17 @@ export default {
     target: '_blank',
   },
   pressKit: {
-    to: 'https://handbook.novu.co/logos-assets',
+    to: 'https://handbook.novu.co/830bf2b7e920431bb52d36c9b503d3ca',
+    target: '_blank',
+  },
+  libraries: {
+    to: 'https://docs.novu.co/api/client-libraries',
     target: '_blank',
   },
 
   // Social
   discord: {
-    to: 'https://discord.gg/9wcGSf22PM',
+    to: 'https://discord.novu.co',
     target: '_blank',
   },
   twitter: {

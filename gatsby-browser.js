@@ -1,7 +1,4 @@
-import React from 'react';
-
 import './src/styles/main.css';
-import { AudioProvider } from 'context/audio-player';
 
 export const onRouteUpdate = () => {
   if (process.env.NODE_ENV === 'production' && typeof window.plausible !== 'undefined') {
@@ -16,5 +13,3 @@ export const shouldUpdateScroll = ({ routerProps: { location } }) => {
 
   return true;
 };
-
-export const wrapRootElement = ({ element }) => <AudioProvider>{element}</AudioProvider>;

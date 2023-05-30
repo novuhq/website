@@ -106,5 +106,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-safe-area'), require('@tailwindcss/line-clamp')],
+  plugins: [require('tailwindcss-safe-area')],
 };

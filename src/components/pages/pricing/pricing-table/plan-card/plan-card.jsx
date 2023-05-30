@@ -41,7 +41,7 @@ const PlanCard = ({
               size="xs"
               to={linkUrl}
               onClick={() =>
-                window.analytics.track('Pricing Event: Click the CTA Button in the table', {
+                window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
                   packageType: title,
                   sliderValue: activeTier.rangeValue,
                 })

@@ -114,25 +114,23 @@ export const AudioProvider = ({ children }) => {
   return (
     <>
       <AudioPlayerContext.Provider value={api}>
-        <div>
-          {children}
+        {children}
 
-          {state.isOpen && (
-            <LazyMotion features={domAnimation}>
-              <AnimatePresence>
-                <m.div
-                  className="fixed left-0 bottom-0 z-10 w-full translate-y-full"
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  variants={variants}
-                >
-                  <AudioPlayer />
-                </m.div>
-              </AnimatePresence>
-            </LazyMotion>
-          )}
-        </div>
+        {state.isOpen && (
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence>
+              <m.div
+                className="fixed bottom-0 left-0 z-10 w-full translate-y-full"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={variants}
+              >
+                <AudioPlayer />
+              </m.div>
+            </AnimatePresence>
+          </LazyMotion>
+        )}
       </AudioPlayerContext.Provider>
 
       <audio
@@ -153,7 +151,9 @@ export const AudioProvider = ({ children }) => {
             payload: Math.floor(event.target.duration),
           });
         }}
-      />
+      >
+        <track kind="captions" />
+      </audio>
     </>
   );
 };

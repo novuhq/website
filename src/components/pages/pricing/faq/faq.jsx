@@ -88,7 +88,7 @@ const FAQ_DATA = [
           sales@novu.co
         </Link>
         , or our support, or{' '}
-        <Link to="https://discord.gg/9wcGSf22PM" theme="primary">
+        <Link to="https://discord.novu.co" theme="primary">
           Discord
         </Link>
         .
@@ -101,7 +101,7 @@ const FAQ_DATA = [
       <>
         We sure do! First of all we promise uptime SLA for our cloud system for 99.99%. We also
         offer an initial 2 days support SLA, but most enquiries on our Intercom or{' '}
-        <Link to="https://discord.gg/9wcGSf22PM" theme="primary">
+        <Link to="https://discord.novu.co" theme="primary">
           Discord
         </Link>{' '}
         get a response in a couple of hours. For our enterprise plan we can offer upgraded SLA as
