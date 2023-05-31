@@ -39,7 +39,7 @@ const Card = ({ channels, title, slug, providers }) => {
       </div>
       <div
         className={clsx(
-          'mt-3 flex items-center gap-x-2.5 border border-dashed border-gray-4 px-3 py-2',
+          'mt-3 flex items-center gap-x-2.5 rounded border border-dashed border-gray-4 px-3 py-2',
           providers.length > 2 && 'sm:flex-col sm:items-start'
         )}
       >
