@@ -8,7 +8,8 @@ import Button from 'components/shared/button';
 import Tooltip from 'components/shared/tooltip';
 
 const Card = ({ channels, title, slug, providers }) => {
-  const tooltipContent = providers.length < 6 ? null : providers.splice(5).map(({ name }) => name);
+  const tooltipProviders =
+    providers.length < 6 ? null : providers?.slice(5).map(({ name }) => name);
 
   return (
     <article className="rounded-xl bg-gray-gradient-3 p-5">
@@ -51,13 +52,13 @@ const Card = ({ channels, title, slug, providers }) => {
               {name}
             </ProviderLabel>
           ))}
-          {tooltipContent && (
+          {tooltipProviders && (
             <li
               className="cursor-pointer rounded border border-gray-3 px-2.5 pb-1.5 pt-1 text-xs leading-none tracking-[0.01em] text-gray-9 transition-colors duration-200 hover:bg-gray-3"
               data-tooltip-id="tooltip"
-              data-tooltip-content={tooltipContent.join(', ')}
+              data-tooltip-content={tooltipProviders.join(', ')}
             >
-              +{tooltipContent.length}
+              +{tooltipProviders.length}
               <Tooltip className="max-w-[268px]" theme="gray-2" />
             </li>
           )}
