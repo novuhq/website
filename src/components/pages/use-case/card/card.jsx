@@ -9,7 +9,7 @@ import Tooltip from 'components/shared/tooltip';
 
 const Card = ({ channels, title, slug, providers }) => {
   const tooltipProviders =
-    providers.length < 6 ? null : providers?.slice(5).map(({ name }) => name);
+    providers.length < 6 ? null : providers?.slice(6).map(({ name }) => name);
 
   return (
     <article className="rounded-xl bg-gray-gradient-3 p-5">
@@ -47,7 +47,7 @@ const Card = ({ channels, title, slug, providers }) => {
         <ul
           className={clsx('flex flex-wrap gap-x-1.5 gap-y-2', providers.length > 2 && 'sm:mt-2.5')}
         >
-          {providers?.slice(0, 6).map(({ name }, index) => (
+          {providers?.slice(0, 5).map(({ name }, index) => (
             <ProviderLabel tagName="li" key={index}>
               {name}
             </ProviderLabel>
