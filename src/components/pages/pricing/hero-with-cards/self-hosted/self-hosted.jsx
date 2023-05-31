@@ -15,7 +15,7 @@ const SelfHosted = () => (
       size="sm"
       to="https://docs.novu.co/overview/docker-deploy/"
       target="_blank"
-      onClick={() => window.analytics.track('Pricing Event: Click on the link Read Docs')}
+      onClick={() => window?.analytics?.track('Pricing Event: Click on the link Read Docs')}
     >
       Read docs
     </Link>
@@ -26,7 +26,7 @@ const SelfHosted = () => (
           <span className="text-lg font-medium uppercase leading-none">On-premises</span>
           <p className="text-sm leading-snug text-gray-8">Run Novu on you own servers.</p>
         </div>
-        <span className="mt-12 mb-16 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
+        <span className="mb-16 mt-12 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
           Contact us
         </span>
 
@@ -52,7 +52,7 @@ const SelfHosted = () => (
             theme="gray-outline"
             size="sm"
             onClick={() =>
-              window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+              window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
                 packageType: 'On-premises',
               })
             }

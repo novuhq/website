@@ -105,7 +105,6 @@ export const pageQuery = graphql`
     wpPage(id: { eq: $id }) {
       ...wpPageSeo
     }
-
     featuredPost: allWpPost(filter: { id: { eq: $featuredPostId } }) {
       nodes {
         title
@@ -147,13 +146,12 @@ export const pageQuery = graphql`
         }
       }
     }
-
     allWpPost(
       filter: {
         id: { ne: $featuredPostId }
         categories: { nodes: { elemMatch: { id: { eq: $categoryId } } } }
       }
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {
@@ -205,10 +203,9 @@ export const pageQuery = graphql`
         }
       }
     }
-
     allWpCategory(
       filter: { posts: { nodes: { elemMatch: { id: { ne: null } } } } }
-      sort: { fields: name, order: ASC }
+      sort: { name: ASC }
     ) {
       nodes {
         id

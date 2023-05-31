@@ -24,7 +24,7 @@ const MENUS = {
     [
       { text: 'Blog', ...LINKS.blog },
       { text: 'Contributors', ...LINKS.contributors },
-      { text: 'Podcast', ...LINKS.podcast },
+      // { text: 'Podcast', ...LINKS.podcast },
       { text: 'Pricing', ...LINKS.pricing },
       { text: 'Careers', ...LINKS.careers },
       { text: '2022 Events', ...LINKS.timeline },

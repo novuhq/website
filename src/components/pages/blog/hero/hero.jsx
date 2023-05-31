@@ -10,7 +10,7 @@ import Link from 'components/shared/link';
 import bg from './images/bg.svg';
 
 const Hero = ({ title, category, date, url, image, description, author }) => (
-  <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
+  <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pb-10 md:pt-28 sm:pt-18">
     <div className="container-lg relative z-10">
       <article className="grid grid-cols-12 items-center gap-x-8 lg:gap-x-7 md:flex md:flex-col">
         <div className="col-start-1 col-end-6 flex flex-col md:order-2 md:mt-5">
@@ -19,20 +19,16 @@ const Hero = ({ title, category, date, url, image, description, author }) => (
               {category.name}
             </CategoryLabel>
             <Heading
-              className="mt-4 font-medium leading-denser sm:text-3xl"
+              className="mt-4 line-clamp-3 font-medium leading-denser md:line-clamp-none sm:text-3xl"
               size="lg"
               tag="h1"
               theme="white"
             >
-              <Link
-                className="inline-block align-top line-clamp-3 md:line-clamp-none"
-                to={url}
-                theme="white"
-              >
+              <Link className="align-top" to={url} theme="white">
                 {title}
               </Link>
             </Heading>
-            <p className="mt-2.5 text-gray-9 line-clamp-3 xl:line-clamp-2 md:line-clamp-3">
+            <p className="mt-2.5 line-clamp-3 text-gray-9 xl:line-clamp-2 md:line-clamp-3">
               {description}
             </p>
           </header>
@@ -54,7 +50,7 @@ const Hero = ({ title, category, date, url, image, description, author }) => (
     </div>
 
     <img
-      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
+      className="absolute left-1/2 top-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
       src={bg}
       loading="eager"
       alt=""

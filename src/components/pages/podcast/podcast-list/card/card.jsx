@@ -26,8 +26,8 @@ const Card = ({ title, author, episode, audio, slug, imageUrl }) => {
       <div className="flex grow flex-col sm:mt-5">
         <header className="space-y-3.5">
           <span className="text-xs font-medium uppercase text-secondary-2">Episode {episode}</span>
-          <h1 className="mt-3.5 text-xl font-medium leading-denser md:text-lg">
-            <Link className="inline-block align-top line-clamp-3" to={slug} theme="white">
+          <h1 className="mt-3.5 line-clamp-3 text-xl font-medium leading-denser md:text-lg">
+            <Link className="align-top" to={slug} theme="white">
               {title}
             </Link>
           </h1>

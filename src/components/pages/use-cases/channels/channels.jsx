@@ -55,7 +55,7 @@ const Channels = ({ className, items, numberOfItems, selectedChannels, setSelect
         <span className="text-xs text-gray-8">{numberOfItems}</span>
       </div>
       <ul className="mt-2 flex flex-col">
-        {items.map((item, index) => {
+        {items?.map((item, index) => {
           const isActive = selectedChannels.includes(item.value);
           return <Item handleOnClick={handleOnClick} isActive={isActive} key={index} {...item} />;
         })}

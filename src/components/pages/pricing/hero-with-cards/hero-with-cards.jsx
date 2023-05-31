@@ -46,7 +46,7 @@ const Hero = ({
                 key={index}
                 onClick={() => {
                   setPricingPlan(pricingPlansData[plan].value);
-                  window.analytics.track('Pricing Event: Click on the Tab Button', {
+                  window?.analytics?.track('Pricing Event: Click on the Tab Button', {
                     value: plan,
                   });
                 }}
@@ -68,14 +68,14 @@ const Hero = ({
         {pricingPlan === 'self-hosted' && <SelfHosted />}
       </div>
       <img
-        className="absolute top-0 left-1/2 min-w-[1920px] -translate-x-1/2 sm:hidden sm:min-w-[360px]"
+        className="absolute left-1/2 top-0 min-w-[1920px] -translate-x-1/2 sm:hidden sm:min-w-[360px]"
         src={bg}
         loading="eager"
         alt=""
         aria-hidden
       />
       <img
-        className="absolute top-0 left-1/2 hidden min-w-[360px] -translate-x-1/2 sm:block"
+        className="absolute left-1/2 top-0 hidden min-w-[360px] -translate-x-1/2 sm:block"
         src={bgSm}
         loading="eager"
         alt=""

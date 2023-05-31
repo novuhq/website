@@ -78,8 +78,8 @@ const Workflow = ({ steps }) => (
       <ul className="relative z-10 mx-auto flex w-full max-w-[220px] flex-shrink-0 flex-col items-center justify-center gap-y-8">
         <li className="flex w-full flex-shrink-0 items-center justify-between rounded-[7px] bg-[#23232B] px-3.5 py-4 shadow-[0px_5px_20px_rgba(0,0,0,0.2)]">
           <div className="flex items-center">
-            <img src={icons.trigger} height={30} width={30} loading="eager" alt="" />
-            <span className="text-xs font-medium">Trigger</span>
+            <img src={icons.trigger} height={18} width={18} loading="eager" alt="" />
+            <span className="ml-3 text-xs font-medium">Trigger</span>
           </div>
 
           <div className="flex w-4 justify-between">
@@ -88,7 +88,7 @@ const Workflow = ({ steps }) => (
             <span className="h-0.5 w-0.5 rounded-full bg-[#525266]" />
           </div>
         </li>
-        {steps.map(({ template }, index) => {
+        {steps?.map(({ template }, index) => {
           const icon = icons[template.type];
 
           return (
@@ -97,8 +97,8 @@ const Workflow = ({ steps }) => (
               key={index}
             >
               <div className="flex items-center">
-                <img src={icon} height={30} width={30} loading="eager" alt="" />
-                <span className="text-xs font-medium">{getChannelName(template.type)}</span>
+                <img src={icon} height={18} width={18} loading="eager" alt="" />
+                <span className="ml-3 text-xs font-medium">{getChannelName(template.type)}</span>
               </div>
               <div className="flex w-4 justify-between">
                 <span className="h-0.5 w-0.5 rounded-full bg-[#525266]" />
@@ -118,13 +118,13 @@ const Workflow = ({ steps }) => (
             <div key={index}>
               <h4 className="text-xs font-medium">{title}</h4>
               <ul className="mt-2 flex flex-col gap-y-4">
-                {items.map(({ label, icon }, index) => (
+                {items?.map(({ label, icon }, index) => (
                   <li
                     className="flex items-center rounded-[7px] border border-dashed border-[#525266] px-3 py-2"
                     key={index}
                   >
-                    <img src={icon} height={30} width={30} loading="eager" alt="" />
-                    <span className="text-xs">{label}</span>
+                    <img src={icon} height={18} width={18} loading="eager" alt="" />
+                    <span className="ml-3 text-xs">{label}</span>
                   </li>
                 ))}
               </ul>
