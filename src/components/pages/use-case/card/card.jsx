@@ -8,8 +8,7 @@ import Button from 'components/shared/button';
 import Tooltip from 'components/shared/tooltip';
 
 const Card = ({ channels, title, slug, providers }) => {
-  const tooltipContent =
-    providers.length < 6 ? null : providers.splice(6).map(({ providerId }) => providerId);
+  const tooltipContent = providers.length < 6 ? null : providers.splice(5).map(({ name }) => name);
 
   return (
     <article className="rounded-xl bg-gray-gradient-3 p-5">
