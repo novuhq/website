@@ -47,9 +47,9 @@ const Card = ({ channels, title, slug, providers }) => {
         <ul
           className={clsx('flex flex-wrap gap-x-1.5 gap-y-2', providers.length > 2 && 'sm:mt-2.5')}
         >
-          {providers?.slice(0, 6).map(({ providerId }, index) => (
-            <ProviderLabel key={index} tagName="li">
-              {providerId}
+          {providers?.slice(0, 6).map(({ name }, index) => (
+            <ProviderLabel tagName="li" key={index}>
+              {name}
             </ProviderLabel>
           ))}
           {tooltipContent && (
@@ -77,7 +77,7 @@ Card.propTypes = {
   ).isRequired,
   providers: PropTypes.arrayOf(
     PropTypes.shape({
-      providerId: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
   slug: PropTypes.oneOfType([
