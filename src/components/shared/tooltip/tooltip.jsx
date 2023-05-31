@@ -5,6 +5,7 @@ import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 const themeStyles = {
   gray: '!bg-gradient-to-b !from-gray-2 !to-gray-2 font-light text-sm leading-tight',
+  'gray-2': '!bg-gray-gradient-4 !text-gray-9 font-light text-xs leading-snug',
   white: '!text-black !bg-gradient-to-b !from-gray-11 !to-gray-9 text-xs !opacity-100 leading-snug',
 };
 
