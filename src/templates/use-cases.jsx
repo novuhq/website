@@ -21,7 +21,7 @@ const UseCasesPage = ({ pageContext: { title, description, useCases } }) => {
   }, [selectedChannels, useCases]);
 
   const channelsWithItems = useCases.reduce((acc, item) => {
-    item.channels.forEach((channel) => {
+    item?.channels?.forEach((channel) => {
       if (!acc.some((item) => item.value === channel.value)) {
         acc.push({
           ...channel,
