@@ -39,11 +39,18 @@ const Card = ({ channels, title, slug, providers }) => {
       </div>
       <div
         className={clsx(
-          'mt-3 flex items-center gap-x-2.5 rounded border border-dashed border-gray-4 px-3 py-2',
+          'mt-4 flex items-center gap-x-2.5 rounded border border-dashed border-gray-4 px-3 py-2',
           providers.length > 2 && 'sm:flex-col sm:items-start'
         )}
       >
-        <span className="text-xs leading-none text-gray-9">Providers:</span>
+        <span
+          className={clsx(
+            '-mt-px text-xs leading-none text-gray-9',
+            providers.length > 2 && 'sm:mt-0'
+          )}
+        >
+          Providers:
+        </span>
         <ul
           className={clsx('flex flex-wrap gap-x-1.5 gap-y-2', providers.length > 2 && 'sm:mt-2.5')}
         >
@@ -54,7 +61,7 @@ const Card = ({ channels, title, slug, providers }) => {
           ))}
           {tooltipProviders && (
             <li
-              className="cursor-pointer rounded border border-gray-3 px-2.5 pb-1.5 pt-1 text-xs leading-none tracking-[0.01em] text-gray-9 transition-colors duration-200 hover:bg-gray-3"
+              className="flex h-[22px] cursor-pointer items-center rounded border border-gray-3 px-2.5 text-xs leading-none tracking-[0.01em] text-gray-9 transition-colors duration-200 hover:bg-gray-3"
               data-tooltip-id="tooltip"
               data-tooltip-content={tooltipProviders.join(', ')}
             >

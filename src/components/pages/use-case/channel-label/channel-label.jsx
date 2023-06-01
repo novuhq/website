@@ -18,11 +18,11 @@ const icons = {
 const themes = {
   'gradient-shadow': {
     icon: 'w-4 h-4',
-    text: 'text-xs text-gray-8',
+    text: '-mt-0.5 text-xs text-gray-8',
   },
   default: {
     icon: 'w-[18px] h-[18px]',
-    text: 'text-sm font-light text-gray-9',
+    text: '-mt-0.5 text-sm font-light text-gray-9',
   },
 };
 
