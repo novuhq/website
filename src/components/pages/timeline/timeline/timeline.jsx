@@ -85,7 +85,7 @@ const Timeline = () => {
           id="timelineWrapper"
         >
           <div
-            className="absolute top-[15px] left-[178px] z-10 h-[calc(100%-51px)] transition-[left] duration-500 md:left-[166px] sm:left-[154px]"
+            className="absolute left-[178px] top-[15px] z-10 h-[calc(100%-51px)] transition-[left] duration-500 md:left-[166px] sm:left-[154px]"
             id="timelineProgressBar"
           >
             <span className="timeline-progress-bar-circle relative flex h-9 w-9 items-center justify-center" />
@@ -93,7 +93,7 @@ const Timeline = () => {
           </div>
 
           <div
-            className="relative grid w-fit min-w-[1920px] border-r border-l border-[rgba(255,255,255,0.1)] "
+            className="relative grid w-fit min-w-[1920px] border-l border-r border-[rgba(255,255,255,0.1)] "
             style={{
               gridTemplateColumns: `repeat(${TIMELINE_DATA.length},1fr)`,
             }}
@@ -101,7 +101,7 @@ const Timeline = () => {
             {TIMELINE_DATA.map(({ month, events }, index) => (
               <div key={index}>
                 <div
-                  className="grid border-t border-b border-[rgba(255,255,255,0.1)] bg-black py-5 px-[50px]"
+                  className="grid border-b border-t border-[rgba(255,255,255,0.1)] bg-black px-[50px] py-5"
                   style={{
                     gridTemplateColumns: `repeat(${events.length + 1},70px)`,
                   }}
@@ -145,7 +145,13 @@ const Timeline = () => {
                     className="absolute flex h-full w-full flex-col items-center justify-center"
                     aria-hidden
                   >
-                    <img src={rocketIllustration} width={232} height={311} loading="lazy" alt="" />
+                    <img
+                      src={rocketIllustration}
+                      width={232}
+                      height={311}
+                      loading="lazy"
+                      alt="rocket"
+                    />
                     <div className="absolute bottom-0 inline-flex rounded-[32px] border border-gray-5 bg-gray-gradient-2 px-5 py-2">
                       <span className="text-lg leading-none text-gray-8">{year}</span>
                     </div>

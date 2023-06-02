@@ -65,7 +65,7 @@ export default {
     target: '_blank',
   },
   quickStart: {
-    to: 'https://docs.novu.co/overview/quick-start',
+    to: 'https://docs.novu.co/overview/quickstart/general-quickstart',
     target: '_blank',
   },
   providers: {

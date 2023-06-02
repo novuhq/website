@@ -76,7 +76,7 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive, zI
       >
         <div
           className={clsx(
-            'timeline-item-border-gradient group:first:active flex flex-col rounded-md py-2 px-2.5',
+            'timeline-item-border-gradient group:first:active flex flex-col rounded-md px-2.5 py-2',
             {
               active: isActive,
             }
@@ -91,9 +91,9 @@ const Item = ({ date, title, description, iconName, animationDelay, isActive, zI
               <div className="ml-auto flex h-4 w-4 items-center justify-center rounded-full bg-[linear-gradient(180deg,#FFFFFF_0%,rgba(255,255,255,0.4)_100%)]">
                 <AnimatePresence>
                   {isOpen ? (
-                    <img src={closeIcon} width={8} height={6} loading="eager" alt="" />
+                    <img src={closeIcon} width={8} height={6} loading="eager" alt="close" />
                   ) : (
-                    <img src={arrowIcon} width={8} height={6} loading="eager" alt="" />
+                    <img src={arrowIcon} width={8} height={6} loading="eager" alt="open" />
                   )}
                 </AnimatePresence>
               </div>
