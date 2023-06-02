@@ -65,8 +65,9 @@ const BlogPage = (props) => {
 
   const mainHeading = !pageContext?.categoryPath
     ? 'Blog Novu'
-    : `Novu blog - ${ 
-      pageContext?.seo?.title?.split('-')[0].trim() || pageContext?.categoryPath.slice(0, -1)}`;
+    : `Blog Novu - ${
+        pageContext?.seo?.title?.split('-')[0].trim() || pageContext?.categoryPath.slice(0, -1)
+      }`;
 
   return (
     <Layout>
