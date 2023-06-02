@@ -22,7 +22,7 @@ const Card = ({ channels, title, slug, providers }) => {
                 key={index}
                 style={{
                   background:
-                    'linear-gradient(130.61deg, #262626 16.35%, rgba(17, 17, 17, 0.7) 112.93%)',
+                    'linear-gradient(126.94deg, #262626 15.2%, rgba(20, 20, 20, 0.7) 159.26%)',
                 }}
               >
                 <ChannelLabel theme="gradient-shadow" icon={value}>
