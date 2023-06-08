@@ -69,7 +69,7 @@ const generateTableMarkup = (tableData) => {
 
     const nameWithEscapedPipe = name.replace(/\|/g, '\\|');
 
-    tableMarkup += `| <img src="${photo}" width="60" height="60" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div style="display:flex; column-gap: 16px;">${medals}</div> |\n`;
+    tableMarkup += `| <img src="${photo}" width="60" height="60" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
   }
 
   return tableMarkup;
@@ -182,7 +182,7 @@ module.exports = async ({ graphql }) => {
         const medals = achievements.map((achievement) => {
           const { image, title } = achievement;
 
-          return `<img style="flex-shrink:0;" src="${image}" width="60" height="60" alt="${title}" />`;
+          return `<img src="${image}" width="60" height="60" alt="${title}" />`;
         });
 
         return {
