@@ -2,43 +2,14 @@
 const { Octokit } = require('@octokit/rest');
 const fetch = require('node-fetch');
 
+const { ACHIEVEMENTS } = require('../src/constants/contributors');
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_README_TOKEN,
 });
 
 const repoOwner = 'vannyle';
 const repoName = 'novu';
-
-const ACHIEVEMENTS = [
-  {
-    iconName: 'goldMedal',
-    title: 'Gold Medal',
-    image: 'https://novu.co/static/0fa29e2bd41d3e8a743850f444714461/b8d20/gold-medal.webp',
-    tooltip:
-      'This medal is given to the experienced contributors with many thanks from the Novu team.',
-    date: null,
-    count: 0,
-    minStars: 7,
-  },
-  {
-    iconName: 'silverMedal',
-    title: 'Silver Medal',
-    image: 'https://novu.co/static/6ed181b6a26c6559bba02be6bc4425ef/b8d20/silver-medal.webp',
-    tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
-    date: 'April 2022',
-    count: 1,
-    minStars: 3,
-  },
-  {
-    iconName: 'bronzeMedal',
-    title: 'Bronze Medal',
-    image: 'https://novu.co/static/220891bac32daa9d1ba5206d31c969b0/b8d20/bronze-medal.webp',
-    tooltip: 'This medal is a great start of your relationship with the Novu project.',
-    date: 'April 2022',
-    count: 1,
-    minStars: 1,
-  },
-];
 
 const fetchReadmeContent = async (repoOwner, repoName) => {
   try {
@@ -83,6 +54,7 @@ module.exports = async ({ graphql }) => {
     query {
       allWpUserAchievement {
         nodes {
+          title
           userAchievement {
             achievementsList {
               achievement {
@@ -99,7 +71,6 @@ module.exports = async ({ graphql }) => {
               }
             }
           }
-          title
         }
       }
     }
