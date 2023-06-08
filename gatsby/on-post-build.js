@@ -236,11 +236,9 @@ module.exports = async ({ graphql }) => {
             fs.writeFileSync('./target-repo/README.md', modifiedContent, 'utf8');
             pushChangesToTargetRepo();
           } else {
-            console.log('Cloning the target repository...');
             // Clone the target repository
             execSync(`git clone https://github.com/${repoOwner}/${repoName}.git target-repo`);
             fs.writeFileSync('./target-repo/README.md', modifiedContent, 'utf8');
-            console.log('Target repository cloned successfully!');
 
             pushChangesToTargetRepo();
 
