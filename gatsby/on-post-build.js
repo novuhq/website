@@ -1,8 +1,13 @@
-const { execSync } = require('child_process');
-const fs = require('fs');
-
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
+const { Octokit } = require('@octokit/rest');
 const fetch = require('node-fetch');
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+});
+
+const repoOwner = 'vannyle';
+const repoName = 'novu';
 
 const ACHIEVEMENTS = [
   {
@@ -35,26 +40,24 @@ const ACHIEVEMENTS = [
   },
 ];
 
-const repoOwner = 'vannyle';
-const repoName = 'novu';
-
 const fetchReadmeContent = async (repoOwner, repoName) => {
   try {
-    const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/readme`);
-    if (response.ok) {
-      const data = await response.json();
-      const readmeUrl = data.download_url;
-      const readmeResponse = await fetch(readmeUrl);
-      if (readmeResponse.ok) {
-        return await readmeResponse.text();
-      }
-      console.error('Error fetching README.md:', readmeResponse.status);
-      return null;
+    const response = await octokit.request(`GET /repos/${repoOwner}/${repoName}/readme`, {
+      owner: 'OWNER',
+      repo: 'REPO',
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    });
+
+    if (response.status === 200) {
+      const content = Buffer.from(response.data.content, 'base64').toString('utf-8');
+      return { content, sha: response.data.sha };
     }
-    console.error('Error fetching README.md:', response.status);
+    console.error('Error fetching README content:', response);
     return null;
   } catch (error) {
-    console.error('Error fetching README.md:', error);
+    console.error('Error fetching README content:', error);
     return null;
   }
 };
@@ -69,28 +72,10 @@ const generateTableMarkup = (tableData) => {
 
     const nameWithEscapedPipe = name.replace(/\|/g, '\\|');
 
-    tableMarkup += `| <img src="${photo}" width="60" height="60" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
+    tableMarkup += `| <img style="border-radius:100%" src="${photo}" width="40" height="40" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
   }
 
   return tableMarkup;
-};
-
-const pushChangesToTargetRepo = () => {
-  const watcher = fs.watch('./target-repo', (eventType, filename) => {
-    if (filename === 'README.md') {
-      // File created, stop watching and perform operations
-      watcher.close();
-      execSync('git add README.md', { cwd: './target-repo' });
-
-      // Commit the changes
-      execSync('git commit -m "Update README.md"', { cwd: './target-repo' });
-
-      // Push the changes to the repository
-      execSync('git push origin main', { cwd: './target-repo' });
-
-      console.log('Changes pushed to target repository successfully!');
-    }
-  });
 };
 
 module.exports = async ({ graphql }) => {
@@ -142,8 +127,8 @@ module.exports = async ({ graphql }) => {
 
   const fetchContributorsData = async () => {
     try {
-      const data = await fetch(`https://contributors.novu.co/contributors`).then((response) =>
-        response.json()
+      const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
+        (response) => response.json()
       );
 
       const contributors = data.list.filter(
@@ -153,7 +138,7 @@ module.exports = async ({ graphql }) => {
       const contributorsWithPulls = await Promise.all(
         contributors.map(async (contributor) => {
           const { pulls } = await fetch(
-            `https://contributors.novu.co/contributor/${contributor.github}`
+            `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
           ).then((response) => response.json());
 
           return { ...contributor, pulls };
@@ -182,11 +167,16 @@ module.exports = async ({ graphql }) => {
         const medals = achievements.map((achievement) => {
           const { image, title } = achievement;
 
-          return `<img src="${image}" width="60" height="60" alt="${title}" />`;
+          const width =
+            title === 'Gold Medal' || title === 'Silver Medal' || title === 'Bronze Medal'
+              ? '34'
+              : '40';
+
+          return `<img src="${image}" width="${width}" height="40" alt="${title}" />`;
         });
 
         return {
-          photo: `https://avatars.githubusercontent.com/${github}?v=3&s=60`,
+          photo: `https://avatars.githubusercontent.com/${github}?v=3&s=40`,
           name: name || github,
           github,
           medals: medals.length > 0 ? medals.map((medal) => medal).join(' ') : '',
@@ -222,34 +212,30 @@ module.exports = async ({ graphql }) => {
     return readmeContent; // Return the original content if the heading is not found
   };
 
-  const isRepoCloned = fs.existsSync(`./target-repo`);
-
-  // Fetch the README.md content from GitHub API
   await fetchReadmeContent(repoOwner, repoName)
-    .then(async (readmeContent) => {
-      if (readmeContent) {
-        // Change the content of the README.md file
-        const modifiedContent = await changeReadmeContent(readmeContent);
+    .then(async (data) => {
+      if (data) {
+        const { content, sha } = data;
 
-        try {
-          if (isRepoCloned) {
-            fs.writeFileSync('./target-repo/README.md', modifiedContent, 'utf8');
-            pushChangesToTargetRepo();
-          } else {
-            // Clone the target repository
-            execSync(`git clone https://github.com/${repoOwner}/${repoName}.git target-repo`);
-            fs.writeFileSync('./target-repo/README.md', modifiedContent, 'utf8');
+        const modifiedContent = await changeReadmeContent(content);
 
-            pushChangesToTargetRepo();
-
-            console.log('Changes pushed to target repository successfully!');
-          }
-        } catch (error) {
-          console.error('Error pushing changes to target repository:', error);
-        } finally {
-          // Clean up temporary files
-          execSync('rm -rf target-repo', { cwd: __dirname });
-        }
+        // Update the README.md file
+        await octokit
+          .request(`PUT /repos/${repoOwner}/${repoName}/contents/README.md`, {
+            owner: 'OWNER',
+            repo: 'REPO',
+            path: 'README.md',
+            message: 'Update README.md',
+            content: Buffer.from(modifiedContent).toString('base64'),
+            sha,
+            branch: 'main',
+          })
+          .then((response) => {
+            console.log('README.md updated:', response);
+          })
+          .catch((error) => {
+            console.error('Error updating README.md:', error);
+          });
       }
     })
     .catch((error) => {
