@@ -3,7 +3,7 @@ const { Octokit } = require('@octokit/rest');
 const fetch = require('node-fetch');
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: process.env.GITHUB_README_TOKEN,
 });
 
 const repoOwner = 'vannyle';
