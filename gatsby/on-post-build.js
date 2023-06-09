@@ -4,6 +4,7 @@ const {
   octokit,
 } = require('../src/utils/contributors-utils');
 
+// TODO: rename repoOwner and repoName to Novu's
 const repoOwner = 'vannyle';
 const repoName = 'novu';
 

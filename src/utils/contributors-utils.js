@@ -4,6 +4,9 @@ const fetch = require('node-fetch');
 
 const { ACHIEVEMENTS } = require('../constants/contributors');
 
+const MEDAL_WIDTH = '34';
+const IMAGE_SIZE = '40';
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_README_TOKEN,
 });
@@ -18,7 +21,7 @@ const generateTableMarkup = (tableData) => {
 
     const nameWithEscapedPipe = name.replace(/\|/g, '\\|');
 
-    tableMarkup += `| <img style="border-radius:100%" src="${photo}" width="40" height="40" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
+    tableMarkup += `| <img style="border-radius:100%" src="${photo}" width="${IMAGE_SIZE}" height="${IMAGE_SIZE}" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
   }
 
   return tableMarkup;
@@ -74,14 +77,14 @@ const getContributorsWithAllAchievements = async (contributorsWithAdditionalAchi
 
       const width =
         title === 'Gold Medal' || title === 'Silver Medal' || title === 'Bronze Medal'
-          ? '34'
-          : '40';
+          ? MEDAL_WIDTH
+          : IMAGE_SIZE;
 
-      return `<img src="${image}" width="${width}" height="40" alt="${title}" />`;
+      return `<img src="${image}" width="${width}" height="${IMAGE_SIZE}" alt="${title}" />`;
     });
 
     return {
-      photo: `https://avatars.githubusercontent.com/${github}?v=3&s=40`,
+      photo: `https://avatars.githubusercontent.com/${github}?v=3&s=${IMAGE_SIZE}`,
       name: name || github,
       github,
       medals: medals.length > 0 ? medals.map((medal) => medal).join(' ') : '',
