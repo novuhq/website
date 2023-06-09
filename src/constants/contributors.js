@@ -36,7 +36,7 @@ const ACHIEVEMENTS = [
   {
     iconName: 'goldMedal',
     title: 'Gold Medal',
-    image: 'https://novu.co/static/0fa29e2bd41d3e8a743850f444714461/b8d20/gold-medal.webp',
+    image: 'https://novu.co/images/gold-medal.png',
     tooltip:
       'This medal is given to the experienced contributors with many thanks from the Novu team.',
     date: null,
@@ -46,7 +46,7 @@ const ACHIEVEMENTS = [
   {
     iconName: 'silverMedal',
     title: 'Silver Medal',
-    image: 'https://novu.co/static/6ed181b6a26c6559bba02be6bc4425ef/b8d20/silver-medal.webp',
+    image: 'https://novu.co/images/silver-medal.png',
     tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
     date: 'April 2022',
     count: 1,
@@ -55,7 +55,7 @@ const ACHIEVEMENTS = [
   {
     iconName: 'bronzeMedal',
     title: 'Bronze Medal',
-    image: 'https://novu.co/static/220891bac32daa9d1ba5206d31c969b0/b8d20/bronze-medal.webp',
+    image: 'https://novu.co/images/bronze-medal.png',
     tooltip: 'This medal is a great start of your relationship with the Novu project.',
     date: 'April 2022',
     count: 1,
