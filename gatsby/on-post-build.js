@@ -2,6 +2,8 @@ const {
   fetchReadmeContent,
   changeReadmeContent,
   octokit,
+  getCache,
+  setCache,
 } = require('../src/utils/contributors-utils');
 
 // TODO: rename repoOwner and repoName to Novu's
@@ -69,23 +71,31 @@ module.exports = async ({ graphql }) => {
           contributorsWithAdditionalAchievements
         );
 
-        // Update the README.md file
-        await octokit
-          .request(`PUT /repos/${repoOwner}/${repoName}/contents/README.md`, {
-            owner: 'OWNER',
-            repo: 'REPO',
-            path: 'README.md',
-            message: 'Update README.md',
-            content: Buffer.from(modifiedContent).toString('base64'),
-            sha,
-            branch: 'main',
-          })
-          .then((response) => {
-            console.log('README.md updated:', response);
-          })
-          .catch((error) => {
-            console.error('Error updating README.md:', error);
-          });
+        const cachedReadmeContent = await getCache();
+
+        if (cachedReadmeContent !== modifiedContent) {
+          await setCache(modifiedContent);
+
+          // Update the README.md file
+          await octokit
+            .request(`PUT /repos/${repoOwner}/${repoName}/contents/README.md`, {
+              owner: 'OWNER',
+              repo: 'REPO',
+              path: 'README.md',
+              message: 'chore: update community heroes in readme',
+              content: Buffer.from(modifiedContent).toString('base64'),
+              sha,
+              branch: 'main',
+            })
+            .then((response) => {
+              console.log('README.md updated:', response);
+            })
+            .catch((error) => {
+              console.error('Error updating README.md:', error);
+            });
+        } else {
+          console.log('README.md content has not changed, no update necessary.');
+        }
       }
     })
     .catch((error) => {

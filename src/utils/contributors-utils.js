@@ -1,4 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const fs = require('fs').promises;
+
 const { Octokit } = require('@octokit/rest');
 const fetch = require('node-fetch');
 
@@ -57,19 +59,21 @@ const fetchContributorsData = async () => {
 const getContributorsWithAllAchievements = async (contributorsWithAdditionalAchievements) => {
   const contributors = await fetchContributorsData();
 
-  const contributorsWithAllAchievements = contributors.map((contributor) => {
-    const achievements = ACHIEVEMENTS.filter(
-      ({ minStars }) => contributor.pulls.length >= minStars
-    );
-    const additionalAchievements = contributorsWithAdditionalAchievements.find(
-      ({ github }) => github === contributor.github
-    );
+  const contributorsWithAllAchievements = contributors
+    .map((contributor) => {
+      const achievements = ACHIEVEMENTS.filter(
+        ({ minStars }) => contributor.pulls.length >= minStars
+      );
+      const additionalAchievements = contributorsWithAdditionalAchievements.find(
+        ({ github }) => github === contributor.github
+      );
 
-    return {
-      ...contributor,
-      achievements: [...(additionalAchievements?.achievements || []), ...achievements],
-    };
-  });
+      return {
+        ...contributor,
+        achievements: [...(additionalAchievements?.achievements || []), ...achievements],
+      };
+    })
+    .sort((a, b) => b.achievements.length - a.achievements.length);
 
   return contributorsWithAllAchievements.map(({ name, github, achievements }) => {
     const medals = achievements.map((achievement) => {
@@ -139,8 +143,24 @@ const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchi
   return readmeContent; // Return the original content if the heading is not found
 };
 
+async function getCache() {
+  try {
+    const data = await fs.readFile('cache.json', 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    // Ignore errors - cache may not exist yet
+    return null;
+  }
+}
+
+async function setCache(data) {
+  await fs.writeFile('cache.json', JSON.stringify(data));
+}
+
 module.exports = {
   octokit,
   fetchReadmeContent,
   changeReadmeContent,
+  getCache,
+  setCache,
 };
