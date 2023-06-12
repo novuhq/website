@@ -146,15 +146,15 @@ const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchi
 async function getCache() {
   try {
     const data = await fs.readFile('community-heroes-cache.json', 'utf-8');
-    return JSON.parse(data);
+    return JSON.parse(data).hash;
   } catch (error) {
     // Ignore errors - cache may not exist yet
     return null;
   }
 }
 
-async function setCache(data) {
-  await fs.writeFile('community-heroes-cache.json', JSON.stringify(data));
+async function setCache(hash) {
+  await fs.writeFile('community-heroes-cache.json', JSON.stringify({ hash }));
 }
 
 module.exports = {

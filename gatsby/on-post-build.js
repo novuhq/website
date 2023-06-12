@@ -73,10 +73,10 @@ module.exports = async ({ graphql }) => {
         const oldDataHash = oldData ? objectHash(oldData) : null;
 
         const newData = await changeReadmeContent(content, contributorsWithAdditionalAchievements);
-        const newDataHash = objectHash(newData);
+        const newDataHash = objectHash({ hash: newData });
 
         if (newDataHash !== oldDataHash) {
-          await setCache(newData);
+          await setCache(newDataHash);
 
           // Update the README.md file
           await octokit
