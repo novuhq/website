@@ -119,7 +119,7 @@ const fetchReadmeContent = async (repoOwner, repoName) => {
 };
 
 const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchievements) => {
-  const headingToFind = '## 💪 Thanks To All Contributors';
+  const headingToFind = '## 🦸 Community Heroes';
 
   const data = await getContributorsWithAllAchievements(contributorsWithAdditionalAchievements);
 
@@ -145,7 +145,7 @@ const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchi
 
 async function getCache() {
   try {
-    const data = await fs.readFile('cache.json', 'utf-8');
+    const data = await fs.readFile('community-heroes-cache.json', 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     // Ignore errors - cache may not exist yet
@@ -154,7 +154,7 @@ async function getCache() {
 }
 
 async function setCache(data) {
-  await fs.writeFile('cache.json', JSON.stringify(data));
+  await fs.writeFile('community-heroes-cache.json', JSON.stringify(data));
 }
 
 module.exports = {

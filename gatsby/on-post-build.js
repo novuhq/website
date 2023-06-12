@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const objectHash = require('object-hash');
+
 const {
   fetchReadmeContent,
   changeReadmeContent,
@@ -66,15 +69,14 @@ module.exports = async ({ graphql }) => {
       if (data) {
         const { content, sha } = data;
 
-        const modifiedContent = await changeReadmeContent(
-          content,
-          contributorsWithAdditionalAchievements
-        );
+        const oldData = await getCache();
+        const oldDataHash = oldData ? objectHash(oldData) : null;
 
-        const cachedReadmeContent = await getCache();
+        const newData = await changeReadmeContent(content, contributorsWithAdditionalAchievements);
+        const newDataHash = objectHash(newData);
 
-        if (cachedReadmeContent !== modifiedContent) {
-          await setCache(modifiedContent);
+        if (newDataHash !== oldDataHash) {
+          await setCache(newData);
 
           // Update the README.md file
           await octokit
@@ -83,7 +85,7 @@ module.exports = async ({ graphql }) => {
               repo: 'REPO',
               path: 'README.md',
               message: 'chore: update community heroes in readme',
-              content: Buffer.from(modifiedContent).toString('base64'),
+              content: Buffer.from(newData).toString('base64'),
               sha,
               branch: 'main',
             })
