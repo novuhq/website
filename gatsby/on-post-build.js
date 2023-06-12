@@ -73,7 +73,7 @@ module.exports = async ({ graphql }) => {
         const oldDataHash = oldData ? objectHash(oldData) : null;
 
         const newData = await changeReadmeContent(content, contributorsWithAdditionalAchievements);
-        const newDataHash = objectHash({ hash: newData });
+        const newDataHash = objectHash(newData);
 
         if (newDataHash !== oldDataHash) {
           await setCache(newDataHash);
