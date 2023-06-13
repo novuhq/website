@@ -11,7 +11,7 @@ const {
 
 // TODO: rename repoOwner and repoName to Novu's
 const repoOwner = 'vannyle';
-const repoName = 'novu';
+const repoName = 'contributors';
 
 module.exports = async ({ graphql }) => {
   if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_README_TOKEN) {

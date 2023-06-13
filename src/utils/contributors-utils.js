@@ -119,28 +119,14 @@ const fetchReadmeContent = async (repoOwner, repoName) => {
 };
 
 const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchievements) => {
-  const headingToFind = '## 🦸 Community Heroes';
-
+  const heading = '\n## 🦸 Community Heroes\n\n';
   const data = await getContributorsWithAllAchievements(contributorsWithAdditionalAchievements);
 
   const tableMarkup = generateTableMarkup(data);
 
-  const headingIndex = readmeContent.indexOf(headingToFind);
-  if (headingIndex !== -1) {
-    // Find the index of the end of the heading line
-    const headingLineEndIndex = readmeContent.indexOf('\n', headingIndex);
-    if (headingLineEndIndex !== -1) {
-      // Extract the content after the heading line
-      const contentAfterHeading = readmeContent.substring(headingLineEndIndex + 1);
+  const modifiedContent = readmeContent + heading + tableMarkup;
 
-      // Replace the content after the heading with the table markup
-      const modifiedContent = readmeContent.replace(contentAfterHeading, tableMarkup);
-
-      return modifiedContent;
-    }
-  }
-
-  return readmeContent; // Return the original content if the heading is not found
+  return modifiedContent;
 };
 
 async function getCache() {
