@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@octokit/rest": "^19.0.11",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "copy-to-clipboard": "^3.3.3",
@@ -44,6 +45,7 @@
     "mixpanel-browser": "^2.47.0",
     "moment": "^2.29.4",
     "node-emojify": "0.0.15",
+    "object-hash": "^3.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-aria": "^3.25.0",
