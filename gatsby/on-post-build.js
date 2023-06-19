@@ -9,8 +9,7 @@ const {
   setCache,
 } = require('../src/utils/contributors-utils');
 
-// @TODO: rename repoOwner to Novu's
-const repoOwner = '';
+const repoOwner = 'novuhq';
 const repoName = 'contributors';
 
 module.exports = async ({ graphql }) => {
