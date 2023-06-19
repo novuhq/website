@@ -124,7 +124,10 @@ const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchi
 
   const tableMarkup = generateTableMarkup(data);
 
-  const modifiedContent = readmeContent + heading + tableMarkup;
+  const modifiedContent = readmeContent.replace(
+    /## 🦸 Community Heroes[\s\S]*$/,
+    heading + tableMarkup
+  );
 
   return modifiedContent;
 };
