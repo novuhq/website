@@ -63,8 +63,15 @@ const BlogPage = (props) => {
     blogPageURL: pageContext.blogPageURL,
   };
 
+  const mainHeading = !pageContext?.categoryPath
+    ? 'Blog Novu'
+    : `Blog Novu - ${
+        pageContext?.seo?.title?.split('-')[0].trim() || pageContext?.categoryPath.slice(0, -1)
+      }`;
+
   return (
     <Layout>
+      <h1 className="sr-only">{mainHeading}</h1>
       <Hero {...hero} />
 
       <div

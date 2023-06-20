@@ -34,6 +34,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: process.env.GATSBY_DEFAULT_SITE_URL,
+        // specify the correct path to your sitemap
+        sitemap: `${process.env.GATSBY_DEFAULT_SITE_URL}/sitemap-index.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'gatsby-starter-default',

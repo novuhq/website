@@ -587,3 +587,5 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   createTypes(typeDefs);
 };
+
+exports.onPostBuild = require('./gatsby/on-post-build');

@@ -16,26 +16,51 @@ const CARDS = [
     title: 'Create template',
     description:
       'Select channels, add content with {{dynamic}} syntax, and custom rules to control the delivery of notifications.',
-    image: <img className="w-full" width={464} height={224} src={template} alt="" loading="lazy" />,
+    image: (
+      <img
+        className="w-full"
+        width={464}
+        height={224}
+        src={template}
+        alt="Create template"
+        loading="lazy"
+      />
+    ),
   },
   {
     title: 'Connect providers',
     description:
       "Use a built in collection of popular providers - Sendgrid, Mailgun, Twilio and many more. Add API key and you're ready to go.",
     image: (
-      <img className="w-full" width={464} height={224} src={providers} alt="" loading="lazy" />
+      <img
+        className="w-full"
+        width={464}
+        height={224}
+        src={providers}
+        alt="Connect providers"
+        loading="lazy"
+      />
     ),
   },
   {
     title: 'Add trigger',
     description:
       "Send an event trigger using one of our community built SDK's, and we will handle it from there.",
-    image: <img className="w-full" width={464} height={224} src={trigger} alt="" loading="lazy" />,
+    image: (
+      <img
+        className="w-full"
+        width={464}
+        height={224}
+        src={trigger}
+        alt="Add trigger"
+        loading="lazy"
+      />
+    ),
   },
 ];
 
 const HowItWorks = () => (
-  <section className="how-it-works safe-paddings pb-30 pt-20 lg:pt-16 lg:pb-24 md:pt-14 md:pb-18 sm:pt-9 sm:pb-12">
+  <section className="how-it-works safe-paddings pb-30 pt-20 lg:pb-24 lg:pt-16 md:pb-18 md:pt-14 sm:pb-12 sm:pt-9">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"

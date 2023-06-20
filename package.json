@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@portabletext/react": "^2.0.2",
+    "@octokit/rest": "^19.0.11",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "copy-to-clipboard": "^3.3.3",
@@ -32,6 +33,7 @@
     "gatsby": "^5.10.0",
     "gatsby-plugin-feed": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-segment-js": "^5.0.0",
     "gatsby-source-github-api": "^1.0.0",
     "gatsby-source-rss-feed": "^1.2.2",
@@ -45,6 +47,7 @@
     "mixpanel-browser": "^2.47.0",
     "moment": "^2.29.4",
     "node-emojify": "0.0.15",
+    "object-hash": "^3.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-aria": "^3.25.0",

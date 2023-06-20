@@ -189,7 +189,11 @@ const Content = ({ issues }) => {
                               src={issue.assignees.nodes[0].avatarUrl}
                               height={24}
                               width={24}
-                              alt=""
+                              alt={
+                                issue.assignees.nodes[0]?.login ||
+                                issue.assignees.nodes[0]?.name ||
+                                ''
+                              }
                             />
                           )}
                           <span className="text-xs text-gray-8">
