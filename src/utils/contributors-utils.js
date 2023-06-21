@@ -119,12 +119,15 @@ const fetchReadmeContent = async (repoOwner, repoName) => {
 };
 
 const changeReadmeContent = async (readmeContent, contributorsWithAdditionalAchievements) => {
-  const heading = '\n## 🦸 Community Heroes\n\n';
+  const heading = '## 🦸 Community Heroes\n\n';
   const data = await getContributorsWithAllAchievements(contributorsWithAdditionalAchievements);
 
   const tableMarkup = generateTableMarkup(data);
 
-  const modifiedContent = readmeContent + heading + tableMarkup;
+  const modifiedContent = readmeContent.replace(
+    /## 🦸 Community Heroes[\s\S]*$/,
+    heading + tableMarkup
+  );
 
   return modifiedContent;
 };
