@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import Hero from 'components/pages/oss-friends/hero';
@@ -5,16 +6,34 @@ import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 
-const OssFriendsPage = () => {
-  const items = [];
+const OssFriendsPage = ({
+  data: {
+    allSanityOssFriends: { nodes: items },
+  },
+}) => (
+  <Layout>
+    <Hero items={items} />
+    <GetStarted />
+  </Layout>
+);
 
-  return (
-    <Layout>
-      <Hero items={items} />
-      <GetStarted />
-    </Layout>
-  );
-};
+// TODO: load logo not from external url
+export const pageQuery = graphql`
+  query {
+    allSanityOssFriends {
+      nodes {
+        name
+        description
+        linkUrl
+        logo {
+          asset {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default OssFriendsPage;
 
