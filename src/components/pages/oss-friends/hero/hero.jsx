@@ -3,10 +3,11 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link/link';
 
+import friendsItems from './data';
 import bgSm from './images/bg-sm.svg';
 import bg from './images/bg.svg';
 
-const Hero = ({ items }) => (
+const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pb-20 pt-36 lg:pb-16 lg:pt-32 md:pt-[104px] sm:pb-10 sm:pt-[95px]">
     <div className="container-lg relative z-10">
       <Heading
@@ -23,12 +24,12 @@ const Hero = ({ items }) => (
         software and the values of transparency, collaboration, and community that it represents.
       </p>
       <ul className="mt-24 grid auto-rows-fr grid-cols-12 gap-8 lg:mt-16 lg:gap-7 md:mt-14 md:gap-5 sm:mt-12 sm:auto-rows-min">
-        {items.map(({ name, description, logo, linkUrl }, index) => (
+        {friendsItems.map(({ name, description, logo, linkUrl }, index) => (
           <li className="col-span-4 md:col-span-6 sm:col-span-full" key={index}>
             <article className="flex h-full flex-col justify-between rounded-[20px] bg-gradient-to-t from-gray-2 to-[rgba(26,26,26,.7)] p-8 lg:rounded-2xl lg:px-5 lg:pb-6 lg:pt-5">
               <div className="">
                 <header className="flex items-center gap-x-[18px] sm:gap-x-3">
-                  <img className="h-10 w-10 lg:h-9 lg:w-9" src={logo.asset.url} alt={name || ''} />
+                  {logo && <img className="h-10 w-10 lg:h-9 lg:w-9" src={logo} alt={name || ''} />}
                   <h3 className="text-3xl leading-snug lg:text-2xl">{name}</h3>
                 </header>
                 <p className="mt-5 font-light leading-snug text-gray-9 sm:mt-3">{description}</p>
