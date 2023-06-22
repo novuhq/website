@@ -30,6 +30,9 @@ export default {
   timeline: {
     to: '/timeline',
   },
+  ossFriends: {
+    to: '/oss-friends',
+  },
 
   // Other pages
   documentation: {
