@@ -28,6 +28,7 @@ const MENUS = {
       { text: 'Pricing', ...LINKS.pricing },
       { text: 'Careers', ...LINKS.careers },
       { text: '2022 Events', ...LINKS.timeline },
+      { text: 'OSS Friends', ...LINKS.ossFriends },
     ],
     [
       { text: 'Documentation', ...LINKS.documentation },
