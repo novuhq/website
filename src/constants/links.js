@@ -102,7 +102,7 @@ export default {
 
   // Social
   discord: {
-    to: 'https://discord.novu.co',
+    to: 'https://discord.gg/novu',
     target: '_blank',
   },
   twitter: {
