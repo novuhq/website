@@ -18,7 +18,7 @@ const Tooltip = ({ className, id, theme }) => {
   return (
     isTooltipVisible && (
       <ReactTooltip
-        className={clsx('z-10 !rounded-lg !p-4 before:hidden', className, themeStyles[theme])}
+        className={clsx('z-20 !rounded-lg !p-4 before:hidden', className, themeStyles[theme])}
         place="top"
         effect="solid"
         id={id}

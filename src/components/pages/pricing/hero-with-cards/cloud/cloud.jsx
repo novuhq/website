@@ -197,7 +197,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             data-tooltip-content={tooltip}
           />
         </span>
-        <Tooltip className="z-50 max-w-[398px]" theme="white" />
+        <Tooltip className="max-w-[398px]" theme="white" />
       </div>
       <div className="relative mx-auto mt-12 w-full max-w-[968px]">
         <output
