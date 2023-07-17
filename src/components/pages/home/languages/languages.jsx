@@ -18,7 +18,7 @@ const ITEMS = [
 
 const novu = new Novu(process.env.NOVU_API_KEY);
 
-await novu.trigger('<NOTIFICATION_TEMPLATE_TRIGGER_ID>',
+await novu.trigger('<WORKFLOW_TRIGGER_ID>',
   {
     to: {
       subscriberId: '<UNIQUE_SUBSCRIBER_IDENTIFIER>',
@@ -44,7 +44,7 @@ await novu.trigger('<NOTIFICATION_TEMPLATE_TRIGGER_ID>',
 client = Novu::Client.new('NOVU_API_KEY')
 
 body = {
-  name: "<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+  name: "<WORKFLOW_TRIGGER_ID>",
   payload: {
     name: "Hello World",
     organization: {
@@ -69,7 +69,7 @@ client.trigger_event(body)
 
 event_api = EventApi("https://api.novu.co/api/", "<NOVU_API_KEY>")
 event_api.trigger(
-    name="<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+    name="<WORKFLOW_TRIGGER_ID>",
     recipients="<YOUR_SUBSCRIBER_ID>",
     payload={
       'name': 'Hello World',
@@ -88,7 +88,7 @@ event_api.trigger(
 $novu = new Novu(<NOVU_API_KEY>);
 
 $novu->triggerEvent([
-  'name' => '<NOTIFICATION_TEMPLATE_TRIGGER_ID>',
+  'name' => '<WORKFLOW_TRIGGER_ID>',
   'payload' => [
     'name' => 'Hello World',
     'organization' => [
@@ -118,7 +118,7 @@ fun main() {
 
     novu.trigger(TriggerEventRequest.Companion.invoke
         ( 
-            name = "<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+            name = "<WORKFLOW_TRIGGER_ID>",
             to = SubscriberRequest(
                     subscriberId = "harry_potter"
                     firstName = "Harry",
@@ -141,7 +141,7 @@ fun main() {
     -H "Content-Type: application/json"
     -H "Authorization: ApiKey REPLACE_WITH_API_KEY"
     -d '{
-      "name": "<NOTIFICATION_TEMPLATE_TRIGGER_ID>",
+      "name": "<WORKFLOW_TRIGGER_ID>",
       "payload": {
         "name": "Hello World"
       },
@@ -166,7 +166,7 @@ fun main() {
 
 subscriberID := "<UNIQUE_SUBSCRIBER_IDENTIFIER>"
 apiKey := "<NOVU_API_KEY>"
-eventId := "<NOTIFICATION_TEMPLATE_TRIGGER_ID>"
+eventId := "<WORKFLOW_TRIGGER_ID>"
 
 ctx := context.Background()
 to := map[string]interface{}{
@@ -193,6 +193,48 @@ if err != nil {
 }
 
 fmt.Println(resp)
+  `,
+  },
+  {
+    name: '.NET',
+    language: 'javascript',
+    code: `using Novu.DTO;
+using Novu.DTO.Topics;
+using Novu.Models;
+using Novu;
+
+var novuConfiguration = new NovuClientConfiguration
+{
+    ApiKey = "<NOVU_API_KEY>",
+};
+
+var novu = new NovuClient(novuConfiguration);
+
+public class OnboardEventPayload
+{
+  [JsonProperty("email")]
+  public string Email { get; set; }
+
+  [JsonProperty("firstName")]
+  public string FirstName { get; set; }
+
+  [JsonProperty("lastName")]
+  public string LastName { get; set; }
+}
+
+var payload = new EventTriggerDataDto()
+{
+  EventName = "<WORKFLOW_TRIGGER_ID>",
+  To = { SubscriberId = "<UNIQUE_SUBSCRIBER_IDENTIFIER>" },
+  Payload = new OnboardingEventPayload
+  {
+    Email = "john@doemail.com",
+    FirstName = "John"
+    LastName  = "Doe"
+  }
+};
+
+await novu.Event.Trigger(payload);
   `,
   },
 ];
