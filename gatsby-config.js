@@ -34,6 +34,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: process.env.GATSBY_DEFAULT_SITE_URL,
+        // specify the correct path to your sitemap
+        sitemap: `${process.env.GATSBY_DEFAULT_SITE_URL}/sitemap-index.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'gatsby-starter-default',
@@ -71,9 +80,7 @@ module.exports = {
               })),
             query: `
               {
-                allWpPost(
-                  sort: { fields: date, order: DESC }
-                )  {
+                allWpPost(sort: {date: DESC}) {
                   edges {
                     node {
                       content
@@ -118,20 +125,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ['G-DHRXGBJSKF'],
-        gtagConfig: {
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
-    {
       resolve: 'gatsby-source-wordpress',
       options: {
         url: process.env.WP_GRAPHQL_URL,
@@ -156,7 +149,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-gatsby-cloud',
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify',
       options: {
         headers: {
           '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
@@ -168,26 +168,19 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
     {
-      resolve: 'gatsby-plugin-mixpanel',
-      options: {
-        apiToken: process.env.MIXPANEL_TOKEN,
-        enableOnDevMode: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-segment-js`,
       options: {
         prodKey: process.env.GATSBY_SEGMENT_WRITE_KEY,
       },
     },
-    {
-      resolve: `gatsby-source-rss-feed`,
-      options: {
-        url: `https://feeds.transistor.fm/sourcelife`,
-        name: `Podcast`,
-      },
-    },
-
+    // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
+    // {
+    //   resolve: `gatsby-source-rss-feed`,
+    //   options: {
+    //     url: `https://feeds.transistor.fm/sourcelife`,
+    //     name: `Podcast`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-github-api`,
       options: {

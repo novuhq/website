@@ -18,16 +18,16 @@ const DESCRIPTION = `Open-source is in the heart of Novu. We keep all the source
 const SOCIAL_TILE = 'Join the community:';
 const SOCIAL_ITEMS = [
   {
-    icon: <img src={github} alt="" loading="lazy" width={46} height={45} />,
+    icon: <img src={github} alt="Novu github" loading="lazy" width={46} height={45} />,
     countFollowers: true,
     ...LINKS.github,
   },
   {
-    icon: <img src={discord} alt="" loading="lazy" width={46} height={34} />,
+    icon: <img src={discord} alt="Novu discord" loading="lazy" width={46} height={34} />,
     ...LINKS.discord,
   },
   {
-    icon: <img src={twitter} alt="" loading="lazy" width={40} height={32} />,
+    icon: <img src={twitter} alt="Novu twitter" loading="lazy" width={40} height={32} />,
     ...LINKS.twitter,
   },
 ];
@@ -39,7 +39,7 @@ const Community = () => {
   const githubStars = useGithubRepoStars(GITHUB.userName, GITHUB.repoName);
 
   return (
-    <section className="community safe-paddings bg-gray-2 pt-30 pb-40 lg:py-24 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
+    <section className="community safe-paddings bg-gray-2 pb-40 pt-30 lg:py-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div className="col-start-1 col-end-5 lg:col-end-6 md:text-center">
           <Heading
@@ -73,7 +73,7 @@ const Community = () => {
                   {countFollowers && (
                     <span
                       className={clsx(
-                        'absolute -top-1 -right-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 text-xs font-bold leading-none text-black opacity-0',
+                        'absolute -right-1 -top-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-secondary-2 text-xs font-bold leading-none text-black opacity-0',
                         { '!visible !opacity-100': githubStars }
                       )}
                       aria-label={`${githubStars} stars on Github`}

@@ -71,6 +71,8 @@ module.exports = {
       'pink-yellow-gradient':
         'linear-gradient(257.22deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
       'gray-gradient': 'linear-gradient(180deg, #262626 0%, #171717 100%)',
+      'gray-gradient-2':
+        'linear-gradient(258.24deg, rgba(88, 88, 88, 0.0804) -4.87%, rgba(24, 24, 24, 0.12) 49.06%, rgba(92, 92, 92, 0.12) 96.07%)',
       'active-gray-gradient': 'linear-gradient(180deg, #131313 0%, #0B0B0B 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
       ...defaultTheme.backgroundImage,
@@ -103,5 +105,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-safe-area'), require('@tailwindcss/line-clamp')],
+  plugins: [require('tailwindcss-safe-area')],
 };

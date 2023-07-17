@@ -34,10 +34,10 @@ const Swag = () => {
     thumbnails: { nodes: thumbnails },
     swagPacks: { nodes: swagPacks },
   } = useStaticQuery(graphql`
-    query {
+    {
       thumbnails: allFile(
         filter: { relativePath: { regex: "/hacktoberfest/swag/image/" } }
-        sort: { fields: name, order: ASC }
+        sort: { name: ASC }
       ) {
         nodes {
           childImageSharp {
@@ -47,7 +47,7 @@ const Swag = () => {
       }
       swagPacks: allFile(
         filter: { relativePath: { regex: "/hacktoberfest/swag/swag/" } }
-        sort: { fields: name, order: ASC }
+        sort: { name: ASC }
       ) {
         nodes {
           childImageSharp {
@@ -74,7 +74,7 @@ const Swag = () => {
         <div className="mt-16 grid grid-cols-10 gap-x-10 md:mt-12 md:gap-x-8 sm:mt-10 sm:gap-y-8">
           <div className="col-span-7 sm:col-span-full">
             <LazyMotion features={domAnimation}>
-              <AnimatePresence initial={false} exitBeforeEnter>
+              <AnimatePresence initial={false} mode="wait">
                 {swagPacks.map(({ childImageSharp }, index) =>
                   index === activeItem ? (
                     <m.div key={index} {...swagAnimationProps}>
@@ -103,7 +103,7 @@ const Swag = () => {
             <div className="mt-11 grid grid-cols-3 gap-10 lg:mt-8 md:mt-5 md:gap-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
               {thumbnails.map(({ childImageSharp }, index) => (
                 <button
-                  key={index}
+                  key={`${index}-button`}
                   type="button"
                   aria-label={`Choose swag pack ${index + 1}`}
                   onClick={() => handleClickButton(index)}

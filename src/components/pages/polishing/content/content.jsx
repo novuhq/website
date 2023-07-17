@@ -36,7 +36,7 @@ const Content = ({ issues }) => {
   const completedIssues = issues.filter((issue) => issue.state === 'CLOSED');
 
   return (
-    <section className="safe-paddings relative py-40 lg:py-36 md:pt-28 md:pb-10 sm:pt-18">
+    <section className="safe-paddings relative py-40 lg:py-36 md:pb-10 md:pt-28 sm:pt-18">
       <div className="container grid-gap-x relative grid grid-cols-12 md:flex md:flex-col">
         <div className="relative col-start-1 col-end-6">
           <div className="sticky top-10 md:static md:text-center">
@@ -80,7 +80,7 @@ const Content = ({ issues }) => {
               size="sm"
               theme="pink-to-yellow-gradient"
               onClick={() => {
-                window.analytics.track(
+                window?.analytics?.track(
                   'Polishing Event: Click the CTA Button on the page to create issue'
                 );
               }}
@@ -91,7 +91,7 @@ const Content = ({ issues }) => {
         </div>
 
         <div className="col-start-7 col-end-13 md:mt-20 sm:mt-16">
-          <div className="flex w-fit space-x-3 rounded-[36px] border border-gray-3 bg-gray-1 p-1.5 md:mx-auto sm:w-full sm-xs:flex-col sm-xs:space-y-3 sm-xs:space-x-0 sm-xs:rounded-[26px]">
+          <div className="flex w-fit space-x-3 rounded-[36px] border border-gray-3 bg-gray-1 p-1.5 md:mx-auto sm:w-full sm-xs:flex-col sm-xs:space-x-0 sm-xs:space-y-3 sm-xs:rounded-[26px]">
             <a
               className="group flex items-center space-x-1.5 rounded-[64px] bg-gray-2 px-5 py-3.5 transition-colors duration-200 hover:bg-white sm:flex-1 sm:justify-center"
               href="#backlogIssues"
@@ -121,7 +121,7 @@ const Content = ({ issues }) => {
             </a>
           </div>
 
-          <div className="relative before:absolute before:top-11 before:-left-20 before:h-[calc(100%+98px)] before:border-l-2 before:border-dashed before:border-gray-2 before:lg:-left-16 before:md:hidden">
+          <div className="relative before:absolute before:-left-20 before:top-11 before:h-[calc(100%+98px)] before:border-l-2 before:border-dashed before:border-gray-2 before:lg:-left-16 before:md:hidden">
             <div className="pt-10" id="backlogIssues">
               <div className="after:md:hiddden relative flex items-center space-x-2 pl-3 before:absolute before:left-[-84px] before:top-[3px] before:h-2.5 before:w-2.5 before:rounded-full before:bg-white before:blur after:absolute after:left-[-83px] after:top-1 after:h-2 after:w-2 after:rounded-full after:bg-white before:lg:left-[-68px] after:lg:left-[-67px] before:md:hidden">
                 <BacklogIcon className="h-3.5 text-gray-8" />
@@ -189,7 +189,11 @@ const Content = ({ issues }) => {
                               src={issue.assignees.nodes[0].avatarUrl}
                               height={24}
                               width={24}
-                              alt=""
+                              alt={
+                                issue.assignees.nodes[0]?.login ||
+                                issue.assignees.nodes[0]?.name ||
+                                ''
+                              }
                             />
                           )}
                           <span className="text-xs text-gray-8">

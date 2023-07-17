@@ -34,12 +34,12 @@ const BlogPostCardMedium = ({
         <CategoryLabel url={blogPageURL + category.slug} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
-        <h1 className="text-[22px] font-medium leading-denser lg:text-[18px] xs:text-[16px]">
-          <Link className="inline-block align-top line-clamp-2" to={url} theme="white">
+        <h1 className="line-clamp-2 text-[22px] font-medium leading-denser lg:text-[18px] xs:text-[16px]">
+          <Link className="align-top" to={url} theme="white">
             {title}
           </Link>
         </h1>
-        <p className="text-base font-book text-gray-9 line-clamp-3">{description}</p>
+        <p className="line-clamp-3 text-base font-book text-gray-9">{description}</p>
       </header>
       <footer className="mt-3.5 flex items-center space-x-3 md:mt-5">
         <AuthorWithDate author={author} date={date} />

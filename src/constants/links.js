@@ -18,11 +18,20 @@ export default {
   privacyPolicy: {
     to: '/privacy',
   },
+  dataProcessingAgreement: {
+    to: '/dpa',
+  },
   hacktoberfest: {
     to: '/hacktoberfest',
   },
   pricing: {
     to: '/pricing',
+  },
+  timeline: {
+    to: '/timeline',
+  },
+  ossFriends: {
+    to: '/oss-friends',
   },
 
   // Other pages
@@ -31,7 +40,7 @@ export default {
     target: '_blank',
   },
   careers: {
-    to: 'https://novuhq.notion.site/Careers-Page-9bec066eb286421299a78a192c0bebf0',
+    to: 'https://novuhq.notion.site/Careers-page-00bffbc69d8b44b790badfeadb7e44c5',
     target: '_blank',
   },
   inAppDocs: {
@@ -59,7 +68,7 @@ export default {
     target: '_blank',
   },
   quickStart: {
-    to: 'https://docs.novu.co/overview/quick-start',
+    to: 'https://docs.novu.co/overview/quickstart/general-quickstart',
     target: '_blank',
   },
   providers: {
@@ -83,7 +92,7 @@ export default {
     target: '_blank',
   },
   pressKit: {
-    to: 'https://handbook.novu.co/logos-assets',
+    to: 'https://handbook.novu.co/830bf2b7e920431bb52d36c9b503d3ca',
     target: '_blank',
   },
   libraries: {
@@ -93,7 +102,7 @@ export default {
 
   // Social
   discord: {
-    to: 'https://discord.gg/9wcGSf22PM',
+    to: 'https://discord.gg/novu',
     target: '_blank',
   },
   twitter: {

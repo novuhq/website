@@ -7,6 +7,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Tooltip from 'components/shared/tooltip';
+import { ACHIEVEMENTS } from 'constants/contributors';
 
 import bronzeMedalIconDisabled from './images/bronze-medal.png';
 import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.png';
@@ -19,68 +20,6 @@ import teamPlayerIconDisabled from './images/team-player.png';
 import { Share, SHARE_TYPES } from './share';
 
 import './achievements.css';
-
-const ACHIEVEMENTS = [
-  // {
-  //   iconName: 'rockStar',
-  //   title: 'Contributor of the month',
-  //   date: 'Last: April 2022',
-  //   count: 1,
-  // },
-  // {
-  //   iconName: 'contributorOfTheYear',
-  //   title: 'Contributor of the year',
-  //   tooltip:
-  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
-  //   date: null,
-  //   count: 0,
-  // },
-  // {
-  //   iconName: 'contributorOfTheMonth',
-  //   title: 'Contributor of the month',
-  //   date: 'April 2022',
-  //   count: 1,
-  // },
-  // {
-  //   iconName: 'reporterStar',
-  //   title: 'Star Reporter',
-  //   tooltip:
-  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae ultrices mattis nulla quisque risus. In porttitor fames leo eget id viverra.',
-  //   date: null,
-  //   count: 0,
-  // },
-  // {
-  //   iconName: 'teamPlayer',
-  //   title: 'Team Player',
-  //   date: null,
-  //   count: 1,
-  // },
-  {
-    iconName: 'goldMedal',
-    title: 'Gold Medal',
-    tooltip:
-      'This medal is given to the experienced contributors with many thanks from the Novu team.',
-    date: null,
-    count: 0,
-    minStars: 7,
-  },
-  {
-    iconName: 'silverMedal',
-    title: 'Silver Medal',
-    tooltip: 'This one is held by the people who made at least three PRs to make Novu better.',
-    date: 'April 2022',
-    count: 1,
-    minStars: 3,
-  },
-  {
-    iconName: 'bronzeMedal',
-    title: 'Bronze Medal',
-    tooltip: 'This medal is a great start of your relationship with the Novu project.',
-    date: 'April 2022',
-    count: 1,
-    minStars: 1,
-  },
-];
 
 const findDates = (pulls) =>
   pulls
@@ -215,8 +154,13 @@ const Achievements = ({
             } = achievement;
 
             return (
-              <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
-                {tooltip && <Tooltip text={tooltip} />}
+              <div
+                className="flex flex-col items-center"
+                key={index}
+                data-tooltip-id={`additional-${index}`}
+                data-tooltip-content={tooltip}
+              >
+                {tooltip && <Tooltip className="max-w-[248px]" id={`additional-${index}`} />}
 
                 <GatsbyImage
                   className="lg:h-[134px]"
@@ -228,7 +172,7 @@ const Achievements = ({
                 />
 
                 <div className="mt-3.5 space-y-1.5 text-center">
-                  <h4 className={clsx('text-base leading-tight')}>{title}</h4>
+                  <h4 className="text-base leading-tight">{title}</h4>
                   <span className="text-sm leading-tight text-gray-6">{achievementDate}</span>
                 </div>
               </div>
@@ -240,8 +184,15 @@ const Achievements = ({
             const icon = achievementIcons[iconName];
 
             return (
-              <div className="flex flex-col items-center" key={index} data-tip={tooltip}>
-                {tooltip && <Tooltip text={tooltip} className="max-w-[248px]" theme="gray" />}
+              <div
+                className="flex flex-col items-center"
+                key={index}
+                data-tooltip-id={`tooltip-${index}`}
+                data-tooltip-content={tooltip}
+              >
+                {tooltip && (
+                  <Tooltip className="max-w-[248px]" theme="gray" id={`tooltip-${index}`} />
+                )}
 
                 <GatsbyImage
                   className="lg:h-[134px]"

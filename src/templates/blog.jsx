@@ -63,8 +63,15 @@ const BlogPage = (props) => {
     blogPageURL: pageContext.blogPageURL,
   };
 
+  const mainHeading = !pageContext?.categoryPath
+    ? 'Blog Novu'
+    : `Blog Novu - ${
+        pageContext?.seo?.title?.split('-')[0].trim() || pageContext?.categoryPath.slice(0, -1)
+      }`;
+
   return (
     <Layout>
+      <h1 className="sr-only">{mainHeading}</h1>
       <Hero {...hero} />
 
       <div
@@ -105,7 +112,6 @@ export const pageQuery = graphql`
     wpPage(id: { eq: $id }) {
       ...wpPageSeo
     }
-
     featuredPost: allWpPost(filter: { id: { eq: $featuredPostId } }) {
       nodes {
         title
@@ -147,13 +153,12 @@ export const pageQuery = graphql`
         }
       }
     }
-
     allWpPost(
       filter: {
         id: { ne: $featuredPostId }
         categories: { nodes: { elemMatch: { id: { eq: $categoryId } } } }
       }
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       limit: $limit
       skip: $skip
     ) {
@@ -205,10 +210,9 @@ export const pageQuery = graphql`
         }
       }
     }
-
     allWpCategory(
       filter: { posts: { nodes: { elemMatch: { id: { ne: null } } } } }
-      sort: { fields: name, order: ASC }
+      sort: { name: ASC }
     ) {
       nodes {
         id

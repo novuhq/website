@@ -63,7 +63,7 @@ const getPricingData = (rangeValue) => [
         text: 'Get started for free',
         url: LINKS.getStarted.to,
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
             sliderValue: RANGES[rangeValue],
           }),
@@ -91,7 +91,7 @@ const getPricingData = (rangeValue) => [
         text: 'Get started for free',
         url: LINKS.getStarted.to,
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Indie Dev',
             sliderValue: RANGES[rangeValue],
           }),
@@ -128,7 +128,7 @@ const getPricingData = (rangeValue) => [
         text: 'Get started for free',
         url: LINKS.getStarted.to,
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Business',
             sliderValue: RANGES[rangeValue],
           }),
@@ -159,7 +159,7 @@ const getPricingData = (rangeValue) => [
         text: 'Contact sales',
         url: 'https://calendly.com/novuhq/novu-meeting',
         onClick: () =>
-          window.analytics.track('Pricing Event: Click the CTA Button on the card', {
+          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
             sliderValue: RANGES[rangeValue],
           }),
@@ -191,9 +191,13 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
       <div className="mt-16 text-center md:mt-14 sm:mt-11">
         <span className="text-center text-3xl font-book md:text-2xl">
           How many events do you need per month?
-          <QuestionIcon className="ml-2.5 inline h-5 w-5 shrink-0" data-tip={tooltip} />
+          <QuestionIcon
+            className="ml-2.5 inline h-5 w-5 shrink-0"
+            data-tooltip-id="tooltip"
+            data-tooltip-content={tooltip}
+          />
         </span>
-        <Tooltip className="max-w-[398px]" text={tooltip} theme="white" />
+        <Tooltip className="max-w-[398px]" theme="white" />
       </div>
       <div className="relative mx-auto mt-12 w-full max-w-[968px]">
         <output
@@ -253,7 +257,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                 key={index}
               >
                 {isOpenBeta && (
-                  <div className="absolute -top-2 -left-2 aspect-square w-24 overflow-hidden rounded-sm">
+                  <div className="absolute -left-2 -top-2 aspect-square w-24 overflow-hidden rounded-sm">
                     <div className="absolute bottom-0 left-0 block w-square-diagonal origin-bottom-left -rotate-45 bg-primary-1 py-[1px] text-center text-xs font-medium text-black">
                       Open Beta*
                     </div>

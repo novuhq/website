@@ -14,5 +14,9 @@
   {
     "fromPath": "/podcast/how-to-talk-to-developers-w/-ran-ribenzaft/",
     "toPath": "/podcast/how-to-talk-to-developers-ran-ribenzaft/"
+  },
+  {
+    "fromPath": "/podcast/",
+    "toPath": "/blog/podcast/"
   }
 ]

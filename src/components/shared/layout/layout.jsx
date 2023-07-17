@@ -3,17 +3,22 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Banner from 'components/shared/banner';
+import ConversionInitiator from 'components/shared/conversions/landing.simple.tracking';
+import CookieBanner from 'components/shared/cookie-banner';
+import FloatingButton from 'components/shared/floating-button';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 
 const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <>
+      <ConversionInitiator />
       <Banner />
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
@@ -21,6 +26,11 @@ const Layout = ({ children }) => {
         <Footer />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
+      <CookieBanner
+        isCookieBannerVisible={isCookieBannerVisible}
+        setIsCookieBannerVisible={setIsCookieBannerVisible}
+      />
+      <FloatingButton isCookieBannerVisible={isCookieBannerVisible} />
     </>
   );
 };
