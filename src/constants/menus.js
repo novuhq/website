@@ -32,6 +32,7 @@ const MENUS = {
     ],
     [
       { text: 'Documentation', ...LINKS.documentation },
+      { text: 'Roadmap', ...LINKS.roadmapPage },
       { text: 'Providers', ...LINKS.providers },
       { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', ...LINKS.discord },
