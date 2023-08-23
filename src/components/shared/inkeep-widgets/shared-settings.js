@@ -7,6 +7,11 @@ const theme = {
     SyntaxHighlighter: {
       highlighter: 'prism',
     },
+    ChatButton: {
+      styles: {
+        right: '2rem',
+      },
+    },
   },
 };
 
@@ -17,6 +22,10 @@ export const baseSettings = {
   apiKey: process.env.GATSBY_INKEEP_API_KEY,
   integrationId: process.env.GATSBY_INKEEP_INTEGRATION_ID,
   theme,
+};
+
+export const aiChatSettings = {
+  botAvatarSrcUrl: 'images/logo-icon.svg',
 };
 
 export const searchSettings = {

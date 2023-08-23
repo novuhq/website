@@ -1,15 +1,15 @@
 import { InkeepChatButton } from '@inkeep/widgets';
 import React, { useState, useEffect } from 'react';
 
-import { baseSettings, searchSettings } from './shared-settings';
+import { baseSettings, searchSettings, aiChatSettings } from '../shared-settings';
 
 const chatButtonProps = {
   chatButtonType: 'ICON_TEXT_SHORTCUT',
-  // fixedPositionXOffset: '80px',
+  fixedPositionXOffset: '2em',
   baseSettings,
   // modalSettings: {},
   searchSettings,
-  // aiChatSettings: {},
+  aiChatSettings,
 };
 
 const InkeepWidget = () => {
