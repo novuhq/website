@@ -7,7 +7,6 @@ const chatButtonProps = {
   chatButtonType: 'ICON_TEXT_SHORTCUT',
   fixedPositionXOffset: '2em',
   baseSettings,
-  // modalSettings: {},
   searchSettings,
   aiChatSettings,
 };

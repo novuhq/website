@@ -10,7 +10,6 @@ const chatButtonProps = {
 
 const InkeepEmbeddedChatWidget = () => {
   const [isBrowser, setIsBrowser] = useState(false);
-  console.log(aiChatSettings);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -20,7 +19,7 @@ const InkeepEmbeddedChatWidget = () => {
     return null;
   }
   return (
-    <main className="flex h-[600px] items-center pt-32">
+    <main className="flex h-[768px] items-center pt-32">
       <InkeepEmbeddedChat {...chatButtonProps} />
     </main>
   );
