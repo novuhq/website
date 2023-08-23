@@ -1,3 +1,5 @@
+import Logo from 'images/logo-icon.svg';
+
 const theme = {
   colorMode: 'dark',
   fonts: {
@@ -25,7 +27,7 @@ export const baseSettings = {
 };
 
 export const aiChatSettings = {
-  botAvatarSrcUrl: 'images/logo-icon.svg',
+  botAvatarSrcUrl: Logo,
 };
 
 export const searchSettings = {

@@ -33,6 +33,9 @@ export default {
   ossFriends: {
     to: '/oss-friends',
   },
+  chat: {
+    to: '/chat',
+  },
 
   // Other pages
   documentation: {
