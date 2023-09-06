@@ -56,6 +56,7 @@ const CARDS = [
     icon: msTeams,
     title: 'MS Teams',
     text: 'Chat',
+    to: 'https://github.com/novuhq/novu/tree/main/providers/ms-teams'
   },
   {
     icon: aws,
