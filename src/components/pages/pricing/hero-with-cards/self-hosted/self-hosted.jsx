@@ -47,7 +47,7 @@ const SelfHosted = () => (
           </ul>
           <Button
             className="w-full"
-            to="https://calendly.com/novuhq/novu-meeting"
+            to="https://calendly.com/novuhq/novu-meeting?utm_campaign=pricing-onpremise&utm_source=website"
             target="_blank"
             theme="gray-outline"
             size="sm"

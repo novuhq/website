@@ -157,7 +157,7 @@ const getPricingData = (rangeValue) => [
     buttons: {
       default: {
         text: 'Contact sales',
-        url: 'https://calendly.com/novuhq/novu-meeting',
+        url: 'https://calendly.com/novuhq/novu-meeting?utm_campaign=pricing-enterprise&utm_source=website',
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
