@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Hacktoberfest 2022';
+const TITLE = 'Hacktoberfest 2023';
 const DESCRIPTION = 'Make your open source contribution today.';
 
 const getZeroPad = (number) => (number < 10 ? `0${number}` : number);
@@ -21,8 +21,8 @@ const getCountTime = (distance) => {
   };
 };
 
-const countDownLaunchDate = new Date('Oct 1, 2022 00:00:00').getTime();
-const countDownEndDate = new Date('Oct 31, 2022 00:00:00').getTime();
+const countDownLaunchDate = new Date('Oct 1, 2023 00:00:00').getTime();
+const countDownEndDate = new Date('Oct 31, 2023 00:00:00').getTime();
 
 const tick = () => {
   const now = new Date().getTime();
