@@ -6,8 +6,8 @@ import Heading from 'components/shared/heading';
 import Timer from '../timer/timer';
 
 const PAGE_TITLE = 'We are happy to take part in<br /><span>Hacktoberfest 2023</span>';
-const BUTTON_TEXT = "CLAIM YOUR NOVU'S SWAG 🎉";
-const BUTTON_URL = 'https://hacksquad.dev/novu';
+const BUTTON_TEXT = 'START HERE 🎉';
+const BUTTON_URL = 'https://github.com/novuhq/novu/labels/Hacktoberfest';
 
 const Hero = () => (
   <section className="hero safe-paddings pt-36 lg:pt-32 md:pt-28 sm:pt-18">
