@@ -1,16 +1,11 @@
-import clsx from 'clsx';
 import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
 
-import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 const TITLE = 'Win a swag pack for just 3 merged PRs!';
-const SUBTITLE = 'Very special Novu T-shirts + Stickers pack';
-const BUTTON_TEXT = "CLAIM YOUR NOVU'S SWAG 🎉";
-const BUTTON_URL = 'https://hacksquad.dev/novu';
 
 const swagAnimationProps = {
   initial: {
@@ -29,9 +24,8 @@ const swagAnimationProps = {
 };
 
 const Swag = () => {
-  const [activeItem, setActiveItem] = useState(0);
+  const [activeItem] = useState(0);
   const {
-    thumbnails: { nodes: thumbnails },
     swagPacks: { nodes: swagPacks },
   } = useStaticQuery(graphql`
     {
@@ -57,9 +51,6 @@ const Swag = () => {
       }
     }
   `);
-  const handleClickButton = (index) => {
-    setActiveItem(index);
-  };
   return (
     <section className="swag safe-paddings mt-32 lg:mt-24 md:mt-20 sm:mt-16">
       <div className="container-lg max-w-[1220px]">
@@ -71,8 +62,8 @@ const Swag = () => {
         >
           {TITLE}
         </Heading>
-        <div className="mt-16 grid grid-cols-10 gap-x-10 md:mt-12 md:gap-x-8 sm:mt-10 sm:gap-y-8">
-          <div className="col-span-7 sm:col-span-full">
+        <div className="mt-16 flex items-center justify-center">
+          <div className="col-span-7 sm:col-span-full ">
             <LazyMotion features={domAnimation}>
               <AnimatePresence initial={false} mode="wait">
                 {swagPacks.map(({ childImageSharp }, index) =>
@@ -90,45 +81,6 @@ const Swag = () => {
                 )}
               </AnimatePresence>
             </LazyMotion>
-          </div>
-          <div className="col-span-3 flex flex-col sm:col-span-full sm:items-center">
-            <Heading
-              className="leading-tight lg:text-xl md:text-lg"
-              theme="white"
-              size="xs"
-              tag="h3"
-            >
-              {SUBTITLE}
-            </Heading>
-            <div className="mt-11 grid grid-cols-3 gap-10 lg:mt-8 md:mt-5 md:gap-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
-              {thumbnails.map(({ childImageSharp }, index) => (
-                <button
-                  key={`${index}-button`}
-                  type="button"
-                  aria-label={`Choose swag pack ${index + 1}`}
-                  onClick={() => handleClickButton(index)}
-                >
-                  <GatsbyImage
-                    className={clsx(
-                      'rounded-[10px] transition-[box-shadow] duration-300 ease-in-out md:rounded-lg',
-                      index === activeItem ? 'shadow-[0_0_0_2px_#FFE14D]' : 'shadow-transparent'
-                    )}
-                    imgClassName="rounded-[10px] md:rounded-lg"
-                    image={getImage(childImageSharp)}
-                    alt={`Swag pack ${index + 1}`}
-                    loading="lazy"
-                  />
-                </button>
-              ))}
-            </div>
-            <Button
-              className="mt-auto md:h-10 sm:mt-6"
-              theme="white-filled"
-              size="sm"
-              to={BUTTON_URL}
-            >
-              {BUTTON_TEXT}
-            </Button>
           </div>
         </div>
       </div>
