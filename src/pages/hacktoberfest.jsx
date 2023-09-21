@@ -3,6 +3,7 @@ import React from 'react';
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
 import Contribute from 'components/pages/hacktoberfest/contribute';
 // import Events from 'components/pages/hacktoberfest/events';
+import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
 import Swag from 'components/pages/hacktoberfest/swag';
 import GetStarted from 'components/shared/get-started';
@@ -32,6 +33,7 @@ const HacktoberfestPage = () => (
     <Swag />
     {/* <Events /> */}
     <CommunityHeroes />
+    <GlobalEvents />
     <GetStarted {...GET_STARTED} />
   </Layout>
 );

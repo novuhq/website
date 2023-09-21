@@ -9,74 +9,88 @@ const DESCRIPTION =
   'Hacktoberfest events are happening all month long so you can join your friends day or night, from dusk to dawn, as you work to complete your pull/merge requests.';
 const ITEMS = [
   {
-    date: 'Oct 3',
+    date: 'Oct 2',
+    time: '03:00 PM',
+    utc: 'UTC-05:00, R',
+    title: 'Hacktoberfest kick-off with Novu team',
+    link: '',
+  },
+  {
+    date: 'Oct 5',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 1/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    title: 'Livestream with Chakra UI / Panda CSS',
+    link: '',
+  },
+  {
+    date: 'Oct 6',
+    time: '05:00 PM',
+    utc: 'UTC+02:00, B',
+    title: 'Twitter spaces with Github stars Samson Goddy & Ruth Ikegah',
+    link: '',
   },
   {
     date: 'Oct 10',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 2/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    title: 'Office hourse',
+    link: '',
   },
   {
-    date: 'Oct 11',
-    time: '00:00 AM',
-    utc: 'UTC+02:00, B',
-    title: 'Hacktoberfest 2022 at Nantes and Caen at our office KNPLabs',
+    date: 'Oct 12',
+    time: '10:00 PM',
+    utc: 'UTC-05:00, R',
+    title: 'Livestream with Appwrite',
+    link: '',
+  },
+  {
+    date: 'Oct 13',
+    time: '03:00 PM',
+    utc: 'UTC+01:00, A',
+    title: 'Twitter Space with Alt School - Sultan & Jerry',
+    link: '',
+  },
+  {
+    date: 'Oct 31',
+    time: '10:00 PM',
+    utc: 'UTC-05:00, R',
+    title: 'C&S build night for Hacktoberfest, Night 5/5',
     link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
   },
   {
     date: 'Oct 17',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 3/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
-  },
-  {
-    date: 'Oct 24',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 4/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
-  },
-  {
-    date: 'Oct 24',
     time: '03:00 PM',
     utc: 'UTC+01:00, A',
-    title: 'Hacktoberfest Edition: Civictech open source hack night',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    title: 'Novu (Hacksquad) - How to build an auth system',
+    link: '',
+  },
+  {
+    date: 'Oct 19',
+    time: '10:00 PM',
+    utc: 'UTC-05:00, R',
+    title: 'Livestream with Sourcegraph',
+    link: '',
+  },
+  {
+    date: 'Oct 20',
+    time: '10:00 PM',
+    utc: 'UTC-05:00, R',
+    title: 'Twitter Space with Francesco Ciulla',
+    link: '',
   },
   {
     date: 'Oct 31',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 5/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
-  },
-  {
-    date: 'Oct 24',
-    time: '03:00 PM',
-    utc: 'UTC+01:00, A',
-    title: 'Hacktoberfest Edition: Civictech open source hack night',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
-  },
-  {
-    date: 'Oct 31',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 5/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    title: 'Office Hours',
+    link: '',
   },
 ];
 
 const GlobalEvents = () => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const list = useMemo(() => (isShownMore ? ITEMS : ITEMS.slice(0, 7)), [isShownMore]);
+  const list = useMemo(() => (isShownMore ? ITEMS : ITEMS.slice(0, 2)), [isShownMore]);
 
   return (
     <section className="global-events safe-paddings bg-gray-2 py-20 sm:py-16">
