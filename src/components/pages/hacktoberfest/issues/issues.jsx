@@ -18,7 +18,7 @@ const Issues = ({ className }) => {
   const {
     hacktoberfestIssues: { data },
   } = useStaticQuery(graphql`
-    query issuesQuery {
+    query hacktoberfestIssuesQuery {
       hacktoberfestIssues {
         data {
           title
