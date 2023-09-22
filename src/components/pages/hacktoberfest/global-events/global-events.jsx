@@ -13,42 +13,36 @@ const ITEMS = [
     time: '03:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Hacktoberfest kick-off with Novu team',
-    link: '',
   },
   {
     date: 'Oct 5',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Livestream with Chakra UI / Panda CSS',
-    link: '',
   },
   {
     date: 'Oct 6',
     time: '05:00 PM',
     utc: 'UTC+02:00, B',
     title: 'Twitter spaces with Github stars Samson Goddy & Ruth Ikegah',
-    link: '',
   },
   {
     date: 'Oct 10',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Office hourse',
-    link: '',
   },
   {
     date: 'Oct 12',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Livestream with Appwrite',
-    link: '',
   },
   {
     date: 'Oct 13',
     time: '03:00 PM',
     utc: 'UTC+01:00, A',
     title: 'Twitter Space with Alt School - Sultan & Jerry',
-    link: '',
   },
   {
     date: 'Oct 31',
@@ -62,28 +56,24 @@ const ITEMS = [
     time: '03:00 PM',
     utc: 'UTC+01:00, A',
     title: 'Novu (Hacksquad) - How to build an auth system',
-    link: '',
   },
   {
     date: 'Oct 19',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Livestream with Sourcegraph',
-    link: '',
   },
   {
     date: 'Oct 20',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Twitter Space with Francesco Ciulla',
-    link: '',
   },
   {
     date: 'Oct 31',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Office Hours',
-    link: '',
   },
 ];
 
@@ -112,22 +102,24 @@ const GlobalEvents = () => {
           <tbody className="divide-y divide-gray-4">
             {list.map(({ date, time, utc, title, link }, index) => (
               <tr key={index}>
-                <td className="whitespace-nowrap pr-5 font-medium md:pr-3.5">{date}</td>
+                <td className="whitespace-nowrap py-4 pr-5 font-medium md:pr-3.5">{date}</td>
                 <td className="whitespace-nowrap pr-5 font-medium md:pr-3.5">{time}</td>
                 <td className="whitespace-nowrap pr-5 text-gray-9 md:pr-3.5">{utc}</td>
                 <td className="pr-5 font-medium md:pr-3.5">{title}</td>
-                <td className="!ml-auto flex justify-end py-4">
-                  <Button
-                    className="!h-7"
-                    theme="yellow"
-                    size="xs"
-                    to={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn more
-                  </Button>
-                </td>
+                {link && (
+                  <td className="!ml-auto flex justify-end py-4">
+                    <Button
+                      className="!h-7"
+                      theme="yellow"
+                      size="xs"
+                      to={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Learn more
+                    </Button>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
