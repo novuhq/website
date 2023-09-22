@@ -420,9 +420,25 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     },
   });
 
+  const hacktoberfestIssuesData = await fetch(
+    'https://api.github.com/repos/novuhq/novu/issues?labels=Hacktoberfest'
+  ).then((response) => response.json());
+
+  createNode({
+    data: hacktoberfestIssuesData,
+    id: `hacktoberfest-issues-data`,
+    parent: null,
+    children: [],
+    internal: {
+      type: `HacktoberfestIssues`,
+      contentDigest: createContentDigest(hacktoberfestIssuesData),
+    },
+  });
+
   const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
     (response) => response.json()
   );
+
   createNode({
     data: issuesData.issues,
     id: `issues-data`,
