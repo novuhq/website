@@ -51,7 +51,7 @@ const Hero = () => {
       <Timer />
 
       <Modal
-        className="relative max-w-[800px] p-10 md:max-w-[600px] sm:p-5"
+        className="relative max-w-[800px] !p-10 md:max-w-[600px] sm:!p-5"
         isOpen={isModalOpen}
         closeModal={handleCloseModal}
       >
