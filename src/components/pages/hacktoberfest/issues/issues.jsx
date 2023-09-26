@@ -22,7 +22,7 @@ const Issues = ({ className }) => {
       hacktoberfestIssues {
         data {
           title
-          url
+          html_url
           created_at
         }
       }
@@ -49,7 +49,7 @@ const Issues = ({ className }) => {
         </div>
         <div className="mx-auto max-w-[904px]">
           <ul className="mt-10">
-            {list.map(({ title, url, created_at }, index) => (
+            {list.map(({ title, html_url, created_at }, index) => (
               <li
                 className="relative flex items-center py-4 after:absolute after:bottom-0 after:right-0 after:h-px after:w-[calc(100%-54px)] after:bg-gray-3 last:after:hidden"
                 key={index}
@@ -60,7 +60,7 @@ const Issues = ({ className }) => {
 
                 <Link
                   className="flex w-full justify-between space-x-3 font-light"
-                  to={url}
+                  to={html_url}
                   target="_blank"
                   rel="noreferrer"
                 >
