@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import Modal from 'components/shared/modal';
+import CloseIcon from 'icons/close.inline.svg';
 
 import Timer from '../timer/timer';
 
-import Modal from './Modal';
+import MODAL_CONTENT from './modal-content';
 
 const PAGE_TITLE = 'We are happy to take part in<br /><span>Hacktoberfest 2023</span>';
 const BUTTON_TEXT = 'START HERE 🎉';
@@ -13,18 +15,12 @@ const BUTTON_URL = 'https://github.com/novuhq/novu/labels/Hacktoberfest';
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const handleModal = () => {
-  //   setIsOpen(true)
-  // }
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
+  const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
+  const handleOpenModal = () => setIsModalOpen(true);
   return (
     <section className="hero safe-paddings pt-36 lg:pt-32 md:pt-28 sm:pt-18">
       <div className="relative flex items-center bg-hero-gradient bg-cover bg-center bg-no-repeat pb-[52px] pt-[42px] md:pb-10 md:pt-8">
@@ -38,7 +34,7 @@ const Hero = () => {
           {PAGE_TITLE}
         </Heading>
       </div>
-      <div className="container-lg mt-14 flex flex-row justify-center gap-18 md:mt-10 sm:mt-9">
+      <div className="container-lg mt-14 flex flex-row justify-center gap-10 md:mt-10 sm:mt-9">
         <Button
           size="sm"
           theme="blue-gradient"
@@ -48,18 +44,30 @@ const Hero = () => {
         >
           {BUTTON_TEXT}
         </Button>
-        <Button
-          size="sm"
-          theme="blue-gradient"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={openModal}
-        >
+        <Button size="sm" theme="gray-outline" onClick={handleOpenModal}>
           Contribution guide
         </Button>
       </div>
       <Timer />
-      {isModalOpen && <Modal isOpen={openModal} onClose={closeModal} />}
+
+      <Modal
+        className="relative max-w-[800px] p-10 md:max-w-[600px] sm:p-5"
+        isOpen={isModalOpen}
+        closeModal={handleCloseModal}
+      >
+        <CloseIcon
+          className="transitions-opacity absolute -right-10 top-5 h-5 cursor-pointer duration-200 hover:opacity-60 sm:right-5 sm:h-3.5"
+          onClick={handleCloseModal}
+        />
+        <div className="content">{MODAL_CONTENT}</div>
+
+        <div className="mt-8 flex justify-center">
+          <Button size="sm" theme="blue-gradient" onClick={handleCloseModal}>
+            I've read it! 🎉
+          </Button>
+        </div>
+      </Modal>
+
       {/* <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2>Modal Content</h2>
         <p>This is your modal content.</p>
