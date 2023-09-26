@@ -5,6 +5,7 @@ const fetch = require(`node-fetch`);
 const slash = require('slash');
 
 const redirects = require('./redirects.json');
+const { octokit } = require('./src/utils/contributors-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
@@ -420,12 +421,17 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     },
   });
 
-  const hacktoberfestIssuesData = await fetch(
-    'https://api.github.com/repos/novuhq/novu/issues?labels=Hacktoberfest'
-  ).then((response) => response.json());
+  const hacktoberfestIssuesData = await octokit.request(
+    'GET /orgs/novuhq/issues?filter=all&labels=Hacktoberfest&per_page=100',
+    {
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    }
+  );
 
   createNode({
-    data: hacktoberfestIssuesData,
+    data: hacktoberfestIssuesData.data,
     id: `hacktoberfest-issues-data`,
     parent: null,
     children: [],
