@@ -13,6 +13,7 @@
 @import './container.css';
 @import './content.css';
 @import './input-border-gradient.css';
+@import './masonry.css';
 @import '../components/shared/input-range/input-range.css';
 @import '../components/pages/timeline/timeline/timeline.css';
 
