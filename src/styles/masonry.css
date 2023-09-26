@@ -9,28 +9,5 @@
     @media (max-width: 767px) {
       flex-flow: column;
     }
-
-    & .masonry__item:nth-of-type(4n + 1) {
-      @apply order-1 lg:order-none;
-    }
-    & .masonry__item:nth-of-type(4n + 2) {
-      @apply order-2 lg:order-none;
-    }
-    & .masonry__item:nth-of-type(4n + 3) {
-      @apply order-3 lg:order-none;
-    }
-    & .masonry__item:nth-of-type(4n) {
-      @apply order-4 lg:order-none;
-    }
-
-    & .masonry__item:nth-of-type(3n + 1) {
-      @apply lg:order-1;
-    }
-    & .masonry__item:nth-of-type(3n + 2) {
-      @apply lg:order-2;
-    }
-    & .masonry__item:nth-of-type(3n) {
-      @apply lg:order-3;
-    }
   }
 }
