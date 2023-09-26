@@ -422,7 +422,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   });
 
   const hacktoberfestIssuesData = await octokit.request(
-    'GET /orgs/novuhq/issues?filter=all&labels=Hacktoberfest&per_page=100',
+    'GET /orgs/novuhq/issues?filter=all&labels=hacktoberfest&per_page=100',
     {
       headers: {
         'X-GitHub-Api-Version': '2022-11-28',
@@ -440,6 +440,89 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       contentDigest: createContentDigest(hacktoberfestIssuesData),
     },
   });
+
+  // TODO: Please comment this part of the code after Hacktoberfest is over, as this part greatly affects the resources of the build, and come back to it when you need it again.
+  // This part is used to get the data of contributors in Hacktoberfest and to calculate the scores
+  const fetchMergedPullRequestsFromRepo = async (repoName) => {
+    let page = 1;
+    let pullRequests = [];
+    while (true) {
+      const pullRequestsBatch = await octokit.request(
+        `GET /repos/novuhq/${repoName}/pulls?state=closed&per_page=100&page=${page}`
+      );
+      if (pullRequestsBatch.data.length === 0) {
+        break; // No more pull requests to fetch
+      }
+      pullRequests = pullRequests.concat(pullRequestsBatch.data);
+      page += 1;
+    }
+    return pullRequests;
+  };
+
+  const repoNames = [
+    ...new Set(hacktoberfestIssuesData.data.map((issue) => issue.repository.name)),
+  ];
+  const hacktoberfestAuthorsMergedPRs = [];
+
+  // Fetch pull requests in parallel
+  const allPullRequests = await Promise.all(repoNames.map(fetchMergedPullRequestsFromRepo));
+
+  allPullRequests.flat().forEach((pr) => {
+    if (
+      pr.labels.some(
+        (label) => label.name === 'Hacktoberfest' || label.name === 'hacktoberfest-accepted'
+      ) &&
+      pr.merged_at
+    ) {
+      const author = pr.user.login;
+      const prId = pr.id;
+      const prUrl = pr.html_url;
+      const prMergeDate = pr.merged_at;
+      const repo = pr.base.repo.name;
+      const score = 1;
+
+      const authorData = hacktoberfestAuthorsMergedPRs.find(
+        (authorPR) => authorPR.author === author
+      );
+
+      if (!authorData) {
+        hacktoberfestAuthorsMergedPRs.push({
+          author,
+          prs: [
+            {
+              prId,
+              prUrl,
+              prMergeDate,
+              repo,
+              score,
+            },
+          ],
+          score,
+        });
+      } else {
+        authorData.prs.push({
+          prId,
+          prUrl,
+          prMergeDate,
+          repo,
+          score,
+        });
+        authorData.score += score;
+      }
+    }
+  });
+
+  createNode({
+    data: hacktoberfestAuthorsMergedPRs,
+    id: `hacktoberfest-authors-prs`,
+    parent: null,
+    children: [],
+    internal: {
+      type: `HacktoberfestAuthorsMergedPRs`,
+      contentDigest: createContentDigest(hacktoberfestAuthorsMergedPRs),
+    },
+  });
+  // End of Hacktoberfest part
 
   const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
     (response) => response.json()
