@@ -67,15 +67,6 @@ const Hero = () => {
           </Button>
         </div>
       </Modal>
-
-      {/* <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Modal Content</h2>
-        <p>This is your modal content.</p>
-        <p>
-
-
-        </p>
-      </Modal> */}
     </section>
   );
 };
