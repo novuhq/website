@@ -104,8 +104,8 @@ const Logos = () => (
       <ul className="mx-auto mt-10 flex w-full max-w-[1380px] flex-wrap justify-center gap-y-10 xl:max-w-[1280px] lg:max-w-[1040px] md:flex-wrap md:gap-x-16 md:gap-y-7 md:space-x-0 sm:mt-6 sm:gap-x-5 sm:gap-y-5">
         {LOGOS.map(({ src, alt, width, height }, index) => (
           <li
-            key={index}
             className={index < 5 ? 'mx-10 xl:mx-8 lg:mx-5 md:mx-0' : 'mx-8 xl:mx-6 lg:mx-4 md:mx-0'}
+            key={index}
           >
             <img
               className={clsx(
