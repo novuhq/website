@@ -111,30 +111,26 @@ const GlobalEvents = () => {
             {list.map(({ date, time, utc, title, link }, index) => (
               <tr key={index}>
                 <td
-                  className={`whitespace-nowrap py-4 pr-5 ${
-                    date === 'Date' ? 'text-2xl ' : 'font-medium'
-                  } md:pr-3.5`}
+                  className={`whitespace-nowrap py-4 pr-5 ${date === 'Date' ? 'text-2xl ' : 'font-medium'
+                    } md:pr-3.5`}
                 >
                   {date}
                 </td>
                 <td
-                  className={`whitespace-nowrap pr-5 ${
-                    time === 'Time' ? 'text-2xl ' : 'font-medium'
-                  } md:pr-3.5`}
+                  className={`whitespace-nowrap pr-5 ${time === 'Time' ? 'text-2xl ' : 'font-medium'
+                    } md:pr-3.5`}
                 >
                   {time}
                 </td>
                 <td
-                  className={`whitespace-nowrap pr-5 ${
-                    time === 'Time' ? 'text-2xl font-medium' : 'text-gray-9'
-                  }  md:pr-3.5`}
+                  className={`whitespace-nowrap pr-5 ${time === 'Time' ? 'text-2xl font-medium' : 'text-gray-9'
+                    }  md:pr-3.5`}
                 >
                   {utc}
                 </td>
                 <td
-                  className={`pr-5 font-medium ${
-                    title === 'Event' ? 'text-2xl font-medium' : ''
-                  } md:pr-3.5`}
+                  className={`pr-5 font-medium ${title === 'Event' ? 'text-2xl font-medium' : ''
+                    } md:pr-3.5`}
                 >
                   {title}
                 </td>
