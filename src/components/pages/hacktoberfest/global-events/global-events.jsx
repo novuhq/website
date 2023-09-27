@@ -19,6 +19,7 @@ const ITEMS = [
     time: '03:00 PM',
     utc: 'UTC-05:00, R',
     title: 'Hacktoberfest kick-off with Novu team',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_554VmkuaQ6iDqSPXPd2hLg',
   },
   {
     date: 'Oct 5',
@@ -36,7 +37,8 @@ const ITEMS = [
     date: 'Oct 10',
     time: '10:00 PM',
     utc: 'UTC-05:00, R',
-    title: 'Office hourse',
+    title: 'Office hours',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_AxbuSpetTqOT1CYWbMYG8g',
   },
   {
     date: 'Oct 12',
@@ -146,7 +148,7 @@ const GlobalEvents = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Learn more
+                      RSVP
                     </Button>
                   </td>
                 )}
