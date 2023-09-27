@@ -9,6 +9,12 @@ const DESCRIPTION =
   'Hacktoberfest events are happening all month long so you can join your friends day or night, from dusk to dawn, as you work to complete your pull/merge requests.';
 const ITEMS = [
   {
+    date: 'Date',
+    time: 'Time',
+    utc: 'Time in UTC',
+    title: 'Event',
+  },
+  {
     date: 'Oct 2',
     time: '03:00 PM',
     utc: 'UTC-05:00, R',
@@ -102,10 +108,34 @@ const GlobalEvents = () => {
           <tbody className="divide-y divide-gray-4">
             {list.map(({ date, time, utc, title, link }, index) => (
               <tr key={index}>
-                <td className="whitespace-nowrap py-4 pr-5 font-medium md:pr-3.5">{date}</td>
-                <td className="whitespace-nowrap pr-5 font-medium md:pr-3.5">{time}</td>
-                <td className="whitespace-nowrap pr-5 text-gray-9 md:pr-3.5">{utc}</td>
-                <td className="pr-5 font-medium md:pr-3.5">{title}</td>
+                <td
+                  className={`whitespace-nowrap py-4 pr-5 ${
+                    date === 'Date' ? 'text-2xl ' : 'font-medium'
+                  } md:pr-3.5`}
+                >
+                  {date}
+                </td>
+                <td
+                  className={`whitespace-nowrap pr-5 ${
+                    time === 'Time' ? 'text-2xl ' : 'font-medium'
+                  } md:pr-3.5`}
+                >
+                  {time}
+                </td>
+                <td
+                  className={`whitespace-nowrap pr-5 ${
+                    time === 'Time' ? 'text-2xl font-medium' : 'text-gray-9'
+                  }  md:pr-3.5`}
+                >
+                  {utc}
+                </td>
+                <td
+                  className={`pr-5 font-medium ${
+                    title === 'Event' ? 'text-2xl font-medium' : ''
+                  } md:pr-3.5`}
+                >
+                  {title}
+                </td>
                 {link && (
                   <td className="!ml-auto flex justify-end py-4">
                     <Button
