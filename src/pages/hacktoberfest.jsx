@@ -6,7 +6,7 @@ import Contribute from 'components/pages/hacktoberfest/contribute';
 import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
 import Issues from 'components/pages/hacktoberfest/issues';
-// import Swag from 'components/pages/hacktoberfest/swag';
+import Swag from 'components/pages/hacktoberfest/swag';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
@@ -30,8 +30,7 @@ const HacktoberfestPage = () => (
     <Hero />
     <Contribute />
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
-    {/* TODO: Bring this section back once the design is ready and updated */}
-    {/* <Swag /> */}
+    <Swag />
     {/* <Events /> */}
     <CommunityHeroes />
     <GlobalEvents />
