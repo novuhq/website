@@ -100,7 +100,7 @@ const LOGOS = [
 const Logos = () => (
   <section className="logos safe-paddings bg-black pb-40 pt-24 lg:py-16 md:py-14 sm:py-9">
     <div className="container">
-      <h3 className="text-md text-center font-book uppercase leading-none">{TITLE}</h3>
+      <h2 className="text-md text-center font-book uppercase leading-none">{TITLE}</h2>
       <ul className="mx-auto mt-10 flex w-full max-w-[1380px] flex-wrap justify-center gap-y-10 xl:max-w-[1280px] lg:max-w-[1040px] md:flex-wrap md:gap-x-16 md:gap-y-7 md:space-x-0 sm:mt-6 sm:gap-x-5 sm:gap-y-5">
         {LOGOS.map(({ src, alt, width, height }, index) => (
           <li

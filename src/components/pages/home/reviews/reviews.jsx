@@ -120,7 +120,7 @@ const Reviews = () => (
       <p className="mx-auto mt-5 max-w-[720px] text-center text-lg leading-snug text-gray-9 lg:mt-3 lg:text-base">
         {DESCRIPTION}
       </p>
-      <ul className="masonry mt-10 flex h-[687px] w-full gap-y-10 lg:h-[760px] lg:gap-y-7 sm:mt-6 sm:h-auto sm:gap-y-5">
+      <ul className="mt-10 flex h-[687px] w-full flex-col flex-wrap content-between gap-y-10 lg:h-[760px] lg:gap-y-7 sm:mt-6 sm:h-auto sm:flex-nowrap sm:gap-y-5">
         {ITEMS.map(({ text, image, author, linkUrl }, index) => (
           <li
             key={index}
@@ -132,7 +132,7 @@ const Reviews = () => (
               index % 3 === 0 && 'lg:order-1',
               index % 3 === 1 && 'lg:order-2',
               index % 3 === 2 && 'lg:order-3',
-              'relative w-[calc(25%-30px)] overflow-hidden rounded-xl lg:w-[calc(33%-18px)] md:w-[calc(33%-13px)] sm:w-full'
+              'relative w-[calc(25%-30px)] overflow-hidden rounded-xl lg:w-[calc(33%-18px)] md:w-[calc(33%-13px)] sm:order-none sm:w-full'
             )}
           >
             <Link

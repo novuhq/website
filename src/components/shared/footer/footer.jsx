@@ -30,7 +30,7 @@ const CERTIFICATES = [
   {
     src: certificateGDPR,
     alt: 'Certificate GDPR',
-    width: 33,
+    width: 34,
     height: 48,
   },
 ];
