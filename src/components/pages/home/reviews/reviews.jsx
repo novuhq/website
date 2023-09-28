@@ -4,14 +4,14 @@ import React from 'react';
 
 import Link from 'components/shared/link';
 
-import csabaKissi from './images/csaba-kissi.png';
-import doinfinehq from './images/doinfinehq.png';
-import fgribreau from './images/fgribreau.png';
-import lukasboehler from './images/lukasboehler.png';
-import nathanTarbert from './images/nathan-tarbert.png';
-import nikkisiapno from './images/nikkisiapno.png';
-import psteinroe from './images/psteinroe.png';
-import rauchg from './images/rauchg.png';
+import csabaKissi from './images/csaba-kissi.jpg';
+import doinfinehq from './images/doinfinehq.jpg';
+import fgribreau from './images/fgribreau.jpg';
+import lukasboehler from './images/lukasboehler.jpg';
+import nathanTarbert from './images/nathan-tarbert.jpg';
+import nikkisiapno from './images/nikkisiapno.jpg';
+import psteinroe from './images/psteinroe.jpg';
+import rauchg from './images/rauchg.jpg';
 
 const TITLE = 'Loved by engineers from around the world';
 const DESCRIPTION =
