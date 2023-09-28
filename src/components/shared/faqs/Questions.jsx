@@ -22,6 +22,19 @@ const FAQ_DATA = [
       'Valid contributions include bug fixes, new features, documentation improvements, and more. You can take a look at dedicated issues for Hacktoberfest from our team.',
   },
   {
+    question: 'Can I register for both Hacktoberfest and Hacksquad?',
+    answer:
+      'Yes, and even recommended! Each contribution will be counted for both Hacktoberfest and HackSquad',
+  },
+  {
+    question: 'How long will it take to receive the swag?',
+    answer: 'We assume that it will reach everybody within 60-180 days after the event ends.',
+  },
+  {
+    question: 'Do I need to pay duty for the SWAG?',
+    answer: 'No! We are taking care of it!',
+  },
+  {
     question: 'Do I need to be a programmer to join Hacktoberfest?',
     answer:
       'No, anyone can participate! You can help with documentation, translations, artwork, and other non-coding contributions. You can even create issues that you think people should work on.',
