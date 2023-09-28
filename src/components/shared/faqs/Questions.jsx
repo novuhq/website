@@ -35,6 +35,11 @@ const FAQ_DATA = [
     answer: 'No! We are taking care of it!',
   },
   {
+    question: 'There are two swag kits: Normal & Premium. What’s the difference?',
+    answer:
+      'The first 30 contributors to get 5 merged PRs throughout the period of Hacktoberfest get the premium swag kits. The first 90 contributors to get 3 merged PRs throughout the period of Hacktoberfest get the normal swag kits',
+  },
+  {
     question: 'Do I need to be a programmer to join Hacktoberfest?',
     answer:
       'No, anyone can participate! You can help with documentation, translations, artwork, and other non-coding contributions. You can even create issues that you think people should work on.',
