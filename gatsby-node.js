@@ -474,7 +474,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       ) &&
       pr.merged_at
     ) {
-      const author = pr.user.login;
+      const author = pr.user;
       const prId = pr.id;
       const prUrl = pr.html_url;
       const prMergeDate = pr.merged_at;
