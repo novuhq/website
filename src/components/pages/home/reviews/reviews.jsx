@@ -38,11 +38,9 @@ const ITEMS = [
     },
     image: (
       <StaticImage
-        className="mt-5 w-full max-w-[282px] rounded"
+        className="mt-5 w-full rounded"
         src="./images/console.jpg"
         alt="Console output"
-        width={282}
-        height={216}
         loading="lazy"
       />
     ),
@@ -57,11 +55,9 @@ const ITEMS = [
     },
     image: (
       <StaticImage
-        className="mt-5 w-full max-w-[282px] rounded"
+        className="mt-5 w-full rounded"
         src="./images/notification.jpg"
         alt="Notification"
-        width={282}
-        height={77}
         loading="lazy"
       />
     ),
