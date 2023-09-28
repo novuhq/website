@@ -152,7 +152,7 @@ const Swag = () => {
                         className={clsx(
                           'relative rounded-[10px] shadow-[0px_0px_30px_rgba(255,226,125,0.50),0px_0px_10px_rgba(255,226,125,0.40),0px_0px_3px_rgba(255,226,125,0.60)] before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-full before:rounded-[10px] before:border-2 before:border-transparent before:transition-colors before:duration-300 before:ease-in-out md:rounded-lg',
                           {
-                            'before:!border-purple': premiumIndex === activeItem,
+                            'before:!border-yellow': premiumIndex === activeItem,
                           }
                         )}
                         imgClassName="rounded-[10px] md:rounded-lg"
