@@ -470,7 +470,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   allPullRequests.flat().forEach((pr) => {
     if (
       pr.labels.some(
-        (label) => label.name === 'Hacktoberfest' || label.name === 'hacktoberfest-accepted'
+        (label) => label.name === 'hacktoberfest' || label.name === 'hacktoberfest-accepted'
       ) &&
       pr.merged_at
     ) {
@@ -482,7 +482,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       const score = 1;
 
       const authorData = hacktoberfestAuthorsMergedPRs.find(
-        (authorPR) => authorPR.author === author
+        ({ author: authorPR }) => authorPR.login === author.login
       );
 
       if (!authorData) {
