@@ -37,7 +37,7 @@ const FAQ_DATA = [
   {
     question: 'There are two swag kits: Normal & Premium. What’s the difference?',
     answer:
-      'The first 30 contributors to get 5 merged PRs throughout the period of Hacktoberfest get the premium swag kits. The first 90 contributors to get 3 merged PRs throughout the period of Hacktoberfest get the normal swag kits',
+      'The first 30 contributors to get 5 merged PRs throughout the period of Hacktoberfest get the premium swag kit. The first 90 contributors to get 3 merged PRs throughout the period of Hacktoberfest get the normal swag kits',
   },
   {
     question: 'Do I need to be a programmer to join Hacktoberfest?',
