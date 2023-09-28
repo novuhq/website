@@ -3,10 +3,12 @@ import React from 'react';
 import CommunityHeroes from 'components/pages/hacktoberfest/community-heroes';
 import Contribute from 'components/pages/hacktoberfest/contribute';
 // import Events from 'components/pages/hacktoberfest/events';
+import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
+import Issues from 'components/pages/hacktoberfest/issues';
 import Swag from 'components/pages/hacktoberfest/swag';
+import FAQS from 'components/shared/faqs/Questions';
 import GetStarted from 'components/shared/get-started';
-import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import LINKS from 'constants/links';
@@ -31,8 +33,10 @@ const HacktoberfestPage = () => (
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
     <Swag />
     {/* <Events /> */}
+    <GlobalEvents />
     <CommunityHeroes />
     <GetStarted {...GET_STARTED} />
+    <FAQS />
   </Layout>
 );
 

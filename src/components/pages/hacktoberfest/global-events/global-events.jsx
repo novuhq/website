@@ -9,74 +9,79 @@ const DESCRIPTION =
   'Hacktoberfest events are happening all month long so you can join your friends day or night, from dusk to dawn, as you work to complete your pull/merge requests.';
 const ITEMS = [
   {
-    date: 'Oct 3',
+    date: 'Date',
+    time: 'Time',
+    utc: 'Time in UTC',
+    title: 'Event',
+  },
+  {
+    date: 'Oct 2',
+    time: '03:00 PM',
+    utc: '02:00 PM UTC',
+    title: 'Hacktoberfest kick-off with Novu team',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_554VmkuaQ6iDqSPXPd2hLg',
+  },
+  {
+    date: 'Oct 5',
     time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 1/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    utc: '09:00 PM UTC',
+    title: 'Livestream with Chakra UI / Panda CSS',
+  },
+  {
+    date: 'Oct 6',
+    time: '05:00 PM',
+    utc: '04:00 PM UTC',
+    title: 'Twitter spaces with Github stars Samson Goddy & Ruth Ikegah',
   },
   {
     date: 'Oct 10',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 2/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    time: '01:00 PM',
+    utc: '12:00 PM UTC',
+    title: 'Office hours',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_AxbuSpetTqOT1CYWbMYG8g',
   },
   {
-    date: 'Oct 11',
-    time: '00:00 AM',
-    utc: 'UTC+02:00, B',
-    title: 'Hacktoberfest 2022 at Nantes and Caen at our office KNPLabs',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    date: 'Oct 12',
+    time: '04:00 PM',
+    utc: '03:00 PM UTC',
+    title: 'Livestream with Appwrite',
+  },
+  {
+    date: 'Oct 13',
+    time: '06:00 PM',
+    utc: '05:00 PM UTC',
+    title: 'Twitter Space with Alt School - Sultan & Jerry',
   },
   {
     date: 'Oct 17',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 3/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    time: '08:00 PM',
+    utc: '07:00 PM UTC',
+    title: 'Novu (Hacksquad) - How to build an auth system',
   },
   {
-    date: 'Oct 24',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 4/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    date: 'Oct 19',
+    time: '04:00 PM',
+    utc: '03:00 PM UTC',
+    title: 'Livestream with Sourcegraph',
   },
   {
-    date: 'Oct 24',
-    time: '03:00 PM',
-    utc: 'UTC+01:00, A',
-    title: 'Hacktoberfest Edition: Civictech open source hack night',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    date: 'Oct 20',
+    time: '06:00 PM',
+    utc: '05:00 PM UTC',
+    title: 'Twitter Space with Francesco Ciulla',
   },
   {
     date: 'Oct 31',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 5/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
-  },
-  {
-    date: 'Oct 24',
-    time: '03:00 PM',
-    utc: 'UTC+01:00, A',
-    title: 'Hacktoberfest Edition: Civictech open source hack night',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
-  },
-  {
-    date: 'Oct 31',
-    time: '10:00 PM',
-    utc: 'UTC-05:00, R',
-    title: 'C&S build night for Hacktoberfest, Night 5/5',
-    link: 'https://www.meetup.com/Code-and-Supply/events/280000000/',
+    time: '01:00 PM',
+    utc: '12:00 PM UTC',
+    title: 'Office Hours',
   },
 ];
 
 const GlobalEvents = () => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const list = useMemo(() => (isShownMore ? ITEMS : ITEMS.slice(0, 7)), [isShownMore]);
+  const list = useMemo(() => (isShownMore ? ITEMS : ITEMS.slice(0, 2)), [isShownMore]);
 
   return (
     <section className="global-events safe-paddings bg-gray-2 py-20 sm:py-16">
@@ -98,22 +103,48 @@ const GlobalEvents = () => {
           <tbody className="divide-y divide-gray-4">
             {list.map(({ date, time, utc, title, link }, index) => (
               <tr key={index}>
-                <td className="whitespace-nowrap pr-5 font-medium md:pr-3.5">{date}</td>
-                <td className="whitespace-nowrap pr-5 font-medium md:pr-3.5">{time}</td>
-                <td className="whitespace-nowrap pr-5 text-gray-9 md:pr-3.5">{utc}</td>
-                <td className="pr-5 font-medium md:pr-3.5">{title}</td>
-                <td className="!ml-auto flex justify-end py-4">
-                  <Button
-                    className="!h-7"
-                    theme="yellow"
-                    size="xs"
-                    to={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn more
-                  </Button>
+                <td
+                  className={`whitespace-nowrap py-4 pr-5 ${
+                    date === 'Date' ? 'text-2xl ' : 'font-medium'
+                  } md:pr-3.5`}
+                >
+                  {date}
                 </td>
+                <td
+                  className={`whitespace-nowrap pr-5 ${
+                    time === 'Time' ? 'text-2xl ' : 'font-medium'
+                  } md:pr-3.5`}
+                >
+                  {time}
+                </td>
+                <td
+                  className={`whitespace-nowrap pr-5 ${
+                    time === 'Time' ? 'text-2xl font-medium' : 'text-gray-9'
+                  }  md:pr-3.5`}
+                >
+                  {utc}
+                </td>
+                <td
+                  className={`pr-5 font-medium ${
+                    title === 'Event' ? 'text-2xl font-medium' : ''
+                  } md:pr-3.5`}
+                >
+                  {title}
+                </td>
+                {link && (
+                  <td className="!ml-auto flex justify-end py-4">
+                    <Button
+                      className="!h-7"
+                      theme="yellow"
+                      size="xs"
+                      to={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      RSVP
+                    </Button>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
