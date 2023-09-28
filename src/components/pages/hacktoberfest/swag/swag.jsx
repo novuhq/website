@@ -58,16 +58,14 @@ const Swag = () => {
     }
   `);
   const handleClickButton = (index) => {
-    console.log(index);
     setActiveItem(index);
   };
 
   const thumbnailsNormal = thumbnails.slice(0, 6);
   const thumbnailsPremium = thumbnails.slice(6, 12);
 
-  console.log(activeItem);
   return (
-    <section className="swag safe-paddings mt-32 pb-20 lg:mt-24 md:mt-20 sm:mt-16 sm:pb-16">
+    <section className="swag safe-paddings py-32 lg:py-24 md:py-20 sm:py-16">
       <div className="container-lg max-w-[1220px]">
         <Heading
           className="text-center leading-tight md:text-5xl sm:text-4xl"

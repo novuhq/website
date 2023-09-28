@@ -33,8 +33,8 @@ const HacktoberfestPage = () => (
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
     <Swag />
     {/* <Events /> */}
-    <CommunityHeroes />
     <GlobalEvents />
+    <CommunityHeroes />
     <GetStarted {...GET_STARTED} />
     <FAQS />
   </Layout>
