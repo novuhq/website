@@ -34,7 +34,7 @@ const Hero = () => {
           {PAGE_TITLE}
         </Heading>
       </div>
-      <div className="container-lg mt-14 flex flex-row justify-center gap-10 md:mt-10 sm:mt-9">
+      <div className="container-lg mt-14 flex justify-center gap-x-10 md:mt-10 sm:mt-9 [@media(max-width:500px)]:flex-col [@media(max-width:500px)]:gap-y-5">
         <Button
           size="sm"
           theme="blue-gradient"
