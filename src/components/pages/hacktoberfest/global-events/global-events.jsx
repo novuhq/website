@@ -10,7 +10,7 @@ const DESCRIPTION =
 const ITEMS = [
   {
     date: 'Date',
-    time: 'Time',
+    time: 'Time (In WAT)',
     utc: 'Time in UTC',
     title: 'Event',
   },
@@ -26,6 +26,7 @@ const ITEMS = [
     time: '10:00 PM',
     utc: '09:00 PM UTC',
     title: 'Livestream with Chakra UI / Panda CSS',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_QtJh33oqS9mKkmizmRGFVA',
   },
   {
     date: 'Oct 6',
@@ -45,6 +46,7 @@ const ITEMS = [
     time: '04:00 PM',
     utc: '03:00 PM UTC',
     title: 'Livestream with Appwrite',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_eAGFff5_Tg6qAW99BgEjqQ',
   },
   {
     date: 'Oct 13',
@@ -63,6 +65,7 @@ const ITEMS = [
     time: '04:00 PM',
     utc: '03:00 PM UTC',
     title: 'Livestream with Sourcegraph',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_T5tYzTIVQLmvi8XriGFDDQ',
   },
   {
     date: 'Oct 20',
