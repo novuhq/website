@@ -103,6 +103,10 @@ export default {
     to: 'https://docs.novu.co/api/client-libraries',
     target: '_blank',
   },
+  calendly: {
+    to: 'https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_source=website',
+    target: '_blank',
+  },
 
   // Social
   discord: {

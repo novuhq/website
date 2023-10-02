@@ -17,6 +17,7 @@ const styles = {
     'white-filled': 'bg-white text-black hover:bg-[rgba(255,255,255,0.8)]',
     'black-outline':
       'bg-transparent text-black border border-black hover:bg-gray-5 hover:border-gray-5',
+    'white-outline': 'bg-transparent text-white border border-white hover:bg-gray-4',
     'gray-outline':
       'bg-transparent text-white border border-gray-5 hover:bg-gray-4 hover:border-gray-4',
     'blue-gradient':
