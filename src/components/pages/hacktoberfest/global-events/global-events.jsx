@@ -26,6 +26,7 @@ const ITEMS = [
     time: '10:00 PM',
     utc: '09:00 PM UTC',
     title: 'Livestream with Chakra UI / Panda CSS',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_QtJh33oqS9mKkmizmRGFVA',
   },
   {
     date: 'Oct 6',
