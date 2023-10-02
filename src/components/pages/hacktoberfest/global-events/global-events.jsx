@@ -10,7 +10,7 @@ const DESCRIPTION =
 const ITEMS = [
   {
     date: 'Date',
-    time: 'Time',
+    time: 'Time (In WAT)',
     utc: 'Time in UTC',
     title: 'Event',
   },
