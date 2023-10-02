@@ -37,6 +37,14 @@
     }
   }
 
+  .text-highlighting-blue-gradient2 {
+    span {
+      background: linear-gradient(227deg, #64e3ff 21.09%, #9092ff 92.64%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
   .text-highlighting-gray-gradient {
     span {
       background: linear-gradient(180deg, #ffffff 0%, #dedede 100%);

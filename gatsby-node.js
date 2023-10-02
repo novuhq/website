@@ -480,6 +480,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       const prMergeDate = pr.merged_at;
       const repo = pr.base.repo.name;
       const score = 1;
+      const year = new Date(prMergeDate).getFullYear(); // Extracting the year from the merge date
 
       const authorData = hacktoberfestAuthorsMergedPRs.find(
         ({ author: authorPR }) => authorPR.login === author.login
@@ -498,6 +499,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
             },
           ],
           score,
+          scoreByYear: { [year]: score }, // Initializing scoreByYear with the first score
         });
       } else {
         authorData.prs.push({
@@ -508,6 +510,13 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
           score,
         });
         authorData.score += score;
+
+        // Update the scoreByYear
+        if (authorData.scoreByYear[year]) {
+          authorData.scoreByYear[year] += score;
+        } else {
+          authorData.scoreByYear[year] = score;
+        }
       }
     }
   });
