@@ -46,6 +46,7 @@ const ITEMS = [
     time: '04:00 PM',
     utc: '03:00 PM UTC',
     title: 'Livestream with Appwrite',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_eAGFff5_Tg6qAW99BgEjqQ',
   },
   {
     date: 'Oct 13',
