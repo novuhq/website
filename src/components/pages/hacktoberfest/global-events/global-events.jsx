@@ -65,6 +65,7 @@ const ITEMS = [
     time: '04:00 PM',
     utc: '03:00 PM UTC',
     title: 'Livestream with Sourcegraph',
+    link: 'https://novu-co.zoom.us/webinar/register/WN_T5tYzTIVQLmvi8XriGFDDQ',
   },
   {
     date: 'Oct 20',
