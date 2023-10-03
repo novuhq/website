@@ -87,7 +87,7 @@ const GlobalEvents = () => {
   const list = useMemo(() => (isShownMore ? ITEMS : ITEMS.slice(0, 2)), [isShownMore]);
 
   return (
-    <section className="global-events safe-paddings bg-gray-2 py-20 sm:py-16">
+    <section className="global-events safe-paddings py-20 sm:py-16">
       <div className="container-lg">
         <Heading
           className="text-center leading-tight md:text-5xl sm:text-4xl"

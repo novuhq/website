@@ -6,6 +6,7 @@ import Contribute from 'components/pages/hacktoberfest/contribute';
 import GlobalEvents from 'components/pages/hacktoberfest/global-events';
 import Hero from 'components/pages/hacktoberfest/hero';
 import Issues from 'components/pages/hacktoberfest/issues';
+import Leaderboard from 'components/pages/hacktoberfest/leaderboard';
 import Swag from 'components/pages/hacktoberfest/swag';
 import FAQS from 'components/shared/faqs/Questions';
 import GetStarted from 'components/shared/get-started';
@@ -32,6 +33,7 @@ const HacktoberfestPage = () => (
     <Contribute />
     <Issues className="mt-32 bg-gray-2 py-20 md:mt-20 sm:mt-16 sm:py-16" />
     <Swag />
+    <Leaderboard />
     {/* <Events /> */}
     <GlobalEvents />
     <CommunityHeroes />
