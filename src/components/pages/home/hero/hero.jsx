@@ -11,10 +11,6 @@ import animationData from './data/hero-lottie-data.json';
 import bgSm from './images/bg-sm.svg';
 import bg from './images/bg.svg';
 
-const TITLE = 'The open-source notification infrastructure for developers';
-const DESCRIPTION =
-  'Simple components and APIs for managing all communication channels in one place: Email, SMS, Direct, and Push';
-
 const Hero = () => {
   const click = useLandingSimpleTracking();
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
@@ -31,23 +27,24 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero safe-paddings relative overflow-hidden pb-20 pt-34 lg:pb-16 lg:pt-32 md:pb-14 md:pt-30 sm:pb-32 sm:pt-22">
+    <section className="hero safe-paddings relative overflow-hidden pb-20 pt-34 lg:pb-16 lg:pt-32 md:pb-14 md:pt-30 sm:pb-11 sm:pt-24">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
-          className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[26px]"
+          className="max-w-[764px] text-center font-normal leading-denser md:max-w-[712px] md:text-4xl sm:text-[34px]"
           size="2xl"
           tag="h1"
           theme="white"
         >
-          {TITLE}
+          The open-source notification infrastructure for&nbsp;developers
         </Heading>
-        <p className="mt-5 text-center text-lg font-book leading-tight text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3">
-          {DESCRIPTION}
+        <p className="mt-5 text-center text-lg font-book leading-tight text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
+          Simple components and APIs for managing all communication channels in one place: Email,
+          SMS, Direct, and Push
         </p>
 
-        <div className="relative mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-5">
+        <div className="relative mt-10 flex items-center justify-center gap-x-7 gap-y-5 sm:mt-7 sm:gap-x-4 sm-xs:grid sm-xs:w-full sm-xs:grid-cols-2">
           <Button
-            className="w-[152px]"
+            className="w-[152px] sm-xs:w-full"
             size="sm"
             theme="white-filled"
             {...LINKS.getStarted}
@@ -55,7 +52,12 @@ const Hero = () => {
           >
             Get Started
           </Button>
-          <Button className="w-[152px]" size="sm" theme="white-outline" {...LINKS.calendly}>
+          <Button
+            className="w-[152px] sm-xs:w-full"
+            size="sm"
+            theme="white-outline"
+            {...LINKS.calendly}
+          >
             Book a demo
           </Button>
         </div>
