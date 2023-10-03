@@ -67,7 +67,7 @@ const Leaderboard = () => {
           {list?.length ? (
             <ul>
               {list
-                .sort((a, b) => b.scoreByYear._2022 - a.scoreByYear._2022)
+                .sort((a, b) => b.scoreByYear._2023 - a.scoreByYear._2023)
                 .map(({ author: { login, html_url, avatar_url }, scoreByYear }, index) => (
                   <li
                     className={clsx(
