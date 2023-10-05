@@ -42,7 +42,7 @@ const Hero = () => {
           SMS, Direct, and Push
         </p>
 
-        <div className="relative mt-10 flex items-center justify-center gap-x-7 gap-y-5 sm:mt-7 sm:gap-x-4 sm-xs:grid sm-xs:w-full sm-xs:grid-cols-2">
+        <div className="relative mt-11 flex items-center justify-center gap-x-7 gap-y-5 sm:mt-7 sm:gap-x-4 sm-xs:grid sm-xs:w-full sm-xs:grid-cols-2">
           <Button
             className="w-[152px] sm-xs:w-full"
             size="sm"
