@@ -104,7 +104,7 @@ export default {
     target: '_blank',
   },
   libraries: {
-    to: 'https://docs.novu.co/api/client-libraries',
+    to: 'https://docs.novu.co/sdks/introduction',
     target: '_blank',
   },
   calendly: {
