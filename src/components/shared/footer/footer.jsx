@@ -56,7 +56,9 @@ const Footer = () => {
           <ul className="mt-10 flex gap-x-5 lg:hidden">
             {CERTIFICATES.map(({ src, alt, width, height }, index) => (
               <li key={index}>
-                <img className="h-12 w-auto" src={src} alt={alt} width={width} height={height} />
+                <Link {...LINKS.trustPage}>
+                  <img className="h-12 w-auto" src={src} alt={alt} width={width} height={height} />
+                </Link>
               </li>
             ))}
           </ul>
