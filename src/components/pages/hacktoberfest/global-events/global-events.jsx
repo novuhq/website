@@ -32,7 +32,7 @@ const ITEMS = [
     date: 'Oct 6',
     time: '05:00 PM',
     utc: '04:00 PM UTC',
-    title: 'Twitter spaces with Github stars Samson Goddy & Ruth Ikegah',
+    title: 'Twitter space with Github stars Samson Goddy & Ruth Ikegah',
     link: 'https://twitter.com/i/spaces/1dRKZEzDbzmxB',
   },
   {
