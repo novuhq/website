@@ -9,7 +9,7 @@ import DEFAULT_EASE from 'constants/default-ease';
 const styles = {
   base: 'inline-block leading-none',
   size: {
-    xl: 'text-2xl',
+    xl: 'text-xl',
     base: 'text-base',
     sm: 'text-sm',
     xs: 'text-xs',

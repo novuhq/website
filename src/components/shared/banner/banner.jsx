@@ -8,7 +8,7 @@ import illustrationRight from './images/illustration-right.svg';
 
 const Banner = () => (
   <Link
-    className="group relative z-30 block overflow-hidden bg-gray-3 py-2.5"
+    className="top-banner group relative z-30 block overflow-hidden bg-gray-3 py-2.5"
     target="_blank"
     to="https://github.com/novuhq/novu/labels/Hacktoberfest"
   >
