@@ -74,3 +74,6 @@ yarn-error.log
 
 .vscode/snipsnap.code-snippets
 .wordpress-cache
+
+# Local Netlify folder
+.netlify
