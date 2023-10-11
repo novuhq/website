@@ -422,7 +422,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   });
 
   const hacktoberfestIssuesData = await octokit.request(
-    'GET /orgs/novuhq/issues?filter=all&labels=hacktoberfest&per_page=100',
+    'GET /orgs/novuhq/issues?filter=all&state=all&labels=hacktoberfest&per_page=100',
     {
       headers: {
         'X-GitHub-Api-Version': '2022-11-28',
