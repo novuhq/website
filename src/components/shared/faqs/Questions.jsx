@@ -45,7 +45,7 @@ const FAQ_DATA = [
   },
   {
     question: 'How frequently does the leaderboard get updated?',
-    answer: 'The leaderboad gets updated every 2 hours.',
+    answer: 'The leaderboard gets updated every 2 hours.',
   },
   {
     question: 'There are two swag kits: Normal & Premium. What’s the difference?',
