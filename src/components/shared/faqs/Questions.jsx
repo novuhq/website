@@ -35,6 +35,19 @@ const FAQ_DATA = [
     answer: 'No! We are taking care of it!',
   },
   {
+    question: 'What makes up the Normal Swag Kit?',
+    answer: 'The Normal Swag kit consists of T-shirt, Socks, Mousepad, Tote Bag, and Stickers.',
+  },
+  {
+    question: 'What makes up the Premium Swag Kit?',
+    answer:
+      'The Premium Swag kit consists of Criss Cross Laptop Bag, Adidas Duffle Bag, T-Shirt, Hot & Cold Sports Bottle, Folio Laptop Sleeve, Socks,  and Stickers.',
+  },
+  {
+    question: 'How frequently does the leaderboard get updated?',
+    answer: 'The leaderboad gets updated every 2 hours.',
+  },
+  {
     question: 'There are two swag kits: Normal & Premium. What’s the difference?',
     answer:
       'The first 30 contributors to get 5 merged PRs throughout the period of Hacktoberfest get the premium swag kit. The first 90 contributors to get 3 merged PRs throughout the period of Hacktoberfest get the normal swag kits',
