@@ -1,6 +1,7 @@
+import clsx from 'clsx';
 import { AnimatePresence, m, LazyMotion, domAnimation, useAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Button from 'components/shared/button/button';
 import Link from 'components/shared/link';
@@ -33,6 +34,7 @@ const variants = {
 
 const MobileMenu = ({ isOpen }) => {
   const controls = useAnimation();
+  const [paddingTopClassName, setPaddingTopClassName] = useState('pt-16 sm:pt-[60px]');
 
   useEffect(() => {
     if (isOpen) {
@@ -44,12 +46,22 @@ const MobileMenu = ({ isOpen }) => {
     }
   }, [isOpen, controls]);
 
+  useEffect(() => {
+    const topBanner = document.querySelector('.top-banner');
+    if (topBanner) {
+      setPaddingTopClassName('pt-[114px] sm:pt-[125px]');
+    }
+  }, []);
+
   return (
     <LazyMotion features={domAnimation}>
       {isOpen && (
         <AnimatePresence>
           <m.div
-            className="safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black pt-16 sm:pt-[60px]"
+            className={clsx(
+              'safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black',
+              paddingTopClassName
+            )}
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -60,7 +72,7 @@ const MobileMenu = ({ isOpen }) => {
                 {MENUS.mobile.map(({ to, text, target }, index) => (
                   <li key={index}>
                     <Link
-                      className="block w-full py-6 text-center"
+                      className="block w-full py-4 text-center"
                       theme="white"
                       size="xl"
                       to={to}
