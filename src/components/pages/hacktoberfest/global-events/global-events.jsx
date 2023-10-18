@@ -74,6 +74,7 @@ const ITEMS = [
     time: '06:00 PM',
     utc: '05:00 PM UTC',
     title: 'Twitter Space with Francesco Ciulla',
+    link: 'https://twitter.com/i/spaces/1dRKZEBkOPoxB',
   },
   {
     date: 'Oct 31',
