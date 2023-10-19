@@ -14,9 +14,8 @@ const Banner = () => (
   >
     <div className="container relative flex items-center justify-center">
       <p className="text-highlighting-secondary-2-gradient text-center text-base sm:text-sm">
-        🎊 Novu is life on
-        <span className="text-xl font-bold sm:text-base">Product Hunt</span>, Help us with our
-        launch and win Amazing swag! 🎉
+        🎊 Novu is live on <span className="text-xl font-bold sm:text-base">Product Hunt</span>,
+        Help us with our launch and win amazing swag! 🎉
         <ArrowIcon
           className="ml-2.5 inline-block h-2.5 w-5 transition-colors duration-200 group-hover:text-primary-1"
           aria-hidden
