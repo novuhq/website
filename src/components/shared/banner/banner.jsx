@@ -10,13 +10,13 @@ const Banner = () => (
   <Link
     className="top-banner group relative z-30 block overflow-hidden bg-gray-3 py-2.5"
     target="_blank"
-    to="https://github.com/novuhq/novu/labels/Hacktoberfest"
+    to="https://www.producthunt.com/posts/novu"
   >
     <div className="container relative flex items-center justify-center">
       <p className="text-highlighting-secondary-2-gradient text-center text-base sm:text-sm">
-        Novu is participating in{' '}
-        <span className="text-xl font-bold sm:text-base">Hacktoberfest 2023</span>, come start your
-        journey with us! 🚀
+        🎊 Novu is life on
+        <span className="text-xl font-bold sm:text-base">Product Hunt</span>, Help us with our
+        launch and win Amazing swag! 🎉
         <ArrowIcon
           className="ml-2.5 inline-block h-2.5 w-5 transition-colors duration-200 group-hover:text-primary-1"
           aria-hidden
