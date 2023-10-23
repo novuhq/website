@@ -27,7 +27,7 @@ export const buttonClick = (event, moreProps = {}) => {
   window?.plausible(event, {
     props: {
       landing: url,
-      moreProps,
+      ...moreProps,
     },
   });
 };
