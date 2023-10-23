@@ -21,4 +21,23 @@ const useLandingSimpleTracking = () =>
     });
   }, []);
 
+export const buttonClick = (event, moreProps = {}) => {
+  const url = localStorage.getItem('conversion');
+
+  window?.plausible(event, {
+    props: {
+      landing: url,
+      moreProps,
+    },
+  });
+};
+export const useButtonClick = (event, moreProps = {}) =>
+  useCallback(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    buttonClick(event, moreProps);
+  }, [event, moreProps]);
+
 export default useLandingSimpleTracking;

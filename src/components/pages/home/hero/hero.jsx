@@ -5,7 +5,7 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import LottieAnimation from 'components/shared/lottie-animation';
 import LINKS from 'constants/links';
-import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
+import useLandingSimpleTracking, { useButtonClick } from 'utils/use-landing-simple-tracking';
 
 import animationData from './data/hero-lottie-data.json';
 import bgSm from './images/bg-sm.svg';
@@ -13,6 +13,7 @@ import bg from './images/bg.svg';
 
 const Hero = () => {
   const click = useLandingSimpleTracking();
+  const bookacall = useButtonClick('book_a_call', { type: 'homepage' });
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     threshold: 0.6,
   });
@@ -57,6 +58,7 @@ const Hero = () => {
             size="sm"
             theme="white-outline"
             {...LINKS.calendly}
+            onClick={bookacall}
           >
             Book a demo
           </Button>

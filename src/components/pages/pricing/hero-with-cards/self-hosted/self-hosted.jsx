@@ -4,6 +4,8 @@ import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import CheckIcon from 'images/check.inline.svg';
 
+import { buttonClick } from '../../../../../utils/use-landing-simple-tracking';
+
 const SelfHosted = () => (
   <div className="container pb-32 text-center xl:pb-28 lg:pb-24 md:pb-20">
     <p className="mt-12 text-center text-2xl font-book md:mt-14 sm:mt-11">
@@ -51,11 +53,12 @@ const SelfHosted = () => (
             target="_blank"
             theme="gray-outline"
             size="sm"
-            onClick={() =>
+            onClick={() => {
+              buttonClick('book_a_call', { type: 'self_hosted' });
               window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
                 packageType: 'On-premises',
-              })
-            }
+              });
+            }}
           >
             Contact us
           </Button>

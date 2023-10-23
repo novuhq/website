@@ -8,6 +8,8 @@ import LINKS from 'constants/links';
 import QuestionIcon from 'icons/question.inline.svg';
 import CheckIcon from 'images/check.inline.svg';
 
+import { buttonClick } from '../../../../../utils/use-landing-simple-tracking';
+
 const thumbWidth = 28; // in pixels
 
 const RANGES = {
@@ -158,11 +160,13 @@ const getPricingData = (rangeValue) => [
       default: {
         text: 'Contact sales',
         url: 'https://calendly.com/novuhq/novu-meeting?utm_campaign=pricing-enterprise&utm_source=website',
-        onClick: () =>
+        onClick: () => {
+          buttonClick('book_a_call', { type: 'enterprise_contact' });
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
             sliderValue: RANGES[rangeValue],
-          }),
+          });
+        },
       },
     },
     buttonUrl: '/',
