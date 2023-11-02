@@ -231,8 +231,8 @@ const LABELS = [
     items: {
       sso: 'SSO, SAML, LDAP, ADFS',
       roles: 'User Roles & Permissions',
-      soc: 'SOC II, PCI, GDPR',
-      hippa: 'HIPPA, DPA',
+      soc: 'SOC II, ISO27001, GDPR',
+      hippa: 'HIPAA, DPA',
       uptimeSla: 'Uptime SLA',
       initialSupportSla: 'Initial Support SLA',
       'custom-sla': 'Custom SLA’s',
