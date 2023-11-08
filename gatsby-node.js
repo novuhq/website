@@ -459,9 +459,9 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     return pullRequests;
   };
 
-  const repoNames = [
-    ...new Set(hacktoberfestIssuesData.data.map((issue) => issue.repository.name)),
-  ];
+  const repos = await octokit.request('GET /orgs/novuhq/repos?per_page=100');
+  const repoNames = repos.data.map((repo) => repo.name);
+
   const hacktoberfestAuthorsMergedPRs = [];
 
   // Fetch pull requests in parallel
