@@ -48,15 +48,15 @@ export default {
     target: '_blank',
   },
   docker: {
-    to: 'https://docs.novu.co/overview/docker-deploy',
+    to: 'https://docs.novu.co/self-hosting-novu/deploy-with-docker',
     target: '_blank',
   },
   faq: {
-    to: 'https://docs.novu.co/overview/faq',
+    to: 'https://docs.novu.co/faqs/questions',
     target: '_blank',
   },
   sdk: {
-    to: 'https://docs.novu.co/community/contributing#development',
+    to: 'https://docs.novu.co/sdks/introduction',
     target: '_blank',
   },
   contactUs: {
@@ -68,11 +68,11 @@ export default {
     target: '_blank',
   },
   quickStart: {
-    to: 'https://docs.novu.co/overview/quickstart/general-quickstart',
+    to: 'https://docs.novu.co/quickstarts/01-introduction',
     target: '_blank',
   },
   providers: {
-    to: 'https://github.com/novuhq/novu/tree/main/providers',
+    to: 'https://docs.novu.co/channels-and-providers/introduction',
     target: '_blank',
   },
   handbook: {
