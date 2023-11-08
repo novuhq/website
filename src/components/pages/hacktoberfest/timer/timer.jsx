@@ -29,6 +29,9 @@ const tick = () => {
   const distance = countDownLaunchDate - now;
 
   if (distance < 0) {
+    if (countDownEndDate < now) {
+      return getCountTime(0);
+    }
     return getCountTime(countDownEndDate - now);
   }
 
