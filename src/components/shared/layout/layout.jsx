@@ -2,7 +2,6 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import Banner from 'components/shared/banner';
 import ConversionInitiator from 'components/shared/conversions/landing.simple.tracking';
 import CookieBanner from 'components/shared/cookie-banner';
 import FloatingButton from 'components/shared/floating-button';
@@ -19,7 +18,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <ConversionInitiator />
-      <Banner />
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
         <main className="flex-grow">{children}</main>
