@@ -5,8 +5,6 @@ import Heading from 'components/shared/heading';
 import Modal from 'components/shared/modal';
 import CloseIcon from 'icons/close.inline.svg';
 
-import Timer from '../timer/timer';
-
 import MODAL_CONTENT from './modal-content';
 
 const PAGE_TITLE = 'We are happy to take part in<br /><span>Hacktoberfest 2023</span>';
@@ -48,7 +46,6 @@ const Hero = () => {
           Contribution guide
         </Button>
       </div>
-      <Timer />
 
       <Modal
         className="relative max-w-[800px] !p-10 md:max-w-[600px] sm:!p-5"
