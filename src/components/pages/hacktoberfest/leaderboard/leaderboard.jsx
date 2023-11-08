@@ -33,7 +33,10 @@ const Leaderboard = () => {
   `);
 
   const participantsIsCurrentYear = useMemo(
-    () => participants.filter(({ scoreByYear }) => scoreByYear._2023 > 0),
+    () =>
+      participants
+        .filter(({ scoreByYear }) => scoreByYear._2023 > 0)
+        .sort((a, b) => b.scoreByYear._2023 - a.scoreByYear._2023),
     [participants]
   );
 
@@ -66,42 +69,40 @@ const Leaderboard = () => {
           </div>
           {list?.length ? (
             <ul>
-              {list
-                .sort((a, b) => b.scoreByYear._2023 - a.scoreByYear._2023)
-                .map(({ author: { login, html_url, avatar_url }, scoreByYear }, index) => (
-                  <li
-                    className={clsx(
-                      'grid-gap-x group grid grid-cols-8 items-center border-b border-gray-4 py-4 sm:grid-cols-[60px,1fr,1fr,65px]'
-                    )}
-                    key={index}
+              {list.map(({ author: { login, html_url, avatar_url }, scoreByYear }, index) => (
+                <li
+                  className={clsx(
+                    'grid-gap-x group grid grid-cols-8 items-center border-b border-gray-4 py-4 sm:grid-cols-[60px,1fr,1fr,65px]'
+                  )}
+                  key={index}
+                >
+                  <div className="relative flex items-center px-4">
+                    <span className="text-lg font-medium leading-none">{index + 1}</span>
+                  </div>
+
+                  <Link
+                    className="col-span-6 flex items-center gap-x-5 sm:col-span-2 sm:gap-x-2.5"
+                    to={html_url}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    <div className="relative flex items-center px-4">
-                      <span className="text-lg font-medium leading-none">{index + 1}</span>
-                    </div>
+                    <img
+                      className="rounded-full grayscale transition-all duration-200 group-hover:grayscale-0"
+                      src={avatar_url}
+                      width={36}
+                      height={36}
+                      alt={login || ''}
+                    />
+                    <span className="truncate text-lg font-book leading-tight">{login}</span>
+                  </Link>
 
-                    <Link
-                      className="col-span-6 flex items-center gap-x-5 sm:col-span-2 sm:gap-x-2.5"
-                      to={html_url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <img
-                        className="rounded-full grayscale transition-all duration-200 group-hover:grayscale-0"
-                        src={avatar_url}
-                        width={36}
-                        height={36}
-                        alt={login || ''}
-                      />
-                      <span className="truncate text-lg font-book leading-tight">{login}</span>
-                    </Link>
-
-                    <div className="text-highlighting-blue-gradient2">
-                      <span className="block text-2xl font-medium leading-none">
-                        {scoreByYear._2023}
-                      </span>
-                    </div>
-                  </li>
-                ))}
+                  <div className="text-highlighting-blue-gradient2">
+                    <span className="block text-2xl font-medium leading-none">
+                      {scoreByYear._2023}
+                    </span>
+                  </div>
+                </li>
+              ))}
             </ul>
           ) : (
             <div className="flex flex-col items-center border-b border-gray-4 pb-10 pt-8">
