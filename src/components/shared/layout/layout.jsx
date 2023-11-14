@@ -9,6 +9,8 @@ import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 
+import Banner from '../banner/banner';
+
 const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
@@ -18,6 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <ConversionInitiator />
+      <Banner />
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
         <main className="flex-grow">{children}</main>
