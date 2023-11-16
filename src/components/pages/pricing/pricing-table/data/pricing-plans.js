@@ -234,7 +234,7 @@ const LABELS = [
   {
     title: 'Security & Compliance',
     items: {
-      sso: 'SSO, SAML, LDAP, ADFS',
+      sso: 'SSO',
       roles: 'User Roles & Permissions',
       soc: 'SOC II, ISO27001, GDPR',
       hippa: 'HIPAA, DPA',
