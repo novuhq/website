@@ -26,7 +26,7 @@ const SelfHosted = () => (
       <div className="flex h-full flex-col items-center justify-between rounded-xl bg-active-gray-gradient p-8 text-center xl:px-4 lg:px-3 md:px-6">
         <div className="flex-flex-col space-y-5">
           <span className="text-lg font-medium uppercase leading-none">On-premises</span>
-          <p className="text-sm leading-snug text-gray-8">Run Novu on you own servers.</p>
+          <p className="text-sm leading-snug text-gray-8">Run Novu on your own servers.</p>
         </div>
         <span className="mb-16 mt-12 text-6xl font-medium leading-none xl:text-5xl lg:text-4xl md:mt-5 md:text-6xl sm:text-5xl">
           Contact us

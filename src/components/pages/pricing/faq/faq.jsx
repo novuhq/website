@@ -52,7 +52,7 @@ const FAQ_DATA = [
     ),
   },
   {
-    question: 'Do you have offer enterprise support plan?',
+    question: 'Do you offer an enterprise support plan?',
     answer:
       'As part of our enterprise support, you’ll get our usual support channels as well as a Microsoft Teams/Slack/Discord channel. In case you want to add an enterprise support plan, with dedicated technical support, we are happy to offer that next to an active enterprise plan.',
   },
