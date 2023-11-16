@@ -197,7 +197,7 @@ const LABELS = [
     title: 'Platform',
     items: {
       notifications: 'Notifications',
-      includes: 'Plan Includes',
+      includes: 'Included Events',
       'maximum-events': 'Maximum Events',
       'number-of-subscribers': 'Number Of Subscribers',
       'active-templates': 'Active Templates',
@@ -221,7 +221,7 @@ const LABELS = [
     items: {
       preferences: 'User Preferences',
       digest: 'Digest',
-      awareness: 'Time Awareness',
+      awareness: 'Timezone Awareness',
       testing: 'Testing Templates',
       routing: 'Advanced Routing Engine',
       internationalization: 'Internationalization',

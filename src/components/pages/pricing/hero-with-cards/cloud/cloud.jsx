@@ -123,7 +123,7 @@ const getPricingData = (rangeValue) => [
       180: 1.6,
       190: 1.6,
     },
-    description: 'Good place for bigger projects, startups, and full fledge businesses.',
+    description: 'Good place for bigger projects, startups, and full-fledged businesses.',
     items: [`${getBusinessItem(rangeValue)} events/month included`],
     buttons: {
       default: {
@@ -154,7 +154,7 @@ const getPricingData = (rangeValue) => [
       190: 1.6,
     },
     description:
-      'For bigger business, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
+      'For bigger businesses, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
     items: [`1M events/month included`],
     buttons: {
       default: {
