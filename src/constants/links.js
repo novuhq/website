@@ -44,7 +44,7 @@ export default {
     target: '_blank',
   },
   inAppDocs: {
-    to: 'https://docs.novu.co/notification-center/getting-started',
+    to: 'https://docs.novu.co/notification-center/introduction',
     target: '_blank',
   },
   docker: {
