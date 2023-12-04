@@ -59,7 +59,7 @@ const FAQ_DATA = [
   {
     question: 'How long is the open beta for? When do you plan to start charging?',
     answer:
-      'We plan to convert to the paid version of Novu sometime between Q2 and Q4 of 2023. We will ensure that we contact all of our customers at least x months before the switch so that you have plenty of time to ensure your systems are not impacted.',
+      'We plan to convert to the paid version of Novu sometime in 2024. We will ensure that we contact all of our customers at least 2 months before the switch so that you have plenty of time to ensure your systems are not impacted.',
   },
   {
     question: 'I need more events or enterprise features, can you help?',
