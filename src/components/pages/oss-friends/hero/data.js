@@ -9,6 +9,7 @@ import hankoIcon from './images/hanko.svg';
 import htmxIcon from './images/htmx.svg';
 import infisicalIcon from './images/infisical.svg';
 import openbbIcon from './images/openbb.svg';
+import hook0Icon from './images/hook0.svg';
 import sniffnetIcon from './images/sniffnet.svg';
 import typebotIcon from './images/typebot.svg';
 import webinyIcon from './images/webiny.svg';
@@ -70,6 +71,13 @@ const friendsItems = [
       'Open-source authentication and user management for the passkey era. Integrated in minutes, for web and mobile apps.',
     logo: hankoIcon,
     linkUrl: 'https://www.hanko.io/',
+  },
+  {
+    name: "Hook0",
+    description:
+      "Open-Source Webhooks-as-a-service (WaaS) that makes it easy for developers to send webhooks.",
+    logo: hook0Icon,
+    linkUrl: "https://www.hook0.com/",
   },
   {
     name: 'HTMX',
