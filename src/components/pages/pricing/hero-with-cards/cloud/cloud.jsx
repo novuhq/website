@@ -71,7 +71,7 @@ const getPricingData = (rangeValue) => [
           }),
       },
     },
-    isOpenBeta: true,
+    isOpenBeta: false,
   },
   {
     titles: {
@@ -99,7 +99,7 @@ const getPricingData = (rangeValue) => [
           }),
       },
     },
-    isOpenBeta: true,
+    isOpenBeta: false,
   },
   {
     titles: {
@@ -137,7 +137,7 @@ const getPricingData = (rangeValue) => [
       },
     },
 
-    isOpenBeta: true,
+    isOpenBeta: false,
   },
   {
     titles: {
@@ -344,9 +344,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             );
           }
         )}
-        <p className="col-span-full mt-2 text-center text-sm leading-snug text-gray-8">
-          *During Open Beta, all tariffs except Enterprise are free to use.
-        </p>
+      
       </ul>
     </>
   );
