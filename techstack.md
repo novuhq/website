@@ -56,7 +56,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [novuhq/website](https://github.com/novuhq/website)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|51<br/>Tools used|12/14/23 <br/>Report generated|
+|53<br/>Tools used|01/04/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -270,9 +270,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (28)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (30)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (28)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (30)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -291,6 +291,8 @@ Full tech stack [here](/techstack.md)
 |[gatsby-plugin-sharp](https://www.npmjs.com/gatsby-plugin-sharp)|v5.12.0|06/20/23|Andrew Golovanov |MIT|N/A|
 |[gatsby-source-filesystem](https://www.npmjs.com/gatsby-source-filesystem)|v5.12.0|06/20/23|Andrew Golovanov |MIT|N/A|
 |[gatsby-transformer-sharp](https://www.npmjs.com/gatsby-transformer-sharp)|v5.12.0|06/20/23|Andrew Golovanov |MIT|N/A|
+|[husky](https://www.npmjs.com/husky)|v8.0.3|05/25/23|americano98 |MIT|N/A|
+|[lint-staged](https://www.npmjs.com/lint-staged)|v13.3.0|05/25/23|americano98 |MIT|N/A|
 |[lodash.isempty](https://www.npmjs.com/lodash.isempty)|v4.4.0|07/08/22|Andrew Golovanov |MIT|N/A|
 |[markdownlint-cli](https://www.npmjs.com/markdownlint-cli)|v0.34.0|05/25/23|americano98 |MIT|N/A|
 |[moment](https://www.npmjs.com/moment)|v2.29.4|05/25/23|americano98 |MIT|N/A|
