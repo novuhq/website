@@ -3,91 +3,100 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ['airbnb', 'airbnb/hooks', 'airbnb/whitespace', 'prettier'],
+  extends: ["airbnb", "airbnb/hooks", "airbnb/whitespace", "prettier"],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
   },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+      experimentalObjectRestSpread: true,
     },
     ecmaVersion: 2020,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  plugins: ['react'],
+  plugins: ["react"],
   rules: {
     // Removes "default" from "restrictedNamedExports", original rule setup — https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/es6.js#L65
-    'no-restricted-exports': ['error', { restrictedNamedExports: ['then'] }],
-    'no-unused-vars': 'error',
-    'no-shadow': 'off',
-    'no-undef': 'error',
-    'react/prop-types': 'off',
-    'react/no-array-index-key': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-danger': 'off',
-    'react/forbid-prop-types': 'off',
+    "no-restricted-exports": ["error", { restrictedNamedExports: ["then"] }],
+    "no-unused-vars": "error",
+    "no-shadow": "off",
+    "no-undef": "error",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-danger": "off",
+    "react/forbid-prop-types": "off",
     // Changes values from "function-expression" to "arrow-function", original rule setup — https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/rules/react.js#L528
-    'react/function-component-definition': [
-      'error',
+    "react/function-component-definition": [
+      "error",
       {
-        namedComponents: 'arrow-function',
-        unnamedComponents: 'arrow-function',
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
       },
     ],
-    'react/jsx-sort-props': [
-      'error',
+    "react/jsx-sort-props": [
+      "error",
       {
         callbacksLast: true,
         shorthandLast: true,
         noSortAlphabetically: true,
       },
     ],
-    'import/order': [
-      'error',
+    "import/order": [
+      "error",
       {
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
-        'newlines-between': 'always',
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+        ],
+        "newlines-between": "always",
         alphabetize: {
-          order: 'asc',
+          order: "asc",
           caseInsensitive: true,
         },
       },
     ],
-    'import/no-extraneous-dependencies': [
-      'error',
+    "import/no-extraneous-dependencies": [
+      "error",
       {
         devDependencies: [
-          '.storybook/**',
-          'src/components/**/*.stories.js',
-          'src/components/**/*.stories.jsx',
-          'gatsby-config.js',
-          'gatsby-node.js',
-          'gatsby-ssr.js',
+          ".storybook/**",
+          "src/components/**/*.stories.js",
+          "src/components/**/*.stories.jsx",
+          "gatsby-config.js",
+          "gatsby-node.js",
+          "gatsby-ssr.js",
         ],
       },
     ],
-    'jsx-a11y/label-has-associated-control': [
-      'error',
+    "jsx-a11y/label-has-associated-control": [
+      "error",
       {
         required: {
-          some: ['nesting', 'id'],
+          some: ["nesting", "id"],
         },
       },
     ],
-    'jsx-a11y/label-has-for': [
-      'error',
+    "jsx-a11y/label-has-for": [
+      "error",
       {
         required: {
-          some: ['nesting', 'id'],
+          some: ["nesting", "id"],
         },
       },
     ],
   },
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       node: {
-        paths: ['src'],
+        paths: ["src"],
       },
     },
   },

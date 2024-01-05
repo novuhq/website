@@ -1,26 +1,29 @@
-const fs = require('fs');
-const path = require('path');
+import fs from "fs";
+import { createRequire } from "module";
+import path from "path";
 
-const fetch = require(`node-fetch`);
-const slash = require('slash');
+import fetch from "node-fetch";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import slash from "slash";
 
-const redirects = require('./redirects.json');
-const { octokit } = require('./src/utils/contributors-utils');
-// const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
+import onPostBuildHandler from "./gatsby/on-post-build.mjs";
+import { octokit } from "./src/utils/contributors-utils.mjs";
+
+const require = createRequire(import.meta.url);
 
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
   try {
-    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
-      (response) => response.json()
-    );
+    const data = await fetch(
+      `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`
+    ).then((response) => response.json());
 
-    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
-    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+    const templateMainPage = path.resolve("./src/templates/contributors.jsx");
+    const templateDetailPage = path.resolve("./src/templates/contributor.jsx");
 
     createPage({
-      path: '/contributors/',
+      path: "/contributors/",
       component: slash(templateMainPage),
       context: {
         contributors: data,
@@ -63,11 +66,11 @@ const createContributorsPage = async ({ actions, reporter }) => {
       });
     });
   } catch (err) {
-    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+    reporter.panicOnBuild("There was an error when loading Contributors.", err);
   }
 };
 
-async function createPages({ graphql, actions, reporter }) {
+async function createTemplatePages({ graphql, actions, reporter }) {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -91,8 +94,10 @@ async function createPages({ graphql, actions, reporter }) {
   const pages = result.data.allWpPage.nodes;
 
   pages.forEach(({ id, uri, template: { templateName } }) => {
-    const templateNamePath = templateName.toLowerCase().replace(/\s/g, '-');
-    const templatePath = path.resolve(`./src/templates/${templateNamePath}.jsx`);
+    const templateNamePath = templateName.toLowerCase().replace(/\s/g, "-");
+    const templatePath = path.resolve(
+      `./src/templates/${templateNamePath}.jsx`
+    );
 
     if (fs.existsSync(templatePath)) {
       createPage({
@@ -177,9 +182,11 @@ async function createBlogPages({ graphql, actions }) {
     },
   } = result;
 
-  const postsWithoutPostsInHeroSection = posts.filter((post) => post.id !== featuredPost.id);
+  const postsWithoutPostsInHeroSection = posts.filter(
+    (post) => post.id !== featuredPost.id
+  );
 
-  const template = path.resolve('./src/templates/blog.jsx');
+  const template = path.resolve("./src/templates/blog.jsx");
 
   const context = {
     id: page.id,
@@ -188,7 +195,9 @@ async function createBlogPages({ graphql, actions }) {
   };
 
   // Creating non category pages
-  const pageCount = Math.ceil(postsWithoutPostsInHeroSection.length / POSTS_PER_PAGE);
+  const pageCount = Math.ceil(
+    postsWithoutPostsInHeroSection.length / POSTS_PER_PAGE
+  );
   Array.from({ length: pageCount }).forEach((_, index) => {
     createPage({
       path: index === 0 ? page.uri : `${page.uri}${index + 1}/`,
@@ -267,7 +276,7 @@ async function createPosts({ graphql, actions }) {
     },
   } = result;
 
-  const template = path.resolve('./src/templates/blog-post.jsx');
+  const template = path.resolve("./src/templates/blog-post.jsx");
 
   posts.forEach(({ id, uri, categories }) => {
     const context = {
@@ -374,12 +383,14 @@ async function createPosts({ graphql, actions }) {
 //   });
 // }
 
-exports.createPages = async (args) => {
+export const createPages = async (args) => {
   const { createRedirect } = args.actions;
 
   const params = {
     ...args,
   };
+
+  const redirects = require("./redirects.json");
 
   redirects.forEach((redirect) =>
     createRedirect({
@@ -390,7 +401,7 @@ exports.createPages = async (args) => {
     })
   );
 
-  await createPages(params);
+  await createTemplatePages(params);
   await createBlogPages(params);
   await createPosts(params);
 
@@ -400,11 +411,14 @@ exports.createPages = async (args) => {
   await createContributorsPage(params);
 };
 
-exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+export const sourceNodes = async ({
+  actions: { createNode },
+  createContentDigest,
+}) => {
   // get data from GitHub API at build time
-  const githubData = await fetch(`https://api.github.com/repos/novuhq/novu`).then((response) =>
-    response.json()
-  );
+  const githubData = await fetch(
+    `https://api.github.com/repos/novuhq/novu`
+  ).then((response) => response.json());
   // create node for build time data example in the docs
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
@@ -422,10 +436,10 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   });
 
   const hacktoberfestIssuesData = await octokit.request(
-    'GET /orgs/novuhq/issues?filter=all&state=all&labels=hacktoberfest&per_page=100',
+    "GET /orgs/novuhq/issues?filter=all&state=all&labels=hacktoberfest&per_page=100",
     {
       headers: {
-        'X-GitHub-Api-Version': '2022-11-28',
+        "X-GitHub-Api-Version": "2022-11-28",
       },
     }
   );
@@ -459,18 +473,22 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     return pullRequests;
   };
 
-  const repos = await octokit.request('GET /orgs/novuhq/repos?per_page=100');
+  const repos = await octokit.request("GET /orgs/novuhq/repos?per_page=100");
   const repoNames = repos.data.map((repo) => repo.name);
 
   const hacktoberfestAuthorsMergedPRs = [];
 
   // Fetch pull requests in parallel
-  const allPullRequests = await Promise.all(repoNames.map(fetchMergedPullRequestsFromRepo));
+  const allPullRequests = await Promise.all(
+    repoNames.map(fetchMergedPullRequestsFromRepo)
+  );
 
   allPullRequests.flat().forEach((pr) => {
     if (
       pr.labels.some(
-        (label) => label.name === 'hacktoberfest' || label.name === 'hacktoberfest-accepted'
+        (label) =>
+          label.name === "hacktoberfest" ||
+          label.name === "hacktoberfest-accepted"
       ) &&
       pr.merged_at
     ) {
@@ -533,9 +551,9 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   });
   // End of Hacktoberfest part
 
-  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-    (response) => response.json()
-  );
+  const issuesData = await fetch(
+    `${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`
+  ).then((response) => response.json());
 
   createNode({
     data: issuesData.issues,
@@ -549,7 +567,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   });
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
@@ -564,4 +582,4 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs);
 };
 
-exports.onPostBuild = require('./gatsby/on-post-build');
+export const onPostBuild = onPostBuildHandler;
