@@ -1,9 +1,9 @@
 // Gatsby has dotenv by default
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -12,51 +12,51 @@ const dir = dirname(fileURLToPath(import.meta.url));
 const config = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
-    siteTitle: "Novu - The open-source notification infrastructure",
+    siteTitle: 'Novu - The open-source notification infrastructure',
     siteDescription:
-      "The ultimate library for managing multi-channel transactional notifications with a single API.",
-    siteImage: "/images/social-preview.jpg",
-    siteLanguage: "en",
-    siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || "http://localhost:8000",
-    authorName: "Pixel Point",
+      'The ultimate library for managing multi-channel transactional notifications with a single API.',
+    siteImage: '/images/social-preview.jpg',
+    siteLanguage: 'en',
+    siteUrl: process.env.GATSBY_DEFAULT_SITE_URL || 'http://localhost:8000',
+    authorName: 'Pixel Point',
   },
-  trailingSlash: "always",
+  trailingSlash: 'always',
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
+        name: 'images',
         path: `${dir}/src/images`,
       },
     },
-    "gatsby-plugin-image",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-image',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-plugin-sharp",
+      resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
           quality: 85,
-          placeholder: "none",
+          placeholder: 'none',
         },
       },
     },
     {
-      resolve: "gatsby-plugin-robots-txt",
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: process.env.GATSBY_DEFAULT_SITE_URL,
         // specify the correct path to your sitemap
         sitemap: `${process.env.GATSBY_DEFAULT_SITE_URL}/sitemap-index.xml`,
-        policy: [{ userAgent: "*", allow: "/" }],
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "gatsby-starter-default",
-        short_name: "starter",
-        start_url: "/",
-        display: "minimal-ui",
-        icon: "src/images/favicon.png",
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        display: 'minimal-ui',
+        icon: 'src/images/favicon.png',
       },
     },
     {
@@ -83,7 +83,7 @@ const config = {
                 url: site.siteMetadata.siteUrl + edge.node.uri,
                 guid: site.siteMetadata.siteUrl + edge.node.uri,
                 relDir: edge.relativeDirectory,
-                custom_elements: [{ "content:encoded": edge.node.content }],
+                custom_elements: [{ 'content:encoded': edge.node.content }],
               })),
             query: `
               {
@@ -101,14 +101,14 @@ const config = {
                 }
               }
             `,
-            output: "/blog/rss.xml",
-            title: "Novu Blog",
+            output: '/blog/rss.xml',
+            title: 'Novu Blog',
           },
         ],
       },
     },
     {
-      resolve: "gatsby-plugin-svgr-svgo",
+      resolve: 'gatsby-plugin-svgr-svgo',
       options: {
         inlineSvgOptions: [
           {
@@ -116,15 +116,15 @@ const config = {
             svgoConfig: {
               plugins: [
                 {
-                  name: "preset-default",
+                  name: 'preset-default',
                   params: {
                     overrides: {
                       removeViewBox: false,
                     },
                   },
                 },
-                "prefixIds",
-                "removeDimensions",
+                'prefixIds',
+                'removeDimensions',
               ],
             },
           },
@@ -132,7 +132,7 @@ const config = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
         url: process.env.WP_GRAPHQL_URL,
         auth: {
@@ -147,8 +147,8 @@ const config = {
         },
         develop: {
           nodeUpdateInterval: process.env.WP_NODE_UPDATE_INTERVAL || 5000,
-          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === "true",
-          hardCacheData: process.env.WP_HARD_CACHE_DATA === "true",
+          hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
+          hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },
         schema: {
           timeout: 60000,
@@ -156,26 +156,24 @@ const config = {
       },
     },
     {
-      resolve: "gatsby-source-sanity",
+      resolve: 'gatsby-source-sanity',
       options: {
         projectId: process.env.GATSBY_SANITY_PROJECT_ID,
         dataset: process.env.GATSBY_SANITY_DATASET,
       },
     },
     {
-      resolve: "gatsby-plugin-netlify",
+      resolve: 'gatsby-plugin-netlify',
       options: {
         headers: {
-          "/fonts/*": ["Cache-Control: public, max-age=31536000, immutable"],
-          "/lottie-assets/*": [
-            "Cache-Control: public, max-age=31536000, immutable",
-          ],
+          '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
+          '/lottie-assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
         },
       },
     },
-    "gatsby-alias-imports",
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-sitemap",
+    'gatsby-alias-imports',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {

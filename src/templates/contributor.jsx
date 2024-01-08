@@ -24,7 +24,7 @@ const ContributorPage = ({
             url={location.href}
             additionalAchievements={wpUserAchievement?.userAchievement.achievementsList}
           />
-          <Separator className="px-0 pt-8 pb-20 sm:pb-16" backgroundColor="black" />
+          <Separator className="px-0 pb-20 pt-8 sm:pb-16" backgroundColor="black" />
           <Activity contributor={contributor} />
         </div>
       </div>

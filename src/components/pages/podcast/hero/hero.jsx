@@ -15,7 +15,7 @@ to build their
 const DESCRIPTION = `A podcast by Novu where our hosts <strong class="text-white">Tomer Barnea</strong> and <strong class="text-white">Emillien Pearce</strong> talk with CEO, founders, and a wide range of People leaders about how people success is business success.`;
 
 const Hero = () => (
-  <section className="safe-paddings relative overflow-hidden pt-36 pb-28 lg:pt-32 md:pt-28 md:pb-10 sm:pt-18">
+  <section className="safe-paddings relative overflow-hidden pb-28 pt-36 lg:pt-32 md:pb-10 md:pt-28 sm:pt-18">
     <div className="container relative z-10 grid grid-cols-12 gap-x-8 lg:gap-x-7 sm:flex sm:flex-col sm:gap-0 sm:space-y-10">
       <div className="col-start-1 col-end-7 flex flex-col">
         <h1
@@ -57,7 +57,7 @@ const Hero = () => (
 
       <div className="col-start-7 col-end-13 sm:mx-auto sm:max-w-[328px]">
         <StaticImage
-          className="-mt-[28px] -mb-[48px] -ml-[38px] max-w-[716px] lg:-my-5 lg:-ml-[26px] md:-my-3.5 md:-ml-5"
+          className="-mb-[48px] -ml-[38px] -mt-[28px] max-w-[716px] lg:-my-5 lg:-ml-[26px] md:-my-3.5 md:-ml-5"
           src="./images/podcast-hero-illustration.png"
           alt=""
           loading="eager"
@@ -66,7 +66,7 @@ const Hero = () => (
     </div>
 
     <img
-      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
+      className="absolute left-1/2 top-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
       src={bg}
       loading="eager"
       alt=""

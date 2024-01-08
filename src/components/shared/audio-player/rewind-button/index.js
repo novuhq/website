@@ -1,1 +1,1 @@
-export { default } from "./rewind-button";
+export { default } from './rewind-button';

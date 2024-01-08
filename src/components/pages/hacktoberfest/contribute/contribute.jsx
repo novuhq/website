@@ -49,7 +49,7 @@ const Contribute = () => (
       >
         {TITLE}
       </Heading>
-      <ul className="mt-20 grid grid-cols-4 gap-x-10 lg:auto-rows-fr lg:grid-cols-2 lg:gap-y-16 lg:gap-x-16 md:mt-16 md:gap-x-10 md:gap-y-10 sm:mt-12 sm:grid-cols-1">
+      <ul className="mt-20 grid grid-cols-4 gap-x-10 lg:auto-rows-fr lg:grid-cols-2 lg:gap-x-16 lg:gap-y-16 md:mt-16 md:gap-x-10 md:gap-y-10 sm:mt-12 sm:grid-cols-1">
         {ITEMS.map(({ icon, title, description }, index) => (
           <li
             className="flex flex-col items-start lg:max-w-sm sm:mx-auto sm:max-w-[410px] sm:items-center sm:text-center"

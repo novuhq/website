@@ -50,7 +50,7 @@ const ComponentBased = () => {
           className="relative col-start-6 col-end-13 lg:col-start-6 md:mt-11 md:w-full sm:mt-8"
           ref={animationWrapperRef}
         >
-          <LottieAnimation className="absolute top-0 left-0 h-full w-full" {...lottieData} />
+          <LottieAnimation className="absolute left-0 top-0 h-full w-full" {...lottieData} />
         </div>
       </div>
     </section>

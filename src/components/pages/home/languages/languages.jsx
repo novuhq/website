@@ -240,7 +240,7 @@ await novu.Event.Trigger(payload);
 ];
 
 const Languages = () => (
-  <section className="languages safe-paddings bg-gray-2 pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
+  <section className="languages safe-paddings bg-gray-2 pb-40 pt-30 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
     <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12 sm:mt-8">
         <CodeTabs
@@ -260,7 +260,7 @@ const Languages = () => (
           {SDK_BUTTON_TEXT}
         </Button>
         <Button
-          className="mt-7 ml-7 md:mt-6"
+          className="ml-7 mt-7 md:mt-6"
           size="sm"
           theme="gray-outline"
           {...LINKS.documentation}

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import objectHash from "object-hash";
+import objectHash from 'object-hash';
 
 import {
   fetchReadmeContent,
@@ -7,16 +7,13 @@ import {
   octokit,
   getCache,
   setCache,
-} from "../src/utils/contributors-utils.mjs";
+} from '../src/utils/contributors-utils.mjs';
 
-const repoOwner = "novuhq";
-const repoName = "contributors";
+const repoOwner = 'novuhq';
+const repoName = 'contributors';
 
 const onPostBuild = async ({ graphql }) => {
-  if (
-    process.env.NODE_ENV !== "production" &&
-    !process.env.GITHUB_README_TOKEN
-  ) {
+  if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_README_TOKEN) {
     return;
   }
 
@@ -53,23 +50,21 @@ const onPostBuild = async ({ graphql }) => {
     })
   );
 
-  const contributorsWithAdditionalAchievements = data.map(
-    ({ title, achievementsList }) => {
-      const achievements = achievementsList.map(({ achievement }) => {
-        const {
-          title,
-          achievement: {
-            tooltip,
-            badge: { sourceUrl },
-          },
-        } = achievement;
+  const contributorsWithAdditionalAchievements = data.map(({ title, achievementsList }) => {
+    const achievements = achievementsList.map(({ achievement }) => {
+      const {
+        title,
+        achievement: {
+          tooltip,
+          badge: { sourceUrl },
+        },
+      } = achievement;
 
-        return { title, tooltip, image: sourceUrl };
-      });
+      return { title, tooltip, image: sourceUrl };
+    });
 
-      return { github: title, achievements };
-    }
-  );
+    return { github: title, achievements };
+  });
 
   await fetchReadmeContent(repoOwner, repoName)
     .then(async (data) => {
@@ -79,10 +74,7 @@ const onPostBuild = async ({ graphql }) => {
         const oldData = await getCache();
         const oldDataHash = oldData || null;
 
-        const newData = await changeReadmeContent(
-          content,
-          contributorsWithAdditionalAchievements
-        );
+        const newData = await changeReadmeContent(content, contributorsWithAdditionalAchievements);
         const newDataHash = objectHash(newData);
 
         if (newDataHash !== oldDataHash) {
@@ -91,29 +83,27 @@ const onPostBuild = async ({ graphql }) => {
           // Update the README.md file
           await octokit
             .request(`PUT /repos/${repoOwner}/${repoName}/contents/README.md`, {
-              owner: "OWNER",
-              repo: "REPO",
-              path: "README.md",
-              message: "chore: update community heroes in readme",
-              content: Buffer.from(newData).toString("base64"),
+              owner: 'OWNER',
+              repo: 'REPO',
+              path: 'README.md',
+              message: 'chore: update community heroes in readme',
+              content: Buffer.from(newData).toString('base64'),
               sha,
-              branch: "main",
+              branch: 'main',
             })
             .then((response) => {
-              console.log("README.md updated:", response);
+              console.log('README.md updated:', response);
             })
             .catch((error) => {
-              console.error("Error updating README.md:", error);
+              console.error('Error updating README.md:', error);
             });
         } else {
-          console.log(
-            "README.md content has not changed, no update necessary."
-          );
+          console.log('README.md content has not changed, no update necessary.');
         }
       }
     })
     .catch((error) => {
-      console.error("Error fetching README.md:", error);
+      console.error('Error fetching README.md:', error);
     });
 };
 

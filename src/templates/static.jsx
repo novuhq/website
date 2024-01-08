@@ -16,7 +16,7 @@ const StaticPage = ({
   },
 }) => (
   <Layout>
-    <section className="safe-paddings pt-40 pb-28 sm:pt-28">
+    <section className="safe-paddings pb-28 pt-40 sm:pt-28">
       <div className="container-sm">
         <Heading
           className="font-semibold leading-denser sm:text-3xl"

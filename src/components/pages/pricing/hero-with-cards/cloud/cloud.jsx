@@ -344,7 +344,6 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             );
           }
         )}
-      
       </ul>
     </>
   );

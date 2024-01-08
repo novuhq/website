@@ -27,7 +27,7 @@ const Subscribe = () => (
     </div>
 
     <img
-      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
+      className="absolute left-1/2 top-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
       src={bg}
       loading="lazy"
       alt=""

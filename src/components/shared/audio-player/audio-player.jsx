@@ -47,7 +47,7 @@ const AudioPlayer = () => {
               {player.meta.link ? (
                 <Link className="md:mt-2.5" to={player.meta.link} theme="white">
                   <span
-                    className="block text-sm leading-denser line-clamp-1 md:text-center"
+                    className="line-clamp-1 block text-sm leading-denser md:text-center"
                     title={player.meta.title}
                   >
                     {player.meta.title}
@@ -55,7 +55,7 @@ const AudioPlayer = () => {
                 </Link>
               ) : (
                 <span
-                  className="block text-sm leading-denser line-clamp-1 md:mt-2.5 md:text-center"
+                  className="line-clamp-1 block text-sm leading-denser md:mt-2.5 md:text-center"
                   title={player.meta.title}
                 >
                   {player.meta.title}

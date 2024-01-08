@@ -1,1 +1,1 @@
-export { default } from "./forward-button";
+export { default } from './forward-button';

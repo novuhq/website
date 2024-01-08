@@ -103,7 +103,7 @@ const Form = () => {
     >
       <LazyMotion features={domAnimation}>
         <input
-          className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pr-32 pl-5 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
+          className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pl-5 pr-32 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
           name="email"
           type="email"
           placeholder="Your email..."
@@ -116,7 +116,7 @@ const Form = () => {
         {errorMessage && (
           <AnimatePresence>
             <m.span
-              className="absolute left-1/2 -bottom-2 w-full max-w-[330px] -translate-x-1/2 translate-y-full text-center text-sm text-gray-8"
+              className="absolute -bottom-2 left-1/2 w-full max-w-[330px] -translate-x-1/2 translate-y-full text-center text-sm text-gray-8"
               initial="initial"
               animate="animate"
               exit="exit"
@@ -128,7 +128,7 @@ const Form = () => {
         )}
 
         <Button
-          className={clsx('absolute top-1/2 right-3 -translate-y-1/2', {
+          className={clsx('absolute right-3 top-1/2 -translate-y-1/2', {
             'w-[108px]': formState === STATES.LOADING,
             'w-10 px-0': formState === STATES.SUCCESS,
             'pointer-events-none': isStateLoadingOrSuccess,

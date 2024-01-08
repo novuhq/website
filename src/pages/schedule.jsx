@@ -7,7 +7,7 @@ import Layout from '../components/shared/layout';
 
 const SchedulePage = () => (
   <Layout>
-    <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pt-28 md:pb-10 sm:pt-18">
+    <section className="safe-paddings relative overflow-hidden py-36 lg:py-32 md:pb-10 md:pt-28 sm:pt-18">
       <div className="container relative z-10">
         <article>
           <div className="col-start-1 col-end-6 flex flex-col md:order-2 md:mt-5">

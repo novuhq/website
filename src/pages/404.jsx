@@ -7,7 +7,7 @@ import SEO from 'components/shared/seo';
 
 const NotFoundPage = () => (
   <Layout>
-    <section className="safe-paddings py-34 pb-20 lg:pt-32 lg:pb-16 md:pt-30 md:pb-14 sm:pt-22 sm:pb-32">
+    <section className="safe-paddings py-34 pb-20 lg:pb-16 lg:pt-32 md:pb-14 md:pt-30 sm:pb-32 sm:pt-22">
       <div className="container flex flex-col items-center">
         <p className="font-semibold uppercase">404 error</p>
         <Heading tag="h1" size="2xl">

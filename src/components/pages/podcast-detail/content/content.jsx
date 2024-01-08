@@ -91,7 +91,7 @@ const Content = ({ className, episode, title, subtitle, audio, text, date, url }
         </span>
       </div>
 
-      <Separator className="py-5 px-0" backgroundColor="black" />
+      <Separator className="px-0 py-5" backgroundColor="black" />
       {text && <div className="content" dangerouslySetInnerHTML={{ __html: text }} />}
 
       <ShareAndSubscribe className="mt-10 hidden sm:block" url={url} />

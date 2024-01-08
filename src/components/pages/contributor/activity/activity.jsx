@@ -79,7 +79,7 @@ const Activity = ({ contributor }) => {
         </div>
       )}
 
-      <Separator className="px-0 pt-14 pb-8 sm:pt-9" backgroundColor="black" />
+      <Separator className="px-0 pb-8 pt-14 sm:pt-9" backgroundColor="black" />
       <Link className="flex items-center space-x-2.5" theme="white" {...LINKS.contributors}>
         <ArrowIcon className="h-2" /> <span>Back to Contributors page</span>
       </Link>

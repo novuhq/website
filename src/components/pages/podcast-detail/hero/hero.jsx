@@ -16,7 +16,7 @@ const Hero = ({ className, imageUrl, url, author }) => (
         loading="eager"
       />
 
-      <div className="absolute left-7 -bottom-5 md:left-[30px] md:bottom-[-50px] sm:left-7 sm:-bottom-7">
+      <div className="absolute -bottom-5 left-7 md:bottom-[-50px] md:left-[30px] sm:-bottom-7 sm:left-7">
         <PodcastCover imageUrl={imageUrl} author={author} imageLoading="eager" />
       </div>
     </div>

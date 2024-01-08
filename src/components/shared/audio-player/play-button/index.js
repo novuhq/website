@@ -1,1 +1,1 @@
-export { default } from "./play-button";
+export { default } from './play-button';

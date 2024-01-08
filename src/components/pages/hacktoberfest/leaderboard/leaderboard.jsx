@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState, useMemo } from 'react';
 
@@ -71,9 +70,7 @@ const Leaderboard = () => {
             <ul>
               {list.map(({ author: { login, html_url, avatar_url }, scoreByYear }, index) => (
                 <li
-                  className={clsx(
-                    'grid-gap-x group grid grid-cols-8 items-center border-b border-gray-4 py-4 sm:grid-cols-[60px,1fr,1fr,65px]'
-                  )}
+                  className="grid-gap-x group grid grid-cols-8 items-center border-b border-gray-4 py-4 sm:grid-cols-[60px,1fr,1fr,65px]"
                   key={index}
                 >
                   <div className="relative flex items-center px-4">

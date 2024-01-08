@@ -1,1 +1,1 @@
-export { default } from "./mute-button";
+export { default } from './mute-button';

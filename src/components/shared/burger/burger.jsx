@@ -15,7 +15,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
       onClick={onClick}
     >
       <m.span
-        className="absolute top-[7px] left-0 block h-0.5 w-6 rounded-full bg-white"
+        className="absolute left-0 top-[7px] block h-0.5 w-6 rounded-full bg-white"
         variants={{
           initial: {
             top: 7,
@@ -30,7 +30,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
         }}
       />
       <m.span
-        className="absolute top-[15px] left-0 block h-0.5 w-4 rounded-full bg-white"
+        className="absolute left-0 top-[15px] block h-0.5 w-4 rounded-full bg-white"
         variants={{
           initial: {
             display: 'block',
@@ -58,7 +58,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
         }}
       />
       <m.span
-        className="absolute top-[15px] left-0 hidden h-0.5 w-6 rounded-full bg-white"
+        className="absolute left-0 top-[15px] hidden h-0.5 w-6 rounded-full bg-white"
         variants={{
           initial: {
             rotate: '0deg',
@@ -73,7 +73,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
         }}
       />
       <m.span
-        className="absolute top-[15px] left-0 hidden h-0.5 w-6 rounded-full bg-white"
+        className="absolute left-0 top-[15px] hidden h-0.5 w-6 rounded-full bg-white"
         variants={{
           initial: {
             rotate: '0deg',
