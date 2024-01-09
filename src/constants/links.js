@@ -1,4 +1,4 @@
-const LINKS = {
+export default {
   // Pages
   home: {
     to: '/',
@@ -136,5 +136,3 @@ const LINKS = {
     to: 'https://notifications.directory',
   },
 };
-
-export default LINKS;

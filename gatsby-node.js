@@ -1,15 +1,11 @@
-import fs from 'fs';
-import { createRequire } from 'module';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
-import fetch from 'node-fetch';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import slash from 'slash';
+const slash = require('slash');
 
-import onPostBuildHandler from './gatsby/on-post-build.mjs';
-import { octokit } from './src/utils/contributors-utils.mjs';
-
-const require = createRequire(import.meta.url);
+const redirects = require('./redirects.json');
+const { octokit } = require('./src/utils/contributors-utils');
+// const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
@@ -70,7 +66,7 @@ const createContributorsPage = async ({ actions, reporter }) => {
   }
 };
 
-async function createTemplatePages({ graphql, actions, reporter }) {
+async function createPages({ graphql, actions, reporter }) {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -377,14 +373,12 @@ async function createPosts({ graphql, actions }) {
 //   });
 // }
 
-export const createPages = async (args) => {
+exports.createPages = async (args) => {
   const { createRedirect } = args.actions;
 
   const params = {
     ...args,
   };
-
-  const redirects = require('./redirects.json');
 
   redirects.forEach((redirect) =>
     createRedirect({
@@ -395,7 +389,7 @@ export const createPages = async (args) => {
     })
   );
 
-  await createTemplatePages(params);
+  await createPages(params);
   await createBlogPages(params);
   await createPosts(params);
 
@@ -405,7 +399,7 @@ export const createPages = async (args) => {
   await createContributorsPage(params);
 };
 
-export const sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   // get data from GitHub API at build time
   const githubData = await fetch(`https://api.github.com/repos/novuhq/novu`).then((response) =>
     response.json()
@@ -554,7 +548,7 @@ export const sourceNodes = async ({ actions: { createNode }, createContentDigest
   });
 };
 
-export const createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
@@ -569,4 +563,4 @@ export const createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs);
 };
 
-export const onPostBuild = onPostBuildHandler;
+exports.onPostBuild = require('./gatsby/on-post-build');

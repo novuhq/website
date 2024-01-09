@@ -1,18 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import objectHash from 'object-hash';
+const objectHash = require('object-hash');
 
-import {
+const {
   fetchReadmeContent,
   changeReadmeContent,
   octokit,
   getCache,
   setCache,
-} from '../src/utils/contributors-utils.mjs';
+} = require('../src/utils/contributors-utils');
 
 const repoOwner = 'novuhq';
 const repoName = 'contributors';
 
-const onPostBuild = async ({ graphql }) => {
+module.exports = async ({ graphql }) => {
   if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_README_TOKEN) {
     return;
   }
@@ -44,10 +44,7 @@ const onPostBuild = async ({ graphql }) => {
   `);
 
   const data = result.data.allWpUserAchievement.nodes.map(
-    ({ userAchievement: { achievementsList }, title }) => ({
-      title,
-      achievementsList,
-    })
+    ({ userAchievement: { achievementsList }, title }) => ({ title, achievementsList })
   );
 
   const contributorsWithAdditionalAchievements = data.map(({ title, achievementsList }) => {
@@ -106,5 +103,3 @@ const onPostBuild = async ({ graphql }) => {
       console.error('Error fetching README.md:', error);
     });
 };
-
-export default onPostBuild;

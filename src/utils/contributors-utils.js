@@ -1,10 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import fs from 'fs/promises';
+const fs = require('fs').promises;
 
-import { Octokit } from '@octokit/rest';
-import fetch from 'node-fetch';
+const { Octokit } = require('@octokit/rest');
 
-import ACHIEVEMENTS from '../constants/contributors.mjs';
+const { ACHIEVEMENTS } = require('../constants/contributors');
 
 const MEDAL_WIDTH = '34';
 const IMAGE_SIZE = '40';
@@ -146,4 +145,10 @@ async function setCache(hash) {
   await fs.writeFile('community-heroes-cache.json', JSON.stringify({ hash }));
 }
 
-export { octokit, fetchReadmeContent, changeReadmeContent, getCache, setCache };
+module.exports = {
+  octokit,
+  fetchReadmeContent,
+  changeReadmeContent,
+  getCache,
+  setCache,
+};

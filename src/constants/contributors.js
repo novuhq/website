@@ -63,4 +63,6 @@ const ACHIEVEMENTS = [
   },
 ];
 
-export default ACHIEVEMENTS;
+module.exports = {
+  ACHIEVEMENTS,
+};

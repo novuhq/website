@@ -1,7 +1,5 @@
 import { schedule } from '@netlify/functions';
 
-const fetch = require('node-fetch');
-
 const handler = schedule('0 */2 * * *', async () => {
   await fetch(process.env.REDEPLOY_HOOK_URL, {
     method: 'POST',

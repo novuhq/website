@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import moment from 'moment';
@@ -6,7 +7,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Tooltip from 'components/shared/tooltip';
-import ACHIEVEMENTS from 'constants/contributors.mjs';
+import { ACHIEVEMENTS } from 'constants/contributors';
 
 import bronzeMedalIconDisabled from './images/bronze-medal.png';
 import contributorOfTheMonthIconDisabled from './images/contributor-of-the-month.png';
@@ -203,7 +204,7 @@ const Achievements = ({
                 />
 
                 <div className="mt-3.5 space-y-1.5 text-center">
-                  <h4 className="text-base leading-tight">{title}</h4>
+                  <h4 className={clsx('text-base leading-tight')}>{title}</h4>
                   <span className="text-sm leading-tight text-gray-6">
                     {findDates(pulls).values[minStars]}
                   </span>

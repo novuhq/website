@@ -1,15 +1,8 @@
 // Gatsby has dotenv by default
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+require('dotenv').config();
 
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const dir = dirname(fileURLToPath(import.meta.url));
-
-const config = {
+module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
     siteTitle: 'Novu - The open-source notification infrastructure',
@@ -26,7 +19,7 @@ const config = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${dir}/src/images`,
+        path: `${__dirname}/src/images`,
       },
     },
     'gatsby-plugin-image',
@@ -222,5 +215,3 @@ const config = {
     },
   ],
 };
-
-export default config;
