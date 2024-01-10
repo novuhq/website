@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState, useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
@@ -12,24 +12,26 @@ const HEADER = ['Place', 'Name', 'Score'];
 const Leaderboard = () => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const {
-    participants: { data: participants },
-  } = useStaticQuery(graphql`
-    {
-      participants: hacktoberfestAuthorsMergedPRs {
-        data {
-          author {
-            login
-            html_url
-            avatar_url
-          }
-          scoreByYear {
-            _2023
-          }
-        }
-      }
-    }
-  `);
+  const participants = [];
+  // FIXME: If necessary - To get this data it is necessary to uncomment a part of the code that fetches and organizes this data at the gatsby-node file level.
+  // const {
+  //   participants: { data: participants },
+  // } = useStaticQuery(graphql`
+  //   {
+  //     participants: hacktoberfestAuthorsMergedPRs {
+  //       data {
+  //         author {
+  //           login
+  //           html_url
+  //           avatar_url
+  //         }
+  //         scoreByYear {
+  //           _2023
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const participantsIsCurrentYear = useMemo(
     () =>
