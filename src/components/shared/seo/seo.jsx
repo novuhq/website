@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Script } from 'gatsby';
 import React from 'react';
 
 const SEO = ({
@@ -56,6 +56,11 @@ const SEO = ({
       <meta property="og:type" content="website" />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
+
+      {process.env.NODE_ENV === 'production' && (
+        <Script id="hs-script-loader" src="//js.hs-scripts.com/44416662.js" />
+      )}
+
       {children}
     </>
   );
