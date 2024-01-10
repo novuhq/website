@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import moment from 'moment';
 import React, { useState, useMemo } from 'react';
 
@@ -15,19 +15,21 @@ const DESCRIPTION =
 const Issues = ({ className }) => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const {
-    hacktoberfestIssues: { data },
-  } = useStaticQuery(graphql`
-    query hacktoberfestIssuesQuery {
-      hacktoberfestIssues {
-        data {
-          title
-          html_url
-          created_at
-        }
-      }
-    }
-  `);
+  const data = []
+  // FIXME: If necessary - To get this data it is necessary to uncomment a part of the code that fetches and organizes this data at the gatsby-node file level.
+  // const {
+  //   hacktoberfestIssues: { data },
+  // } = useStaticQuery(graphql`
+  //   query hacktoberfestIssuesQuery {
+  //     hacktoberfestIssues {
+  //       data {
+  //         title
+  //         html_url
+  //         created_at
+  //       }
+  //     }
+  //   }
+  // `);
 
   const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
 

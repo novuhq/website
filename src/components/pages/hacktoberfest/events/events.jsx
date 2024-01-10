@@ -139,7 +139,7 @@ const Events = () => (
           const isExternal = link.startsWith('http');
           return (
             <div
-              className="flex flex-col rounded-[20px] py-6 px-5"
+              className="flex flex-col rounded-[20px] px-5 py-6"
               style={{
                 opacity: moment().isAfter(date) ? 0.5 : 1,
                 filter: moment().isAfter(date) ? 'grayscale(100%)' : 'grayscale(0%)',
@@ -161,7 +161,7 @@ const Events = () => (
                 <span className="flex justify-center space-x-5 text-lg font-medium sm:text-base">
                   <date>{date.local().format('LLL')}</date>
                 </span>
-                <span className="mt-1 mb-5 text-lg text-gray-9 sm:text-base">{description}</span>
+                <span className="mb-5 mt-1 text-lg text-gray-9 sm:text-base">{description}</span>
                 <Button
                   className="mt-auto h-7 self-center"
                   theme="yellow"

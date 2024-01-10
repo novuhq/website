@@ -81,7 +81,7 @@ const Share = ({ url }) => {
           <LazyMotion features={domAnimation}>
             <AnimatePresence>
               <m.span
-                className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black py-1 px-1.5 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
+                className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black px-1.5 py-1 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
                 initial="hidden"
                 animate="visible"
                 exit="hidden"

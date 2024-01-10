@@ -2,7 +2,6 @@
 const fs = require('fs').promises;
 
 const { Octokit } = require('@octokit/rest');
-const fetch = require('node-fetch');
 
 const { ACHIEVEMENTS } = require('../constants/contributors');
 

@@ -51,7 +51,7 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden pt-30 pb-40 lg:pt-24 lg:pb-32 md:pt-18 md:pb-28 sm:pt-12 sm:pb-18">
+  <section className="features safe-paddings relative overflow-hidden pb-40 pt-30 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
     <div className="container relative z-10">
       <Heading
         size="md"
@@ -70,7 +70,7 @@ const Features = () => (
     </div>
 
     <img
-      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
+      className="absolute left-1/2 top-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
       src={bg}
       loading="lazy"
       alt=""

@@ -53,7 +53,7 @@ const GetStarted = ({
           >
             {leftTitle}
           </Heading>
-          <p className="mt-3 mb-7 text-center font-book leading-snug text-gray-9 sm:mb-5 sm:text-base">
+          <p className="mb-7 mt-3 text-center font-book leading-snug text-gray-9 sm:mb-5 sm:text-base">
             {leftDescription}
           </p>
           <Button
@@ -80,7 +80,7 @@ const GetStarted = ({
           >
             {rightTitle}
           </Heading>
-          <p className="mt-3 mb-7 text-center leading-snug text-black sm:mb-5 sm:text-base">
+          <p className="mb-7 mt-3 text-center leading-snug text-black sm:mb-5 sm:text-base">
             {rightDescription}
           </p>
           <Button
@@ -96,7 +96,7 @@ const GetStarted = ({
     </div>
 
     <img
-      className="absolute top-1/2 left-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
+      className="absolute left-1/2 top-1/2 min-w-[1920px] -translate-x-1/2 -translate-y-1/2"
       src={bg}
       loading="lazy"
       alt=""

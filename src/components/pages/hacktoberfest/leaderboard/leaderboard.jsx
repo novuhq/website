@@ -1,5 +1,4 @@
-import clsx from 'clsx';
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState, useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
@@ -13,24 +12,26 @@ const HEADER = ['Place', 'Name', 'Score'];
 const Leaderboard = () => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const {
-    participants: { data: participants },
-  } = useStaticQuery(graphql`
-    {
-      participants: hacktoberfestAuthorsMergedPRs {
-        data {
-          author {
-            login
-            html_url
-            avatar_url
-          }
-          scoreByYear {
-            _2023
-          }
-        }
-      }
-    }
-  `);
+  const participants = [];
+  // FIXME: If necessary - To get this data it is necessary to uncomment a part of the code that fetches and organizes this data at the gatsby-node file level.
+  // const {
+  //   participants: { data: participants },
+  // } = useStaticQuery(graphql`
+  //   {
+  //     participants: hacktoberfestAuthorsMergedPRs {
+  //       data {
+  //         author {
+  //           login
+  //           html_url
+  //           avatar_url
+  //         }
+  //         scoreByYear {
+  //           _2023
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const participantsIsCurrentYear = useMemo(
     () =>
@@ -71,9 +72,7 @@ const Leaderboard = () => {
             <ul>
               {list.map(({ author: { login, html_url, avatar_url }, scoreByYear }, index) => (
                 <li
-                  className={clsx(
-                    'grid-gap-x group grid grid-cols-8 items-center border-b border-gray-4 py-4 sm:grid-cols-[60px,1fr,1fr,65px]'
-                  )}
+                  className="grid-gap-x group grid grid-cols-8 items-center border-b border-gray-4 py-4 sm:grid-cols-[60px,1fr,1fr,65px]"
                   key={index}
                 >
                   <div className="relative flex items-center px-4">

@@ -114,7 +114,7 @@ const HowItWorks = () => (
                 loading="lazy"
                 alt={`stage number ${index + 1}`}
               />
-              <span className="absolute top-1/2 left-22 h-px w-[calc(100%-56px)] -translate-y-1/2 border-t border-dashed border-gray-6 group-last:hidden xl:w-[calc(100%-76px)] lg:left-20 lg:w-[calc(100%-64px)] md:top-20 md:left-1/2 md:h-[calc(100%-92px)] md:w-px md:translate-y-0 md:-translate-x-1/2 md:border-t-0 md:border-l sm:top-16 sm:h-[calc(100%-72px)]" />
+              <span className="absolute left-22 top-1/2 h-px w-[calc(100%-56px)] -translate-y-1/2 border-t border-dashed border-gray-6 group-last:hidden xl:w-[calc(100%-76px)] lg:left-20 lg:w-[calc(100%-64px)] md:left-1/2 md:top-20 md:h-[calc(100%-92px)] md:w-px md:-translate-x-1/2 md:translate-y-0 md:border-l md:border-t-0 sm:top-16 sm:h-[calc(100%-72px)]" />
             </div>
             <div className="mt-6 lg:mt-9 md:mt-0 md:pb-10 md:group-last:pb-0 sm:pb-6">
               <h4 className="text-xl font-medium leading-tight">{title}</h4>

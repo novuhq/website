@@ -6,10 +6,10 @@ import erxesIcon from './images/erxes.svg';
 import formbricksIcon from './images/formbricks.svg';
 import gitWonkIcon from './images/git-wonk.svg';
 import hankoIcon from './images/hanko.svg';
+import hook0Icon from './images/hook0.svg';
 import htmxIcon from './images/htmx.svg';
 import infisicalIcon from './images/infisical.svg';
 import openbbIcon from './images/openbb.svg';
-import hook0Icon from './images/hook0.svg';
 import sniffnetIcon from './images/sniffnet.svg';
 import typebotIcon from './images/typebot.svg';
 import webinyIcon from './images/webiny.svg';
@@ -73,11 +73,11 @@ const friendsItems = [
     linkUrl: 'https://www.hanko.io/',
   },
   {
-    name: "Hook0",
+    name: 'Hook0',
     description:
-      "Open-Source Webhooks-as-a-service (WaaS) that makes it easy for developers to send webhooks.",
+      'Open-Source Webhooks-as-a-service (WaaS) that makes it easy for developers to send webhooks.',
     logo: hook0Icon,
-    linkUrl: "https://www.hook0.com/",
+    linkUrl: 'https://www.hook0.com/',
   },
   {
     name: 'HTMX',
