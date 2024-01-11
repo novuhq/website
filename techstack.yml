@@ -2,11 +2,11 @@ repo_name: novuhq/website
 report_id: 1d3206863f836398f388365fa598127e
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T09:22:38+00:00'
-requested_by: scopsy
+timestamp: '2024-01-11T12:18:42+00:00'
+requested_by: americano98
 provider: github
 branch: main
-detected_tools_count: 53
+detected_tools_count: 51
 tools:
 - name: CSS 3
   description: The latest evolution of the Cascading Style Sheets language
@@ -51,20 +51,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
-- name: Node.js
-  description: A platform built on Chrome's JavaScript runtime for easily building
-    fast, scalable network applications
-  website_url: http://nodejs.org/
-  open_source: true
-  hosted_saas: false
-  category: Languages & Frameworks
-  sub_category: Frameworks (Full Stack)
-  image_url: https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png
-  detection_source_url: https://github.com/novuhq/website/blob/main/package.json
-  detection_source: package.json
-  last_updated_by: Anastasia Videneeva
-  last_updated_on: 2022-03-11 03:00:27.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: PostCSS
   description: Transform CSS with JS plugins
   website_url: https://github.com/postcss/postcss
@@ -91,7 +78,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Tailwind CSS
   description: A utility-first CSS framework for rapid UI development
   website_url: https://tailwindcss.com
@@ -104,11 +91,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Babel
   description: Use next generation JavaScript, today.
   website_url: http://babeljs.io/
-  version: 7.22.20
+  version: 7.23.7
   license: MIT
   open_source: true
   hosted_saas: false
@@ -118,7 +105,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Dotenv
   description: Loads environment variables from .env for Nodejs projects
   website_url: https://github.com/motdotla/dotenv
@@ -131,7 +118,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: ESLint
   description: The fully pluggable JavaScript code quality tool
   website_url: http://eslint.org/
@@ -165,8 +152,8 @@ tools:
   image_url: https://img.stackshare.io/service/9827/octokit-dotnet_2.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package.json
   detection_source: package.json
-  last_updated_by: Thi Van Le
-  last_updated_on: 2023-06-08 17:13:44.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Prettier
   description: 'Prettier is an opinionated code formatter. '
   website_url: https://prettier.io/
@@ -180,7 +167,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: npm
   description: The package manager for JavaScript.
   website_url: https://www.npmjs.com/
@@ -210,7 +197,7 @@ tools:
   description: Free, open source framework for building blazing fast websites and
     apps with React
   website_url: https://www.gatsbyjs.org
-  version: 5.12.4
+  version: 5.13.1
   license: MIT
   open_source: true
   hosted_saas: false
@@ -219,8 +206,8 @@ tools:
   image_url: https://img.stackshare.io/service/5472/default_189db484e0770a6101c6a70f0ef0172bc0f8de37.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
-  last_updated_by: Andrew Golovanov
-  last_updated_on: 2023-06-20 17:52:40.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Lottie
   description: Easily add high-quality animation to any native app (by Airbnb)
   website_url: http://airbnb.design/lottie/
@@ -233,12 +220,12 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Moment.js
   description: A JavaScript date library for parsing, validating, manipulating, and
     formatting dates
   website_url: http://momentjs.com/
-  version: 2.29.4
+  version: 2.30.1
   license: MIT
   open_source: true
   hosted_saas: false
@@ -248,7 +235,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: Shell
   description: A shell is a text-based terminal, used for manipulating programs and
     files. Shell scripts typically manage program execution.
@@ -263,7 +250,7 @@ tools:
 - name: axios
   description: Promise based HTTP client for the browser and node.js
   website_url: https://github.com/mzabriskie/axios
-  version: 1.5.0
+  version: 1.6.5
   license: MIT
   open_source: true
   hosted_saas: false
@@ -273,7 +260,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: husky
   website_url: https://github.com/typicode/husky
   open_source: false
@@ -291,11 +278,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: "@babel/core"
   description: Babel compiler core
   package_url: https://www.npmjs.com/@babel/core
-  version: 7.22.20
+  version: 7.23.7
   license: MIT
   open_source: true
   hosted_saas: false
@@ -305,11 +292,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: "@commitlint/cli"
   description: Lint your commit messages
   package_url: https://www.npmjs.com/@commitlint/cli
-  version: 17.7.1
+  version: 18.4.4
   license: MIT
   open_source: true
   hosted_saas: false
@@ -319,11 +306,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: "@commitlint/config-conventional"
   description: Shareable commitlint config enforcing conventional commits
   package_url: https://www.npmjs.com/@commitlint/config-conventional
-  version: 17.7.0
+  version: 18.4.4
   license: MIT
   open_source: true
   hosted_saas: false
@@ -333,11 +320,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-10-09 12:03:12.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: "@octokit/rest"
   description: GitHub REST API client for Node.js
   package_url: https://www.npmjs.com/@octokit/rest
-  version: 19.0.13
+  version: 20.0.2
   license: MIT
   open_source: true
   hosted_saas: false
@@ -346,8 +333,8 @@ tools:
   image_url: https://img.stackshare.io/package/16999/default_43f23668e39c9b3381720c9c76540776b8a49167.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
-  last_updated_by: Thi Van Le
-  last_updated_on: 2023-06-08 17:13:44.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: "@svgr/webpack"
   description: SVGR webpack loader
   package_url: https://www.npmjs.com/@svgr/webpack
@@ -361,7 +348,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: babel-loader
   description: Babel module loader for webpack
   package_url: https://www.npmjs.com/babel-loader
@@ -375,7 +362,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: eslint-config-airbnb
   description: Airbnb's ESLint config, following our styleguide
   package_url: https://www.npmjs.com/eslint-config-airbnb
@@ -389,11 +376,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: eslint-config-prettier
   description: Turns off all rules that are unnecessary or might conflict with Prettier
   package_url: https://www.npmjs.com/eslint-config-prettier
-  version: 8.10.0
+  version: 9.1.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -403,11 +390,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: eslint-plugin-import
   description: Import with sanity
   package_url: https://www.npmjs.com/eslint-plugin-import
-  version: 2.28.1
+  version: 2.29.1
   license: MIT
   open_source: true
   hosted_saas: false
@@ -417,11 +404,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-26 09:33:10.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: eslint-plugin-jsx-a11y
   description: Static AST checker for accessibility rules on JSX elements
   package_url: https://www.npmjs.com/eslint-plugin-jsx-a11y
-  version: 6.7.1
+  version: 6.8.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -431,7 +418,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-26 09:33:10.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: eslint-plugin-react
   description: React specific linting rules for ESLint
   package_url: https://www.npmjs.com/eslint-plugin-react
@@ -445,7 +432,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-26 09:33:10.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: eslint-plugin-react-hooks
   description: ESLint rules for React Hooks
   package_url: https://www.npmjs.com/eslint-plugin-react-hooks
@@ -458,12 +445,12 @@ tools:
   image_url: https://img.stackshare.io/package/16149/default_1f3a2fc7d882e29a43394ecdf491b8989ea3f0fa.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
-  last_updated_by: Thi Van Le
-  last_updated_on: 2023-06-12 08:39:07.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: gatsby-plugin-sharp
   description: Wrapper of the Sharp image manipulation library for Gatsby plugins
   package_url: https://www.npmjs.com/gatsby-plugin-sharp
-  version: 5.12.0
+  version: 5.13.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -472,13 +459,13 @@ tools:
   image_url: https://img.stackshare.io/package/17786/default_a53af9d6b5a4c8c6e8d5f8494d76a8d2efd3e660.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
-  last_updated_by: Andrew Golovanov
-  last_updated_on: 2023-06-20 17:52:40.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: gatsby-source-filesystem
   description: Gatsby plugin which parses files within a directory for further parsing
     by other plugins
   package_url: https://www.npmjs.com/gatsby-source-filesystem
-  version: 5.12.0
+  version: 5.13.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -487,12 +474,12 @@ tools:
   image_url: https://img.stackshare.io/package/17100/default_1dbf402c11ef653fcaedc84e608a244e30ebfb87.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
-  last_updated_by: Andrew Golovanov
-  last_updated_on: 2023-06-20 17:52:40.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: gatsby-transformer-sharp
   description: Gatsby transformer plugin for images using Sharp
   package_url: https://www.npmjs.com/gatsby-transformer-sharp
-  version: 5.12.0
+  version: 5.13.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -501,8 +488,8 @@ tools:
   image_url: https://img.stackshare.io/package/18094/image.png
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
-  last_updated_by: Andrew Golovanov
-  last_updated_on: 2023-06-20 17:52:40.000000000 Z
+  last_updated_by: americano98
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: husky
   description: Prevents bad commit or push
   package_url: https://www.npmjs.com/husky
@@ -520,7 +507,7 @@ tools:
 - name: lint-staged
   description: Lint files staged by git
   package_url: https://www.npmjs.com/lint-staged
-  version: 13.3.0
+  version: 15.2.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -530,7 +517,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: lodash.isempty
   description: The lodash method `_.isEmpty` exported as a module
   package_url: https://www.npmjs.com/lodash.isempty
@@ -548,7 +535,7 @@ tools:
 - name: markdownlint-cli
   description: MarkdownLint Command Line Interface
   package_url: https://www.npmjs.com/markdownlint-cli
-  version: 0.34.0
+  version: 0.38.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -558,11 +545,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-09 11:39:27.000000000 Z
 - name: moment
   description: Parse, validate, manipulate, and display dates
   package_url: https://www.npmjs.com/moment
-  version: 2.29.4
+  version: 2.30.1
   license: MIT
   open_source: true
   hosted_saas: false
@@ -572,34 +559,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
-- name: node-fetch
-  description: A light-weight module that brings window.fetch to node.js
-  package_url: https://www.npmjs.com/node-fetch
-  version: 1.7.3
-  license: MIT
-  open_source: true
-  hosted_saas: false
-  category: Libraries
-  sub_category: npm Packages
-  image_url: https://img.stackshare.io/package/15978/default_f49d4c116f8ea0155f4d92673b084378bba02760.png
-  detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
-  detection_source: package.json
-  last_updated_by: americano98
-  last_updated_on: 2023-10-09 12:03:12.000000000 Z
-  vulnerabilities:
-  - name: node-fetch forwards secure headers to untrusted sites
-    cve_id: CVE-2022-0235
-    cve_url: https://github.com/advisories/GHSA-r683-j2x4-v87g
-    detected_date: Jan 22
-    severity: high
-    first_patched: 2.6.7
-  - name: The `size` option isn't honored after following a redirect in node-fetch
-    cve_id: CVE-2020-15168
-    cve_url: https://github.com/advisories/GHSA-w7rc-rwvf-8q5r
-    detected_date: Aug 22
-    severity: low
-    first_patched: 2.6.1
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: object-hash
   description: Generate hashes from javascript objects in node and the browser
   package_url: https://www.npmjs.com/object-hash
@@ -617,7 +577,7 @@ tools:
 - name: postcss-import
   description: PostCSS plugin to import CSS files
   package_url: https://www.npmjs.com/postcss-import
-  version: 15.1.0
+  version: 16.0.0
   license: MIT
   open_source: true
   hosted_saas: false
@@ -627,7 +587,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: prop-types
   description: Runtime type checking for React props and similar objects
   package_url: https://www.npmjs.com/prop-types
@@ -655,7 +615,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: react-modal
   description: Accessible modal dialog component for React.JS
   package_url: https://www.npmjs.com/react-modal
@@ -669,7 +629,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: react-syntax-highlighter
   description: Syntax highlighting component for react with prismjs or highlightjs
     ast using inline styles
@@ -684,11 +644,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: react-tooltip
   description: React tooltip component
   package_url: https://www.npmjs.com/react-tooltip
-  version: 5.21.4
+  version: 5.25.1
   license: MIT
   open_source: true
   hosted_saas: false
@@ -698,7 +658,7 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
 - name: slash
   description: Convert Windows backslash paths to slash paths
   package_url: https://www.npmjs.com/slash
@@ -712,11 +672,11 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: Andrew Golovanov
-  last_updated_on: 2022-04-15 10:24:33.000000000 Z
+  last_updated_on: 2024-01-10 13:13:21.000000000 Z
 - name: tailwindcss
   description: A utility-first CSS framework for rapidly building custom user interfaces
   package_url: https://www.npmjs.com/tailwindcss
-  version: 3.3.3
+  version: 3.4.1
   license: MIT
   open_source: true
   hosted_saas: false
@@ -726,4 +686,4 @@ tools:
   detection_source_url: https://github.com/novuhq/website/blob/main/package-lock.json
   detection_source: package.json
   last_updated_by: americano98
-  last_updated_on: 2023-05-25 16:39:03.000000000 Z
+  last_updated_on: 2024-01-05 10:44:28.000000000 Z
