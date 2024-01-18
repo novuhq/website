@@ -32,6 +32,7 @@ const PLANS = {
       topics: true,
       emailCallback: false,
       monitoring: true,
+      translation: false,
       'log-retention': '7',
     },
     security: {
@@ -79,6 +80,7 @@ const PLANS = {
       topics: true,
       emailCallback: false,
       monitoring: true,
+      translation: true,
       'log-retention': '7',
     },
     security: {
@@ -126,6 +128,7 @@ const PLANS = {
       topics: true,
       emailCallback: true,
       monitoring: true,
+      translation: true,
       'log-retention': '30',
     },
     security: {
@@ -173,6 +176,7 @@ const PLANS = {
       topics: true,
       emailCallback: true,
       monitoring: true,
+      translation: true,
       'log-retention': '30+',
     },
     security: {
@@ -228,6 +232,7 @@ const LABELS = [
       topics: 'Topics',
       emailCallback: 'Email Callback',
       monitoring: 'Monitoring',
+      translation: 'Translation',
       'log-retention': 'Log Retention',
     },
   },
