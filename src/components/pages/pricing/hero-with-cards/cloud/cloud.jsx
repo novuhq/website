@@ -75,39 +75,11 @@ const getPricingData = (rangeValue) => [
   },
   {
     titles: {
-      default: 'Indie Dev',
-    },
-    name: 'indie',
-    prices: {
-      default: 25,
-      60: 70,
-    },
-    extraOvercharge: {
-      20: 3.67,
-      60: 2.88,
-    },
-    description: 'Small projects by up to 2 indie-hackers.',
-    items: [`${rangeValue < 60 ? 20 : 60}K events/month included`],
-    buttons: {
-      default: {
-        text: 'Get started for free',
-        url: LINKS.getStarted.to,
-        onClick: () =>
-          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
-            packageType: 'Indie Dev',
-            sliderValue: RANGES[rangeValue],
-          }),
-      },
-    },
-    isOpenBeta: false,
-  },
-  {
-    titles: {
       default: 'Business',
     },
     name: 'business',
     prices: {
-      default: 200,
+      default: 250,
       90: 350,
       110: 575,
       140: 2200,
@@ -244,7 +216,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
           </span>
         </div>
       </div>
-      <ul className="mt-12 grid auto-rows-max grid-cols-4 items-stretch justify-between gap-10 text-center xl:gap-6 lg:mx-24 lg:grid-cols-2 lg:gap-6 md:mx-0 md:mt-10 md:gap-7 sm:grid-cols-1">
+      <ul className="mx-auto mt-12 grid max-w-[1200px] auto-rows-max grid-cols-3 items-stretch justify-between gap-10 text-center xl:gap-6 md:mt-10 md:max-w-[700px] md:grid-cols-1 md:gap-7">
         {getPricingData(rangeValue).map(
           (
             { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
@@ -255,7 +227,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             return (
               <li
                 className={clsx(
-                  'relative mx-auto w-full max-w-[338px] overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none sm:mx-auto sm:max-w-[380px]',
+                  'relative w-full overflow-hidden rounded-xl p-px text-center after:absolute after:inset-0 after:-z-10 after:rounded-xl after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
                   isActive && 'after:opacity-100'
                 )}
                 key={index}
@@ -269,7 +241,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                 )}
                 <div
                   className={clsx(
-                    'mx-auto flex h-full min-w-[336px] max-w-[338px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 text-center transition-all duration-500 ease-in-out xl:mx-0 xl:min-w-0 xl:max-w-none xl:px-4 lg:px-6 md:px-6',
+                    'flex h-full min-w-[336px] flex-col items-center justify-between rounded-xl bg-gray-gradient p-8 px-4 text-center transition-all duration-500 ease-in-out xl:min-w-0 lg:px-6 md:px-6',
                     isActive && 'bg-active-gray-gradient'
                   )}
                 >

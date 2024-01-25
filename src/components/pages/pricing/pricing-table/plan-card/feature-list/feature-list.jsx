@@ -20,7 +20,7 @@ const renderFeature = (feature) => {
 };
 
 const FeatureList = ({ features, currentRow }) => (
-  <div className="mt-[64px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-left lg:mt-[61px] [&:nth-child(2)]:mt-[50px] lg:[&:nth-child(2)]:mt-[47px]">
+  <div className="mt-[64px] flex flex-col divide-y divide-gray-2 border-b border-gray-2 text-left lg:mt-[61px] [&:nth-child(2)]:mt-[23px] lg:[&:nth-child(2)]:mt-[23px]">
     {Object.keys(features).map((item, index) => {
       const isActive = `${item}-${index}` === currentRow;
       return (
@@ -29,7 +29,6 @@ const FeatureList = ({ features, currentRow }) => (
             'flex h-10 w-full items-center px-[52px] text-sm font-book leading-snug text-gray-10 lg:px-10 md:px-8',
             {
               'bg-[#101010]': isActive,
-              'min-h-[189px] !items-start py-2.5': item === 'support',
             }
           )}
           data-row-id={`${item}-${index}`}
