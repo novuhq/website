@@ -10,7 +10,7 @@ import Subscribe from 'components/shared/subscribe';
 const INITIAL_SLIDER_VALUE = 0;
 
 const findActiveTier = (value) => {
-  if (value >= 140) return 'enterprise';
+  if (value >= 70) return 'enterprise';
   if (value < 10) return 'free';
   return 'business';
 };

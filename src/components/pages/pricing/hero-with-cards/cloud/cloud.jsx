@@ -7,47 +7,26 @@ import Tooltip from 'components/shared/tooltip/';
 import LINKS from 'constants/links';
 import QuestionIcon from 'icons/question.inline.svg';
 import CheckIcon from 'images/check.inline.svg';
-
-import { buttonClick } from '../../../../../utils/use-landing-simple-tracking';
+import { buttonClick } from 'utils/use-landing-simple-tracking';
 
 const thumbWidth = 28; // in pixels
 
 const RANGES = {
   0: '0',
-  10: '10000',
-  20: '30000',
-  30: '35000',
-  40: '40000',
-  50: '50000',
-  60: '60000',
-  70: '80000',
-  80: '100000',
-  90: '120000',
-  100: '200000',
-  110: '250000',
-  120: '500000',
-  130: '750000',
-  140: '1000000',
-  150: '1500000',
-  160: '2000000',
-  170: '3000000',
-  180: '4500000',
-  190: '5000000',
+  10: '50000',
+  20: '100000',
+  30: '500000',
+  40: '1000000',
+  50: '3000000',
+  60: '5000000',
+  70: '10000000',
+  80: '50000000',
+  90: '100000000',
+  100: 'Unlimited',
 };
 
 const tooltip =
   'A trigger event (also called an event) is a request that kicks off a process in Novu logic engine (API call to /v1/events/trigger for example). A trigger event can make many different types of actions, including digests, delays, and sending notifications to various channels, as well filters and user preference checks. You are charged for trigger event that starts a process in the logic engine for each unique subscriber.';
-
-const getBusinessItem = (rangeValue) => {
-  if (rangeValue <= 60) return '60K';
-  if (rangeValue < 90) return '60K';
-  if (rangeValue < 110) return '120K';
-  if (rangeValue < 140) return '250K';
-  if (rangeValue < 160) {
-    return '1M';
-  }
-  return '2M';
-};
 
 const getPricingData = (rangeValue) => [
   {
@@ -59,7 +38,7 @@ const getPricingData = (rangeValue) => [
       default: 0,
     },
     description: 'For testing and evaluation or small-scale deployments.',
-    items: [`Up to 10K events a month`],
+    items: ['30K events/month included'],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -80,23 +59,23 @@ const getPricingData = (rangeValue) => [
     name: 'business',
     prices: {
       default: 250,
-      90: 350,
-      110: 575,
-      140: 2200,
-      160: 3900,
+      20: 500,
+      30: 2500,
+      40: 5000,
+      50: 9000,
+      60: 15000,
+      70: 20000,
+      80: 100000,
+      90: 180000,
     },
     extraOvercharge: {
-      60: 3.67,
-      90: 2.88,
-      110: 2.88,
-      140: 2.19,
-      160: 1.6,
-      170: 1.6,
-      180: 1.6,
-      190: 1.6,
+      20: 5.0,
+      50: 3.0,
+      70: 2.0,
+      90: 1.8,
     },
     description: 'Good place for bigger projects, startups, and full-fledged businesses.',
-    items: [`${getBusinessItem(rangeValue)} events/month included`],
+    items: [`50k events/month included`],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -120,14 +99,12 @@ const getPricingData = (rangeValue) => [
       0: 'Contact us',
     },
     extraOvercharge: {
-      140: 1.6,
-      170: 1.6,
-      180: 1.6,
-      190: 1.6,
+      70: 2.0,
+      90: 'TBC',
     },
     description:
       'For bigger businesses, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
-    items: [`1M events/month included`],
+    items: [`5M events/month included`],
     buttons: {
       default: {
         text: 'Contact sales',
@@ -147,7 +124,7 @@ const getPricingData = (rangeValue) => [
 ];
 
 const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
-  const maxValue = 190;
+  const maxValue = 100;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
 
@@ -183,7 +160,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
           }}
         >
           {Number(rangeValue) === maxValue
-            ? `${eventsFormatter.format(RANGES[rangeValue])}+`
+            ? 'Unlimited'
             : eventsFormatter.format(RANGES[rangeValue])}
         </output>
         <InputRange
@@ -212,7 +189,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             {eventsFormatter.format(0)}
           </span>
           <span className="text-sm leading-denser" aria-hidden>
-            {`${eventsFormatter.format(5000000)}+`}
+            {`${eventsFormatter.format(100000000)}+`}
           </span>
         </div>
       </div>
@@ -304,8 +281,10 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
 
                         {extraOvercharge && extraOvercharge[getNearestKey(extraOvercharge)] && (
                           <span className="absolute -top-6 left-0 w-full text-xs font-book leading-tight text-gray-8 xl:text-[11px] lg:text-xs">
-                            * ${extraOvercharge[getNearestKey(extraOvercharge)]} for another 1K
-                            events extra/overcharge
+                            {extraOvercharge[getNearestKey(extraOvercharge)] !== 'TBC'
+                              ? `* ${extraOvercharge[getNearestKey(extraOvercharge)]} for another 1K
+                            events extra/overcharge`
+                              : '* Pricing for additional 1K events needs clarifying'}
                           </span>
                         )}
                       </>
