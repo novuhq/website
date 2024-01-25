@@ -282,7 +282,9 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                         {extraOvercharge && extraOvercharge[getNearestKey(extraOvercharge)] && (
                           <span className="absolute -top-6 left-0 w-full text-xs font-book leading-tight text-gray-8 xl:text-[11px] lg:text-xs">
                             {extraOvercharge[getNearestKey(extraOvercharge)] !== 'TBC'
-                              ? `* ${extraOvercharge[getNearestKey(extraOvercharge)]} for another 1K
+                              ? `* $${
+                                  extraOvercharge[getNearestKey(extraOvercharge)]
+                                } for another 1K
                             events extra/overcharge`
                               : '* Pricing for additional 1K events needs clarifying'}
                           </span>
