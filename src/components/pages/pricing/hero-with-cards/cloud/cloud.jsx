@@ -159,9 +159,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             left: thumbPosition,
           }}
         >
-          {Number(rangeValue) === maxValue
-            ? 'Unlimited'
-            : eventsFormatter.format(RANGES[rangeValue])}
+          {Number(rangeValue) === maxValue ? '100M+' : eventsFormatter.format(RANGES[rangeValue])}
         </output>
         <InputRange
           type="range"
