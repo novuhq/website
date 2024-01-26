@@ -21,8 +21,7 @@ const RANGES = {
   60: '5000000',
   70: '10000000',
   80: '50000000',
-  90: '100000000',
-  100: 'Unlimited',
+  90: '100000000+',
 };
 
 const tooltip =
@@ -124,7 +123,7 @@ const getPricingData = (rangeValue) => [
 ];
 
 const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
-  const maxValue = 100;
+  const maxValue = 90;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
 
