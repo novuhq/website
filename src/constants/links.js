@@ -40,7 +40,7 @@ export default {
     target: '_blank',
   },
   careers: {
-    to: 'https://novuhq.notion.site/Careers-page-00bffbc69d8b44b790badfeadb7e44c5',
+    to: 'https://jobs.ashbyhq.com/novu.co?utm_source=website',
     target: '_blank',
   },
   inAppDocs: {
