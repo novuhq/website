@@ -217,7 +217,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
                 )}
                 <div
                   className={clsx(
-                    'flex h-full min-w-[336px] flex-col items-center justify-between rounded-xl p-8 px-4 text-center transition-all duration-500 ease-in-out xl:min-w-0 lg:px-6 md:px-6',
+                    'flex h-full min-w-[336px] flex-col items-center justify-between rounded-xl p-8 text-center transition-all duration-500 ease-in-out xl:min-w-0 lg:px-6',
                     isActive ? 'bg-active-gray-gradient' : 'bg-gray-gradient'
                   )}
                 >
