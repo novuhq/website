@@ -7,22 +7,16 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
 
-const INITIAL_SLIDER_VALUE = 0;
+// TODO: reset to 0 when pricing slider returns
+const INITIAL_SLIDER_VALUE = 50;
 
 const findActiveTier = (value) => {
-  if (value >= 140) return 'enterprise';
-  if (value < 60 && value >= 10) return 'indie';
+  if (value >= 70) return 'enterprise';
   if (value < 10) return 'free';
   return 'business';
 };
 
-const PRICING_PLANS = {
-  cloud: { title: 'Cloud', value: 'cloud' },
-  'self-hosted': { title: 'Self-hosted', value: 'self-hosted' },
-};
-
 const PricingPage = () => {
-  const [pricingPlan, setPricingPlan] = useState(PRICING_PLANS.cloud.value);
   const [activeTier, setActiveTier] = useState({
     value: findActiveTier(INITIAL_SLIDER_VALUE),
     rangeValue: INITIAL_SLIDER_VALUE,
@@ -30,17 +24,8 @@ const PricingPage = () => {
 
   return (
     <Layout>
-      <Hero
-        activeTier={activeTier}
-        setActiveTier={setActiveTier}
-        findActiveTier={findActiveTier}
-        pricingPlan={pricingPlan}
-        setPricingPlan={setPricingPlan}
-        pricingPlansData={PRICING_PLANS}
-      />
-      {pricingPlan === PRICING_PLANS.cloud.value && (
-        <PricingTable activeTier={activeTier} pricingPlan={pricingPlan} />
-      )}
+      <Hero activeTier={activeTier} setActiveTier={setActiveTier} findActiveTier={findActiveTier} />
+      <PricingTable activeTier={activeTier} />
       <FAQ />
       <Subscribe />
     </Layout>

@@ -9,10 +9,9 @@ const PlanCard = ({
   title,
   linkText,
   linkUrl,
-  platform,
-  inApp,
-  advancedFeatures,
-  security,
+  common,
+  notificationCenter,
+  features,
   activeTier,
   className,
   currentRow,
@@ -51,10 +50,9 @@ const PlanCard = ({
             </Button>
           )}
         </div>
-        <FeatureList features={platform} currentRow={currentRow} />
-        <FeatureList features={inApp} currentRow={currentRow} />
-        <FeatureList features={advancedFeatures} currentRow={currentRow} />
-        <FeatureList features={security} currentRow={currentRow} />
+        <FeatureList features={common} currentRow={currentRow} />
+        <FeatureList features={notificationCenter} currentRow={currentRow} />
+        <FeatureList features={features} currentRow={currentRow} />
       </div>
     </div>
   );

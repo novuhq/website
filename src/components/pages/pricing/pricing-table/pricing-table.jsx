@@ -38,7 +38,7 @@ const PricingPlans = ({ activeTier }) => {
           {TITLE}
         </Heading>
         <div className="md:scrollbar-hidden mx-auto mt-16 max-w-[1220px] md:-mx-7 md:mt-14 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-11 sm:px-4">
-          <div className="grid min-w-[924px] grid-cols-10 items-start">
+          <div className="grid min-w-[924px] grid-cols-8 items-start">
             <div className="col-span-2 mt-[120px]">
               {LABELS.map(({ title, items }, index) => (
                 <div className="mt-8 border-b border-gray-2 first:mt-0" key={index}>
@@ -52,7 +52,6 @@ const PricingPlans = ({ activeTier }) => {
                             'flex h-10 items-center text-sm font-book leading-snug text-gray-10',
                             {
                               'bg-[#101010]': isActive,
-                              'min-h-[189px] !items-start py-2.5': item.toLowerCase() === 'support',
                             }
                           )}
                           data-row-id={`${item}-${index}`}
