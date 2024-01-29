@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import clsx from 'clsx';
 import React from 'react';
 
@@ -151,45 +152,46 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
         </span>
         <Tooltip className="max-w-[398px]" theme="white" />
       </div>
-      <div className="relative mx-auto mt-14 w-full max-w-[968px]">
-        <output
-          className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output"
-          style={{
-            left: thumbPosition,
-          }}
-        >
-          {Number(rangeValue) === maxValue ? '100M+' : eventsFormatter.format(RANGES[rangeValue])}
-        </output>
-        <InputRange
-          type="range"
-          min="0"
-          max={maxValue}
-          step="10"
-          value={rangeValue}
-          styleSliderTrackWidth={{
-            width: thumbPosition,
-          }}
-          blurStyles={{
-            left: thumbPosition,
-            display: blurDisplay,
-          }}
-          onChange={(e) => {
-            setRangeValue(e.target.value);
-            setActiveTier({
-              value: findActiveTier(e.target.value),
-              rangeValue: RANGES[rangeValue],
-            });
-          }}
-        />
-        <div className="mt-1.5 flex justify-between bg-black text-white">
-          <span className="text-sm leading-denser" aria-hidden>
-            {eventsFormatter.format(0)}
-          </span>
-          <span className="text-sm leading-denser" aria-hidden>
-            {`${eventsFormatter.format(100000000)}+`}
-          </span>
-        </div>
-      </div>
+      {/* TODO: uncomment when pricing slider returns */}
+      {/* <div className="relative mx-auto mt-14 w-full max-w-[968px]"> */}
+      {/*   <output */}
+      {/*     className="absolute -top-[65%] -translate-x-1/2 rounded bg-gray-gradient px-2 py-1 text-xs shadow-output" */}
+      {/*     style={{ */}
+      {/*       left: thumbPosition, */}
+      {/*     }} */}
+      {/*   > */}
+      {/*     {Number(rangeValue) === maxValue ? '100M+' : eventsFormatter.format(RANGES[rangeValue])} */}
+      {/*   </output> */}
+      {/*   <InputRange */}
+      {/*     type="range" */}
+      {/*     min="0" */}
+      {/*     max={maxValue} */}
+      {/*     step="10" */}
+      {/*     value={rangeValue} */}
+      {/*     styleSliderTrackWidth={{ */}
+      {/*       width: thumbPosition, */}
+      {/*     }} */}
+      {/*     blurStyles={{ */}
+      {/*       left: thumbPosition, */}
+      {/*       display: blurDisplay, */}
+      {/*     }} */}
+      {/*     onChange={(e) => { */}
+      {/*       setRangeValue(e.target.value); */}
+      {/*       setActiveTier({ */}
+      {/*         value: findActiveTier(e.target.value), */}
+      {/*         rangeValue: RANGES[rangeValue], */}
+      {/*       }); */}
+      {/*     }} */}
+      {/*   /> */}
+      {/*   <div className="mt-1.5 flex justify-between bg-black text-white"> */}
+      {/*     <span className="text-sm leading-denser" aria-hidden> */}
+      {/*       {eventsFormatter.format(0)} */}
+      {/*     </span> */}
+      {/*     <span className="text-sm leading-denser" aria-hidden> */}
+      {/*       {`${eventsFormatter.format(100000000)}+`} */}
+      {/*     </span> */}
+      {/*   </div> */}
+      {/* </div> */}
       <ul className="mx-auto mt-12 grid max-w-[1200px] auto-rows-max grid-cols-3 items-stretch justify-between gap-10 text-center xl:gap-6 md:mt-10 md:max-w-[700px] md:grid-cols-1 md:gap-7">
         {getPricingData(rangeValue).map(
           (

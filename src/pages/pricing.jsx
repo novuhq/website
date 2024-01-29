@@ -7,7 +7,8 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
 
-const INITIAL_SLIDER_VALUE = 0;
+// TODO: reset to 0 when pricing slider returns
+const INITIAL_SLIDER_VALUE = 50;
 
 const findActiveTier = (value) => {
   if (value >= 70) return 'enterprise';
