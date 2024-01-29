@@ -28,7 +28,7 @@ const ButtonGithubStars = ({ className }) => {
       rel="noopener noreferrer"
     >
       <GitHubIcon className="mr-2 h-[26px] w-[26px]" />
-      <span>Star us</span>
+      <span className="lg:hidden">Star us</span>
       <span
         className="flex items-center before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4 before:transition-colors before:duration-200 group-hover:before:bg-gray-5"
         aria-label={`${count} stars on Github`}

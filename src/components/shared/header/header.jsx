@@ -15,13 +15,13 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 
   return (
     <header className="safe-paddings absolute left-0 right-0 top-0 z-40 w-full">
-      <div className="flex items-center justify-between px-10 py-3 md:px-7 md:py-4 sm:px-4 sm:py-3.5">
+      <div className="flex items-center justify-between px-10 py-3 lg:space-x-4 md:px-7 md:py-4 sm:px-4 sm:py-3.5">
         <Link {...LINKS.home}>
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Novu</span>
         </Link>
 
-        <div className="flex items-center space-x-16 lg:space-x-14">
+        <div className="flex items-center space-x-16 lg:space-x-8">
           <nav>
             <ul className="flex space-x-8 md:hidden">
               {MENUS.header.map(({ to, text, target }, index) => (
