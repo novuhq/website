@@ -45,7 +45,7 @@ const PLANS = {
     linkUrl: LINKS.getStarted.to,
     common: {
       'monthly-triggers': '50K',
-      'additional-events': 'Scale to 50m+ events/month',
+      'additional-events': 'Scales to infinite events/month',
       rps: '600RPS',
       workflows: true,
       providers: true,

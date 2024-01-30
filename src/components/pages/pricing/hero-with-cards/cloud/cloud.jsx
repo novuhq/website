@@ -74,7 +74,7 @@ const getPricingData = (rangeValue) => [
       70: 2.0,
       90: 1.8,
     },
-    description: 'Good place for bigger projects, startups, and full-fledged businesses.',
+    description: 'Good place for bigger projects, startups, and businesses.',
     items: [`50k events/month included`],
     buttons: {
       default: {
@@ -103,12 +103,12 @@ const getPricingData = (rangeValue) => [
       90: 'TBC',
     },
     description:
-      'For bigger businesses, looking for Premium Enterprise Support, custom SLA’s, or very large deployments.',
-    items: [`5M events/month included`],
+      'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
+    items: [`1M events/month included`],
     buttons: {
       default: {
         text: 'Contact sales',
-        url: 'https://calendly.com/novuhq/novu-meeting?utm_campaign=pricing-enterprise&utm_source=website',
+        url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=pricing-enterprise',
         onClick: () => {
           buttonClick('book_a_call', { type: 'enterprise_contact' });
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {

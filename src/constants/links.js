@@ -40,11 +40,11 @@ export default {
     target: '_blank',
   },
   careers: {
-    to: 'https://jobs.ashbyhq.com/novu.co?utm_source=website',
+    to: 'https://jobs.ashbyhq.com/novu.co?utm_campaign=website',
     target: '_blank',
   },
   inAppDocs: {
-    to: 'https://docs.novu.co/notification-center/introduction',
+    to: 'https://docs.novu.co/notification-center/introduction?utm_campaign=website',
     target: '_blank',
   },
   docker: {
@@ -56,7 +56,7 @@ export default {
     target: '_blank',
   },
   sdk: {
-    to: 'https://docs.novu.co/sdks/introduction',
+    to: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
     target: '_blank',
   },
   contactUs: {
@@ -64,15 +64,15 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://web.novu.co',
+    to: 'https://web.novu.co?utm_campaign=website',
     target: '_blank',
   },
   quickStart: {
-    to: 'https://docs.novu.co/quickstarts/01-introduction',
+    to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
     target: '_blank',
   },
   providers: {
-    to: 'https://docs.novu.co/channels-and-providers/introduction',
+    to: 'https://docs.novu.co/channels-and-providers/introduction?utm_campaign=website',
     target: '_blank',
   },
   handbook: {
@@ -104,11 +104,13 @@ export default {
     target: '_blank',
   },
   libraries: {
-    to: 'https://docs.novu.co/sdks/introduction',
+    to: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
     target: '_blank',
   },
+  //It still says calendly, but we're pointing it to Hubspot Meetings now
+  //old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
   calendly: {
-    to: 'https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_source=website',
+    to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website',
     target: '_blank',
   },
 
