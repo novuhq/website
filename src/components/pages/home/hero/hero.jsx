@@ -20,7 +20,6 @@ const Hero = () => {
 
   const lottieData = {
     lottieOptions: {
-      renderer: 'canvas',
       animationData,
       loop: true,
     },
