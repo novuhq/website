@@ -21,6 +21,7 @@ const Hero = () => {
   const lottieData = {
     lottieOptions: {
       animationData,
+      renderer: 'canvas',
       loop: true,
     },
     isInView: isAnimationWrapperInView,
