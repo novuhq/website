@@ -34,7 +34,12 @@ const Features = ({ title, description, features }) => (
                 {title}
               </Heading>
               <p className="my-6 font-book leading-snug text-gray-9 sm:mt-2.5">{description}</p>
-              <Link className="mt-auto uppercase" theme="primary-underline" size="sm" to={linkUrl}>
+              <Link
+                className="mt-auto uppercase md:col-start-2 md:justify-self-start"
+                theme="primary-underline"
+                size="sm"
+                to={linkUrl}
+              >
                 {linkText}
               </Link>
             </li>
@@ -56,7 +61,6 @@ Features.propTypes = {
       linkUrl: PropTypes.string,
     })
   ),
-  hubspotFormId: PropTypes.string.isRequired,
 };
 
 Features.defaultProps = {
