@@ -18,15 +18,25 @@ const RANGES = {
   20: '100000',
   30: '500000',
   40: '1000000',
-  50: '3000000',
-  60: '5000000',
-  70: '10000000',
-  80: '50000000',
-  90: '100000000+',
+  50: '2000000',
+  60: '3000000',
+  70: '5000000+',
 };
 
 const tooltip =
   'A trigger event (also called an event) is a request that kicks off a process in Novu logic engine (API call to /v1/events/trigger for example). A trigger event can make many different types of actions, including digests, delays, and sending notifications to various channels, as well filters and user preference checks. You are charged for trigger event that starts a process in the logic engine for each unique subscriber.';
+
+const getEventsMonthValue = (rangeValue) => {
+  if (rangeValue === '10') return '50K';
+  if (rangeValue === '20') return '100K';
+  if (rangeValue === '30') return '500K';
+  if (rangeValue === '40') return '1M';
+  if (rangeValue === '50') return '2M';
+  if (rangeValue === '60') return '3M';
+  if (rangeValue === '70') return '5M';
+
+  return '';
+};
 
 const getPricingData = (rangeValue) => [
   {
@@ -59,23 +69,23 @@ const getPricingData = (rangeValue) => [
     name: 'business',
     prices: {
       default: 250,
-      20: 500,
-      30: 2500,
-      40: 5000,
-      50: 9000,
-      60: 15000,
-      70: 20000,
-      80: 100000,
-      90: 180000,
+      20: 300,
+      30: 1500,
+      40: 2800,
+      50: 4200,
+      60: 4860,
+      70: 6400,
     },
     extraOvercharge: {
-      20: 5.0,
-      50: 3.0,
-      70: 2.0,
-      90: 1.8,
+      20: 3.0,
+      30: 3.0,
+      40: 2.8,
+      50: 2.1,
+      60: 1.62,
+      70: 1.28,
     },
     description: 'Good place for bigger projects, startups, and businesses.',
-    items: [`50k events/month included`],
+    items: [`${getEventsMonthValue(rangeValue) || '50K'} events/month included`],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -87,7 +97,6 @@ const getPricingData = (rangeValue) => [
           }),
       },
     },
-
     isOpenBeta: false,
   },
   {
@@ -99,12 +108,15 @@ const getPricingData = (rangeValue) => [
       0: 'Contact us',
     },
     extraOvercharge: {
-      70: 2.0,
-      90: 'TBC',
+      50: 2.1,
+      60: 1.62,
+      70: 1.28,
     },
     description:
       'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
-    items: [`1M events/month included`],
+    items: [
+      `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '1M'} events/month included`,
+    ],
     buttons: {
       default: {
         text: 'Contact sales',
@@ -124,7 +136,7 @@ const getPricingData = (rangeValue) => [
 ];
 
 const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
-  const maxValue = 90;
+  const maxValue = 70;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
 
@@ -141,7 +153,6 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
 
   return (
     <>
-      {/* TODO: uncomment when pricing slider returns
       <div className="mt-16 text-center md:mt-14 sm:mt-11">
         <span className="text-center text-3xl font-book md:text-2xl">
           How many events do you need per month?
@@ -160,7 +171,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             left: thumbPosition,
           }}
         >
-          {Number(rangeValue) === maxValue ? '100M+' : eventsFormatter.format(RANGES[rangeValue])}
+          {Number(rangeValue) === maxValue ? '5M+' : eventsFormatter.format(RANGES[rangeValue])}
         </output>
         <InputRange
           type="range"
@@ -188,10 +199,10 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             {eventsFormatter.format(0)}
           </span>
           <span className="text-sm leading-denser" aria-hidden>
-            {`${eventsFormatter.format(100000000)}+`}
+            {`${eventsFormatter.format(5000000)}+`}
           </span>
         </div>
-      </div> */}
+      </div>
       <ul className="mx-auto mt-14 grid max-w-[1096px] auto-rows-max grid-cols-3 items-stretch justify-between gap-10 text-center xl:gap-6 md:mt-12 md:max-w-[700px] md:grid-cols-1 md:gap-7">
         {getPricingData(rangeValue).map(
           (
