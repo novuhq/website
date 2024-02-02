@@ -62,6 +62,9 @@ module.exports = {
       purple: {
         DEFAULT: '#9092FF',
       },
+      red: {
+        DEFAULT: '#E51A5E',
+      },
     }),
     backgroundImage: {
       'input-gradient':

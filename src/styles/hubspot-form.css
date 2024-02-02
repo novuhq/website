@@ -65,7 +65,7 @@
       }
 
       label {
-        @apply text-xs font-normal leading-none text-secondary-1 !important;
+        @apply text-xs font-normal leading-none text-red !important;
       }
     }
 
@@ -84,7 +84,7 @@
         @apply text-base leading-none;
 
         &.error {
-          @apply border-secondary-1 !important;
+          @apply border-red !important;
         }
 
         &[type='text'],
@@ -92,14 +92,14 @@
         &[type='number'],
         &[type='tel'] {
           @apply mt-2 h-12 w-full bg-gray-2 px-3 text-base leading-none !important;
-          @apply appearance-none rounded border border-gray-4 outline-none transition-colors duration-200 hover:border-gray-3 focus:border-primary-1;
+          @apply appearance-none rounded border border-gray-3 outline-none transition-colors duration-200 hover:border-gray-4 focus:border-primary-1;
         }
       }
 
       select {
         @apply mt-2.5 h-12 w-full appearance-none bg-gray-2 bg-no-repeat px-3 text-base !important;
-        @apply rounded border border-gray-4 outline-none transition-colors duration-200 hover:border-gray-3 focus:border-primary-1;
-        /*background-image: url('/images/dropdown-arrow.svg');*/
+        @apply rounded border border-gray-3 outline-none transition-colors duration-200 hover:border-gray-4 focus:border-primary-1;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9' fill='none' viewBox='0 0 16 9'%3E%3Cpath stroke='white' d='M15 1 8 8 1 1'/%3E%3C/svg%3E%0A");
         background-position-x: calc(100% - 16px);
         background-position-y: 1.25rem;
 
@@ -108,12 +108,12 @@
         }
 
         &.error {
-          @apply border-secondary-1 !important;
+          @apply border-red !important;
         }
       }
 
       textarea {
-        @apply mt-2.5 min-h-[6rem] w-full appearance-none rounded border border-gray-4 bg-gray-2 px-3 py-4 text-base outline-none transition-colors duration-200 hover:border-gray-3 focus:border-primary-1 !important;
+        @apply mt-2.5 min-h-[6rem] w-full appearance-none rounded border border-gray-3 bg-gray-2 px-3 py-4 text-base outline-none transition-colors duration-200 hover:border-gray-4 focus:border-primary-1 !important;
       }
 
       &.hs-fieldtype-checkbox {
@@ -210,14 +210,14 @@
 
       &:hover {
         ~ span::before {
-          @apply border-gray-3 !important;
+          @apply border-gray-4 !important;
         }
       }
 
       &:checked {
         ~ span::before {
           @apply border-primary-1 bg-primary-1 bg-center bg-no-repeat !important;
-          /* background-image: url('/images/check-icon.svg') !important;*/
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' fill='none' viewBox='0 0 14 10'%3E%3Cpath stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='1.6' d='M1 4.467 5.286 8.8 13 1'/%3E%3C/svg%3E");
         }
       }
     }
@@ -228,7 +228,7 @@
 
         &::before {
           content: '';
-          @apply absolute -top-0.5 left-0 block h-6 w-6 transform rounded border border-gray-4 bg-gray-2 transition-colors duration-200 !important;
+          @apply absolute -top-0.5 left-0 block h-6 w-6 transform rounded border border-gray-3 bg-gray-2 transition-colors duration-200 !important;
         }
       }
     }
@@ -244,14 +244,14 @@
 
       &:hover {
         ~ span::before {
-          @apply border-gray-3 !important;
+          @apply border-gray-4 !important;
         }
       }
 
       &:checked {
         ~ span::before {
           @apply border-primary-1 bg-primary-1 bg-center bg-no-repeat !important;
-          /* background-image: url('/icons/check-icon.svg') !important;*/
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' fill='none' viewBox='0 0 14 10'%3E%3Cpath stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' stroke-width='1.6' d='M1 4.467 5.286 8.8 13 1'/%3E%3C/svg%3E");
         }
       }
     }
@@ -264,7 +264,7 @@
 
         &::before {
           content: '';
-          @apply absolute -top-0.5 left-0 block h-6 w-6 transform rounded border border-gray-4 bg-gray-2 transition-colors duration-200 !important;
+          @apply absolute -top-0.5 left-0 block h-6 w-6 transform rounded border border-gray-3 bg-gray-2 transition-colors duration-200 !important;
         }
       }
     }
