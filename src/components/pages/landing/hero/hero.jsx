@@ -7,7 +7,7 @@ import useHubspotForm from 'hooks/use-hubspot-form';
 
 import 'styles/hubspot-form.css';
 
-const Hero = ({ title, description, features, hubspotFormId }) => {
+const Hero = ({ title, description, features, formPosition, hubspotFormId }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useHubspotForm('hubspot-form', {
@@ -19,7 +19,11 @@ const Hero = ({ title, description, features, hubspotFormId }) => {
   return (
     <section className="safe-paddings relative py-48 pb-16 lg:py-36 md:pb-10 md:pt-28 sm:pt-22">
       <div className="container-lg grid-gap-x relative grid grid-cols-12 xl:px-0 lg:px-10 md:flex md:flex-col md:px-7 sm:px-4">
-        <div className="col-start-1 col-end-6">
+        <div
+          className={clsx(
+            formPosition === 'left' ? 'col-start-7 col-end-13' : 'col-start-1 col-end-6'
+          )}
+        >
           <Heading
             className="font-bold leading-denser md:text-5xl sm:text-4xl"
             tag="h1"
@@ -45,7 +49,14 @@ const Hero = ({ title, description, features, hubspotFormId }) => {
             </ul>
           )}
         </div>
-        <div className="col-start-7 col-end-13 md:mt-20 sm:mt-16">
+        <div
+          className={clsx(
+            formPosition === 'left'
+              ? 'order-first col-start-1 col-end-7'
+              : 'col-start-7 col-end-13',
+            'md:mt-20 sm:mt-16'
+          )}
+        >
           <div className="hubspot-form-wrapper">
             {isLoading && (
               <div className="flex w-full flex-col items-start justify-center gap-y-8 overflow-hidden md:gap-y-6">
@@ -75,6 +86,7 @@ Hero.propTypes = {
       description: PropTypes.string,
     })
   ),
+  formPosition: PropTypes.string.isRequired,
   hubspotFormId: PropTypes.string.isRequired,
 };
 
