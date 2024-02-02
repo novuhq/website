@@ -94,6 +94,8 @@ const getPricingData = (rangeValue) => [
       0: 'Contact us',
     },
     extraOvercharge: {
+      50: 2.1,
+      60: 1.62,
       70: 1.28,
     },
     description:
