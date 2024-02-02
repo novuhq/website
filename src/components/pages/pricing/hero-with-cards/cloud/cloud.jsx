@@ -65,6 +65,8 @@ const getPricingData = (rangeValue) => [
       70: 6400,
     },
     extraOvercharge: {
+      20: 3.0,
+      30: 3.0,
       40: 2.8,
       50: 2.1,
       60: 1.62,
