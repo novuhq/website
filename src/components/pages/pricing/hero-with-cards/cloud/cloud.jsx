@@ -26,6 +26,18 @@ const RANGES = {
 const tooltip =
   'A trigger event (also called an event) is a request that kicks off a process in Novu logic engine (API call to /v1/events/trigger for example). A trigger event can make many different types of actions, including digests, delays, and sending notifications to various channels, as well filters and user preference checks. You are charged for trigger event that starts a process in the logic engine for each unique subscriber.';
 
+const getEventsMonthValue = (rangeValue) => {
+  if (rangeValue === '10') return '50K';
+  if (rangeValue === '20') return '100K';
+  if (rangeValue === '30') return '500K';
+  if (rangeValue === '40') return '1M';
+  if (rangeValue === '50') return '2M';
+  if (rangeValue === '60') return '3M';
+  if (rangeValue === '70') return '5M';
+
+  return '';
+};
+
 const getPricingData = (rangeValue) => [
   {
     titles: {
@@ -73,7 +85,7 @@ const getPricingData = (rangeValue) => [
       70: 1.28,
     },
     description: 'Good place for bigger projects, startups, and businesses.',
-    items: [`50k events/month included`],
+    items: [`${getEventsMonthValue(rangeValue) || '50K'} events/month included`],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -102,7 +114,9 @@ const getPricingData = (rangeValue) => [
     },
     description:
       'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
-    items: [`1M events/month included`],
+    items: [
+      `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '1M'} events/month included`,
+    ],
     buttons: {
       default: {
         text: 'Contact sales',
