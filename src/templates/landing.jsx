@@ -19,13 +19,13 @@ const LandingPage = ({
   const contentWithLazyBlocks = getReactContentWithLazyBlocks(content, {
     landinghero: Hero,
     landingfeatures: Features,
+    landingcodeblock: Languages,
+    landingcta: GetStarted,
   });
 
   return (
     <Layout>
       {contentWithLazyBlocks}
-      <Languages />
-      <GetStarted />
       <Separator backgroundColor="black" />
     </Layout>
   );
