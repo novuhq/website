@@ -7,7 +7,8 @@
     @apply flex items-center space-x-7 sm:flex-col sm:space-x-0 sm:space-y-5;
   }
 
-  .hs-fieldtype-checkbox .hs-form-checkbox-display span {
+  .hs-fieldtype-checkbox .hs-form-checkbox-display span,
+  .hs-fieldtype-radio .hs-form-radio-display span {
     @apply inline-block leading-tight;
   }
 
@@ -116,7 +117,8 @@
         @apply mt-2.5 min-h-[6rem] w-full appearance-none rounded border border-gray-3 bg-gray-2 px-3 py-4 text-base outline-none transition-colors duration-200 hover:border-gray-4 focus:border-primary-1 !important;
       }
 
-      &.hs-fieldtype-checkbox {
+      &.hs-fieldtype-checkbox,
+      &.hs-fieldtype-radio {
         ul {
           @apply mt-2.5;
 
@@ -150,7 +152,8 @@
         @apply font-medium;
       }
 
-      &.hs-fieldtype-checkbox {
+      &.hs-fieldtype-checkbox,
+      &.hs-fieldtype-radio {
         ul:not(.hs-error-msgs) {
           @apply mt-0 flex justify-between gap-x-3.5;
 
@@ -171,6 +174,7 @@
           @apply -mt-0.5 w-full shrink-0;
         }
       }
+
       .hs-form-checkbox-display {
         span {
           @apply block bg-white pl-8 text-lg font-normal leading-none transition-colors duration-200;
@@ -228,15 +232,15 @@
 
         &::before {
           content: '';
-          @apply absolute -top-0.5 left-0 block h-6 w-6 transform rounded border border-gray-3 bg-gray-2 transition-colors duration-200 !important;
+          @apply absolute left-0 top-0 block h-6 w-6 transform rounded border border-gray-3 bg-gray-2 transition-colors duration-200 !important;
         }
       }
     }
   }
 }
 
-.hs-form-booleancheckbox {
-  .hs-form-booleancheckbox-display {
+.hs-fieldtype-radio {
+  .hs-form-radio-display {
     @apply cursor-pointer;
 
     input {
@@ -264,7 +268,7 @@
 
         &::before {
           content: '';
-          @apply absolute -top-0.5 left-0 block h-6 w-6 transform rounded border border-gray-3 bg-gray-2 transition-colors duration-200 !important;
+          @apply absolute left-0 top-0 block h-6 w-6 transform rounded-full border border-gray-3 bg-gray-2 transition-colors duration-200 !important;
         }
       }
     }
