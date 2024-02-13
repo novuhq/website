@@ -19,10 +19,10 @@ const Features = ({ title, description, features }) => (
         {description}
       </p>
       {features.length > 0 && (
-        <ul className="mt-10 grid grid-cols-3 gap-x-8 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
+        <ul className="mt-10 grid grid-cols-3 gap-x-8 lg:gap-x-7 md:block md:max-w-[712px] md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
           {features.map(({ title, description, linkText, linkUrl }, idx) => (
             <li
-              className="flex flex-col items-start rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 lg:rounded-2xl lg:p-5 md:grid md:grid-cols-2 md:items-center sm:block"
+              className="flex flex-col items-start rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 lg:rounded-2xl lg:p-5"
               key={idx}
             >
               <Heading
@@ -34,12 +34,7 @@ const Features = ({ title, description, features }) => (
                 {title}
               </Heading>
               <p className="my-6 font-book leading-snug text-gray-9 sm:mt-2.5">{description}</p>
-              <Link
-                className="mt-auto uppercase md:col-start-2 md:justify-self-start"
-                theme="primary-underline"
-                size="sm"
-                to={linkUrl}
-              >
+              <Link className="mt-auto uppercase" theme="primary-underline" size="sm" to={linkUrl}>
                 {linkText}
               </Link>
             </li>
