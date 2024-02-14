@@ -60,6 +60,7 @@ const GetStarted = ({
             className="mt-auto sm:h-10 sm:text-xs"
             size="sm"
             theme="gray-outline"
+            to={leftButtonLink || leftButtonLink.to}
             {...leftButtonLink}
           >
             {leftButtonText}
@@ -87,6 +88,7 @@ const GetStarted = ({
             className="mt-auto sm:h-10 sm:text-xs"
             size="sm"
             theme="black-filled"
+            to={rightButtonLink || rightButtonLink.to}
             {...rightButtonLink}
           >
             {rightButtonText}

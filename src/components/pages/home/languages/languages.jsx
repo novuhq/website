@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button/button';
@@ -239,37 +240,73 @@ await novu.Event.Trigger(payload);
   },
 ];
 
-const Languages = () => (
+const Languages = ({ title, description, links, codeTabs }) => (
   <section className="languages safe-paddings bg-gray-2 pb-40 pt-30 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
     <div className="container grid-gap-x grid grid-cols-12 items-center lg:flex lg:flex-col">
       <div className="col-start-1 col-end-8 w-full lg:order-2 lg:mt-12 sm:mt-8">
         <CodeTabs
           className="min-h-[560px] lg:mx-auto lg:w-full lg:max-w-[944px] md:mx-auto md:min-h-[482px] md:max-w-[712px] sm:min-h-[458px]"
-          items={ITEMS}
+          items={codeTabs}
         />
       </div>
-
       <div className="col-start-9 col-end-13 xl:col-start-8 lg:order-1 lg:text-center">
         <Heading size="xl" tag="h2" className="leading-tight md:text-4xl sm:text-3xl" theme="white">
-          {TITLE}
+          {title}
         </Heading>
         <p className="mt-5 text-lg font-book leading-snug text-gray-9 md:mt-3 md:text-base">
-          {DESCRIPTION}
+          {description}
         </p>
-        <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.libraries}>
-          {SDK_BUTTON_TEXT}
-        </Button>
-        <Button
-          className="ml-7 mt-7 md:mt-6"
-          size="sm"
-          theme="gray-outline"
-          {...LINKS.documentation}
-        >
-          {BUTTON_TEXT}
-        </Button>
+        {links && links.length > 0 ? (
+          <div className="mt-7 flex gap-x-7 lg:justify-center md:mt-6">
+            {links.map(({ linkText, linkUrl }, index) => (
+              <Button key={index} size="sm" theme="gray-outline" to={linkUrl}>
+                {linkText}
+              </Button>
+            ))}
+          </div>
+        ) : (
+          <>
+            <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.libraries}>
+              {SDK_BUTTON_TEXT}
+            </Button>
+            <Button
+              className="ml-7 mt-7 md:mt-6"
+              size="sm"
+              theme="gray-outline"
+              {...LINKS.documentation}
+            >
+              {BUTTON_TEXT}
+            </Button>
+          </>
+        )}
       </div>
     </div>
   </section>
 );
+
+Languages.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      linkText: PropTypes.string.isRequired,
+      linkUrl: PropTypes.string.isRequired,
+    })
+  ),
+  codeTabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      language: PropTypes.string.isRequired,
+      code: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+Languages.defaultProps = {
+  title: TITLE,
+  description: DESCRIPTION,
+  links: [],
+  codeTabs: ITEMS,
+};
 
 export default Languages;
