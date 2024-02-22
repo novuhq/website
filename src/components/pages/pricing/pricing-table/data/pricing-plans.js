@@ -64,7 +64,7 @@ const PLANS = {
       translations: true,
       activity: '30 days',
       inbound: true,
-      roles: 'Comming Soon',
+      roles: 'Coming Soon',
       'github-sso': true,
       'saml-sso': false,
       support: 'Chat + Email',
