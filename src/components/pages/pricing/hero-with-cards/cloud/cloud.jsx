@@ -77,10 +77,10 @@ const getPricingData = (rangeValue) => [
       70: 6400,
     },
     extraOvercharge: {
-      20: 3.0,
-      30: 3.0,
+      20: 3.00,
+      30: 3.00,
       40: 2.35,
-      50: 2.1,
+      50: 2.10,
       60: 1.62,
       70: 1.28,
     },
@@ -108,7 +108,7 @@ const getPricingData = (rangeValue) => [
       0: 'Contact us',
     },
     extraOvercharge: {
-      50: 2.1,
+      50: 2.10,
       60: 1.62,
       70: 1.28,
     },
