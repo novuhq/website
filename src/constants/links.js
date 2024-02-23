@@ -36,7 +36,7 @@ export default {
 
   // Other pages
   documentation: {
-    to: 'https://docs.novu.co/overview/introduction',
+    to: 'https://docs.novu.co/overview/introduction?utm_campaign=website',
     target: '_blank',
   },
   careers: {
@@ -48,11 +48,11 @@ export default {
     target: '_blank',
   },
   docker: {
-    to: 'https://docs.novu.co/self-hosting-novu/deploy-with-docker',
+    to: 'https://docs.novu.co/self-hosting-novu/deploy-with-docker?utm_campaign=website',
     target: '_blank',
   },
   faq: {
-    to: 'https://docs.novu.co/faqs/questions',
+    to: 'https://docs.novu.co/faqs/questions?utm_campaign=website',
     target: '_blank',
   },
   sdk: {
@@ -88,7 +88,7 @@ export default {
     target: '_blank',
   },
   statusPage: {
-    to: 'https://novustatus.com/',
+    to: 'https://novustatus.com?utm_campaign=website',
     target: '_blank',
   },
   roadmapPage: {
@@ -96,7 +96,7 @@ export default {
     target: '_blank',
   },
   trustPage: {
-    to: 'https://trust.novu.co/',
+    to: 'https://trust.novu.co?utm_campaign=website',
     target: '_blank',
   },
   pressKit: {
@@ -107,8 +107,8 @@ export default {
     to: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
     target: '_blank',
   },
-  //It still says calendly, but we're pointing it to Hubspot Meetings now
-  //old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
+  // It still says calendly, but we're pointing it to Hubspot Meetings now
+  // old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
   calendly: {
     to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website',
     target: '_blank',
@@ -116,15 +116,15 @@ export default {
 
   // Social
   discord: {
-    to: 'https://discord.gg/novu',
+    to: 'https://discord.gg/novu?utm_campaign=website',
     target: '_blank',
   },
   twitter: {
-    to: 'https://twitter.com/novuhq',
+    to: 'https://twitter.com/novuhq?utm_campaign=website',
     target: '_blank',
   },
   github: {
-    to: 'https://github.com/novuhq/novu',
+    to: 'https://github.com/novuhq/novu?utm_campaign=website',
     target: '_blank',
   },
   pixelPoint: {
@@ -135,6 +135,6 @@ export default {
     to: '/polishing',
   },
   notificationDirectory: {
-    to: 'https://notifications.directory',
+    to: 'https://notifications.directory?utm_campaign=website',
   },
 };
