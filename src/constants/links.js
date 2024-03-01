@@ -35,8 +35,8 @@ export default {
   },
 
   // Other pages
-  pricingContactUs {
-    to: 'https://novu.co/contact-us?utm_campaign=pricing-enterprise-cu'
+  pricingContactUs: {
+    to: 'https://novu.co/contact-us?utm_campaign=pricing-enterprise-cu',
     target: '_blank',
   },
   documentation: {
@@ -115,8 +115,8 @@ export default {
     to: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
     target: '_blank',
   },
-  //It still says calendly, but we're pointing it to Hubspot Meetings now
-  //old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
+  // It still says calendly, but we're pointing it to Hubspot Meetings now
+  // old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
   calendly: {
     to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website',
     target: '_blank',

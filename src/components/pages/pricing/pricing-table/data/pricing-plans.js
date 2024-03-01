@@ -80,7 +80,7 @@ const PLANS = {
   enterprise: {
     title: 'Enterprise',
     linkText: 'Contact Us',
-    linkUrl: LINKS.pricingContactUs.to
+    linkUrl: LINKS.pricingContactUs.to,
     common: {
       'monthly-triggers': 'Custom',
       'additional-events': 'Unlimited',
