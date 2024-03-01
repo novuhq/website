@@ -96,7 +96,7 @@ export default {
     target: '_blank',
   },
   statusPage: {
-    to: 'https://novustatus.com/',
+    to: 'https://novustatus.com?utm_campaign=website',
     target: '_blank',
   },
   roadmapPage: {
@@ -104,7 +104,7 @@ export default {
     target: '_blank',
   },
   trustPage: {
-    to: 'https://trust.novu.co/',
+    to: 'https://trust.novu.co?utm_campaign=website',
     target: '_blank',
   },
   pressKit: {
@@ -124,15 +124,15 @@ export default {
 
   // Social
   discord: {
-    to: 'https://discord.gg/novu',
+    to: 'https://discord.gg/novu?utm_campaign=website',
     target: '_blank',
   },
   twitter: {
-    to: 'https://twitter.com/novuhq',
+    to: 'https://twitter.com/novuhq?utm_campaign=website',
     target: '_blank',
   },
   github: {
-    to: 'https://github.com/novuhq/novu',
+    to: 'https://github.com/novuhq/novu?utm_campaign=website',
     target: '_blank',
   },
   pixelPoint: {
@@ -143,6 +143,6 @@ export default {
     to: '/polishing',
   },
   notificationDirectory: {
-    to: 'https://notifications.directory',
+    to: 'https://notifications.directory?utm_campaign=website',
   },
 };
