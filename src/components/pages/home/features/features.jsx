@@ -29,7 +29,7 @@ const ITEMS = [
     animationData: priorityManagement,
     title: 'Priority management',
     description:
-      'A smart API to centralize all communication channels in a single place: E-mail, SMS, Direct, Push and many more...',
+      'A smart API to centralize all communication channels in a single place: E-mail, SMS, Chat, Push and many more...',
   },
   {
     animationData: monitoring,

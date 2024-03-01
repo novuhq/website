@@ -90,7 +90,7 @@ const data = [
   // Apr
   {
     date: '2022-04-05',
-    title: 'Start working on Push and Direct',
+    title: 'Start working on Push and Chat',
     iconName: 'box',
   },
   {
