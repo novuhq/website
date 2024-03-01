@@ -36,7 +36,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 
           <div className="flex space-x-5 md:hidden">
             <ButtonGithubStars className="pl-3" />
-            <Button size="xs" theme="white-filled" {...LINKS.getStartedToBar} onClick={click}>
+            <Button size="xs" theme="white-filled" {...LINKS.getStartedTopBar} onClick={click}>
               Get Started
             </Button>
           </div>
