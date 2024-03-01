@@ -35,8 +35,12 @@ export default {
   },
 
   // Other pages
+  pricingContactUs {
+    to: 'https://novu.co/contact-us?utm_campaign=pricing-enterprise-cu'
+    target: '_blank',
+  },
   documentation: {
-    to: 'https://docs.novu.co/overview/introduction',
+    to: 'https://docs.novu.co/overview/introduction?utm_campaign=website',
     target: '_blank',
   },
   careers: {
@@ -48,11 +52,11 @@ export default {
     target: '_blank',
   },
   docker: {
-    to: 'https://docs.novu.co/self-hosting-novu/deploy-with-docker',
+    to: 'https://docs.novu.co/self-hosting-novu/deploy-with-docker?utm_campaign=website',
     target: '_blank',
   },
   faq: {
-    to: 'https://docs.novu.co/faqs/questions',
+    to: 'https://docs.novu.co/faqs/questions?utm_campaign=website',
     target: '_blank',
   },
   sdk: {
@@ -60,11 +64,15 @@ export default {
     target: '_blank',
   },
   contactUs: {
-    to: 'https://www.novu.co/sections/content-3',
+    to: 'https://www.novu.co/sections/content-3?utm_campaign=website',
     target: '_blank',
   },
   getStarted: {
     to: 'https://web.novu.co?utm_campaign=website',
+    target: '_blank',
+  },
+  getStartedTopBar: {
+    to: 'https://web.novu.co?utm_campaign=website_top_bar',
     target: '_blank',
   },
   quickStart: {

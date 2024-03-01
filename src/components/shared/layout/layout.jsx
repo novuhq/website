@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <ConversionInitiator />
-      <Banner />
+      {/*<Banner />*/}
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
         <main className="flex-grow">{children}</main>
