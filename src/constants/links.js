@@ -1,3 +1,8 @@
+export const applyQueryParams = (link, queryParams = []) => ({
+  ...link,
+  to: `${link.to}?${queryParams.join('&')}`,
+});
+
 export default {
   // Pages
   home: {
@@ -68,11 +73,15 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://web.novu.co?utm_campaign=website',
+    to: 'https://web.novu.co?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://web.novu.co?utm_campaign=website_top_bar',
+    to: 'https://web.novu.co?utm_campaign=gs_top_bar',
+    target: '_blank',
+  },
+  getStartedBase: {
+    to: 'https://web.novu.co',
     target: '_blank',
   },
   quickStart: {
