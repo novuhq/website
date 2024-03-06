@@ -19,7 +19,7 @@ const Features = ({ title, description, features }) => (
         {description}
       </p>
       {features.length > 0 && (
-        <ul className="mt-10 grid grid-cols-3 gap-x-8 lg:gap-x-7 md:block md:max-w-[712px] md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
+        <ul className="mt-10 grid grid-cols-3 gap-8 lg:gap-7 md:block md:max-w-[712px] md:gap-0 md:space-y-7 sm:mt-9 sm:space-y-5">
           {features.map(({ title, description, linkText, linkUrl }, idx) => (
             <li
               className="flex flex-col items-start rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] p-8 lg:rounded-2xl lg:p-5"
