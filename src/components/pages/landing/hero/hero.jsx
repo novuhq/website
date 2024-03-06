@@ -27,7 +27,7 @@ const Hero = ({ title, description, features, formPosition, hubspotFormId }) => 
           <Heading
             className="font-bold leading-denser md:text-5xl sm:text-4xl"
             tag="h1"
-            size="3xl"
+            size="xl"
             theme="white"
           >
             {title}
