@@ -4,12 +4,9 @@ import React from 'react';
 import Button from 'components/shared/button/button';
 import CodeTabs from 'components/shared/code-tabs/code-tabs';
 import Heading from 'components/shared/heading/heading';
-import LINKS from 'constants/links';
 
 const TITLE = 'An infrastructure that speaks your language';
 const DESCRIPTION = "Community built server-side SDK's for your preferred programming language";
-const BUTTON_TEXT = 'Read Docs';
-const SDK_BUTTON_TEXT = 'View SDKs';
 
 const ITEMS = [
   {
@@ -256,7 +253,7 @@ const Languages = ({ title, description, links, codeTabs }) => (
         <p className="mt-5 text-lg font-book leading-snug text-gray-9 md:mt-3 md:text-base">
           {description}
         </p>
-        {links && links.length > 0 ? (
+        {links && links.length > 0 && (
           <div className="mt-7 flex gap-x-7 lg:justify-center md:mt-6">
             {links.map(({ linkText, linkUrl }, index) => (
               <Button key={index} size="sm" theme="gray-outline" to={linkUrl}>
@@ -264,20 +261,6 @@ const Languages = ({ title, description, links, codeTabs }) => (
               </Button>
             ))}
           </div>
-        ) : (
-          <>
-            <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.libraries}>
-              {SDK_BUTTON_TEXT}
-            </Button>
-            <Button
-              className="ml-7 mt-7 md:mt-6"
-              size="sm"
-              theme="gray-outline"
-              {...LINKS.documentation}
-            >
-              {BUTTON_TEXT}
-            </Button>
-          </>
         )}
       </div>
     </div>

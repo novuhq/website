@@ -28,7 +28,18 @@ const HomePage = () => (
     <ComponentBased />
     <SimpleUse />
     <Separator backgroundColor="gray" />
-    <Languages />
+    <Languages
+      links={[
+        {
+          linkText: 'View SDKs',
+          linkUrl: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
+        },
+        {
+          linkUrl: 'https://docs.novu.co/overview/introduction',
+          linkText: 'Read docs',
+        },
+      ]}
+    />
     <Reviews />
     <GetStarted />
     <Separator backgroundColor="black" />
