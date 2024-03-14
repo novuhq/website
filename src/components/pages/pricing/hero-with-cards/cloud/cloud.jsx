@@ -153,7 +153,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
 
   return (
     <>
-      <div className="mt-16 text-center md:mt-14 sm:mt-11">
+{/*       <div className="mt-16 text-center md:mt-14 sm:mt-11">
         <span className="text-center text-3xl font-book md:text-2xl">
           How many events do you need per month?
           <QuestionIcon
@@ -202,7 +202,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             {`${eventsFormatter.format(5000000)}+`}
           </span>
         </div>
-      </div>
+      </div> */}
       <ul className="mx-auto mt-14 grid max-w-[1096px] auto-rows-max grid-cols-3 items-stretch justify-between gap-10 text-center xl:gap-6 md:mt-12 md:max-w-[700px] md:grid-cols-1 md:gap-7">
         {getPricingData(rangeValue).map(
           (
