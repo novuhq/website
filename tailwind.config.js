@@ -67,6 +67,7 @@ module.exports = {
       },
     }),
     backgroundImage: {
+      'join-us': 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%);',
       'input-gradient':
         'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
       'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
