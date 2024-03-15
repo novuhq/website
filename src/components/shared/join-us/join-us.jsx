@@ -34,38 +34,40 @@ const socialList = [
 ];
 
 const JoinUs = ({ title, socialList }) => (
-  <section className="safe-paddings container-md py-3.5 text-center">
-    <Heading className="font-normal leading-tight sm:text-3xl" size="md" tag="h2" theme="white">
-      {title}
-    </Heading>
-    <ul className="my-16 grid grid-cols-12 gap-x-10 lg:mt-12 md:mt-10 md:gap-6">
-      {socialList.map(({ icon, name, text, link, linkText }, index) => (
-        <li
-          className="group col-span-4 flex flex-col items-center justify-center rounded-[20px] bg-join-us px-8 py-7 md:p-6 sm:col-span-full"
-          key={index}
-        >
-          <img src={icon} width={40} height={40} alt="" loading="lazy" />
-          <Heading
-            className="mt-7 font-normal leading-tight sm:text-xl"
-            size="sm"
-            tag="h3"
-            theme="white"
+  <section className="safe-paddings pb-14 pt-3.5 text-center">
+    <div className="container-md">
+      <Heading className="font-normal leading-tight sm:text-3xl" size="md" tag="h2" theme="white">
+        {title}
+      </Heading>
+      <ul className="my-16 grid grid-cols-12 gap-x-10 lg:mt-12 md:mt-10 md:gap-6">
+        {socialList.map(({ icon, name, text, link, linkText }, index) => (
+          <li
+            className="col-span-4 flex flex-col items-center justify-center rounded-[20px] bg-join-us px-8 py-8 md:p-6 sm:col-span-full"
+            key={index}
           >
-            {name}
-          </Heading>
-          <p className="mt-2 text-base font-light leading-snug text-gray-9">{text}</p>
-          <Link
-            className="mt-5 text-[13px] font-medium leading-none lg:mt-6 sm:mt-5 sm:text-xs"
-            theme="primary-underline"
-            size="sm"
-            to={link}
-            target="_blank"
-          >
-            {linkText}
-          </Link>
-        </li>
-      ))}
-    </ul>
+            <img src={icon} width={40} height={40} alt="" loading="lazy" />
+            <Heading
+              className="mt-6 font-normal leading-tight sm:text-xl"
+              size="sm"
+              tag="h3"
+              theme="white"
+            >
+              {name}
+            </Heading>
+            <p className="mt-2.5 text-base font-light leading-snug text-gray-9">{text}</p>
+            <Link
+              className="mt-5 !text-[13px] font-medium leading-none lg:mt-6 sm:mt-5 sm:text-xs"
+              theme="primary-underline"
+              size="sm"
+              to={link}
+              target="_blank"
+            >
+              {linkText}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   </section>
 );
 
