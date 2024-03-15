@@ -88,7 +88,7 @@ const getPricingData = (rangeValue) => [
     items: [
       `${
         getEventsMonthValue(rangeValue) || '50K'
-      } events/month included, $3.00/1000 additional events`,
+      } events/month included<br> $3.00/1000 additional events`,
     ],
     buttons: {
       default: {
