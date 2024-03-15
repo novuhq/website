@@ -77,15 +77,19 @@ const getPricingData = (rangeValue) => [
       70: 6400,
     },
     extraOvercharge: {
-      20: 3.00,
-      30: 3.00,
+      20: 3.0,
+      30: 3.0,
       40: 2.35,
-      50: 2.10,
+      50: 2.1,
       60: 1.62,
       70: 1.28,
     },
     description: 'Good place for bigger projects, startups, and businesses.',
-    items: [`${getEventsMonthValue(rangeValue) || '50K'} events/month included`],
+    items: [
+      `${
+        getEventsMonthValue(rangeValue) || '50K'
+      } events/month included, $3.00/1000 additional events`,
+    ],
     buttons: {
       default: {
         text: 'Get started for free',
@@ -108,7 +112,7 @@ const getPricingData = (rangeValue) => [
       0: 'Contact us',
     },
     extraOvercharge: {
-      50: 2.10,
+      50: 2.1,
       60: 1.62,
       70: 1.28,
     },
@@ -153,7 +157,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
 
   return (
     <>
-{/*       <div className="mt-16 text-center md:mt-14 sm:mt-11">
+      {/*       <div className="mt-16 text-center md:mt-14 sm:mt-11">
         <span className="text-center text-3xl font-book md:text-2xl">
           How many events do you need per month?
           <QuestionIcon
