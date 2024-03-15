@@ -69,12 +69,12 @@ const getPricingData = (rangeValue) => [
     name: 'business',
     prices: {
       default: 250,
-      20: 300,
-      30: 1500,
-      40: 2800,
-      50: 4200,
-      60: 4860,
-      70: 6400,
+      20: 400,
+      30: 1600,
+      40: 2755,
+      50: 4875,
+      60: 6495,
+      70: 9055,
     },
     extraOvercharge: {
       20: 3.0,
@@ -119,7 +119,6 @@ const getPricingData = (rangeValue) => [
       'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
     items: [
       `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '1M'} events/month included`,
-      `$2.10 per 1000 additional events`,
     ],
     buttons: {
       default: {
@@ -213,7 +212,8 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
             index
           ) => {
-            const isActive = activeTier === name;
+            /* const isActive = activeTier === name; */
+            const isActive = name === 'business';
 
             return (
               <li
