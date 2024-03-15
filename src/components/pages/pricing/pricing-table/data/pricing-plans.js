@@ -45,7 +45,7 @@ const PLANS = {
     linkUrl: LINKS.getStarted.to,
     common: {
       'monthly-triggers': '50K',
-      'additional-events': 'Scales to infinite events/month',
+      'additional-events': 'Starts at $3.00 per 1000 additional monthly events',
       rps: '600RPS',
       workflows: true,
       providers: true,
@@ -83,7 +83,7 @@ const PLANS = {
     linkUrl: LINKS.pricingContactUs.to,
     common: {
       'monthly-triggers': 'Custom',
-      'additional-events': 'Unlimited',
+      'additional-events': 'Custom',
       rps: 'Custom',
       workflows: true,
       providers: true,
