@@ -86,9 +86,8 @@ const getPricingData = (rangeValue) => [
     },
     description: 'Good place for bigger projects, startups, and businesses.',
     items: [
-      `${
-        getEventsMonthValue(rangeValue) || '50K'
-      } events/month included<br> $3.00/1000 additional events`,
+      `${getEventsMonthValue(rangeValue) || '50K'} events/month included`,
+      `$3.00 per 1000 additional events`,
     ],
     buttons: {
       default: {
