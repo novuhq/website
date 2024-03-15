@@ -212,9 +212,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
             { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
             index
           ) => {
-            /* const isActive = activeTier === name; */
-            const isActive = name === 'business';
-
+            const isActive = activeTier === name;
             return (
               <li
                 className={clsx(

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import FAQ from 'components/pages/pricing/faq';
 import Hero from 'components/pages/pricing/hero-with-cards';
@@ -7,7 +7,7 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
 
-const INITIAL_SLIDER_VALUE = 0;
+/* const INITIAL_SLIDER_VALUE = 0; */
 
 const findActiveTier = (value) => {
   if (value >= 40) return 'enterprise';
@@ -16,10 +16,12 @@ const findActiveTier = (value) => {
 };
 
 const PricingPage = () => {
-  const [activeTier, setActiveTier] = useState({
+  /* const [activeTier, setActiveTier] = useState({
     value: findActiveTier(INITIAL_SLIDER_VALUE),
     rangeValue: INITIAL_SLIDER_VALUE,
-  });
+  }); */
+  const activeTier = 'business';
+  const setActiveTier = () => {};
 
   return (
     <Layout>
