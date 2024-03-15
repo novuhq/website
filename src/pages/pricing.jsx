@@ -7,21 +7,19 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Subscribe from 'components/shared/subscribe';
 
-/* const INITIAL_SLIDER_VALUE = 0; */
+const INITIAL_SLIDER_VALUE = 0;
 
 const findActiveTier = (value) => {
-  if (value >= 40) return 'enterprise';
-  if (value < 10) return 'free';
+  if (value >= 40) return 'business'; /* change to enterprise if slider re-enabled */
+  if (value < 10) return 'business'; /* change to free if slider re-enabled */
   return 'business';
 };
 
 const PricingPage = () => {
-  /* const [activeTier, setActiveTier] = useState({
+  const [activeTier, setActiveTier] = React.useState({
     value: findActiveTier(INITIAL_SLIDER_VALUE),
     rangeValue: INITIAL_SLIDER_VALUE,
-  }); */
-  const activeTier = 'business';
-  const setActiveTier = () => {};
+  });
 
   return (
     <Layout>
