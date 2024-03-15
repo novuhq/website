@@ -119,6 +119,7 @@ const getPricingData = (rangeValue) => [
       'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
     items: [
       `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '1M'} events/month included`,
+      `$2.10 per 1000 additional events`,
     ],
     buttons: {
       default: {
