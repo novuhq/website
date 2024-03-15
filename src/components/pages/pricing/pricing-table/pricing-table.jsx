@@ -46,7 +46,7 @@ const PricingPlans = ({ activeTier }) => {
                   <ul className="mt-[5px] flex flex-col divide-y divide-gray-2">
                     {Object.keys(items).map((item, index) => {
                       /* const isActive = `${item}-${index}` === currentRow; */
-                      const isActive = `business` === `business`;
+                      const isActive = `business` === 'business';
                       return (
                         <li
                           className={clsx(
