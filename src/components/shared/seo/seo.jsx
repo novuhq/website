@@ -61,6 +61,14 @@ const SEO = ({
         <Script id="hs-script-loader" src="//js.hs-scripts.com/44416662.js" />
       )}
 
+      {process.env.NODE_ENV === 'production' && (
+        <Script
+          type="text/javascript"
+          src="//script.crazyegg.com/pages/scripts/0123/1426.js"
+          async="async"
+        />
+      )}
+
       {children}
     </>
   );
