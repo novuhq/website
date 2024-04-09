@@ -86,8 +86,8 @@ const getPricingData = (rangeValue) => [
     },
     description: 'Good place for bigger projects, startups, and businesses.',
     items: [
-      `${getEventsMonthValue(rangeValue) || '50K'} events/month included`,
-      `$3.00 per 1000 additional events`,
+      `${getEventsMonthValue(rangeValue) || '250K'} events/month included`,
+      `$0.0012 per additional event`,
     ],
     buttons: {
       default: {
@@ -118,7 +118,7 @@ const getPricingData = (rangeValue) => [
     description:
       'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
     items: [
-      `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '1M'} events/month included`,
+      `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '5M'} events/month included`,
     ],
     buttons: {
       default: {

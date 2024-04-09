@@ -82,7 +82,7 @@ const PLANS = {
     linkText: 'Contact Us',
     linkUrl: LINKS.pricingContactUs.to,
     common: {
-      'monthly-triggers': 'Custom',
+      'monthly-triggers': '5M',
       'additional-events': 'Custom',
       rps: 'Custom',
       workflows: true,
