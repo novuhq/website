@@ -8,7 +8,7 @@ const PLANS = {
     common: {
       'monthly-triggers': '30K',
       'additional-events': 'N/A',
-      rps: '60RPS',
+      rps: '60RpS',
       workflows: true,
       providers: true,
       subscribers: true,
@@ -46,7 +46,7 @@ const PLANS = {
     common: {
       'monthly-triggers': '250K',
       'additional-events': '$0.0012 per additional event over 250k',
-      rps: '600RPS',
+      rps: '600RpS',
       workflows: true,
       providers: true,
       subscribers: true,
