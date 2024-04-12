@@ -57,11 +57,6 @@ const FAQ_DATA = [
       'As part of our enterprise support, you’ll get our usual support channels as well as a Microsoft Teams/Slack/Discord channel. In case you want to add an enterprise support plan, with dedicated technical support, we are happy to offer that next to an active enterprise plan.',
   },
   {
-    question: 'How long is the open beta for? When do you plan to start charging?',
-    answer:
-      'We plan to convert to the paid version of Novu sometime in 2024. We will ensure that we contact all of our customers at least 2 months before the switch so that you have plenty of time to ensure your systems are not impacted.',
-  },
-  {
     question: 'I need more events or enterprise features, can you help?',
     answer: (
       <>
@@ -101,7 +96,7 @@ const FAQ_DATA = [
       <>
         We sure do! First of all we promise uptime SLA for our cloud system for 99.99%. We also
         offer an initial 2 days support SLA, but most enquiries on our Intercom or{' '}
-        <Link to="https://discord.novu.co" theme="primary">
+        <Link to="https://discord.novu.co?utm_campaign=pricing-faq" theme="primary">
           Discord
         </Link>{' '}
         get a response in a couple of hours. For our enterprise plan we can offer upgraded SLA as
