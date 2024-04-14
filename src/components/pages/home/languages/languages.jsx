@@ -16,7 +16,7 @@ const ITEMS = [
 
 const novu = new Novu(process.env.NOVU_API_KEY);
 
-await novu.trigger('<WORKFLOW_TRIGGER_ID>',
+await novu.trigger('<WORKFLOW_TRIGGER_IDENTIFIER>',
   {
     to: {
       subscriberId: '<UNIQUE_SUBSCRIBER_IDENTIFIER>',
@@ -42,7 +42,7 @@ await novu.trigger('<WORKFLOW_TRIGGER_ID>',
 client = Novu::Client.new('NOVU_API_KEY')
 
 body = {
-  name: "<WORKFLOW_TRIGGER_ID>",
+  name: "<WORKFLOW_TRIGGER_IDENTIFIER>",
   payload: {
     name: "Hello World",
     organization: {
@@ -67,7 +67,7 @@ client.trigger_event(body)
 
 event_api = EventApi("https://api.novu.co/api/", "<NOVU_API_KEY>")
 event_api.trigger(
-    name="<WORKFLOW_TRIGGER_ID>",
+    name="<WORKFLOW_TRIGGER_IDENTIFIER>",
     recipients="<YOUR_SUBSCRIBER_ID>",
     payload={
       'name': 'Hello World',
@@ -86,7 +86,7 @@ event_api.trigger(
 $novu = new Novu(<NOVU_API_KEY>);
 
 $novu->triggerEvent([
-  'name' => '<WORKFLOW_TRIGGER_ID>',
+  'name' => '<WORKFLOW_TRIGGER_IDENTIFIER>',
   'payload' => [
     'name' => 'Hello World',
     'organization' => [
@@ -116,7 +116,7 @@ fun main() {
 
     novu.trigger(TriggerEventRequest.Companion.invoke
         ( 
-            name = "<WORKFLOW_TRIGGER_ID>",
+            name = "<WORKFLOW_TRIGGER_IDENTIFIER>",
             to = SubscriberRequest(
                     subscriberId = "harry_potter"
                     firstName = "Harry",
@@ -139,7 +139,7 @@ fun main() {
     -H "Content-Type: application/json"
     -H "Authorization: ApiKey REPLACE_WITH_API_KEY"
     -d '{
-      "name": "<WORKFLOW_TRIGGER_ID>",
+      "name": "<WORKFLOW_TRIGGER_IDENTIFIER>",
       "payload": {
         "name": "Hello World"
       },
@@ -164,7 +164,7 @@ fun main() {
 
 subscriberID := "<UNIQUE_SUBSCRIBER_IDENTIFIER>"
 apiKey := "<NOVU_API_KEY>"
-eventId := "<WORKFLOW_TRIGGER_ID>"
+eventId := "<WORKFLOW_TRIGGER_IDENTIFIER>"
 
 ctx := context.Background()
 to := map[string]interface{}{
@@ -222,7 +222,7 @@ public class OnboardEventPayload
 
 var payload = new EventTriggerDataDto()
 {
-  EventName = "<WORKFLOW_TRIGGER_ID>",
+  EventName = "<WORKFLOW_TRIGGER_IDENTIFIER>",
   To = { SubscriberId = "<UNIQUE_SUBSCRIBER_IDENTIFIER>" },
   Payload = new OnboardingEventPayload
   {
