@@ -42,7 +42,7 @@ const Hero = () => {
         </Heading>
         <p className="mt-5 text-center text-lg font-book leading-tight text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
           Simple components and APIs for managing all communication channels in one place: Email,
-          SMS, Direct, In-App and Push
+          SMS, Chat, In-App and Push
         </p>
 
         <div className="relative mt-11 flex items-center justify-center gap-x-7 gap-y-5 sm:mt-7 sm:gap-x-4 sm-xs:grid sm-xs:w-full sm-xs:grid-cols-2">
