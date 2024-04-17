@@ -24,6 +24,8 @@ export const baseSettings = {
   apiKey: process.env.GATSBY_INKEEP_API_KEY,
   integrationId: process.env.GATSBY_INKEEP_INTEGRATION_ID,
   theme,
+  product: 'Novu',
+  colorMode: { forcedColorMode: 'dark' },
 };
 
 export const aiChatSettings = {
@@ -33,6 +35,7 @@ export const aiChatSettings = {
     typeof window !== 'undefined'
       ? `${window.location.origin}/chat/`
       : 'http://localhost:8000/chat/',
+  quickQuestions: ['How to trigger a workflow?', 'What is a subscriber?'],
 };
 
 export const searchSettings = {

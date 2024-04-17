@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { baseSettings, searchSettings, aiChatSettings } from '../shared-settings';
 
 const chatButtonProps = {
-  chatButtonType: 'ICON_TEXT_SHORTCUT',
+  chatButtonType: 'ICON_TEXT',
   fixedPositionXOffset: '2em',
   baseSettings,
   searchSettings,

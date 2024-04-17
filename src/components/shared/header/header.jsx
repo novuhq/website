@@ -4,7 +4,6 @@ import React from 'react';
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import ButtonGithubStars from 'components/shared/button-github-stars';
-import InkeepSearchBarWidget from 'components/shared/inkeep-widgets/inkeep-search-bar/inkeep-searchbar';
 import Link from 'components/shared/link';
 import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
@@ -22,10 +21,6 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Novu</span>
         </Link>
-
-        <div className="flex h-8 w-60 items-center lg:hidden">
-          <InkeepSearchBarWidget />
-        </div>
 
         <div className="flex items-center space-x-16 lg:space-x-14">
           <nav>
