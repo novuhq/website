@@ -5,9 +5,7 @@ import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 
 const ChatPage = () => (
-  <Layout>
-    <InkeepEmbeddedChatWidget />
-  </Layout>
+  <Layout>{typeof window !== 'undefined' && <InkeepEmbeddedChatWidget />}</Layout>
 );
 
 export default ChatPage;
