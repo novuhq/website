@@ -1,26 +1,25 @@
-import { InkeepEmbeddedChat } from '@inkeep/widgets';
 import React, { useState, useEffect } from 'react';
 
 import { baseSettings, aiChatSettings } from '../shared-settings';
 
-const chatButtonProps = {
+const widgetProps = {
   baseSettings,
   aiChatSettings,
 };
 
 const InkeepEmbeddedChatWidget = () => {
-  const [isBrowser, setIsBrowser] = useState(false);
+  const [EmbeddedChat, setEmbeddedChat] = useState(null);
 
   useEffect(() => {
-    setIsBrowser(true);
+    (async () => {
+      const { InkeepEmbeddedChat } = await import('@inkeep/widgets');
+      setEmbeddedChat(() => InkeepEmbeddedChat);
+    })();
   }, []);
 
-  if (!isBrowser) {
-    return null;
-  }
   return (
-    <main className="flex h-[768px] items-center pt-32">
-      <InkeepEmbeddedChat {...chatButtonProps} />
+    <main className="flex items-center justify-center pt-32">
+      <div className="h-[768px]">{EmbeddedChat ? <EmbeddedChat {...widgetProps} /> : <div />}</div>
     </main>
   );
 };

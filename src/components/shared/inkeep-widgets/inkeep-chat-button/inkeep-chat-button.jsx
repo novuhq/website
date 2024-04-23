@@ -1,4 +1,3 @@
-import { InkeepChatButton } from '@inkeep/widgets';
 import React, { useState, useEffect } from 'react';
 
 import { baseSettings, searchSettings, aiChatSettings } from '../shared-settings';
@@ -12,16 +11,16 @@ const chatButtonProps = {
 };
 
 const InkeepWidget = () => {
-  const [isBrowser, setIsBrowser] = useState(false);
+  const [ChatButton, setChatButton] = useState(null);
 
   useEffect(() => {
-    setIsBrowser(true);
+    (async () => {
+      const { InkeepChatButton } = await import('@inkeep/widgets');
+      setChatButton(() => InkeepChatButton);
+    })();
   }, []);
 
-  if (!isBrowser) {
-    return null;
-  }
-  return <InkeepChatButton {...chatButtonProps} />;
+  return ChatButton ? <ChatButton {...chatButtonProps} /> : <div />;
 };
 
 export default InkeepWidget;
