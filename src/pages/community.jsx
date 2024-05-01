@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Contribute from 'components/pages/community/contribute';
 import Events from 'components/pages/community/events';
 import GetInvolved from 'components/pages/community/get-involved';
 import Hero from 'components/pages/community/hero';
@@ -13,6 +14,7 @@ const CommunityPage = () => (
       <GetInvolved />
     </div>
     <Events />
+    <Contribute />
   </Layout>
 );
 
