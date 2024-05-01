@@ -7,6 +7,7 @@ import githubIcon from 'icons/github.svg';
 import novuIcon from 'icons/novu-gradient-logo.svg';
 
 const TITLE = 'Get involved: start, engage, contribute';
+// TODO: set links
 const ITEMS = [
   {
     icon: novuIcon,
@@ -48,7 +49,7 @@ const GetInvolved = () => (
             <h3 className="text-3xl font-medium leading-tight mt-6">{title}</h3>
             <p className="mt-1.5 text-gray-9 text-center font-light leading-snug">{description}</p>
             <Link
-              className="mt-6 !tracking-normal leading-none text-[13px]"
+              className="mt-6 !tracking-normal font-medium leading-none text-[13px]"
               theme="primary-underline"
               to={linkUrl}
             >
