@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, global-require */
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -82,6 +83,7 @@ module.exports = {
       'hs-form-gradient':
         'linear-gradient(180deg, rgba(26, 26, 26, 0.80) 0%, rgba(26, 26, 26, 0.70) 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
+      ...defaultTheme.backgroundImage,
     },
     boxShadow: {
       output: '0px 10px 20px #000000',
@@ -111,5 +113,18 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-safe-area')],
+  plugins: [
+    require('tailwindcss-safe-area'),
+
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          'border-image': (value) => ({
+            background: `${value.replaceAll(/(, ?[a-z]+-gradient)/g, ' border-box$1')} border-box`,
+          }),
+        },
+        { values: theme('backgroundImage') }
+      );
+    }),
+  ],
 };
