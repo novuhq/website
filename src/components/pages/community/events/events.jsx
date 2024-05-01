@@ -47,7 +47,7 @@ const Events = () => (
           {TITLE}
         </Heading>
         <p className="mt-4 text-gray-9 font-light leading-snug">{DESCRIPTION}</p>
-        <Button className="mt-7 !px-6 text-[13px]" theme="gray-outline" size="sm">
+        <Button className="mt-7 !text-[13px]" theme="gray-outline" size="sm">
           View All events
         </Button>
       </header>
@@ -55,7 +55,7 @@ const Events = () => (
         {ITEMS.map(({ title, description, linkUrl, category, date, place }, index) => (
           <li key={index} className="flex flex-col items-center'">
             <article className={clsx(index !== ITEMS.length - 1 && 'border-b pb-6 border-gray-3')}>
-              <header className="flex gap-x-2.5 text-sm leading-tight text-gray-6">
+              <header className="flex gap-x-2.5 text-sm leading-denser text-gray-6">
                 <span className="bg-clip-text bg-pink-red-gradient w-fit text-transparent">
                   {category}
                 </span>
@@ -69,7 +69,7 @@ const Events = () => (
               <h3 className="mt-2 text-2xl leading-tight">{title}</h3>
               <p className="mt-2 text-gray-9 font-light leading-snug">{description}</p>
               <Link
-                className="mt-3 text-[13px] font-medium !pb-0.5 !tracking-normal inline-block"
+                className="mt-4 text-[13px] font-medium !tracking-normal leading-none inline-block"
                 theme="primary-underline"
                 to={linkUrl}
               >
