@@ -111,7 +111,7 @@ Label.propTypes = {
 };
 
 const OpenIssues = () => (
-  <section className="get-involved safe-paddings relative z-10 mt-[78px]">
+  <section className="get-involved safe-paddings relative z-10 -mt-5">
     <div className="container grid grid-cols-12 grid-gap-x relative z-10">
       <header className="col-span-8 relative z-10 col-start-3 flex justify-between pl-11 pr-[58px]">
         <div className="pt-[59px]">

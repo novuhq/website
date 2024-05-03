@@ -66,6 +66,30 @@ const createContributorsPage = async ({ actions, reporter }) => {
   }
 };
 
+const createCommunityPage = async ({ actions, reporter }) => {
+  const { createPage } = actions;
+
+  try {
+    const response = await fetch('https://api.github.com/repos/novuhq/novu/contributors');
+    if (!response.ok) {
+      throw new Error('Failed to fetch GitHub contributors');
+    }
+    const contributors = await response.json();
+
+    const templatePage = path.resolve('./src/templates/community.jsx');
+
+    createPage({
+      path: '/community/',
+      component: slash(templatePage),
+      context: {
+        contributors: contributors.filter(({ type }) => type === 'User'),
+      },
+    });
+  } catch (err) {
+    reporter.panicOnBuild('There was an error when loading Community page.', err);
+  }
+};
+
 async function createPages({ graphql, actions, reporter }) {
   const { createPage } = actions;
 
@@ -391,6 +415,7 @@ exports.createPages = async (args) => {
 
   await createPages(params);
   await createBlogPages(params);
+  await createCommunityPage(params);
   await createPosts(params);
 
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife

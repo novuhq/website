@@ -6,6 +6,7 @@ import Contribute from 'components/pages/community/contribute';
 import Events from 'components/pages/community/events';
 import GetInvolved from 'components/pages/community/get-involved';
 import Hero from 'components/pages/community/hero';
+import MembersMap from 'components/pages/community/members-map';
 import OpenIssues from 'components/pages/community/open-issues';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
@@ -17,6 +18,7 @@ const CommunityPage = (props) => {
     data: {
       allWpPost: { nodes: articles },
     },
+    pageContext,
   } = props;
 
   const latestBlogPosts = {
@@ -46,6 +48,7 @@ const CommunityPage = (props) => {
         <GetInvolved />
       </div>
       <Events />
+      <MembersMap items={pageContext.contributors} />
       <OpenIssues />
       <Contribute />
       <BlogPosts {...latestBlogPosts} />

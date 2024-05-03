@@ -7,6 +7,7 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 const TITLE = 'Check out our latest blog posts';
+const BUTTON_TEXT = 'Submit Your Content';
 
 const BlogPosts = ({ items, blogPageURL }) => (
   <section className="blog-posts safe-paddings mt-40 mb-[120px]">
@@ -34,7 +35,7 @@ const BlogPosts = ({ items, blogPageURL }) => (
         theme="gray-outline"
         size="sm"
       >
-        Submit Your Content
+        {BUTTON_TEXT}
       </Button>
     </div>
   </section>
