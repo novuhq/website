@@ -87,7 +87,7 @@ const Avatar = ({ size, login, avatar_url: avatarUrl, contributions }) => {
 };
 
 const MembersMap = ({ items }) => (
-  <section className="members-map safe-paddings -mt-14 relative overflow-hidden">
+  <section className="members-map safe-paddings -mt-16 relative overflow-hidden">
     <div className="container absolute left-1/2 -translate-x-1/2 top-[46.25%] flex flex-col items-center z-10">
       <Heading
         className="relative z-10 font-medium text-center max-w-lg mx-auto tracking-normal leading-tight"
@@ -104,7 +104,8 @@ const MembersMap = ({ items }) => (
         {BUTTON_TEXT}
       </Button>
     </div>
-    <div className="w-[1920px] relative left-1/2 -translate-x-1/2 [mask-image:radial-gradient(65%_38%_at_50%_52%,black,black_55%,transparent)]">
+    {/* [mask-image:radial-gradient(65%_38%_at_50%_52%,black,black_55%,transparent)] */}
+    <div className="w-[1920px] relative left-1/2 -translate-x-1/2">
       <img
         className="relative z-0 top-0 left-0 w-full max-w-none shrink-0"
         src={bg}

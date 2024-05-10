@@ -113,15 +113,22 @@ Label.propTypes = {
 const OpenIssues = () => (
   <section className="get-involved safe-paddings relative z-10 -mt-5">
     <div className="container grid grid-cols-12 grid-gap-x relative z-10">
-      <header className="col-span-8 relative z-10 col-start-3 flex justify-between pl-11 pr-[58px]">
-        <div className="pt-[59px]">
-          <Heading className="font-medium leading-tight" tag="h2" size="xl" theme="white">
+      <header className="relative z-10 col-span-8 col-start-3 flex justify-between pl-11 pr-[58px] xl:col-span-10 xl:col-start-2 lg:col-span-full lg:px-[53px] md:px-6 sm:px-0">
+        <div className="pt-[59px] lg:pt-16 md:pt-[72px] sm:pt-0 sm:w-full">
+          <Heading
+            className="font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-3xl sm:text-center"
+            tag="h2"
+            size="xl"
+            theme="white"
+          >
             {TITLE}
           </Heading>
-          <p className="mt-3 max-w-[546px] text-gray-9 text-lg">{DESCRIPTION}</p>
+          <p className="mt-3 max-w-[546px] text-gray-9 text-lg lg:text-base lg:mt-[23px] lg:max-w-[518px] md:mt-3.5 md:max-w-[325px] md:leading-snug sm:mt-3 sm:max-w-lg sm:mx-auto sm:text-center">
+            {DESCRIPTION}
+          </p>
         </div>
         <StaticImage
-          className="shrink-0"
+          className="shrink-0 sm:!hidden"
           src="./images/cyberpunk-raccoona.png"
           width={264}
           height={232}
@@ -129,10 +136,10 @@ const OpenIssues = () => (
           loading="lazy"
         />
       </header>
-      <div className="col-span-8 col-start-3 relative rounded-xl flex bg-open-issues-table-bg">
-        <div className="grow py-12 pl-12 pr-11">
-          <div className="flex border-b border-[#FFD5EE] border-opacity-[0.13] pb-4 uppercase text-sm font-medium">
-            <span className="w-[126px] text-[#FFDFEF] bg-gradient-to-r from-[#E0C4D8] via-40% via-[#DFBCD7] to-[#DFBCD7] shrink-0 bg-clip-text text-transparent">
+      <div className="col-span-8 col-start-3 relative rounded-xl flex bg-open-issues-table-bg xl:col-span-10 xl:col-start-2 lg:col-span-full sm:mt-8">
+        <div className="grow py-12 pl-12 pr-11 lg:p-11 md:px-6 md:pt-6 md:pb-8 sm:pt-3 sm:px-3.5 sm:pb-[22px]">
+          <div className="flex border-b border-[#FFD5EE] border-opacity-[0.13] pb-4 uppercase text-sm font-medium md:pb-3.5 sm:text-[10px]">
+            <span className="w-[126px] text-[#FFDFEF] bg-gradient-to-r from-[#E0C4D8] via-40% via-[#DFBCD7] to-[#DFBCD7] shrink-0 bg-clip-text text-transparent lg:w-[113px] md:w-[89px] sm:w-[55px]">
               Issue #
             </span>
             <span className="leading-tight grow bg-gradient-to-r from-[#DAAFC9] to-[#D7A7C3] w-fit bg-clip-text text-transparent">
@@ -141,10 +148,10 @@ const OpenIssues = () => (
           </div>
           <ul>
             {Array.from({ length: 10 }).map((item, index) => (
-              <li className="border-b border-[#FFD5EE] border-opacity-[0.13] py-4 flex text-lg">
+              <li className="border-b border-[#FFD5EE] border-opacity-[0.13] py-4 flex text-lg md:py-3.5 md:text-base sm:text-sm">
                 <span
                   className={clsx(
-                    'w-[126px] text-[#FFDFEF] shrink-0',
+                    'w-[126px] text-[#FFDFEF] shrink-0 lg:w-[113px] md:w-[89px] sm:w-[55px]',
                     index < 4 && 'opacity-65',
                     index === 4 && 'opacity-60',
                     index > 4 && index < 8 && 'opacity-55',
@@ -156,16 +163,20 @@ const OpenIssues = () => (
                 </span>
                 <span className="leading-tight grow">
                   Merge pull requests from pixel-point
-                  <Label theme="feature" />
+                  <Label theme="bug" />
                 </span>
               </li>
             ))}
           </ul>
-          <Button className="mt-[42px]" size="sm" theme="pink-to-red-gradient">
+          <Button
+            className="mt-[42px] md:mt-6 md:h-11 sm:mt-4 sm-xs:w-full"
+            size="sm"
+            theme="pink-to-red-gradient"
+          >
             {BUTTON_TEXT}
           </Button>
         </div>
-        <aside className="p-12 w-[248px] shrink-0 border-l border-[#33282D] border-opacity-80 flex flex-col gap-y-5">
+        <aside className="p-12 w-[248px] shrink-0 border-l border-[#33282D] border-opacity-80 flex flex-col gap-y-5 lg:w-60 lg:p-11 md:hidden">
           {FILTERS.map(({ title, items }, index) => (
             <div
               className={clsx(
@@ -199,7 +210,7 @@ const OpenIssues = () => (
           aria-hidden
         />
         <div
-          className="absolute -z-10 -top-36 right-24 w-[200px] h-[260px] bg-[linear-gradient(84.66deg,#F0655C_18%,#00D5FF_70%)] rounded-[100%] blur-3xl scale-[1.2] opacity-25"
+          className="absolute -z-10 -top-36 right-24 w-[200px] h-[260px] bg-[linear-gradient(84.66deg,#F0655C_18%,#00D5FF_70%)] rounded-[100%] blur-3xl scale-[1.2] opacity-25 lg:right-16 md:-right-1.5 sm:-right-24"
           aria-hidden
         />
       </div>

@@ -10,16 +10,16 @@ const TITLE = 'Check out our latest blog posts';
 const BUTTON_TEXT = 'Submit Your Content';
 
 const BlogPosts = ({ items, blogPageURL }) => (
-  <section className="blog-posts safe-paddings mt-40 mb-[120px]">
+  <section className="blog-posts safe-paddings mt-40 mb-[120px] lg:mt-[120px] lg:mb-20 md:mt-[100px] md:mb-16 sm:mt-20 sm:mb-14">
     <div className="container grid grid-cols-12 grid-gap-x">
       <Heading
-        className="font-medium col-span-full text-[44px] text-center leading-tight"
+        className="font-medium col-span-full text-[44px] text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
         theme="white"
       >
         {TITLE}
       </Heading>
-      <div className="article-list-inner mt-14 col-span-10 col-start-2 grid grid-cols-3 gap-x-8 xl:mt-8 lg:grid-cols-2 lg:gap-x-7 md:gap-x-5">
+      <div className="article-list-inner mt-14 col-span-10 col-start-2 grid grid-cols-3 gap-x-8 gap-y-9 lg:mt-12 lg:col-span-full lg:gap-x-7 md:grid-cols-2 md:mt-11 md:gap-x-5 sm:mt-8 sm:grid-cols-1 sm:gap-y-10">
         {items.map((item, index) => (
           <BlogPostCard
             className={clsx()}
@@ -31,7 +31,7 @@ const BlogPosts = ({ items, blogPageURL }) => (
         ))}
       </div>
       <Button
-        className="mt-14 text-sm text-center col-span-full w-fit mx-auto"
+        className="mt-14 text-sm text-center col-span-full w-fit mx-auto lg:mt-12 md:mt-10 md:h-11 sm:mt-8"
         theme="gray-outline"
         size="sm"
       >
