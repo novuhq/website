@@ -4,7 +4,7 @@ const path = require('path');
 const slash = require('slash');
 
 const redirects = require('./redirects.json');
-// const { octokit } = require('./src/utils/contributors-utils');
+const { octokit } = require('./src/utils/contributors-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
@@ -70,7 +70,10 @@ const createCommunityPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
   try {
+    // TODO: remove members from contributors
+    // const response = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`);
     const response = await fetch('https://api.github.com/repos/novuhq/novu/contributors');
+    // https://api.github.com/orgs/novuhq/members
     if (!response.ok) {
       throw new Error('Failed to fetch GitHub contributors');
     }
@@ -424,17 +427,48 @@ exports.createPages = async (args) => {
   await createContributorsPage(params);
 };
 
+const getPaginatedData = async (prefix) => {
+  let page = 1;
+  let result = [];
+  while (true) {
+    const batch = await octokit.request(`GET ${prefix}per_page=1000&page=${page}`);
+    if (batch.data.length === 0) {
+      break; // No more pull requests to fetch
+    }
+    result = result.concat(batch.data);
+    page += 1;
+  }
+  return result;
+};
+
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   // get data from GitHub API at build time
-  const githubData = await fetch(`https://api.github.com/repos/novuhq/novu`).then((response) =>
+  const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
     response.json()
   );
+
+  // Fetching other data using Promise.all to execute them concurrently
+  const dataPromises = Promise.all([
+    getPaginatedData('/repos/novuhq/novu/pulls?state=open&'),
+    getPaginatedData('/repos/novuhq/novu/pulls?state=closed&'),
+    getPaginatedData('/repos/novuhq/novu/issues?state=closed&'),
+    getPaginatedData('/repos/novuhq/novu/contributors?'),
+  ]);
+
+  // Await all promises to resolve
+  const [githubData, [openPullRequests, closedPullRequests, closedIssues, contributors]] =
+    await Promise.all([githubDataPromise, dataPromises]);
   // create node for build time data example in the docs
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
     nameWithOwner: githubData.full_name,
     url: githubData.html_url,
     count: githubData.stargazers_count,
+    forks: githubData.forks_count,
+    openIssues: githubData.open_issues,
+    closedIssues: closedIssues.length,
+    pullRequests: openPullRequests.length + closedPullRequests.length,
+    contributors: contributors.length,
     // required fields
     id: `github-data`,
     parent: null,
@@ -466,21 +500,6 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   // });
 
   // This part is used to get the data of contributors in Hacktoberfest and to calculate the scores
-  // const fetchMergedPullRequestsFromRepo = async (repoName) => {
-  //   let page = 1;
-  //   let pullRequests = [];
-  //   while (true) {
-  //     const pullRequestsBatch = await octokit.request(
-  //       `GET /repos/novuhq/${repoName}/pulls?state=closed&per_page=100&page=${page}`
-  //     );
-  //     if (pullRequestsBatch.data.length === 0) {
-  //       break; // No more pull requests to fetch
-  //     }
-  //     pullRequests = pullRequests.concat(pullRequestsBatch.data);
-  //     page += 1;
-  //   }
-  //   return pullRequests;
-  // };
 
   // const repos = await octokit.request('GET /orgs/novuhq/repos?per_page=100');
   // const repoNames = repos.data.map((repo) => repo.name);

@@ -83,6 +83,20 @@ module.exports = {
       'hs-form-gradient':
         'linear-gradient(180deg, rgba(26, 26, 26, 0.80) 0%, rgba(26, 26, 26, 0.70) 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
+      'community-card-stars-border-gradient':
+        'radial-gradient(79.68% 200.52% at 100% 79.68%, rgba(148, 255, 255, 0.3) 0%, rgba(188, 197, 201, 0.1) 24.77%, rgba(255, 255, 255, 0) 73.23%)',
+      'community-card-open-issues-border-gradient':
+        'radial-gradient(409.94% 496.3% at 0% 176.49%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
+      'community-card-closed-issues-border-gradient':
+        'radial-gradient(413.3% 999.68% at -101.22% 180.36%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
+      'community-card-contributors-border-gradient':
+        'radial-gradient(100% 497.33% at 0% 55.53%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
+      'community-card-pr-border-gradient':
+        'radial-gradient(154.48% 768.53% at 156.61% -75.6%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
+      'community-card-forks-border-gradient':
+        'radial-gradient(364.94% 203.08% at 5.08% -57.44%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
+      'community-card-commits-border-gradient':
+        'radial-gradient(386.07% 1022.92% at -105.49% -66.96%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
       'open-issues-table-bg':
         'radial-gradient(29.56% 37.42% at 79.15% -21.6%, rgba(250, 115, 107, 0.08) 0%, rgba(250, 115, 107, 0) 100%), radial-gradient(42.78% 60.42% at 0% 15.35%, #3A2C32 0%, #141216 100%)',
       'open-issues-table-border':

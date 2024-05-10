@@ -5,6 +5,7 @@ import BlogPosts from 'components/pages/community/blog-posts';
 import Contribute from 'components/pages/community/contribute';
 import Events from 'components/pages/community/events';
 import GetInvolved from 'components/pages/community/get-involved';
+import GitHubStat from 'components/pages/community/github-stat';
 import Hero from 'components/pages/community/hero';
 import MembersMap from 'components/pages/community/members-map';
 import OpenIssues from 'components/pages/community/open-issues';
@@ -17,6 +18,7 @@ const CommunityPage = (props) => {
   const {
     data: {
       allWpPost: { nodes: articles },
+      github: githubData,
     },
     pageContext,
   } = props;
@@ -46,6 +48,7 @@ const CommunityPage = (props) => {
       <div className="relative overflow-hidden">
         <Hero />
         <GetInvolved />
+        <GitHubStat {...githubData} />
       </div>
       <Events />
       <MembersMap items={pageContext.contributors} />
@@ -59,6 +62,14 @@ const CommunityPage = (props) => {
 
 export const pageQuery = graphql`
   query {
+    github {
+      count
+      closedIssues
+      contributors
+      forks
+      pullRequests
+      openIssues
+    }
     allWpPost(sort: { date: DESC }, limit: 3) {
       nodes {
         title

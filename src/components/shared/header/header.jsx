@@ -27,7 +27,7 @@ const Header = ({ theme, isMobileMenuOpen, onBurgerClick }) => {
         )}
       >
         <Link
-          className={clsx(theme === 'community' && 'col-start-2 w-fit col-span-5')}
+          className={clsx(theme === 'community' && 'col-start-2 w-fit col-span-5 lg:col-start-1')}
           {...LINKS.home}
         >
           <Logo className="h-8 sm:h-7" aria-hidden />
@@ -67,7 +67,7 @@ const Header = ({ theme, isMobileMenuOpen, onBurgerClick }) => {
 
         {theme === 'community' && (
           <Button
-            className="col-span-6 w-fit ml-auto"
+            className="col-span-6 w-fit ml-auto col-end-13 sm:h-8"
             size="xs"
             theme="white-filled"
             {...LINKS.getStartedTopBar}
