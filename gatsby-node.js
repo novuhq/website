@@ -4,7 +4,13 @@ const path = require('path');
 const slash = require('slash');
 
 const redirects = require('./redirects.json');
-const { octokit } = require('./src/utils/contributors-utils');
+const {
+  fetchRepositories,
+  fetchContributorsAndMembers,
+  fetchIssuesForRepo,
+  getIssueType,
+} = require('./src/utils/community-utils');
+const { fetchCommitCount, getGithubPaginatedData } = require('./src/utils/github-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
@@ -70,14 +76,25 @@ const createCommunityPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
   try {
-    // TODO: remove members from contributors
-    // const response = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`);
-    const response = await fetch('https://api.github.com/repos/novuhq/novu/contributors');
-    // https://api.github.com/orgs/novuhq/members
-    if (!response.ok) {
-      throw new Error('Failed to fetch GitHub contributors');
-    }
-    const contributors = await response.json();
+    const repositories = await fetchRepositories();
+    const issuesWithHelpWantedLabel = await Promise.all(repositories.map(fetchIssuesForRepo));
+    const repositoriesWithHelpWantedIssues = new Set();
+
+    const helpWantedIssues = issuesWithHelpWantedLabel.flat().map((issue) => {
+      const repo = repositories.find((repo) => repo.url === issue.repository_url);
+      repositoriesWithHelpWantedIssues.add(repo);
+      return {
+        ...issue,
+        repository_name: repo.name,
+        type: getIssueType(issue.title),
+      };
+    });
+
+    const { contributors, members } = await fetchContributorsAndMembers();
+
+    const nonMemberContributors = contributors.filter(
+      (contributor) => !members.some((member) => member.login === contributor.login)
+    );
 
     const templatePage = path.resolve('./src/templates/community.jsx');
 
@@ -85,11 +102,18 @@ const createCommunityPage = async ({ actions, reporter }) => {
       path: '/community/',
       component: slash(templatePage),
       context: {
-        contributors: contributors.filter(({ type }) => type === 'User'),
+        contributors: nonMemberContributors,
+        helpWantedIssues,
+        repositoriesWithHelpWantedIssues: Array.from(repositoriesWithHelpWantedIssues).map(
+          (repo) => ({
+            name: repo.name,
+            id: repo.id,
+          })
+        ),
       },
     });
   } catch (err) {
-    reporter.panicOnBuild('There was an error when loading Community page.', err);
+    reporter.panicOnBuild('There was an error when loading the Community page.', err);
   }
 };
 
@@ -427,38 +451,22 @@ exports.createPages = async (args) => {
   await createContributorsPage(params);
 };
 
-const getPaginatedData = async (prefix) => {
-  let page = 1;
-  let result = [];
-  while (true) {
-    const batch = await octokit.request(`GET ${prefix}per_page=1000&page=${page}`);
-    if (batch.data.length === 0) {
-      break; // No more pull requests to fetch
-    }
-    result = result.concat(batch.data);
-    page += 1;
-  }
-  return result;
-};
-
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
-  // get data from GitHub API at build time
   const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
     response.json()
   );
 
-  // Fetching other data using Promise.all to execute them concurrently
   const dataPromises = Promise.all([
-    getPaginatedData('/repos/novuhq/novu/pulls?state=open&'),
-    getPaginatedData('/repos/novuhq/novu/pulls?state=closed&'),
-    getPaginatedData('/repos/novuhq/novu/issues?state=closed&'),
-    getPaginatedData('/repos/novuhq/novu/contributors?'),
+    fetchCommitCount('novuhq', 'novu'),
+    getGithubPaginatedData('/repos/novuhq/novu/pulls?state=open&'),
+    getGithubPaginatedData('/repos/novuhq/novu/pulls?state=closed&'),
+    getGithubPaginatedData('/repos/novuhq/novu/issues?state=closed&'),
+    getGithubPaginatedData('/repos/novuhq/novu/contributors?'),
   ]);
 
-  // Await all promises to resolve
-  const [githubData, [openPullRequests, closedPullRequests, closedIssues, contributors]] =
+  const [githubData, [commits, openPullRequests, closedPullRequests, closedIssues, contributors]] =
     await Promise.all([githubDataPromise, dataPromises]);
-  // create node for build time data example in the docs
+
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
     nameWithOwner: githubData.full_name,
@@ -469,6 +477,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     closedIssues: closedIssues.length,
     pullRequests: openPullRequests.length + closedPullRequests.length,
     contributors: contributors.length,
+    commits,
     // required fields
     id: `github-data`,
     parent: null,

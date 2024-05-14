@@ -43,7 +43,15 @@ const Card = ({ className, borderClassName, children, hidden = false }) => (
   </div>
 );
 
-const GitHubStat = ({ count, closedIssues, openIssues, contributors, forks, pullRequests }) => (
+const GitHubStat = ({
+  count,
+  commits,
+  closedIssues,
+  openIssues,
+  contributors,
+  forks,
+  pullRequests,
+}) => (
   <section className="get-involved safe-paddings relative z-10 mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container grid grid-cols-12 grid-gap-x relative z-10">
       <Heading
@@ -64,7 +72,7 @@ const GitHubStat = ({ count, closedIssues, openIssues, contributors, forks, pull
           loading="lazy"
         />
         <Card
-          className="aspect-[1.734] w-[calc(58%-6px)] flex flex-col justify-center pl-[84px] lg:pl-16 md:w-[calc(69.4%-5px)] sm:w-full"
+          className="aspect-[1.734] w-[calc(58%-6px)] flex flex-col justify-center pl-[84px] lg:pl-16 md:w-[calc(69.4%-5px)] md:pl-[58px] sm:pl-10 sm:w-full"
           borderClassName="border-image-community-card-stars-border-gradient"
         >
           <img
@@ -75,10 +83,10 @@ const GitHubStat = ({ count, closedIssues, openIssues, contributors, forks, pull
             height={506}
             loading="lazy"
           />
-          <span className="relative z-10 font-medium uppercase leading-denser text-[84px] bg-clip-text bg-[linear-gradient(87.48deg,#B7E3F0_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit text-transparent lg:text-[65px]">
+          <span className="relative z-10 font-medium uppercase leading-denser text-[84px] bg-clip-text bg-[linear-gradient(87.48deg,#B7E3F0_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit text-transparent lg:text-[65px] md:text-[58px] sm-xs:text-5xl">
             {formatNumbers(count)}
           </span>
-          <span className="relative z-10 mt-1 text-4xl font-medium leading-denser bg-[linear-gradient(87.48deg,#FFFFFF_21.47%,rgba(255,255,255,.6)_82.02%)] w-fit bg-clip-text text-transparent lg:text-3xl">
+          <span className="relative z-10 mt-1 text-4xl font-medium leading-denser bg-[linear-gradient(87.48deg,#FFFFFF_21.47%,rgba(255,255,255,.6)_82.02%)] w-fit bg-clip-text text-transparent lg:text-3xl md:text-[25px] sm-xs:mt-0.5 sm-xs:text-base">
             GitHub stars
           </span>
         </Card>
@@ -128,7 +136,7 @@ const GitHubStat = ({ count, closedIssues, openIssues, contributors, forks, pull
           hidden
         >
           <span className="font-medium leading-denser text-[44px] bg-[linear-gradient(87.48deg,#FFCEE6_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit bg-clip-text text-transparent sm:text-[32px]">
-            18K+
+            {formatNumbers(commits)}
           </span>
           <span className="font-light text-gray-9 leading-snug text-sm mt-1.5 sm:mt-0.5">
             Commits
@@ -191,7 +199,7 @@ const GitHubStat = ({ count, closedIssues, openIssues, contributors, forks, pull
           borderClassName="border-image-community-card-commits-border-gradient"
         >
           <span className="font-medium leading-denser text-7xl bg-[linear-gradient(87.48deg,#FFCEE6_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit bg-clip-text text-transparent lg:text-[44px]">
-            18K+
+            {formatNumbers(commits)}
           </span>
           <span className="mt-1 font-light text-gray-9 leading-snug lg:text-sm lg:mt-1.5">
             Commits
@@ -204,6 +212,7 @@ const GitHubStat = ({ count, closedIssues, openIssues, contributors, forks, pull
 
 GitHubStat.propTypes = {
   count: PropTypes.number.isRequired,
+  commits: PropTypes.number.isRequired,
   closedIssues: PropTypes.number.isRequired,
   openIssues: PropTypes.number.isRequired,
   contributors: PropTypes.number.isRequired,

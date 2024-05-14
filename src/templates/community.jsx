@@ -52,7 +52,10 @@ const CommunityPage = (props) => {
       </div>
       <Events />
       <MembersMap items={pageContext.contributors} />
-      <OpenIssues />
+      <OpenIssues
+        issues={pageContext.helpWantedIssues}
+        reposWithIssues={pageContext.repositoriesWithHelpWantedIssues}
+      />
       <Contribute />
       <BlogPosts {...latestBlogPosts} />
       <Separator />
@@ -64,6 +67,7 @@ export const pageQuery = graphql`
   query {
     github {
       count
+      commits
       closedIssues
       contributors
       forks

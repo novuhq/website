@@ -1,16 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs').promises;
 
-const { Octokit } = require('@octokit/rest');
-
 const { ACHIEVEMENTS } = require('../constants/contributors');
+
+const { octokit } = require('./github-utils');
 
 const MEDAL_WIDTH = '34';
 const IMAGE_SIZE = '40';
-
-const octokit = new Octokit({
-  auth: process.env.GITHUB_README_TOKEN,
-});
 
 const generateTableMarkup = (tableData) => {
   let tableMarkup = '| Photo | Name | Profile | Medals |\n';
@@ -146,7 +142,6 @@ async function setCache(hash) {
 }
 
 module.exports = {
-  octokit,
   fetchReadmeContent,
   changeReadmeContent,
   getCache,
