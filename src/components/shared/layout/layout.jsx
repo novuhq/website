@@ -8,7 +8,7 @@ import CookieBanner from 'components/shared/cookie-banner';
 import FloatingButton from 'components/shared/floating-button';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
-// import InkeepChatButton from 'components/shared/inkeep-widgets/inkeep-chat-button';
+import InkeepChatButton from 'components/shared/inkeep-widgets/inkeep-chat-button';
 import MobileMenu from 'components/shared/mobile-menu';
 // import Banner from '../banner/banner';
 
@@ -37,7 +37,7 @@ const Layout = ({ className, children, headerTheme = 'default' }) => {
         setIsCookieBannerVisible={setIsCookieBannerVisible}
       />
       <FloatingButton isCookieBannerVisible={isCookieBannerVisible} />
-      {/* {typeof window !== 'undefined' && <InkeepChatButton />} */}
+      {typeof window !== 'undefined' && <InkeepChatButton />}
     </>
   );
 };
