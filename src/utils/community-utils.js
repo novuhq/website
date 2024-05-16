@@ -32,8 +32,9 @@ const fetchContributorsAndMembers = async () => {
     octokit.request(`GET /repos/novuhq/novu/contributors?per_page=100`, {
       headers: { 'X-GitHub-Api-Version': '2022-11-28' },
     }),
-    octokit.request(`GET /orgs/novuhq/members?per_page=100`, {
-      headers: { 'X-GitHub-Api-Version': '2022-11-28' },
+    octokit.rest.orgs.listMembers({
+      org: 'novuhq',
+      per_page: 100,
     }),
   ]);
 

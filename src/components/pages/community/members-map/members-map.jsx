@@ -201,7 +201,7 @@ const Avatar = ({
   );
 };
 
-const MembersMap = ({ items }) => (
+const MembersMap = ({ contributors }) => (
   <section className="members-map safe-paddings -mt-16 relative overflow-hidden xl:mt-0 md:mt-11">
     <div className="container absolute left-1/2 -translate-x-1/2 top-[46.25%] flex flex-col items-center z-10 sm:top-[46.75%]">
       <Heading
@@ -242,7 +242,7 @@ const MembersMap = ({ items }) => (
         aria-hidden
       />
       <ul className="absolute inset-0 z-0">
-        {items.slice(0, 22).map((contributor, index) => {
+        {contributors.slice(0, 22).map((contributor, index) => {
           const { size, className, borderClassName, lightsTheme } = AVARS_STYLES[index];
           return (
             <li
@@ -271,7 +271,7 @@ const MembersMap = ({ items }) => (
 );
 
 MembersMap.propTypes = {
-  items: PropTypes.arrayOf(
+  contributors: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       login: PropTypes.string.isRequired,

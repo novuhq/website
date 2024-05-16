@@ -10,7 +10,12 @@ const {
   fetchIssuesForRepo,
   getIssueType,
 } = require('./src/utils/community-utils');
-const { fetchCommitCount, getGithubPaginatedData } = require('./src/utils/github-utils');
+const {
+  fetchCommitCount,
+  fetchContributorsCount,
+  fetchClosedIssuesCount,
+  fetchPullRequestCount,
+} = require('./src/utils/github-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
@@ -91,9 +96,40 @@ const createCommunityPage = async ({ actions, reporter }) => {
     });
 
     const { contributors, members } = await fetchContributorsAndMembers();
+    const membersList = [
+      'ainouzgali',
+      'AliaksandrRyzhou',
+      'americano98',
+      'andrewgolovanov',
+      'antonjoel82',
+      'BiswaViraj',
+      'ChmaraX',
+      'Cliftonz',
+      'ComBarnea',
+      'davidsoderberg',
+      'denis-kralj-novu',
+      'djabarovgeorge',
+      'iampearceman',
+      'jainpawan21',
+      'justnems',
+      'LetItRock',
+      'rgozdzialski',
+      'rifont',
+      'sashasushko',
+      'scopsy',
+      'SokratisVidros',
+      'stephenward21',
+      'sumitsaurabh927',
+      'tatarco',
+      'unicodeveloper',
+      'yasell',
+    ];
 
     const nonMemberContributors = contributors.filter(
-      (contributor) => !members.some((member) => member.login === contributor.login)
+      (contributor) =>
+        !members.some((member) => member.login === contributor.login) &&
+        !membersList.includes(contributor.login) &&
+        contributor.type !== 'Bot'
     );
 
     const templatePage = path.resolve('./src/templates/community.jsx');
@@ -458,14 +494,22 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
 
   const dataPromises = Promise.all([
     fetchCommitCount('novuhq', 'novu'),
-    getGithubPaginatedData('/repos/novuhq/novu/pulls?state=open&'),
-    getGithubPaginatedData('/repos/novuhq/novu/pulls?state=closed&'),
-    getGithubPaginatedData('/repos/novuhq/novu/issues?state=closed&'),
-    getGithubPaginatedData('/repos/novuhq/novu/contributors?'),
+    fetchPullRequestCount('novuhq', 'novu', 'open'),
+    fetchPullRequestCount('novuhq', 'novu', 'closed'),
+    fetchClosedIssuesCount('novuhq', 'novu'),
+    fetchContributorsCount('novuhq', 'novu'),
   ]);
 
-  const [githubData, [commits, openPullRequests, closedPullRequests, closedIssues, contributors]] =
-    await Promise.all([githubDataPromise, dataPromises]);
+  const [
+    githubData,
+    [
+      commitsCount,
+      openPullRequestsCount,
+      closedPullRequestsCount,
+      closedIssuesCount,
+      contributorsCount,
+    ],
+  ] = await Promise.all([githubDataPromise, dataPromises]);
 
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
@@ -474,10 +518,10 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     count: githubData.stargazers_count,
     forks: githubData.forks_count,
     openIssues: githubData.open_issues,
-    closedIssues: closedIssues.length,
-    pullRequests: openPullRequests.length + closedPullRequests.length,
-    contributors: contributors.length,
-    commits,
+    closedIssues: closedIssuesCount,
+    pullRequests: openPullRequestsCount + closedPullRequestsCount,
+    contributors: contributorsCount,
+    commits: commitsCount,
     // required fields
     id: `github-data`,
     parent: null,

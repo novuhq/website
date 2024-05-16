@@ -25,7 +25,7 @@ const BlogPosts = ({ items, blogPageURL }) => (
             className={clsx()}
             {...item}
             size="md"
-            blogPageURL={`${blogPageURL.to}/`}
+            blogPageURL={blogPageURL}
             key={index}
           />
         ))}

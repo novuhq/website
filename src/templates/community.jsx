@@ -40,7 +40,7 @@ const CommunityPage = (props) => {
         photo: post.pageBlogPost.author.postAuthor?.photo,
       },
     })),
-    blogPageURL: LINKS.blog,
+    blogPageURL: LINKS.blog.to,
   };
 
   return (
@@ -51,14 +51,14 @@ const CommunityPage = (props) => {
         <GitHubStat {...githubData} />
       </div>
       <Events />
-      <MembersMap items={pageContext.contributors} />
+      <MembersMap contributors={pageContext.contributors} />
       <OpenIssues
         issues={pageContext.helpWantedIssues}
         reposWithIssues={pageContext.repositoriesWithHelpWantedIssues}
       />
       <Contribute />
       <BlogPosts {...latestBlogPosts} />
-      <Separator />
+      <Separator backgroundColor="gray" />
     </Layout>
   );
 };

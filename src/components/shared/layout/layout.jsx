@@ -37,7 +37,7 @@ const Layout = ({ className, children, headerTheme = 'default' }) => {
         setIsCookieBannerVisible={setIsCookieBannerVisible}
       />
       <FloatingButton isCookieBannerVisible={isCookieBannerVisible} />
-      {typeof window !== 'undefined' && <InkeepChatButton />}
+      <InkeepChatButton />
     </>
   );
 };
