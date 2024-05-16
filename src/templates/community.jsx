@@ -78,7 +78,7 @@ export const pageQuery = graphql`
       nodes {
         title
         url: uri
-        date(formatString: "MMMM D, YYYY")
+        date
         categories {
           nodes {
             name

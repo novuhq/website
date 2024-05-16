@@ -47,7 +47,11 @@ const BlogPostCardLarge = ({
         </footer>
       </div>
 
-      <Link className="col-start-7 col-end-13 w-full md:order-1 md:block" to={url}>
+      <Link
+        className="col-start-7 col-end-13 w-full md:order-1 md:block"
+        to={url}
+        aria-label={title}
+      >
         <GatsbyImage
           className="h-full w-full"
           imgClassName="rounded-lg"

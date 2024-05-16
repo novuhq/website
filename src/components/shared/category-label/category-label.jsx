@@ -18,7 +18,11 @@ const styles = {
 };
 
 const CategoryLabel = ({ className, url, size, theme, children }) => (
-  <Link className={clsx(styles.base, styles.size[size], styles.theme[theme], className)} to={url}>
+  <Link
+    className={clsx(styles.base, styles.size[size], styles.theme[theme], className, 'w-fit')}
+    to={url}
+  >
+    <span className="sr-only">category: </span>
     {children}
   </Link>
 );
