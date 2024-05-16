@@ -7,28 +7,28 @@ import githubIcon from 'icons/github.svg';
 import novuIcon from 'icons/novu-gradient-logo.svg';
 
 const TITLE = 'Get involved: start, engage, contribute';
-// TODO: set links
+
 const ITEMS = [
   {
     icon: novuIcon,
     title: 'Novu Cloud',
     description: 'Embark on your journey by creating your personalized account',
     linkText: 'Get started',
-    linkUrl: '',
+    linkUrl: 'https://web.novu.co/?utm_campaign=community_page',
   },
   {
     icon: discordIcon,
     title: 'Join Discord',
     description: 'Immerse yourself in the community by joining our dedicated server',
     linkText: 'Join discord',
-    linkUrl: '',
+    linkUrl: 'https://discord.novu.co/',
   },
   {
     icon: githubIcon,
     title: 'Fork And Work',
     description: 'Discover an issue within our project and make a valuable contribution',
     linkText: 'Find an issue',
-    linkUrl: '',
+    linkUrl: 'https://github.com/novuhq/novu/issues',
   },
 ];
 
@@ -56,6 +56,8 @@ const GetInvolved = () => (
               className="mt-6 !tracking-normal font-medium leading-none text-[13px] md:mt-4 sm:mt-5"
               theme="primary-underline"
               to={linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {linkText}
             </Link>

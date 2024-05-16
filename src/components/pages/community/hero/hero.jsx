@@ -10,7 +10,7 @@ import bg from './images/bg-pattern.svg';
 const DESCRIPTION = `Join the community, contribute code, meet new friends, learn, create and innovate with us!`;
 const BUTTON_TEXT = 'Sign up with Github';
 
-// TODO: add lights
+// TODO: replace button with subscribe form
 const Hero = () => (
   <section
     className={clsx(
@@ -45,6 +45,14 @@ const Hero = () => (
       className="absolute z-0 top-0 left-1/2 w-[1920px] -translate-x-1/2 xl:w-[1480px] xl:top-8 lg:w-[1240px] lg:left-[48.5%] md:w-[1500px] md:left-1/2 md:-translate-x-[70.75%] sm:w-[830px]"
       aria-hidden
     >
+      <span className="absolute top-[16%] left-[87.7%] w-[90px] h-[200px] xl:top-[11%] xl:left-[87%] lg:top-[14%] md:top-[28%] sm:left-[85%] sm:top-[42%]">
+        <span className="absolute inset-0 bg-[linear-gradient(229deg,#7ECBF1_17.66%,_#7ECBF1_60.48%)] blur-3xl opacity-30 rounded-[100%]" />
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white blur-xl opacity-40 w-[10%] h-[20%] rounded-[100%] mix-blend-soft-light" />
+      </span>
+      <span className="absolute z-10 top-[12.7%] left-[47.7%] w-[90px] h-[200px] rotate-[-45deg] xl:top-[7.5%] lg:top-[8.5%] md:top-[24%] sm:left-[46%] sm:top-[42%]">
+        <span className="absolute inset-0 bg-[linear-gradient(229deg,#F17EAE_17%,#F17EDE_60%)] blur-3xl opacity-40 rounded-[100%]" />
+        <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white blur-xl opacity-50 w-[20%] h-[20%] rounded-[100%] mix-blend-soft-light" />
+      </span>
       <img
         className="relative -top-60 min-w-[1480px] max-w-none xl:w-full xl:min-w-px lg:-top-[169px] lg:w-[1240px] md:top-[-11px] md:w-[1500px] sm:w-[834px] sm:top-[174px] sm:[mask-image:linear-gradient(to_bottom,transparent_0%,black_10%)]"
         src={bg}

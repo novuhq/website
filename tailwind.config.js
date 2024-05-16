@@ -87,6 +87,8 @@ module.exports = {
         'radial-gradient(79.68% 200.52% at 100% 79.68%, rgba(148, 255, 255, 0.3) 0%, rgba(188, 197, 201, 0.1) 24.77%, rgba(255, 255, 255, 0) 73.23%)',
       'community-card-open-issues-border-gradient':
         'radial-gradient(409.94% 496.3% at 0% 176.49%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
+      'community-card-open-issues-sm-border-gradient':
+        'radial-gradient(27.74% 100% at 50% 0%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
       'community-card-closed-issues-border-gradient':
         'radial-gradient(413.3% 999.68% at -101.22% 180.36%, rgba(126, 209, 214, 0.2) 0%, rgba(126, 209, 214, 0) 100%)',
       'community-card-contributors-border-gradient':

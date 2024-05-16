@@ -11,43 +11,43 @@ import paintIcon from './images/paint.svg';
 import settingsIcon from './images/settings.svg';
 
 const TITLE = 'Other ways to help';
-// TODO: set links
+
 const ITEMS = [
   {
     icon: paintIcon,
     title: 'Create content',
     description: 'Help others discover Novu with videos and blog articles.',
-    linkUrl: '',
+    linkUrl: 'https://docs.novu.co/community/get-involved#create-content',
   },
   {
     icon: microphoneIcon,
     title: 'Present at meetups',
     description: 'Share your experience and represent Novu in public meetups.',
-    linkUrl: '',
+    linkUrl: 'https://docs.novu.co/community/get-involved#create-content',
   },
   {
     icon: bugIcon,
     title: 'Report bugs',
     description: 'Find and fix bugs in the code, then submit pull requests to resolve them.',
-    linkUrl: '',
+    linkUrl: 'https://roadmap.novu.co/roadmap',
   },
   {
     icon: ideaIcon,
     title: 'Submit new ideas',
     description: 'Suggest features, integrations, or SDKs for our roadmap.',
-    linkUrl: '',
+    linkUrl: 'https://roadmap.novu.co/roadmap',
   },
   {
     icon: improveIcon,
     title: 'Improve documentation',
     description: 'Share your experience and represent Novu in public',
-    linkUrl: '',
+    linkUrl: 'https://github.com/novuhq/docs/issues',
   },
   {
     icon: settingsIcon,
     title: 'Helping others',
     description: 'Support developers with their projects and contributions',
-    linkUrl: '',
+    linkUrl: 'https://docs.novu.co/community/get-involved#create-content',
   },
 ];
 
@@ -80,6 +80,8 @@ const Contribute = () => (
               className="mt-2.5 !tracking-normal font-light leading-snug text-sm"
               theme="primary"
               to={linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Learn more
             </Link>

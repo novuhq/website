@@ -25,13 +25,14 @@ const BlogPosts = ({ items, blogPageURL }) => (
             className={clsx()}
             {...item}
             size="md"
-            blogPageURL={blogPageURL}
+            blogPageURL={`${blogPageURL.to}/`}
             key={index}
           />
         ))}
       </div>
       <Button
         className="mt-14 text-sm text-center col-span-full w-fit mx-auto lg:mt-12 md:mt-10 md:h-11 sm:mt-8"
+        to="https://github.com/novuhq/blog"
         theme="gray-outline"
         size="sm"
       >

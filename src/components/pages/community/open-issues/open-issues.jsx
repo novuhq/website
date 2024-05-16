@@ -157,9 +157,11 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
       }, {});
 
       const selectedIssues = issues
-        .filter((issue) => Object.keys(filtersByFieldKey).every((key) => filtersByFieldKey[key].some(
-              (value) => issue[key] && issue[key].toLowerCase() === value
-            )))
+        .filter((issue) =>
+          Object.keys(filtersByFieldKey).every((key) =>
+            filtersByFieldKey[key].some((value) => issue[key] && issue[key].toLowerCase() === value)
+          )
+        )
         .slice(0, 10);
 
       setFilteredIssues(selectedIssues);
@@ -167,7 +169,7 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
   }, [selectedFilters, issues]);
 
   return (
-    <section className="get-involved safe-paddings relative z-10 -mt-5 xl:mt-5">
+    <section className="get-involved safe-paddings relative z-10 -mt-5 xl:mt-5 md:mt-[124px] sm:mt-[89px]">
       <div className="container grid grid-cols-12 grid-gap-x relative z-10">
         <header className="relative z-10 col-span-8 col-start-3 flex justify-between pl-11 pr-[58px] xl:col-span-10 xl:col-start-2 lg:col-span-full lg:px-[53px] md:px-6 sm:px-0">
           <div className="pt-[59px] lg:pt-16 md:pt-[72px] sm:pt-0 sm:w-full">
@@ -267,7 +269,7 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
           <div className="absolute left-1 top-4 z-10 -translate-x-1/2 opacity-45 w-[70px] h-[240px] blur-3xl bg-[radial-gradient(rgba(241,126,222,.9),rgba(241,126,222,.2))] rounded-[100%] pointer-events-none" />
           <div className="absolute left-1 top-24 z-10 -translate-x-1/2 w-7 h-20 bg-[radial-gradient(#fff,#fff_20%,rgba(255,255,255,.2))] mix-blend-overlay opacity-35 blur-xl rounded-[100%] pointer-events-none" />
           <div
-            className="border-gradient absolute inset-0 pointer-events-none rounded-inherit border-image-open-issues-table-border"
+            className="border-gradient absolute inset-0 pointer-events-none rounded-[inherit] border-image-open-issues-table-border"
             aria-hidden
           />
           <div

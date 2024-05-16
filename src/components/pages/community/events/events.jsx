@@ -38,7 +38,7 @@ const ITEMS = [
 ];
 
 const Events = () => (
-  <section className="get-involved safe-paddings relative z-10 mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+  <section className="events safe-paddings relative z-10 mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container grid grid-cols-12 grid-gap-x">
       <header className="col-span-4 col-start-3 pt-3 xl:col-span-5 xl:col-start-2 lg:col-span-6 lg:pt-0 sm:col-span-full">
         <Heading

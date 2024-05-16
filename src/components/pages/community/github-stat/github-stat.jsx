@@ -61,10 +61,9 @@ const GitHubStat = ({
       >
         Built by a community of {formatNumbers(contributors)} contributors
       </Heading>
-      {/* <div className="relative flex flex-wrap col-span-10 text-black col-start-2 gap-3 mt-12 md:mt-11 sm:mt-8"> */}
       <div className="relative flex flex-wrap col-span-10 text-black col-start-2 gap-3 mt-12 max-w-[1220px] mx-auto xl:col-span-full md:mt-11 md:gap-2.5 sm:mt-8">
         <img
-          className="absolute left-[12%] -z-10 top-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute left-[12%] -z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 pointer-events-none lg:left-[52%] lg:top-[53%] md:top-[42%] md:left-[65%] sm:top-auto sm:left-[45%] sm:bottom-[300px] sm:translate-y-0 sm:w-[600px] sm:max-w-none"
           src={light}
           alt=""
           width={1004}
@@ -93,7 +92,7 @@ const GitHubStat = ({
         <div className="grid gap-3 grid-cols-2 w-[calc(42%-6px)] md:grid-cols-1 md:w-[calc(30.6%-5px)] sm:w-full sm:grid-cols-2">
           <Card
             className="aspect-[246/168] w-full pt-9 flex flex-col items-center lg:pt-7 md:pt-8 sm:aspect-auto sm:pt-5 sm:h-[100px]"
-            borderClassName="border-image-community-card-open-issues-border-gradient"
+            borderClassName="border-image-community-card-open-issues-border-gradient sm:border-image-community-card-open-issues-sm-border-gradient"
           >
             <span className="font-medium leading-denser text-7xl bg-[linear-gradient(87.48deg,#FFCEE6_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit bg-clip-text text-transparent lg:text-[44px] sm:text-[32px]">
               {formatNumbers(openIssues)}
@@ -104,7 +103,7 @@ const GitHubStat = ({
           </Card>
           <Card
             className="aspect-[246/168] w-full pt-9 flex flex-col items-center lg:pt-7 md:pt-8 sm:aspect-auto sm:pt-5 sm:h-[100px]"
-            borderClassName="border-image-community-card-closed-issues-border-gradient"
+            borderClassName="border-image-community-card-closed-issues-border-gradient sm:border-image-community-card-open-issues-sm-border-gradient"
           >
             <span className="font-medium leading-denser text-7xl bg-[linear-gradient(87.48deg,#B7E3F0_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit bg-clip-text text-transparent lg:text-[44px] sm:text-[32px]">
               {formatNumbers(closedIssues)}
@@ -132,7 +131,7 @@ const GitHubStat = ({
         </div>
         <Card
           className="w-[calc(30.6%-5px)] h-[145px] pt-8 hidden flex-col items-center md:flex sm:w-full sm:h-[100px] sm:pt-5"
-          borderClassName="border-image-community-card-commits-border-gradient"
+          borderClassName="border-image-community-card-commits-border-gradient sm:hidden"
           hidden
         >
           <span className="font-medium leading-denser text-[44px] bg-[linear-gradient(87.48deg,#FFCEE6_21.47%,rgba(255,255,255,.7)_82.02%)] w-fit bg-clip-text text-transparent sm:text-[32px]">
@@ -144,7 +143,7 @@ const GitHubStat = ({
         </Card>
         <Card
           className="hidden w-[calc(69.4%-5px)] h-[145px] p-5 flex-col md:flex sm:items-center sm:w-full sm:justify-end sm:h-40"
-          borderClassName="border-image-community-card-contributors-border-gradient"
+          borderClassName="border-image-community-card-contributors-border-gradient sm:hidden"
           hidden
         >
           <img
@@ -164,7 +163,7 @@ const GitHubStat = ({
         </Card>
         <Card
           className="aspect-[475/168] w-[calc(39.5%-8px)] flex items-center justify-center md:w-[calc(50%-5px)] md:aspect-auto md:h-[138px] sm:w-full sm:h-[100px]"
-          borderClassName="border-image-community-card-pr-border-gradient"
+          borderClassName="border-image-community-card-pr-border-gradient sm:hidden"
         >
           <img
             className="mr-3 shrink-0 h-9 lg:h-8 lg:mr-2.5"
@@ -180,7 +179,7 @@ const GitHubStat = ({
         </Card>
         <Card
           className="aspect-[475/168] w-[calc(39.5%-8px)] flex items-center justify-center md:w-[calc(50%-5px)] md:aspect-auto md:h-[138px] sm:w-full sm:h-[100px]"
-          borderClassName="border-image-community-card-forks-border-gradient"
+          borderClassName="border-image-community-card-forks-border-gradient sm:hidden"
         >
           <img
             className="mr-3 shrink-0 h-9 lg:h-8 lg:mr-2.5"
