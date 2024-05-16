@@ -35,6 +35,8 @@ const BlogPosts = ({ items, blogPageURL }) => (
         to="https://github.com/novuhq/blog"
         theme="gray-outline"
         size="sm"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {BUTTON_TEXT}
       </Button>

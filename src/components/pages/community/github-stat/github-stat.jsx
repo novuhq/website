@@ -63,7 +63,7 @@ const GitHubStat = ({
       </Heading>
       <div className="relative flex flex-wrap col-span-10 text-black col-start-2 gap-3 mt-12 max-w-[1220px] mx-auto xl:col-span-full md:mt-11 md:gap-2.5 sm:mt-8">
         <img
-          className="absolute left-[12%] -z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 pointer-events-none lg:left-[52%] lg:top-[53%] md:top-[42%] md:left-[65%] sm:top-auto sm:left-[45%] sm:bottom-[300px] sm:translate-y-0 sm:w-[600px] sm:max-w-none"
+          className="absolute left-[53%] -z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 pointer-events-none lg:left-[52%] lg:top-[53%] md:top-[42%] md:left-[65%] sm:top-auto sm:left-[45%] sm:bottom-[300px] sm:translate-y-0 sm:w-[600px] sm:max-w-none"
           src={light}
           alt=""
           width={1004}

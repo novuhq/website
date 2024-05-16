@@ -169,7 +169,7 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
   }, [selectedFilters, issues]);
 
   return (
-    <section className="get-involved safe-paddings relative z-10 -mt-5 xl:mt-5 md:mt-[124px] sm:mt-[89px]">
+    <section className="get-involved safe-paddings relative z-10 -mt-5 xl:overflow-x-hidden xl:-mt-11 xl:pt-16 md:-mt-8 md:pt-40 sm:-mt-6 sm:pt-[114px]">
       <div className="container grid grid-cols-12 grid-gap-x relative z-10">
         <header className="relative z-10 col-span-8 col-start-3 flex justify-between pl-11 pr-[58px] xl:col-span-10 xl:col-start-2 lg:col-span-full lg:px-[53px] md:px-6 sm:px-0">
           <div className="pt-[59px] lg:pt-16 md:pt-[72px] sm:pt-0 sm:w-full">
@@ -181,7 +181,7 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
             >
               {TITLE}
             </Heading>
-            <p className="mt-3 max-w-[546px] text-gray-9 text-lg lg:text-base lg:mt-[23px] lg:max-w-[518px] md:mt-3.5 md:max-w-[325px] md:leading-snug sm:mt-3 sm:max-w-lg sm:mx-auto sm:text-center">
+            <p className="mt-3 max-w-[546px] text-gray-9 text-lg lg:text-base lg:mt-[23px] lg:max-w-[518px] md:mt-3.5 md:max-w-[325px] md:leading-snug sm:mt-3 sm:max-w-sm sm:mx-auto sm:text-center">
               {DESCRIPTION}
             </p>
           </div>

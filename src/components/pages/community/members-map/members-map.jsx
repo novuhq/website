@@ -32,11 +32,11 @@ const AVATAR_SIZES = {
 const AVATARS_LIGHTS = {
   blue: {
     className: 'bg-[#97E0FF] border-[#97E0FF]',
-    defaultBorderClassName: 'bg-[#58E3FF] bg-opacity-70',
+    defaultBorderClassName: 'bg-[#58E3FF]',
   },
   pink: {
     className: 'bg-[#FF97F5] border-[#FF97F5]',
-    defaultBorderClassName: 'bg-[#FBBAEA] bg-opacity-70',
+    defaultBorderClassName: 'bg-[#FBBAEA]',
   },
 };
 
@@ -165,7 +165,7 @@ const Avatar = ({
     <>
       <div
         className={clsx(
-          'relative rounded-full p-px',
+          'relative rounded-full p-px bg-opacity-50',
           borderClassName || lightsTheme.defaultBorderClassName
         )}
       >

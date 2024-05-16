@@ -26,7 +26,7 @@ const Hero = () => (
         theme="white"
       >
         Welcome to{` `}
-        <br className="sm:hidden" />
+        <br className="md:hidden" />
         Novu Community
       </Heading>
       <p
@@ -42,7 +42,7 @@ const Hero = () => (
       </Button>
     </div>
     <div
-      className="absolute z-0 top-0 left-1/2 w-[1920px] -translate-x-1/2 xl:w-[1480px] xl:top-8 lg:w-[1240px] lg:left-[48.5%] md:w-[1500px] md:left-1/2 md:-translate-x-[70.75%] sm:w-[830px]"
+      className="absolute z-0 top-0 left-1/2 w-[1920px] -translate-x-1/2 xl:w-[1480px] xl:top-8 lg:w-[1240px] lg:left-[48.5%] md:w-[1500px] md:left-1/2 md:top-0 md:-translate-x-[70.75%] sm:w-[830px]"
       aria-hidden
     >
       <span className="absolute top-[16%] left-[87.7%] w-[90px] h-[200px] xl:top-[11%] xl:left-[87%] lg:top-[14%] md:top-[28%] sm:left-[85%] sm:top-[42%]">
@@ -54,16 +54,16 @@ const Hero = () => (
         <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white blur-xl opacity-50 w-[20%] h-[20%] rounded-[100%] mix-blend-soft-light" />
       </span>
       <img
-        className="relative -top-60 min-w-[1480px] max-w-none xl:w-full xl:min-w-px lg:-top-[169px] lg:w-[1240px] md:top-[-11px] md:w-[1500px] sm:w-[834px] sm:top-[174px] sm:[mask-image:linear-gradient(to_bottom,transparent_0%,black_10%)]"
+        className="relative -top-[250px] min-w-[1480px] max-w-none xl:w-full xl:min-w-px xl:-top-[248px] lg:-top-[176px] lg:w-[1240px] md:-top-3.5 md:w-[1500px] sm:w-[834px] sm:top-[202px] sm:[mask-image:linear-gradient(to_bottom,transparent_0%,black_10%)]"
         src={bg}
         width={1920}
-        height={1760}
+        height={1800}
         alt=""
         loading="eager"
         aria-hidden
       />
       <StaticImage
-        className="!absolute top-[101px] left-[40.2%] w-[957px] xl:w-[740px] xl:top-[1.5%] xl:left-[40.1%] lg:w-[617px] lg:top-[52px] lg:left-[40.3%] md:w-[747px] md:top-[18.6%] sm:top-[42%] sm:w-[417px]"
+        className="!absolute top-[101px] left-[40.2%] w-[957px] xl:w-[740px] xl:top-[1.5%] xl:left-[40.1%] lg:w-[617px] lg:top-[52px] lg:left-[40.3%] md:w-[746px] md:top-[18.6%] sm:top-[45.1%] sm:w-[417px]"
         src="./images/animals.png"
         width={957}
         height={575}
