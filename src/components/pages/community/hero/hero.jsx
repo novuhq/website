@@ -2,15 +2,13 @@ import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import Button from 'components/shared/button/button';
-import Heading from 'components/shared/heading/heading';
+import Heading from 'components/shared/heading';
+import SubscribeForm from 'components/shared/subscribe-form';
 
 import bg from './images/bg-pattern.svg';
 
 const DESCRIPTION = `Join the community, contribute code, meet new friends, learn, create and innovate with us!`;
-const BUTTON_TEXT = 'Sign up with Github';
 
-// TODO: replace button with subscribe form
 const Hero = () => (
   <section
     className={clsx(
@@ -33,13 +31,12 @@ const Hero = () => (
         className="col-start-2 col-span-5 mt-4 text-xl font-book max-w-[504px] leading-snug text-white opacity-70 xl:text-lg xl:max-w-[458px] lg:col-span-6 lg:col-start-1 md:col-span-8 md:col-start-3 md:text-base md:text-center md:max-w-none sm:mt-3 sm:col-span-full sm:max-w-[312px] sm:leading-tight sm:mx-auto"
         dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
       />
-      <Button
-        className="col-start-2 col-span-4 w-fit mt-12 xl:mt-9 lg:col-start-1 md:col-span-full md:mx-auto md:h-11 md:mt-7 sm:mt-6"
-        size="sm"
-        theme="pink-to-red-gradient"
-      >
-        {BUTTON_TEXT}
-      </Button>
+      <SubscribeForm
+        className="col-start-2 col-span-5 w-fit mt-12 bg-[#0E0910] h-14 ml-0 max-w-[464px] xl:mt-9 lg:col-start-1 md:col-span-full md:max-w-sm md:mt-7 sm:mt-6"
+        placeholder="Email address..."
+        alignment="left"
+        theme="pink-red-gradient"
+      />
     </div>
     <div
       className="absolute z-0 top-0 left-1/2 w-[1920px] -translate-x-1/2 xl:w-[1480px] xl:top-8 lg:w-[1240px] lg:left-[48.5%] md:w-[1500px] md:left-1/2 md:top-0 md:-translate-x-[70.75%] sm:w-[830px]"

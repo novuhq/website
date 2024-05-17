@@ -1,8 +1,12 @@
 import clsx from 'clsx';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useLocation } from 'react-use';
+import useCookie from 'react-use/lib/useCookie';
 
 import Button from 'components/shared/button';
+import FORM_ID from 'constants/forms';
 import CheckIcon from 'images/check.inline.svg';
 
 import LoadingIcon from './images/loading.inline.svg';
@@ -14,6 +18,8 @@ const STATES = {
   ERROR: 'error',
   SUCCESS: 'success',
 };
+
+const API_ENDPOINT = '/api/hubspot';
 
 const emailRegexp =
   // eslint-disable-next-line no-control-regex, no-useless-escape
@@ -38,10 +44,27 @@ function doNowOrAfterSomeTime(callback, loadingAnimationStartedTime) {
   }
 }
 
-const Form = () => {
+const THEMES = {
+  default: 'before:bg-input-gradient after:bg-input-gradient',
+  'pink-red-gradient': 'before:bg-pink-red-gradient after:bg-pink-red-gradient',
+};
+
+const SubscribeForm = ({
+  className = null,
+  theme = 'default',
+  alignment = 'center',
+  placeholder = 'Your email...',
+}) => {
   const [value, setValue] = useState('');
   const [formState, setFormState] = useState(STATES.DEFAULT);
   const [errorMessage, setErrorMessage] = useState('');
+  const [hubspotutk] = useCookie('hubspotutk');
+  const { href } = useLocation();
+
+  const context = {
+    hutk: hubspotutk,
+    pageUri: href,
+  };
 
   const handleInputChange = ({ target: { value } }) => setValue(value.trim());
 
@@ -59,13 +82,23 @@ const Form = () => {
       const loadingAnimationStartedTime = Date.now();
 
       try {
-        const response = await fetch(`/api/submit`, {
+        const response = await fetch(API_ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            email: value,
+            formId: FORM_ID.SUBSCRIBE,
+            data: {
+              context,
+              fields: [
+                {
+                  objectTypeId: '0-1',
+                  name: 'email',
+                  value,
+                },
+              ],
+            },
           }),
         });
 
@@ -97,16 +130,30 @@ const Form = () => {
 
   return (
     <form
-      className="autocomplete input-border-gradient relative mx-auto mt-10 h-16 w-full max-w-[464px] rounded-md bg-black"
+      className={clsx(
+        'autocomplete relative border border-transparent bg-clip-border rounded-md w-full',
+        'before:absolute before:-inset-0.5 before:-z-10 before:rounded-[inherit]',
+        'after:absolute after:-inset-px after:-z-20 after:rounded-[inherit] after:blur-sm',
+        alignment === 'center' && 'mx-auto',
+        alignment === 'left' && 'md:mx-auto',
+        THEMES[theme],
+        className
+      )}
       noValidate
       onSubmit={handleSubmit}
     >
       <LazyMotion features={domAnimation}>
         <input
-          className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pl-5 pr-32 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
+          className={clsx(
+            'remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pl-5 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base',
+            {
+              'pr-32': theme === 'default',
+              'pr-36': theme === 'pink-red-gradient',
+            }
+          )}
           name="email"
           type="email"
-          placeholder="Your email..."
+          placeholder={placeholder}
           autoComplete="email"
           value={value}
           readOnly={isStateLoadingOrSuccess}
@@ -116,7 +163,13 @@ const Form = () => {
         {errorMessage && (
           <AnimatePresence>
             <m.span
-              className="absolute -bottom-2 left-1/2 w-full max-w-[330px] -translate-x-1/2 translate-y-full text-center text-sm text-gray-8"
+              className={clsx(
+                'absolute -bottom-2 w-full max-w-[330px] translate-y-full text-sm text-gray-8',
+                {
+                  'text-center left-1/2 -translate-x-1/2': alignment === 'center',
+                  'left-5 md:text-center md:left-1/2 md:-translate-x-1/2': alignment === 'left',
+                }
+              )}
               initial="initial"
               animate="animate"
               exit="exit"
@@ -128,10 +181,12 @@ const Form = () => {
         )}
 
         <Button
-          className={clsx('absolute right-3 top-1/2 -translate-y-1/2', {
+          className={clsx('absolute top-1/2 -translate-y-1/2', {
             'w-[108px]': formState === STATES.LOADING,
             'w-10 px-0': formState === STATES.SUCCESS,
             'pointer-events-none': isStateLoadingOrSuccess,
+            'right-3': theme === 'default',
+            'right-2': theme === 'pink-red-gradient',
           })}
           size="xs"
           theme="white-filled"
@@ -143,7 +198,10 @@ const Form = () => {
             {(formState === STATES.DEFAULT || formState === STATES.ERROR) && (
               <>
                 <m.span
-                  className="sm:sr-only"
+                  className={clsx('sm:sr-only', {
+                    'text-xs': theme === 'default',
+                    'text-sm': theme === 'pink-red-gradient',
+                  })}
                   initial="initial"
                   animate="animate"
                   exit="exit"
@@ -189,4 +247,18 @@ const Form = () => {
   );
 };
 
-export default Form;
+SubscribeForm.propTypes = {
+  className: PropTypes.string,
+  theme: PropTypes.oneOf(Object.keys(THEMES)),
+  placeholder: PropTypes.string,
+  alignment: PropTypes.oneOf(['center', 'left']),
+};
+
+SubscribeForm.defaultProps = {
+  className: null,
+  theme: 'default',
+  placeholder: 'Your email...',
+  alignment: 'center',
+};
+
+export default SubscribeForm;
