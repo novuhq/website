@@ -6,13 +6,12 @@ const slash = require('slash');
 const redirects = require('./redirects.json');
 const {
   fetchRepositories,
-  fetchContributorsAndMembers,
+  fetchAllContributorsWithoutMembers,
   fetchIssuesForRepo,
   getIssueType,
 } = require('./src/utils/community-utils');
 const {
   fetchCommitCount,
-  fetchContributorsCount,
   fetchClosedIssuesCount,
   fetchPullRequestCount,
 } = require('./src/utils/github-utils');
@@ -95,42 +94,8 @@ const createCommunityPage = async ({ actions, reporter }) => {
       };
     });
 
-    const { contributors, members } = await fetchContributorsAndMembers();
-    const membersList = [
-      'ainouzgali',
-      'AliaksandrRyzhou',
-      'americano98',
-      'andrewgolovanov',
-      'antonjoel82',
-      'BiswaViraj',
-      'ChmaraX',
-      'Cliftonz',
-      'ComBarnea',
-      'davidsoderberg',
-      'denis-kralj-novu',
-      'djabarovgeorge',
-      'iampearceman',
-      'jainpawan21',
-      'justnems',
-      'LetItRock',
-      'rgozdzialski',
-      'rifont',
-      'sashasushko',
-      'scopsy',
-      'SokratisVidros',
-      'stephenward21',
-      'sumitsaurabh927',
-      'tatarco',
-      'unicodeveloper',
-      'yasell',
-    ];
-
-    const nonMemberContributors = contributors.filter(
-      (contributor) =>
-        !members.some((member) => member.login === contributor.login) &&
-        !membersList.includes(contributor.login) &&
-        contributor.type !== 'Bot'
-    );
+    const nonMemberContributors = await fetchAllContributorsWithoutMembers();
+    nonMemberContributors.sort((a, b) => b.contributions - a.contributions);
 
     const templatePage = path.resolve('./src/templates/community.jsx');
 
@@ -491,25 +456,22 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
     response.json()
   );
+  const allContributorsPromise = await fetch(
+    `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
+  ).then((response) => response.json());
 
   const dataPromises = Promise.all([
     fetchCommitCount('novuhq', 'novu'),
     fetchPullRequestCount('novuhq', 'novu', 'open'),
     fetchPullRequestCount('novuhq', 'novu', 'closed'),
     fetchClosedIssuesCount('novuhq', 'novu'),
-    fetchContributorsCount('novuhq', 'novu'),
   ]);
 
   const [
     githubData,
-    [
-      commitsCount,
-      openPullRequestsCount,
-      closedPullRequestsCount,
-      closedIssuesCount,
-      contributorsCount,
-    ],
-  ] = await Promise.all([githubDataPromise, dataPromises]);
+    contributors,
+    [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
+  ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
 
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
@@ -520,7 +482,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     openIssues: githubData.open_issues,
     closedIssues: closedIssuesCount,
     pullRequests: openPullRequestsCount + closedPullRequestsCount,
-    contributors: contributorsCount,
+    contributors: contributors.list.length,
     commits: commitsCount,
     // required fields
     id: `github-data`,

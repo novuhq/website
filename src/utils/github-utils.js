@@ -39,9 +39,6 @@ const fetchClosedIssuesCount = async (owner, repo) =>
     per_page: 1,
   });
 
-const fetchContributorsCount = async (owner, repo) =>
-  fetchCount(octokit.rest.repos.listContributors, 'contributors', { owner, repo, per_page: 1 });
-
 const fetchPullRequestCount = async (owner, repo, state) =>
   fetchCount(octokit.rest.pulls.list, 'pull requests', { owner, repo, state, per_page: 1 });
 
@@ -49,6 +46,5 @@ module.exports = {
   octokit,
   fetchCommitCount,
   fetchClosedIssuesCount,
-  fetchContributorsCount,
   fetchPullRequestCount,
 };

@@ -152,14 +152,7 @@ const AVARS_STYLES = [
   { className: 'left-[83.25%] top-[72.5%]', size: 'sm', lightsTheme: 'pink', borderClassName: '' },
 ];
 
-const Avatar = ({
-  borderClassName,
-  size,
-  login,
-  avatar_url: avatarUrl,
-  contributions,
-  lightsTheme,
-}) => {
+const Avatar = ({ borderClassName, size, login, avatarUrl, contributions, lightsTheme }) => {
   const { className, width, height } = AVATAR_SIZES[size];
   return (
     <>
@@ -254,7 +247,7 @@ const MembersMap = ({ contributors }) => (
                 size === 'sm' && 'w-14',
                 index > 16 && 'md:hidden'
               )}
-              key={contributor.id}
+              key={index}
             >
               <Avatar
                 borderClassName={borderClassName}
@@ -273,10 +266,8 @@ const MembersMap = ({ contributors }) => (
 MembersMap.propTypes = {
   contributors: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
       login: PropTypes.string.isRequired,
-      avatar_url: PropTypes.string.isRequired,
-      site_admin: PropTypes.bool.isRequired,
+      avatarUrl: PropTypes.string.isRequired,
       contributions: PropTypes.number.isRequired,
     })
   ).isRequired,
