@@ -15,8 +15,9 @@ const Events = () => (
     <div className="container grid grid-cols-12 grid-gap-x">
       <header className="col-span-4 col-start-3 pt-3 xl:col-span-5 xl:col-start-2 lg:col-span-6 lg:pt-0 sm:col-span-full">
         <Heading
-          className="font-medium text-[44px] leading-denser lg:text-5xl lg:leading-tight md:text-[32px] sm:text-3xl"
+          className="font-medium leading-denser lg:text-5xl lg:leading-tight md:text-[32px] sm:text-3xl"
           tag="h2"
+          size="44"
           theme="white"
         >
           {TITLE}

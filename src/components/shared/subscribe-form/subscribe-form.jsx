@@ -89,7 +89,9 @@ const SubscribeForm = ({
           if (paramValue) {
             utms[param] = paramValue;
           }
-        } catch (err) {}
+        } catch (err) {
+          // Do nothing
+        }
       });
 
       try {

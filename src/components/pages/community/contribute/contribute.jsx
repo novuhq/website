@@ -55,8 +55,9 @@ const Contribute = () => (
   <section className="contribute safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container grid grid-cols-12 grid-gap-x relative z-10">
       <Heading
-        className="font-medium col-span-full text-[44px] text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="font-medium col-span-full text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
+        size="44"
         theme="white"
       >
         {TITLE}

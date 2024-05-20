@@ -206,8 +206,9 @@ const MembersMap = ({ contributors }) => (
         {TITLE}
       </Heading>
       <Button
-        className="relative h-12 px-6 z-10 mt-7 text-[13px] !tracking-normal text-center mx-auto md:h-11 md:mt-7 sm:mt-5 sm:h-10 sm:px-5"
+        className="relative z-10 mt-7 !text-[13px] !tracking-normal text-center mx-auto md:h-11 md:mt-7 sm:mt-5 sm:h-10 sm:px-5"
         to="https://github.com/novuhq/novu/graphs/contributors"
+        size="sm"
         theme="gray-outline"
         target="_blank"
         rel="noopener noreferrer"

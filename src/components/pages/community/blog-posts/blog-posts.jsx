@@ -13,8 +13,9 @@ const BlogPosts = ({ items, blogPageURL }) => (
   <section className="blog-posts safe-paddings mt-40 mb-[120px] lg:mt-[120px] lg:mb-20 md:mt-[100px] md:mb-16 sm:mt-20 sm:mb-14">
     <div className="container grid grid-cols-12 grid-gap-x">
       <Heading
-        className="font-medium col-span-full text-[44px] text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="font-medium col-span-full text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
+        size="44"
         theme="white"
       >
         {TITLE}
