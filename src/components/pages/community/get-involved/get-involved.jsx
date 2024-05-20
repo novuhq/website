@@ -33,7 +33,7 @@ const ITEMS = [
 ];
 
 const GetInvolved = () => (
-  <section className="get-involved safe-paddings relative z-10 mt-[78px]">
+  <section className="get-involved safe-paddings relative z-10 mt-[70px] md:mt-24 sm:mt-20">
     <div className="container grid grid-cols-12 grid-gap-x relative z-10">
       <Heading
         className="font-medium col-span-full text-[44px] text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
