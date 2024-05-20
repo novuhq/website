@@ -6,7 +6,7 @@ import { useLocation } from 'react-use';
 import useCookie from 'react-use/lib/useCookie';
 
 import Button from 'components/shared/button';
-import FORM_ID from 'constants/forms';
+import { FORM_ID, UTM_PARAMS } from 'constants/forms';
 import CheckIcon from 'images/check.inline.svg';
 
 import LoadingIcon from './images/loading.inline.svg';
@@ -80,6 +80,17 @@ const SubscribeForm = ({
       setFormState(STATES.LOADING);
 
       const loadingAnimationStartedTime = Date.now();
+      const utms = {};
+
+      UTM_PARAMS.forEach((param) => {
+        try {
+          const paramValue = sessionStorage.getItem(param);
+
+          if (paramValue) {
+            utms[param] = paramValue;
+          }
+        } catch (err) {}
+      });
 
       try {
         const response = await fetch(API_ENDPOINT, {
@@ -97,11 +108,15 @@ const SubscribeForm = ({
                   name: 'email',
                   value,
                 },
+                Object.entries(utms).map(([name, value]) => ({
+                  objectTypeId: '0-1',
+                  name,
+                  value,
+                })),
               ],
             },
           }),
         });
-
         if (response.ok) {
           doNowOrAfterSomeTime(() => {
             setFormState(STATES.SUCCESS);

@@ -10,6 +10,7 @@ import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import InkeepChatButton from 'components/shared/inkeep-widgets/inkeep-chat-button';
 import MobileMenu from 'components/shared/mobile-menu';
+import UtmParams from 'components/shared/utm-params';
 // import Banner from '../banner/banner';
 
 const Layout = ({ className, children, headerTheme = 'default' }) => {
@@ -21,6 +22,7 @@ const Layout = ({ className, children, headerTheme = 'default' }) => {
   return (
     <>
       <ConversionInitiator />
+      <UtmParams />
       {/* <Banner /> */}
       <div className={clsx('relative flex min-h-screen flex-col', className)}>
         <Header
