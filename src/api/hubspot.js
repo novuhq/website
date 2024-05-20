@@ -1,6 +1,5 @@
 const HUBSPOT_API_ENDPOINT = 'https://api.hsforms.com/submissions/v3/integration/secure/submit';
 
-// TODO: add hubspot access token
 const handler = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   const { formId, data } = req.body;

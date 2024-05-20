@@ -1,5 +1,5 @@
 const FORM_ID = {
-  SUBSCRIBE: 'f6281756-0128-425e-bff9-46db68a48072',
+  SUBSCRIBE: 'ffa5a01f-eeec-4731-b5ea-124e648dda22',
 };
 
 export default FORM_ID;
