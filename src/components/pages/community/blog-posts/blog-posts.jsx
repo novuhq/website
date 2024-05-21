@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -20,10 +19,10 @@ const BlogPosts = ({ items, blogPageURL }) => (
       >
         {TITLE}
       </Heading>
-      <div className="article-list-inner mt-14 col-span-10 col-start-2 grid grid-cols-3 gap-x-8 gap-y-9 lg:mt-12 lg:col-span-full lg:gap-x-7 md:grid-cols-2 md:mt-11 md:gap-x-5 sm:mt-8 sm:grid-cols-1 sm:gap-y-10">
+      <div className="mt-14 col-span-10 col-start-2 grid grid-cols-12 gap-x-8 gap-y-9 lg:mt-12 lg:col-span-full lg:gap-x-7 md:mt-11 md:gap-x-5 xs:mt-8 xs:gap-y-10">
         {items.map((item, index) => (
           <BlogPostCard
-            className={clsx()}
+            className="col-span-4 md:col-span-6 xs:col-span-full"
             {...item}
             size="md"
             blogPageURL={blogPageURL}

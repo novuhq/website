@@ -32,7 +32,7 @@ const Question = ({ question, answer }) => {
         </span>
         <ChevronIcon
           className={clsx(
-            'h-auto w-4 shrink-0 transition-transform duration-200 md:w-3 xs:w-2.5',
+            'h-auto w-4 shrink-0 transition-transform duration-200 md:w-3 2xs:w-2.5',
             isOpen && '-rotate-180'
           )}
         />

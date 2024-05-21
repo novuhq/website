@@ -84,7 +84,7 @@ const Contribute = () => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Learn more
+              <span className="sr-only">{title} - </span>Learn more
             </Link>
           </li>
         ))}

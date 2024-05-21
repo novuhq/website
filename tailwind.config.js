@@ -115,8 +115,9 @@ module.exports = {
       md: { max: '1023px' },
       'md-sm': { max: '900px' },
       sm: { max: '767px' },
+      xs: { max: '639px' },
       'sm-xs': { max: '500px' },
-      xs: { max: '359px' },
+      '2xs': { max: '359px' },
     },
     extend: {
       lineHeight: {
