@@ -25,7 +25,7 @@ const ITEMS = [
   },
   {
     icon: githubIcon,
-    title: 'Fork And Work',
+    title: 'Fork and Work',
     description: 'Discover an issue within our project and make a valuable contribution',
     linkText: 'Find an issue',
     linkUrl: 'https://github.com/novuhq/novu/issues',

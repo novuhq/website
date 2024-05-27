@@ -7,7 +7,7 @@ import SubscribeForm from 'components/shared/subscribe-form';
 
 import bg from './images/bg-pattern.svg';
 
-const DESCRIPTION = `Join the community, contribute code, meet new friends, learn, create and innovate with us!`;
+const DESCRIPTION = `Innovate, collaborate, and stay up to date with the latest in Notifications infrastructure.`;
 
 const Hero = () => (
   <section
@@ -23,14 +23,13 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Welcome to{` `}
+        Welcome to the{` `}
         <br className="md:hidden" />
         Novu&nbsp;Community
       </Heading>
-      <p
-        className="col-start-2 col-span-5 mt-4 text-xl font-book max-w-[504px] leading-snug text-white opacity-70 xl:text-lg xl:max-w-[458px] lg:col-span-6 lg:col-start-1 md:col-span-8 md:col-start-3 md:text-base md:text-center md:max-w-none sm:mt-3 sm:col-span-full sm:max-w-[312px] sm:leading-tight sm:mx-auto"
-        dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
-      />
+      <p className="col-start-2 col-span-5 mt-4 text-xl font-book max-w-[504px] leading-snug text-white opacity-70 xl:text-lg xl:max-w-[458px] lg:col-span-6 lg:col-start-1 md:col-span-8 md:col-start-3 md:text-base md:text-center md:max-w-none sm:mt-3 sm:col-span-full sm:max-w-[312px] sm:leading-tight sm:mx-auto">
+        {DESCRIPTION}
+      </p>
       <SubscribeForm
         className="col-start-2 col-span-5 w-fit mt-12 bg-[#0E0910] h-14 ml-0 max-w-[464px] xl:mt-9 lg:col-start-1 md:col-span-full md:max-w-sm md:mt-7 sm:mt-6"
         placeholder="Email address..."

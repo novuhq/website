@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 import { getFormattedDate } from 'utils/get-formatted-date';
@@ -27,9 +26,6 @@ const Events = () => (
           providing a specific service tasked to build. To&nbsp;build an application to help
           consumers
         </p>
-        <Button className="mt-7 !text-[13px] md:h-11 sm:mt-6" theme="gray-outline" size="sm">
-          View All events
-        </Button>
       </header>
       <ul className="col-span-4 pl-[50px] flex gap-y-6 flex-col xl:col-span-5 lg:col-span-6 lg:pl-[52px] md:pl-0 sm:col-span-full sm:mt-8 sm:gap-y-5">
         {events.map(({ title, description, category, date, venue, linkUrl, linkText }, index) => {
