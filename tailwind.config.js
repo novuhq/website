@@ -77,6 +77,8 @@ module.exports = {
       'gray-gradient': 'linear-gradient(180deg, #262626 0%, #171717 100%)',
       'gray-gradient-2':
         'linear-gradient(258.24deg, rgba(88, 88, 88, 0.0804) -4.87%, rgba(24, 24, 24, 0.12) 49.06%, rgba(92, 92, 92, 0.12) 96.07%)',
+      'gray-gradient-3':
+        'linear-gradient(258.12deg, rgba(176, 166, 191, 0.6) -8.62%, rgba(176, 166, 191, 0.3) 113.79%)',
       'active-gray-gradient': 'linear-gradient(180deg, #131313 0%, #0B0B0B 100%)',
       'hs-form-gradient':
         'linear-gradient(180deg, rgba(26, 26, 26, 0.80) 0%, rgba(26, 26, 26, 0.70) 100%)',
@@ -99,6 +101,9 @@ module.exports = {
     extend: {
       lineHeight: {
         denser: '1.125',
+      },
+      letterSpacing: {
+        snug: '-0.02em',
       },
       spacing: {
         18: '4.5rem',
