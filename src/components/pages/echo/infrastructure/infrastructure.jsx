@@ -4,7 +4,7 @@ import React from 'react';
 
 import glow from './images/glow.svg';
 
-const CARDS_IMAGE_CLASS_NAME = '!absolute w-full h-full inset-0 z-0 rounded-xl';
+const CARDS_IMAGE_CLASS_NAME = '!absolute w-fit h-fit inset-0 z-0 rounded-xl';
 
 const CARDS = [
   {
@@ -83,15 +83,15 @@ const Infrastructure = () => (
       <h2 className="text-6xl leading-denser tracking-snug font-medium max-w-3xl">
         Code-based notification infrastructure for modern teams
       </h2>
-      <ul className="flex flex-wrap gap-8 mt-12">
+      <ul className="flex flex-wrap gap-7 mt-12">
         {CARDS.map(({ title, description, className, image }, index) => (
           <li
             className={clsx(
-              'relative h-[380px] rounded-xl bg-clip-border border border-transparent',
+              'relative h-[382px] rounded-xl bg-clip-border border border-transparent',
               className,
               {
-                'w-[768px] lg:w-[608px] md:w-[446px]': index % 2 === 0,
-                'w-[416px] lg:w-[308px] md:w-[252px]': index % 2 === 1,
+                'w-[770px] lg:w-[610px] md:w-[448px]': index % 2 === 0,
+                'w-[418px] lg:w-[310px] md:w-[254px]': index % 2 === 1,
               }
             )}
             key={index}
