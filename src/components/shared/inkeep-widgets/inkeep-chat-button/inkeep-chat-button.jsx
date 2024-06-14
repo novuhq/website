@@ -20,7 +20,7 @@ const InkeepWidget = () => {
     })();
   }, []);
 
-  return ChatButton ? <ChatButton {...chatButtonProps} /> : <div />;
+  return ChatButton ? <ChatButton {...chatButtonProps} /> : null;
 };
 
 export default InkeepWidget;

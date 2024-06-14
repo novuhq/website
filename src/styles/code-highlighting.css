@@ -45,3 +45,55 @@ code {
     @apply mr-8 w-5 !min-w-0 !pr-0 !text-center text-gray-6 md:mr-6 sm:mr-3;
   }
 }
+
+.echo-code code {
+  @apply flex flex-col;
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword,
+  .token.class-name,
+  .token.template-string.interpolation.interpolation-punctuation.punctuation {
+    @apply text-secondary-2;
+  }
+
+  .token.function {
+    @apply text-[#DD99FF];
+  }
+
+  .token.operator,
+  .token.punctuation,
+  .token.property,
+  .token.template-string.interpolation.number {
+    @apply text-white;
+  }
+
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    @apply text-[#DD99FF];
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    @apply text-primary-1;
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    @apply text-gray-6;
+  }
+
+  .react-syntax-highlighter-line-number {
+    @apply mr-4 w-5 !min-w-0 !pr-0 !text-left text-white/60 md:mr-6 sm:mr-3;
+  }
+}

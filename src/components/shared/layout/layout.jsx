@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -11,7 +12,7 @@ import InkeepChatButton from 'components/shared/inkeep-widgets/inkeep-chat-butto
 import MobileMenu from 'components/shared/mobile-menu';
 // import Banner from '../banner/banner';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
       {/* <Banner /> */}
       <div className="relative flex min-h-screen flex-col">
         <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
-        <main className="flex-grow">{children}</main>
+        <main className={clsx('flex-grow', className)}>{children}</main>
         <Footer />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
@@ -39,6 +40,11 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Layout.defaultProps = {
+  className: '',
 };
 
 export const query = graphql`
