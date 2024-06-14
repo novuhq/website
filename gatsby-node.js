@@ -532,20 +532,20 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   // });
   // End of Hacktoberfest part
 
-  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-    (response) => response.json()
-  );
+  // const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+  //   (response) => response.json()
+  // );
 
-  createNode({
-    data: issuesData.issues,
-    id: `issues-data`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `Issues`,
-      contentDigest: createContentDigest(issuesData),
-    },
-  });
+  // createNode({
+  //   data: issuesData.issues,
+  //   id: `issues-data`,
+  //   parent: null,
+  //   children: [],
+  //   internal: {
+  //     type: `Issues`,
+  //     contentDigest: createContentDigest(issuesData),
+  //   },
+  // });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
