@@ -38,6 +38,35 @@ const fetchIssuesWithLabels = async (repo, requiredLabels) => {
   return Array.from(uniqueIssues.values()).sort((a, b) => b.id - a.id);
 };
 
+async function fetchAllContributors(repoFullName) {
+  let allContributors = [];
+  let page = 1;
+  let hasMoreContributors = true;
+
+  while (hasMoreContributors) {
+    const contributorsResponse = await octokit.request(`GET /repos/${repoFullName}/contributors`, {
+      headers: { 'X-GitHub-Api-Version': '2022-11-28' },
+      per_page: 100,
+      page,
+    });
+
+    if (contributorsResponse.status !== 200) {
+      throw new Error(`Failed to fetch contributors for repository ${repoFullName}`);
+    }
+
+    const contributors = contributorsResponse.data;
+    allContributors = allContributors.concat(contributors);
+
+    if (contributors.length < 100) {
+      hasMoreContributors = false;
+    } else {
+      page++;
+    }
+  }
+
+  return allContributors;
+}
+
 const fetchAllContributorsWithoutMembers = async () => {
   const [membersResponse, reposResponse] = await Promise.all([
     octokit.rest.orgs.listMembers({
@@ -92,19 +121,7 @@ const fetchAllContributorsWithoutMembers = async () => {
 
   const repos = reposResponse.data;
 
-  const contributorPromises = repos.map((repo) =>
-    octokit
-      .request(`GET /repos/${repo.full_name}/contributors?per_page=100`, {
-        headers: { 'X-GitHub-Api-Version': '2022-11-28' },
-      })
-      .then((contributorsResponse) => {
-        if (contributorsResponse.status !== 200) {
-          throw new Error(`Failed to fetch contributors for repository ${repo.full_name}`);
-        }
-
-        return contributorsResponse.data;
-      })
-  );
+  const contributorPromises = repos.map((repo) => fetchAllContributors(repo.full_name));
 
   const contributorsArrays = await Promise.all(contributorPromises);
 
