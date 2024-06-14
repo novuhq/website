@@ -1,7 +1,6 @@
 import clsx from 'clsx';
-import { graphql, useStaticQuery } from 'gatsby';
 import moment from 'moment';
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -13,23 +12,26 @@ const DESCRIPTION =
   'Check our good first issues that help you onboard to Novu project and get first achievement.';
 
 const Issues = ({ className }) => {
-  const [isShownMore, setIsShownMore] = useState(false);
+  // TODO: uncomment the creation of contributors page after this link works - http://contributors.novu.co/
+  // const [isShownMore, setIsShownMore] = useState(false);
+  //
+  // const {
+  //   issues: { data },
+  // } = useStaticQuery(graphql`
+  //   query issuesQuery {
+  //     issues {
+  //       data {
+  //         title
+  //         url
+  //         created_at
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const {
-    issues: { data },
-  } = useStaticQuery(graphql`
-    query issuesQuery {
-      issues {
-        data {
-          title
-          url
-          created_at
-        }
-      }
-    }
-  `);
+  // const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
 
-  const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
+  const list = [];
 
   return (
     <section className={clsx('issues safe-paddings', className)}>
@@ -73,9 +75,9 @@ const Issues = ({ className }) => {
             ))}
           </ul>
 
-          {!isShownMore && list.length !== data.length && (
+          {/* TODO: uncomment the creation of contributors page after this link works - http://contributors.novu.co/ */}
+          {/* {!isShownMore && list.length !== data.length && (
             <div className="mt-8 text-center">
-              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <Link
                 className="sm:text-sm"
                 type="button"
@@ -87,7 +89,7 @@ const Issues = ({ className }) => {
                 Show more issues
               </Link>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>

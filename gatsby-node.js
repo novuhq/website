@@ -7,6 +7,7 @@ const redirects = require('./redirects.json');
 // const { octokit } = require('./src/utils/contributors-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
+// TODO: uncomment the creation of contributors page after this link works - http://contributors.novu.co/
 // const createContributorsPage = async ({ actions, reporter }) => {
 //   const { createPage } = actions;
 
