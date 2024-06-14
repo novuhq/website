@@ -48,13 +48,13 @@ const CommunityPage = (props) => {
       <div className="relative overflow-hidden">
         <Hero />
         <GetInvolved />
-        <GitHubStat {...githubData} />
+        <GitHubStat contributors={pageContext.totalContributorsCount} {...githubData} />
       </div>
       <Events />
       <MembersMap contributors={pageContext.contributors} />
       <OpenIssues
-        issues={pageContext.helpWantedIssues}
-        reposWithIssues={pageContext.repositoriesWithHelpWantedIssues}
+        issues={pageContext.labeledIssues}
+        reposWithIssues={pageContext.repositoriesWithLabeledIssues}
       />
       <Contribute />
       <BlogPosts {...latestBlogPosts} />
@@ -69,7 +69,6 @@ export const pageQuery = graphql`
       count
       commits
       closedIssues
-      contributors
       forks
       pullRequests
       openIssues

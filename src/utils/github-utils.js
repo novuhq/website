@@ -4,6 +4,15 @@ const octokit = new Octokit({
   auth: process.env.GITHUB_README_TOKEN,
 });
 
+const fetchAllRepositories = async (owner) => {
+  const { data: repositories } = await octokit.rest.repos.listForOrg({
+    org: owner,
+    type: 'public',
+    per_page: 100,
+  });
+  return repositories;
+};
+
 const getLastPageNumber = (response) => {
   const linkHeader = response.headers.link;
   if (!linkHeader) {
@@ -46,5 +55,6 @@ module.exports = {
   octokit,
   fetchCommitCount,
   fetchClosedIssuesCount,
+  fetchAllRepositories,
   fetchPullRequestCount,
 };

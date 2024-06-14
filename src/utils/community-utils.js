@@ -16,15 +16,26 @@ const fetchRepositories = async () => {
   return repositories;
 };
 
-const fetchIssuesForRepo = async (repo) => {
-  const { data: issues } = await octokit.rest.issues.listForRepo({
-    owner: repo.owner.login,
-    repo: repo.name,
-    labels: 'help wanted',
-    state: 'open',
-    per_page: 100,
+const fetchIssuesWithLabels = async (repo, requiredLabels) => {
+  const issues = await Promise.all(
+    requiredLabels.map(async (label) => {
+      const { data } = await octokit.rest.issues.listForRepo({
+        owner: repo.owner.login,
+        repo: repo.name,
+        labels: label,
+        state: 'open',
+        per_page: 100,
+      });
+      return data;
+    })
+  );
+
+  const uniqueIssues = new Map();
+  issues.flat().forEach((issue) => {
+    uniqueIssues.set(issue.id, issue);
   });
-  return issues;
+
+  return Array.from(uniqueIssues.values()).sort((a, b) => b.id - a.id);
 };
 
 const fetchAllContributorsWithoutMembers = async () => {
@@ -114,9 +125,27 @@ const fetchAllContributorsWithoutMembers = async () => {
   return Object.values(allContributors);
 };
 
+const sortRepositories = (a, b) => {
+  const priorityOrder = ['novu', 'docs', 'examples'];
+  const indexA = priorityOrder.indexOf(a.name);
+  const indexB = priorityOrder.indexOf(b.name);
+
+  if (indexA !== -1 && indexB !== -1) {
+    return indexA - indexB;
+  }
+  if (indexA !== -1) {
+    return -1;
+  }
+  if (indexB !== -1) {
+    return 1;
+  }
+  return 0;
+};
+
 module.exports = {
   fetchAllContributorsWithoutMembers,
-  fetchIssuesForRepo,
+  sortRepositories,
+  fetchIssuesWithLabels,
   fetchRepositories,
   getIssueType,
 };

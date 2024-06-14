@@ -7,8 +7,9 @@ const redirects = require('./redirects.json');
 const {
   fetchRepositories,
   fetchAllContributorsWithoutMembers,
-  fetchIssuesForRepo,
   getIssueType,
+  fetchIssuesWithLabels,
+  sortRepositories,
 } = require('./src/utils/community-utils');
 const {
   fetchCommitCount,
@@ -17,80 +18,92 @@ const {
 } = require('./src/utils/github-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
-const createContributorsPage = async ({ actions, reporter }) => {
-  const { createPage } = actions;
+// const createContributorsPage = async ({ actions, reporter }) => {
+//   const { createPage } = actions;
 
-  try {
-    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
-      (response) => response.json()
-    );
+//   try {
+//     const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
+//       (response) => response.json()
+//     );
 
-    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
-    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+//     const templateMainPage = path.resolve('./src/templates/contributors.jsx');
+//     const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
 
-    createPage({
-      path: '/contributors/',
-      component: slash(templateMainPage),
-      context: {
-        contributors: data,
-      },
-    });
+//     createPage({
+//       path: '/contributors/',
+//       component: slash(templateMainPage),
+//       context: {
+//         contributors: data,
+//       },
+//     });
 
-    const contributors = data.list.filter(
-      ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
-    );
+//     const contributors = data.list.filter(
+//       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
+//     );
 
-    await Promise.all(
-      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
-      // so we have to make an additional request to extract this data
-      contributors.map(async (contributor) => {
-        const { pulls } = await fetch(
-          `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
-        ).then((response) => response.json());
+//     await Promise.all(
+//       // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+//       // so we have to make an additional request to extract this data
+//       contributors.map(async (contributor) => {
+//         const { pulls } = await fetch(
+//           `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
+//         ).then((response) => response.json());
 
-        return { ...contributor, pulls };
-      })
-    ).then((contributors) => {
-      contributors.forEach((contributor) => {
-        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
-        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+//         return { ...contributor, pulls };
+//       })
+//     ).then((contributors) => {
+//       contributors.forEach((contributor) => {
+//         const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+//         const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
 
-        createPage({
-          path: `/contributors/${contributor.github}/`,
-          component: slash(templateDetailPage),
-          context: {
-            userName: contributor.github,
-            contributor: {
-              ...contributor,
-              images: {
-                ogImage,
-                embedImage,
-              },
-            },
-          },
-        });
-      });
-    });
-  } catch (err) {
-    reporter.panicOnBuild('There was an error when loading Contributors.', err);
-  }
-};
+//         createPage({
+//           path: `/contributors/${contributor.github}/`,
+//           component: slash(templateDetailPage),
+//           context: {
+//             userName: contributor.github,
+//             contributor: {
+//               ...contributor,
+//               images: {
+//                 ogImage,
+//                 embedImage,
+//               },
+//             },
+//           },
+//         });
+//       });
+//     });
+//   } catch (err) {
+//     reporter.panicOnBuild('There was an error when loading Contributors.', err);
+//   }
+// };
 
 const createCommunityPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
   try {
     const repositories = await fetchRepositories();
-    const issuesWithHelpWantedLabel = await Promise.all(repositories.map(fetchIssuesForRepo));
-    const repositoriesWithHelpWantedIssues = new Set();
+    const requiredLabels = ['help wanted', 'good first issue'];
+    const issuesWithLabels = await Promise.all(
+      repositories.map((repo) => fetchIssuesWithLabels(repo, requiredLabels))
+    );
 
-    const helpWantedIssues = issuesWithHelpWantedLabel.flat().map((issue) => {
+    const repositoriesWithLabeledIssues = new Set();
+
+    const labeledIssues = issuesWithLabels.flat().map((issue) => {
       const repo = repositories.find((repo) => repo.url === issue.repository_url);
-      repositoriesWithHelpWantedIssues.add(repo);
+      repositoriesWithLabeledIssues.add(repo);
+
+      const labels = issue.labels
+        .map((label) => label.name)
+        .filter((name) => requiredLabels.includes(name));
+
+      const issueType = getIssueType(issue.title);
+      const tags = issueType ? [issueType, ...labels] : labels;
+
       return {
         ...issue,
         repository_name: repo.name,
-        type: getIssueType(issue.title),
+        tags,
       };
     });
 
@@ -104,13 +117,14 @@ const createCommunityPage = async ({ actions, reporter }) => {
       component: slash(templatePage),
       context: {
         contributors: nonMemberContributors,
-        helpWantedIssues,
-        repositoriesWithHelpWantedIssues: Array.from(repositoriesWithHelpWantedIssues).map(
-          (repo) => ({
+        totalContributorsCount: nonMemberContributors.length,
+        labeledIssues,
+        repositoriesWithLabeledIssues: Array.from(repositoriesWithLabeledIssues)
+          .map((repo) => ({
             name: repo.name,
             id: repo.id,
-          })
-        ),
+          }))
+          .sort(sortRepositories),
       },
     });
   } catch (err) {
@@ -449,16 +463,17 @@ exports.createPages = async (args) => {
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
   // await createPodcastPage(params);
   // await createPodcastDetailPages(params);
-  await createContributorsPage(params);
+  // TODO:: uncomment when GATSBY_CONTRIBUTORS_API_URL will be available
+  // await createContributorsPage(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
     response.json()
   );
-  const allContributorsPromise = await fetch(
-    `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
-  ).then((response) => response.json());
+  // const allContributorsPromise = await fetch(
+  //   `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
+  // ).then((response) => response.json());
 
   const dataPromises = Promise.all([
     fetchCommitCount('novuhq', 'novu'),
@@ -469,9 +484,9 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
 
   const [
     githubData,
-    contributors,
+    // contributors,
     [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
-  ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
+  ] = await Promise.all([githubDataPromise, dataPromises]);
 
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
@@ -482,7 +497,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     openIssues: githubData.open_issues,
     closedIssues: closedIssuesCount,
     pullRequests: openPullRequestsCount + closedPullRequestsCount,
-    contributors: contributors.list.length,
+    // contributors: contributors.list.length,
     commits: commitsCount,
     // required fields
     id: `github-data`,
@@ -590,20 +605,21 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   // });
   // End of Hacktoberfest part
 
-  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-    (response) => response.json()
-  );
+  // TODO:: uncomment issuesData, when GATSBY_CONTRIBUTORS_API_URL will be available, and issues.jsx too
+  // const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+  //   (response) => response.json()
+  // );
 
-  createNode({
-    data: issuesData.issues,
-    id: `issues-data`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `Issues`,
-      contentDigest: createContentDigest(issuesData),
-    },
-  });
+  // createNode({
+  //   data: issuesData.issues,
+  //   id: `issues-data`,
+  //   parent: null,
+  //   children: [],
+  //   internal: {
+  //     type: `Issues`,
+  //     contentDigest: createContentDigest(issuesData),
+  //   },
+  // });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

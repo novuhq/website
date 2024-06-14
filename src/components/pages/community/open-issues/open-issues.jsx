@@ -17,7 +17,7 @@ const BUTTON_TEXT = 'View all open issues';
 const FILTERS = [
   {
     label: 'Type',
-    fieldKey: 'type',
+    fieldKey: 'tags',
     items: [
       {
         name: 'Bug',
@@ -27,6 +27,12 @@ const FILTERS = [
       },
       {
         name: 'Docs Feedback',
+      },
+      {
+        name: 'Good first issue',
+      },
+      {
+        name: 'Help wanted',
       },
     ],
   },
@@ -44,6 +50,14 @@ const LABEL_THEMES = {
   'docs feedback': {
     className: 'text-[#00BCE2] bg-[#00D5FF]',
     label: 'docs feedback',
+  },
+  'good first issue': {
+    className: 'text-[#76D049] bg-[#76D049]',
+    label: 'good first issue',
+  },
+  'help wanted': {
+    className: 'text-[#DD99FF] bg-[#DD99FF]',
+    label: 'help wanted',
   },
 };
 
@@ -129,7 +143,7 @@ const Label = ({ theme }) => {
   return (
     <span
       className={clsx(
-        'inline-block px-1.5 py-[3px] bg-opacity-10 rounded leading-none tracking-[0.01em] text-xs ml-2',
+        'inline-block px-1.5 py-[3px] bg-opacity-10 rounded leading-none tracking-[0.01em] text-xs ml-1.5',
         className
       )}
     >
@@ -161,7 +175,15 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
       const selectedIssues = issues
         .filter((issue) =>
           Object.keys(filtersByFieldKey).every((key) =>
-            filtersByFieldKey[key].some((value) => issue[key] && issue[key].toLowerCase() === value)
+            filtersByFieldKey[key].some((value) => {
+              if (Array.isArray(issue[key])) {
+                return issue[key].some((item) => item.toLowerCase() === value.toLowerCase());
+              }
+              if (typeof issue[key] === 'string') {
+                return issue[key].toLowerCase() === value.toLowerCase();
+              }
+              return false;
+            })
           )
         )
         .slice(0, 10);
@@ -207,7 +229,7 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
               </span>
             </div>
             <ul>
-              {filteredIssues.map(({ title, number, html_url: url, type }, index) => (
+              {filteredIssues.map(({ title, number, html_url: url, tags }, index) => (
                 <li className="border-b border-[#FFD5EE] border-opacity-[0.13]" key={index}>
                   <Link
                     className="group py-4 flex text-lg md:text-base sm:text-sm md:py-3.5"
@@ -229,7 +251,9 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
                     </span>
                     <span className="leading-tight grow text-white transition-colors duration-200 group-hover:text-white/70">
                       {title}
-                      {type && <Label theme={type} />}
+                      {tags.map((tag) => (
+                        <Label theme={tag} />
+                      ))}
                     </span>
                   </Link>
                 </li>
