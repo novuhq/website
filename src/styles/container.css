@@ -37,15 +37,15 @@
     }
 
     .container-lg {
-      @apply xl:px-0 lg:px-8 lg:max-w-full sm:px-5;
+      @apply lg:px-8 lg:w-full sm:px-5;
     }
 
     .container-md {
-      @apply md:px-8 sm:max-w-full sm:px-5;
+      @apply md:px-8 sm:w-full sm:px-5;
     }
 
     .container-sm {
-      @apply md:px-8 sm:max-w-full sm:px-5;
+      @apply md:px-8 sm:w-full sm:px-5;
     }
   }
 }
