@@ -22,4 +22,30 @@
   .container-sm {
     @apply mx-auto max-w-[800px] md:px-7 sm:max-w-full sm:px-4;
   }
+
+  .echo {
+    .container-2xl {
+      @apply xl:px-10 lg:px-8 lg:max-w-none sm:px-5;
+    }
+
+    .container {
+      @apply xl:px-10 lg:px-8 lg:max-w-none sm:px-5;
+    }
+
+    .container-xl {
+      @apply xl:px-10 lg:px-8 lg:max-w-none sm:px-5;
+    }
+
+    .container-lg {
+      @apply xl:px-0 lg:px-8 lg:max-w-full sm:px-5;
+    }
+
+    .container-md {
+      @apply md:px-8 sm:max-w-full sm:px-5;
+    }
+
+    .container-sm {
+      @apply md:px-8 sm:max-w-full sm:px-5;
+    }
+  }
 }

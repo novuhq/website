@@ -41,22 +41,22 @@ const StepTooltip = () => {
       <span className="flex flex-col pb-3">
         {Object.keys(METHODS_DESCRIPTIONS).map((key) => (
           <button
-            className="flex items-center gap-x-2 px-3.5 py-1 text-left leading-denser hover:bg-[#E1F4FF]/5"
+            className="flex items-center gap-x-2 px-3.5 py-1 text-left leading-denser hover:bg-[#E1F4FF]/5 lg:text-xs"
             key={key}
             type="button"
             aria-hidden
             onClick={() => setMethod(key)}
           >
-            <img src={codeIcon} alt="" width={16} height={16} />
+            <img className="lg:w-3.5 lg:h-3.5" src={codeIcon} alt="" width={16} height={16} />
             {key}
           </button>
         ))}
       </span>
-      <span className="px-3.5 py-3 whitespace-normal border-t border-[#3A4051] text-[13px] leading-denser tracking-[-0.01em] text-white/40">
+      <span className="px-3.5 py-3 whitespace-normal border-t border-[#3A4051] text-[13px] leading-denser tracking-[-0.01em] text-white/40 lg:text-[11px]">
         {METHODS_DESCRIPTIONS[method].code}
       </span>
       <span className="mx-3.5 h-px bg-white/50" aria-hidden />
-      <span className="mt-3 px-3.5 text-[13px] leading-denser tracking-[-0.01em] text-white">
+      <span className="mt-3 px-3.5 text-[13px] leading-denser tracking-[-0.01em] text-white lg:text-[11px]">
         {METHODS_DESCRIPTIONS[method].description}
       </span>
     </span>

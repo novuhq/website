@@ -94,6 +94,6 @@ code {
   }
 
   .react-syntax-highlighter-line-number {
-    @apply mr-4 w-5 !min-w-0 !pr-0 !text-left text-white/60 md:mr-6 sm:mr-3;
+    @apply mr-4 w-5 !min-w-0 !pr-0 !text-left text-white/60 lg:mr-2.5 md:mr-1.5 sm:-mr-2.5;
   }
 }
