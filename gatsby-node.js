@@ -4,65 +4,131 @@ const path = require('path');
 const slash = require('slash');
 
 const redirects = require('./redirects.json');
-// const { octokit } = require('./src/utils/contributors-utils');
+const {
+  fetchRepositories,
+  fetchAllContributorsWithoutMembers,
+  getIssueType,
+  fetchIssuesWithLabels,
+  sortRepositories,
+} = require('./src/utils/community-utils');
+const {
+  fetchCommitCount,
+  fetchClosedIssuesCount,
+  fetchPullRequestCount,
+} = require('./src/utils/github-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
-const createContributorsPage = async ({ actions, reporter }) => {
+// const createContributorsPage = async ({ actions, reporter }) => {
+//   const { createPage } = actions;
+
+//   try {
+//     const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
+//       (response) => response.json()
+//     );
+
+//     const templateMainPage = path.resolve('./src/templates/contributors.jsx');
+//     const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+
+//     createPage({
+//       path: '/contributors/',
+//       component: slash(templateMainPage),
+//       context: {
+//         contributors: data,
+//       },
+//     });
+
+//     const contributors = data.list.filter(
+//       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
+//     );
+
+//     await Promise.all(
+//       // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+//       // so we have to make an additional request to extract this data
+//       contributors.map(async (contributor) => {
+//         const { pulls } = await fetch(
+//           `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
+//         ).then((response) => response.json());
+
+//         return { ...contributor, pulls };
+//       })
+//     ).then((contributors) => {
+//       contributors.forEach((contributor) => {
+//         const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+//         const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+
+//         createPage({
+//           path: `/contributors/${contributor.github}/`,
+//           component: slash(templateDetailPage),
+//           context: {
+//             userName: contributor.github,
+//             contributor: {
+//               ...contributor,
+//               images: {
+//                 ogImage,
+//                 embedImage,
+//               },
+//             },
+//           },
+//         });
+//       });
+//     });
+//   } catch (err) {
+//     reporter.panicOnBuild('There was an error when loading Contributors.', err);
+//   }
+// };
+
+const createCommunityPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
   try {
-    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
-      (response) => response.json()
+    const repositories = await fetchRepositories();
+    const requiredLabels = ['help wanted', 'good first issue'];
+    const issuesWithLabels = await Promise.all(
+      repositories.map((repo) => fetchIssuesWithLabels(repo, requiredLabels))
     );
 
-    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
-    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+    const repositoriesWithLabeledIssues = new Set();
+
+    const labeledIssues = issuesWithLabels.flat().map((issue) => {
+      const repo = repositories.find((repo) => repo.url === issue.repository_url);
+      repositoriesWithLabeledIssues.add(repo);
+
+      const labels = issue.labels
+        .map((label) => label.name)
+        .filter((name) => requiredLabels.includes(name));
+
+      const issueType = getIssueType(issue.title);
+      const tags = issueType ? [issueType, ...labels] : labels;
+
+      return {
+        ...issue,
+        repository_name: repo.name,
+        tags,
+      };
+    });
+
+    const nonMemberContributors = await fetchAllContributorsWithoutMembers();
+    nonMemberContributors.sort((a, b) => b.contributions - a.contributions);
+
+    const templatePage = path.resolve('./src/templates/community.jsx');
 
     createPage({
-      path: '/contributors/',
-      component: slash(templateMainPage),
+      path: '/community/',
+      component: slash(templatePage),
       context: {
-        contributors: data,
+        contributors: nonMemberContributors,
+        totalContributorsCount: nonMemberContributors.length,
+        labeledIssues,
+        repositoriesWithLabeledIssues: Array.from(repositoriesWithLabeledIssues)
+          .map((repo) => ({
+            name: repo.name,
+            id: repo.id,
+          }))
+          .sort(sortRepositories),
       },
     });
-
-    const contributors = data.list.filter(
-      ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
-    );
-
-    await Promise.all(
-      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
-      // so we have to make an additional request to extract this data
-      contributors.map(async (contributor) => {
-        const { pulls } = await fetch(
-          `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
-        ).then((response) => response.json());
-
-        return { ...contributor, pulls };
-      })
-    ).then((contributors) => {
-      contributors.forEach((contributor) => {
-        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
-        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
-
-        createPage({
-          path: `/contributors/${contributor.github}/`,
-          component: slash(templateDetailPage),
-          context: {
-            userName: contributor.github,
-            contributor: {
-              ...contributor,
-              images: {
-                ogImage,
-                embedImage,
-              },
-            },
-          },
-        });
-      });
-    });
   } catch (err) {
-    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+    reporter.panicOnBuild('There was an error when loading the Community page.', err);
   }
 };
 
@@ -391,25 +457,48 @@ exports.createPages = async (args) => {
 
   await createPages(params);
   await createBlogPages(params);
+  await createCommunityPage(params);
   await createPosts(params);
 
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
   // await createPodcastPage(params);
   // await createPodcastDetailPages(params);
-  await createContributorsPage(params);
+  // TODO:: uncomment when GATSBY_CONTRIBUTORS_API_URL will be available
+  // await createContributorsPage(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
-  // get data from GitHub API at build time
-  const githubData = await fetch(`https://api.github.com/repos/novuhq/novu`).then((response) =>
+  const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
     response.json()
   );
-  // create node for build time data example in the docs
+  // const allContributorsPromise = await fetch(
+  //   `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
+  // ).then((response) => response.json());
+
+  const dataPromises = Promise.all([
+    fetchCommitCount('novuhq', 'novu'),
+    fetchPullRequestCount('novuhq', 'novu', 'open'),
+    fetchPullRequestCount('novuhq', 'novu', 'closed'),
+    fetchClosedIssuesCount('novuhq', 'novu'),
+  ]);
+
+  const [
+    githubData,
+    // contributors,
+    [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
+  ] = await Promise.all([githubDataPromise, dataPromises]);
+
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
     nameWithOwner: githubData.full_name,
     url: githubData.html_url,
     count: githubData.stargazers_count,
+    forks: githubData.forks_count,
+    openIssues: githubData.open_issues,
+    closedIssues: closedIssuesCount,
+    pullRequests: openPullRequestsCount + closedPullRequestsCount,
+    // contributors: contributors.list.length,
+    commits: commitsCount,
     // required fields
     id: `github-data`,
     parent: null,
@@ -441,21 +530,6 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   // });
 
   // This part is used to get the data of contributors in Hacktoberfest and to calculate the scores
-  // const fetchMergedPullRequestsFromRepo = async (repoName) => {
-  //   let page = 1;
-  //   let pullRequests = [];
-  //   while (true) {
-  //     const pullRequestsBatch = await octokit.request(
-  //       `GET /repos/novuhq/${repoName}/pulls?state=closed&per_page=100&page=${page}`
-  //     );
-  //     if (pullRequestsBatch.data.length === 0) {
-  //       break; // No more pull requests to fetch
-  //     }
-  //     pullRequests = pullRequests.concat(pullRequestsBatch.data);
-  //     page += 1;
-  //   }
-  //   return pullRequests;
-  // };
 
   // const repos = await octokit.request('GET /orgs/novuhq/repos?per_page=100');
   // const repoNames = repos.data.map((repo) => repo.name);
@@ -531,20 +605,21 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   // });
   // End of Hacktoberfest part
 
-  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-    (response) => response.json()
-  );
+  // TODO:: uncomment issuesData, when GATSBY_CONTRIBUTORS_API_URL will be available, and issues.jsx too
+  // const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+  //   (response) => response.json()
+  // );
 
-  createNode({
-    data: issuesData.issues,
-    id: `issues-data`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `Issues`,
-      contentDigest: createContentDigest(issuesData),
-    },
-  });
+  // createNode({
+  //   data: issuesData.issues,
+  //   id: `issues-data`,
+  //   parent: null,
+  //   children: [],
+  //   internal: {
+  //     type: `Issues`,
+  //     contentDigest: createContentDigest(issuesData),
+  //   },
+  // });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

@@ -7,10 +7,10 @@ const RelatedArticles = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-30 bg-gray-2 py-28 sm:mt-20 sm:py-20">
     <div className="container-lg">
       <h2 className="text-[40px] leading-tight">Related Posts</h2>
-      <div className="article-list-inner mt-14 grid grid-cols-3 gap-x-8 xl:mt-8 lg:grid-cols-2 lg:gap-x-7 md:gap-x-5">
+      <div className="mt-14 grid grid-cols-12 gap-x-8 gap-y-9 xl:mt-8 lg:gap-x-7 lg:gap-y-10 md:gap-x-5">
         {items.map((item, index) => (
           <BlogPostCard
-            className="lg:last:hidden md:last:block"
+            className="col-span-4 md:col-span-6 xs:col-span-full"
             {...item}
             size="md"
             blogPageURL={blogPageURL}

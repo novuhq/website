@@ -114,7 +114,7 @@ export const pageQuery = graphql`
     wpPost(id: { eq: $id }) {
       content
       title
-      date(formatString: "MMMM D, YYYY")
+      date
       url: uri
       categories {
         nodes {
@@ -179,7 +179,7 @@ export const pageQuery = graphql`
       nodes {
         content
         title
-        date(formatString: "MMMM D, YYYY")
+        date
         url: uri
         categories {
           nodes {

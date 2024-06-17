@@ -89,7 +89,7 @@ const MobileMenu = ({ isOpen }) => {
               <div className="container">
                 <div className="flex w-full justify-between space-x-4 py-7">
                   <Button
-                    className="w-full xs:text-xs"
+                    className="w-full 2xs:text-xs"
                     to={GITHUB.repoUrl}
                     target="_blank"
                     size="sm"
@@ -100,7 +100,7 @@ const MobileMenu = ({ isOpen }) => {
                   </Button>
 
                   <Button
-                    className="w-full xs:text-xs"
+                    className="w-full 2xs:text-xs"
                     size="sm"
                     theme="white-filled"
                     {...LINKS.getStarted}

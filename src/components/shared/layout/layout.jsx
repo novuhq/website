@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -9,9 +10,10 @@ import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import InkeepChatButton from 'components/shared/inkeep-widgets/inkeep-chat-button';
 import MobileMenu from 'components/shared/mobile-menu';
+import UtmParams from 'components/shared/utm-params';
 // import Banner from '../banner/banner';
 
-const Layout = ({ children }) => {
+const Layout = ({ className, children, headerTheme = 'default' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
@@ -20,9 +22,14 @@ const Layout = ({ children }) => {
   return (
     <>
       <ConversionInitiator />
+      <UtmParams />
       {/* <Banner /> */}
-      <div className="relative flex min-h-screen flex-col">
-        <Header isMobileMenuOpen={isMobileMenuOpen} onBurgerClick={handleHeaderBurgerClick} />
+      <div className={clsx('relative flex min-h-screen flex-col', className)}>
+        <Header
+          theme={headerTheme}
+          isMobileMenuOpen={isMobileMenuOpen}
+          onBurgerClick={handleHeaderBurgerClick}
+        />
         <main className="flex-grow">{children}</main>
         <Footer />
         <MobileMenu isOpen={isMobileMenuOpen} />
@@ -32,13 +39,20 @@ const Layout = ({ children }) => {
         setIsCookieBannerVisible={setIsCookieBannerVisible}
       />
       <FloatingButton isCookieBannerVisible={isCookieBannerVisible} />
-      {typeof window !== 'undefined' && <InkeepChatButton />}
+      <InkeepChatButton />
     </>
   );
 };
 
 Layout.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  headerTheme: PropTypes.oneOf(['default', 'community']),
+};
+
+Layout.defaultProps = {
+  className: null,
+  headerTheme: 'default',
 };
 
 export const query = graphql`

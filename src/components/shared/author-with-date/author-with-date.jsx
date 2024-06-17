@@ -3,6 +3,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { getFormattedDate } from 'utils/get-formatted-date';
+
 const AuthorWithDate = ({ className, author: { name: authorName, photo: authorPhoto }, date }) => (
   <div className={clsx('flex items-center', className)}>
     <GatsbyImage
@@ -15,7 +17,9 @@ const AuthorWithDate = ({ className, author: { name: authorName, photo: authorPh
     <div className="flex items-center">
       <span className="text-sm">{authorName}</span>
       <span className="mx-3.5 block h-5 w-px bg-gray-4" />
-      <span className="text-sm text-gray-6">{date}</span>
+      <time className="text-sm text-gray-6" dateTime={date}>
+        {getFormattedDate(date)}
+      </time>
     </div>
   </div>
 );
