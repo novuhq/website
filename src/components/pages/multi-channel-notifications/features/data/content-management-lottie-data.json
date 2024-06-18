@@ -12,7 +12,7 @@
       "id": "image_0",
       "w": 52,
       "h": 52,
-      "u": "lottie-assets/pages/home/features/content-management/",
+      "u": "/lottie-assets/pages/home/features/content-management/",
       "p": "icon.svg",
       "e": 0
     },
@@ -20,7 +20,7 @@
       "id": "image_1",
       "w": 128,
       "h": 128,
-      "u": "lottie-assets/pages/home/features/content-management/",
+      "u": "/lottie-assets/pages/home/features/content-management/",
       "p": "back.svg",
       "e": 0
     },
