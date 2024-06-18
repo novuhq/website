@@ -22,7 +22,7 @@ const EchoPage = () => (
     <Flexibility />
     <Testimonials />
     <Cta />
-    <Separator className="w-full max-w-none" backgroundColor="gray" />
+    <Separator className="w-full max-w-none" backgroundColor="echo-gradient" />
   </Layout>
 );
 

@@ -83,6 +83,8 @@ module.exports = {
       'hs-form-gradient':
         'linear-gradient(180deg, rgba(26, 26, 26, 0.80) 0%, rgba(26, 26, 26, 0.70) 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
+      'echo-gradient':
+        'linear-gradient(90deg, #333333 20.54%, #34336C 29.07%, #6D87E5 36.23%, #34336C 44.15%, #333333 52.29%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {
