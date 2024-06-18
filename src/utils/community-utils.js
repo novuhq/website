@@ -51,7 +51,8 @@ async function fetchAllContributors(repoFullName) {
     });
 
     if (contributorsResponse.status !== 200) {
-      throw new Error(`Failed to fetch contributors for repository ${repoFullName}`);
+      console.log(`Failed to fetch contributors for repository ${repoFullName}`);
+      return [];
     }
 
     const contributors = contributorsResponse.data;
