@@ -96,7 +96,7 @@ const Code = () => {
         </ul>
         <div className="relative lg:mx-auto sm:max-w-80 sm:mx-auto">
           <SyntaxHighlighter
-            className="echo-code pl-[42px] mt-[70px] scrollbar-hidden text-sm font-normal lg:mt-[62px] lg:pl-[35px] lg:text-xs md:mt-[53px] md:pl-[26px] sm:text-[10px] sm:mt-11 sm:pl-[15px] sm:overflow-y-scroll sm:mr-1.5"
+            className="echo-code pl-[42px] mt-[70px] scrollbar-hidden text-sm font-normal lg:mt-[62px] lg:pl-[35px] lg:text-xs md:mt-[53px] md:pl-[26px] sm:text-[10px] sm:mt-11 sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)]"
             language="javascript"
             useInlineStyles={false}
             renderer={customRenderer}
