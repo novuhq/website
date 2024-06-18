@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Heading from 'components/shared/heading';
 
 const Hero = () => (
@@ -11,10 +12,10 @@ const Hero = () => (
         theme="white"
         asHTML
       >
-        Send Multi-Channel Notifications
+        Notification Content Management for Developers
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Reach Your Audience Where They Are: Multi-Channel Notification Solutions
+        Empower your product teams to safely interact with notitfcations content.
       </p>
     </div>
   </section>

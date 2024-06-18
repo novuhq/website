@@ -1,20 +1,22 @@
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-import Link from 'components/shared/link';
-import LINKS from 'constants/links';
+
+/* import Link from 'components/shared/link'; */
+/* import LINKS from 'constants/links'; */
 import providers from './images/providers.svg';
 import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
-const TITLE = 'Novu simplifies the process of adding multi-channel notifications to your existing app';
-const SUBTITLE = 'De-centralized notifications are costly in more ways than just engineering time…';
+const TITLE = 'Effortless Notification Content Management';
+const SUBTITLE =
+  'Developers build workflows, logic, and formatting, and provide editable content back to product teams.';
 
 const CARDS = [
   {
-    title: 'High Costs',
+    title: 'Ongoing developer interrupts',
     description:
-      'Sending end-user notifications requires significant engineering effort to build and maintain the required infrastructure',
+      'It takes too long for product teams to get content updated when they constantly rely on developers',
     image: (
       <img
         className="w-full"
@@ -27,9 +29,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Integration Complexity',
+    title: 'Inconsistent branding and customer experience',
     description:
-      "Integrating new notification channels is complex and time-consuming and requires new application code and new content",
+      'When updating content is hard, branding and messaging issues are frequently exposed to end users',
     image: (
       <img
         className="w-full"
@@ -42,9 +44,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Inconsistent User Experiences',
+    title: 'Forced use of a native CMS',
     description:
-      "Businesses lack cross-channel observability, which slows troubleshooting and debugging–which negatively impacts end-user experience",
+      'Developers like to work in familiar technologies like React, and requiring them to ingest and use a different framework slows everyone down',
     image: (
       <img
         className="w-full"
@@ -72,6 +74,7 @@ const Pain_restatement = () => (
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
         {SUBTITLE}
       </p>
+
       <div className="mt-10 pt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
         {CARDS.map(({ title, description, image }, index) => (
           <div

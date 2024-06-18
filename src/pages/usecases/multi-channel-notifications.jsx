@@ -1,5 +1,4 @@
 import React from 'react';
-
 //Imprort page-specific components
 import Hero from 'components/pages/multi-channel-notifications/hero';
 import Pain_restatement from 'components/pages/multi-channel-notifications/painRestatement';

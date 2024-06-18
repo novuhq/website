@@ -38,11 +38,9 @@ const Benefits = () => {
 
   return (
     <section className="benefits bg-gray-2 pb-40 pt-30 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
-      
       <Benefits_imgOnRightSide {...Benefit_1_Props} />
       <Benefits_imgOnLeftSide {...Benefit_2_Props} />
       <Benefits_imgOnRightSide {...Benefit_3_Props} />
-
   </section>
   );
 };

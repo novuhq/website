@@ -2,44 +2,41 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-import contentManagement from './data/content-management-lottie-data.json';
+/* import contentManagement from './data/content-management-lottie-data.json'; */
 import digest from './data/digest-lottie-data.json';
 import monitoring from './data/monitoring-lottie-data.json';
 import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
-import timezone from './data/timezone-lottie-data.json';
+/* import timezone from './data/timezone-lottie-data.json'; */
 import Item from './item';
 
-const TITLE = "We've built it so you don't have to";
+const TITLE = 'Simplify Your Notifications';
 const ITEMS = [
   {
     animationData: digest,
-    title: 'Digest',
-    description:
-      'A digest engine that aggregates multiple events in to a single precise notification.',
+    title: 'Workflow content editor',
+    description: '...',
   },
   {
     animationData: preferences,
-    title: 'User preferences',
-    description:
-      'Using Novu API to handle all user preferences and subscriptions across channels. UI components included.',
+    title: 'Content delegation',
+    description: '...',
   },
   {
     animationData: priorityManagement,
-    title: 'Priority management',
-    description:
-      'A smart API to centralize all communication channels in a single place: E-mail, SMS, Chat, Push and many more...',
+    title: 'Broad content framework support',
+    description: '...',
   },
   {
     animationData: monitoring,
-    title: 'Monitoring',
-    description: 'Debug deliverability and analyze sending patterns  across multiple channels',
+    title: 'Singluar content source',
+    description: '...',
   },
+  /*
   {
     animationData: contentManagement,
     title: 'Content management',
-    description:
-      'Manage content for all channels and in multiple languages without the need to redeploy your code',
+    description: 'Manage content for all channels and in multiple languages without the need to redeploy your code',
   },
   {
     animationData: timezone,
@@ -47,6 +44,7 @@ const ITEMS = [
     comingSoon: true,
     description: "Send transactional notifications based on user's timezone and working hours.",
   },
+  */
 ];
 
 const Features = () => (
