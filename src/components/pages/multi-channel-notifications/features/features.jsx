@@ -8,7 +8,6 @@ import monitoring from './data/monitoring-lottie-data.json';
 import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
 import timezone from './data/timezone-lottie-data.json';
-
 import Item from './item';
 
 const TITLE = "We've built it so you don't have to";

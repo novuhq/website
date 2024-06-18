@@ -2,7 +2,6 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-
 const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pb-10 pt-36 lg:pb-16 lg:pt-32 md:pt-[104px] sm:pb-10 sm:pt-[95px]">
     <div className="container-lg relative z-10">

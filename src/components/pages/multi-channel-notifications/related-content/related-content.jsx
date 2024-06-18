@@ -5,7 +5,6 @@ import Link from 'components/shared/link/link';
 
 import relatedContentItems from './data';
 
-
 const RelatedContent = () => (
   <section className="safe-paddings relative overflow-hidden pb-20 pt-25 lg:pb-16 lg:pt-32 md:pt-[104px] sm:pb-10 sm:pt-[95px]">
     <div className="container-lg relative z-10">

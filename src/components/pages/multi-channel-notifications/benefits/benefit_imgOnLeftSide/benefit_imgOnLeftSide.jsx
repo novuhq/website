@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
 import LottieAnimation from 'components/shared/lottie-animation';
-import LINKS from 'constants/links';
+/* import LINKS from 'constants/links'; */
 
 import animationData from './data/notification-center-lottie-data.json';
 
@@ -43,6 +43,7 @@ const Benefit_imgOnLeftSide = ({ title, description, buttonText }) => {
           <p className="mt-5 text-lg font-book leading-snug text-gray-9 lg:mt-3 lg:text-base">
             {description}
           </p>
+          <Button>{buttonText}</Button>
         </div>
       </div>
     </section>
