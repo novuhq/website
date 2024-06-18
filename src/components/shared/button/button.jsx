@@ -24,6 +24,7 @@ const styles = {
       'text-black bg-blue-gradient relative before:absolute before:-z-10 before:h-[calc(100%+4px)] before:w-[calc(100%+4px)] before:rounded before:bg-blue-gradient before:blur-[3px] before:opacity-100 hover:before:opacity-0 before:transition-opacity before:duration-200',
     'pink-to-yellow-gradient':
       'text-black bg-transparent bg-pink-yellow-gradient hover:bg-white hover:bg-none transition-[color,background-image]',
+    'pink-to-red-gradient': 'text-white bg-pink-red-gradient',
     yellow: 'bg-yellow text-black hover:bg-white',
   },
 };

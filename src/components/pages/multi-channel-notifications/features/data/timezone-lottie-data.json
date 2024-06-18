@@ -12,7 +12,7 @@
       "id": "image_0",
       "w": 72,
       "h": 72,
-      "u": "lottie-assets/pages/home/features/timezone/",
+      "u": "/lottie-assets/pages/home/features/timezone/",
       "p": "icon.svg",
       "e": 0
     },
@@ -20,7 +20,7 @@
       "id": "image_1",
       "w": 128,
       "h": 128,
-      "u": "lottie-assets/pages/home/features/timezone/",
+      "u": "/lottie-assets/pages/home/features/timezone/",
       "p": "back.svg",
       "e": 0
     },

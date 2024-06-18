@@ -6,7 +6,7 @@ import LottieAnimation from 'components/shared/lottie-animation';
 
 import animationData from './data/component-based-lottie-data.json';
 
-const Benefits_imgOnRightSide = ({ title, description }) => {
+const Benefits_imgOnRightSide = ({ title, description,}) => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     triggerOnce: true,
     threshold: 0.6,

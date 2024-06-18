@@ -12,7 +12,7 @@
       "id": "image_0",
       "w": 160,
       "h": 160,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Notification-icon.svg",
       "e": 0
     },
@@ -20,7 +20,7 @@
       "id": "image_1",
       "w": 300,
       "h": 300,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "feed-base.svg",
       "e": 0
     },
@@ -28,7 +28,7 @@
       "id": "image_2",
       "w": 540,
       "h": 550,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Notification_Feed_API.svg",
       "e": 0
     },
@@ -36,7 +36,7 @@
       "id": "image_3",
       "w": 80,
       "h": 80,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "circle-4.svg",
       "e": 0
     },
@@ -44,7 +44,7 @@
       "id": "image_4",
       "w": 72,
       "h": 72,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "circle-3.svg",
       "e": 0
     },
@@ -52,7 +52,7 @@
       "id": "image_5",
       "w": 48,
       "h": 48,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "circle-2.svg",
       "e": 0
     },
@@ -60,7 +60,7 @@
       "id": "image_6",
       "w": 60,
       "h": 60,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "circle-1.svg",
       "e": 0
     },
@@ -68,7 +68,7 @@
       "id": "image_7",
       "w": 540,
       "h": 652,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Unified_Delivery_API.svg",
       "e": 0
     },
@@ -76,7 +76,7 @@
       "id": "image_8",
       "w": 540,
       "h": 494,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Use_every_module_separately.svg",
       "e": 0
     },
@@ -84,7 +84,7 @@
       "id": "image_9",
       "w": 248,
       "h": 80,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Content.svg",
       "e": 0
     },
@@ -92,7 +92,7 @@
       "id": "image_10",
       "w": 540,
       "h": 522,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Content_Management.svg",
       "e": 0
     },
@@ -100,7 +100,7 @@
       "id": "image_11",
       "w": 540,
       "h": 420,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Digest_Engine.svg",
       "e": 0
     },
@@ -108,7 +108,7 @@
       "id": "image_12",
       "w": 140,
       "h": 120,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Front-end_1.svg",
       "e": 0
     },
@@ -116,7 +116,7 @@
       "id": "image_13",
       "w": 140,
       "h": 120,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Front-end_2.svg",
       "e": 0
     },
@@ -124,7 +124,7 @@
       "id": "image_14",
       "w": 140,
       "h": 120,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Front-end_3.svg",
       "e": 0
     },
@@ -132,7 +132,7 @@
       "id": "image_15",
       "w": 540,
       "h": 578,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "Front-end_Components.svg",
       "e": 0
     },
@@ -140,7 +140,7 @@
       "id": "image_16",
       "w": 1684,
       "h": 1120,
-      "u": "lottie-assets/pages/home/component-based/",
+      "u": "/lottie-assets/pages/home/component-based/",
       "p": "base.svg",
       "e": 0
     },

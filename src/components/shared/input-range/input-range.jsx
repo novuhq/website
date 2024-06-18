@@ -17,7 +17,7 @@ const InputRange = ({ className, styleSliderTrackWidth, blurStyles, ...otherProp
     />
     <span
       className={clsx(
-        'absolute top-1/2 -z-10 h-5 w-20 -translate-x-full -translate-y-1/2 bg-yellow-gradient blur-[5px] md:w-16 sm:w-12 xs:w-10'
+        'absolute top-1/2 -z-10 h-5 w-20 -translate-x-full -translate-y-1/2 bg-yellow-gradient blur-[5px] md:w-16 sm:w-12 2xs:w-10'
       )}
       style={blurStyles}
     />

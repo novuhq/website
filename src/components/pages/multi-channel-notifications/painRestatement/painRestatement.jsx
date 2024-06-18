@@ -1,15 +1,13 @@
 import React from 'react';
 
 import Heading from 'components/shared/heading';
-
-/* import Link from 'components/shared/link'; */
-/* import LINKS from 'constants/links'; */
+import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 import providers from './images/providers.svg';
 import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
-const TITLE =
-  'Novu simplifies the process of adding multi-channel notifications to your existing app';
+const TITLE = 'Novu simplifies the process of adding multi-channel notifications to your existing app';
 const SUBTITLE = 'De-centralized notifications are costly in more ways than just engineering time…';
 
 const CARDS = [
@@ -31,7 +29,7 @@ const CARDS = [
   {
     title: 'Integration Complexity',
     description:
-      'Integrating new notification channels is complex and time-consuming and requires new application code and new content',
+      "Integrating new notification channels is complex and time-consuming and requires new application code and new content",
     image: (
       <img
         className="w-full"
@@ -46,7 +44,7 @@ const CARDS = [
   {
     title: 'Inconsistent User Experiences',
     description:
-      'Businesses lack cross-channel observability, which slows troubleshooting and debugging–which negatively impacts end-user experience',
+      "Businesses lack cross-channel observability, which slows troubleshooting and debugging–which negatively impacts end-user experience",
     image: (
       <img
         className="w-full"
@@ -74,7 +72,6 @@ const Pain_restatement = () => (
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
         {SUBTITLE}
       </p>
-
       <div className="mt-10 pt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
         {CARDS.map(({ title, description, image }, index) => (
           <div

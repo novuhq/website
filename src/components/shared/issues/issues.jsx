@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import moment from 'moment';
 import React, { useState, useMemo } from 'react';
 
@@ -15,19 +15,23 @@ const DESCRIPTION =
 const Issues = ({ className }) => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const {
-    issues: { data },
-  } = useStaticQuery(graphql`
-    query issuesQuery {
-      issues {
-        data {
-          title
-          url
-          created_at
-        }
-      }
-    }
-  `);
+  // TODO:: uncomment issuesData, when GATSBY_CONTRIBUTORS_API_URL will be available
+  // const {
+  //   issues: { data },
+  // } = useStaticQuery(graphql`
+  //   query issuesQuery {
+  //     issues {
+  //       data {
+  //         title
+  //         url
+  //         created_at
+  //       }
+  //     }
+  //   }
+  // `);
+
+  // eslint-disable-next-line
+  const data = [];
 
   const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
 

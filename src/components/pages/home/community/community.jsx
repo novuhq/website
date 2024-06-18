@@ -57,7 +57,7 @@ const Community = () => {
 
           <div className="mt-10 lg:mt-7">
             <h3 className="text-white">{SOCIAL_TILE}</h3>
-            <div className="mt-5 flex space-x-6 md:justify-center sm:space-x-8 xs:justify-between xs:space-x-0">
+            <div className="mt-5 flex space-x-6 md:justify-center sm:space-x-8 2xs:justify-between 2xs:space-x-0">
               {SOCIAL_ITEMS.map(({ icon, to, target, countFollowers }, index) => (
                 <Link
                   className={clsx(

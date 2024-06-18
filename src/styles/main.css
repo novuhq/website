@@ -12,11 +12,11 @@
 /* Components */
 @import './container.css';
 @import './content.css';
-@import './input-border-gradient.css';
 @import '../components/shared/input-range/input-range.css';
 @import '../components/pages/timeline/timeline/timeline.css';
 
 /* Utilities */
+@import './border-gradient.css';
 @import './remove-autocomplete-styles.css';
 @import './safe-paddings.css';
 @import './scrollbar-hidden.css';
