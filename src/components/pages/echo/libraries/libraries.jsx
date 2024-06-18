@@ -56,7 +56,7 @@ const LIBRARIES = [
 ];
 
 const Libraries = () => (
-  <section className="libraries mt-[172px] lg:mt-[100px] md:mt-20">
+  <section className="libraries mt-[172px] lg:mt-[100px] md:mt-[131px] sm:mt-28">
     <div className="container-md text-center">
       <h2 className="text-5xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl">
         Integrates with anything

@@ -29,7 +29,7 @@
     }
 
     .container {
-      @apply xl:px-10 lg:px-8 lg:max-w-none sm:px-5;
+      @apply xl:px-0;
     }
 
     .container-xl {

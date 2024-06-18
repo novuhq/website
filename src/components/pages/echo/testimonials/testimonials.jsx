@@ -83,7 +83,7 @@ const Testimonials = () => {
           ))}
         </Slider>
         <img
-          className="absolute top-[30px] -left-10 sm:hidden lg:top-6 md:w-[116px] md:h-auto md:left-[-97px]"
+          className="absolute top-[30px] -left-10 sm:hidden lg:top-6 md:w-[116px] md:h-auto md:left-[-65px]"
           src={blockquote}
           alt=""
           width={144}

@@ -79,11 +79,11 @@ const Hero = () => {
         </div>
         <div className="absolute w-full h-full left-0 top-0 -z-30 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
           <StaticImage
-            className="!absolute w-[1696px] h-auto left-[-188px] top-[-797px] lg:w-[1272px] lg:left-[-89px] lg:top-[-535px] md:w-[1390px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
+            className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
             src="./images/illustration.png"
             alt=""
-            width={1696}
-            height={1552}
+            width={1652}
+            height={1371}
             loading="eager"
             quality={100}
           />
