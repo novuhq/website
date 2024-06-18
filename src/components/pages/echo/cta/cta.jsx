@@ -7,6 +7,16 @@ import CopyIcon from 'icons/copy.inline.svg';
 
 import background from './images/background.svg';
 
+const TITLE = 'Get started now';
+
+const DESCRIPTION =
+  'Create and send your first code-based notification in&nbsp;less than five minutes.';
+
+const LINK = {
+  text: 'Book a demo',
+  url: 'https://novu.co/',
+};
+
 const CODE = 'npx novu-labs@latest echo';
 
 const Cta = () => {
@@ -31,11 +41,12 @@ const Cta = () => {
       <div className="container-sm relative">
         <div className="flex flex-col items-center">
           <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-4xl md:text-[32px]">
-            Get started now
+            {TITLE}
           </h2>
-          <p className="max-w-md text-center text-[17px] leading-snug font-book text-gray-9 mt-3.5 md:text-base md:max-w-sm">
-            Create and send your first code-based notification in&nbsp;less than five minutes.
-          </p>
+          <p
+            className="max-w-md text-center text-[17px] leading-snug font-book text-gray-9 mt-3.5 md:text-base md:max-w-sm"
+            dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
+          />
           <div className="flex justify-center gap-x-8 mt-12 md:mt-7 sm:flex-col sm:items-center">
             <div className="w-[392px] h-[54px] pl-5 pr-2 relative flex items-center justify-between rounded-md bg-black border border-transparent bg-clip-border before:absolute before:-z-20 before:-inset-0.5 before:rounded-md before:bg-[linear-gradient(0deg,rgba(255,255,255,0.5),rgba(255,255,255,0.5)),radial-gradient(30.74%_144.53%_at_59.44%_100%,#FFFFFF_2.5%,#A7BBFF_21.5%,rgba(183,165,255,0.2)_100%)] lg:h-[46px] sm:pl-4 sm:w-[320px]">
               <span className="font-mono font-medium">{CODE}</span>
@@ -68,9 +79,9 @@ const Cta = () => {
             <Button
               className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
               theme="gray-outline"
-              to="https://novu.co/"
+              to={LINK.url}
             >
-              Book a demo
+              {LINK.text}
             </Button>
           </div>
         </div>

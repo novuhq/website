@@ -6,8 +6,17 @@ import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 
-import DATA from './data';
 import borderGlow from './images/border-glow.svg';
+
+const TITLE = 'Create powerful notification workflows and content using code';
+
+const DESCRIPTION =
+  'Create complex workflows, access local data, and reuse existing content templates with Novu Echo.';
+
+const LINK = {
+  text: 'Read docs',
+  url: 'https://novu.mintlify.app/echo/quickstart',
+};
 
 const CODE = 'npx novu-labs@latest echo';
 
@@ -33,10 +42,10 @@ const Hero = () => {
       <div className="container-xl relative">
         <div className="max-w-[562px] lg:max-w-md md:max-w-none md:px-16 sm:px-0">
           <h1 className="text-[52px] leading-denser tracking-snug font-medium lg:text-5xl md:text-4xl sm:text-[30px] sm:text-center">
-            {DATA.title}
+            {TITLE}
           </h1>
           <p className="mt-4 text-lg font-book leading-snug text-white/70 md:max-w-md md:mt-3 md:text-base sm:max-w-none sm:text-center">
-            {DATA.description}
+            {DESCRIPTION}
           </p>
           <div className="flex justify-between mt-12 lg:flex-wrap lg:gap-y-4 lg:mt-[42px] md:justify-start md:gap-x-6 md:mt-9 sm:flex-col sm:mt-7 sm:items-center">
             <div className="w-[392px] h-[54px] pl-5 pr-2 relative flex items-center justify-between rounded-md bg-black border border-transparent bg-clip-border before:absolute before:-z-20 before:-inset-0.5 before:rounded-md before:bg-[linear-gradient(267.51deg,#FFD447_10.88%,#FF8125_28.58%,#FF036B_62.46%,#DE18BC_109.99%)] lg:h-[46px] md:pr-1.5 sm:pl-4 sm:w-full sm:max-w-xs">
@@ -71,9 +80,9 @@ const Hero = () => {
             <Button
               className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
               theme="gray-outline"
-              to={DATA.link}
+              to={LINK.url}
             >
-              Learn more
+              {LINK.text}
             </Button>
           </div>
         </div>

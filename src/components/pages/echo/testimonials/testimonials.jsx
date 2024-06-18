@@ -1,12 +1,36 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Slider from 'react-slick';
 
 import ArrowIcon from 'icons/chevron.inline.svg';
 
-import TESTIMONIALS from './data';
 import blockquote from './images/blockquote.svg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+const TITLE = 'Don&apos;t just listen to us';
+
+const TESTIMONIALS = [
+  {
+    content:
+      "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydratin and notification routing issues.",
+    avatar: (
+      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    ),
+    name: 'Jesselynn Mah',
+    company: 'KnowledgeTouch',
+  },
+  {
+    content:
+      "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydratin and notification routing issues.",
+
+    avatar: (
+      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    ),
+    name: 'Jesselynn Mah',
+    company: 'KnowledgeTouch',
+  },
+];
 
 const NextArrow = (props) => {
   const { onClick } = props;
@@ -57,9 +81,10 @@ const Testimonials = () => {
   return (
     <section className="testimonials mt-[231px] lg:mt-[157px] md:mt-28 sm:mt-[102px]">
       <div className="container-sm px-[80px] relative md:max-w-xl">
-        <h2 className="text-4xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl">
-          Don&apos;t just listen to us
-        </h2>
+        <h2
+          className="text-4xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl"
+          dangerouslySetInnerHTML={{ __html: TITLE }}
+        />
         <Slider className="!flex w-full justify-between mt-8 md:mt-7 sm:mt-[30px]" {...settings}>
           {TESTIMONIALS.map(({ content, avatar, name, company }, index) => (
             <figure className="" key={index}>

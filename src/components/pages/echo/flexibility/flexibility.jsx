@@ -3,23 +3,32 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 
+const TITLE = 'Complete control and flexibility';
+
+const DESCRIPTION =
+  'Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for Non-Technical users.';
+
+const LINK = {
+  text: 'Read docs',
+  url: 'https://novu.mintlify.app/echo/quickstart',
+};
+
 const Flexibility = () => (
   <section className="flexibility mt-[245px] lg:mt-[207px] md:mt-[180px] sm:mt-[100px]">
     <div className="container-2xl relative flex justify-end sm:flex-col">
       <div className="max-w-96 pb-[271px] lg:max-w-72 lg:pb-[150px] md:max-w-64 md:pb-[39px] sm:max-w-none sm:pb-0">
         <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-[34px] md:text-[30px]">
-          Complete control and flexibility
+          {TITLE}
         </h2>
         <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 lg:mt-2.5 md:text-base md:mt-3">
-          Redesigned local experience to author configurable workflows tailored to optimize
-          Developer Experience, with a matching interface for Non-Technical users.
+          {DESCRIPTION}
         </p>
         <Button
           className="mt-[26px] text-sm h-14 min-w-[142px] lg:h-12 lg:mt-6 md:mt-7"
           theme="gray-outline"
-          to="https://novu.mintlify.app/echo/quickstart"
+          to={LINK.url}
         >
-          Read docs
+          {LINK.text}
         </Button>
       </div>
       <StaticImage

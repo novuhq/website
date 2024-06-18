@@ -4,6 +4,8 @@ import React from 'react';
 
 import glow from './images/glow.svg';
 
+const TITLE = 'Code-based notification infrastructure for modern teams';
+
 const CARDS_IMAGE_CLASS_NAME_DESKTOP =
   '!absolute w-fit h-fit inset-0 z-0 rounded-xl lg:h-full lg:w-auto [&_img]:lg:!w-auto [&_img]:lg:!-translate-x-1/2 [&_img]:lg:!left-1/2 sm:!hidden';
 
@@ -130,7 +132,7 @@ const Infrastructure = () => (
   <section className="infrastructure md:mt-[130px] sm:mt-[88px]">
     <div className="container-lg relative lg:!max-w-5xl">
       <h2 className="text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
-        Code-based notification infrastructure for modern teams
+        {TITLE}
       </h2>
       <ul className="flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:justify-center sm:mt-8">
         {CARDS.map(({ title, description, className, image, imageMobile }, index) => (

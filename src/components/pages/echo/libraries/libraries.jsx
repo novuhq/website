@@ -12,6 +12,11 @@ import reactEmailLogo from './images/react-email.svg';
 import remixLogo from './images/remix.svg';
 import twilioLogo from './images/twilio.svg';
 
+const TITLE = 'Integrates with anything';
+
+const DESCRIPTION =
+  'Built from scratch to integrate your existing tooling and content with the Novu Platform.';
+
 const LIBRARIES = [
   {
     title: 'MJML',
@@ -59,10 +64,10 @@ const Libraries = () => (
   <section className="libraries mt-[172px] lg:mt-[100px] md:mt-[131px] sm:mt-28">
     <div className="container-md text-center">
       <h2 className="text-5xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl">
-        Integrates with anything
+        {TITLE}
       </h2>
       <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 max-w-lg mx-auto lg:max-w-md md:text-base">
-        Built from scratch to integrate your existing tooling and content with the Novu Platform.
+        {DESCRIPTION}
       </p>
       <ul className="grid grid-cols-5 mt-10 px-1 lg:mt-8 md:mt-7 sm:grid-cols-2 sm:mt-8">
         {LIBRARIES.map(({ title, src }, index) => (
