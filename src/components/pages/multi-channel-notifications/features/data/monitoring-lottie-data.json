@@ -12,7 +12,7 @@
       "id": "image_0",
       "w": 64,
       "h": 64,
-      "u": "lottie-assets/pages/home/features/monitoring/",
+      "u": "/lottie-assets/pages/home/features/monitoring/",
       "p": "Monitoring_-_icon.svg",
       "e": 0
     },
@@ -20,7 +20,7 @@
       "id": "image_1",
       "w": 128,
       "h": 128,
-      "u": "lottie-assets/pages/home/features/monitoring/",
+      "u": "/lottie-assets/pages/home/features/monitoring/",
       "p": "back.svg",
       "e": 0
     },
