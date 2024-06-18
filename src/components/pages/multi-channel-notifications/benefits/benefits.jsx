@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Benefits_imgOnRightSide from 'components/pages/send-multi-channel-notifications/benefits/benefit_imgOnRightSide/benefits_imgOnRightSide';
-import Benefits_imgOnLeftSide from 'components/pages/send-multi-channel-notifications/benefits/benefit_imgOnLeftSide/benefit_imgOnLeftSide';
+import Benefits_imgOnRightSide from 'components/pages/multi-channel-notifications/benefits/benefit_imgOnRightSide/benefits_imgOnRightSide';
+import Benefits_imgOnLeftSide from 'components/pages/multi-channel-notifications/benefits/benefit_imgOnLeftSide/benefit_imgOnLeftSide';
 
 
 const benefitsList = [
