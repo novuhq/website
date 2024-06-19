@@ -4,7 +4,7 @@ import { baseSettings, searchSettings, aiChatSettings } from '../shared-settings
 
 const chatButtonProps = {
   chatButtonType: 'ICON_TEXT',
-  fixedPositionXOffset: '2em',
+  fixedPositionXOffset: '1rem',
   baseSettings,
   searchSettings,
   aiChatSettings,
