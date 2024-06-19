@@ -39,7 +39,7 @@ const Cta = () => {
   return (
     <section className="cta mt-[244px] mb-[118px] lg:mt-[204px] lg:mb-[104px] md:mt-[124px] md:mb-[100px] sm:mt-[188px]">
       <div className="container-sm relative">
-        <div className="flex flex-col items-center">
+        <div className="relative z-10 flex flex-col items-center">
           <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-4xl md:text-[32px]">
             {TITLE}
           </h2>
@@ -86,7 +86,7 @@ const Cta = () => {
           </div>
         </div>
         <img
-          className="absolute max-w-none bottom-[-545px] left-[-557px] pointer-events-none -z-10"
+          className="absolute max-w-none bottom-[-545px] left-[-557px] pointer-events-none z-0"
           src={background}
           width={2015}
           height={1269}

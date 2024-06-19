@@ -13,7 +13,7 @@ import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
 const EchoPage = () => (
-  <Layout className="echo overflow-hidden pb-px">
+  <Layout className="echo overflow-hidden pb-px bg-[#05050B]">
     <Hero />
     <Infrastructure />
     <Integration />

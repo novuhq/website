@@ -16,7 +16,7 @@ const LINK = {
 const Flexibility = () => (
   <section className="flexibility mt-[245px] lg:mt-[207px] md:mt-[180px] sm:mt-[100px]">
     <div className="container-2xl relative flex justify-end sm:flex-col">
-      <div className="max-w-96 pb-[271px] lg:max-w-72 lg:pb-[150px] md:max-w-64 md:pb-[39px] sm:max-w-none sm:pb-0">
+      <div className="relative z-10 max-w-96 min-h-[558px] lg:max-w-72 lg:min-h-[425px] md:max-w-64 md:min-h-[305px] sm:max-w-none sm:min-h-none">
         <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-[34px] md:text-[30px]">
           {TITLE}
         </h2>
@@ -32,7 +32,7 @@ const Flexibility = () => (
         </Button>
       </div>
       <StaticImage
-        className="!absolute bottom-0 right-[30px] w-[1555px] pointer-events-none -z-10 lg:w-[1181px] lg:right-[43px] md:w-[830px] md:right-[87px] sm:!relative sm:w-[183.75%] sm:right-[32.5%] sm:mt-[-36.824%]"
+        className="!absolute bottom-0 right-[30px] w-[1555px] pointer-events-none z-0 lg:w-[1181px] lg:right-[43px] md:w-[830px] md:right-[87px] sm:!relative sm:w-[183.75%] sm:right-[32.5%] sm:mt-[-36.824%]"
         src="./images/background.png"
         width={1555}
         height={1048}

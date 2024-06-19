@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import glow from './images/glow.svg';
-
 const TITLE = 'Code-based notification infrastructure for modern teams';
 
 const CARDS_IMAGE_CLASS_NAME_DESKTOP =
@@ -26,7 +24,7 @@ const CARDS = [
         alt=""
         width={768}
         height={380}
-        loading="lazy"
+        loading="eager"
         quality={100}
       />
     ),
@@ -37,7 +35,7 @@ const CARDS = [
         alt=""
         width={320}
         height={250}
-        loading="lazy"
+        loading="eager"
         quality={100}
       />
     ),
@@ -54,7 +52,7 @@ const CARDS = [
         alt=""
         width={416}
         height={380}
-        loading="lazy"
+        loading="eager"
         quality={100}
       />
     ),
@@ -131,10 +129,10 @@ const CARDS = [
 const Infrastructure = () => (
   <section className="infrastructure md:mt-[130px] sm:mt-[88px]">
     <div className="container-lg relative lg:!max-w-5xl">
-      <h2 className="text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
+      <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
         {TITLE}
       </h2>
-      <ul className="flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:justify-center sm:mt-8">
+      <ul className="relative z-10 flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:justify-center sm:mt-8">
         {CARDS.map(({ title, description, className, image, imageMobile }, index) => (
           <li
             className={clsx(
@@ -170,13 +168,8 @@ const Infrastructure = () => (
           </li>
         ))}
       </ul>
-      <img
-        className="absolute top-[-205px] left-[-400px] w-[1920px] max-w-none h-auto -z-10 lg:w-[1300px]"
-        src={glow}
-        alt=""
-        loading="lazy"
-        aria-hidden
-      />
+      <div className="absolute z-0 top-20 -right-36 w-[564px] h-[420px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#D886FF_27.2%,#EA69FF_80.5%,#A347FF_100%)] opacity-10 blur-3xl lg:w-[508px] lg:h-[378px] md:-right-9 md:w-[377px] md:h-[281px] sm:top-64 sm:-right-28" />
+      <div className="absolute z-0 -left-44 -bottom-12 w-[553px] h-[394px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#6789FF_27.2%,#69B7FF_80.5%,#4786FF_100%)] opacity-10 blur-3xl lg:w-[522px] lg:h-[372px] md:-left-10 md:w-[372px] md:h-[265px] sm:-left-36" />
     </div>
   </section>
 );

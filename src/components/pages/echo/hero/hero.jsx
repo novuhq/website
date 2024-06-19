@@ -48,27 +48,29 @@ const Hero = () => {
             {DESCRIPTION}
           </p>
           <div className="flex justify-between mt-12 lg:flex-wrap lg:gap-y-4 lg:mt-[42px] md:justify-start md:gap-x-6 md:mt-9 sm:flex-col sm:mt-7 sm:items-center">
-            <div className="w-[392px] h-[54px] pl-5 pr-2 relative flex items-center justify-between rounded-md bg-black border border-transparent bg-clip-border before:absolute before:-z-20 before:-inset-0.5 before:rounded-md before:bg-[linear-gradient(267.51deg,#FFD447_10.88%,#FF8125_28.58%,#FF036B_62.46%,#DE18BC_109.99%)] lg:h-[46px] md:pr-1.5 sm:pl-4 sm:w-full sm:max-w-xs">
-              <span className="font-mono font-medium">npx novu-labs@latest echo</span>
-              <Button
-                className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
-                theme="white-filled"
-                onClick={handleCopy}
-              >
-                {isCopied ? (
-                  <>
-                    <span className="sm:hidden">Copied!</span>
-                    <CheckIcon className="w-[18px] h-3 hidden sm:block" />
-                  </>
-                ) : (
-                  <>
-                    <span className="sm:hidden">Copy</span>
-                    <CopyIcon className="w-4 h-4 hidden sm:block" />
-                  </>
-                )}
-              </Button>
+            <div className="w-[392px] h-[54px] z-10 relative after:absolute after:-z-20 after:-inset-px after:rounded-md after:bg-[linear-gradient(267.51deg,#FFD447_10.88%,#FF8125_28.58%,#FF036B_62.46%,#DE18BC_109.99%)] lg:h-[46px] sm:w-full sm:max-w-xs">
+              <div className="w-full h-full pl-5 pr-2 flex items-center justify-between rounded-md bg-black md:pr-1.5 sm:pl-4">
+                <span className="font-mono font-medium">npx novu-labs@latest echo</span>
+                <Button
+                  className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
+                  theme="white-filled"
+                  onClick={handleCopy}
+                >
+                  {isCopied ? (
+                    <>
+                      <span className="sm:hidden">Copied!</span>
+                      <CheckIcon className="w-[18px] h-3 hidden sm:block" />
+                    </>
+                  ) : (
+                    <>
+                      <span className="sm:hidden">Copy</span>
+                      <CopyIcon className="w-4 h-4 hidden sm:block" />
+                    </>
+                  )}
+                </Button>
+              </div>
               <img
-                className="absolute -z-10 top-[-25px] -right-6"
+                className="absolute -z-10 -top-6 right-[23px]"
                 src={borderGlow}
                 width={186}
                 height={93}
@@ -86,7 +88,7 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-        <div className="absolute w-full h-full left-0 top-0 -z-30 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
+        <div className="absolute w-full h-full left-0 top-0 z-0 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
           <StaticImage
             className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
             src="./images/illustration.png"
