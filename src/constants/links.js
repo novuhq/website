@@ -11,6 +11,9 @@ export default {
   blog: {
     to: '/blog',
   },
+  community: {
+    to: '/community',
+  },
   contributors: {
     to: '/contributors',
   },
@@ -109,6 +112,10 @@ export default {
   },
   statusPage: {
     to: 'https://novustatus.com?utm_campaign=website',
+    target: '_blank',
+  },
+  changeLog: {
+    to: 'https://novu.productlane.com/changelog',
     target: '_blank',
   },
   roadmapPage: {

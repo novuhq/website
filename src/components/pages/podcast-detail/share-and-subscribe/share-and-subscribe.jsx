@@ -26,7 +26,7 @@ const ShareAndSubscribe = ({ className, url }) => (
           <ApplePodcastIcon className="h-9 flex-shrink-0 md:h-8" />
           <div className="flex flex-col">
             <span className="text-xs leading-none md:text-[10px]">Listen on</span>
-            <span className="mt-1 font-bold leading-none md:mt-0.5 xs:text-sm xs:font-medium">
+            <span className="mt-1 font-bold leading-none md:mt-0.5 2xs:text-sm 2xs:font-medium">
               Apple Podcasts
             </span>
           </div>
@@ -38,7 +38,7 @@ const ShareAndSubscribe = ({ className, url }) => (
           <SpotifyIcon className="h-9 flex-shrink-0 md:h-8" />
           <div className="flex flex-col">
             <span className="text-xs leading-none md:text-[10px]">Listen on</span>
-            <span className="mt-1 font-bold leading-none md:mt-0.5 xs:text-sm xs:font-medium">
+            <span className="mt-1 font-bold leading-none md:mt-0.5 2xs:text-sm 2xs:font-medium">
               Spotify
             </span>
           </div>

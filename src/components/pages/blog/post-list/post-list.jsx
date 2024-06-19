@@ -3,8 +3,6 @@ import React from 'react';
 
 import BlogPostCard from 'components/shared/blog-post-card';
 
-import './post-list.css';
-
 const getAdditionalProps = (index) => {
   switch (index) {
     // Define the element that should be stretched to the full width of the screen
@@ -16,7 +14,7 @@ const getAdditionalProps = (index) => {
       };
     default:
       return {
-        className: 'col-span-4 md:col-span-6',
+        className: 'col-span-4 md:col-span-6 xs:col-span-full',
         size: 'md',
       };
   }
@@ -24,7 +22,7 @@ const getAdditionalProps = (index) => {
 
 const PostList = ({ items, blogPageURL }) => (
   <section className="safe-paddings mt-10 overflow-x-hidden">
-    <div className="article-list-inner container-lg grid grid-cols-12 gap-x-8 gap-y-16 lg:gap-x-7 md:gap-x-5">
+    <div className="container-lg grid grid-cols-12 gap-x-8 gap-y-16 lg:gap-x-7 lg:gap-y-10 md:gap-x-5">
       {items.map((item, index) => {
         const { className, size } = getAdditionalProps(index);
 

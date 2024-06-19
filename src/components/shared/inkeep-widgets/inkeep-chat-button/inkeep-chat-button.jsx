@@ -14,13 +14,17 @@ const InkeepWidget = () => {
   const [ChatButton, setChatButton] = useState(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     (async () => {
       const { InkeepChatButton } = await import('@inkeep/widgets');
       setChatButton(() => InkeepChatButton);
     })();
   }, []);
 
-  return ChatButton ? <ChatButton {...chatButtonProps} /> : null;
+  if (!ChatButton) return null;
+
+  return <ChatButton {...chatButtonProps} />;
 };
 
 export default InkeepWidget;

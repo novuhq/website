@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Heading from 'components/shared/heading';
+import SubscribeForm from 'components/shared/subscribe-form';
 
-import Form from './form';
 import bg from './images/bg.svg';
 
 const TITLE = 'Subscribe to the blog updates';
@@ -23,7 +23,7 @@ const Subscribe = () => (
       <p className="mt-5 text-center text-lg font-book text-gray-9 lg:max-w-[716px] md:text-base sm:mt-3">
         {DESCRIPTION}
       </p>
-      <Form />
+      <SubscribeForm className="mt-10 h-16 max-w-[464px] bg-black" />
     </div>
 
     <img

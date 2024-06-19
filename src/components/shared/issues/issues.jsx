@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+// import { graphql, useStaticQuery } from 'gatsby';
 import moment from 'moment';
 import React from 'react';
 
@@ -12,9 +13,9 @@ const DESCRIPTION =
   'Check our good first issues that help you onboard to Novu project and get first achievement.';
 
 const Issues = ({ className }) => {
-  // TODO: uncomment the creation of contributors page after this link works - http://contributors.novu.co/
   // const [isShownMore, setIsShownMore] = useState(false);
-  //
+
+  // TODO:: uncomment issuesData, when GATSBY_CONTRIBUTORS_API_URL will be available
   // const {
   //   issues: { data },
   // } = useStaticQuery(graphql`
@@ -28,6 +29,9 @@ const Issues = ({ className }) => {
   //     }
   //   }
   // `);
+
+  // eslint-disable-next-line
+  const data = [];
 
   // const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
 

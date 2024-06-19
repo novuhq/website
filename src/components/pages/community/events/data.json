@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Webinar marketing planning",
+    "description": "An application to help consumers find agencies providing a specific service tasked to build.",
+    "category": "Webinar",
+    "date": "2024-05-15T10:00:00",
+    "venue": "Discord",
+    "linkUrl": "#",
+    "linkText": "Learn more"
+  },
+  {
+    "title": "7 Strategies for success",
+    "description": "Tasked to build an application to help consumers find agencies providing a specific service tasked to build.",
+    "category": "Meetup",
+    "date": "2024-05-20T10:00:00",
+    "venue": "Discord",
+    "linkUrl": "#",
+    "linkText": "Learn more"
+  },
+  {
+    "title": "Application to help consumers",
+    "description": "Let’s say you’ve been tasked to build an application to help consumers find agencies providing a specific.",
+    "category": "Conference",
+    "date": "2024-06-01T10:00:00",
+    "venue": "Discord",
+    "linkUrl": "#",
+    "linkText": "Join now"
+  }
+]

@@ -88,16 +88,16 @@ const Timer = () => {
             <h3 className="text-lg uppercase leading-none text-white">
               {isLaunched ? 'Time to end' : 'Time to launch'}
             </h3>
-            <div className="mt-7 flex space-x-20 md:space-x-16 sm:space-x-10 xs:space-x-6">
+            <div className="mt-7 flex space-x-20 md:space-x-16 sm:space-x-10 2xs:space-x-6">
               {items.map(({ number, title }, index) => (
                 <div
                   className="flex w-[86px] flex-col items-center justify-center leading-none md:w-[76px] sm:w-14"
                   key={index}
                 >
-                  <span className="text-8xl md:text-7xl sm:text-5xl xs:text-3xl">
+                  <span className="text-8xl md:text-7xl sm:text-5xl 2xs:text-3xl">
                     {getZeroPad(number)}
                   </span>
-                  <span className="mt-2.5 uppercase text-gray-6 sm:text-sm xs:text-xs">
+                  <span className="mt-2.5 uppercase text-gray-6 sm:text-sm 2xs:text-xs">
                     {title}
                   </span>
                 </div>

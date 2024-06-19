@@ -65,7 +65,7 @@ const Timeline = () => {
   return (
     <section className="safe-paddings relative flex h-[calc(100vh-50px)] min-h-[824px] flex-col pt-24 sm:pt-20">
       <div className="px-10 md:px-7 sm:px-4">
-        <h1 className="text-highlighting-gray-light-gradient text-7xl font-normal leading-denser tracking-tight sm:text-5xl xs:text-3xl">
+        <h1 className="text-highlighting-gray-light-gradient text-7xl font-normal leading-denser tracking-tight sm:text-5xl 2xs:text-3xl">
           Novu 2022 Events
         </h1>
       </div>

@@ -21,7 +21,7 @@ const BlogPostCardMedium = ({
   blogPageURL,
 }) => (
   <article className={clsx('flex flex-col', className)}>
-    <Link to={url}>
+    <Link to={url} aria-label={title}>
       <GatsbyImage
         className="w-full"
         imgClassName="rounded-lg"
@@ -34,7 +34,7 @@ const BlogPostCardMedium = ({
         <CategoryLabel url={blogPageURL + category.slug} theme={category.color} size="xs">
           {category.name}
         </CategoryLabel>
-        <h1 className="line-clamp-2 text-[22px] font-medium leading-denser lg:text-[18px] xs:text-[16px]">
+        <h1 className="line-clamp-2 text-[22px] font-medium leading-denser lg:text-lg 2xs:text-base">
           <Link className="align-top" to={url} theme="white">
             {title}
           </Link>

@@ -56,7 +56,7 @@ const CARDS = [
     icon: msTeams,
     title: 'MS Teams',
     text: 'Chat',
-    to: 'https://github.com/novuhq/novu/tree/main/providers/ms-teams'
+    to: 'https://github.com/novuhq/novu/tree/main/providers/ms-teams',
   },
   {
     icon: aws,
@@ -116,7 +116,7 @@ const SimpleUse = () => (
         {LINK_NAME}
       </Link>
 
-      <div className="mt-10 grid w-full grid-cols-6 gap-10 xl:gap-7 lg:grid-cols-4 lg:items-stretch md:grid-cols-3 md:gap-5 sm:mt-8 sm:grid-cols-2 sm:gap-4 xs:grid-cols-1 xs:gap-x-0">
+      <div className="mt-10 grid w-full grid-cols-6 gap-10 xl:gap-7 lg:grid-cols-4 lg:items-stretch md:grid-cols-3 md:gap-5 sm:mt-8 sm:grid-cols-2 sm:gap-4 2xs:grid-cols-1 2xs:gap-x-0">
         {CARDS.map(({ icon, title, text, to }, index) => {
           const Tag = to ? Link : 'div';
           return (
