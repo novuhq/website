@@ -15,8 +15,8 @@ const LINK = {
 
 const Flexibility = () => (
   <section className="flexibility mt-[245px] lg:mt-[207px] md:mt-[180px] sm:mt-[100px]">
-    <div className="container-2xl relative flex justify-end sm:flex-col">
-      <div className="relative z-10 max-w-96 min-h-[558px] lg:max-w-72 lg:min-h-[425px] md:max-w-64 md:min-h-[305px] sm:max-w-none sm:min-h-none">
+    <div className="container-2xl relative flex justify-end xl:px-10 lg:px-8 lg:max-w-none sm:px-5 sm:flex-col">
+      <div className="relative z-10 max-w-96 min-h-[558px] lg:max-w-72 lg:min-h-[425px] md:max-w-64 md:min-h-[305px] sm:max-w-none sm:min-h-fit">
         <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-[34px] md:text-[30px]">
           {TITLE}
         </h2>

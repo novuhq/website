@@ -62,7 +62,7 @@ const LIBRARIES = [
 
 const Libraries = () => (
   <section className="libraries mt-[172px] lg:mt-[100px] md:mt-[131px] sm:mt-28">
-    <div className="container-md text-center">
+    <div className="container-md text-center md:px-8 sm:w-full sm:px-5">
       <h2 className="text-5xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl">
         {TITLE}
       </h2>
@@ -81,7 +81,7 @@ const Libraries = () => (
             })}
             key={index}
           >
-            <img src={src} alt={title} width={128} height={44} />
+            <img className="mx-auto" src={src} alt={title} width={128} height={44} loading="lazy" />
           </li>
         ))}
       </ul>
