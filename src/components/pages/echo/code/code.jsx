@@ -73,10 +73,10 @@ const Code = () => {
     <section className="code mt-[206px] lg:mt-36 md:mt-[116px] sm:mt-20">
       <div className="container-lg px-8 min-h-[836px] relative lg:max-w-5xl lg:min-h-[692px] md:max-w-3xl md:min-h-[535px] sm:min-h-[324px]">
         <h2
-          className="relative text-[52px] leading-none tracking-snug font-medium text-transparent max-w-[500px] bg-clip-text bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] ml-[42px] lg:text-5xl lg:ml-8 md:text-4xl md:max-w-md md:ml-0 sm:text-[32px]"
+          className="relative z-10 text-[52px] leading-none tracking-snug font-medium text-transparent max-w-[500px] bg-clip-text bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] ml-[42px] lg:text-5xl lg:ml-8 md:text-4xl md:max-w-md md:ml-0 sm:text-[32px]"
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
-        <ul className="relative flex justify-end gap-x-7 font-medium text-[15px] text-[#CAE9FF]/60 leading-snug mt-8 pr-8 lg:mt-5 lg:gap-x-6 md:text-sm md:mt-4 md:pr-0 md:gap-x-[22px] sm:justify-start sm:mt-[30px]">
+        <ul className="relative z-10 flex justify-end gap-x-7 font-medium text-[15px] text-[#CAE9FF]/60 leading-snug mt-8 pr-8 lg:mt-5 lg:gap-x-6 md:text-sm md:mt-4 md:pr-0 md:gap-x-[22px] sm:justify-start sm:mt-[30px]">
           {TABS.map(({ title, code }, index) => (
             <li key={index}>
               <button
@@ -97,7 +97,7 @@ const Code = () => {
             </li>
           ))}
         </ul>
-        <div className="relative lg:mx-auto sm:max-w-80 sm:mx-auto">
+        <div className="relative z-10 lg:mx-auto sm:max-w-80 sm:mx-auto">
           <SyntaxHighlighter
             className="echo-code relative z-10 pl-[42px] mt-[70px] scrollbar-hidden text-sm font-normal lg:mt-[62px] lg:pl-[35px] lg:text-xs md:mt-[53px] md:pl-[26px] sm:text-[10px] sm:mt-11 sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)]"
             language="javascript"

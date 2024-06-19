@@ -13,7 +13,7 @@ import MobileMenu from 'components/shared/mobile-menu';
 import UtmParams from 'components/shared/utm-params';
 // import Banner from '../banner/banner';
 
-const Layout = ({ className, children, headerTheme = 'default' }) => {
+const Layout = ({ className, mainClassName, children, headerTheme = 'default' }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
@@ -30,7 +30,7 @@ const Layout = ({ className, children, headerTheme = 'default' }) => {
           isMobileMenuOpen={isMobileMenuOpen}
           onBurgerClick={handleHeaderBurgerClick}
         />
-        <main className="flex-grow">{children}</main>
+        <main className={clsx('flex-grow', mainClassName)}>{children}</main>
         <Footer />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
@@ -46,12 +46,14 @@ const Layout = ({ className, children, headerTheme = 'default' }) => {
 
 Layout.propTypes = {
   className: PropTypes.string,
+  mainClassName: PropTypes.string,
   children: PropTypes.node.isRequired,
   headerTheme: PropTypes.oneOf(['default', 'community']),
 };
 
 Layout.defaultProps = {
   className: null,
+  mainClassName: null,
   headerTheme: 'default',
 };
 
