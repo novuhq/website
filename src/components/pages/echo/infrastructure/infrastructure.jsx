@@ -8,7 +8,7 @@ const CARDS_IMAGE_CLASS_NAME_DESKTOP =
   '!absolute w-fit h-fit inset-0 z-0 rounded-xl lg:h-full lg:w-auto [&_img]:lg:!w-auto [&_img]:lg:!-translate-x-1/2 [&_img]:lg:!left-1/2 sm:!hidden';
 
 const CARDS_IMAGE_CLASS_NAME_MOBILE =
-  '!hidden !absolute w-fit h-fit inset-0 z-0 rounded-xl sm:!inline-block';
+  '!hidden !absolute w-full h-full inset-0 z-0 rounded-xl sm:!inline-block';
 
 const CARDS = [
   {
@@ -129,14 +129,14 @@ const CARDS = [
 const Infrastructure = () => (
   <section className="infrastructure md:mt-[130px] sm:mt-[88px]">
     <div className="container-lg relative xl:px-0 lg:px-8 lg:w-full lg:max-w-5xl md:max-w-3xl sm:px-5">
-      <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
+      <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl [@media(max-width:614px)]:max-w-[460px] [@media(max-width:614px)]:mx-auto">
         {TITLE}
       </h2>
-      <ul className="relative z-10 flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:grid sm:grid-cols-2 sm:justify-items-center sm:mt-8 sm-xs:grid-cols-1">
+      <ul className="relative z-10 flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:grid sm:grid-cols-2 sm:justify-items-center sm:mt-8 [@media(max-width:614px)]:grid-cols-1">
         {CARDS.map(({ title, description, className, image, imageMobile }, index) => (
           <li
             className={clsx(
-              'relative h-[382px] rounded-xl bg-clip-border border border-transparent lg:h-[322px] md:h-[252px] sm:max-w-[320px] sm:w-full sm:h-auto sm:aspect-[32/25]',
+              'relative h-[382px] rounded-xl bg-clip-border border border-transparent lg:h-[322px] md:h-[252px] sm:max-w-[460px] sm:w-full sm:h-auto sm:aspect-[32/25]',
               className,
               {
                 'w-[770px] lg:w-[608px] md:w-[446px]': index % 2 === 0,
