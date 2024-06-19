@@ -39,7 +39,7 @@ const Hero = () => {
 
   return (
     <section className="hero pt-[339px] pb-[342px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
-      <div className="container-xl relative">
+      <div className="container-xl relative xl:px-10 lg:px-8 lg:max-w-none md:max-w-3xl sm:max-w-lg sm:px-5">
         <div className="max-w-[562px] lg:max-w-md md:max-w-none md:px-16 sm:px-0">
           <h1 className="text-[52px] leading-denser tracking-snug font-medium lg:text-5xl md:text-4xl sm:text-[30px] sm:text-center">
             {TITLE}
@@ -70,7 +70,7 @@ const Hero = () => {
                 </Button>
               </div>
               <img
-                className="absolute -z-10 -top-6 right-[23px]"
+                className="absolute -z-10 -top-6 right-[-23px]"
                 src={borderGlow}
                 width={186}
                 height={93}

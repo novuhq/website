@@ -47,7 +47,14 @@ const StepTooltip = () => {
             aria-hidden
             onClick={() => setMethod(key)}
           >
-            <img className="lg:w-3.5 lg:h-3.5" src={codeIcon} alt="" width={16} height={16} />
+            <img
+              className="lg:w-3.5 lg:h-3.5"
+              src={codeIcon}
+              alt=""
+              width={16}
+              height={16}
+              loading="lazy"
+            />
             {key}
           </button>
         ))}

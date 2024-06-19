@@ -15,7 +15,13 @@ const TESTIMONIALS = [
     content:
       "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydratin and notification routing issues.",
     avatar: (
-      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+      <StaticImage
+        src="./images/jesselynn-mah.jpg"
+        width={32}
+        height={32}
+        alt="Jesselynn Mah"
+        loading="lazy"
+      />
     ),
     name: 'Jesselynn Mah',
     company: 'KnowledgeTouch',
@@ -25,7 +31,13 @@ const TESTIMONIALS = [
       "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydratin and notification routing issues.",
 
     avatar: (
-      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+      <StaticImage
+        src="./images/jesselynn-mah.jpg"
+        width={32}
+        height={32}
+        alt="Jesselynn Mah"
+        loading="lazy"
+      />
     ),
     name: 'Jesselynn Mah',
     company: 'KnowledgeTouch',
@@ -80,7 +92,7 @@ const Testimonials = () => {
 
   return (
     <section className="testimonials mt-[231px] lg:mt-[157px] md:mt-28 sm:mt-[102px]">
-      <div className="container-sm px-[80px] relative md:max-w-xl">
+      <div className="container-sm px-[80px] relative md:max-w-xl md:px-8 sm:w-full sm:px-5">
         <h2
           className="text-4xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl"
           dangerouslySetInnerHTML={{ __html: TITLE }}
