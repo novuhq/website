@@ -79,10 +79,14 @@ module.exports = {
       'gray-gradient': 'linear-gradient(180deg, #262626 0%, #171717 100%)',
       'gray-gradient-2':
         'linear-gradient(258.24deg, rgba(88, 88, 88, 0.0804) -4.87%, rgba(24, 24, 24, 0.12) 49.06%, rgba(92, 92, 92, 0.12) 96.07%)',
+      'gray-gradient-3':
+        'linear-gradient(258.12deg, rgba(176, 166, 191, 0.6) -8.62%, rgba(176, 166, 191, 0.3) 113.79%)',
       'active-gray-gradient': 'linear-gradient(180deg, #131313 0%, #0B0B0B 100%)',
       'hs-form-gradient':
         'linear-gradient(180deg, rgba(26, 26, 26, 0.80) 0%, rgba(26, 26, 26, 0.70) 100%)',
       'yellow-gradient': 'linear-gradient(270deg, #FFE14D 0%, rgba(255, 225, 77, 0) 100%)',
+      'echo-gradient':
+        'linear-gradient(90deg, #333333 20.54%, #34336C 29.07%, #6D87E5 36.23%, #34336C 44.15%, #333333 52.29%)',
       'community-card-stars-border-gradient':
         'radial-gradient(79.68% 200.52% at 100% 79.68%, rgba(148, 255, 255, 0.3) 0%, rgba(188, 197, 201, 0.1) 24.77%, rgba(255, 255, 255, 0) 73.23%)',
       'community-card-open-issues-border-gradient':
@@ -122,6 +126,9 @@ module.exports = {
     extend: {
       lineHeight: {
         denser: '1.125',
+      },
+      letterSpacing: {
+        snug: '-0.02em',
       },
       spacing: {
         18: '4.5rem',

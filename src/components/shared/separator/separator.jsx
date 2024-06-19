@@ -10,8 +10,12 @@ const styles = {
   backgroundColor: {
     black: 'after:border-gray-4',
     gray: 'after:border-gray-5',
+    'echo-gradient':
+      'after:border-none after:h-px after:bg-echo-gradient after:[mask-image:repeating-linear-gradient(270deg,transparent,red_0px_3px,transparent_3px_6px)]',
   },
 };
+
+// border-image-source: ;
 
 const Separator = ({ className, size, backgroundColor }) => (
   <div className={clsx('separator', styles.size[size], className)}>
