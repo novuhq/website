@@ -88,7 +88,7 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-        <div className="absolute w-full h-full left-0 top-0 z-0 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
+        <div className="absolute pointer-events-none w-full h-full left-0 top-0 z-0 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
           <StaticImage
             className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
             src="./images/illustration.png"
