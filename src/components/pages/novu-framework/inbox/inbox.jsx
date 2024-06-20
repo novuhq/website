@@ -6,14 +6,14 @@ import Heading from 'components/shared/heading/heading';
 import LottieAnimation from 'components/shared/lottie-animation';
 import LINKS from 'constants/links';
 
-import animationData from './data/notification-center-lottie-data.json';
+import animationData from './data/inbox-data.json';
 
-const TITLE = 'Fully featured notification center in minutes';
+const TITLE = 'Fully featured Notification Center Inbox in minutes';
 const DESCRIPTION =
-  'Include a real-time notification center using our embeddable components or connect your custom UI with our notification feed API.';
+  'Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API.';
 const BUTTON_TEXT = 'Read Docs';
 
-const NotificationCenter = () => {
+const Inbox = () => {
   const [animationWrapperRef, isAnimationWrapperInView] = useInView({
     threshold: 0.6,
   });
@@ -57,4 +57,4 @@ const NotificationCenter = () => {
   );
 };
 
-export default NotificationCenter;
+export default Inbox;
