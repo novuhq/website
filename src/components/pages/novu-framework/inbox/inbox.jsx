@@ -6,7 +6,7 @@ import Heading from 'components/shared/heading/heading';
 import LottieAnimation from 'components/shared/lottie-animation';
 import LINKS from 'constants/links';
 
-import animationData from './data/inbox-data.json';
+import animationData from './data/inbox-lottie-data.json';
 
 const TITLE = 'Fully featured Notification Center Inbox in minutes';
 const DESCRIPTION =

@@ -12,7 +12,7 @@
       "id": "image_0",
       "w": 214,
       "h": 33,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "powered_by_novu.svg",
       "e": 0
     },
@@ -20,7 +20,7 @@
       "id": "image_1",
       "w": 690,
       "h": 168,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "1-a.svg",
       "e": 0
     },
@@ -28,7 +28,7 @@
       "id": "image_2",
       "w": 690,
       "h": 168,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "1-b.svg",
       "e": 0
     },
@@ -36,7 +36,7 @@
       "id": "image_3",
       "w": 690,
       "h": 128,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "2-a.svg",
       "e": 0
     },
@@ -44,7 +44,7 @@
       "id": "image_4",
       "w": 690,
       "h": 128,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "2-b.svg",
       "e": 0
     },
@@ -52,7 +52,7 @@
       "id": "image_5",
       "w": 690,
       "h": 128,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "3-a.svg",
       "e": 0
     },
@@ -60,7 +60,7 @@
       "id": "image_6",
       "w": 690,
       "h": 128,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "3-b.svg",
       "e": 0
     },
@@ -68,7 +68,7 @@
       "id": "image_7",
       "w": 690,
       "h": 128,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "4-a.svg",
       "e": 0
     },
@@ -76,7 +76,7 @@
       "id": "image_8",
       "w": 690,
       "h": 128,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "4-b.svg",
       "e": 0
     },
@@ -84,7 +84,7 @@
       "id": "image_9",
       "w": 746,
       "h": 832,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "notifications.svg",
       "e": 0
     },
@@ -92,7 +92,7 @@
       "id": "image_10",
       "w": 1684,
       "h": 1120,
-      "u": "lottie-assets/pages/home/notification-center/",
+      "u": "/lottie-assets/pages/home/inbox/",
       "p": "notification_center_inner.svg",
       "e": 0
     },
