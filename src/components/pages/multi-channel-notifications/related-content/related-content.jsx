@@ -6,10 +6,10 @@ import Link from 'components/shared/link/link';
 import relatedContentItems from './data';
 
 const RelatedContent = () => (
-  <section className="safe-paddings relative overflow-hidden pb-20 pt-25 lg:pb-16 lg:pt-32 md:pt-[104px] sm:pb-10 sm:pt-[95px]">
+  <section className="safe-paddings relative overflow-hidden py-40 lg:pb-16 lg:pt-32 md:pt-[104px] sm:pb-10 sm:pt-[95px]">
     <div className="container-lg relative z-10">
       <Heading
-        className="mx-auto text-center text-8xl font-bold leading-denser lg:text-6xl md:text-4xl sm:text-[32px]"
+        className="mx-auto text-center text-8xl font-normal leading-denser lg:text-6xl md:text-4xl sm:text-[32px]"
         size="1xl"
         tag="h1"
         theme="white"

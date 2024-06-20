@@ -1,9 +1,9 @@
 const relatedContentItems = [
   {
-    name: 'Notification Content Management',
+    name: 'Send Multi-Channel Notifications',
     description:
-      'Unify notification content in one place and easily interact with it without the need for development resources',
-    linkUrl: 'https://novu.co/',
+      'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
+    linkUrl: 'https://novu.co/usecases/multi-channel-notifications/',
   },
   {
     name: 'Add Notifications to Your Applications',
