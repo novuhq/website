@@ -2,7 +2,9 @@ import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-const TITLE = 'Code-based notification infrastructure for modern teams';
+const TITLE = 'Confidently reach end users through notifications ';
+const DESCRIPTION =
+  'Developers build capable, functional workflows using the frameworks and content components they love. Product and non-technical teams easily update content and messaging, and will never break prod.';
 
 const CARDS_IMAGE_CLASS_NAME_DESKTOP =
   '!absolute w-fit h-fit inset-0 z-0 rounded-xl lg:h-full lg:w-auto [&_img]:lg:!w-auto [&_img]:lg:!-translate-x-1/2 [&_img]:lg:!left-1/2 sm:!hidden';
@@ -12,9 +14,8 @@ const CARDS_IMAGE_CLASS_NAME_MOBILE =
 
 const CARDS = [
   {
-    title: 'Bring your own code',
-    description:
-      'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
+    title: 'As flexible as in-house built',
+    description: 'All of the power of your custom-built solution, none of the hassle.',
     className:
       'order-1 bg-[radial-gradient(60.42%_86.05%_at_24.74%_100%,_#1B2637_0%,_#27222F_100%)]',
     image: (
@@ -41,9 +42,8 @@ const CARDS = [
     ),
   },
   {
-    title: 'Type Safe',
-    description:
-      'Bring your own JSON schemas for full end&#8209;to&#8209;end validation across all your team members.',
+    title: 'Scalable, reliable and open-source',
+    description: 'Any volume, any channel, any team for mission-critical notifications.',
     className: 'order-2 bg-[#27222F]',
     image: (
       <StaticImage
@@ -69,9 +69,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Powerful debugging',
+    title: 'Observable',
     description:
-      'Rapidly identify and solve previously complicated content hydrating and notification routing issues.',
+      'Bring your own JSON schemas for full end-to-end validation across all your team members.',
     className: 'order-4 bg-[#27222F] sm:order-3',
     image: (
       <StaticImage
@@ -97,8 +97,8 @@ const CARDS = [
     ),
   },
   {
-    title: 'GitOps Notifications',
-    description: 'Experience seamless GitOps Notifications revolutionizing workflow management.',
+    title: 'Consistent',
+    description: 'Seamless GitOps notifications streamlines consistent notifications.',
     className:
       'order-3 bg-[radial-gradient(100%_100%_at_67.91%_0%,#243349_9.84%,#1E2334_22.52%)] sm:order-4',
     image: (
@@ -132,6 +132,9 @@ const Infrastructure = () => (
       <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
         {TITLE}
       </h2>
+      <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 lg:mt-2.5 md:text-base md:mt-3">
+        {DESCRIPTION}
+      </p>
       <ul className="relative z-10 flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:justify-center sm:mt-8">
         {CARDS.map(({ title, description, className, image, imageMobile }, index) => (
           <li

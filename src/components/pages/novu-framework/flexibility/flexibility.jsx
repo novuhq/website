@@ -6,7 +6,7 @@ import Button from 'components/shared/button';
 const TITLE = 'Complete control and flexibility';
 
 const DESCRIPTION =
-  'Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for Non-Technical users.';
+  'Development teams have complete flexibility and control over notifications. Product teams maintain seamless input and control over content, messaging, and brand so they can iterate quickly—all without developer input, and by using an intuitive and capable UI.';
 
 const LINK = {
   text: 'Read docs',
