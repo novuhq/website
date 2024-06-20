@@ -9,8 +9,7 @@ import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
 const TITLE = 'Effortless Notification Content Management';
-const SUBTITLE =
-  'Developers build workflows, logic, and formatting, and provide editable content back to product teams.';
+const SUBTITLE = 'Developers build workflows, logic, and formatting, and provide editable content back to product teams.';
 
 const CARDS = [
   {

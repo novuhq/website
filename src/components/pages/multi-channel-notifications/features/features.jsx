@@ -8,45 +8,46 @@ import monitoring from './data/monitoring-lottie-data.json';
 import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
 import timezone from './data/timezone-lottie-data.json';
+// import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
 const TITLE = "We've built it so you don't have to";
 const ITEMS = [
   {
-    animationData: digest,
-    title: 'Digest',
+    animationData: digest, // This is a place holder animation of the Lottie animation data
+    title: 'Multiple provider integrations',
     description:
-      'A digest engine that aggregates multiple events in to a single precise notification.',
+      'Manage your delivery providers and modify settings for each one--all from one place.',
+  },
+  {
+    animationData: contentManagement, // We might consider change the name of this variable
+    title: 'Content centralization',
+    description:
+      'Manage notification content in one place. Enabling seamless collaboration between developers, product teams, and marketers.',
+  },
+  {
+    animationData: digest, // This is a place holder animation of the Lottie animation data
+    title: 'Unified API',
+    description:
+      "Integrate your application once and access any delivery provider.",
+  },
+  {
+    animationData: priorityManagement,
+    title: 'Multiple channels',
+    description:
+      'Novu supports email, SMS, Push, Chat, In-app, and more. Reach users through the most effective channel for them.',
+  },
+  {
+    animationData: monitoring,
+    title: 'Observability',
+    description: 'Gain clear visibility into how and why a notification was (or was not) sent so you can optimize strategies and efficiently debug.',
   },
   {
     animationData: preferences,
     title: 'User preferences',
     description:
-      'Using Novu API to handle all user preferences and subscriptions across channels. UI components included.',
-  },
-  {
-    animationData: priorityManagement,
-    title: 'Priority management',
-    description:
-      'A smart API to centralize all communication channels in a single place: E-mail, SMS, Chat, Push and many more...',
-  },
-  {
-    animationData: monitoring,
-    title: 'Monitoring',
-    description: 'Debug deliverability and analyze sending patterns  across multiple channels',
-  },
-  {
-    animationData: contentManagement,
-    title: 'Content management',
-    description:
-      'Manage content for all channels and in multiple languages without the need to redeploy your code',
-  },
-  {
-    animationData: timezone,
-    title: 'Timezone awareness',
-    comingSoon: true,
-    description: "Send transactional notifications based on user's timezone and working hours.",
-  },
+      'Your end users directly set and configure their preferred communication methods, times, languages, and more.',
+  }
 ];
 
 const Features = () => (

@@ -20,7 +20,7 @@ const Benefits_imgOnRightSide = ({ title, description }) => {
   };
 
   return (
-    <section className="component-based safe-paddings py-10 lg:py-32 md:py-28 sm:py-18">
+    <section className="component-based safe-paddings py-40 lg:py-32 md:py-28 sm:py-18">
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div className="col-start-1 col-end-6 xl:col-end-6 md:text-center">
           <Heading

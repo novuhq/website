@@ -2,49 +2,52 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-/* import contentManagement from './data/content-management-lottie-data.json'; */
+import contentManagement from './data/content-management-lottie-data.json';
 import digest from './data/digest-lottie-data.json';
 import monitoring from './data/monitoring-lottie-data.json';
 import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
-/* import timezone from './data/timezone-lottie-data.json'; */
+import timezone from './data/timezone-lottie-data.json';
+// import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = 'Simplify Your Notifications';
+const TITLE = "We've built it so you don't have to";
 const ITEMS = [
   {
-    animationData: digest,
-    title: 'Workflow content editor',
-    description: '...',
+    animationData: contentManagement, // This is a place holder animation of the Lottie animation data
+    title: 'Code-first workflow',
+    description:
+      'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
   },
   {
-    animationData: preferences,
-    title: 'Content delegation',
-    description: '...',
+    animationData: contentManagement, // We might consider change the name of this variable
+    title: 'No-code editor',
+    description:
+      'Product teams can manage workflow configurations without the risk of breaking notification flows.',
+  },
+  {
+    animationData: digest, // This is a place holder animation of the Lottie animation data
+    title: 'Broad framework support',
+    description:
+      "Novu supports content frameworks like React Email, MJML, Vue-email, and more.",
   },
   {
     animationData: priorityManagement,
-    title: 'Broad content framework support',
-    description: '...',
+    title: 'Type Safe',
+    description:
+      'Bring your own JSON schemas for full end-to-end validation across all your team members.',
   },
   {
     animationData: monitoring,
-    title: 'Singluar content source',
-    description: '...',
-  },
-  /*
-  {
-    animationData: contentManagement,
-    title: 'Content management',
-    description: 'Manage content for all channels and in multiple languages without the need to redeploy your code',
+    title: 'Dedicated environments',
+    description: 'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
   },
   {
     animationData: timezone,
-    title: 'Timezone awareness',
-    comingSoon: true,
-    description: "Send transactional notifications based on user's timezone and working hours.",
-  },
-  */
+    title: 'Single content source',
+    description:
+      'Create notification content that can be used across all supported notification channels within Novu.',
+  }
 ];
 
 const Features = () => (

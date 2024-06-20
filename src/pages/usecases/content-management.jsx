@@ -1,18 +1,19 @@
 import React from 'react';
 
 // Imprort page-specific components
-import Benefits from 'components/pages/multi-channel-notifications/benefits';
-import Features from 'components/pages/multi-channel-notifications/features';
-import Hero from 'components/pages/multi-channel-notifications/hero';
-import Pain_restatement from 'components/pages/multi-channel-notifications/painRestatement';
-import RelatedContent from 'components/pages/multi-channel-notifications/related-content/related-content';
+import Hero from 'components/pages/content-management/hero';
+import Pain_restatement from 'components/pages/content-management/painRestatement';
+
+import Benefits from 'components/pages/content-management/benefits';
+import Features from 'components/pages/content-management/features';
+import RelatedContent from 'components/pages/content-management/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 // import SEO component
 import SEO from 'components/shared/seo';
 
-const MultiChannelNotificationsPage = () => (
+const contentManagementPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
@@ -29,14 +30,14 @@ const MultiChannelNotificationsPage = () => (
   </Layout>
 );
 
-export default MultiChannelNotificationsPage;
+export default contentManagementPage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/multi-channel-notifications/',
-    title: 'Multi-Channel Notifications that delight users',
+    slug: '/content-management/',
+    title: 'Notification Content Management for Developers',
     description:
-      'Reach Your Audience Where They Are: Multi-Channel Notification Infrastructure Solutions',
+      'Empower your product teams to safely interact with notitfcations content.',
   };
   return <SEO {...pageMetadata} />;
 };
