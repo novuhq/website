@@ -7,7 +7,7 @@ import editIcon from './images/edit.svg';
 import integrationIcon from './images/integration.svg';
 import migrationIcon from './images/migration.svg';
 
-const TITLE = 'Integrates easily. Delivers powerful notifications infrastructure';
+const TITLE = 'Integrates easily, delivers powerful notifications infrastructure';
 
 const CARDS = [
   {
