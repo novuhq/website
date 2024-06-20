@@ -7,26 +7,24 @@ import editIcon from './images/edit.svg';
 import integrationIcon from './images/integration.svg';
 import migrationIcon from './images/migration.svg';
 
-const TITLE =
-  'Seamlessly integrate with existing services and&nbsp;legacy systems to facilitate adoption';
+const TITLE = 'Integrates easily, delivers powerful notifications infrastructure';
 
 const CARDS = [
   {
-    title: 'Runs in your IT boundary',
-    description:
-      'Deploy within your organization`s VPC, Kubernetes, serverless setups, or locally for secure data access.',
+    title: 'Powerful workflows',
+    description: 'Code-first workflows that can be run inside your own IT boundary.',
     image: cloudDataIcon,
   },
   {
-    title: 'Limitless integrations',
+    title: 'Inbox',
     description:
-      'Use ReactEmail, MJML, LaunchDarkly (and more!), and fetch content and values from anywhere.',
+      'Easily integrate and deploy notifications right into your application via components.',
     image: integrationIcon,
   },
   {
-    title: 'Easy migration',
+    title: 'End user preferences',
     description:
-      'Seamlessly integrate with existing services and legacy systems to facilitate adoption.',
+      'Enable end users to set contact preferences like language, timezone, and channels.',
     image: migrationIcon,
   },
   {
@@ -36,14 +34,13 @@ const CARDS = [
     image: editIcon,
   },
   {
-    title: 'Powerful debugging',
-    description:
-      'Rapidly identify and solve previously complicated content hydrating and notification routing issues.',
+    title: 'Multi-channel and multi-framework',
+    description: 'Access any channel provider, and use any content framework, all with one API.',
     image: debugIcon,
   },
   {
-    title: 'Speaks your language',
-    description: 'Native developer experience and autocomplete in your code and IDE of choice.',
+    title: 'API-first, and open-source backed',
+    description: 'Native developer experience that’s backed by a huge community.',
     image: consoleIcon,
   },
 ];

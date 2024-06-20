@@ -8,10 +8,10 @@ import CopyIcon from 'icons/copy.inline.svg';
 
 import borderGlow from './images/border-glow.svg';
 
-const TITLE = 'Create powerful notification workflows and content using code';
+const TITLE = 'The Open Source Notification Framework for Developers and Product Teams';
 
 const DESCRIPTION =
-  'Create complex workflows, access local data, and reuse existing content templates with Novu Echo.';
+  'Fully extensible notifications infrastructure platform that empowers developers and product teams to create captivating notification experiences.';
 
 const LINK = {
   text: 'Read docs',
