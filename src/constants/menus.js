@@ -1,4 +1,11 @@
 import LINKS from 'constants/links.js';
+import ChannelsIcon from 'images/header/channels-icon.svg';
+import FeaturesIcon from 'images/header/features-icon.svg';
+import FrameworksIcon from 'images/header/frameworks-icon.svg';
+import GettingStartedIcon from 'images/header/getting-started-icon.svg';
+import GuidesIcon from 'images/header/guides-icon.svg';
+import ProvidersIcon from 'images/header/providers-icon.svg';
+import UseCasesIcon from 'images/header/use-cases-icon.svg';
 
 const MENUS = {
   header: [
@@ -8,22 +15,125 @@ const MENUS = {
       ...LINKS.hacktoberfest,
     }, */
     {
-      text: 'Community',
-      ...LINKS.community,
+      text: 'Product',
+      menuItems: {
+        label: 'product',
+        items: [
+          {
+            title: 'Use Cases',
+            description: "How you'll use Novu",
+            icon: UseCasesIcon,
+            items: [
+              { title: 'Multichannel Notifications', to: '' },
+              { title: 'Add notifications to your app', to: '' },
+              { title: 'Improve user communication experience', to: '' },
+              { title: 'Unified notification platform', to: '' },
+              { title: 'Notification content management', to: '' },
+            ],
+          },
+          {
+            title: 'Features',
+            description: 'What Novu can do',
+            icon: FeaturesIcon,
+            items: [
+              { title: 'Notifications workflows', to: '' },
+              { title: 'Content management', to: '' },
+              { title: 'Translation', to: '' },
+              { title: 'Embeddable inbox component', to: '' },
+              { title: 'End user preferences', to: '' },
+              { title: 'Observability', to: '' },
+            ],
+          },
+          {
+            title: 'Providers',
+            description: 'Who Novu connects with',
+            icon: ProvidersIcon,
+            items: [
+              { title: 'Sendgrid', to: '' },
+              { title: 'FCM', to: '' },
+              { title: 'SES', to: '' },
+              { title: 'Twilio', to: '' },
+              { title: 'Nodemailer', to: '' },
+              { title: 'Slack', to: '' },
+              { title: 'Mailgun', to: '' },
+              { title: 'Postmark', to: '' },
+              { title: 'Discord', to: '' },
+              { title: 'Sendinblue', to: '' },
+            ],
+          },
+          {
+            title: 'Channels',
+            description: 'Where Novu integrates',
+            icon: ChannelsIcon,
+            items: [
+              { title: 'In-app', to: '' },
+              { title: 'Push', to: '' },
+              { title: 'Email', to: '' },
+              { title: 'SMS', to: '' },
+              { title: 'Chat', to: '' },
+              { title: 'Mobile*', to: '' },
+            ],
+          },
+          {
+            title: 'Frameworks',
+            description: 'What Novu builds on',
+            icon: FrameworksIcon,
+            items: [
+              { title: 'Remix', to: '' },
+              { title: 'NextJS', to: '' },
+              { title: 'Nuxt', to: '' },
+              { title: 'Hono', to: '' },
+              { title: 'Nest.js', to: '' },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      text: 'Developers',
+      menuItems: {
+        label: 'developers',
+        items: [
+          {
+            title: 'Getting started',
+            icon: GettingStartedIcon,
+            items: [
+              { title: 'Pre-built Examples', to: '' },
+              { title: 'Libraries and SDKs', to: '' },
+              { title: 'Integrations', to: '' },
+            ],
+          },
+          {
+            title: 'Guides',
+            icon: GuidesIcon,
+            items: [
+              { title: 'Sending notifications', to: '' },
+              { title: 'End user preferences', to: '' },
+              { title: 'Novu notification guide', to: '' },
+            ],
+          },
+          {
+            items: [
+              { title: 'Documentation', withImage: true, to: '' },
+              { title: 'Community', to: '' },
+              { title: 'API Reference', to: '' },
+              { title: 'Changelog', to: '' },
+              { title: 'System Status', to: '' },
+              { title: 'Discord', to: '' },
+            ],
+          },
+        ],
+      },
     },
     {
       text: 'Pricing',
       ...LINKS.pricing,
     },
     {
-      text: 'Blog',
-      ...LINKS.blog,
-    },
-    {
-      text: 'Documentation',
+      text: 'Docs',
       ...LINKS.documentation,
     },
-    { text: 'Careers', ...LINKS.careers },
+    { text: 'Blog', ...LINKS.blog },
   ],
   footer: [
     [
