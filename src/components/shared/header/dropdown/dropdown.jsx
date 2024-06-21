@@ -44,7 +44,8 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
                 width: 0,
               }}
               transition={{
-                duration: 0.3,
+                minWidth: { duration: 0.2 },
+                opacity: { duration: 0.2, delay: 0.2 },
               }}
               key="product"
             >
@@ -64,9 +65,14 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
               exit={{
                 opacity: 0,
                 width: 0,
+                transition: {
+                  width: { duration: 0.2, delay: 0.1 },
+                  opacity: { duration: 0.2 },
+                },
               }}
               transition={{
-                duration: 0.3,
+                width: { duration: 0.2 },
+                opacity: { duration: 0.2, delay: 0.2 },
               }}
               key="developers"
             >
