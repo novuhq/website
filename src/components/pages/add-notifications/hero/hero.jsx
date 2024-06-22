@@ -11,10 +11,11 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Add Notifications to Your Application
+        Test in minutes, go to prod in less than a day
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Ship notifications fast with production ready infrastructure and out-of-the-box components.
+        Ship notifications in your app with production-ready infrastructure and out-of-the-box
+        components.
       </p>
     </div>
   </section>
