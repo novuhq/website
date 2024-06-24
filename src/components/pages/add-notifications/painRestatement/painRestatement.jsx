@@ -8,7 +8,6 @@ import providers from './images/providers.svg';
 import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
-
 const TITLE = 'DIY Notifications infrastructure is costly';
 const SUBTITLE =
   'Building a notifications infrastructure to deliver messages gets exponentially more complex with every channel you add.';
