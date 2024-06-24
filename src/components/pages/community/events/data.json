@@ -1,29 +1,29 @@
 [
   {
-    "title": "Webinar marketing planning",
-    "description": "An application to help consumers find agencies providing a specific service tasked to build.",
+    "title": "The Help Desk Session",
+    "description": "Solving the most common Novu questions.",
     "category": "Webinar",
-    "date": "2024-05-15T10:00:00",
-    "venue": "Discord",
-    "linkUrl": "#",
-    "linkText": "Learn more"
+    "date": "2024-06-26T15:30:00Z",
+    "venue": "Youtube",
+    "linkUrl": "https://www.youtube.com/watch?v=YjGpsDvgq7E",
+    "linkText": "Join us"
   },
   {
-    "title": "7 Strategies for success",
-    "description": "Tasked to build an application to help consumers find agencies providing a specific service tasked to build.",
-    "category": "Meetup",
-    "date": "2024-05-20T10:00:00",
-    "venue": "Discord",
-    "linkUrl": "#",
-    "linkText": "Learn more"
+    "title": "Enterprise Challenges in Implementing Notifications",
+    "description": "The latest insights into the challenges enterprises encounter when building their own notifications platform -- and how to solve those bottlenecks",
+    "category": "Webinar",
+    "date": "2024-07-10T15:30:00Z",
+    "venue": "Youtube",
+    "linkUrl": "https://www.youtube.com/watch?v=5lAssKzVaAk",
+    "linkText": "Join us"
   },
   {
-    "title": "Application to help consumers",
-    "description": "Let’s say you’ve been tasked to build an application to help consumers find agencies providing a specific.",
-    "category": "Conference",
-    "date": "2024-06-01T10:00:00",
-    "venue": "Discord",
-    "linkUrl": "#",
-    "linkText": "Join now"
+    "title": "Notifications as a Component",
+    "description": "Latest Novu product updates and how we're doubling down on components to empower engineers to deliver a notifications platform to product more quickly.",
+    "category": "Webinar",
+    "date": "2024-07-24T15:30:00Z",
+    "venue": "Youtube",
+    "linkUrl": "https://www.youtube.com/watch?v=IJM2b2sE7_o",
+    "linkText": "Join us"
   }
 ]
