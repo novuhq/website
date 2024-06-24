@@ -51,7 +51,7 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden pb-40 pt-30 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
+  <section className="features safe-paddings relative overflow-hidden pb-30 pt-10 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
     <div className="container relative z-10">
       <Heading
         size="md"

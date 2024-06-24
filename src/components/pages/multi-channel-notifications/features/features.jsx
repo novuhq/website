@@ -11,7 +11,7 @@ import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = "We've built it so you don't have to";
+const TITLE = "";
 const ITEMS = [
   {
     animationData: digest, // This is a place holder animation of the Lottie animation data
@@ -51,7 +51,7 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden pb-40 pt-30 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
+  <section className="features safe-paddings relative overflow-hidden pb-30 pt-10 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
     <div className="container relative z-10">
       <Heading
         size="md"

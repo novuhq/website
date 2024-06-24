@@ -15,7 +15,7 @@ const RelatedContent = () => (
         theme="white"
         asHTML
       >
-        Additional Usecases
+        Related Content
       </Heading>
       <ul className="mt-24 grid auto-rows-fr grid-cols-12 gap-8 lg:mt-16 lg:gap-7 md:mt-14 md:gap-5 sm:mt-12 sm:auto-rows-min">
         {relatedContentItems.map(({ name, description, linkUrl }, index) => (

@@ -63,9 +63,9 @@ const Pain_restatement = () => (
   <section className="painRestatement safe-paddings pb-30 pt-20 lg:pb-24 lg:pt-16 md:pb-18 md:pt-14 sm:pb-12 sm:pt-9">
     <div className="container flex flex-col items-center">
       <Heading
-        size="md"
+        size="xl"
         tag="h2"
-        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        className="mx-auto text-center leading-tight sm:text-3xl"
         theme="white"
       >
         {TITLE}

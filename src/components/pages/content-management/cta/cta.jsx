@@ -37,16 +37,16 @@ const Cta = () => {
   }, [isCopied]);
 
   return (
-    <section className="cta mt-[150px] mb-[150px] lg:mt-[204px] lg:mb-[104px] md:mt-[124px] md:mb-[100px] sm:mt-[188px]">
+    <section className="cta mt-[25px] mb-[25px] lg:mt-[204px] lg:mb-[104px] md:mt-[124px] md:mb-[100px] sm:mt-[188px]">
       <div className="container-sm relative">
         <div className="relative z-10 flex flex-col items-center">
-          <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-4xl md:text-[32px]">
+          {/* <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-4xl md:text-[32px]">
             {TITLE}
           </h2>
           <p
             className="max-w-md text-center text-[17px] leading-snug font-book text-gray-9 mt-3.5 md:text-base md:max-w-sm"
             dangerouslySetInnerHTML={{ __html: DESCRIPTION }}
-          />
+          /> */}
           <div className="flex justify-center gap-x-8 mt-12 md:mt-7 sm:flex-col sm:items-center">
             <div className="w-[392px] h-[54px] pl-5 pr-2 relative flex items-center justify-between rounded-md bg-black border border-transparent bg-clip-border before:absolute before:-z-20 before:-inset-0.5 before:rounded-md before:bg-pink-yellow-gradient lg:h-[46px] sm:pl-4 sm:w-[320px]">
               <span className="font-mono font-medium">{CODE}</span>
