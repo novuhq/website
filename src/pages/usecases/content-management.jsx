@@ -3,7 +3,7 @@ import React from 'react';
 // Imprort page-specific components
 import Hero from 'components/pages/content-management/hero';
 import Pain_restatement from 'components/pages/content-management/painRestatement';
-
+import Cta from 'components/pages/content-management/cta';
 import Benefits from 'components/pages/content-management/benefits';
 import Features from 'components/pages/content-management/features';
 import RelatedContent from 'components/pages/content-management/related-content/related-content';
@@ -17,6 +17,7 @@ const contentManagementPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
+    <Cta />
     {/* Section: Pain Restatement */}
     <Pain_restatement />
     {/* Section: Benefits */}
