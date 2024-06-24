@@ -38,7 +38,7 @@ const Hero = () => {
   }, [isCopied]);
 
   return (
-    <section className="hero pt-[339px] pb-[342px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
+    <section className="hero pt-[339px] pb-[180px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
       <div className="container-xl relative">
         <div className="max-w-[562px] lg:max-w-md md:max-w-none md:px-16 sm:px-0">
           <h1 className="text-[52px] leading-denser tracking-snug font-medium lg:text-5xl md:text-4xl sm:text-[30px] sm:text-center">
@@ -79,6 +79,7 @@ const Hero = () => {
                 aria-hidden
               />
             </div>
+            
             <Button
               className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
               theme="gray-outline"
@@ -88,6 +89,7 @@ const Hero = () => {
             </Button>
           </div>
         </div>
+        
         <div className="absolute w-full h-full left-0 top-0 z-0 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
           <StaticImage
             className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
