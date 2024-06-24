@@ -72,15 +72,26 @@ const Product = ({ items }) => {
             </ul>
             {isDropdownOpen && (
               <m.ul
-                className="min-h-full w-[262px] flex flex-col items-start gap-y-3 p-4 bg-gray-2 border border-gray-3 rounded-lg shadow-[0px_3px_8px_0px_rgba(0,0,0,0.1)] duration-300"
+                className="w-[262px] flex flex-col items-start gap-y-3 p-4 bg-gray-2 border border-gray-3 rounded-lg shadow-[0px_3px_8px_0px_rgba(0,0,0,0.1)] will-change-transform"
                 initial={{
                   opacity: 0,
+                  minHeight: 0,
                 }}
                 animate={{
                   opacity: 1,
+                  minHeight: 'auto',
                 }}
                 exit={{
                   opacity: 0,
+                  minHeight: 0,
+                  transition: {
+                    minHeight: { duration: 0.2, delay: 0.2 },
+                    opacity: { duration: 0.2 },
+                  },
+                }}
+                transition={{
+                  minHeight: { duration: 0.2 },
+                  opacity: { duration: 0.2, delay: 0.2 },
                 }}
                 onMouseEnter={() => setDropdownOpen(true)}
                 onMouseLeave={() => {
