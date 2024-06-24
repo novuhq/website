@@ -16,12 +16,12 @@ const addNotificationsPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
+    {/* Section: Supporting features */}
+    <Features />
     {/* Section: Pain Restatement */}
     <Pain_restatement />
     {/* Section: Benefits */}
     <Benefits />
-    {/* Section: Supporting features */}
-    <Features />
     {/* Section: Related Content */}
     <RelatedContent />
     {/* Section: Get Started */}
