@@ -2,6 +2,7 @@ import React from 'react';
 
 // Imprort page-specific components
 import Benefits from 'components/pages/unified-platfrom/benefits';
+import Cta from 'components/pages/unified-platfrom/cta';
 import Features from 'components/pages/unified-platfrom/features';
 import Hero from 'components/pages/unified-platfrom/hero';
 import Pain_restatement from 'components/pages/unified-platfrom/painRestatement';
@@ -16,12 +17,14 @@ const unifiedPlatfromPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
+    {/* Section: Call To Action */}
+    <Cta />
+    {/* Section: Supporting features */}
+    <Features />
     {/* Section: Pain Restatement */}
     <Pain_restatement />
     {/* Section: Benefits */}
     <Benefits />
-    {/* Section: Supporting features */}
-    <Features />
     {/* Section: Related Content */}
     <RelatedContent />
     {/* Section: Get Started */}

@@ -3,6 +3,7 @@ import React from 'react';
 // Imprort page-specific components
 import Benefits from 'components/pages/multi-channel-notifications/benefits';
 import Features from 'components/pages/multi-channel-notifications/features';
+import Cta from 'components/pages/multi-channel-notifications/cta';
 import Hero from 'components/pages/multi-channel-notifications/hero';
 import Pain_restatement from 'components/pages/multi-channel-notifications/painRestatement';
 import RelatedContent from 'components/pages/multi-channel-notifications/related-content/related-content';
@@ -16,12 +17,14 @@ const MultiChannelNotificationsPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
+    {/* Section: Call To Action */}
+    <Cta />
+    {/* Section: Supporting features */}
+    <Features />
     {/* Section: Pain Restatement */}
     <Pain_restatement />
     {/* Section: Benefits */}
     <Benefits />
-    {/* Section: Supporting features */}
-    <Features />
     {/* Section: Related Content */}
     <RelatedContent />
     {/* Section: Get Started */}

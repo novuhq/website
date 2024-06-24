@@ -8,8 +8,8 @@ import providers from './images/providers.svg';
 import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
-const TITLE = 'Effortless Notification Content Management';
-const SUBTITLE = 'Developers build workflows, logic, and formatting, and provide editable content back to product teams.';
+const TITLE = 'Content management is hard and slow';
+const SUBTITLE = 'Let developers build workflows, logic, and formatting, and provide editable content back to product teams.';
 
 const CARDS = [
   {
@@ -63,14 +63,14 @@ const Pain_restatement = () => (
   <section className="painRestatement safe-paddings pb-30 pt-20 lg:pb-24 lg:pt-16 md:pb-18 md:pt-14 sm:pb-12 sm:pt-9">
     <div className="container flex flex-col items-center">
       <Heading
-        size="md"
+        size="xl"
         tag="h2"
-        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        className="mx-auto text-center leading-tight sm:text-3xl"
         theme="white"
       >
         {TITLE}
       </Heading>
-      <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
+      <p className="mx-auto mt-4 max-w-[1000px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
         {SUBTITLE}
       </p>
 

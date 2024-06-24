@@ -8,14 +8,16 @@ import providers from './images/providers.svg';
 import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
-const TITLE = 'Plug-and-play notifications infrastructure';
-const SUBTITLE = 'Building an infrastructure to deliver notifications and messages gets exponentially more complex with every channel you add.';
+
+const TITLE = 'DIY Notifications infrastructure is costly';
+const SUBTITLE =
+  'Building a notifications infrastructure to deliver messages gets exponentially more complex with every channel you add.';
 
 const CARDS = [
   {
-    title: 'Too Much Time',
+    title: 'Challenging integrations',
     description:
-      'Engineers spend too much time learning, integrating, and maintaining different channels and delivery providers.',
+      'Building notifications in-house means learning, integrating and maintaining each notification channel and provider individually.',
     image: (
       <img
         className="w-full"
@@ -28,9 +30,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Debugging Gets Harder',
+    title: 'Impossible debugging',
     description:
-      'Adding new channels is complex, and as the number of channels and providers increases, debugging issues become increasingly challenging and negatively affect the end-user experience.',
+      "Understanding why a user did or didn't get a notification is time consuming, and the more channels you must support, the harder debugging becomes",
     image: (
       <img
         className="w-full"
@@ -43,9 +45,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Slow Innovation',
+    title: 'Decreased Innovation',
     description:
-      'Engineering teams attempting to provide notification capability to product teams cause significant friction and distraction.',
+      "When product teams need the development team's time to make even minor content changes, productivity decreases, and innovation slows.",
     image: (
       <img
         className="w-full"
@@ -63,9 +65,9 @@ const Pain_restatement = () => (
   <section className="painRestatement safe-paddings pb-30 pt-20 lg:pb-24 lg:pt-16 md:pb-18 md:pt-14 sm:pb-12 sm:pt-9">
     <div className="container flex flex-col items-center">
       <Heading
-        size="md"
+        size="xl"
         tag="h2"
-        className="max-w-[764px] text-center leading-tight sm:text-3xl"
+        className="mx-auto text-center leading-tight sm:text-3xl"
         theme="white"
       >
         {TITLE}

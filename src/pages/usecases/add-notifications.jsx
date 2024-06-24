@@ -2,6 +2,7 @@ import React from 'react';
 
 // Imprort page-specific components
 import Benefits from 'components/pages/add-notifications/benefits';
+import Cta from 'components/pages/add-notifications/cta';
 import Features from 'components/pages/add-notifications/features';
 import Hero from 'components/pages/add-notifications/hero';
 import Pain_restatement from 'components/pages/add-notifications/painRestatement';
@@ -16,12 +17,14 @@ const addNotificationsPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
+    {/* Section: Call To Action */}
+    <Cta />
+    {/* Section: Supporting features */}
+    <Features />
     {/* Section: Pain Restatement */}
     <Pain_restatement />
     {/* Section: Benefits */}
     <Benefits />
-    {/* Section: Supporting features */}
-    <Features />
     {/* Section: Related Content */}
     <RelatedContent />
     {/* Section: Get Started */}
@@ -34,8 +37,8 @@ export default addNotificationsPage;
 export const Head = () => {
   const pageMetadata = {
     slug: '/add-notifications/',
-    title: 'Multi-Channel Notifications',
-    description: 'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
+    title: 'Add Notifications to Your App',
+    description: 'Notification Solutions for Developers and Product Teams',
   };
   return <SEO {...pageMetadata} />;
 };
