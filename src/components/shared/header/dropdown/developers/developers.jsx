@@ -6,12 +6,12 @@ import Link from 'components/shared/link';
 
 const Developers = ({ items }) => (
   <div className="w-full overflow-hidden">
-    <ul className="top-0 left-0 p-1.5 grid grid-cols-[156px_158px] grid-rows-2 gap-y-6 gap-x-8">
+    <ul className="top-0 left-0 p-2 grid grid-cols-[156px_158px] grid-rows-2 gap-y-6 gap-x-8">
       {items.map(
         ({ title, icon, items: subItems, mobileOnly }, index) =>
           !mobileOnly && (
             <li
-              className={clsx({
+              className={clsx('text-[15px] leading-none', {
                 'col-start-1 row-start-1 col-span-1 row-span-1': index === 1,
                 'col-start-1 row-start-2 col-span-1 row-span-1': index === 2,
                 'col-start-2 row-start-1 col-span-1 row-span-2': index === 3,
@@ -19,7 +19,7 @@ const Developers = ({ items }) => (
               key={index}
             >
               {title && (
-                <span className="mb-4 flex gap-x-3 items-center text-[15px] leading-none">
+                <span className="mb-3.5 flex gap-x-3 items-center">
                   {icon && <img src={icon} alt="" width={28} height={28} />}
                   {title}
                 </span>
@@ -30,7 +30,10 @@ const Developers = ({ items }) => (
                 })}
               >
                 {subItems.map(({ title, to, withImage }, index) => (
-                  <li className={clsx({ 'mb-[18px]': withImage })} key={index}>
+                  <li
+                    className={clsx({ 'mb-3': withImage, 'text-sm leading-snug': !withImage })}
+                    key={index}
+                  >
                     {withImage ? (
                       <Link className="relative" to={to}>
                         <StaticImage
@@ -46,10 +49,7 @@ const Developers = ({ items }) => (
                         </span>
                       </Link>
                     ) : (
-                      <Link
-                        className="text-sm leading-snug text-gray-10 font-light hover:text-primary-1"
-                        to={to}
-                      >
+                      <Link className="text-gray-10 font-light hover:text-primary-1" to={to}>
                         {title}
                       </Link>
                     )}

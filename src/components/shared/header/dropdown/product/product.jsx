@@ -72,7 +72,7 @@ const Product = ({ items }) => {
             </ul>
             {isDropdownOpen && (
               <m.ul
-                className="w-[262px] flex flex-col items-start gap-y-3 p-4 bg-gray-2 border border-gray-3 rounded-lg shadow-[0px_3px_8px_0px_rgba(0,0,0,0.1)] will-change-transform"
+                className="w-[262px] flex flex-col items-start gap-y-3 p-4 pt-[13px] bg-gray-2 border border-gray-3 rounded-lg shadow-[0px_3px_8px_0px_rgba(0,0,0,0.1)] will-change-transform"
                 initial={{
                   opacity: 0,
                   minHeight: 0,
@@ -100,11 +100,8 @@ const Product = ({ items }) => {
                 }}
               >
                 {dropdownMenuContent.map(({ title, to }, index) => (
-                  <li key={index}>
-                    <Link
-                      className="text-sm leading-snug text-gray-10 font-light hover:text-primary-1"
-                      href={to}
-                    >
+                  <li className="text-sm leading-snug" key={index}>
+                    <Link className="text-gray-10 font-light hover:text-primary-1" to={to}>
                       {title}
                     </Link>
                   </li>

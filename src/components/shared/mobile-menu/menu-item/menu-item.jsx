@@ -18,7 +18,7 @@ const MenuItem = ({ text, to, target, menuItems, className, icon }) => {
     <li className="px-7 sm:px-4">
       <Link
         className={clsx(
-          'flex justify-between items-center w-full text-xl text-left sm:text-[15px]',
+          'flex justify-between items-center w-full text-xl text-left leading-none sm:text-[15px]',
           className
         )}
         tag={to ? null : 'button'}
@@ -38,7 +38,7 @@ const MenuItem = ({ text, to, target, menuItems, className, icon }) => {
           {menuItems.map(({ title, icon, to, items }, index) =>
             title ? (
               <MenuItem
-                className="py-4 border-b border-b-gray-2"
+                className="h-[60px] border-b border-b-gray-2"
                 key={index}
                 text={title}
                 to={to}

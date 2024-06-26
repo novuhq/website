@@ -11,7 +11,7 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
       {isDropdownOpen && (
         <m.div
           className={clsx(
-            'absolute bottom-0 translate-y-full p-3.5 bg-[#0F0F0F] outline outline-gray-2 rounded-[20px] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] duration-[0.4s] ease-in-out overflow-hidden will-change-transform',
+            'absolute bottom-1.5 translate-y-full p-3.5 bg-[#0F0F0F] outline outline-gray-2 rounded-[20px] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] duration-[0.4s] ease-in-out overflow-hidden will-change-transform',
             {
               '-left-1 min-w-[262px]': dropdownMenuContent?.label === 'product',
               'left-[100px] min-w-[394px]': dropdownMenuContent?.label === 'developers',

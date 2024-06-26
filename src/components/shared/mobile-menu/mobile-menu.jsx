@@ -35,7 +35,7 @@ const variants = {
 
 const MobileMenu = ({ isOpen, setIsOpen }) => {
   const controls = useAnimation();
-  const [paddingTopClassName, setPaddingTopClassName] = useState('pt-16 sm:pt-[60px]');
+  const [paddingTopClassName, setPaddingTopClassName] = useState('pt-16 sm:pt-14');
 
   useEffect(() => {
     if (isOpen) {
@@ -50,7 +50,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
     if (topBanner) {
-      setPaddingTopClassName('pt-[114px] sm:pt-[125px]');
+      setPaddingTopClassName('pt-[114px] sm:pt-[121px]');
     }
   }, []);
 
@@ -59,7 +59,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
       {isOpen && (
         <AnimatePresence>
           <m.div
-            className="safe-paddings fixed inset-0 flex justify-between w-full flex-col"
+            className="safe-paddings fixed inset-0 flex justify-between w-full flex-col overflow-x-hidden overflow-y-scroll"
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -67,18 +67,14 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
           >
             <Button
               className="absolute h-8 w-6 top-4 right-7 sm:top-3.5 sm:right-4"
+              aria-label="Close menu"
               onClick={() => setIsOpen(false)}
             />
-            <nav
-              className={clsx(
-                'flex h-full w-full border-t border-t-[#1F1F1F]',
-                paddingTopClassName
-              )}
-            >
-              <ul className="flex w-full flex-col relative bg-black">
+            <nav className={clsx('flex h-full w-full', paddingTopClassName)}>
+              <ul className="flex h-full w-full flex-col relative bg-black border-t border-t-[#1F1F1F]">
                 {MENUS.header.map(({ to, text, target, menuItems }, index) => (
                   <MenuItem
-                    className="py-4 border-b border-b-gray-2"
+                    className="h-[60px] border-b border-b-gray-2"
                     key={index}
                     text={text}
                     to={to}

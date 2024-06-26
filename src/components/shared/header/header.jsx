@@ -50,7 +50,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 onMouseLeave={handleMouseLeave(menuItems)}
               >
                 <Link
-                  className="flex items-center gap-x-1.5 h-full px-[18px] text-[15px] leading-none lg:px-3.5"
+                  className="flex items-center gap-x-1.5 h-full px-[18px] text-[15px] leading-none lg:px-2.5"
                   tag={to ? null : 'button'}
                   to={to}
                   theme="white"
@@ -69,7 +69,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
             setDropdownOpen={setDropdownOpen}
           />
         </nav>
-        <div className="flex gap-x-5 md:hidden">
+        <div className="flex gap-x-5 lg:gap-x-3 md:hidden">
           <ButtonGithubStars className="pl-3" />
           <Button size="xs" theme="white-filled" {...LINKS.getStartedTopBar} onClick={click}>
             Get Started
