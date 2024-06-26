@@ -8,14 +8,14 @@ import CopyIcon from 'icons/copy.inline.svg';
 
 import borderGlow from './images/border-glow.svg';
 
-const TITLE = 'The Open Source Notification Framework for Developers and Product Teams';
+const TITLE = 'The Notification Framework for Developers and Product Teams';
 
 const DESCRIPTION =
-  'Fully extensible notifications infrastructure platform that empowers developers and product teams to create captivating notification experiences.';
+  'Fully extensible open source notifications infrastructure framework that empowers developers and product teams to create captivating notification experiences.';
 
 const LINK = {
   text: 'Read docs',
-  url: 'https://novu.mintlify.app/echo/quickstart',
+  url: 'https://docs.novu.co/?utm_campaign=v2-web',
 };
 
 const CODE = 'npx novu-labs@latest echo';
@@ -79,7 +79,7 @@ const Hero = () => {
                 aria-hidden
               />
             </div>
-            
+
             <Button
               className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
               theme="gray-outline"
@@ -89,7 +89,7 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-        
+
         <div className="absolute w-full h-full left-0 top-0 z-0 md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
           <StaticImage
             className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"

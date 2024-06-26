@@ -17,11 +17,11 @@ import Separator from 'components/shared/separator';
 const NovuFrameworkPage = () => (
   <Layout mainClassName="echo overflow-hidden pb-px bg-[#05050B]">
     <Hero />
-    <Libraries />
-    <Code />
     <Logos />
-    <Flexibility />
+    <Code />
     <Integration />
+    <Flexibility />
+    <Libraries />
     <Inbox />
     <Infrastructure />
     <Testimonials />

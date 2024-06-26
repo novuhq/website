@@ -2,13 +2,13 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import Button from 'components/shared/button/button';
-import Heading from 'components/shared/heading/heading';
+/* import Heading from 'components/shared/heading/heading'; */
 import LottieAnimation from 'components/shared/lottie-animation';
 import LINKS from 'constants/links';
 
 import animationData from './data/inbox-lottie-data.json';
 
-const TITLE = 'Fully featured Notification Center Inbox in minutes';
+const TITLE = 'Fully featured Notification Inbox in minutes';
 const DESCRIPTION =
   'Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API.';
 const BUTTON_TEXT = 'Read Docs';
@@ -43,14 +43,12 @@ const Inbox = () => {
           <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 lg:mt-2.5 md:text-base md:mt-3">
             {DESCRIPTION}
           </p>
-          
+
           <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.inAppDocs}>
             {BUTTON_TEXT}
           </Button>
         </div>
-        
       </div>
-      
     </section>
   );
 };
