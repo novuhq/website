@@ -59,7 +59,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
       {isOpen && (
         <AnimatePresence>
           <m.div
-            className="safe-paddings fixed inset-0 flex justify-between w-full flex-col overflow-x-hidden overflow-y-scroll"
+            className="hidden safe-paddings fixed inset-0 justify-between w-full flex-col overflow-x-hidden overflow-y-scroll md:flex"
             initial="hidden"
             animate="visible"
             exit="hidden"
