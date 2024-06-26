@@ -50,7 +50,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 onMouseLeave={handleMouseLeave(menuItems)}
               >
                 <Link
-                  className="flex items-center gap-x-1.5 h-full px-[18px] text-[15px] leading-none"
+                  className="flex items-center gap-x-1.5 h-full px-[18px] text-[15px] leading-none lg:px-3.5"
                   tag={to ? null : 'button'}
                   to={to}
                   theme="white"

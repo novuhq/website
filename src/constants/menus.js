@@ -1,5 +1,6 @@
 import LINKS from 'constants/links.js';
 import ChannelsIcon from 'images/header/channels-icon.svg';
+import DocumentationIcon from 'images/header/documentation-icon.svg';
 import FeaturesIcon from 'images/header/features-icon.svg';
 import FrameworksIcon from 'images/header/frameworks-icon.svg';
 import GettingStartedIcon from 'images/header/getting-started-icon.svg';
@@ -95,6 +96,12 @@ const MENUS = {
         label: 'developers',
         items: [
           {
+            title: 'Documentation',
+            icon: DocumentationIcon,
+            to: '',
+            mobileOnly: true,
+          },
+          {
             title: 'Getting started',
             icon: GettingStartedIcon,
             items: [
@@ -114,7 +121,7 @@ const MENUS = {
           },
           {
             items: [
-              { title: 'Documentation', withImage: true, to: '' },
+              { title: 'Documentation', withImage: true, to: '', desktopOnly: true },
               { title: 'Community', to: '' },
               { title: 'API Reference', to: '' },
               { title: 'Changelog', to: '' },
