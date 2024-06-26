@@ -31,7 +31,7 @@ const MenuItem = ({ text, to, target, menuItems, className, icon }) => {
           {icon && <img src={icon} width={24} height={24} alt="" loading="lazy" />}
           {text}
         </span>
-        {menuItems && <ChevronIcon className="w-4 h-4 -rotate-90" />}
+        {menuItems && <ChevronIcon className="w-3.5 h-3.5 -rotate-90" />}
       </Link>
       {menuItems && (
         <SubMenu isOpen={isOpen} setIsOpen={setIsOpen}>

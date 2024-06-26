@@ -33,7 +33,7 @@ const variants = {
   },
 };
 
-const MobileMenu = ({ isOpen, setIsOpen }) => {
+const MobileMenu = ({ isOpen }) => {
   const controls = useAnimation();
   const [paddingTopClassName, setPaddingTopClassName] = useState('pt-16 sm:pt-14');
 
@@ -41,9 +41,11 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';
+      document.getElementById('header').style.backgroundColor = '#000000';
     } else {
       document.body.style.overflow = '';
       document.body.style.touchAction = '';
+      document.getElementById('header').style.backgroundColor = 'transparent';
     }
   }, [isOpen, controls]);
 
@@ -56,21 +58,19 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
 
   return (
     <LazyMotion features={domAnimation}>
-      {isOpen && (
-        <AnimatePresence>
+      <AnimatePresence>
+        {isOpen && (
           <m.div
-            className="hidden safe-paddings fixed inset-0 justify-between w-full flex-col overflow-x-hidden overflow-y-scroll md:flex"
+            className={clsx(
+              'hidden safe-paddings fixed inset-0 justify-between w-full flex-col overflow-x-hidden overflow-y-scroll md:flex pointer-events-none',
+              paddingTopClassName
+            )}
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={variants}
           >
-            <Button
-              className="absolute h-8 w-6 top-4 right-7 sm:top-3.5 sm:right-4"
-              aria-label="Close menu"
-              onClick={() => setIsOpen(false)}
-            />
-            <nav className={clsx('flex h-full w-full', paddingTopClassName)}>
+            <nav className="flex h-full w-full overflow-y-scroll overflow-x-hidden pointer-events-auto bg-black">
               <ul className="flex h-full w-full flex-col relative bg-black border-t border-t-[#1F1F1F]">
                 {MENUS.header.map(({ to, text, target, menuItems }, index) => (
                   <MenuItem
@@ -85,7 +85,7 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
               </ul>
             </nav>
 
-            <div className="bg-black">
+            <div className="bg-black pointer-events-auto">
               <div className="container">
                 <div className="flex w-full justify-between space-x-4 py-7 border-t border-t-gray-2">
                   <Button
@@ -111,15 +111,14 @@ const MobileMenu = ({ isOpen, setIsOpen }) => {
               </div>
             </div>
           </m.div>
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
     </LazyMotion>
   );
 };
 
 MobileMenu.propTypes = {
   isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func.isRequired,
 };
 
 MobileMenu.defaultProps = {

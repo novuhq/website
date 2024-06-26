@@ -32,7 +32,7 @@ const Layout = ({ className, mainClassName, children, headerTheme = 'default' })
         />
         <main className={clsx('flex-grow', mainClassName)}>{children}</main>
         <Footer />
-        <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
+        <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
       <CookieBanner
         isCookieBannerVisible={isCookieBannerVisible}
