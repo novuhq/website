@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
 
@@ -35,8 +36,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 
   return (
     <header
-      className="safe-paddings absolute left-0 right-0 top-0 z-40 w-full transition-colors duration-200"
-      id="header"
+      className={clsx(
+        'safe-paddings absolute left-0 right-0 top-0 z-40 w-full transition-colors duration-200',
+        { 'bg-black': isMobileMenuOpen }
+      )}
     >
       <div className="container flex items-center justify-between py-3 lg:gap-x-4 md:py-4 md:px-7 sm:px-4 sm:py-3.5">
         <Link {...LINKS.home}>

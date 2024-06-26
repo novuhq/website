@@ -41,11 +41,9 @@ const MobileMenu = ({ isOpen }) => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       document.body.style.touchAction = 'none';
-      document.getElementById('header').style.backgroundColor = '#000000';
     } else {
       document.body.style.overflow = '';
       document.body.style.touchAction = '';
-      document.getElementById('header').style.backgroundColor = 'transparent';
     }
   }, [isOpen, controls]);
 
