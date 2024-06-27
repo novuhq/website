@@ -7,8 +7,7 @@ import editIcon from './images/edit.svg';
 import integrationIcon from './images/integration.svg';
 import migrationIcon from './images/migration.svg';
 
-const TITLE =
-  'Seamlessly integrate with existing services and&nbsp;legacy systems to facilitate adoption';
+const TITLE = 'The last platform you will ever need for your notification needs.';
 
 const CARDS = [
   {
@@ -46,6 +45,16 @@ const CARDS = [
     description: 'Native developer experience and autocomplete in your code and IDE of choice.',
     image: consoleIcon,
   },
+  /*  {
+    title: 'Developer Experience',
+    description: 'Developers can\'t deliver notifications infrastructure to product teams if the DX is miserable.',
+    image: consoleIcon,
+  },
+    {
+    title: 'Stateful',
+    description: 'The stateful workflow engine makes taking action on responses and other end user actions easy.',
+    image: editIcon,
+  }, */
 ];
 
 const Integration = () => (
