@@ -110,7 +110,7 @@ const SubscribeForm = ({
                   name: 'email',
                   value,
                 },
-                Object.entries(utms).map(([name, value]) => ({
+                ...Object.entries(utms).map(([name, value]) => ({
                   objectTypeId: '0-1',
                   name,
                   value,
