@@ -11,7 +11,7 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Expend your reach with multi-channel notifications
+        Expand your reach with multi-channel notifications
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
         Add new channels in minutes - Reach your users where they are.

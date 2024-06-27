@@ -9,13 +9,14 @@ import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
 const TITLE = 'Content management is hard and slow';
-const SUBTITLE = 'Let developers build workflows, logic, and formatting, and provide editable content back to product teams.';
+const SUBTITLE =
+  'Let developers build workflows, logic, and formatting, while providing editable content back to product teams.';
 
 const CARDS = [
   {
-    title: 'Ongoing developer interrupts',
+    title: 'Frequent developer interrupts',
     description:
-      'It takes too long for product teams to get content updated when they constantly rely on developers',
+      'Product teams face delays in updating content when they constantly rely on developers, who in turn are frequently interrupted from their primary tasks.',
     image: (
       <img
         className="w-full"
@@ -45,7 +46,7 @@ const CARDS = [
   {
     title: 'Forced use of a native CMS',
     description:
-      'Developers like to work in familiar technologies like React, and requiring them to ingest and use a different framework slows everyone down',
+      'Developers like to work with familiar technologies like React, and requiring them to ingest and use a different framework slows everyone down',
     image: (
       <img
         className="w-full"

@@ -8,9 +8,8 @@ import providers from './images/providers.svg';
 import template from './images/template.svg';
 import trigger from './images/trigger.svg';
 
-const TITLE =
-  'Adding new notification channels is costly and complex';
-const SUBTITLE = 'De-centralized notifications are costly in more ways than just engineering time…';
+const TITLE = 'Adding new notification channels is costly and complex';
+const SUBTITLE = 'Decentralized notifications are costly in more ways than just engineering time…';
 
 const CARDS = [
   {

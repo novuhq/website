@@ -5,19 +5,18 @@ import Heading from 'components/shared/heading';
 import contentManagement from './data/content-management-lottie-data.json';
 import digest from './data/digest-lottie-data.json';
 import monitoring from './data/monitoring-lottie-data.json';
-import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
 import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = "";
+const TITLE = '';
 const ITEMS = [
   {
     animationData: contentManagement, // This is a place holder animation of the Lottie animation data
     title: 'Code-first workflow',
     description:
-      'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
+      'Define workflows as code, re-use components, and deploy confidently without leaving your IDE of choice.',
   },
   {
     animationData: contentManagement, // We might consider change the name of this variable
@@ -29,25 +28,25 @@ const ITEMS = [
     animationData: digest, // This is a place holder animation of the Lottie animation data
     title: 'Broad framework support',
     description:
-      "Novu supports content frameworks like React Email, MJML, Vue-email, and more.",
+      'Novu supports a range of content frameworks like React-email, MJML, Vue-email and more.',
   },
   {
     animationData: priorityManagement,
     title: 'Type Safe',
-    description:
-      'Bring your own JSON schemas for full end-to-end validation across all your team members.',
+    description: 'Bring your own JSON schemas for end-to-end validation across team members.',
   },
   {
     animationData: monitoring,
     title: 'Dedicated environments',
-    description: 'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
+    description:
+      'A local preview environment that lives near your code and provides a matching interface for Non-Technical users in production.',
   },
   {
     animationData: timezone,
     title: 'Single content source',
     description:
       'Create notification content that can be used across all supported notification channels within Novu.',
-  }
+  },
 ];
 
 const Features = () => (

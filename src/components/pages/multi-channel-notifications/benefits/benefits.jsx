@@ -4,9 +4,8 @@ import Benefits_imgOnLeftSide from 'components/pages/multi-channel-notifications
 import Benefits_imgOnRightSide from 'components/pages/multi-channel-notifications/benefits/benefit_imgOnRightSide/benefits_imgOnRightSide';
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Never build notificfations again';
-const SUBTITLE =
-  "We've built it, so you don't have to.";
+const TITLE = 'Never build notifications again';
+const SUBTITLE = "We've built it, so you don't have to.";
 
 const Benefits = () => {
   const Benefit_1_Props = {
@@ -21,9 +20,9 @@ const Benefits = () => {
   };
 
   const Benefit_3_Props = {
-    title: 'Reduce distractions and keep development teams focused on providing app value',
+    title: 'Reduce distractions and keep development teams focused on providing value',
     description:
-      'Novu centralizes notification management to enhance collaboration, and allows engineers to focus on core development while empowering non-technical teams to modify content without code disruption',
+      'Novu centralizes notification management to enhance collaboration, and allows engineers to focus on core development while empowering non-technical teams to modify content without disrupting engineering flow',
   };
 
   return (

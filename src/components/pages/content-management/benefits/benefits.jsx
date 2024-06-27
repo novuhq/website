@@ -4,9 +4,8 @@ import Benefits_imgOnLeftSide from 'components/pages/content-management/benefits
 import Benefits_imgOnRightSide from 'components/pages/content-management/benefits/benefit_imgOnRightSide/benefits_imgOnRightSide';
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Never build notificfations again';
-const SUBTITLE =
-  "We've built it, so you don't have to.";
+const TITLE = 'Never build notifications again';
+const SUBTITLE = "We've built it, so you don't have to.";
 
 const Benefits = () => {
   const Benefit_1_Props = {
@@ -17,7 +16,7 @@ const Benefits = () => {
   const Benefit_2_Props = {
     title: 'Reduce engineering interrupts',
     description:
-      'Developers specifcy which fields and values product teams can manipulate, empowering them to iterate faster.',
+      'Developers specify editable fields, show/hide toggles, and dropdown selectors for properties, empowering product teams to iterate faster.',
   };
   const Benefit_3_Props = {
     title: 'Consistent user experience',
@@ -27,7 +26,7 @@ const Benefits = () => {
   const Benefit_4_Props = {
     title: 'Personalized notifications',
     description:
-      'Deliver rich, personalized notifications across any channel, and know content updates will not break workflow logic.',
+      'Deliver rich, personalized notifications across any channel, ensuring seamless content updates without disrupting workflow logic.',
   };
   const Benefit_5_Props = {
     title: 'Reuse existing and familiar content',

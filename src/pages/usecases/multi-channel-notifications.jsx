@@ -2,8 +2,8 @@ import React from 'react';
 
 // Imprort page-specific components
 import Benefits from 'components/pages/multi-channel-notifications/benefits';
-import Features from 'components/pages/multi-channel-notifications/features';
 import Cta from 'components/pages/multi-channel-notifications/cta';
+import Features from 'components/pages/multi-channel-notifications/features';
 import Hero from 'components/pages/multi-channel-notifications/hero';
 import Pain_restatement from 'components/pages/multi-channel-notifications/painRestatement';
 import RelatedContent from 'components/pages/multi-channel-notifications/related-content/related-content';
