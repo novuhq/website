@@ -5,7 +5,7 @@ import Heading from 'components/shared/heading';
 import contentManagement from './data/content-management-lottie-data.json';
 import digest from './data/digest-lottie-data.json';
 import monitoring from './data/monitoring-lottie-data.json';
-// import preferences from './data/preferences-lottie-data.json';
+import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
 import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
@@ -14,21 +14,21 @@ import Item from './item';
 const TITLE = '';
 const ITEMS = [
   {
-    animationData: contentManagement, // This is a place holder animation of the Lottie animation data
+    animationData: preferences,
     title: 'Code-first workflows',
     description:
       'Define workflows as code, re-use content components, and deploy confidently while developing in your IDE of choice.',
   },
   {
-    animationData: contentManagement, // We might consider change the name of this variable
+    animationData: contentManagement,
     title: 'No-code editor',
     description:
       'Product teams can manage workflow configurations without the risk of breaking notification flows.',
   },
   {
-    animationData: digest, // This is a place holder animation of the Lottie animation data
+    animationData: digest,
     title: 'Broad framework support',
-    description: 'Novu supports content frameworks like React Email, MJML, Vue-email, and more.',
+    description: 'Novu supports content frameworks like React-email, MJML, Vue-email, and more.',
   },
   {
     animationData: priorityManagement,

@@ -5,7 +5,7 @@ import Benefits from 'components/pages/unified-platform/benefits';
 import Cta from 'components/pages/unified-platform/cta';
 import Features from 'components/pages/unified-platform/features';
 import Hero from 'components/pages/unified-platform/hero';
-import Pain_restatement from 'components/pages/unified-platform/painRestatement';
+import PainRestatement from 'components/pages/unified-platform/painRestatement';
 import RelatedContent from 'components/pages/unified-platform/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
@@ -22,7 +22,7 @@ const unifiedPlatformPage = () => (
     {/* Section: Supporting features */}
     <Features />
     {/* Section: Pain Restatement */}
-    <Pain_restatement />
+    <PainRestatement />
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
@@ -36,7 +36,7 @@ export default unifiedPlatformPage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/unified-platfrom/',
+    slug: '/unified-platform/',
     title: 'Unified Development and Product Notification Platform',
     description: 'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
   };

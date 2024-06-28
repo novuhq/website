@@ -10,10 +10,10 @@
   "assets": [
     {
       "id": "image_0",
-      "w": 52,
-      "h": 52,
+      "w": 68,
+      "h": 68,
       "u": "/lottie-assets/pages/home/features/digest/",
-      "p": "Digest-icon.svg",
+      "p": "Digest-icon-development.svg",
       "e": 0
     },
     {
@@ -31,7 +31,7 @@
           "ddd": 0,
           "ind": 1,
           "ty": 2,
-          "nm": "Digest-icon.png",
+          "nm": "Digest-icon-development.png",
           "cl": "png",
           "refId": "image_0",
           "sr": 1,
@@ -39,7 +39,7 @@
             "o": { "a": 0, "k": 100, "ix": 11 },
             "r": { "a": 0, "k": 0, "ix": 10 },
             "p": { "a": 0, "k": [65, 65, 0], "ix": 2 },
-            "a": { "a": 0, "k": [26, 26, 0], "ix": 1 },
+            "a": { "a": 0, "k": [34, 34, 0], "ix": 1 },
             "s": {
               "a": 1,
               "k": [

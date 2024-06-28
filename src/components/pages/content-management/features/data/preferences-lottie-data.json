@@ -5,7 +5,7 @@
   "op": 60,
   "w": 244,
   "h": 130,
-  "nm": "User preferences",
+  "nm": "User Preferences",
   "ddd": 0,
   "assets": [
     {
@@ -13,7 +13,7 @@
       "w": 56,
       "h": 56,
       "u": "/lottie-assets/pages/home/features/preferences/",
-      "p": "icon.svg",
+      "p": "icon-code.svg",
       "e": 0
     },
     {
@@ -31,7 +31,7 @@
           "ddd": 0,
           "ind": 1,
           "ty": 2,
-          "nm": "icon.svg",
+          "nm": "icon-code.svg",
           "cl": "svg",
           "refId": "image_0",
           "sr": 1,

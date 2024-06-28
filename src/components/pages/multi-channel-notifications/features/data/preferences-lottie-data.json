@@ -13,7 +13,7 @@
       "w": 56,
       "h": 56,
       "u": "/lottie-assets/pages/home/features/preferences/",
-      "p": "icon.svg",
+      "p": "icon-preferences.svg",
       "e": 0
     },
     {
@@ -31,7 +31,7 @@
           "ddd": 0,
           "ind": 1,
           "ty": 2,
-          "nm": "icon.svg",
+          "nm": "icon-preferences.svg",
           "cl": "svg",
           "refId": "image_0",
           "sr": 1,
