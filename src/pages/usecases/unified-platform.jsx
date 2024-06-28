@@ -1,13 +1,12 @@
-
 // Imprort page-specific components
+import React from 'react';
+
 import Benefits from 'components/pages/unified-platform/benefits';
 import Cta from 'components/pages/unified-platform/cta';
 import Features from 'components/pages/unified-platform/features';
 import Hero from 'components/pages/unified-platform/hero';
 import Pain_restatement from 'components/pages/unified-platform/painRestatement';
 import RelatedContent from 'components/pages/unified-platform/related-content/related-content';
-import React from 'react';
-
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';

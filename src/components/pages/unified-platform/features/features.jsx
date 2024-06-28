@@ -5,19 +5,19 @@ import Heading from 'components/shared/heading';
 import contentManagement from './data/content-management-lottie-data.json';
 import digest from './data/digest-lottie-data.json';
 import monitoring from './data/monitoring-lottie-data.json';
-import preferences from './data/preferences-lottie-data.json';
+// import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
 import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = "";
+const TITLE = '';
 const ITEMS = [
   {
     animationData: digest, // This is a place holder animation of the Lottie animation data
     title: 'Single content source',
     description:
-      "Create notification content that can be used across all supported notification channels within Novu.",
+      'Create notification content that can be used across all supported notification channels within Novu.',
   },
   {
     animationData: priorityManagement,
@@ -40,14 +40,15 @@ const ITEMS = [
   {
     animationData: monitoring,
     title: 'Dedicated environments',
-    description: 'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
+    description:
+      'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
   },
   {
     animationData: timezone,
     title: 'Reusable components',
     description:
-      "Leverage our library of pre-built components to quickly build and deploy notifications.",
-  }
+      'Leverage our library of pre-built components to quickly build and deploy notifications.',
+  },
 ];
 
 const Features = () => (

@@ -29,8 +29,7 @@ const CARDS = [
   },
   {
     title: 'Piling Backlog',
-    description:
-      'Engineering teams lag behind product team notification requirements and needs.',
+    description: 'Engineering teams lag behind product team notification requirements and needs.',
     image: (
       <img
         className="w-full"
