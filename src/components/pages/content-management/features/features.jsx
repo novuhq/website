@@ -14,39 +14,39 @@ import Item from './item';
 const TITLE = '';
 const ITEMS = [
   {
-    animationData: preferences, // This is a place holder animation of the Lottie animation data
-    title: 'Code-first workflow',
+    animationData: preferences,
+    title: 'Code-first workflows',
     description:
-      'Define workflows as code, re-use components, and deploy confidently without leaving your IDE of choice.',
+      'Define workflows as code, re-use content components, and deploy confidently while developing in your IDE of choice.',
   },
   {
-    animationData: contentManagement, // We might consider change the name of this variable
+    animationData: contentManagement,
     title: 'No-code editor',
     description:
       'Product teams can manage workflow configurations without the risk of breaking notification flows.',
   },
   {
-    animationData: digest, // This is a place holder animation of the Lottie animation data
+    animationData: digest,
     title: 'Broad framework support',
-    description:
-      'Novu supports a range of content frameworks like React-email, MJML, Vue-email and more.',
+    description: 'Novu supports content frameworks like React-email, MJML, Vue-email, and more.',
   },
   {
     animationData: priorityManagement,
-    title: 'Type Safe',
-    description: 'Bring your own JSON schemas for end-to-end validation across team members.',
+    title: 'Type safe',
+    description:
+      "Zod and validation plugins ensure prduct teams won't break critical workflows as they update content.",
   },
   {
     animationData: monitoring,
-    title: 'Dedicated environments',
+    title: 'Dedicated interfaces',
     description:
-      'A local preview environment that lives near your code and provides a matching interface for Non-Technical users in production.',
+      'A local preview environment lives near your code, and product teams use a matching cloud interface.',
   },
   {
     animationData: timezone,
     title: 'Single content source',
     description:
-      'Create notification content that can be used across all supported notification channels within Novu.',
+      'Write once, and use the same notification content across all notification channels.',
   },
 ];
 

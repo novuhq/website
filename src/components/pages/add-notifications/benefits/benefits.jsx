@@ -6,11 +6,12 @@ import Heading from 'components/shared/heading';
 
 const TITLE = 'Never build notificfations again';
 const SUBTITLE =
-  'Increase team velociuty and customer experience by adding notifications to your existing application.';
+  'Updates, additional capabilities, superior DX, and more promote effective notifications pracices, not distracting ongoing infrastructure work.';
 const CARDS = [
   {
-    title: 'Extensible integration',
-    description: 'Integrate with any provider, channel, or content framework.',
+    title: 'Extensible integrations',
+    description:
+      'Integrates with all popular providers and channels, and you can easily extend support to your own custom code.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -23,7 +24,8 @@ const CARDS = [
   },
   {
     title: 'Complete flexibility',
-    description: 'Build any notification workflow imaginable, and iterate endlessly.',
+    description:
+      'Product teams can freely edit content, update branding, and change images--all without any developer input.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -36,7 +38,8 @@ const CARDS = [
   },
   {
     title: 'Scalable and reliable',
-    description: 'Deliver notifications at any scale and through any channel when needed.',
+    description:
+      'Deliver notifications at any scale and through any channel when needed, and get the SLA and observability to prove it.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -49,7 +52,8 @@ const CARDS = [
   },
   {
     title: 'Full visibility and compliance',
-    description: 'Simplify debugging with complete observability and ensure compliance with ease.',
+    description:
+      'Transparent, flexible and allows you to inspect, modify, and enhance the infrastructure along with our vibrant community.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -61,7 +65,7 @@ const CARDS = [
     ),
   },
   {
-    title: 'Open source',
+    title: 'Open source backed',
     description:
       'Transparent, flexible and allows you to inspect, modify, and enhance the infrastructure along with the community.',
     image: (
@@ -127,5 +131,4 @@ const Benefits = () => (
     </ul>
   </section>
 );
-
 export default Benefits;

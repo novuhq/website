@@ -11,7 +11,8 @@ const SUBTITLE =
 const CARDS = [
   {
     title: 'Ship faster',
-    description: 'Engineering teams easily deliver notification capabilities into the applications',
+    description:
+      'Engineering teams easily deliver notification capabilities into the applications.',
     image: (
       <StaticImage
         className="rounded-[20px]"

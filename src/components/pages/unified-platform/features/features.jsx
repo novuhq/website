@@ -14,25 +14,25 @@ import Item from './item';
 const TITLE = '';
 const ITEMS = [
   {
-    animationData: digest, // This is a place holder animation of the Lottie animation data
+    animationData: digest,
     title: 'Single content source',
     description:
       'Create notification content that can be used across all supported notification channels within Novu.',
   },
   {
     animationData: priorityManagement,
-    title: 'Type Safe',
+    title: 'Type safe',
     description:
       'Bring your own JSON schemas for full end-to-end validation across all your team members.',
   },
   {
-    animationData: preferences, // This is a place holder animation of the Lottie animation data
-    title: 'Code-first workflow',
+    animationData: preferences,
+    title: 'Code-first workflows',
     description:
       'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
   },
   {
-    animationData: contentManagement, // We might consider change the name of this variable
+    animationData: contentManagement,
     title: 'No-code editor',
     description:
       'Product teams can manage workflow configurations without the risk of breaking notification flows.',

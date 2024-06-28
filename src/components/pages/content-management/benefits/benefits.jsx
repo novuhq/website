@@ -12,7 +12,7 @@ const Benefits = () => {
   const Benefit_1_Props = {
     title: 'Effortless collaboration',
     description:
-      'Developers and product teams work together on a platform that unifies all notifications content and logic.',
+      'Developers and product teams work together whith unified notifications content and logic.',
   };
   const Benefit_2_Props = {
     title: 'Reduce engineering interrupts',
@@ -45,10 +45,10 @@ const Benefits = () => {
   const Benefit_4_Props = {
     title: 'Personalized notifications',
     description:
-      'Deliver rich, personalized notifications across any channel, ensuring seamless content updates without disrupting workflow logic.',
+      'Deliver rich, personalized notifications across any channel, and know content updates will never break workflow logic.',
   };
   const Benefit_5_Props = {
-    title: 'Reuse existing and familiar content',
+    title: 'Reuse content',
     description:
       'Bring your own content, no matter the format. Novu supports popular frameworks including React, Vue-email, MJML, and more.',
     image: (

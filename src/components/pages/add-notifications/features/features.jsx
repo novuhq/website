@@ -22,7 +22,7 @@ const ITEMS = [
     animationData: priorityManagement,
     title: 'Type Safe',
     description:
-      'Bring your own JSON schemas for full end-to-end validation across all your team members.',
+      "Zod and validation plugins ensure prduct teams won't break critical workflows as they update content.",
   },
   {
     animationData: contentManagement, // This is a place holder animation of the Lottie animation data
@@ -34,7 +34,7 @@ const ITEMS = [
     animationData: contentManagement, // We might consider change the name of this variable
     title: 'No-code editor',
     description:
-      'Product teams can manage workflow configurations without the risk of breaking notification flows.',
+      'Developers start with content code in their framework of choice (React, Vue, etc.), and Product teams are presented with a no-code version to edit.',
   },
   {
     animationData: monitoring,
@@ -46,7 +46,7 @@ const ITEMS = [
     animationData: timezone,
     title: 'Ready-to-use components',
     description:
-      'Leverage our library of pre-built components to quickly build and deploy notifications.',
+      'Add notifications capabilities to your app through pre-built inbox and preference components--all stateful, and with DX in mind.',
   },
 ];
 

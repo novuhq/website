@@ -7,7 +7,7 @@ import editIcon from './images/edit.svg';
 import integrationIcon from './images/integration.svg';
 import migrationIcon from './images/migration.svg';
 
-const TITLE = 'Integrates easily, delivers powerful notifications infrastructure';
+const TITLE = 'Integrates easily, delivers powerful notifications';
 
 const CARDS = [
   {
@@ -34,7 +34,7 @@ const CARDS = [
     image: editIcon,
   },
   {
-    title: 'Multi-channel and multi-framework',
+    title: 'Multi-channel, multi-framework',
     description: 'Access any channel provider, and use any content framework, all with one API.',
     image: debugIcon,
   },

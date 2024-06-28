@@ -5,12 +5,12 @@ import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 
-
-
+/*
 const TITLE = 'Get started now';
 
 const DESCRIPTION =
   'Create and send your first code-based notification in&nbsp;less than five minutes.';
+*/
 
 const LINK = {
   text: 'Book a demo',
@@ -85,7 +85,6 @@ const Cta = () => {
             </Button>
           </div>
         </div>
-
       </div>
     </section>
   );

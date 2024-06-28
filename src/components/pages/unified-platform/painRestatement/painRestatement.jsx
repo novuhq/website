@@ -11,18 +11,18 @@ const SUBTITLE = 'Used by the rest of the team';
 
 const CARDS = [
   {
-    title: 'Adjusting Capabilities',
+    title: 'Evolving requirements',
     description:
       'Every new channel or provider requires development to build new app capabilities to new API endpoints.',
     image: <img width={80} height={80} src={capabilities} alt="Create template" loading="lazy" />,
   },
   {
-    title: 'Piling Backlog',
+    title: 'Endless backlog',
     description: 'Engineering teams lag behind product team notification requirements and needs.',
     image: <img width={80} height={80} src={backlog} alt="Connect providers" loading="lazy" />,
   },
   {
-    title: 'Content Iteration Friction',
+    title: 'Constant cross-team friction',
     description:
       'Product teams want to rapidly iterate and update content, but require developer time and interrupts to be successful, causing friction from mismanaged expectations and misalignment.',
     image: <img width={80} height={80} src={contentIteration} alt="Add trigger" loading="lazy" />,

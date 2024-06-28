@@ -42,8 +42,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Scalable, reliable and open-source',
-    description: 'Any volume, any channel, any team for mission-critical notifications.',
+    title: 'Type-Safe',
+    description:
+      'Bring your own JSON schemas for full end-to-end validation across all your team members.',
     className: 'order-2 bg-[#27222F]',
     image: (
       <StaticImage
@@ -69,9 +70,9 @@ const CARDS = [
     ),
   },
   {
-    title: 'Observable',
+    title: 'Observable and Scalable',
     description:
-      'Bring your own JSON schemas for full end-to-end validation across all your team members.',
+      'Novu handles any volume, any channel, and any team for mission-critical notifications.',
     className: 'order-4 bg-[#27222F] sm:order-3',
     image: (
       <StaticImage
@@ -98,7 +99,7 @@ const CARDS = [
   },
   {
     title: 'Consistent',
-    description: 'Seamless GitOps notifications streamlines consistent notifications.',
+    description: 'Notification infrastructure belongs in your CI/CD release cycle.',
     className:
       'order-3 bg-[radial-gradient(100%_100%_at_67.91%_0%,#243349_9.84%,#1E2334_22.52%)] sm:order-4',
     image: (

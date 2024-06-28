@@ -1,6 +1,6 @@
+// Imprort page-specific components
 import React from 'react';
 
-// Imprort page-specific components
 import Benefits from 'components/pages/unified-platform/benefits';
 import Cta from 'components/pages/unified-platform/cta';
 import Features from 'components/pages/unified-platform/features';

@@ -6,27 +6,27 @@ import branding from './images/branding.svg';
 import cms from './images/cms.svg';
 import interrupts from './images/interrupts.svg';
 
-const TITLE = 'Content management is hard and slow';
+const TITLE = 'Content management issues are painful';
 const SUBTITLE =
-  'Let developers build workflows, logic, and formatting, while providing editable content back to product teams.';
+  'Developers build workflows, logic, and formatting, then provide editable content back to product teams.';
 
 const CARDS = [
   {
     title: 'Frequent developer interrupts',
     description:
-      'Product teams face delays in updating content when they constantly rely on developers, who in turn are frequently interrupted from their primary tasks.',
+      'It takes too long for product teams to get content updated when they constantly rely on developers for even minor changes.',
     image: <img width={80} height={80} src={interrupts} alt="Create template" loading="lazy" />,
   },
   {
     title: 'Inconsistent branding and customer experience',
     description:
-      'When updating content is hard, branding and messaging issues are frequently exposed to end users',
+      'When updating content is hard, branding and messaging issues slow business velocity, and confuse end users.',
     image: <img width={80} height={80} src={branding} alt="Connect providers" loading="lazy" />,
   },
   {
-    title: 'Forced use of a native CMS',
+    title: 'Forced non-native CMS use',
     description:
-      'Developers like to work with familiar technologies like React, and requiring them to ingest and use a different framework slows everyone down',
+      'Developers like to work in familiar technologies like React, and requiring them to ingest and use a different CMS slows everyone down.',
     image: <img width={80} height={80} src={cms} alt="Add trigger" loading="lazy" />,
   },
 ];
