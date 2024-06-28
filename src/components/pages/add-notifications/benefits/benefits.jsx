@@ -4,9 +4,9 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Never build notificfations again';
+const TITLE = 'Never build notifications again';
 const SUBTITLE =
-  'Updates, additional capabilities, superior DX, and more promote effective notifications pracices, not distracting ongoing infrastructure work.';
+  'Updates, additional capabilities, superior DX, and promote more effective notifications practices, not distracting ongoing infrastructure work.';
 const CARDS = [
   {
     title: 'Extensible integrations',
@@ -52,8 +52,7 @@ const CARDS = [
   },
   {
     title: 'Full visibility and compliance',
-    description:
-      'Transparent, flexible and allows you to inspect, modify, and enhance the infrastructure along with our vibrant community.',
+    description: 'Simplify debugging with complete observability and ensure compliance with ease.',
     image: (
       <StaticImage
         className="rounded-[20px]"

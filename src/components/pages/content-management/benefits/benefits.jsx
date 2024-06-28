@@ -12,7 +12,7 @@ const Benefits = () => {
   const Benefit_1_Props = {
     title: 'Effortless collaboration',
     description:
-      'Developers and product teams work together whith unified notifications content and logic.',
+      'Developers and product teams work together with unified notifications content and logic.',
   };
   const Benefit_2_Props = {
     title: 'Reduce engineering interrupts',
