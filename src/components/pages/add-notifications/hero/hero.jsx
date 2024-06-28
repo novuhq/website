@@ -11,7 +11,7 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Test in minutes, go to prod in less than a day
+        Test in minutes, go to prod before dinner
       </Heading>
       <p className="mx-auto mt-4 max-w-[900px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
         Ship notifications in your app with production-ready infrastructure and out-of-the-box
