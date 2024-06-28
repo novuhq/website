@@ -6,29 +6,28 @@ import Heading from 'components/shared/heading';
 
 const TITLE = 'Never build notificfations again';
 const SUBTITLE =
-  'Increase team velociuty and customer experience by adding notifications to your existing application.';
+  'Updates, additional capabilities, superior DX, and more promote effective notifications pracices, not distracting ongoing infrastructure work.';
 
 const Benefits = () => {
   const Benefit_1_Props = {
-    title: 'Extensible integration',
-    description: 'Integrate with any provider, channel, or content framework.',
+    title: 'Extensible integrations',
+    description:
+      'Integrates with all popular providers and channels, and you can easily extend support to your own custom code.',
   };
   const Benefit_2_Props = {
     title: 'Complete flexibility',
-    description: 'Build any notification workflow imaginable, and iterate endlessly.',
+    description:
+      'Product teams can freely edit content, update branding, and change images--all without any developer input.',
   };
   const Benefit_3_Props = {
     title: 'Scalable and reliable',
-    description: 'Deliver notifications at any scale and through any channel when needed.',
+    description:
+      'Deliver notifications at any scale and through any channel when needed, and get the SLA and observability to prove it.',
   };
   const Benefit_4_Props = {
-    title: 'Full visibility and compliance',
-    description: 'Simplify debugging with complete observability and ensure compliance with ease.',
-  };
-  const Benefit_5_Props = {
     title: 'Open source',
     description:
-      'Transparent, flexible and allows you to inspect, modify, and enhance the infrastructure along with the community.',
+      'Transparent, flexible and allows you to inspect, modify, and enhance the infrastructure along with our vibrant community.',
   };
 
   return (
@@ -48,7 +47,6 @@ const Benefits = () => {
       <Benefits_imgOnLeftSide {...Benefit_2_Props} />
       <Benefits_imgOnRightSide {...Benefit_3_Props} />
       <Benefits_imgOnLeftSide {...Benefit_4_Props} />
-      <Benefits_imgOnRightSide {...Benefit_5_Props} />
     </section>
   );
 };
