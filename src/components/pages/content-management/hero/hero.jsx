@@ -11,10 +11,11 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Managing notification content has never been easier
+        Eliminate the content dance between development and product teams
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Empower your product teams to safely interact with notitfcations content.
+        Developers now empower product teams to safely interact with all of your notitfcations
+        content, no interrupts needed.
       </p>
     </div>
   </section>
