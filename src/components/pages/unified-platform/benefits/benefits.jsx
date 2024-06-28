@@ -11,8 +11,7 @@ const SUBTITLE =
 const Benefits = () => {
   const Benefit_1_Props = {
     title: 'Ship faster',
-    description:
-      'Engineering teams easily deliver notification capabilities into the applications',
+    description: 'Engineering teams easily deliver notification capabilities into the applications',
   };
   const Benefit_2_Props = {
     title: 'Reduce engineering interrupts',
@@ -29,8 +28,6 @@ const Benefits = () => {
     description:
       'Developers and product teams work together on a platform that unifies all notifications content and logic.',
   };
-
- 
 
   return (
     <section className="benefits bg-gray-2 pb-40 pt-40 lg:pb-32 lg:pt-24 md:pb-28 md:pt-18 sm:pb-18 sm:pt-12">
