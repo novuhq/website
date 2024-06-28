@@ -16,7 +16,7 @@ const CARDS = [
   {
     title: 'Challenging integrations',
     description:
-      'Building notifications in-house means learning, integrating and maintaining each notification channel and provider individually.',
+      'Building notifications in-house requires near-constant effort to scope, build, and maintain... even to just make minor content updates.',
     image: (
       <img
         className="w-full"
@@ -46,7 +46,7 @@ const CARDS = [
   {
     title: 'Decreased Innovation',
     description:
-      "When product teams need the development team's time to make even minor content changes, productivity decreases, and innovation slows.",
+      "Innovation and velocity are intertwined, and When product teams need the development team's time to make even minor content changes, productivity decreases.",
     image: (
       <img
         className="w-full"
