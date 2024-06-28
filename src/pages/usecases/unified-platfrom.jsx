@@ -1,19 +1,19 @@
 import React from 'react';
 
 // Imprort page-specific components
-import Benefits from 'components/pages/unified-platfrom/benefits';
-import Cta from 'components/pages/unified-platfrom/cta';
-import Features from 'components/pages/unified-platfrom/features';
-import Hero from 'components/pages/unified-platfrom/hero';
-import PainRestatement from 'components/pages/unified-platfrom/painRestatement';
-import RelatedContent from 'components/pages/unified-platfrom/related-content/related-content';
+import Benefits from 'components/pages/unified-platform/benefits';
+import Cta from 'components/pages/unified-platform/cta';
+import Features from 'components/pages/unified-platform/features';
+import Hero from 'components/pages/unified-platform/hero';
+import PainRestatement from 'components/pages/unified-platform/painRestatement';
+import RelatedContent from 'components/pages/unified-platform/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 // import SEO component
 import SEO from 'components/shared/seo';
 
-const unifiedPlatfromPage = () => (
+const unifiedPlatformPage = () => (
   <Layout>
     {/* Section: Header */}
     <Hero />
@@ -32,11 +32,11 @@ const unifiedPlatfromPage = () => (
   </Layout>
 );
 
-export default unifiedPlatfromPage;
+export default unifiedPlatformPage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/unified-platfrom/',
+    slug: '/unified-platform/',
     title: 'Unified Development and Product Notification Platform',
     description: 'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
   };
