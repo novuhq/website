@@ -53,7 +53,7 @@ const TABS = [
 
 const TITLE = 'Built by developers,<br>Used by the rest of the team';
 const DESCRIPTION =
-  'Unapologetically built for development teams to provide notifications infrastructure to their product and business. Eliminate the expense and burden of building and maintaining home - grown notifications infrastructure.Novu is confidence in notifications.';
+  'Unapologetically built for development teams to provide notifications infrastructure to their product and business. Eliminate the expense and burden of building and maintaining home-grown notifications infrastructure, and still keep all of the flexibility you need and want.';
 
 const customRenderer = ({ rows, stylesheet, useInlineStyles }) =>
   rows.map((node, i) =>
