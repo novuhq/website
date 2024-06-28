@@ -13,7 +13,7 @@
       "w": 64,
       "h": 64,
       "u": "/lottie-assets/pages/home/features/monitoring/",
-      "p": "Monitoring_-_icon.svg",
+      "p": "icon-channels.svg",
       "e": 0
     },
     {
@@ -31,7 +31,7 @@
           "ddd": 0,
           "ind": 1,
           "ty": 2,
-          "nm": "Monitoring - icon.png",
+          "nm": "icon-channels.png",
           "cl": "png",
           "refId": "image_0",
           "sr": 1,

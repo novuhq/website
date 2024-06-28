@@ -11,13 +11,12 @@ import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = "";
+const TITLE = '';
 const ITEMS = [
   {
     animationData: timezone,
     title: 'Timezone awareness',
-    description:
-      "Send transactional notifications based on user's timezone and working hours.",
+    description: "Send transactional notifications based on user's timezone and working hours.",
   },
   {
     animationData: digest,
@@ -28,8 +27,7 @@ const ITEMS = [
   {
     animationData: preferences,
     title: 'User preferences',
-    description:
-      'Handle all user preferences and subscriptions across channels.',
+    description: 'Handle all user preferences and subscriptions across channels.',
   },
   {
     animationData: contentManagement, // We might consider change the name of this variable
@@ -40,14 +38,15 @@ const ITEMS = [
   {
     animationData: monitoring,
     title: 'Multiple channels',
-    description: 'Novu supports email, SMS, Push, Chat, In-app, and more. Reach users through the most effective channel for them.',
+    description:
+      'Novu supports email, SMS, Push, Chat, In-app, and more. Reach users through the most effective channel for them.',
   },
   {
-    animationData: timezone,
+    animationData: priorityManagement,
     title: 'Content centralization',
     description:
-      "Manage notification content in one place. Enabling seamless collaboration between developers, product teams, and marketers.",
-  }
+      'Manage notification content in one place. Enabling seamless collaboration between developers, product teams, and marketers.',
+  },
 ];
 
 const Features = () => (

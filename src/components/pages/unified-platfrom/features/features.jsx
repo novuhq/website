@@ -11,13 +11,13 @@ import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = "";
+const TITLE = '';
 const ITEMS = [
   {
     animationData: digest, // This is a place holder animation of the Lottie animation data
     title: 'Single content source',
     description:
-      "Create notification content that can be used across all supported notification channels within Novu.",
+      'Create notification content that can be used across all supported notification channels within Novu.',
   },
   {
     animationData: priorityManagement,
@@ -26,7 +26,7 @@ const ITEMS = [
       'Bring your own JSON schemas for full end-to-end validation across all your team members.',
   },
   {
-    animationData: contentManagement, // This is a place holder animation of the Lottie animation data
+    animationData: preferences, // This is a place holder animation of the Lottie animation data
     title: 'Code-first workflow',
     description:
       'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
@@ -40,14 +40,15 @@ const ITEMS = [
   {
     animationData: monitoring,
     title: 'Dedicated environments',
-    description: 'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
+    description:
+      'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
   },
   {
     animationData: timezone,
     title: 'Reusable components',
     description:
-      "Leverage our library of pre-built components to quickly build and deploy notifications.",
-  }
+      'Leverage our library of pre-built components to quickly build and deploy notifications.',
+  },
 ];
 
 const Features = () => (

@@ -13,7 +13,7 @@
       "w": 52,
       "h": 52,
       "u": "/lottie-assets/pages/home/features/content-management/",
-      "p": "icon.svg",
+      "p": "icon-translation.svg",
       "e": 0
     },
     {
@@ -31,7 +31,7 @@
           "ddd": 0,
           "ind": 1,
           "ty": 2,
-          "nm": "Content management - icon.png",
+          "nm": "icon-translation.png",
           "cl": "png",
           "refId": "image_0",
           "sr": 1,

@@ -5,7 +5,7 @@ import Benefits from 'components/pages/unified-platfrom/benefits';
 import Cta from 'components/pages/unified-platfrom/cta';
 import Features from 'components/pages/unified-platfrom/features';
 import Hero from 'components/pages/unified-platfrom/hero';
-import Pain_restatement from 'components/pages/unified-platfrom/painRestatement';
+import PainRestatement from 'components/pages/unified-platfrom/painRestatement';
 import RelatedContent from 'components/pages/unified-platfrom/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
@@ -22,7 +22,7 @@ const unifiedPlatfromPage = () => (
     {/* Section: Supporting features */}
     <Features />
     {/* Section: Pain Restatement */}
-    <Pain_restatement />
+    <PainRestatement />
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}

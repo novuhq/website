@@ -11,7 +11,7 @@ import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
 import Item from './item';
 
-const TITLE = "";
+const TITLE = '';
 const ITEMS = [
   {
     animationData: digest, // This is a place holder animation of the Lottie animation data
@@ -26,10 +26,9 @@ const ITEMS = [
       'Manage notification content in one place. Enabling seamless collaboration between developers, product teams, and marketers.',
   },
   {
-    animationData: digest, // This is a place holder animation of the Lottie animation data
+    animationData: timezone, // This is a place holder animation of the Lottie animation data
     title: 'Unified API',
-    description:
-      "Integrate your application once and access any delivery provider.",
+    description: 'Integrate your application once and access any delivery provider.',
   },
   {
     animationData: priorityManagement,
@@ -40,14 +39,15 @@ const ITEMS = [
   {
     animationData: monitoring,
     title: 'Observability',
-    description: 'Gain clear visibility into how and why a notification was (or was not) sent so you can optimize strategies and efficiently debug.',
+    description:
+      'Gain clear visibility into how and why a notification was (or was not) sent so you can optimize strategies and efficiently debug.',
   },
   {
     animationData: preferences,
     title: 'User preferences',
     description:
       'Your end users directly set and configure their preferred communication methods, times, languages, and more.',
-  }
+  },
 ];
 
 const Features = () => (

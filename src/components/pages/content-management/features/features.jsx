@@ -5,6 +5,7 @@ import Heading from 'components/shared/heading';
 import contentManagement from './data/content-management-lottie-data.json';
 import digest from './data/digest-lottie-data.json';
 import monitoring from './data/monitoring-lottie-data.json';
+import preferences from './data/preferences-lottie-data.json';
 import priorityManagement from './data/priority-management-lottie-data.json';
 import timezone from './data/timezone-lottie-data.json';
 // import multiProviders from './data/multiple-providers-lottie-data.json'; --> We need to create this asset
@@ -13,7 +14,7 @@ import Item from './item';
 const TITLE = '';
 const ITEMS = [
   {
-    animationData: contentManagement, // This is a place holder animation of the Lottie animation data
+    animationData: preferences, // This is a place holder animation of the Lottie animation data
     title: 'Code-first workflow',
     description:
       'Define workflows as code, re-use components, and deploy confidently without leaving your IDE of choice.',

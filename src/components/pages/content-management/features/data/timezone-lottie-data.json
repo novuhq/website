@@ -13,7 +13,7 @@
       "w": 72,
       "h": 72,
       "u": "/lottie-assets/pages/home/features/timezone/",
-      "p": "icon.svg",
+      "p": "icon-content.svg",
       "e": 0
     },
     {
@@ -31,7 +31,7 @@
           "ddd": 0,
           "ind": 1,
           "ty": 2,
-          "nm": "icon.svg",
+          "nm": "icon-content.svg",
           "cl": "svg",
           "refId": "image_0",
           "sr": 1,

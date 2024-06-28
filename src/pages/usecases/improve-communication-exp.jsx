@@ -5,7 +5,7 @@ import Benefits from 'components/pages/improve-communication-experience/benefits
 import Cta from 'components/pages/improve-communication-experience/cta';
 import Features from 'components/pages/improve-communication-experience/features';
 import Hero from 'components/pages/improve-communication-experience/hero';
-import Pain_restatement from 'components/pages/improve-communication-experience/painRestatement';
+import PainRestatement from 'components/pages/improve-communication-experience/painRestatement';
 import RelatedContent from 'components/pages/improve-communication-experience/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
@@ -22,7 +22,7 @@ const improveCommunicationExperiencePage = () => (
     {/* Section: Supporting features */}
     <Features />
     {/* Section: Pain Restatement */}
-    <Pain_restatement />
+    <PainRestatement />
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
