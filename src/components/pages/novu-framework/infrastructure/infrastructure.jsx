@@ -72,7 +72,7 @@ const CARDS = [
   {
     title: 'Observable and Scalable',
     description:
-      'Novu can hangle any volume, any channel, any team for mission-critical notifications.',
+      'Novu handles any volume, any channel, and any team for mission-critical notifications.',
     className: 'order-4 bg-[#27222F] sm:order-3',
     image: (
       <StaticImage
@@ -99,7 +99,7 @@ const CARDS = [
   },
   {
     title: 'Consistent',
-    description: 'Notification infrstructure belongs in your CI/CD release cycle.',
+    description: 'Notification infrastructure belongs in your CI/CD release cycle.',
     className:
       'order-3 bg-[radial-gradient(100%_100%_at_67.91%_0%,#243349_9.84%,#1E2334_22.52%)] sm:order-4',
     image: (
