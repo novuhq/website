@@ -33,7 +33,7 @@ const ITEMS = [
   },
   {
     animationData: priorityManagement,
-    title: 'Multiple channels',
+    title: 'Multi-channel',
     description:
       'Send notifications via email, SMS, push, chat, in-app, and more. Reach users through the most effective channels.',
   },

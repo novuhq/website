@@ -11,10 +11,11 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Improve User Communication Experience
+        Improve end user communication experiences
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Deliver an optimized notification experience tailored to user interactions and preferences.
+        Increase engagement with optimized notification experiences tailored to user interactions
+        and preferences.
       </p>
     </div>
   </section>

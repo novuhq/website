@@ -10,8 +10,9 @@ const SUBTITLE =
 
 const CARDS = [
   {
-    title: 'Time relevant notifications',
-    description: 'Communicate with your users at the right time, for them',
+    title: 'Relevant notifications',
+    description:
+      'Communicate with your users at the right time, in the right channel, and in the best language for them.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -25,7 +26,7 @@ const CARDS = [
   {
     title: 'Personalized messages',
     description:
-      'Send tailored messages that are relevant to each user, based on their behavior and preferences or location',
+      'Highly-customized and tailored messages increase brand perception and customer experience.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -38,7 +39,8 @@ const CARDS = [
   },
   {
     title: 'Consistent branding',
-    description: 'Maintain a consistent brand experience across all channels in one place',
+    description:
+      'Product and marketing teams maintain ownership of messaging and branding, and can interate as fast as they need to.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -52,7 +54,7 @@ const CARDS = [
   {
     title: 'Multi-channel Accessibility',
     description:
-      'Reach your users on the channel they prefer, be it email, SMS, push notifications, Chat or in-app messages',
+      'Reach your users on the channels they prefer, be it email, SMS, push notifications, Chat or in-app messages.',
     image: (
       <StaticImage
         className="rounded-[20px]"

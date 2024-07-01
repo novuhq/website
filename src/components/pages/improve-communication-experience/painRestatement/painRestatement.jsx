@@ -6,28 +6,29 @@ import missed from './images/missed.svg';
 import negative from './images/negative.svg';
 import notifications from './images/notifications.svg';
 
-const TITLE = 'Effective Notification Infrastructure';
-const SUBTITLE = 'Users can tell when a notification system is poorly designed or managed.';
+const TITLE = 'Poor notifications experiences hurt your business';
+const SUBTITLE =
+  'End users expect seamless, on-brand, and timely notifications that add to their experience.';
 
 const CARDS = [
   {
-    title: 'Missed Updates',
+    title: 'Missed updates',
     description:
-      'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
+      'Without timely notifications, users miss critical information or updates such as order updates, password resets, or one-time password messages, leading to a poor experience with your application.',
     image: <img width={80} height={80} src={missed} alt="Create template" loading="lazy" />,
   },
   {
-    title: 'Irrelevant Notifications',
+    title: 'Notification fatige',
     description:
-      'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
+      'Poorly targeted or excessive notifications overwhelm and annoy users, causing distractions and encouraging them to ignore them altogether.',
     image: (
       <img width={80} height={80} src={notifications} alt="Connect providers" loading="lazy" />
     ),
   },
   {
-    title: 'Negative Brand Perception',
+    title: 'Negative brand perception',
     description:
-      'Poorly managed notifications can reflect negatively on the brand, portraying it as intrusive, unorganized, or unresponsive to user needs and preferences.',
+      'Poorly managed notifications reflect negatively on your brand, and increase customer churn.',
     image: <img width={80} height={80} src={negative} alt="Add trigger" loading="lazy" />,
   },
 ];
