@@ -11,10 +11,11 @@ const Hero = () => (
         tag="h1"
         theme="white"
       >
-        Unified Development and Product Notification Platform
+        Unified product notification platform for development and product teams
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Simplify team collaboration with single, centralized notification solution.
+        One platform for all of your notification needs, streamlining how your teams work together,
+        and your users experience notifications.
       </p>
     </div>
   </section>

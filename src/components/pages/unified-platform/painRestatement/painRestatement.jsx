@@ -6,8 +6,9 @@ import backlog from './images/backlog.svg';
 import capabilities from './images/capabilities.svg';
 import contentIteration from './images/content-iteration.svg';
 
-const TITLE = 'Solution built for developers';
-const SUBTITLE = 'Used by the rest of the team';
+const TITLE = 'Notifications the right way are not trivial';
+const SUBTITLE =
+  'Flexible notification infrastructure is extraorinarily difficult to implement. Spend your development cycles where they can best make a difference.';
 
 const CARDS = [
   {

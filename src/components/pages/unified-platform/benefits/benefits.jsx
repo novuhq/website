@@ -6,7 +6,7 @@ import Heading from 'components/shared/heading';
 
 const TITLE = 'Never build notificfations again';
 const SUBTITLE =
-  'Increase team velociuty and customer experience by adding notifications to your existing application.';
+  'Increase team velocity and customer experience by adding notifications to your existing application.';
 
 const CARDS = [
   {
