@@ -28,6 +28,15 @@ const Benefits = () => {
     title: 'Improve app experience and retention',
     description:
       'Personalized, real-time in-app notifications notifications with a convenient Inbox component.',
+    image: (
+      <StaticImage
+        className="rounded-[20px]"
+        src="./images/personalized-messages.jpg"
+        alt=""
+        width={842}
+        height={495}
+      />
+    ),
   };
 
   const Benefit_3_Props = {

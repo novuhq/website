@@ -16,36 +16,36 @@ const ITEMS = [
   {
     animationData: timezone,
     title: 'Timezone awareness',
-    description: "Send transactional notifications based on user's timezone and working hours.",
+    description: "Send notifications based on a user's timezone and working hours.",
   },
   {
     animationData: digest,
-    title: 'Digest',
+    title: 'Digest engine',
     description:
-      'A digest engine that aggregates multiple events in to a single precise notification.',
+      'Aggregate multiple disparate events multiple events in to a single timely notification.',
   },
   {
     animationData: preferences,
     title: 'User preferences',
-    description: 'Handle all user preferences and subscriptions across channels.',
+    description:
+      'Your end users directly set and configure their preferred communication methods, times, languages, and more.',
   },
   {
-    animationData: contentManagement, // We might consider change the name of this variable
+    animationData: contentManagement,
     title: 'Translations',
-    description:
-      'Tailor the content of notifications to match the language preferences of individual users',
+    description: "Customize notification content to match each end user's preferred language.",
   },
   {
     animationData: monitoring,
-    title: 'Multiple channels',
+    title: 'Multi-channel',
     description:
-      'Novu supports email, SMS, Push, Chat, In-app, and more. Reach users through the most effective channel for them.',
+      'Send notifications via email, SMS, push, chat, in-app, and more. Reach users through the most effective channels.',
   },
   {
     animationData: priorityManagement,
     title: 'Content centralization',
     description:
-      'Manage notification content in one place. Enabling seamless collaboration between developers, product teams, and marketers.',
+      'Enable frictionless collaboration between developers, product teams, and marketers with centralized content management.',
   },
 ];
 
