@@ -1,16 +1,16 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import astroLogo from './images/astro.svg';
 import expressLogo from './images/express.svg';
 import honoLogo from './images/hono.svg';
 import koaLogo from './images/koa.svg';
 import launchDarklyLogo from './images/launch-darkly.svg';
 import mjmlLogo from './images/mjml.svg';
 import nestJsLogo from './images/nestjs.svg';
+import nextJsLogo from './images/nextjs.svg';
 import reactEmailLogo from './images/react-email.svg';
 import remixLogo from './images/remix.svg';
-import twilioLogo from './images/twilio.svg';
+import zodLogo from './images/zod.svg';
 
 const TITLE = 'Integrates with anything';
 
@@ -31,16 +31,16 @@ const LIBRARIES = [
     src: remixLogo,
   },
   {
-    title: 'Astro',
-    src: astroLogo,
+    title: 'Zod',
+    src: zodLogo,
   },
   {
     title: 'Hono',
     src: honoLogo,
   },
   {
-    title: 'Twilio Segment',
-    src: twilioLogo,
+    title: 'NextJS',
+    src: nextJsLogo,
   },
   {
     title: 'React Email',
