@@ -14,13 +14,13 @@ const CARDS = [
   {
     title: 'Missed updates',
     description:
-      'Without timely notifications, users miss critical information or updates such as order updates, password resets, or one-time password messages, leading to a poor experience with your application.',
+      'Without timely notifications, users miss critical information such as order updates, password resets, or one-time password messages, leading to a poor experience with your application.',
     image: <img width={80} height={80} src={missed} alt="Create template" loading="lazy" />,
   },
   {
-    title: 'Notification fatige',
+    title: 'Notification fatigue',
     description:
-      'Poorly targeted or excessive notifications overwhelm and annoy users, causing distractions and encouraging them to ignore them altogether.',
+      'Poorly targeted or excessive notifications overwhelm and annoy users, causing distractions and encouraging them to ignore notifications altogether.',
     image: (
       <img width={80} height={80} src={notifications} alt="Connect providers" loading="lazy" />
     ),
