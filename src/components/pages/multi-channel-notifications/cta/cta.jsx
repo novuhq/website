@@ -11,7 +11,7 @@ import CopyIcon from 'icons/copy.inline.svg';
 
 const LINK = {
   text: 'Book a demo',
-  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-multi-channel',
+  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-multiChannel',
 };
 
 const CODE = 'npx novu@latest dev';
