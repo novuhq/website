@@ -15,7 +15,7 @@ const TITLE = '';
 const ITEMS = [
   {
     animationData: digest,
-    title: 'Single content source',
+    title: 'Centralized content',
     description:
       'Create notification content that can be used across all supported notification channels within Novu.',
   },
@@ -41,13 +41,13 @@ const ITEMS = [
     animationData: monitoring,
     title: 'Dedicated environments',
     description:
-      'A local preview environment that lives near your code and matching interface for Non-Technical users in production.',
+      'A local preview environment that lives near your code and a matching interface for Non-Technical users in production.',
   },
   {
     animationData: timezone,
     title: 'Reusable components',
     description:
-      'Leverage our library of pre-built components to quickly build and deploy notifications.',
+      'Leverage our library of pre-built Inbox and end user preferences components to quickly build and deploy notifications capabilities directly in your app.',
   },
 ];
 

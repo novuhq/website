@@ -14,7 +14,7 @@ const DESCRIPTION =
 
 const LINK = {
   text: 'Book a demo',
-  url: 'https://novu.co/',
+  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-contentManagement',
 };
 
 const CODE = 'npx novu@latest dev';

@@ -4,9 +4,9 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Never build notificfations again';
+const TITLE = 'Empower product teams to build notifications experiences that delight';
 const SUBTITLE =
-  'Increase team velociuty and customer experience by adding notifications to your existing application.';
+  'Novu is the easy button for notifications. Developers get the framework they need, and product teams get the content editing access they demand.';
 
 const CARDS = [
   {
