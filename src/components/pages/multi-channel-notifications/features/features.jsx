@@ -14,27 +14,28 @@ import Item from './item';
 const TITLE = '';
 const ITEMS = [
   {
-    animationData: digest, // This is a place holder animation of the Lottie animation data
-    title: 'Multiple provider integrations',
+    animationData: digest,
+    title: 'Endless provider integrations',
     description:
-      'Manage your delivery providers and modify settings for each one--all from one place.',
+      'Batteries included. Use our dozens of pre-built provider integrations, or easily build your own custom one.',
   },
   {
-    animationData: contentManagement, // We might consider change the name of this variable
+    animationData: contentManagement,
     title: 'Content centralization',
     description:
-      'Manage notification content in one place. Enabling seamless collaboration between developers, product teams, and marketers.',
+      'Enable frictionless collaboration between developers, product teams, and marketers with centralized content management.',
   },
   {
-    animationData: timezone, // This is a place holder animation of the Lottie animation data
+    animationData: timezone,
     title: 'Unified API',
-    description: 'Integrate your application once and access any delivery provider.',
+    description:
+      'Integrate Novu with your application once, and access any delivery provider instantly.',
   },
   {
     animationData: priorityManagement,
     title: 'Multiple channels',
     description:
-      'Novu supports email, SMS, Push, Chat, In-app, and more. Reach users through the most effective channel for them.',
+      'Send notifications via email, SMS, push, chat, in-app, and more. Reach users through the most effective channels.',
   },
   {
     animationData: monitoring,

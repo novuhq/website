@@ -14,7 +14,7 @@ const Hero = () => (
         Expand your reach with multi-channel notifications
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Add new channels in minutes - Reach your users where they are.
+        Add new notification channels to your app faster than you can brew a pot of coffee.
       </p>
     </div>
   </section>

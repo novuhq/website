@@ -4,14 +4,15 @@ import React from 'react';
 import Benefits_imgOnLeftSide from 'components/pages/multi-channel-notifications/benefits/benefit_imgOnLeftSide/benefit_imgOnLeftSide';
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Never build notifications again';
-const SUBTITLE = "We've built it, so you don't have to.";
+const TITLE = 'All of the flexibility of DIY, \nnone of the hassle';
+const SUBTITLE =
+  'Increase end user engagement with multi-channel notifications and centralized content.';
 
 const Benefits = () => {
   const Benefit_1_Props = {
     title: 'Engage end-users regardless of channel',
     description:
-      'Unified API supports multi-channel notifications and flexible provider management, boosting platform user engagement',
+      'Easily implement multi-channel notifications and flexible provider management, boosting platform user engagement.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -25,13 +26,14 @@ const Benefits = () => {
 
   const Benefit_2_Props = {
     title: 'Improve app experience and retention',
-    description: 'Personalized, real-time in-app notifications that streamline workflow management',
+    description:
+      'Personalized, real-time in-app notifications notifications with a convenient Inbox component.',
   };
 
   const Benefit_3_Props = {
-    title: 'Reduce distractions and keep development teams focused on providing value',
+    title: 'Reduce friction between development and product teams',
     description:
-      'Novu centralizes notification management to enhance collaboration, and allows engineers to focus on core development while empowering non-technical teams to modify content without disrupting engineering flow',
+      'Eliminate productivity barriers when developers provide notifications infrastructure to product teams. Development teams focus on core app value while product iterates.',
     image: (
       <StaticImage
         className="rounded-[20px]"

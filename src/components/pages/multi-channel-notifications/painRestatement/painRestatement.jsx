@@ -7,25 +7,26 @@ import inconsistent from './images/inconsistent.svg';
 import integration from './images/integration.svg';
 
 const TITLE = 'Adding new notification channels is costly and complex';
-const SUBTITLE = 'Decentralized notifications are costly in more ways than just engineering time…';
+const SUBTITLE =
+  'More channels and content sources means more complexity, risk, and team friction.';
 
 const CARDS = [
   {
-    title: 'High Costs',
+    title: 'High costs',
     description:
-      'Sending end-user notifications requires significant engineering effort to build and maintain the required infrastructure',
+      'DIY notifications infrastructure requires significant engineering effort, distracting teams from adding value to their applications.',
     image: <img width={80} height={80} src={costs} alt="Create template" loading="lazy" />,
   },
   {
-    title: 'Integration Complexity',
+    title: 'Integration complexity',
     description:
-      'Integrating new notification channels is complex and time-consuming and requires new application code and new content',
+      'Every new channel comes with a new custom integration, content source requirement, and ongoing maintenance burden.',
     image: <img width={80} height={80} src={integration} alt="Connect providers" loading="lazy" />,
   },
   {
-    title: 'Inconsistent User Experiences',
+    title: 'Inconsistent user experiences',
     description:
-      'Businesses lack cross-channel observability, which slows troubleshooting and debugging–which negatively impacts end-user experience',
+      'When product teams cannot easily manage and iterate on content, user experiences suffer... and so does your brand.',
     image: <img width={80} height={80} src={inconsistent} alt="Add trigger" loading="lazy" />,
   },
 ];
