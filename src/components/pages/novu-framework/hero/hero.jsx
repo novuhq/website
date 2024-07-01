@@ -18,7 +18,7 @@ const LINK = {
   url: 'https://docs.novu.co/?utm_campaign=v2-web',
 };
 
-const CODE = 'npx novu-labs@latest echo';
+const CODE = 'npx novu@latest dev';
 
 const Hero = () => {
   const [isCopied, setIsCopied] = useState(false);
@@ -50,7 +50,7 @@ const Hero = () => {
           <div className="flex justify-between mt-12 lg:flex-wrap lg:gap-y-4 lg:mt-[42px] md:justify-start md:gap-x-6 md:mt-9 sm:flex-col sm:mt-7 sm:items-center">
             <div className="w-[392px] h-[54px] z-10 relative after:absolute after:-z-20 after:-inset-px after:rounded-md after:bg-[linear-gradient(267.51deg,#FFD447_10.88%,#FF8125_28.58%,#FF036B_62.46%,#DE18BC_109.99%)] lg:h-[46px] sm:w-full sm:max-w-xs">
               <div className="w-full h-full pl-5 pr-2 flex items-center justify-between rounded-md bg-black md:pr-1.5 sm:pl-4">
-                <span className="font-mono font-medium">npx novu-labs@latest echo</span>
+                <span className="font-mono font-medium">npx novu@latest dev</span>
                 <Button
                   className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
                   theme="white-filled"
