@@ -16,7 +16,7 @@ const LINK = {
   url: 'https://novu.co/',
 };
 
-const CODE = 'npx novu-labs@latest echo';
+const CODE = 'npx novu@latest dev';
 
 const Cta = () => {
   const [isCopied, setIsCopied] = useState(false);
