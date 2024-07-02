@@ -10,11 +10,11 @@ import background from './images/background.svg';
 const TITLE = 'Get started now';
 
 const DESCRIPTION =
-  'Create and send your first code-based notification in&nbsp;less than five minutes.';
+  'Create and send your first code-based notification in&nbsp;before your coffee gets even cold.';
 
 const LINK = {
   text: 'Book a demo',
-  url: 'https://novu.co/',
+  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-homeCTA',
 };
 
 const CODE = 'npx novu@latest dev';
