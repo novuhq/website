@@ -4,9 +4,9 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Powerful, centralized content management in your framework of choice';
+const TITLE = 'Powerful, centralized content management in any framework';
 const SUBTITLE =
-  'From React to Vue to more. Re-use and build content once, then empower product teams to maintain.';
+  'From React to Vue to more. Re-use and build content once, then empower your product teams to maintain it.';
 
 const CARDS = [
   {

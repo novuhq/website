@@ -8,7 +8,7 @@ import contentIteration from './images/content-iteration.svg';
 
 const TITLE = 'Notifications the right way are not trivial';
 const SUBTITLE =
-  'Flexible notification infrastructure is extraorinarily difficult to implement. Spend your development cycles where they can best make a difference.';
+  'Flexible notification infrastructure is very difficult to implement. Spend your development cycles where they can best make a difference.';
 
 const CARDS = [
   {

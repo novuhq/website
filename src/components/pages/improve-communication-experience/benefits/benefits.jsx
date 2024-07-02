@@ -40,7 +40,7 @@ const CARDS = [
   {
     title: 'Consistent branding',
     description:
-      'Product and marketing teams maintain ownership of messaging and branding, and can interate as fast as they need to.',
+      'Product and marketing teams maintain ownership of messaging and branding, and can iterate as fast as they need to.',
     image: (
       <StaticImage
         className="rounded-[20px]"
