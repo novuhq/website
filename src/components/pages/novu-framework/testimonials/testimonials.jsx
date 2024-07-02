@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
+// import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Slider from 'react-slick';
 
@@ -13,22 +13,48 @@ const TITLE = 'Don&apos;t just listen to us';
 const TESTIMONIALS = [
   {
     content:
-      "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydratin and notification routing issues.",
-    avatar: (
-      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
-    ),
-    name: 'Jesselynn Mah',
-    company: 'KnowledgeTouch',
+      "The cost and time of having to build our own prefercing, integrations, and channels, delayed notifications, there's a bunch of features. We've got a lot of other problems that are unqiue to our particular environment and that's where I need to focus our engineering effort, not dealing with notifications infrastructure.",
+    //   avatar: (
+    //    <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    //    ),
+    name: '',
+    company: 'Financial Services Company',
   },
   {
     content:
-      "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydratin and notification routing issues.",
-
-    avatar: (
-      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
-    ),
-    name: 'Jesselynn Mah',
-    company: 'KnowledgeTouch',
+      'The need to replace.. the current system we have for transactional email.... Really easy to get up and started and then see the potential of how far it can go.',
+    //    avatar: (
+    //      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    //    ),
+    name: '',
+    company: 'Large Media Company',
+  },
+  {
+    content:
+      "We notify a user, and then being able to come back into the system to see if it's been acknowledged, and then automatically take action... That kind of interactivity between our data is huge. Having Novu take care of that and relay data back and forth between systems is huge. We were just playing around with it, and many other developers were like, this is exactly what we needed all along.",
+    //   avatar: (
+    //      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    //   ),
+    name: '',
+    company: 'Healthcare Company',
+  },
+  {
+    content:
+      'Before Novu, just getting our SMS infrastructure set up, ensuring our email deliverability reputation was satisfactory for these types of messages... Just sending a 6-digit OTP code was like pulling teeth. How could we expect every company in the world to implement this on their own without Novu?',
+    //    avatar: (
+    //  <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    //    ),
+    name: '',
+    company: 'Biotech Company',
+  },
+  {
+    content:
+      "I needed something that's super approachable by my non-technical teams, and code is not the best experience.",
+    //    avatar: (
+    //      <StaticImage src="./images/jesselynn-mah.jpg" width={32} height={32} alt="Jesselynn Mah" />
+    //    ),
+    name: '',
+    company: 'AI Ops Company',
   },
 ];
 
