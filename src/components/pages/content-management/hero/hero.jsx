@@ -14,7 +14,7 @@ const Hero = () => (
         Eliminate the content dance between development and product teams
       </Heading>
       <p className="mx-auto mt-4 max-w-[800px] text-center text-lg leading-tight opacity-70 lg:mt-5 lg:max-w-[676px] md:mt-4 md:max-w-[590px] md:text-base sm:mt-3">
-        Developers now empower product teams to safely interact with all of your notitfcations
+        Developers now empower product teams to safely interact with all of your notifications
         content, no interrupts needed.
       </p>
     </div>

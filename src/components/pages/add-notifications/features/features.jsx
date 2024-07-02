@@ -20,13 +20,13 @@ const ITEMS = [
   },
   {
     animationData: priorityManagement,
-    title: 'Type Safe',
+    title: 'Type safe',
     description:
-      "Zod and validation plugins ensure prduct teams won't break critical workflows as they update content.",
+      "Zod and validation plugins ensure procuct teams won't break critical workflows as they update content.",
   },
   {
     animationData: contentManagement, // This is a place holder animation of the Lottie animation data
-    title: 'Code-first workflow',
+    title: 'Code-first workflows',
     description:
       'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
   },
