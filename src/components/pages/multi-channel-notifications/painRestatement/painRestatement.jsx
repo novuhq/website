@@ -14,7 +14,7 @@ const CARDS = [
   {
     title: 'High costs',
     description:
-      'DIY notifications infrastructure requires significant engineering effort, distracting teams from adding value to their applications.',
+      'DIY notifications infrastructure requires significant engineering effort, distracting teams from adding value to their products.',
     image: <img width={80} height={80} src={costs} alt="Create template" loading="lazy" />,
   },
   {

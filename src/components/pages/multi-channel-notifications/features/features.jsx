@@ -17,13 +17,13 @@ const ITEMS = [
     animationData: digest,
     title: 'Endless provider integrations',
     description:
-      'Batteries included. Use our dozens of pre-built provider integrations, or easily build your own custom one.',
+      'Batteries included. Use our dozens of pre-built provider integrations, or easily extend Novu through your own custom one.',
   },
   {
     animationData: contentManagement,
     title: 'Content centralization',
     description:
-      'Enable frictionless collaboration between developers, product teams, and marketers with centralized content management.',
+      'Enable frictionless collaboration between developers and product teams with centralized content management.',
   },
   {
     animationData: timezone,
