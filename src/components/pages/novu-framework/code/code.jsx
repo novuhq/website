@@ -6,48 +6,37 @@ import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javasc
 
 import createCustomElement from './create-custom-element';
 
-const CODE = `import { Echo } from '@novu/echo';
+const COMMENT_WORKFLOW_CODE = `import { workflow, CronExpression } from '@novu/framework';
+import { z } from 'zod';
+import { render } from '@react-email/render';
 
-const echo = new @@Echo@echoTooltip@@();
+const commentWorkflow = @@workflow@workflowTooltip@@('comment-workflow', async (@@event@eventTooltip@@) => {
+  const digest = await event.step.digest('digest-comments', (controls) => ({
+    cron: controls.schedule
+  }), { controlSchema: z.object({ schedule: z.nativeEnum(CronExpression) }) });
 
-const commentWorkflow = echo.workflow('comment-on-post', async (@@event@eventTooltip@@) => {
-  const inAppResponse = await event.step.inApp('notify-user', async () => ({
-    body: renderReactComponent(event.@@payload@payloadTooltip@@.postId)
-  }));
+  await event.step.@@email@stepTooltip@@('digest-email', async (controls) => ({
+    subject: controls.subject,
+    body: render(<WeeklyDigestEmail {...@@controls@controlsTooltip@@} events={digest.events} />)
+  }), {
+    @@skip@skipTooltip@@: () => !digest.events.length,
+    controlSchema: z.object({
+      subject: z.string().default('Hi {{subscriber.firstName}} - Acme Comments'),
+      openAiModel: z.enum(['gpt-3.5-turbo', 'gpt-4o']).default('gpt-4o'),
+      aiPrompt: z.string().default('Produce a concise comment digest'),
+    })
+  });
+}, { payloadSchema: z.object({ name: z.string(), comment: z.string() }) });
 
-  const { events } = await event.step.digest('1 week');
-
-  await event.@@step@stepTooltip@@.email('weekly-comments', async (inputs) => {
-    return {
-      subject: \`Weekly post comments (\${events.length + 1})\`,
-      body: renderReactEmail(inputs, events)
-    };
-  }, { skip: () => inAppResponse.@@seen@seenTooltip@@ });
-}, { payloadSchema: z.object({ postId: z.string() }) }
-);
-
-// Use the same familiar syntax to send a notification
-commentWorkflow.@@trigger@triggerTooltip@@({
-  to: { subscriberId: 'joe@acme.com' },
-  payload: { postId: '12345' }
+await commentWorkflow.@@trigger@triggerTooltip@@({
+  payload: { name: 'John', comment: 'Are you free to give me a call?' },
+  to: 'jane@acme.com'
 });`;
 
 const TABS = [
   {
-    title: 'Digest Events',
-    code: CODE,
-  },
-  {
-    title: 'SMS',
-    code: CODE,
-  },
-  {
-    title: 'Delay',
-    code: CODE,
-  },
-  {
-    title: 'In-app',
-    code: CODE,
+    title: 'AI Digest',
+    code: COMMENT_WORKFLOW_CODE,
   },
 ];
 
@@ -105,6 +94,9 @@ const Code = () => {
         <div className="relative z-10 lg:mx-auto sm:max-w-80 sm:mx-auto">
           <SyntaxHighlighter
             className="echo-code relative z-10 pl-[42px] mt-[70px] scrollbar-hidden text-sm font-normal lg:mt-[62px] lg:pl-[35px] lg:text-xs md:mt-[53px] md:pl-[26px] sm:text-[10px] sm:mt-11 sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)]"
+            style={{
+              marginTop: '20px',
+            }}
             language="javascript"
             useInlineStyles={false}
             renderer={customRenderer}
@@ -113,7 +105,7 @@ const Code = () => {
             {code}
           </SyntaxHighlighter>
           <StaticImage
-            className="!absolute pointer-events-none bottom-[-85px] right-0 z-0 w-[1252px] lg:bottom-[-60px] lg:w-[1044px] md:!hidden"
+            className="!absolute pointer-events-none bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
             src="./images/code-background.png"
             alt=""
             width={1252}
@@ -121,7 +113,7 @@ const Code = () => {
             quality={100}
           />
           <StaticImage
-            className="!absolute pointer-events-none !hidden z-0 md:!inline-block md:w-[775px] md:bottom-[-46px] md:left-[-61px] sm:!hidden"
+            className="!absolute pointer-events-none !hidden z-0 md:!inline-block md:w-[775px] md:bottom-[-32px] md:left-[-61px] sm:!hidden"
             src="./images/code-background-tablet.png"
             alt=""
             width={775}
@@ -129,7 +121,7 @@ const Code = () => {
             quality={100}
           />
           <StaticImage
-            className="!absolute pointer-events-none !hidden z-0 sm:!inline-block sm:w-[351px] sm:bottom-[-31px] sm:-left-7"
+            className="!absolute pointer-events-none !hidden z-0 sm:!inline-block sm:w-[351px] sm:bottom-[-20px] sm:-left-7"
             src="./images/code-background-mobile.png"
             alt=""
             width={351}
