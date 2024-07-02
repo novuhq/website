@@ -67,8 +67,8 @@ export const pageQuery = graphql`
   query {
     github {
       count
-      # commits
-      # closedIssues
+      commits
+      closedIssues
       forks
       pullRequests
       openIssues
