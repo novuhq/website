@@ -8,29 +8,29 @@ const ANIMATION_DURATION = 0.2;
 const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
   <LazyMotion features={domAnimation}>
     <m.button
-      className={clsx('relative h-8 w-6', additionalClassName)}
+      className={clsx('relative h-[19px] w-4', additionalClassName)}
       type="button"
       animate={isToggled ? 'toggled' : 'initial'}
       aria-label="Menu"
       onClick={onClick}
     >
       <m.span
-        className="absolute left-0 top-[7px] block h-0.5 w-6 rounded-full bg-white"
+        className="absolute left-0 top-1 block h-px w-4 rounded-full bg-white"
         variants={{
           initial: {
-            top: 7,
+            top: 4,
             display: 'block',
             transition: { duration: ANIMATION_DURATION, delay: ANIMATION_DURATION },
           },
           toggled: {
-            top: 15,
+            top: 9,
             transition: { duration: ANIMATION_DURATION },
             transitionEnd: { display: 'none' },
           },
         }}
       />
       <m.span
-        className="absolute left-0 top-[15px] block h-0.5 w-4 rounded-full bg-white"
+        className="absolute left-0 top-[9px] block h-px w-3 rounded-full bg-white"
         variants={{
           initial: {
             display: 'block',
@@ -43,22 +43,22 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
         }}
       />
       <m.span
-        className="absolute bottom-[7px] left-0 block h-0.5 w-6 rounded-full bg-white"
+        className="absolute bottom-1 left-0 block h-px w-4 rounded-full bg-white"
         variants={{
           initial: {
-            bottom: 7,
+            bottom: 4,
             display: 'block',
             transition: { duration: ANIMATION_DURATION, delay: ANIMATION_DURATION },
           },
           toggled: {
-            bottom: 15,
+            bottom: 9,
             transition: { duration: ANIMATION_DURATION },
             transitionEnd: { display: 'none' },
           },
         }}
       />
       <m.span
-        className="absolute left-0 top-[15px] hidden h-0.5 w-6 rounded-full bg-white"
+        className="absolute left-0 top-[9px] hidden h-px w-4 rounded-full bg-white"
         variants={{
           initial: {
             rotate: '0deg',
@@ -73,7 +73,7 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
         }}
       />
       <m.span
-        className="absolute left-0 top-[15px] hidden h-0.5 w-6 rounded-full bg-white"
+        className="absolute left-0 top-[9px] hidden h-px w-4 rounded-full bg-white"
         variants={{
           initial: {
             rotate: '0deg',

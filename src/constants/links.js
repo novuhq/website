@@ -45,6 +45,63 @@ export default {
     to: '/chat',
   },
 
+  // Header submenus
+  // Use cases
+  multichannelNotifications: { to: '/' },
+  notifications: { to: '/' },
+  communication: { to: '/' },
+  notificationPlatform: { to: '/' },
+  notificationContentManagement: { to: '/' },
+
+  // Features
+  workflow: { to: '/' },
+  contentManagment: { to: '/' },
+  translation: { to: '/' },
+  embedComponent: { to: '/' },
+  endUserPreferences: { to: '/' },
+  observability: { to: '/' },
+
+  // Providers
+  sendgrid: { to: '/' },
+  fcm: { to: '/' },
+  ses: { to: '/' },
+  twilio: { to: '/' },
+  nodemailer: { to: '/' },
+  slack: { to: '/' },
+  mailgun: { to: '/' },
+  postmark: { to: '/' },
+  discord: { to: '/' },
+  sendinblue: { to: '/' },
+
+  // Channels
+  inAppChannel: { to: '/' },
+  pushChannel: { to: '/' },
+  emailChannel: { to: '/' },
+  smsChannel: { to: '/' },
+  chatChannel: { to: '/' },
+  mobileChannel: { to: '/' },
+
+  // Frameworks
+  remix: { to: '/' },
+  nextjs: { to: '/' },
+  nuxt: { to: '/' },
+  hono: { to: '/' },
+  nestjs: { to: '/' },
+
+  // Getting started
+  prebuiltExamples: { to: '/' },
+  librariesAndSdks: { to: '/' },
+  integrations: { to: '/' },
+
+  // Guides
+  sendingNotifications: { to: '/' },
+  novuNotificationGuide: { to: '/' },
+
+  // Last part of the dropdown links
+  apiReference: { to: '/' },
+  changelog: { to: '/' },
+  systemStatus: { to: '/' },
+
   // Other pages
   pricingContactUs: {
     to: 'https://novu.co/contact-us?utm_campaign=pricing-enterprise-cu',
