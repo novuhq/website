@@ -11,10 +11,12 @@ import borderGlow from './images/border-glow.svg';
 const TITLE = 'The Notification Framework for Developers and Product Teams';
 
 const DESCRIPTION =
-  'Fully extensible open source notifications infrastructure framework that empowers developers and product teams to create captivating notification experiences.';
+  'Fully extensible open source notifications infrastructure framework that empowers developers to provide an easy-to-use notifications platform to product teams.';
+
+// const DESCRIPTION = 'Empower engineers to deliver a notifications platform for products';
 
 const LINK = {
-  text: 'Read docs',
+  text: 'Read Docs',
   url: 'https://docs.novu.co/?utm_campaign=v2-web',
 };
 
