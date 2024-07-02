@@ -55,7 +55,7 @@ export default {
     target: '_blank',
   },
   careers: {
-    to: 'https://jobs.ashbyhq.com/novu.co?utm_campaign=website',
+    to: 'https://careers.novu.co',
     target: '_blank',
   },
   inAppDocs: {
