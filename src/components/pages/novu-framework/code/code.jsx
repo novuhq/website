@@ -113,13 +113,22 @@ const Code = () => {
             {code}
           </SyntaxHighlighter>
           <StaticImage
-            className="!absolute pointer-events-none bottom-[-85px] right-0 z-0 w-[1252px] lg:bottom-[-60px] lg:w-[1044px] md:!hidden"
+            className="!absolute pointer-events-none bottom-[-85px] right-0 z-0 w-[1152px] lg:bottom-[-60px] lg:w-[960px] md:!hidden"
             src="./images/code-background.png"
             alt=""
-            width={1252}
-            height={766}
+            width={1152}
+            height={652}
             quality={100}
           />
+          <StaticImage
+            className="!absolute pointer-events-none w-[482px] top-[-143px] left-[-75px] lg:top-[-135px] md:top-[-125px] sm:!hidden -z-10"
+            src="./images/code-light.png"
+            alt=""
+            width={482}
+            height={206}
+            quality={100}
+          />
+
           <StaticImage
             className="!absolute pointer-events-none !hidden z-0 md:!inline-block md:w-[775px] md:bottom-[-46px] md:left-[-61px] sm:!hidden"
             src="./images/code-background-tablet.png"
