@@ -160,10 +160,9 @@ export default function createCustomElement({
 
     if (regex.test(value)) {
       const matchedValue = value.match(regex);
-
       return (
         <>
-          {value[0] === ' ' && ' '}
+          {matchedValue.index > 0 && ' '.repeat(matchedValue.index)}
           <CodeWithTooltip tooltipId={matchedValue[2]}>{matchedValue[1]}</CodeWithTooltip>
           {value[value.length - 1] === ' ' && ' '}
         </>

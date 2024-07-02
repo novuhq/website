@@ -3,57 +3,143 @@ import React from 'react';
 import StepTooltip from './step-tooltip';
 
 const TOOLTIP_CONTENT = {
-  stepTooltip: <StepTooltip />,
-  echoTooltip: (
+  workflowTooltip: (
     <span className="flex flex-col py-3.5">
-      <span className="whitespace-normal px-3.5">
-        (alias) <span className="text-yellow">new Echo</span>(&#123; apiKey, ... opts &#125;?:
-        ClientOptions): Echo
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (alias) <span className="text-yellow">workflow</span>(id: string,
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="whitespace-pre">
+            execute: <span className="text-yellow">Execute</span>&lt;...&gt;,
+          </span>
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="whitespace-pre">
+            options?: <span className="text-yellow">WorkflowOptions</span>&lt;...&gt;)
+          </span>
+        </span>
+        <span className="whitespace-pre">
+          <span className="whitespace-pre">
+            ): <span className="text-yellow">Workflow</span>&lt;...&gt;
+          </span>
+        </span>
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
-      <span className="px-3.5">Echo, the Notifications as Code client.</span>
+      <span className="px-3.5">Define a notification workflow.</span>
     </span>
   ),
-  // prettier-ignore
+  controlsTooltip: (
+    <span className="flex flex-col py-3.5">
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (parameter) <span className="text-yellow">controls</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">subject</span>: string;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">openAiModel</span>: "gpt-3.5-turbo" | "gpt-4o";
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">aiPrompt</span>: string;
+        </span>
+        <span className="whitespace-pre">&#125;</span>
+      </span>
+      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="px-3.5">The controls for the workflow step.</span>
+    </span>
+  ),
+  stepTooltip: <StepTooltip />,
   eventTooltip: (
     <span className="flex flex-col py-3.5">
       <span className="px-3.5 flex flex-col">
-        <span className="whitespace-pre">(parameter) <span className="text-yellow">event</span>: &#123;</span>
-        <span className="whitespace-pre">  <span className="text-yellow">environment</span>: &#123; ... &#125;;</span>
-        <span className="whitespace-pre">  <span className="text-yellow">inputs</span>: &#123; ... &#125;;</span>
-        <span className="whitespace-pre">  <span className="text-yellow">payload</span>: &#123;</span>
-        <span className="whitespace-pre">    <span className="text-yellow">postId</span>: string</span>
-        <span className="whitespace-pre">  &#125;;</span>
-        <span className="whitespace-pre">  <span className="text-yellow">step</span>: Step;</span>
-        <span className="whitespace-pre">  <span className="text-yellow">subscriber</span>: &#123;</span>
-        <span className="whitespace-pre">    <span className="text-yellow">firstName</span>: string;</span>
-        <span className="whitespace-pre">    ...</span>
-        <span className="whitespace-pre">  &#125;;</span>
+        <span className="whitespace-pre">
+          (parameter) <span className="text-yellow">event</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">payload</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">name</span>: string
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">comment</span>: string
+        </span>
+        <span className="whitespace-pre"> &#125;;</span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">step</span>: Step;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">subscriber</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">firstName</span>: string;
+        </span>
+        <span className="whitespace-pre"> ...</span>
+        <span className="whitespace-pre"> &#125;;</span>
         <span>&#125;</span>
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">The event that triggered the workflow.</span>
     </span>
   ),
-  payloadTooltip: (
+  skipTooltip: (
     <span className="flex flex-col py-3.5">
-      <span className="whitespace-normal px-3.5 text-white/40">
-        (property) payload: &#123; postId: string &#125;
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (property) <span className="text-yellow">skip</span>: (controls:{' '}
+          <span className="text-yellow">Controls</span>){` => boolean`}
+        </span>
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
-      <span className="px-3.5">The payload for the event, provided during trigger</span>
-    </span>
-  ),
-  seenTooltip: (
-    <span className="flex flex-col py-3.5">
-      <span className="whitespace-normal px-3.5 text-white/40">(property) seen: boolean</span>
-      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
-      <span className="px-3.5">Flag indicating if the notification has been seen.</span>
+      <span className="px-3.5">Skip the step. If true is returned, the step will be skipped.</span>
     </span>
   ),
   triggerTooltip: (
     <span className="flex flex-col py-3.5">
-      <span className="whitespace-normal px-3.5 text-white/40">(method) trigger: Trigger</span>
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (property) <span className="text-yellow">trigger</span>: (event: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">payload</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">name</span>: string;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">comment</span>: string;
+        </span>
+        <span className="whitespace-pre"> &#125;;</span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">to</span>: Recipients;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">actor?</span>: Actor | undefined;
+        </span>
+        <span className="whitespace-pre">
+          {' '}
+          <span className="text-yellow">tenant?</span>: Tenant | undefined;
+        </span>
+        <span className="whitespace-pre">&#125;){` => Promise`}&lt;...&gt;</span>
+      </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">Trigger a notification workflow.</span>
     </span>

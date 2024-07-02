@@ -4,7 +4,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-const TITLE = 'Never build notificfations again';
+const TITLE = 'Never build notifications again';
 const SUBTITLE =
   'Increase team velocity and customer experience by adding notifications to your existing application.';
 
@@ -26,7 +26,7 @@ const CARDS = [
   {
     title: 'Reduce engineering interrupts',
     description:
-      'Developers specifcy which fields and values product teams can manipulate, empowering them to iterate faster.',
+      'Developers specify which fields and values product teams can manipulate, empowering them to iterate faster.',
     image: (
       <StaticImage
         className="rounded-[20px]"
@@ -40,7 +40,7 @@ const CARDS = [
   {
     title: 'Consistent user experience',
     description:
-      'Product and marketing teams maintain ownership of messaging and branding, and can interate as fast as they need to.',
+      'Product and marketing teams maintain ownership of messaging and branding, and can iterate as fast as they need to.',
     image: (
       <StaticImage
         className="rounded-[20px]"

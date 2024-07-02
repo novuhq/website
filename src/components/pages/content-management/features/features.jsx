@@ -34,7 +34,7 @@ const ITEMS = [
     animationData: priorityManagement,
     title: 'Type safe',
     description:
-      "Zod and validation plugins ensure prduct teams won't break critical workflows as they update content.",
+      "Zod and validation plugins ensure product teams won't break critical workflows as they update content.",
   },
   {
     animationData: monitoring,
