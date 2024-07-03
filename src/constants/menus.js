@@ -108,17 +108,15 @@ const MENUS = {
             title: 'Getting started',
             icon: GettingStartedIcon,
             items: [
-              { title: 'Pre-built Examples', ...LINKS.prebuiltExamples }, // We might consider changing it
+              { title: 'How-to Guides', ...LINKS.howToGuides }, // We might consider changing it
               { title: 'Libraries and SDKs', ...LINKS.librariesAndSdks },
               { title: 'Integrations', ...LINKS.integrations },
             ],
           },
           {
-            title: 'Guides',
+            title: 'Code-first Examples',
             icon: GuidesIcon,
-            items: [
-              { title: 'Integrate Segment With Novu', ...LINKS.integrateSegment },
-            ],
+            items: [{ title: 'Pre-built Workflows', ...LINKS.preBuiltWorkflows }],
           },
           {
             items: [
