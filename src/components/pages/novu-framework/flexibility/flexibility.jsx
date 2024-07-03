@@ -10,7 +10,7 @@ const DESCRIPTION =
 
 const LINK = {
   text: 'Read docs',
-  url: 'https://novu.mintlify.app/echo/quickstart',
+  url: 'https://docs.novu.co/',
 };
 
 const Flexibility = () => (

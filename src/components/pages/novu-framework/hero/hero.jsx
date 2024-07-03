@@ -17,7 +17,7 @@ const DESCRIPTION =
 
 const LINK = {
   text: 'Read Docs',
-  url: 'https://docs.novu.co/?utm_campaign=v2-web',
+  url: 'https://docs.novu.co/',
 };
 
 const CODE = 'npx novu@latest dev';

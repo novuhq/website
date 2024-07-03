@@ -59,7 +59,7 @@ export default {
     target: '_blank',
   },
   inAppDocs: {
-    to: 'https://docs.novu.co/notification-center/introduction?utm_campaign=website',
+    to: 'https://docs.novu.co/inbox/introduction',
     target: '_blank',
   },
   docker: {
@@ -138,6 +138,10 @@ export default {
   // old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
   calendly: {
     to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website',
+    target: '_blank',
+  },
+  bamCTA: {
+    to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-cta-bottom',
     target: '_blank',
   },
 

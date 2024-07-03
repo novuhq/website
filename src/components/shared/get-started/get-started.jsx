@@ -10,15 +10,15 @@ import bg from './images/bg.svg';
 
 import './get-started.css';
 
-const TITLE = 'Ready to send your first notification?';
+const TITLE = 'Want to learn more?';
 
-const LEFT_TITLE = 'Self-Hosted';
-const LEFT_DESCRIPTION = 'Run locally with docker-compose';
+const LEFT_TITLE = 'Read the Docs';
+const LEFT_DESCRIPTION = 'Feature descriptions, how-to guides, and more';
 const LEFT_BUTTON_TEXT = 'Read Docs';
 
-const RIGHT_TITLE = 'Cloud';
-const RIGHT_DESCRIPTION = 'Use our free managed service';
-const RIGHT_BUTTON_TEXT = 'Get Started';
+const RIGHT_TITLE = 'Discovery Session';
+const RIGHT_DESCRIPTION = 'Schedule a session with our experts';
+const RIGHT_BUTTON_TEXT = 'Discovry Session';
 
 const themeClassNames = {
   pink: 'get-started-gradient-multicolor',
@@ -130,11 +130,11 @@ GetStarted.defaultProps = {
   title: TITLE,
   leftTitle: LEFT_TITLE,
   leftDescription: LEFT_DESCRIPTION,
-  leftButtonLink: LINKS.docker,
+  leftButtonLink: LINKS.documentation,
   leftButtonText: LEFT_BUTTON_TEXT,
   rightTitle: RIGHT_TITLE,
   rightDescription: RIGHT_DESCRIPTION,
-  rightButtonLink: LINKS.getStarted,
+  rightButtonLink: LINKS.bamCTA,
   rightButtonText: RIGHT_BUTTON_TEXT,
   theme: 'pink',
 };
