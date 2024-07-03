@@ -6,7 +6,7 @@ import Cta from 'components/pages/multi-channel-notifications/cta';
 import Features from 'components/pages/multi-channel-notifications/features';
 import Hero from 'components/pages/multi-channel-notifications/hero';
 import PainRestatement from 'components/pages/multi-channel-notifications/painRestatement';
-import RelatedContent from 'components/pages/multi-channel-notifications/related-content/related-content';
+// import RelatedContent from 'components/pages/multi-channel-notifications/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
@@ -26,7 +26,7 @@ const MultiChannelNotificationsPage = () => (
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
-    <RelatedContent />
+    {/* <RelatedContent /> */}
     {/* Section: Get Started */}
     <GetStarted />
   </Layout>

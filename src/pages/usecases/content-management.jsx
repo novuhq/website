@@ -6,7 +6,7 @@ import Cta from 'components/pages/content-management/cta';
 import Features from 'components/pages/content-management/features';
 import Hero from 'components/pages/content-management/hero';
 import PainRestatement from 'components/pages/content-management/painRestatement';
-import RelatedContent from 'components/pages/content-management/related-content/related-content';
+// import RelatedContent from 'components/pages/content-management/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
@@ -26,7 +26,7 @@ const contentManagementPage = () => (
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
-    <RelatedContent />
+    {/* <RelatedContent /> */}
     {/* Section: Get Started */}
     <GetStarted />
   </Layout>
