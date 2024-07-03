@@ -83,7 +83,7 @@ const Hero = () => {
             </div>
 
             <Button
-              className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
+              className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] z-10"
               theme="gray-outline"
               to={LINK.url}
             >
