@@ -58,7 +58,7 @@ const CARDS = [
     image: (
       <StaticImage
         className="rounded-[20px]"
-        src="./images/personalized-messages.jpg"
+        src="./images/personalized-messages.png"
         alt=""
         width={842}
         height={495}
