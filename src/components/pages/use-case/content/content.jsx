@@ -1,13 +1,14 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-underscore-dangle */
 import { PortableText } from '@portabletext/react';
+import Code from 'components/shared/code';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { WEB_APP_URL } from 'constants/links';
 
 import Button from 'components/shared/button';
-import Code from 'components/shared/code';
 
 const Content = ({ content, templateId }) => {
   const components = {
@@ -33,7 +34,7 @@ const Content = ({ content, templateId }) => {
         <PortableText value={content} components={components} />
       </div>
       <div className="mt-14 flex justify-end">
-        <Button to={`https://web.novu.co/?blueprintId=${templateId}`} theme="primary" size="sm">
+        <Button to={`${WEB_APP_URL}/?blueprintId=${templateId}`} theme="primary" size="sm">
           Build with Novu
         </Button>
       </div>
