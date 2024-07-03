@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
+import { WEB_APP_URL } from 'constants/links';
 
 const Content = ({ content, templateId }) => {
   const components = {
@@ -33,11 +34,7 @@ const Content = ({ content, templateId }) => {
         <PortableText value={content} components={components} />
       </div>
       <div className="mt-14 flex justify-end">
-        <Button
-          to={`https://dashboard.web.novu.co/?blueprintId=${templateId}`}
-          theme="primary"
-          size="sm"
-        >
+        <Button to={`${WEB_APP_URL}/?blueprintId=${templateId}`} theme="primary" size="sm">
           Build with Novu
         </Button>
       </div>
