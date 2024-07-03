@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Code from 'components/pages/novu-framework/code';
-import Cta from 'components/pages/novu-framework/cta';
-import Flexibility from 'components/pages/novu-framework/flexibility';
-import Hero from 'components/pages/novu-framework/hero';
-import Inbox from 'components/pages/novu-framework/inbox';
-import Infrastructure from 'components/pages/novu-framework/infrastructure';
-import Integration from 'components/pages/novu-framework/integration';
-import Libraries from 'components/pages/novu-framework/libraries';
-import Logos from 'components/pages/novu-framework/logos';
-import SkinnyCTA from 'components/pages/novu-framework/skinny-cta';
+import Code from 'components/pages/home/code';
+import Cta from 'components/pages/home/cta';
+import Flexibility from 'components/pages/home/flexibility';
+import Hero from 'components/pages/home/hero';
+import Inbox from 'components/pages/home/inbox';
+import Infrastructure from 'components/pages/home/infrastructure';
+import Integration from 'components/pages/home/integration';
+import Libraries from 'components/pages/home/libraries';
+import Logos from 'components/pages/home/logos';
+import SkinnyCTA from 'components/pages/home/skinny-cta';
 // import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';

@@ -1,48 +1,35 @@
 import React from 'react';
 
-import Community from 'components/pages/home/community/community';
-import ComponentBased from 'components/pages/home/component-based';
-import Features from 'components/pages/home/features';
+import Code from 'components/pages/home/code';
+import Cta from 'components/pages/home/cta';
+import Flexibility from 'components/pages/home/flexibility';
 import Hero from 'components/pages/home/hero';
-import HowItWorks from 'components/pages/home/how-it-works';
-import Languages from 'components/pages/home/languages/languages';
+import Inbox from 'components/pages/home/inbox';
+import Infrastructure from 'components/pages/home/infrastructure';
+import Integration from 'components/pages/home/integration';
+import Libraries from 'components/pages/home/libraries';
 import Logos from 'components/pages/home/logos';
-import NotificationCenter from 'components/pages/home/notification-center';
-import Reviews from 'components/pages/home/reviews';
-import SimpleUse from 'components/pages/home/simple-use';
-import GetStarted from 'components/shared/get-started';
+import SkinnyCTA from 'components/pages/home/skinny-cta';
+// import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
 const HomePage = () => (
-  <Layout>
+  <Layout mainClassName="echo overflow-hidden pb-px bg-[#05050B]">
     <Hero />
     <Logos />
-    <HowItWorks />
-    <Separator backgroundColor="black" />
-    <Features />
-    <NotificationCenter />
-    <Separator backgroundColor="gray" />
-    <Community />
-    <ComponentBased />
-    <SimpleUse />
-    <Separator backgroundColor="gray" />
-    <Languages
-      links={[
-        {
-          linkText: 'View SDKs',
-          linkUrl: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
-        },
-        {
-          linkUrl: 'https://docs.novu.co/overview/introduction',
-          linkText: 'Read docs',
-        },
-      ]}
-    />
-    <Reviews />
-    <GetStarted />
-    <Separator backgroundColor="black" />
+    <Code />
+    <SkinnyCTA />
+    <Integration />
+    <Flexibility />
+    <Libraries />
+    <Inbox />
+    <Infrastructure />
+    {/* Hiding this temporarily for launch */}
+    {/* <Testimonials /> */}
+    <Cta />
+    <Separator className="w-full max-w-none" backgroundColor="echo-gradient" />
   </Layout>
 );
 
