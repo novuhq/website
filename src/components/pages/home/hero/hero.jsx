@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
+import LINKS from 'constants/links';
+
 
 import borderGlow from './images/border-glow.svg';
 
@@ -15,10 +17,12 @@ const DESCRIPTION =
 
 // const DESCRIPTION = 'Empower engineers to deliver a notifications platform for products';
 
-const LINK = {
-  text: 'Read Docs',
-  url: 'https://docs.novu.co/',
-};
+// const LINK = {
+//   text: 'Read Docs',
+//   url: 'https://docs.novu.co/',
+// };
+
+const BUTTON_TEXT = 'Read Docs';
 
 const CODE = 'npx novu@latest dev';
 
@@ -82,13 +86,16 @@ const Hero = () => {
               />
             </div>
 
-            <Button
+{/*             <Button
               className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
               theme="gray-outline"
               to={LINK.url}
             >
               {LINK.text}
-            </Button>
+            </Button> */}
+            <Button className="mt-7 md:mt-6" size="sm" theme="gray-outline" {...LINKS.inAppDocs}>
+            {BUTTON_TEXT}
+          </Button>
           </div>
         </div>
 
