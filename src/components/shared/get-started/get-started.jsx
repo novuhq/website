@@ -18,7 +18,7 @@ const LEFT_BUTTON_TEXT = 'Read Docs';
 
 const RIGHT_TITLE = 'Discovery Session';
 const RIGHT_DESCRIPTION = 'Schedule a session with our experts';
-const RIGHT_BUTTON_TEXT = 'Discovry Session';
+const RIGHT_BUTTON_TEXT = 'Discovery Session';
 
 const themeClassNames = {
   pink: 'get-started-gradient-multicolor',
