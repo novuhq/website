@@ -7,7 +7,7 @@ import CopyIcon from 'icons/copy.inline.svg';
 
 // import background from './images/background.svg';
 
-const TITLE = 'Send your first notiication in minutes';
+const TITLE = 'Send your first notification in minutes';
 // const DESCRIPTION =
 //  'Create and send your first code-based notification in&nbsp;before your coffee gets even cold.';
 
