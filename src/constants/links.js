@@ -59,7 +59,7 @@ export default {
     target: '_blank',
   },
   inAppDocs: {
-    to: 'https://docs.novu.co/notification-center/introduction?utm_campaign=website',
+    to: 'https://docs.novu.co/inbox/introduction',
     target: '_blank',
   },
   docker: {
