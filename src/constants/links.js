@@ -92,7 +92,7 @@ export default {
   // nestjs: { to: 'https://docs.novu.co/' }, -> We need to add this page
 
   // Getting started
-  howToGuides: { to: 'https://docs.novu.co/howto/workflows/introduction' },
+  howToGuides: { to: 'https://docs.novu.co/how-to/workflows/overview' },
   librariesAndSdks: { to: 'https://docs.novu.co/sdks/framework/typescript/overview' },
   integrations: { to: 'https://docs.novu.co/integrations/providers/introduction' },
 
