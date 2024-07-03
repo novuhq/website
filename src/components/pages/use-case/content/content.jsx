@@ -6,7 +6,6 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { WEB_APP_URL } from 'constants/links';
 
 import Button from 'components/shared/button';
 
@@ -34,7 +33,7 @@ const Content = ({ content, templateId }) => {
         <PortableText value={content} components={components} />
       </div>
       <div className="mt-14 flex justify-end">
-        <Button to={`${WEB_APP_URL}/?blueprintId=${templateId}`} theme="primary" size="sm">
+        <Button to={'https://web.novu.co/?blueprintId=${templateId}'} theme="primary" size="sm">
           Build with Novu
         </Button>
       </div>
