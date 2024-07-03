@@ -6,7 +6,7 @@ import Cta from 'components/pages/add-notifications/cta';
 import Features from 'components/pages/add-notifications/features';
 import Hero from 'components/pages/add-notifications/hero';
 import PainRestatement from 'components/pages/add-notifications/painRestatement';
-import RelatedContent from 'components/pages/add-notifications/related-content/related-content';
+// import RelatedContent from 'components/pages/add-notifications/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
@@ -26,7 +26,7 @@ const addNotificationsPage = () => (
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
-    <RelatedContent />
+    {/* <RelatedContent /> */}
     {/* Section: Get Started */}
     <GetStarted />
   </Layout>

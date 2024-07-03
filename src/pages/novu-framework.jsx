@@ -9,7 +9,7 @@ import Infrastructure from 'components/pages/novu-framework/infrastructure';
 import Integration from 'components/pages/novu-framework/integration';
 import Libraries from 'components/pages/novu-framework/libraries';
 import Logos from 'components/pages/novu-framework/logos';
-import SkinnyCta from 'components/pages/novu-framework/skinnycta';
+import SkinnyCTA from 'components/pages/novu-framework/skinny-cta';
 // import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
@@ -20,7 +20,7 @@ const NovuFrameworkPage = () => (
     <Hero />
     <Logos />
     <Code />
-    <SkinnyCta />
+    <SkinnyCTA />
     <Integration />
     <Flexibility />
     <Libraries />

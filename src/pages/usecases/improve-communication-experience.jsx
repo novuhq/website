@@ -6,7 +6,7 @@ import Cta from 'components/pages/improve-communication-experience/cta';
 import Features from 'components/pages/improve-communication-experience/features';
 import Hero from 'components/pages/improve-communication-experience/hero';
 import PainRestatement from 'components/pages/improve-communication-experience/painRestatement';
-import RelatedContent from 'components/pages/improve-communication-experience/related-content/related-content';
+// import RelatedContent from 'components/pages/improve-communication-experience/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
@@ -26,7 +26,7 @@ const improveCommunicationExperiencePage = () => (
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
-    <RelatedContent />
+    {/* <RelatedContent /> */}
     {/* Section: Get Started */}
     <GetStarted />
   </Layout>

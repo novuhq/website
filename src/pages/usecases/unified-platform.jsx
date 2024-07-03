@@ -6,7 +6,7 @@ import Cta from 'components/pages/unified-platform/cta';
 import Features from 'components/pages/unified-platform/features';
 import Hero from 'components/pages/unified-platform/hero';
 import PainRestatement from 'components/pages/unified-platform/painRestatement';
-import RelatedContent from 'components/pages/unified-platform/related-content/related-content';
+// import RelatedContent from 'components/pages/unified-platform/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
@@ -26,7 +26,7 @@ const unifiedPlatformPage = () => (
     {/* Section: Benefits */}
     <Benefits />
     {/* Section: Related Content */}
-    <RelatedContent />
+    {/* <RelatedContent /> */}
     {/* Section: Get Started */}
     <GetStarted />
   </Layout>
