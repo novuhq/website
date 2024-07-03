@@ -1,3 +1,4 @@
+export const WEB_APP_URL = 'https://dashboard.novu.co';
 export const applyQueryParams = (link, queryParams = []) => ({
   ...link,
   to: `${link.to}?${queryParams.join('&')}`,
@@ -138,15 +139,19 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://web.novu.co?utm_campaign=gs_website',
+    to: `${WEB_APP_URL}?utm_campaign=gs_website`,
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://web.novu.co?utm_campaign=gs_top_bar',
+    to: `${WEB_APP_URL}?utm_campaign=gs_top_bar`,
+    target: '_blank',
+  },
+  getStartedCommunity: {
+    to: `${WEB_APP_URL}?utm_campaign=community_page`,
     target: '_blank',
   },
   getStartedBase: {
-    to: 'https://web.novu.co',
+    to: `${WEB_APP_URL}`,
     target: '_blank',
   },
   quickStart: {
