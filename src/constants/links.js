@@ -56,10 +56,10 @@ export default {
   // Features
   workflow: { to: 'https://docs.novu.co/workflows/notification-workflows' },
   contentManagment: { to: 'https://docs.novu.co/workflow/content' },
-  translation: { to: '/' },
+  // translation: { to: '/' }, -> We need to add this page
   embedComponent: { to: 'https://docs.novu.co/sdks/react' },
   endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
-  observability: { to: '/' },
+  // observability: { to: '/' }, -> We need to add this page
 
   // Providers
   sendgrid: { to: 'https://docs.novu.co/integrations/providers/email/sendgrid' },
@@ -79,14 +79,17 @@ export default {
   emailChannel: { to: 'https://docs.novu.co/integrations/providers/email/overview' },
   smsChannel: { to: 'https://docs.novu.co/integrations/providers/sms/overview' },
   chatChannel: { to: 'https://docs.novu.co/integrations/providers/chat/overview' },
-  mobileChannel: { to: 'https://roadmap.novu.co/roadmap/b359fa16-0fd4-4de1-9199-c71a177df4a3' },
+  // mobileChannel: { to: 'https://roadmap.novu.co/roadmap/b359fa16-0fd4-4de1-9199-c71a177df4a3' }, -> We need to add this page
 
   // Frameworks
   remix: { to: 'https://docs.novu.co/quickstart/remix' },
   nextjs: { to: 'https://docs.novu.co/quickstart/nextjs' },
   nuxt: { to: 'https://docs.novu.co/quickstart/nuxt' },
-  hono: { to: 'https://docs.novu.co/' },
-  nestjs: { to: 'https://docs.novu.co/' },
+  svelte: { to: 'https://docs.novu.co/quickstart/svelte' },
+  express: { to: 'https://docs.novu.co/quickstart/express' },
+  h3: { to: 'https://docs.novu.co/quickstart/h3' },
+  // hono: { to: 'https://docs.novu.co/' }, -> We need to add this page
+  // nestjs: { to: 'https://docs.novu.co/' }, -> We need to add this page
 
   // Getting started
   prebuiltExamples: { to: 'https://github.com/novuhq/examples' },
@@ -94,8 +97,8 @@ export default {
   integrations: { to: 'https://docs.novu.co/integrations/providers/introduction' },
 
   // Guides
-  sendingNotifications: { to: 'https://docs.novu.co/how-to/introduction' },
-  novuNotificationGuide: { to: 'https://docs.novu.co/how-to/introduction' },
+  integrateSegment: { to: 'https://docs.novu.co/guides/integrations/segment' },
+
 
   // Last part of the dropdown links
   apiReference: { to: 'https://docs.novu.co/api-reference/overview' },
