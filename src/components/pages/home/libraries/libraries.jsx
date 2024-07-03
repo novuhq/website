@@ -41,7 +41,7 @@ const LIBRARIES = [
   {
     title: 'Hono',
     src: honoLogo,
-    // target: '',
+    target: 'https://docs.novu.co/integrations/',
   },
   {
     title: 'NextJS',
@@ -56,7 +56,7 @@ const LIBRARIES = [
   {
     title: 'LaunchDarkly',
     src: launchDarklyLogo,
-    // target: '',
+    target: 'https://docs.novu.co/integrations/',
   },
   {
     title: 'Express',
@@ -67,7 +67,7 @@ const LIBRARIES = [
   {
     title: 'Koa',
     src: koaLogo,
-    // target: '',
+    target: 'https://docs.novu.co/integrations/',
   },
 ];
 
