@@ -79,15 +79,15 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://web.novu.co?utm_campaign=gs_website',
+    to: 'https://dashboard.web.novu.co?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://web.novu.co?utm_campaign=gs_top_bar',
+    to: 'https://dashboard.web.novu.co?utm_campaign=gs_top_bar',
     target: '_blank',
   },
   getStartedBase: {
-    to: 'https://web.novu.co',
+    to: 'https://dashboard.web.novu.co',
     target: '_blank',
   },
   quickStart: {

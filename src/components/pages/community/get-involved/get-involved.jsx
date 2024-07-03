@@ -14,7 +14,7 @@ const ITEMS = [
     title: 'Novu Cloud',
     description: 'Embark on your journey by creating your personalized account',
     linkText: 'Get started',
-    linkUrl: 'https://web.novu.co/?utm_campaign=community_page',
+    linkUrl: 'https://dashboard.web.novu.co/?utm_campaign=community_page',
   },
   {
     icon: discordIcon,
