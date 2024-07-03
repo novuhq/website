@@ -39,10 +39,10 @@ const MENUS = {
             items: [
               { title: 'Notifications workflows', ...LINKS.workflow },
               { title: 'Content management', ...LINKS.contentManagment },
-              { title: 'Translation', ...LINKS.translation },
+              // { title: 'Translation', ...LINKS.translation }, -> We don't have that page yet
               { title: 'Embeddable inbox component', ...LINKS.embedComponent },
               { title: 'End user preferences', ...LINKS.endUserPreferences },
-              { title: 'Observability', ...LINKS.observability },
+              // { title: 'Observability', ...LINKS.observability }, -> We don't have that page yet
             ],
           },
           {
@@ -72,7 +72,7 @@ const MENUS = {
               { title: 'Email', ...LINKS.emailChannel },
               { title: 'SMS', ...LINKS.smsChannel },
               { title: 'Chat', ...LINKS.chatChannel },
-              { title: 'Mobile*', ...LINKS.mobileChannel },
+              // { title: 'Mobile*', ...LINKS.mobileChannel }, -> We don't have that page yet
             ],
           },
           {
@@ -83,8 +83,11 @@ const MENUS = {
               { title: 'Remix', ...LINKS.remix },
               { title: 'NextJS', ...LINKS.nextjs },
               { title: 'Nuxt', ...LINKS.nuxt },
-              { title: 'Hono', ...LINKS.hono },
-              { title: 'Nest.js', ...LINKS.nestjs },
+              { title: 'Svelte', ...LINKS.svelte },
+              { title: 'Express', ...LINKS.express },
+              { title: 'H3', ...LINKS.h3 },
+              // { title: 'Hono', ...LINKS.hono }, -> We don't have that page yet
+              // { title: 'Nest.js', ...LINKS.nestjs }, -> We don't have that page yet
             ],
           },
         ],
@@ -105,7 +108,7 @@ const MENUS = {
             title: 'Getting started',
             icon: GettingStartedIcon,
             items: [
-              { title: 'Pre-built Examples', ...LINKS.prebuiltExamples },
+              { title: 'Pre-built Examples', ...LINKS.prebuiltExamples }, // We might consider changing it
               { title: 'Libraries and SDKs', ...LINKS.librariesAndSdks },
               { title: 'Integrations', ...LINKS.integrations },
             ],
@@ -114,9 +117,7 @@ const MENUS = {
             title: 'Guides',
             icon: GuidesIcon,
             items: [
-              { title: 'Sending notifications', ...LINKS.sendingNotifications },
-              { title: 'End user preferences', ...LINKS.endUserPreferences },
-              { title: 'Novu notification guide', ...LINKS.novuNotificationGuide },
+              { title: 'Integrate Segment With Novu', ...LINKS.integrateSegment },
             ],
           },
           {
