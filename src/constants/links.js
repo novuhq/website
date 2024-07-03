@@ -140,6 +140,10 @@ export default {
     to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website',
     target: '_blank',
   },
+  bamCTA: {
+    to: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-cta-bottom',
+    target: '_blank',
+  },
 
   // Social
   discord: {
