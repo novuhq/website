@@ -45,6 +45,66 @@ export default {
     to: '/chat',
   },
 
+  // Header submenus
+  // Use cases
+  multichannelNotifications: { to: 'https://novu.co/usecases/multi-channel-notifications/' },
+  notifications: { to: 'https://novu.co/usecases/add-notifications/' },
+  communication: { to: 'https://novu.co/usecases/improve-communication-experience/' },
+  notificationPlatform: { to: 'https://novu.co/usecases/unified-platform/' },
+  notificationContentManagement: { to: 'https://novu.co/usecases/content-management/' },
+
+  // Features
+  workflow: { to: 'https://docs.novu.co/workflows/notification-workflows' },
+  contentManagment: { to: 'https://docs.novu.co/workflow/content' },
+  // translation: { to: '/' }, -> We need to add this page
+  embedComponent: { to: 'https://docs.novu.co/sdks/react' },
+  endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
+  // observability: { to: '/' }, -> We need to add this page
+
+  // Providers
+  sendgrid: { to: 'https://docs.novu.co/integrations/providers/email/sendgrid' },
+  fcm: { to: 'https://docs.novu.co/integrations/providers/push/fcm' },
+  ses: { to: 'https://docs.novu.co/integrations/providers/email/amazon-ses' },
+  twilio: { to: 'https://docs.novu.co/integrations/providers/sms/twilio' },
+  nodemailer: { to: 'https://docs.novu.co/integrations/providers/email/custom-smtp' },
+  slack: { to: 'https://docs.novu.co/integrations/providers/chat/slack' },
+  mailgun: { to: 'https://docs.novu.co/integrations/providers/email/mailgun' },
+  postmark: { to: 'https://docs.novu.co/integrations/providers/email/postmark' },
+  discord: { to: 'https://docs.novu.co/integrations/providers/chat/discord' },
+  sendinblue: { to: 'https://docs.novu.co/integrations/providers/email/sendinblue' },
+
+  // Channels
+  inAppChannel: { to: 'https://docs.novu.co/inbox/introduction' },
+  pushChannel: { to: 'https://docs.novu.co/integrations/providers/push/overview' },
+  emailChannel: { to: 'https://docs.novu.co/integrations/providers/email/overview' },
+  smsChannel: { to: 'https://docs.novu.co/integrations/providers/sms/overview' },
+  chatChannel: { to: 'https://docs.novu.co/integrations/providers/chat/overview' },
+  // mobileChannel: { to: 'https://roadmap.novu.co/roadmap/b359fa16-0fd4-4de1-9199-c71a177df4a3' }, -> We need to add this page
+
+  // Frameworks
+  remix: { to: 'https://docs.novu.co/quickstart/remix' },
+  nextjs: { to: 'https://docs.novu.co/quickstart/nextjs' },
+  nuxt: { to: 'https://docs.novu.co/quickstart/nuxt' },
+  svelte: { to: 'https://docs.novu.co/quickstart/svelte' },
+  express: { to: 'https://docs.novu.co/quickstart/express' },
+  h3: { to: 'https://docs.novu.co/quickstart/h3' },
+  // hono: { to: 'https://docs.novu.co/' }, -> We need to add this page
+  // nestjs: { to: 'https://docs.novu.co/' }, -> We need to add this page
+
+  // Getting started
+  prebuiltExamples: { to: 'https://github.com/novuhq/examples' },
+  librariesAndSdks: { to: 'https://docs.novu.co/sdks/framework/typescript/overview' },
+  integrations: { to: 'https://docs.novu.co/integrations/providers/introduction' },
+
+  // Guides
+  integrateSegment: { to: 'https://docs.novu.co/guides/integrations/segment' },
+
+
+  // Last part of the dropdown links
+  apiReference: { to: 'https://docs.novu.co/api-reference/overview' },
+  changelog: { to: 'https://novustatus.com?utm_campaign=website' },
+  systemStatus: { to: 'https://novustatus.com/' },
+
   // Other pages
   pricingContactUs: {
     to: 'https://novu.co/contact-us?utm_campaign=pricing-enterprise-cu',

@@ -3,12 +3,13 @@ import { AnimatePresence, m, LazyMotion, domAnimation, useAnimation } from 'fram
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
-import Button from 'components/shared/button/button';
-import Link from 'components/shared/link';
+import Button from 'components/shared/button';
 import GITHUB from 'constants/github';
 import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import GitHubIcon from 'icons/github.inline.svg';
+
+import MenuItem from './menu-item';
 
 const RIGHT_BUTTON_TEXT = 'Get Started';
 
@@ -23,7 +24,7 @@ const variants = {
     },
   },
   visible: {
-    zIndex: 20,
+    zIndex: 50,
     opacity: 1,
     translateY: 0,
     transition: {
@@ -34,7 +35,7 @@ const variants = {
 
 const MobileMenu = ({ isOpen }) => {
   const controls = useAnimation();
-  const [paddingTopClassName, setPaddingTopClassName] = useState('pt-16 sm:pt-[60px]');
+  const [paddingTopClassName, setPaddingTopClassName] = useState('pt-16 sm:pt-14');
 
   useEffect(() => {
     if (isOpen) {
@@ -49,17 +50,17 @@ const MobileMenu = ({ isOpen }) => {
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
     if (topBanner) {
-      setPaddingTopClassName('pt-[114px] sm:pt-[125px]');
+      setPaddingTopClassName('pt-[114px] sm:pt-[121px]');
     }
   }, []);
 
   return (
     <LazyMotion features={domAnimation}>
-      {isOpen && (
-        <AnimatePresence>
+      <AnimatePresence>
+        {isOpen && (
           <m.div
             className={clsx(
-              'safe-paddings fixed inset-0 flex h-full w-full flex-col bg-black',
+              'hidden safe-paddings fixed inset-0 justify-between w-full flex-col overflow-x-hidden overflow-y-scroll md:flex pointer-events-none',
               paddingTopClassName
             )}
             initial="hidden"
@@ -67,29 +68,26 @@ const MobileMenu = ({ isOpen }) => {
             exit="hidden"
             variants={variants}
           >
-            <nav className="flex h-full w-full overflow-x-hidden overflow-y-scroll">
-              <ul className="my-auto flex w-full flex-col">
-                {MENUS.mobile.map(({ to, text, target }, index) => (
-                  <li key={index}>
-                    <Link
-                      className="block w-full py-4 text-center"
-                      theme="white"
-                      size="xl"
-                      to={to}
-                      target={target}
-                    >
-                      {text}
-                    </Link>
-                  </li>
+            <nav className="flex h-full w-full overflow-y-scroll overflow-x-hidden pointer-events-auto bg-black">
+              <ul className="flex h-full w-full flex-col relative bg-black border-t border-t-[#1F1F1F]">
+                {MENUS.header.map(({ to, text, target, menuItems }, index) => (
+                  <MenuItem
+                    className="h-[60px] border-b border-b-gray-2"
+                    key={index}
+                    text={text}
+                    to={to}
+                    target={target}
+                    menuItems={menuItems && menuItems.items}
+                  />
                 ))}
               </ul>
             </nav>
 
-            <div className="sticky bottom-0 bg-black">
+            <div className="bg-black pointer-events-auto">
               <div className="container">
-                <div className="flex w-full justify-between space-x-4 py-7">
+                <div className="flex w-full justify-between space-x-4 py-7 border-t border-t-gray-2">
                   <Button
-                    className="w-full 2xs:text-xs"
+                    className="w-full sm:text-xs"
                     to={GITHUB.repoUrl}
                     target="_blank"
                     size="sm"
@@ -100,7 +98,7 @@ const MobileMenu = ({ isOpen }) => {
                   </Button>
 
                   <Button
-                    className="w-full 2xs:text-xs"
+                    className="w-full sm:text-xs"
                     size="sm"
                     theme="white-filled"
                     {...LINKS.getStarted}
@@ -111,8 +109,8 @@ const MobileMenu = ({ isOpen }) => {
               </div>
             </div>
           </m.div>
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
     </LazyMotion>
   );
 };
