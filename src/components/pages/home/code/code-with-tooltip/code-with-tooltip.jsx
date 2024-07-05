@@ -7,24 +7,17 @@ const TOOLTIP_CONTENT = {
     <span className="flex flex-col py-3.5">
       <span className="px-3.5 flex flex-col">
         <span className="whitespace-pre">
-          (alias) <span className="text-yellow">workflow</span>(id: string,
+          (alias) <span className="text-yellow">workflow</span>(
+        </span>
+        <span className="whitespace-pre">{'  '}id: string,</span>
+        <span className="whitespace-pre">
+          {'  '}execute: <span className="text-yellow">Execute</span>&lt;...&gt;,
         </span>
         <span className="whitespace-pre">
-          {' '}
-          <span className="whitespace-pre">
-            execute: <span className="text-yellow">Execute</span>&lt;...&gt;,
-          </span>
+          {'  '}options?: <span className="text-yellow">WorkflowOptions</span>&lt;...&gt;,
         </span>
         <span className="whitespace-pre">
-          {' '}
-          <span className="whitespace-pre">
-            options?: <span className="text-yellow">WorkflowOptions</span>&lt;...&gt;)
-          </span>
-        </span>
-        <span className="whitespace-pre">
-          <span className="whitespace-pre">
-            ): <span className="text-yellow">Workflow</span>&lt;...&gt;
-          </span>
+          ): <span className="text-yellow">Workflow</span>&lt;...&gt;
         </span>
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
@@ -38,15 +31,16 @@ const TOOLTIP_CONTENT = {
           (parameter) <span className="text-yellow">controls</span>: &#123;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">subject</span>: string;
         </span>
         <span className="whitespace-pre">
-          {' '}
-          <span className="text-yellow">openAiModel</span>: "gpt-3.5-turbo" | "gpt-4o";
+          {'  '}
+          <span className="text-yellow">openAiModel</span>: &quot;gpt-3.5-turbo&quot; |
+          &quot;gpt-4o&quot;;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">aiPrompt</span>: string;
         </span>
         <span className="whitespace-pre">&#125;</span>
@@ -63,32 +57,32 @@ const TOOLTIP_CONTENT = {
           (parameter) <span className="text-yellow">event</span>: &#123;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">payload</span>: &#123;
         </span>
         <span className="whitespace-pre">
-          {' '}
-          <span className="text-yellow">name</span>: string
+          {'    '}
+          <span className="text-yellow">name</span>: string;
         </span>
         <span className="whitespace-pre">
-          {' '}
-          <span className="text-yellow">comment</span>: string
+          {'    '}
+          <span className="text-yellow">comment</span>: string;
         </span>
-        <span className="whitespace-pre"> &#125;;</span>
+        <span className="whitespace-pre">{'  '}&#125;;</span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">step</span>: Step;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">subscriber</span>: &#123;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'    '}
           <span className="text-yellow">firstName</span>: string;
         </span>
-        <span className="whitespace-pre"> ...</span>
-        <span className="whitespace-pre"> &#125;;</span>
+        <span className="whitespace-pre">{'    '}...</span>
+        <span className="whitespace-pre">{'  '}&#125;;</span>
         <span>&#125;</span>
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
@@ -114,31 +108,34 @@ const TOOLTIP_CONTENT = {
           (property) <span className="text-yellow">trigger</span>: (event: &#123;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">payload</span>: &#123;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'    '}
           <span className="text-yellow">name</span>: string;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'    '}
           <span className="text-yellow">comment</span>: string;
         </span>
-        <span className="whitespace-pre"> &#125;;</span>
+        <span className="whitespace-pre">{'  '}&#125;;</span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">to</span>: Recipients;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">actor?</span>: Actor | undefined;
         </span>
         <span className="whitespace-pre">
-          {' '}
+          {'  '}
           <span className="text-yellow">tenant?</span>: Tenant | undefined;
         </span>
-        <span className="whitespace-pre">&#125;){` => Promise`}&lt;...&gt;</span>
+        <span className="whitespace-pre">
+          &#125;){` => `}
+          <span className="text-yellow">Promise</span>&lt;...&gt;
+        </span>
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">Trigger a notification workflow.</span>

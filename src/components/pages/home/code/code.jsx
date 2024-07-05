@@ -105,11 +105,11 @@ const Code = () => {
             {code}
           </SyntaxHighlighter>
           <StaticImage
-            className="!absolute pointer-events-none bottom-[-65px] right-0 z-0 w-[1152px] lg:bottom-[-43px] lg:w-[960px] md:!hidden"
+            className="!absolute pointer-events-none bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
             src="./images/code-background.png"
             alt=""
-            width={1152}
-            height={652}
+            width={1252}
+            height={766}
             quality={100}
           />
           <StaticImage
