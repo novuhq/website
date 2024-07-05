@@ -67,7 +67,7 @@ const Code = () => {
           className="relative z-10 text-[44px] leading-none tracking-snug font-medium text-transparent max-w-[700px] bg-clip-text bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] ml-[42px] lg:text-5xl lg:ml-8 md:text-4xl md:max-w-md md:ml-0 sm:text-[32px]"
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
-        <p className="mt-4 text-[17px] leading-snug font-book text-gray-9 max-w-[800px] ml-[42px] lg:mt-2.5 md:text-base md:mt-3">
+        <p className="mt-4 text-[17px] leading-snug font-book text-gray-9 max-w-[800px] ml-[42px] lg:ml-8 md:ml-0 lg:mt-2.5 md:text-base md:mt-3">
           {DESCRIPTION}
         </p>
         <ul className="relative z-10 flex justify-end gap-x-7 font-medium text-[15px] text-[#CAE9FF]/60 leading-snug mt-8 pr-8 lg:mt-5 lg:gap-x-6 md:text-sm md:mt-4 md:pr-0 md:gap-x-[22px] sm:justify-start sm:mt-[30px]">
@@ -105,11 +105,11 @@ const Code = () => {
             {code}
           </SyntaxHighlighter>
           <StaticImage
-            className="!absolute pointer-events-none bottom-[-65px] right-0 z-0 w-[1152px] lg:bottom-[-43px] lg:w-[960px] md:!hidden"
+            className="!absolute pointer-events-none bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
             src="./images/code-background.png"
             alt=""
-            width={1152}
-            height={652}
+            width={1252}
+            height={766}
             quality={100}
           />
           <StaticImage
