@@ -108,17 +108,15 @@ const MENUS = {
             title: 'Getting started',
             icon: GettingStartedIcon,
             items: [
-              { title: 'How To Guides', ...LINKS.howToGuides }, // We might consider changing it
+              { title: 'How-to guides', ...LINKS.howToGuides }, // We might consider changing it
               { title: 'Libraries and SDKs', ...LINKS.librariesAndSdks },
               { title: 'Integrations', ...LINKS.integrations },
             ],
           },
           {
-            title: 'Code First Examples',
+            title: 'Code-first examples',
             icon: GuidesIcon,
-            items: [
-              { title: 'Pre-Built Workflows', ...LINKS.preBuiltWorkflows },
-            ],
+            items: [{ title: 'Workflow examples', ...LINKS.preBuiltWorkflows }],
           },
           {
             items: [

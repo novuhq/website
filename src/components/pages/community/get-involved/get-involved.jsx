@@ -6,6 +6,7 @@ import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
 import novuIcon from 'icons/novu-gradient-logo.svg';
 
+
 const TITLE = 'Get involved: start, engage, contribute';
 
 const ITEMS = [
@@ -14,7 +15,7 @@ const ITEMS = [
     title: 'Novu Cloud',
     description: 'Embark on your journey by creating your personalized account',
     linkText: 'Get started',
-    linkUrl: 'https://web.novu.co/?utm_campaign=community_page',
+    linkUrl: 'https://dashboard.novu.co/?utm_campaign=community_page',
   },
   {
     icon: discordIcon,

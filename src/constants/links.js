@@ -57,7 +57,7 @@ export default {
   workflow: { to: 'https://docs.novu.co/workflows/notification-workflows' },
   contentManagment: { to: 'https://docs.novu.co/workflow/content' },
   // translation: { to: '/' }, -> We need to add this page
-  embedComponent: { to: 'https://docs.novu.co/sdks/react' },
+  embedComponent: { to: 'https://docs.novu.co/inbox/introduction' },
   endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
   // observability: { to: '/' }, -> We need to add this page
 
@@ -92,13 +92,12 @@ export default {
   // nestjs: { to: 'https://docs.novu.co/' }, -> We need to add this page
 
   // Getting started
-  prebuiltExamples: { to: 'https://github.com/novuhq/examples' },
+  howToGuides: { to: 'https://docs.novu.co/guides/workflows/introduction' },
   librariesAndSdks: { to: 'https://docs.novu.co/sdks/framework/typescript/overview' },
   integrations: { to: 'https://docs.novu.co/integrations/providers/introduction' },
 
-  // Guides
-  integrateSegment: { to: 'https://docs.novu.co/guides/integrations/segment' },
-
+  // Code First Examples
+  preBuiltWorkflows: { to: 'https://github.com/novuhq/examples' },
 
   // Last part of the dropdown links
   apiReference: { to: 'https://docs.novu.co/api-reference/overview' },
@@ -139,15 +138,19 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://web.novu.co?utm_campaign=gs_website',
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://web.novu.co?utm_campaign=gs_top_bar',
+    to: 'https://dashboard.novu.co?utm_campaign=gs_top_bar',
+    target: '_blank',
+  },
+   getStartedCommunity: {
+    to: `https://dashboard.novu.co?utm_campaign=community_page`,
     target: '_blank',
   },
   getStartedBase: {
-    to: 'https://web.novu.co',
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
   quickStart: {

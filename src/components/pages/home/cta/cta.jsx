@@ -10,7 +10,7 @@ import background from './images/background.svg';
 const TITLE = 'Get started now';
 
 const DESCRIPTION =
-  'Create and send your first code-based notification in&nbsp;before your coffee gets even cold.';
+  'Create and send your first code-based notification in minutes&nbsp;before your coffee gets cold.';
 
 const LINK = {
   text: 'Book a demo',
