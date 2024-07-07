@@ -92,7 +92,7 @@ const Libraries = () => (
             })}
             key={index}
           >
-              <Link target={target}>
+              <Link to={target}>
                     <img src={src} alt={title} width={128} height={44} />
              </Link>
           </li>
