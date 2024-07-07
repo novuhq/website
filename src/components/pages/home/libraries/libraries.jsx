@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import Link from 'components/shared/link';
 
 import expressLogo from './images/express.svg';
 import honoLogo from './images/hono.svg';
@@ -21,42 +22,52 @@ const LIBRARIES = [
   {
     title: 'MJML',
     src: mjmlLogo,
+    target: 'https://github.com/novuhq/novu-framework-nextjs-mjml-example',
   },
   {
     title: 'NestJS',
     src: nestJsLogo,
+    target: 'https://github.com/novuhq/nestjs-quickstart',
   },
   {
     title: 'Remix',
     src: remixLogo,
+    target: 'https://docs.novu.co/quickstart/remix',
   },
   {
     title: 'Zod',
     src: zodLogo,
+    target: 'https://docs.novu.co/integrations/schema/zod',
   },
   {
     title: 'Hono',
     src: honoLogo,
+    target: 'https://docs.novu.co/integrations/',
   },
   {
     title: 'NextJS',
     src: nextJsLogo,
+    target: 'https://docs.novu.co/quickstart/nextjs',
   },
   {
     title: 'React Email',
     src: reactEmailLogo,
+    target: 'https://docs.novu.co/integrations/content/react-email',
   },
   {
     title: 'LaunchDarkly',
     src: launchDarklyLogo,
+    target: 'https://docs.novu.co/integrations/',
   },
   {
     title: 'Express',
     src: expressLogo,
+    target: 'https://docs.novu.co/quickstart/express#how-to-send-notifications-with-expressjs-and-novu-framework',
   },
   {
     title: 'Koa',
     src: koaLogo,
+    target: 'https://docs.novu.co/integrations/',
   },
 ];
 
@@ -70,7 +81,7 @@ const Libraries = () => (
         {DESCRIPTION}
       </p>
       <ul className="grid grid-cols-5 mt-10 px-1 lg:mt-8 md:mt-7 sm:grid-cols-2 sm:mt-8">
-        {LIBRARIES.map(({ title, src }, index) => (
+        {LIBRARIES.map(({ title, src , target}, index) => (
           <li
             className={clsx('p-8 border-gray-2 lg:py-7 md:p-5 sm:px-[30px] sm:py-6', {
               'border-b': index < 5,
@@ -81,7 +92,9 @@ const Libraries = () => (
             })}
             key={index}
           >
-            <img src={src} alt={title} width={128} height={44} />
+              <Link target={target}>
+                    <img src={src} alt={title} width={128} height={44} />
+             </Link>
           </li>
         ))}
       </ul>
