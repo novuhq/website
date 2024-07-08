@@ -10,11 +10,11 @@ import bg from './images/bg.svg';
 
 import './get-started.css';
 
-const TITLE = 'Want to learn more?';
+const TITLE = 'Ready to learn more?';
 
-const LEFT_TITLE = 'Read the Docs';
+const LEFT_TITLE = 'Read our Docs';
 const LEFT_DESCRIPTION = 'Feature descriptions, how-to guides, and more';
-const LEFT_BUTTON_TEXT = 'Read Docs';
+const LEFT_BUTTON_TEXT = 'Read the Docs';
 
 const RIGHT_TITLE = 'Discovery Session';
 const RIGHT_DESCRIPTION = 'Schedule a session with our experts';
