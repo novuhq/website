@@ -18,5 +18,9 @@
   {
     "fromPath": "/podcast/",
     "toPath": "/blog/podcast/"
+  },
+  {
+    "fromPath": "/contributors/",
+    "toPath": "/community/"
   }
 ]
