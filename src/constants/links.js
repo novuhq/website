@@ -139,19 +139,19 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: `${WEB_APP_URL}?utm_campaign=gs_website`,
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedTopBar: {
-    to: `${WEB_APP_URL}?utm_campaign=gs_top_bar`,
+    to: 'https://dashboard.novu.co?utm_campaign=gs_top_bar',
     target: '_blank',
   },
-  getStartedCommunity: {
-    to: `${WEB_APP_URL}?utm_campaign=community_page`,
+   getStartedCommunity: {
+    to: `https://dashboard.novu.co?utm_campaign=community_page`,
     target: '_blank',
   },
   getStartedBase: {
-    to: `${WEB_APP_URL}`,
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
   quickStart: {

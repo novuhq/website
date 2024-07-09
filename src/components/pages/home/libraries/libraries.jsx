@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import Link from 'components/shared/link';
 
 import expressLogo from './images/express.svg';
 import honoLogo from './images/hono.svg';
@@ -41,7 +42,7 @@ const LIBRARIES = [
   {
     title: 'Hono',
     src: honoLogo,
-    // target: '',
+    target: 'https://docs.novu.co/integrations/',
   },
   {
     title: 'NextJS',
@@ -56,18 +57,17 @@ const LIBRARIES = [
   {
     title: 'LaunchDarkly',
     src: launchDarklyLogo,
-    // target: '',
+    target: 'https://docs.novu.co/integrations/',
   },
   {
     title: 'Express',
     src: expressLogo,
-    target:
-      'https://docs.novu.co/quickstart/express#how-to-send-notifications-with-expressjs-and-novu-framework',
+    target: 'https://docs.novu.co/quickstart/express#how-to-send-notifications-with-expressjs-and-novu-framework',
   },
   {
     title: 'Koa',
     src: koaLogo,
-    // target: '',
+    target: 'https://docs.novu.co/integrations/',
   },
 ];
 
@@ -81,7 +81,7 @@ const Libraries = () => (
         {DESCRIPTION}
       </p>
       <ul className="grid grid-cols-5 mt-10 px-1 lg:mt-8 md:mt-7 sm:grid-cols-2 sm:mt-8">
-        {LIBRARIES.map(({ title, src, target }, index) => (
+        {LIBRARIES.map(({ title, src , target}, index) => (
           <li
             className={clsx('p-8 border-gray-2 lg:py-7 md:p-5 sm:px-[30px] sm:py-6', {
               'border-b': index < 5,
@@ -92,9 +92,9 @@ const Libraries = () => (
             })}
             key={index}
           >
-            <a href={target}>
-              <img src={src} alt={title} width={128} height={44} />
-            </a>
+              <Link to={target}>
+                    <img src={src} alt={title} width={128} height={44} />
+             </Link>
           </li>
         ))}
       </ul>
