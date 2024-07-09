@@ -9,6 +9,7 @@ import Infrastructure from 'components/pages/home/infrastructure';
 import Integration from 'components/pages/home/integration';
 import Libraries from 'components/pages/home/libraries';
 import Logos from 'components/pages/home/logos';
+import Reviews from 'components/pages/home/reviews';
 import SkinnyCTA from 'components/pages/home/skinny-cta';
 // import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
@@ -28,6 +29,7 @@ const HomePage = () => (
     <Infrastructure />
     {/* Hiding this temporarily for launch */}
     {/* <Testimonials /> */}
+    <Reviews />
     <Cta />
     <Separator className="w-full max-w-none" backgroundColor="echo-gradient" />
   </Layout>
