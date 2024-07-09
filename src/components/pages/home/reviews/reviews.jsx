@@ -4,46 +4,96 @@ import React from 'react';
 
 import Link from 'components/shared/link';
 
+import aeswibon from './images/aeswibon.jpg';
 import csabaKissi from './images/csaba-kissi.jpg';
 import doinfinehq from './images/doinfinehq.jpg';
-import fgribreau from './images/fgribreau.jpg';
+import levlaz from './images/levlaz.jpg';
 import lukasboehler from './images/lukasboehler.jpg';
-import nathanTarbert from './images/nathan-tarbert.jpg';
+import madebyfabian from './images/madebyfabian.jpg';
 import nikkisiapno from './images/nikkisiapno.jpg';
-import psteinroe from './images/psteinroe.jpg';
-import rauchg from './images/rauchg.jpg';
+import pontusab from './images/pontusab.jpg';
+// import psteinroe from './images/psteinroe.jpg';
+// import rauchg from './images/rauchg.jpg';
+// import nathanTarbert from './images/nathan-tarbert.jpg';
+// import fgribreau from './images/fgribreau.jpg';
+// import merlindru from './images/merlindru.jpg';
+import vishucodes from './images/vishucodes.jpg';
 
 const TITLE = 'Loved by engineers from around the world';
 const DESCRIPTION =
-  "Explore tweets from engineers worldwide and see why they're fans of our company's innovations.";
+  "Explore tweets from engineers worldwide and see why they're fans of our notification platform.";
 
 const ITEMS = [
+  {
+    text: 'New <span>@middayai</span> engineering blog post just dropped. Learn how we are using <span>@novuhq</span> as our notification infrastructure. Link in thread 🧵⬇️',
+    linkUrl: 'https://x.com/pontusab/status/1785312430882714031',
+    author: {
+      name: 'Pontus Abrahamsson',
+      username: '@pontusab',
+      avatar: pontusab,
+    },
+    image: (
+      <StaticImage
+        className="mt-5 w-full rounded"
+        src="./images/novumidday.jpeg"
+        alt="MiddayAI uses Novu"
+        loading="lazy"
+      />
+    ),
+  },
+  {
+    text: 'Novu is so dope!',
+    linkUrl: 'https://x.com/levlaz/status/1810734219330736300',
+    author: {
+      name: 'Lev Lazinskiy',
+      username: '@levlaz',
+      avatar: levlaz,
+    },
+  },
+  {
+    text: 'Haha yeah I’m so happy my notification logic isn’t inside the database anymore. Love Novu!🚀',
+    linkUrl: 'https://x.com/madebyfabian/status/1603010122451746816',
+    author: {
+      name: 'Fabian B.',
+      username: '@madebyfabian',
+      avatar: madebyfabian,
+    },
+  },
   {
     text: 'Todos for today: <span>#ship</span> a <span>@GleapSDK</span> update that utilizes <span>@novuhq</span> for amazing notifications 🎉',
     linkUrl: 'https://twitter.com/lukasboehler/status/1696793039841144916',
     author: {
-      name: 'Lukas',
+      name: 'Lukas Boehler',
       username: '@lukasboehler',
       avatar: lukasboehler,
     },
   },
   {
-    text: 'migrating to <span>@novuhq</span> be like...',
-    linkUrl:
-      'https://twitter.com/psteinroe/status/1602958750847062017?s=20&t=GazBEYVRhI2ch6xP7Wqn5A',
+    text: "Novu make notification management much easier. They're doing a great job with the service they offer.",
+    linkUrl: 'https://twitter.com/NikkiSiapno/status/1696509202993426884',
     author: {
-      name: 'Philipp Steinrötter',
-      username: '@psteinroe',
-      avatar: psteinroe,
+      name: 'Nikki Siapno',
+      username: '@NikkiSiapno',
+      avatar: nikkisiapno,
     },
-    image: (
-      <StaticImage
-        className="mt-5 w-full rounded"
-        src="./images/console.jpg"
-        alt="Console output"
-        loading="lazy"
-      />
-    ),
+  },
+  {
+    text: 'The best solution for notifications.',
+    linkUrl: 'https://twitter.com/csaba_kissi/status/1696056864373416109',
+    author: {
+      name: 'Csaba Kissi',
+      username: '@csaba_kissi',
+      avatar: csabaKissi,
+    },
+  },
+  {
+    text: "That's awesome! Real-time notifications can really boost user engagement. Love that <span>@novuhq</span> supports multiple frameworks & customization options. Definitely giving the repo a star to show support! 🌟 <span>#OpenSource #SoftwareDevelopment</span>",
+    linkUrl: 'https://x.com/aeswibon/status/1696467646429147200',
+    author: {
+      name: 'Abhiuday',
+      username: '@aeswibon',
+      avatar: aeswibon,
+    },
   },
   {
     text: 'Thanks to a great tool called <span>@novuhq</span>, we can easily implement notifications into our upcoming v0.5.0 release.',
@@ -63,14 +113,23 @@ const ITEMS = [
     ),
   },
   {
-    text: "Novu make notification management much easier. They're doing a great job with the service they offer.",
-    linkUrl: 'https://twitter.com/NikkiSiapno/status/1696509202993426884',
+    text: 'Hey Developers👋<br/>What are you doing today?<br/>Me:-<br/>Implementing <span>@novuhq</span> notifications in spring boot',
+    linkUrl: 'https://x.com/vishucodes/status/1810576925456523330',
     author: {
-      name: 'Nikki Siapno',
-      username: '@NikkiSiapno',
-      avatar: nikkisiapno,
+      name: 'Vishu',
+      username: '@vishucodes',
+      avatar: vishucodes,
     },
   },
+  /*  {
+    text: 'This is how you write an article!!! Convinced to use <span>@novuhq</span> or similar instead of rolling my own after reading it',
+    linkUrl: 'https://x.com/merlindru/status/1782045528026444205',
+    author: {
+      name: 'Merlin',
+      username: '@merlindru',
+      avatar: merlindru,
+    },
+  }, 
   {
     text: 'So excited about the rise of the notifications infrastructure space (+ open source 🔥)',
     linkUrl: 'https://twitter.com/rauchg/status/1557048605042565120',
@@ -78,15 +137,6 @@ const ITEMS = [
       name: 'Guillermo Rauch',
       username: '@rauchg',
       avatar: rauchg,
-    },
-  },
-  {
-    text: 'The best solution for notifications.',
-    linkUrl: 'https://twitter.com/csaba_kissi/status/1696056864373416109',
-    author: {
-      name: 'Csaba Kissi',
-      username: '@csaba_kissi',
-      avatar: csabaKissi,
     },
   },
   {
@@ -107,6 +157,7 @@ const ITEMS = [
       avatar: fgribreau,
     },
   },
+*/
 ];
 
 const Reviews = () => (
