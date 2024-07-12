@@ -38,7 +38,8 @@ export const Head = () => {
   const pageMetadata = {
     slug: '/unified-platform/',
     title: 'Unified Development and Product Notification Platform',
-    description: 'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
+    description:
+      "Unify your team's notification workflows with Novu's comprehensive platform. Streamline communication with centralized content, type-safe schemas, and reusable components. Empower both developers and product teams to collaborate seamlessly using code-first and no-code tools. Enhance efficiency, reduce friction, and deliver consistent, branded user experiences across all channels. Accelerate development, minimize interruptions, and maintain full visibility and control over notification management.",
   };
   return <SEO {...pageMetadata} />;
 };

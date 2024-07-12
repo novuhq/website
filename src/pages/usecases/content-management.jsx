@@ -38,7 +38,8 @@ export const Head = () => {
   const pageMetadata = {
     slug: '/content-management/',
     title: 'Notification Content Management for Developers',
-    description: 'Empower your product teams to safely interact with notitfcations content.',
+    description:
+      "Simplify content management with Novu's unified platform. Empower your product teams to manage notifications without interrupting developers. Utilize code-first workflows, a no-code editor, and broad framework support including React, Vue-email, and MJML. Ensure type-safe updates and consistent branding while delivering personalized notifications across all channels. Enhance collaboration, reduce development interruptions, and maintain a seamless user experience.",
   };
   return <SEO {...pageMetadata} />;
 };

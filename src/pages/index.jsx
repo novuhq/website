@@ -37,4 +37,11 @@ const HomePage = () => (
 
 export default HomePage;
 
-export const Head = () => <SEO />;
+export const Head = () => {
+  const pageMetadata = {
+    title: 'Novu - Open-source notifications infrastructure and framework',
+    description:
+      'Novu empowers developers and product teams to collaborate seamlessly on notification management. Its unified platform provides centralized content, type-safe schemas, and reusable components, facilitating efficient workflows. With code-first and no-code tools, teams can easily customize and deploy notifications across multiple channels like email, SMS, push, chat, and in-app. Novu enhances communication, reduces friction, and ensures reliable, scalable, and personalized user experiences while maintaining full visibility and control over notifications.',
+  };
+  return <SEO {...pageMetadata} />;
+};
