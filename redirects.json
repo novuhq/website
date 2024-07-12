@@ -18,5 +18,9 @@
   {
     "fromPath": "/podcast/",
     "toPath": "/blog/podcast/"
+  },
+  {
+    "fromPath": "/novu-echo-coming-soon/",
+    "toPath": "/"
   }
 ]
