@@ -15,6 +15,7 @@ const DESCRIPTION =
 const LINK = {
   text: 'Book Meeting',
   url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-unifiedPlatform',
+  target: '_blank',
 };
 
 const CODE = 'npx novu@latest dev';
