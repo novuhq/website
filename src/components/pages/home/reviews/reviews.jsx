@@ -19,9 +19,9 @@ import pontusab from './images/pontusab.jpg';
 // import merlindru from './images/merlindru.jpg';
 import vishucodes from './images/vishucodes.jpg';
 
-const TITLE = 'Loved by engineers from around the world';
+const TITLE = 'Loved by developers and product teams';
 const DESCRIPTION =
-  "Explore tweets from engineers worldwide and see why they're fans of our notification platform.";
+  "Explore tweets from developers and non-technical users and see why they're fans of our open-source notifications framework.";
 
 const ITEMS = [
   {

@@ -38,7 +38,8 @@ export const Head = () => {
   const pageMetadata = {
     slug: '/multi-channel-notifications/',
     title: 'Multi-Channel Notifications',
-    description: 'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
+    description:
+      "Boost user engagement and streamline notifications with Novu's multi-channel notifications. Effortlessly integrate email, SMS, push, chat, and in-app notifications into your app with centralized content management and extensive provider integrations. Enhance visibility, optimize strategies, and ensure seamless user experiences. Simplify development, reduce costs, and eliminate friction between teams.",
   };
   return <SEO {...pageMetadata} />;
 };
