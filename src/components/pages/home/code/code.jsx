@@ -8,9 +8,9 @@ import createCustomElement from './create-custom-element';
 
 const COMMENT_WORKFLOW_CODE = `import { workflow, CronExpression } from '@novu/framework';
 import { z } from 'zod';
-import { render } from '@react-email/render';
+import { render } from '@react-email/components';
 
-const commentWorkflow = @@workflow@workflowTooltip@@('comment-workflow', async (@@event@eventTooltip@@) => {
+const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@event@weeklyCommentsEventTooltip@@) => {
   const digest = await event.step.digest('digest-comments', (controls) => ({
     cron: controls.schedule
   }), { controlSchema: z.object({ schedule: z.nativeEnum(CronExpression) }) });
@@ -28,15 +28,46 @@ const commentWorkflow = @@workflow@workflowTooltip@@('comment-workflow', async (
   });
 }, { payloadSchema: z.object({ name: z.string(), comment: z.string() }) });
 
-await commentWorkflow.@@trigger@triggerTooltip@@({
+await weeklyComments.@@trigger@triggerTooltip@@({
   payload: { name: 'John', comment: 'Are you free to give me a call?' },
   to: 'jane@acme.com'
+});`;
+
+const OTP_WORKFLOW_CODE = `import { workflow } from '@novu/framework';
+import { z } from 'zod';
+import { Html, Body, Text, render } from '@react-email/components';
+
+const oneTimePassword = @@workflow@workflowTooltip@@('one-time-password', async (@@event@otpEventTooltip@@) => {
+  await event.step.sms('send-sms', ({ product }) => ({
+    body: \`Your Acme \${product} verification code is \${event.payload.code}.\`,
+  }), { controlSchema: z.object({ product: z.string().default('Shop') }) });
+
+  await event.step.email('send-email', () => ({
+    subject: \`Acme Code\${controls.codeInSubject ? \`: \${event.payload.code}\` : ''}\`,
+    body: @@render@renderTooltip@@(
+      <Html>
+        <Body>
+          <Text>Hi {event.subscriber.firstName},<Text>
+          <Text>Your OTP code is {event.@@payload@otpPayloadTooltip@@.code}.</Text>
+        </Body>
+      </Html>
+    ),
+  }), { @@controlSchema@controlSchemaTooltip@@: z.object({ codeInSubject: z.boolean().default(false) }) });
+}, { payloadSchema: z.object({ code: z.string().length(6) }) });
+
+await oneTimePassword.trigger({
+  payload: { code: '123456' },
+  to: [{ email: 'john@acme.com', phone: '+1234567890' }]
 });`;
 
 const TABS = [
   {
     title: 'AI Digest',
     code: COMMENT_WORKFLOW_CODE,
+  },
+  {
+    title: 'One-Time Password',
+    code: OTP_WORKFLOW_CODE,
   },
 ];
 
