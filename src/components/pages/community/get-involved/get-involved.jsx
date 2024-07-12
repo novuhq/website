@@ -2,6 +2,7 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
+import links from 'constants/links';
 import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
 import novuIcon from 'icons/novu-gradient-logo.svg';

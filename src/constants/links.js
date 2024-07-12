@@ -1,3 +1,4 @@
+export const WEB_APP_URL = 'https://dashboard.novu.co';
 export const applyQueryParams = (link, queryParams = []) => ({
   ...link,
   to: `${link.to}?${queryParams.join('&')}`,

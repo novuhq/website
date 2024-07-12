@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-underscore-dangle */
 import { PortableText } from '@portabletext/react';
+import Code from 'components/shared/code';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
-import Code from 'components/shared/code';
 
 const Content = ({ content, templateId }) => {
   const components = {
