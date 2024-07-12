@@ -11,7 +11,7 @@ import buttonClick from 'utils/use-landing-simple-tracking';
 // const DESCRIPTION = 'Create and send your first code-based notification in&nbsp;less than five minutes.';
 
 const LINK = {
-  text: 'Book a demo',
+  text: 'Book Meeting',
   url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-improveComms',
 };
 

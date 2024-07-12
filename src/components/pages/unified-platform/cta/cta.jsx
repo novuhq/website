@@ -13,7 +13,7 @@ const DESCRIPTION =
 */
 
 const LINK = {
-  text: 'Book a demo',
+  text: 'Book Meeting',
   url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-unifiedPlatform',
 };
 
