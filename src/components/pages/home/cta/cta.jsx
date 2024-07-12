@@ -14,7 +14,7 @@ const DESCRIPTION =
   'Create and send your first code-based notification in minutes&nbsp;before your coffee gets cold.';
 
 const LINK = {
-  text: 'Discovery Session',
+  text: 'Book Session',
   url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-homeCTA',
 };
 
