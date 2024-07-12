@@ -5,6 +5,7 @@ import React from 'react';
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
 import LINKS from 'constants/links';
+import buttonClick from 'utils/use-landing-simple-tracking';
 
 import bg from './images/bg.svg';
 
@@ -62,6 +63,7 @@ const GetStarted = ({
             theme="gray-outline"
             to={leftButtonLink || leftButtonLink.to}
             {...leftButtonLink}
+            onClick={buttonClick('read_docs', { type: 'sitewide' })}
           >
             {leftButtonText}
           </Button>
@@ -90,6 +92,7 @@ const GetStarted = ({
             theme="black-filled"
             to={rightButtonLink || rightButtonLink.to}
             {...rightButtonLink}
+            onClick={buttonClick('book_a_call', { type: 'sitewide' })}
           >
             {rightButtonText}
           </Button>
