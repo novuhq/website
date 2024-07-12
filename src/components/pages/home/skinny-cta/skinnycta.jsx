@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
+import buttonClick from 'utils/use-landing-simple-tracking';
 
 // import background from './images/background.svg';
 
@@ -48,7 +49,10 @@ const SkinnyCTA = () => {
               <Button
                 className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
                 theme="white-filled"
-                onClick={handleCopy}
+                onClick={() => {
+                  handleCopy();
+                  buttonClick('copy_command', { type: 'homepage' });
+                }}
               >
                 {isCopied ? (
                   <>
@@ -77,6 +81,7 @@ const SkinnyCTA = () => {
               to={LINK.url}
             >
               {LINK.text}
+              onClick=(buttonClick{('book_a_call', { type: 'homepage' })})
             </Button>
           </div>
         </div>
