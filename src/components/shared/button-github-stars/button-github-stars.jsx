@@ -5,6 +5,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import GitHubIcon from 'icons/github.inline.svg';
+import buttonClick from 'utils/use-landing-simple-tracking';
 
 const ButtonGithubStars = ({ className }) => {
   const {
@@ -26,6 +27,7 @@ const ButtonGithubStars = ({ className }) => {
       to={url}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={buttonClick('github_star', { type: 'menu' })}
     >
       <GitHubIcon className="mr-2 h-[26px] w-[26px]" />
       <span className="lg:hidden">Star us</span>

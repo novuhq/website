@@ -47,11 +47,11 @@ export default {
 
   // Header submenus
   // Use cases
-  multichannelNotifications: { to: 'https://novu.co/usecases/multi-channel-notifications/' },
-  notifications: { to: 'https://novu.co/usecases/add-notifications/' },
-  communication: { to: 'https://novu.co/usecases/improve-communication-experience/' },
-  notificationPlatform: { to: 'https://novu.co/usecases/unified-platform/' },
-  notificationContentManagement: { to: 'https://novu.co/usecases/content-management/' },
+  multichannelNotifications: { to: '/usecases/multi-channel-notifications/' },
+  notifications: { to: '/usecases/add-notifications/' },
+  communication: { to: '/usecases/improve-communication-experience/' },
+  notificationPlatform: { to: '/usecases/unified-platform/' },
+  notificationContentManagement: { to: '/usecases/content-management/' },
 
   // Features
   workflow: { to: 'https://docs.novu.co/workflows/notification-workflows' },
@@ -106,7 +106,7 @@ export default {
 
   // Other pages
   pricingContactUs: {
-    to: 'https://novu.co/contact-us?utm_campaign=pricing-enterprise-cu',
+    to: '/contact-us?utm_campaign=pricing-enterprise-cu',
     target: '_blank',
   },
   documentation: {
@@ -134,7 +134,7 @@ export default {
     target: '_blank',
   },
   contactUs: {
-    to: 'https://www.novu.co/sections/content-3?utm_campaign=website',
+    to: '/sections/content-3?utm_campaign=website',
     target: '_blank',
   },
   getStarted: {
@@ -145,7 +145,7 @@ export default {
     to: 'https://dashboard.novu.co?utm_campaign=gs_top_bar',
     target: '_blank',
   },
-   getStartedCommunity: {
+  getStartedCommunity: {
     to: `https://dashboard.novu.co?utm_campaign=community_page`,
     target: '_blank',
   },
@@ -174,7 +174,7 @@ export default {
     target: '_blank',
   },
   statusPage: {
-    to: 'https://novustatus.com?utm_campaign=website',
+    to: 'https://novustatus.com',
     target: '_blank',
   },
   changeLog: {

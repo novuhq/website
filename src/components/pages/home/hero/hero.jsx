@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
+import buttonClick from 'utils/use-landing-simple-tracking';
 
 import borderGlow from './images/border-glow.svg';
 
@@ -56,7 +57,10 @@ const Hero = () => {
                 <Button
                   className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
                   theme="white-filled"
-                  onClick={handleCopy}
+                  onClick={() => {
+                    handleCopy();
+                    buttonClick('copy_command', { type: 'homepage' });
+                  }}
                 >
                   {isCopied ? (
                     <>
@@ -86,6 +90,7 @@ const Hero = () => {
               className="h-14 -mt-px text-sm min-w-[142px] lg:h-12 lg:mt-0 md:-mt-px sm:border-none sm:mt-0 sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] z-10"
               theme="gray-outline"
               to={LINK.url}
+              onClick={buttonClick('read_docs', { type: 'homepage' })}
             >
               {LINK.text}
             </Button>

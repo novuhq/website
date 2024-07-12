@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
+import buttonClick from 'utils/use-landing-simple-tracking';
 
 /*
 const TITLE = 'Get started now';
@@ -13,8 +14,9 @@ const DESCRIPTION =
 */
 
 const LINK = {
-  text: 'Book a demo',
+  text: 'Book Meeting',
   url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-contentManagement',
+  target: '_blank',
 };
 
 const CODE = 'npx novu@latest dev';
@@ -53,7 +55,10 @@ const Cta = () => {
               <Button
                 className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
                 theme="white-filled"
-                onClick={handleCopy}
+                onClick={() => {
+                  handleCopy();
+                  buttonClick('copy_command', { type: 'usecase' });
+                }}
               >
                 {isCopied ? (
                   <>
@@ -80,6 +85,7 @@ const Cta = () => {
               className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
               theme="gray-outline"
               to={LINK.url}
+              onClick={buttonClick('book_a_call', { type: 'usecase' })}
             >
               {LINK.text}
             </Button>

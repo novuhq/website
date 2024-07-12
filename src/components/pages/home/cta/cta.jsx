@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
+import buttonClick from 'utils/use-landing-simple-tracking';
 
 import background from './images/background.svg';
 
@@ -13,7 +14,7 @@ const DESCRIPTION =
   'Create and send your first code-based notification in minutes&nbsp;before your coffee gets cold.';
 
 const LINK = {
-  text: 'Book a demo',
+  text: 'Book Session',
   url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-homeCTA',
 };
 
@@ -53,7 +54,10 @@ const Cta = () => {
               <Button
                 className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
                 theme="white-filled"
-                onClick={handleCopy}
+                onClick={() => {
+                  handleCopy();
+                  buttonClick('copy_command', { type: 'homepage' });
+                }}
               >
                 {isCopied ? (
                   <>
@@ -80,6 +84,7 @@ const Cta = () => {
               className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
               theme="gray-outline"
               to={LINK.url}
+              onClick={buttonClick('book_a_call', { type: 'homepage' })}
             >
               {LINK.text}
             </Button>
