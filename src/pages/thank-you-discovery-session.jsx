@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Logos from 'components/pages/home/logos';
-import Cta from 'components/pages/thank-you-discovery-session/cta';
 import Hero from 'components/pages/thank-you-discovery-session/hero';
 import JoinUs from 'components/shared/join-us';
 import Layout from 'components/shared/layout';
@@ -11,8 +10,6 @@ import Separator from 'components/shared/separator';
 const ThankYouPage = () => (
   <Layout>
     <Hero />
-    <Logos />
-    <Cta />
     <Logos />
     <JoinUs />
     <Separator backgroundColor="black" />

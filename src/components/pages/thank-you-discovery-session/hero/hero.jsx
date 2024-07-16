@@ -23,6 +23,9 @@ const Hero = () => (
       <p className="mt-3.5 max-w-[720px] text-center text-lg font-book leading-snug text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
         We've sucessfully received your meeting booking. Chat soon!
       </p>
+      <p className="mt-3.5 max-w-[720px] text-center text-lg font-book leading-snug text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
+        Can't wait? Click below to send your first notification in minutes.
+      </p>
       <Button className="mt-10 sm:mt-7" size="sm" theme="white-filled" to={LINKS.getStarted.to}>
         Get Started Now
       </Button>
@@ -31,7 +34,7 @@ const Hero = () => (
       className="absolute left-1/2 top-0 min-w-[1920px] -translate-x-1/2 sm:hidden sm:min-w-[360px]"
       src={bg}
       width={1920}
-      // height={250}
+      height={250}
       loading="eager"
       alt=""
     />
