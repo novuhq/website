@@ -34,7 +34,7 @@ const Hero = () => (
       className="absolute left-1/2 top-0 min-w-[1920px] -translate-x-1/2 sm:hidden sm:min-w-[360px]"
       src={bg}
       width={1920}
-      height={250}
+      height={1000}
       loading="eager"
       alt=""
     />
