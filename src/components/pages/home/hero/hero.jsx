@@ -76,7 +76,7 @@ const Hero = () => {
                 </Button>
               </div>
               <img
-                className="absolute -z-10 -top-6 right-[23px]"
+                className="absolute -z-10 -top-6 right-[-23px]"
                 src={borderGlow}
                 width={186}
                 height={93}

@@ -30,7 +30,7 @@ const Inbox = () => {
     <section className="notification-center safe-paddings pb-30 pt-40 lg:pb-24 lg:pt-32 md:pb-18 md:pt-28 sm:pb-12 sm:pt-18">
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div
-          className="relative col-start-1 col-end-9 md:order-2 md:mt-11 md:w-full sm:mt-8"
+          className="relative col-start-1 col-end-9 xl:col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8"
           ref={animationWrapperRef}
         >
           <LottieAnimation {...lottieData} />

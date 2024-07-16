@@ -129,7 +129,7 @@ const CARDS = [
 
 const Infrastructure = () => (
   <section className="infrastructure md:mt-[130px] sm:mt-[88px]">
-    <div className="container-lg relative lg:!max-w-5xl">
+    <div className="container-lg relative xl:px-0 lg:px-8 lg:w-full lg:max-w-5xl md:max-w-3xl sm:px-5">
       <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
         {TITLE}
       </h2>
