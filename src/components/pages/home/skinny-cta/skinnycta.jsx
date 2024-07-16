@@ -2,6 +2,7 @@ import copyToClipboard from 'copy-to-clipboard';
 import React, { useState, useEffect } from 'react';
 
 import Button from 'components/shared/button';
+import LINKS from 'constants/links';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 import buttonClick from 'utils/use-landing-simple-tracking';
@@ -11,11 +12,6 @@ import buttonClick from 'utils/use-landing-simple-tracking';
 const TITLE = 'Send your first notification in minutes';
 // const DESCRIPTION =
 //  'Create and send your first code-based notification in&nbsp;before your coffee gets even cold.';
-
-const LINK = {
-  text: 'Book a demo',
-  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-homeMidCTA',
-};
 
 const CODE = 'npx novu@latest dev';
 
@@ -78,10 +74,11 @@ const SkinnyCTA = () => {
             <Button
               className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
               theme="gray-outline"
-              to={LINK.url}
+              size="lg"
+              {...LINKS.getStarted}
               onClick={buttonClick('book_a_call', { type: 'homepage' })}
             >
-              {LINK.text}
+              Create Account
             </Button>
           </div>
         </div>
