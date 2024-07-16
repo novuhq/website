@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Logos from 'components/pages/home/logos';
 import Hero from 'components/pages/thank-you-discovery-session/hero';
+import Logos from 'components/pages/thank-you-discovery-session/logos';
 import JoinUs from 'components/shared/join-us';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
