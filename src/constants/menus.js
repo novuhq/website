@@ -152,6 +152,7 @@ const MENUS = {
       /* { text: 'Hacktoberfest', ...LINKS.hacktoberfest }, */
       { text: 'Blog', ...LINKS.blog },
       { text: 'Community', ...LINKS.community },
+      { text: 'Contributors', ...LINKS.contributors },
       // { text: 'Podcast', ...LINKS.podcast },
       { text: 'Pricing', ...LINKS.pricing },
       { text: 'Careers', ...LINKS.careers },
