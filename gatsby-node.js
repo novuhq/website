@@ -18,64 +18,64 @@ const {
 } = require('./src/utils/github-utils');
 // const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
-// const createContributorsPage = async ({ actions, reporter }) => {
-//   const { createPage } = actions;
+const createContributorsPage = async ({ actions, reporter }) => {
+  const { createPage } = actions;
 
-//   try {
-//     const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
-//       (response) => response.json()
-//     );
+  try {
+    const data = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors`).then(
+      (response) => response.json()
+    );
 
-//     const templateMainPage = path.resolve('./src/templates/contributors.jsx');
-//     const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
+    const templateMainPage = path.resolve('./src/templates/contributors.jsx');
+    const templateDetailPage = path.resolve('./src/templates/contributor.jsx');
 
-//     createPage({
-//       path: '/contributors/',
-//       component: slash(templateMainPage),
-//       context: {
-//         contributors: data,
-//       },
-//     });
+    createPage({
+      path: '/contributors/',
+      component: slash(templateMainPage),
+      context: {
+        contributors: data,
+      },
+    });
 
-//     const contributors = data.list.filter(
-//       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
-//     );
+    const contributors = data.list.filter(
+      ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
+    );
 
-//     await Promise.all(
-//       // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
-//       // so we have to make an additional request to extract this data
-//       contributors.map(async (contributor) => {
-//         const { pulls } = await fetch(
-//           `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
-//         ).then((response) => response.json());
+    await Promise.all(
+      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+      // so we have to make an additional request to extract this data
+      contributors.map(async (contributor) => {
+        const { pulls } = await fetch(
+          `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
+        ).then((response) => response.json());
 
-//         return { ...contributor, pulls };
-//       })
-//     ).then((contributors) => {
-//       contributors.forEach((contributor) => {
-//         const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
-//         const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+        return { ...contributor, pulls };
+      })
+    ).then((contributors) => {
+      contributors.forEach((contributor) => {
+        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
 
-//         createPage({
-//           path: `/contributors/${contributor.github}/`,
-//           component: slash(templateDetailPage),
-//           context: {
-//             userName: contributor.github,
-//             contributor: {
-//               ...contributor,
-//               images: {
-//                 ogImage,
-//                 embedImage,
-//               },
-//             },
-//           },
-//         });
-//       });
-//     });
-//   } catch (err) {
-//     reporter.panicOnBuild('There was an error when loading Contributors.', err);
-//   }
-// };
+        createPage({
+          path: `/contributors/${contributor.github}/`,
+          component: slash(templateDetailPage),
+          context: {
+            userName: contributor.github,
+            contributor: {
+              ...contributor,
+              images: {
+                ogImage,
+                embedImage,
+              },
+            },
+          },
+        });
+      });
+    });
+  } catch (err) {
+    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+  }
+};
 
 const createCommunityPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
@@ -464,7 +464,7 @@ exports.createPages = async (args) => {
   // await createPodcastPage(params);
   // await createPodcastDetailPages(params);
   // TODO:: uncomment when GATSBY_CONTRIBUTORS_API_URL will be available
-  // await createContributorsPage(params);
+  await createContributorsPage(params);
 };
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
