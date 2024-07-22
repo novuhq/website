@@ -10,7 +10,7 @@ const CARDS_IMAGE_CLASS_NAME_DESKTOP =
   '!absolute w-fit h-fit inset-0 z-0 rounded-xl lg:h-full lg:w-auto [&_img]:lg:!w-auto [&_img]:lg:!-translate-x-1/2 [&_img]:lg:!left-1/2 sm:!hidden';
 
 const CARDS_IMAGE_CLASS_NAME_MOBILE =
-  '!hidden !absolute w-fit h-fit inset-0 z-0 rounded-xl sm:!inline-block';
+  '!hidden !absolute w-full inset-0 z-0 rounded-xl sm:!inline-block';
 
 const CARDS = [
   {
@@ -27,6 +27,7 @@ const CARDS = [
         height={380}
         loading="eager"
         quality={100}
+        aria-hidden
       />
     ),
     imageMobile: (
@@ -38,6 +39,7 @@ const CARDS = [
         height={250}
         loading="eager"
         quality={100}
+        aria-hidden
       />
     ),
   },
@@ -55,6 +57,7 @@ const CARDS = [
         height={380}
         loading="eager"
         quality={100}
+        aria-hidden
       />
     ),
     imageMobile: (
@@ -66,6 +69,7 @@ const CARDS = [
         height={250}
         loading="lazy"
         quality={100}
+        aria-hidden
       />
     ),
   },
@@ -83,6 +87,7 @@ const CARDS = [
         height={380}
         loading="lazy"
         quality={100}
+        aria-hidden
       />
     ),
     imageMobile: (
@@ -94,6 +99,7 @@ const CARDS = [
         height={250}
         loading="lazy"
         quality={100}
+        aria-hidden
       />
     ),
   },
@@ -111,6 +117,7 @@ const CARDS = [
         height={380}
         loading="lazy"
         quality={100}
+        aria-hidden
       />
     ),
     imageMobile: (
@@ -122,13 +129,14 @@ const CARDS = [
         height={250}
         loading="lazy"
         quality={100}
+        aria-hidden
       />
     ),
   },
 ];
 
 const Infrastructure = () => (
-  <section className="infrastructure md:mt-[130px] sm:mt-[88px]">
+  <section className="infrastructure mt-[120px] md:mt-[88px]">
     <div className="container-lg relative xl:px-0 lg:px-8 lg:w-full lg:max-w-5xl md:max-w-3xl sm:px-5">
       <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
         {TITLE}
@@ -140,7 +148,7 @@ const Infrastructure = () => (
         {CARDS.map(({ title, description, className, image, imageMobile }, index) => (
           <li
             className={clsx(
-              'relative h-[382px] rounded-xl bg-clip-border border border-transparent lg:h-[322px] md:h-[252px] sm:w-[320px] sm:h-[250px]',
+              'relative h-[382px] rounded-xl bg-clip-border border border-transparent lg:h-[322px] md:h-[252px] sm:max-w-[380px] sm:w-full sm:h-[250px]',
               className,
               {
                 'w-[770px] lg:w-[608px] md:w-[446px]': index % 2 === 0,
