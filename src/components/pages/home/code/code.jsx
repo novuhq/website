@@ -146,7 +146,7 @@ const Code = () => {
                 ({ title, code }, index) =>
                   activeTab === title && (
                     <m.div
-                      className="absolute z-10 top-0 left-0 w-full h-full"
+                      className="absolute z-20 top-0 left-0 w-full h-full"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1, transition: { delay: 0.4 } }}
                       exit={{ opacity: 0 }}
