@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { m, LazyMotion, AnimatePresence, domAnimation } from 'framer-motion';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -64,10 +65,30 @@ const TABS = [
   {
     title: 'AI Digest',
     code: COMMENT_WORKFLOW_CODE,
+    image: (
+      <StaticImage
+        className="!absolute pointer-events-none bottom-[-45px] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 lg:bottom-[-23px] md:!hidden"
+        src="./images/ai-digest.png"
+        alt=""
+        width={368}
+        height={616}
+        quality={100}
+      />
+    ),
   },
   {
     title: 'One-Time Password',
     code: OTP_WORKFLOW_CODE,
+    image: (
+      <StaticImage
+        className="!absolute pointer-events-none bottom-[-45px] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 lg:bottom-[-23px] md:!hidden"
+        src="./images/one-time-password.png"
+        alt=""
+        width={368}
+        height={616}
+        quality={100}
+      />
+    ),
   },
 ];
 
@@ -88,7 +109,6 @@ const customRenderer = ({ rows, stylesheet, useInlineStyles }) =>
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 
 const Code = () => {
-  const [code, setCode] = useState(TABS[0].code);
   const [activeTab, setActiveTab] = useState(TABS[0].title);
 
   return (
@@ -102,7 +122,7 @@ const Code = () => {
           {DESCRIPTION}
         </p>
         <ul className="relative z-10 flex justify-end gap-x-7 font-medium text-[15px] text-[#CAE9FF]/60 leading-snug mt-8 pr-8 lg:mt-5 lg:gap-x-6 md:text-sm md:mt-4 md:pr-0 md:gap-x-[22px] sm:justify-start sm:mt-[30px]">
-          {TABS.map(({ title, code }, index) => (
+          {TABS.map(({ title }, index) => (
             <li key={index}>
               <button
                 className={clsx(
@@ -112,43 +132,68 @@ const Code = () => {
                   }
                 )}
                 type="button"
-                onClick={() => {
-                  setCode(code);
-                  setActiveTab(title);
-                }}
+                onClick={() => setActiveTab(title)}
               >
                 {title}
               </button>
             </li>
           ))}
         </ul>
-        <div className="relative z-10 lg:mx-auto sm:max-w-80 sm:mx-auto">
-          <SyntaxHighlighter
-            className="echo-code relative z-10 pl-[42px] mt-[70px] scrollbar-hidden text-sm font-normal lg:mt-[62px] lg:pl-[35px] lg:text-xs md:mt-[53px] md:pl-[26px] sm:text-[10px] sm:mt-11 sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)]"
-            style={{
-              marginTop: '20px',
-            }}
-            language="javascript"
-            useInlineStyles={false}
-            renderer={customRenderer}
-            showLineNumbers
-          >
-            {code}
-          </SyntaxHighlighter>
+        <div className="relative z-10 h-[546px] mt-[70px] lg:mt-[62px] lg:mx-auto lg:h-[468px] md:mt-[53px] sm:mt-11 sm:max-w-80 sm:h-[390px] sm:mx-auto">
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence>
+              {TABS.map(
+                ({ title, code }, index) =>
+                  activeTab === title && (
+                    <m.div
+                      className="absolute z-10 top-0 left-0 w-full h-full"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1, transition: { delay: 0.4 } }}
+                      exit={{ opacity: 0 }}
+                      key={index}
+                    >
+                      <SyntaxHighlighter
+                        className="echo-code relative z-10 pl-[42px] scrollbar-hidden text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:text-[10px] sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)]"
+                        style={{
+                          marginTop: '20px',
+                        }}
+                        language="javascript"
+                        useInlineStyles={false}
+                        renderer={customRenderer}
+                        showLineNumbers
+                      >
+                        {code}
+                      </SyntaxHighlighter>
+                    </m.div>
+                  )
+              )}
+            </AnimatePresence>
+          </LazyMotion>
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence>
+              {TABS.map(
+                ({ title, image }, index) =>
+                  activeTab === title && (
+                    <m.div
+                      className="absolute z-10 top-0 left-0 w-full h-full"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1, transition: { delay: 0.4 } }}
+                      exit={{ opacity: 0 }}
+                      key={index}
+                    >
+                      {image}
+                    </m.div>
+                  )
+              )}
+            </AnimatePresence>
+          </LazyMotion>
+
           <StaticImage
             className="!absolute pointer-events-none bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
             src="./images/code-background.png"
             alt=""
             width={1252}
             height={766}
-            quality={100}
-          />
-          <StaticImage
-            className="!absolute pointer-events-none w-[482px] top-[-143px] left-[-75px] lg:top-[-135px] md:top-[-125px] md:!hidden -z-10"
-            src="./images/code-light.png"
-            alt=""
-            width={482}
-            height={206}
             quality={100}
           />
           <StaticImage
