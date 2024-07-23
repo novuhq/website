@@ -13,11 +13,11 @@ import madebyfabian from './images/madebyfabian.jpg';
 import nikkisiapno from './images/nikkisiapno.jpg';
 import pontusab from './images/pontusab.jpg';
 // import psteinroe from './images/psteinroe.jpg';
-// import rauchg from './images/rauchg.jpg';
+import rauchg from './images/rauchg.jpg';
 // import nathanTarbert from './images/nathan-tarbert.jpg';
 // import fgribreau from './images/fgribreau.jpg';
 // import merlindru from './images/merlindru.jpg';
-import vishucodes from './images/vishucodes.jpg';
+// import vishucodes from './images/vishucodes.jpg';
 
 const TITLE = 'Loved by developers and product teams';
 const DESCRIPTION =
@@ -113,24 +113,6 @@ const ITEMS = [
     ),
   },
   {
-    text: 'Hey Developers👋<br/>What are you doing today?<br/>Me:-<br/>Implementing <span>@novuhq</span> notifications in spring boot',
-    linkUrl: 'https://x.com/vishucodes/status/1810576925456523330',
-    author: {
-      name: 'Vishu',
-      username: '@vishucodes',
-      avatar: vishucodes,
-    },
-  },
-  /*  {
-    text: 'This is how you write an article!!! Convinced to use <span>@novuhq</span> or similar instead of rolling my own after reading it',
-    linkUrl: 'https://x.com/merlindru/status/1782045528026444205',
-    author: {
-      name: 'Merlin',
-      username: '@merlindru',
-      avatar: merlindru,
-    },
-  }, 
-  {
     text: 'So excited about the rise of the notifications infrastructure space (+ open source 🔥)',
     linkUrl: 'https://twitter.com/rauchg/status/1557048605042565120',
     author: {
@@ -139,6 +121,25 @@ const ITEMS = [
       avatar: rauchg,
     },
   },
+  /*
+  {
+    text: 'Hey Developers👋<br/>What are you doing today?<br/>Me:-<br/>Implementing <span>@novuhq</span> notifications in spring boot',
+    linkUrl: 'https://x.com/vishucodes/status/1810576925456523330',
+    author: {
+      name: 'Vishu',
+      username: '@vishucodes',
+      avatar: vishucodes,
+    },
+  },
+  {
+    text: 'This is how you write an article!!! Convinced to use <span>@novuhq</span> or similar instead of rolling my own after reading it',
+    linkUrl: 'https://x.com/merlindru/status/1782045528026444205',
+    author: {
+      name: 'Merlin',
+      username: '@merlindru',
+      avatar: merlindru,
+    },
+  }, 
   {
     text: 'Amazon Simple Notification Service: <span>@novuhq</span>',
     linkUrl: 'https://twitter.com/nathan_tarbert/status/1692654472952959300',

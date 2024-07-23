@@ -50,7 +50,7 @@ const TOOLTIP_CONTENT = {
     </span>
   ),
   stepTooltip: <StepTooltip />,
-  eventTooltip: (
+  weeklyCommentsEventTooltip: (
     <span className="flex flex-col py-3.5">
       <span className="px-3.5 flex flex-col">
         <span className="whitespace-pre">
@@ -87,6 +87,91 @@ const TOOLTIP_CONTENT = {
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">The event that triggered the workflow.</span>
+    </span>
+  ),
+  otpEventTooltip: (
+    <span className="flex flex-col py-3.5">
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (parameter) <span className="text-yellow">event</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {'  '}
+          <span className="text-yellow">payload</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {'    '}
+          <span className="text-yellow">code</span>: string;
+        </span>
+        <span className="whitespace-pre">{'  '}&#125;;</span>
+        <span className="whitespace-pre">
+          {'  '}
+          <span className="text-yellow">step</span>: Step;
+        </span>
+        <span className="whitespace-pre">
+          {'  '}
+          <span className="text-yellow">subscriber</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {'    '}
+          <span className="text-yellow">firstName</span>: string;
+        </span>
+        <span className="whitespace-pre">{'    '}...</span>
+        <span className="whitespace-pre">{'  '}&#125;;</span>
+        <span>&#125;</span>
+      </span>
+      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="px-3.5">The event that triggered the workflow.</span>
+    </span>
+  ),
+  otpPayloadTooltip: (
+    <span className="flex flex-col py-3.5">
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (property) <span className="text-yellow">payload</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {'  '}
+          <span className="text-yellow">code</span>: string;
+        </span>
+        <span className="whitespace-pre">&#125;</span>
+      </span>
+      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="px-3.5">The payload for the event, provided during trigger.</span>
+    </span>
+  ),
+  controlSchemaTooltip: (
+    <span className="flex flex-col py-3.5">
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (property) <span className="text-yellow">controlSchema</span>?: ZodSchema | JsonSchema
+        </span>
+      </span>
+      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="px-3.5">The step control schema. Validates input from Novu Dashboard.</span>
+    </span>
+  ),
+  renderTooltip: (
+    <span className="flex flex-col py-3.5">
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          (alias) <span className="text-yellow">const</span> render: (
+        </span>
+        <span className="whitespace-pre">
+          {'  '}component: <span className="text-yellow">React.ReactElement</span>,
+        </span>
+        <span className="whitespace-pre">
+          {'  '}options?: <span className="text-yellow">Options</span>
+        </span>
+        <span className="whitespace-pre">
+          ) {`=>`} <span className="text-yellow">string</span>
+        </span>
+        <span className="whitespace-pre">
+          <span className="text-yellow">import</span> render
+        </span>
+      </span>
+      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="px-3.5">Transform React components into HTML email templates.</span>
     </span>
   ),
   skipTooltip: (
