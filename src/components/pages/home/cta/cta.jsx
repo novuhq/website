@@ -81,7 +81,7 @@ const Cta = () => {
               />
             </div>
             <Button
-              className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
+              className="text-sm h-14 min-w-[160px] -mt-px lg:h-12 sm:hover:bg-transparent sm:max-w-none sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
               theme="gray-outline"
               to={LINK.url}
               onClick={buttonClick('book_a_call', { type: 'homepage' })}
