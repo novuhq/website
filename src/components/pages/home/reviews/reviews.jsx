@@ -162,13 +162,13 @@ const ITEMS = [
 ];
 
 const Reviews = () => (
-  <section className="reviews safe-paddings pt-40 lg:pt-28 md:pt-16 sm:pt-11">
+  <section className="reviews safe-paddings mt-40 lg:mt-28 md:mt-16 sm:mt-20">
     <div className="container">
       <h3 className="text-center text-6xl leading-tight text-white md:text-3xl">{TITLE}</h3>
       <p className="mx-auto mt-5 max-w-[720px] text-center text-lg leading-snug text-gray-9 lg:mt-3 lg:text-base">
         {DESCRIPTION}
       </p>
-      <ul className="mt-10 flex h-[687px] w-full flex-col flex-wrap content-between gap-10 lg:h-[760px] lg:gap-7 sm:mt-6 sm:h-auto sm:flex-nowrap sm:gap-5">
+      <ul className="mt-10 flex h-[687px] w-full flex-col flex-wrap content-between gap-10 lg:h-[760px] lg:gap-7 md:h-[662px] sm:mt-6 sm:h-auto sm:flex-nowrap sm:gap-5">
         {ITEMS.map(({ text, image, author, linkUrl }, index) => (
           <li
             key={index}

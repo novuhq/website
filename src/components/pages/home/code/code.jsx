@@ -113,9 +113,9 @@ const Code = () => {
 
   return (
     <section className="code mt-[206px] lg:mt-36 md:mt-[116px] sm:mt-20">
-      <div className="container-lg px-8 min-h-[836px] relative lg:max-w-5xl lg:min-h-[692px] md:max-w-3xl md:min-h-[535px] sm:min-h-[324px]">
+      <div className="container-lg px-8 min-h-[836px] relative lg:w-full sm:px-5 lg:max-w-5xl lg:min-h-[692px] md:max-w-3xl md:min-h-[535px] sm:min-h-[324px]">
         <h2
-          className="relative z-10 text-[44px] leading-none tracking-snug font-medium text-transparent max-w-[700px] bg-clip-text bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] ml-[42px] lg:text-5xl lg:ml-8 md:text-4xl md:max-w-md md:ml-0 sm:text-[32px]"
+          className="relative z-10 text-[44px] leading-none tracking-snug font-medium text-transparent max-w-[700px] bg-clip-text bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] ml-[42px] lg:text-5xl lg:ml-8 md:text-4xl md:max-w-lg md:ml-0 sm:text-[32px]"
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
         <p className="mt-4 text-[17px] leading-snug font-book text-gray-9 max-w-[800px] ml-[42px] lg:ml-8 md:ml-0 lg:mt-2.5 md:text-base md:mt-3">
@@ -139,7 +139,7 @@ const Code = () => {
             </li>
           ))}
         </ul>
-        <div className="relative z-10 h-[546px] mt-[70px] lg:mt-[62px] lg:mx-auto lg:h-[468px] md:mt-[53px] sm:mt-11 sm:max-w-80 sm:h-[390px] sm:mx-auto">
+        <div className="relative z-10 h-[546px] mt-[70px] lg:mt-[62px] lg:mx-auto lg:h-[468px] md:mt-[53px] sm:mt-11 sm:max-w-[572px] sm:h-[390px] sm:mx-auto sm-xs:max-w-80">
           <LazyMotion features={domAnimation}>
             <AnimatePresence>
               {TABS.map(
@@ -153,7 +153,7 @@ const Code = () => {
                       key={index}
                     >
                       <SyntaxHighlighter
-                        className="echo-code relative z-10 pl-[42px] scrollbar-hidden text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:text-[10px] sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)]"
+                        className="echo-code relative z-10 pl-[42px] scrollbar-hidden text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:text-[10px] sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]"
                         style={{
                           marginTop: '20px',
                         }}
@@ -195,22 +195,25 @@ const Code = () => {
             width={1252}
             height={766}
             quality={100}
+            aria-hidden
           />
           <StaticImage
-            className="!absolute pointer-events-none !hidden z-0 md:!inline-block md:w-[775px] md:bottom-[-28px] md:left-[-61px] sm:!hidden"
+            className="!absolute pointer-events-none !hidden z-0 md:!inline-block md:w-[775px] md:bottom-[-28px] md:left-[-61px] sm:w-[652px] sm-xs:!hidden"
             src="./images/code-background-tablet.png"
             alt=""
             width={775}
             height={633}
             quality={100}
+            aria-hidden
           />
           <StaticImage
-            className="!absolute pointer-events-none !hidden z-0 sm:!inline-block sm:w-[351px] sm:bottom-[-20px] sm:-left-7"
+            className="!absolute pointer-events-none !hidden z-0 sm-xs:!inline-block sm-xs:w-[351px] sm-xs:bottom-[-18px] sm-xs:-left-7"
             src="./images/code-background-mobile.png"
             alt=""
             width={351}
             height={453}
             quality={100}
+            aria-hidden
           />
         </div>
         <div

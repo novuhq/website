@@ -27,7 +27,7 @@ const Inbox = () => {
   };
 
   return (
-    <section className="notification-center safe-paddings pb-30 pt-40 lg:pb-24 lg:pt-32 md:pb-18 md:pt-28 sm:pb-12 sm:pt-18">
+    <section className="inbox safe-paddings pt-40 lg:pt-32 md:pt-28 sm:pt-18">
       <div className="container grid-gap-x grid grid-cols-12 items-center md:flex md:flex-col">
         <div
           className="relative col-start-1 col-end-9 xl:col-end-8 md:order-2 md:mt-11 md:w-full sm:mt-8"
@@ -40,7 +40,7 @@ const Inbox = () => {
           <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-[34px] md:text-[30px]">
             {TITLE}
           </h2>
-          <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 lg:mt-2.5 md:text-base md:mt-3">
+          <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 lg:mt-2.5 md:text-base md:mt-3 md:max-w-xl md:mx-auto">
             {DESCRIPTION}
           </p>
 

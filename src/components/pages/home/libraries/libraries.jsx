@@ -74,7 +74,7 @@ const LIBRARIES = [
 ];
 
 const Libraries = () => (
-  <section className="libraries mt-[172px] lg:mt-[100px] md:mt-[131px] sm:mt-28">
+  <section className="libraries mt-[172px] lg:mt-[100px] md:mt-[131px] sm:mt-18">
     <div className="container-md text-center">
       <h2 className="text-5xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl">
         {TITLE}
@@ -85,7 +85,7 @@ const Libraries = () => (
       <ul className="grid grid-cols-5 mt-10 px-1 lg:mt-8 md:mt-7 sm:grid-cols-2 sm:mt-8">
         {LIBRARIES.map(({ title, src, target }, index) => (
           <li
-            className={clsx('p-8 border-gray-2 lg:py-7 md:p-5 sm:px-[30px] sm:py-6', {
+            className={clsx('p-8 border-gray-2 lg:py-7 md:p-5', {
               'border-b': index < 5,
               'border-r': (index + 1) % 5 !== 0,
               'sm:border-r': index % 2 === 0,
@@ -96,7 +96,7 @@ const Libraries = () => (
           >
             <Link className="h-full flex items-center" to={target}>
               <img
-                className="mx-auto"
+                className="mx-auto sm:max-h-10"
                 src={src}
                 alt={title}
                 width={128}
