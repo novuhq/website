@@ -56,7 +56,7 @@ const CookieBanner = ({ isCookieBannerVisible, setIsCookieBannerVisible }) => {
         {isCookieBannerVisible && (
           <>
             <m.div
-              className="fixed bottom-7 left-8 z-40 max-w-[354px] overflow-hidden rounded-[10px] border border-[rgba(255,255,255,0.15)] px-5 py-[18px] before:absolute before:inset-0 before:-z-10 before:bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] before:backdrop-blur-[15px] md:bottom-8 sm:bottom-0 sm:left-0 sm:w-full sm:max-w-none sm:rounded-none sm:border-b-0 sm:border-l-0 sm:border-r-0 sm:px-4 sm:py-4"
+              className="fixed bottom-6 left-0 right-0 mx-auto z-40 max-w-[354px] overflow-hidden rounded-[10px] border border-[rgba(255,255,255,0.15)] px-5 py-[18px] before:absolute before:inset-0 before:-z-10 before:bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] before:backdrop-blur-[15px] sm:bottom-0 sm:left-0 sm:w-full sm:max-w-none sm:rounded-none sm:border-b-0 sm:border-l-0 sm:border-r-0 sm:px-4 sm:py-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
