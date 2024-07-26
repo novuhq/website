@@ -9,7 +9,7 @@ import buttonClick from 'utils/use-landing-simple-tracking';
 const TITLE = 'The JavaScript-native Notification Framework for Developers';
 
 const DESCRIPTION =
-  'Fully extensible open source notifications infrastructure framework for Next.js and more that empowers developers to provide an easy-to-use notifications platform to product teams.';
+  'Fully extensible open source notifications infrastructure framework for NextJS and more that empowers developers to provide an easy-to-use notifications platform to product teams.';
 
 const Hero = () => (
   <section className="hero pt-[339px] pb-[180px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
