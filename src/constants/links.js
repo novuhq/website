@@ -135,7 +135,11 @@ export default {
     target: '_blank',
   },
   contactUs: {
-    to: '/sections/content-3?utm_campaign=website',
+    to: '/contact-us?utm_campaign=website',
+    target: '_blank',
+  },
+  contactUsCTA: {
+    to: '/contact-us?utm_campaign=homeCTA',
     target: '_blank',
   },
   getStarted: {

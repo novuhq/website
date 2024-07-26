@@ -6,10 +6,10 @@ import Button from 'components/shared/button';
 import LINKS from 'constants/links';
 import buttonClick from 'utils/use-landing-simple-tracking';
 
-const TITLE = 'The Notification Framework for Developers and Product Teams';
+const TITLE = 'The Javascript-native Notification Framework for Developers';
 
 const DESCRIPTION =
-  'Fully extensible open source notifications infrastructure framework that empowers developers to provide an easy-to-use notifications platform to product teams.';
+  'Fully extensible open source notifications infrastructure framework for Next.js and more that empowers developers to provide an easy-to-use notifications platform to product teams.';
 
 const Hero = () => (
   <section className="hero pt-[339px] pb-[180px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
@@ -23,22 +23,22 @@ const Hero = () => (
         </p>
         <div className="relative mt-11 z-10 flex items-center justify-left gap-x-7 gap-y-5 sm:mt-7 sm:gap-x-4 sm-xs:grid sm-xs:w-full sm-xs:grid-cols-2">
           <Button
-            className="w-[170px] sm-xs:w-full"
+            className="w-[190px] sm-xs:w-full"
             size="sm"
             theme="white-filled"
             {...LINKS.getStarted}
             onClick={buttonClick('get_started', { type: 'homepage' })}
           >
-            Create Account
+            Create Free Account
           </Button>
           <Button
-            className="w-[170px] sm-xs:w-full"
+            className="w-[190px] sm-xs:w-full"
             size="sm"
             theme="gray-outline"
-            {...LINKS.BAM}
-            onClick={buttonClick('book_a_meeting', { type: 'homepage' })}
+            {...LINKS.contactUsCTA}
+            onClick={buttonClick('contact_us', { type: 'homepage' })}
           >
-            Book a Session
+            Contact Us
           </Button>
         </div>
       </div>
