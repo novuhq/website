@@ -6,7 +6,7 @@ import Button from 'components/shared/button';
 import LINKS from 'constants/links';
 import buttonClick from 'utils/use-landing-simple-tracking';
 
-const TITLE = 'The Javascript-native Notification Framework for Developers';
+const TITLE = 'The JavaScript-native Notification Framework for Developers';
 
 const DESCRIPTION =
   'Fully extensible open source notifications infrastructure framework for Next.js and more that empowers developers to provide an easy-to-use notifications platform to product teams.';
