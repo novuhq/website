@@ -12,7 +12,7 @@ import buttonClick from 'utils/use-landing-simple-tracking';
 
 const LINK = {
   text: 'Book Meeting',
-  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-multiChannel',
+  url: 'https://notify.novu.co/meetings/ryannovu/notifications-discovery-session?utm_campaign=website-usecase-multiChannel',
   target: '_blank',
 };
 

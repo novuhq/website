@@ -205,15 +205,15 @@ export default {
   // It still says calendly, but we're pointing it to Hubspot Meetings now
   // old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
   calendly: {
-    to: 'https://notify.novu.co/meetings/novuhq/discovery-session?utm_campaign=website',
+    to: 'https://notify.novu.co/meetings/ryannovu/notifications-discovery-session?utm_campaign=website',
     target: '_blank',
   },
   BAM: {
-    to: 'https://notify.novu.co/meetings/novuhq/discovery-session?utm_campaign=website',
+    to: 'https://notify.novu.co/meetings/ryannovu/notifications-discovery-session?utm_campaign=website',
     target: '_blank',
   },
   bamCTA: {
-    to: 'https://notify.novu.co/meetings/novuhq/discovery-session?utm_campaign=website-cta-bottom',
+    to: 'https://notify.novu.co/meetings/ryannovu/notifications-discovery-session?utm_campaign=website-cta-bottom',
     target: '_blank',
   },
 
