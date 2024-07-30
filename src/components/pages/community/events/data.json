@@ -1,29 +1,29 @@
 [
   {
-    "title": "Webinar marketing planning",
-    "description": "An application to help consumers find agencies providing a specific service tasked to build.",
+    "title": "SSO and RBAC",
+    "description": "How we migrated our user management to Clerk with one engineer.",
     "category": "Webinar",
-    "date": "2024-05-15T10:00:00",
-    "venue": "Discord",
+    "date": "2024-08-07T15:30:00Z",
+    "venue": "Youtube",
     "linkUrl": "#",
-    "linkText": "Learn more"
+    "linkText": "Join us"
   },
   {
-    "title": "7 Strategies for success",
-    "description": "Tasked to build an application to help consumers find agencies providing a specific service tasked to build.",
-    "category": "Meetup",
-    "date": "2024-05-20T10:00:00",
-    "venue": "Discord",
+    "title": "Inbox Component",
+    "description": "How to add in-app notifications to any app in minutes.",
+    "category": "Webinar",
+    "date": "2024-08-21T15:30:00Z",
+    "venue": "Youtube",
     "linkUrl": "#",
-    "linkText": "Learn more"
+    "linkText": "Watch live"
   },
   {
-    "title": "Application to help consumers",
-    "description": "Let’s say you’ve been tasked to build an application to help consumers find agencies providing a specific.",
-    "category": "Conference",
-    "date": "2024-06-01T10:00:00",
-    "venue": "Discord",
+    "title": "The Help Desk Session",
+    "description": "Solving your most common Novu questions.",
+    "category": "Webinar",
+    "date": "2024-09-04T15:30:00Z",
+    "venue": "Youtube",
     "linkUrl": "#",
-    "linkText": "Join now"
+    "linkText": "Ask questions"
   }
 ]
