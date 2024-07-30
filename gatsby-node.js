@@ -463,7 +463,6 @@ exports.createPages = async (args) => {
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
   // await createPodcastPage(params);
   // await createPodcastDetailPages(params);
-  // TODO:: uncomment when GATSBY_CONTRIBUTORS_API_URL will be available
   await createContributorsPage(params);
 };
 
@@ -471,9 +470,9 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
     response.json()
   );
-  // const allContributorsPromise = await fetch(
-  //   `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
-  // ).then((response) => response.json());
+  const allContributorsPromise = await fetch(
+    `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
+  ).then((response) => response.json());
 
   const dataPromises = Promise.all([
     fetchCommitCount('novuhq', 'novu'),
@@ -484,9 +483,9 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
 
   const [
     githubData,
-    // contributors,
+    contributors,
     [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
-  ] = await Promise.all([githubDataPromise, dataPromises]);
+  ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
 
   createNode({
     // nameWithOwner and url are arbitrary fields from the data
@@ -497,7 +496,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     openIssues: githubData.open_issues,
     closedIssues: closedIssuesCount,
     pullRequests: openPullRequestsCount + closedPullRequestsCount,
-    // contributors: contributors.list.length,
+    contributors: contributors.list.length,
     commits: commitsCount,
     // required fields
     id: `github-data`,
@@ -605,21 +604,20 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
   // });
   // End of Hacktoberfest part
 
-  // TODO:: uncomment issuesData, when GATSBY_CONTRIBUTORS_API_URL will be available, and issues.jsx too
-  // const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-  //   (response) => response.json()
-  // );
+  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+    (response) => response.json()
+  );
 
-  // createNode({
-  //   data: issuesData.issues,
-  //   id: `issues-data`,
-  //   parent: null,
-  //   children: [],
-  //   internal: {
-  //     type: `Issues`,
-  //     contentDigest: createContentDigest(issuesData),
-  //   },
-  // });
+  createNode({
+    data: issuesData.issues,
+    id: `issues-data`,
+    parent: null,
+    children: [],
+    internal: {
+      type: `Issues`,
+      contentDigest: createContentDigest(issuesData),
+    },
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

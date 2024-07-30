@@ -42,13 +42,14 @@ const CommunityPage = (props) => {
     })),
     blogPageURL: LINKS.blog.to,
   };
+  console.log(githubData);
 
   return (
     <Layout className="bg-[#09050B]" headerTheme="community">
       <div className="relative overflow-hidden">
         <Hero />
         <GetInvolved />
-        <GitHubStat contributors={pageContext.totalContributorsCount} {...githubData} />
+        <GitHubStat {...githubData} />
       </div>
       <Events />
       <MembersMap contributors={pageContext.contributors} />
@@ -69,6 +70,7 @@ export const pageQuery = graphql`
       count
       commits
       closedIssues
+      contributors
       forks
       pullRequests
       openIssues
