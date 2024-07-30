@@ -6,7 +6,7 @@
     "date": "2024-08-07T15:30:00Z",
     "venue": "Youtube",
     "linkUrl": "#",
-    "linkText": "Join us"
+    /*"linkText": "Join us"*/
   },
   {
     "title": "Inbox Component",
@@ -15,7 +15,7 @@
     "date": "2024-08-21T15:30:00Z",
     "venue": "Youtube",
     "linkUrl": "#",
-    "linkText": "Watch live"
+    /*"linkText": "Watch live"*/
   },
   {
     "title": "The Help Desk Session",
@@ -24,6 +24,6 @@
     "date": "2024-09-04T15:30:00Z",
     "venue": "Youtube",
     "linkUrl": "#",
-    "linkText": "Ask questions"
+    /*"linkText": "Ask questions"*/
   }
 ]
