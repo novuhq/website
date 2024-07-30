@@ -15,7 +15,7 @@ const DESCRIPTION =
 
 const LINK = {
   text: 'Book Meeting',
-  url: 'https://notify.novu.co/meetings/novuhq/notifications-45min?utm_campaign=website-usecase-contentManagement',
+  url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-contentManagement',
   target: '_blank',
 };
 
