@@ -4,26 +4,26 @@
     "description": "How we migrated our user management to Clerk with one engineer.",
     "category": "Webinar",
     "date": "2024-08-07T15:30:00Z",
-    "venue": "Youtube"/*,
-    "linkUrl": "#",
-    "linkText": "Join us"*/
+    "venue": "Youtube",
+    "linkUrl": "https://www.youtube.com/watch?v=zpz3Q2Iox2k",
+    "linkText": "Join us"
   },
   {
     "title": "Inbox Component",
     "description": "How to add in-app notifications to any app in minutes.",
     "category": "Webinar",
     "date": "2024-08-21T15:30:00Z",
-    "venue": "Youtube"/*,
-    "linkUrl": "#",
-    "linkText": "Watch live"*/
+    "venue": "Youtube",
+    "linkUrl": "https://www.youtube.com/watch?v=8fpghRkVWBY",
+    "linkText": "Watch live"
   },
   {
     "title": "The Help Desk Session",
     "description": "Solving your most common Novu questions.",
     "category": "Webinar",
     "date": "2024-09-04T15:30:00Z",
-    "venue": "Youtube"/*,
-    "linkUrl": "#",
-    "linkText": "Ask questions"*/
+    "venue": "Youtube",
+    "linkUrl": "https://www.youtube.com/watch?v=VBHierIbPHc",
+    "linkText": "Ask questions"
   }
 ]
