@@ -1,12 +1,12 @@
 [
   {
-    "title": "SSO and RBAC",
-    "description": "How we migrated our user management to Clerk with one engineer.",
+    "title": "The Help Desk Session",
+    "description": "Solving your most common Novu questions.",
     "category": "Webinar",
     "date": "2024-08-07T15:30:00Z",
     "venue": "Youtube",
-    "linkUrl": "https://www.youtube.com/watch?v=zpz3Q2Iox2k",
-    "linkText": "Join us"
+    "linkUrl": "https://www.youtube.com/watch?v=VBHierIbPHc",
+    "linkText": "Ask questions"
   },
   {
     "title": "Inbox Component",
@@ -18,12 +18,12 @@
     "linkText": "Watch live"
   },
   {
-    "title": "The Help Desk Session",
-    "description": "Solving your most common Novu questions.",
+    "title": "SSO and RBAC",
+    "description": "How we migrated our user management to Clerk with one engineer.",
     "category": "Webinar",
     "date": "2024-09-04T15:30:00Z",
     "venue": "Youtube",
-    "linkUrl": "https://www.youtube.com/watch?v=VBHierIbPHc",
-    "linkText": "Ask questions"
+    "linkUrl": "https://www.youtube.com/watch?v=zpz3Q2Iox2k",
+    "linkText": "Join us"
   }
 ]
