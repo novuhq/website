@@ -42,7 +42,6 @@ const CommunityPage = (props) => {
     })),
     blogPageURL: LINKS.blog.to,
   };
-  console.log(githubData);
 
   return (
     <Layout className="bg-[#09050B]" headerTheme="community">
