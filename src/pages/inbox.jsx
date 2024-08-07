@@ -132,7 +132,7 @@ function Novu() {
   );
 }`;
 
-export const Inbox = () => (
+const Inbox = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <TextWithPicture
       title="Add full-function notifications to your app in minutes"
