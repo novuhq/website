@@ -132,7 +132,7 @@ function Novu() {
   );
 }`;
 
-export const inbox = () => {
+export const Inbox = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <TextWithPicture
       title="Add full-function notifications to your app in minutes"
@@ -186,5 +186,7 @@ export const inbox = () => {
         link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
       }}
     />
-  </Layout>;
-};
+  </Layout>
+);
+
+export default Inbox;
