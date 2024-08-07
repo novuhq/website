@@ -6,7 +6,7 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 const NotificationInbox = ({ title, description, button }) => (
-  <section className="text-with-picture safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+  <section className="text-with-picture safe-paddings mt-[168px] lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container-lg">
       <div className="flex items-center justify-center sm:flex-col">
         <div className="relative shrink-0 sm:order-last sm:mt-6">
@@ -39,7 +39,7 @@ const NotificationInbox = ({ title, description, button }) => (
             aria-hidden
           />
         </div>
-        <div className="pl-[140px] mb-11 xl:pl-28 md:pl-18 sm:pl-0 sm:mb-6 sm:text-center">
+        <div className="pl-[140px] mb-7 xl:pl-28 md:pl-18 sm:pl-0 sm:mb-6 sm:text-center">
           <Heading
             className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
             tag="h2"
