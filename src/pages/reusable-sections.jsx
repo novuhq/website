@@ -289,6 +289,7 @@ const EVENTS_WITH_IMAGES = [
     venue: 'Youtube',
     image: (
       <StaticImage
+        className="w-full"
         src="../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
@@ -306,6 +307,7 @@ const EVENTS_WITH_IMAGES = [
     venue: 'Youtube',
     image: (
       <StaticImage
+        className="w-full"
         src="../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
@@ -323,6 +325,7 @@ const EVENTS_WITH_IMAGES = [
     venue: 'Youtube',
     image: (
       <StaticImage
+        className="w-full"
         src="../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
@@ -587,7 +590,7 @@ const ReusableComponents = (props) => {
         video={{
           type: 'vimeo',
           embed:
-            '<iframe src="https://player.vimeo.com/video/961460192?h=401d48f654" width="640" height="346" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+            '<div style="padding:54% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/961460192?h=401d48f654" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
         }}
         title="Video header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."

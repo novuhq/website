@@ -20,13 +20,13 @@ const EventsWithImages = ({ title, description, buttonText, buttonUrl, events })
         </Heading>
         <p className="mt-4 text-gray-9 font-light leading-snug sm:mt-3">{description}</p>
       </header>
-      <ul className="mt-14 flex justify-center gap-8 lg:mt-12 md:mt-10 md:flex-wrap sm:gap-6 sm:mt-8">
+      <ul className="mt-14 grid grid-cols-3 gap-8 lg:mt-12 md:grid-cols-2 md:mt-10 xs:grid-cols-1 sm:gap-y-10 sm:mt-8">
         {events.map(
           ({ title, description, category, categoryColor, date, venue, image }, index) => (
-            <li key={index} className="flex flex-col items-center max-w-[384px] min-w-[260px]">
+            <li key={index} className="flex flex-col items-center">
               <article>
                 <header className="flex flex-wrap gap-x-2.5 text-sm leading-denser text-gray-6">
-                  <div className="overflow-hidden rounded-lg mb-5">{image}</div>
+                  <div className="overflow-hidden rounded-lg mb-5 w-full">{image}</div>
                   <span className={clsx(categoryColor)}>{category}</span>
                   <time
                     className="relative pl-[11px] before:absolute before:left-0 before:w-px before:top-px before:bg-gray-4 before:h-3.5"

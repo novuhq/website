@@ -6,8 +6,8 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
 const BlogPosts = ({ title, buttonText, buttonUrl, items, blogPageURL }) => (
-  <section className="blog-posts safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
-    <div className="container grid grid-cols-12 grid-gap-x">
+  <section className="blog-posts relative safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+    <div className="container relative z-10 grid grid-cols-12 grid-gap-x">
       <Heading
         className="font-medium col-span-full text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
@@ -38,6 +38,10 @@ const BlogPosts = ({ title, buttonText, buttonUrl, items, blogPageURL }) => (
         {buttonText}
       </Button>
     </div>
+    <div
+      className="absolute w-[1472px] h-[679px] bg-[linear-gradient(-81.41deg,#F575E0_21.93%,rgba(117,153,245,0.7)_84.89%)] left-1/2 -top-7 -translate-x-1/2 pointer-events-none rounded-[50%] opacity-5 blur-3xl z-0"
+      aria-hidden
+    />
   </section>
 );
 

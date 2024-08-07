@@ -28,7 +28,7 @@ const CtaWithForm = ({ title, description, leftItem, rightItem }) => {
   }, [isCopied]);
 
   return (
-    <section className="cta-with-form relative safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+    <section className="cta-with-form relative safe-paddings mt-60 lg:mt-[204px] md:mt-[124px]">
       <div className="container-sm relative md:px-8 sm:w-full sm:px-5">
         <div className="relative z-10 flex flex-col items-center">
           <Heading
@@ -100,7 +100,7 @@ const CtaWithForm = ({ title, description, leftItem, rightItem }) => {
           </div>
         </div>
         <img
-          className="absolute max-w-none bottom-[-435px] left-[-357px] pointer-events-none z-0"
+          className="absolute max-w-none bottom-[-435px] left-[-357px] pointer-events-none z-0 md:left-1/2 md:-translate-x-1/2"
           src={background}
           width={1523}
           height={1012}

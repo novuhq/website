@@ -47,12 +47,12 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
     <section className="section-with-video safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
       <div
         className={clsx(
-          'container-lg flex items-center justify-center gap-x-16 ',
+          'container-lg flex items-center justify-center gap-x-16 lg:gap-x-12 md:flex-col',
           videoPosition === 'fullWidth' && 'flex-col'
         )}
       >
         <div
-          className={clsx({
+          className={clsx('md:order-first md:w-full md:p-0 md:text-center md:max-w-lg', {
             'order-last pr-8': videoPosition === 'left',
             'pl-8': videoPosition === 'right',
             'w-full flex flex-col max-w-[655px] text-center': videoPosition === 'fullWidth',
@@ -71,8 +71,8 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
         </div>
         <figure
           className={clsx(
-            'shrink-0 h-full',
-            videoPosition !== 'fullWidth' ? 'w-[672px] lg:w-[532px]' : 'w-full mt-12 md:mt-8'
+            'shrink-0 h-full md:mt-8',
+            videoPosition !== 'fullWidth' ? 'w-[672px] lg:w-[480px] md:w-full' : 'w-full mt-12'
           )}
           aria-describedby="transcript"
         >
@@ -81,9 +81,12 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
         {transcription !== null && videoPosition === 'fullWidth' && (
           <div
             id="transcript"
-            className="relative w-[776px] mx-auto pl-9 mt-[88px] after:absolute after:w-0.5 after:h-full after:rounded-full after:bg-[linear-gradient(180deg,#5D9CB1_0%,#475B94_100%)] after:opacity-30 after:left-0.5 after:top-0"
+            className="relative w-full max-w-[776px] mx-auto pl-9 mt-[88px] after:absolute after:w-0.5 after:h-full after:rounded-full after:bg-[linear-gradient(180deg,#5D9CB1_0%,#475B94_100%)] after:opacity-30 after:left-0.5 after:top-0 sm:after:hidden sm:pl-0 lg:mt-20 md:mt-16 sm:mt-10"
           >
-            <Heading className="font-medium tracking-snug text-[32px] leading-denser" tag="h3">
+            <Heading
+              className="font-medium tracking-snug text-[32px] leading-denser lg:text-3xl md:text-2xl sm:text-xl"
+              tag="h3"
+            >
               Transcript
             </Heading>
             {transcription.map((item, index) => (
@@ -92,7 +95,7 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
               </p>
             ))}
             <img
-              className="absolute -left-1.5 -top-2"
+              className="absolute -left-1.5 -top-2 sm:hidden"
               src={transcriptBorderGlow}
               alt=""
               width={18}

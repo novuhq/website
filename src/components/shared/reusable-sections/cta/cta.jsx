@@ -16,7 +16,7 @@ const CTA = ({ title, leftCard, rightCard, theme }) => (
       >
         {title}
       </Heading>
-      <ul className="grid grid-cols-2 gap-x-8 mt-11 sm:grid-cols-1 sm:gap-y-6">
+      <ul className="grid grid-cols-2 gap-x-8 mt-11 sm:grid-cols-1 sm:gap-y-6 sm:justify-items-center">
         <li className="bg-common-card-border rounded-xl">
           <div className="bg-[#14141F] h-full m-px pt-10 pb-[43px] px-5 text-center rounded-xl lg:py-9 md:py-7">
             <Heading tag="h3" className="text-[32px] leading-snug lg:text-3xl md:text-2xl">
@@ -114,7 +114,7 @@ const CTA = ({ title, leftCard, rightCard, theme }) => (
     </div>
     <div
       className={clsx(
-        'absolute w-[1136px] h-[490px] left-1/2 -translate-x-1/2 top-[-16px] rounded-[50%] blur-3xl opacity-[0.03] sm:hidden',
+        'absolute w-[1136px] h-[490px] left-1/2 -translate-x-1/2 -top-4 rounded-[50%] blur-3xl opacity-[0.03] sm:top-24',
         {
           'bg-[linear-gradient(171.41deg,#F575E0_21.93%,#7599F5_84.89%)]': theme === 'purple',
           'bg-[linear-gradient(171.41deg,#7595F5_21.93%,#7599F5_84.89%)]': theme === 'blue',
@@ -124,7 +124,7 @@ const CTA = ({ title, leftCard, rightCard, theme }) => (
     />
     <div
       className={clsx(
-        'absolute w-[1472px] h-[572px] left-1/2 -translate-x-1/2 top-[-57px] rounded-[50%] blur-3xl opacity-[0.03] sm:hidden',
+        'absolute w-[1472px] h-[572px] left-1/2 -translate-x-1/2 -top-14 rounded-[50%] blur-3xl opacity-[0.03] sm:top-14',
         {
           'bg-[linear-gradient(171.41deg,#F575E0_21.93%,rgba(117,153,245,0.7)_84.89%)]':
             theme === 'purple',

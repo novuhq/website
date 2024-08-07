@@ -14,15 +14,20 @@ const SectionWithCards = ({ title, cards }) => (
       >
         {title}
       </Heading>
-      <ul className="grid grid-cols-3 gap-x-8 mt-12">
+      <ul className="grid grid-cols-3 gap-8 mt-12 lg:grid-cols-2 lg:gap-7 md:gap-6 sm:grid-cols-1">
         {cards.map(({ icon, title, description }, index) => (
           <li className="bg-common-card-border rounded-xl" key={index}>
-            <div className="m-px w-full h-full rounded-xl p-8 bg-[#0F0F15]">
-              <img src={icon} alt="" width={72} height={72} />
-              <Heading className="mt-5" size="xs" tag="h3" theme="white">
+            <div className="m-px w-full h-full rounded-xl p-8 bg-[#0F0F15] lg:p-6">
+              <img className="lg:size-16" src={icon} alt="" width={72} height={72} />
+              <Heading
+                className="mt-5 lg:text-xl lg:mt-4 md:mt-3.5"
+                size="xs"
+                tag="h3"
+                theme="white"
+              >
                 {title}
               </Heading>
-              <p className="mt-3 text-gray-9 font-light leading-snug">{description}</p>
+              <p className="mt-3 text-gray-9 font-light leading-snug md:mt-2">{description}</p>
             </div>
           </li>
         ))}
