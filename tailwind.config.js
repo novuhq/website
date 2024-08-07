@@ -59,12 +59,17 @@ module.exports = {
       },
       yellow: {
         DEFAULT: '#FFE27D',
+        2: '#FFE999',
       },
       purple: {
         DEFAULT: '#9092FF',
+        2: '#E18CF2',
       },
       red: {
         DEFAULT: '#E51A5E',
+      },
+      blue: {
+        2: '#809FFF',
       },
     }),
     backgroundImage: {
@@ -107,6 +112,24 @@ module.exports = {
         'radial-gradient(29.56% 37.42% at 79.15% -21.6%, rgba(250, 115, 107, 0.08) 0%, rgba(250, 115, 107, 0) 100%), radial-gradient(42.78% 60.42% at 0% 15.35%, #3A2C32 0%, #141216 100%)',
       'open-issues-table-border':
         'radial-gradient(9.93% 10.83% at 80.23% -7.39%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(16.35% 34.63% at 81.2% -15.3%, rgba(250, 164, 158, 0.8) 0%, rgba(250, 164, 158, 0) 100%), radial-gradient(4.29% 6.22% at 0% 16.6%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(19.21% 24.06% at 0% 16.41%, #F5A3C5 0%, rgba(245, 163, 197, 0) 100%), linear-gradient(0deg, #33282D, #33282D)',
+      'common-card-border':
+        'linear-gradient(215.33deg, rgba(51, 51, 71, 0.6) 20.1%, rgba(43, 43, 59, 0.4) 75.75%)',
+      'purple-card-border':
+        'radial-gradient(114.29% 113.4% at 81.66% -13.4%, #ECD1FA 10.74%, rgba(95, 82, 122, 0.3) 49.79%, rgba(168, 148, 209, 0.1) 100%)',
+      'purple-card-light':
+        'radial-gradient(65.61% 130.08% at 74.29% 61.64%, #FFB7E2 27.2%, #FF96FB 80.5%, #F047FF 100%)',
+      'blue-card-border':
+        'radial-gradient(114.29% 113.4% at 81.66% -13.4%, rgba(236, 209, 250, 0.8) 10.74%, rgba(95, 82, 122, 0.3) 41.53%, rgba(168, 148, 209, 0.1) 100%)',
+      'blue-card-light':
+        'radial-gradient(65.61% 130.08% at 74.29% 61.64%, #B7C9FF 27.2%, #96B0FF 80.5%, #4775FF 100%)',
+      'green-card-border':
+        'radial-gradient(114.29% 113.4% at 81.66% -13.4%, rgba(209, 243, 250, 0.8) 10.74%, rgba(82, 116, 122, 0.3) 41.53%, rgba(148, 199, 209, 0.1) 100%)',
+      'green-card-light':
+        'radial-gradient(65.61% 130.08% at 74.29% 61.64%, #B7F3FF 27.2%, #96EEFF 80.5%, #47E0FF 100%)',
+      'code-block-bg':
+        'linear-gradient(168.3deg, #1B2137 6.29%, #111522 91.42%), radial-gradient(67.44% 45.73% at 27.61% 0%, rgba(194, 209, 255, 0.09) 0%, rgba(194, 209, 255, 0) 76.65%)',
+      'code-block-border':
+        'radial-gradient(83.26% 102.85% at 61.61% -2.85%, #6B7DB3 6.8%, #1A1E2E 65.55%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {
