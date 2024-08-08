@@ -1,10 +1,9 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import LINKS from 'constants/links';
-
-import illustration from './images/illustration.svg';
 
 const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pt-[303px] sm:pt-52">
@@ -25,9 +24,9 @@ const Hero = () => (
         Get Started Now
       </Button>
     </div>
-    <img
-      className="absolute left-1/2 -translate-x-1/2 -top-20 pointer-events-none sm:max-w-md sm:-top-28"
-      src={illustration}
+    <StaticImage
+      className="!absolute w-[541px] left-1/2 -translate-x-1/2 -top-20 pointer-events-none sm:w-[448px] sm:-top-28"
+      src="./images/illustration.png"
       width={541}
       height={541}
       loading="eager"

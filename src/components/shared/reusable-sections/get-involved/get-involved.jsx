@@ -14,9 +14,9 @@ const GetInvolved = ({ title, items, bottomMargin }) => (
   >
     <div className="container grid grid-cols-12 grid-gap-x z-10">
       <Heading
-        className="font-medium col-span-full text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="font-medium col-span-full text-center leading-tight lg:text-[32px] md:text-3xl"
         tag="h2"
-        size="44"
+        size="lg"
         theme="white"
       >
         {title}
