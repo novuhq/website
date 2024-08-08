@@ -1,4 +1,4 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import NotificationInbox from 'components/shared/reusable-sections/notification-inbox';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
@@ -8,7 +8,6 @@ import GetInvolved from 'components/shared/reusable-sections/get-involved';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
-import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
 import cloudDataIcon from 'images/icons/cloud-data.svg';
@@ -134,23 +133,13 @@ function Novu() {
 
 const Inbox = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
-    <TextWithPicture
+    <NotificationInbox
       title="Add full-function notifications to your app in minutes"
       description="Enable in-app notifications in you app with Novu's pre-built and customizable components in popular frameworks."
-      image={
-        <StaticImage
-          src="../images/placeholder-image.jpg"
-          alt="Placeholder image"
-          loading="eager"
-          width={576}
-          height={480}
-        />
-      }
       button={{
-        label: 'Create Free Account',
-        link: 'https://dashboard.novu.co/?utm_campaign=fa-website-inbox',
+        label: 'Read docs',
+        href: 'https://dashboard.novu.co/?utm_campaign=fa-website-inbox',
       }}
-      theme="imageRight"
     />
     <SectionWithSmallIcons
       title="Powerful notifications Inbox features in minutes, not days"
