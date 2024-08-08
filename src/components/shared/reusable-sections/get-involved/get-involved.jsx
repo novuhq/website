@@ -1,11 +1,17 @@
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const GetInvolved = ({ title, items }) => (
-  <section className="get-involved safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+const GetInvolved = ({ title, items, bottomMargin }) => (
+  <section
+    className={clsx(
+      'get-involved safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20',
+      bottomMargin
+    )}
+  >
     <div className="container grid grid-cols-12 grid-gap-x z-10">
       <Heading
         className="font-medium col-span-full text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
@@ -52,6 +58,11 @@ GetInvolved.propTypes = {
       linkUrl: PropTypes.string.isRequired,
     })
   ).isRequired,
+  bottomMargin: PropTypes.string,
+};
+
+GetInvolved.defaultProps = {
+  bottomMargin: '',
 };
 
 export default GetInvolved;
