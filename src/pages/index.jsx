@@ -4,6 +4,7 @@ import Code from 'components/pages/home/code';
 import Cta from 'components/pages/home/cta';
 import Flexibility from 'components/pages/home/flexibility';
 import Hero from 'components/pages/home/hero';
+import Inbox from 'components/pages/home/inbox';
 import Infrastructure from 'components/pages/home/infrastructure';
 import Integration from 'components/pages/home/integration';
 import Libraries from 'components/pages/home/libraries';
@@ -12,10 +13,10 @@ import Reviews from 'components/pages/home/reviews';
 import SkinnyCTA from 'components/pages/home/skinny-cta';
 // import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
-import NotificationInbox from 'components/shared/reusable-sections/notification-inbox';
+// import NotificationInbox from 'components/shared/reusable-sections/notification-inbox';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-import LINKS from 'constants/links';
+// import LINKS from 'constants/links';
 
 const HomePage = () => (
   <Layout mainClassName="echo overflow-hidden pb-px bg-[#05050B]">
@@ -26,11 +27,13 @@ const HomePage = () => (
     <Integration />
     <Flexibility />
     <Libraries />
-    <NotificationInbox
-      title="Fully featured Notification Inbox in minutes"
+    <Inbox />
+    {/*    <NotificationInbox
+      title="Fully featured Notification Inbox in minutes"
       description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
       button={{ label: 'Read docs', href: LINKS.docsHomePage }}
     />
+*/}
     <Infrastructure />
     {/* Hiding this temporarily for launch */}
     {/* <Testimonials /> */}
