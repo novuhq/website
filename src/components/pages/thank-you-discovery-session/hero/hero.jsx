@@ -7,8 +7,8 @@ import LINKS from 'constants/links';
 import illustration from './images/illustration.svg';
 
 const Hero = () => (
-  <section className="safe-paddings relative overflow-hidden pt-[303px]">
-    <div className="container relative z-10 flex flex-col items-center">
+  <section className="safe-paddings relative overflow-hidden pt-[303px] sm:pt-52">
+    <div className="container relative z-10 flex flex-col items-center text-center">
       <Heading
         className="font-bold leading-tight [mask-image:linear-gradient(90deg,rgba(255,255,255,0.7)_0%,#FFFFFF_38.57%,#FFFFFF_53.21%,rgba(255,255,255,0.7)_100%)] md:text-4xl sm:text-[34px]"
         size="3xl"
@@ -26,7 +26,7 @@ const Hero = () => (
       </Button>
     </div>
     <img
-      className="absolute left-1/2 -translate-x-1/2 -top-20 pointer-events-none"
+      className="absolute left-1/2 -translate-x-1/2 -top-20 pointer-events-none sm:max-w-md sm:-top-28"
       src={illustration}
       width={541}
       height={541}
