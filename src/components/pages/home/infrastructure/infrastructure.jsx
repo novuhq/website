@@ -136,7 +136,7 @@ const CARDS = [
 ];
 
 const Infrastructure = () => (
-  <section className="infrastructure mt-[120px] md:mt-[88px]">
+  <section className="infrastructure mt-40 md:mt-[88px]">
     <div className="container-lg relative xl:px-0 lg:px-8 lg:w-full lg:max-w-5xl md:max-w-3xl sm:px-5">
       <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
         {TITLE}
