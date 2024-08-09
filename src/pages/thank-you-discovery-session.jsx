@@ -6,8 +6,8 @@ import GetInvolved from 'components/shared/reusable-sections/get-involved';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-import GET_INVOLVED from 'data/thank-you-discovery-session/get-involved';
-import SECTION_WITH_LOGOS from 'data/thank-you-discovery-session/section-with-logos';
+import GET_INVOLVED from 'data/pages/thank-you-discovery-session/get-involved';
+import SECTION_WITH_LOGOS from 'data/pages/thank-you-discovery-session/section-with-logos';
 
 const ThankYouPage = () => (
   <Layout mainClassName="thank-you-discovery-session overflow-hidden pb-px">

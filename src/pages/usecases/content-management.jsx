@@ -1,30 +1,46 @@
 import React from 'react';
 
 // Imprort page-specific components
-import Benefits from 'components/pages/content-management/benefits';
-import Cta from 'components/pages/content-management/cta';
 import Features from 'components/pages/content-management/features';
-import Hero from 'components/pages/content-management/hero';
-import PainRestatement from 'components/pages/content-management/painRestatement';
+import Benefits from 'components/pages/use-cases/benefits';
+import Hero from 'components/pages/use-cases/hero';
+import PainRestatement from 'components/pages/use-cases/pain-restatement';
 // import RelatedContent from 'components/pages/content-management/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 // import SEO component
 import SEO from 'components/shared/seo';
+import BENEFITS from 'data/pages/usecases/content-management/benefits';
+import PAIN_RESTATEMENT from 'data/pages/usecases/content-management/pain-restatement';
 
 const contentManagementPage = () => (
   <Layout>
-    {/* Section: Header */}
-    <Hero />
-    {/* Section: Call To Action */}
-    <Cta />
+    {/* Section: Hero with CTA */}
+    <Hero
+      title="Eliminate the content dance between development and product teams"
+      description="Developers now empower product teams to safely interact with all of your notifications content, no interrupts needed."
+      link={{
+        text: 'Book Meeting',
+        url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-contentManagement',
+        target: '_blank',
+      }}
+      code="npx novu@latest dev"
+    />
     {/* Section: Supporting features */}
     <Features />
     {/* Section: Pain Restatement */}
-    <PainRestatement />
+    <PainRestatement
+      title={PAIN_RESTATEMENT.title}
+      description={PAIN_RESTATEMENT.description}
+      cards={PAIN_RESTATEMENT.cards}
+    />
     {/* Section: Benefits */}
-    <Benefits />
+    <Benefits
+      title={BENEFITS.title}
+      description={BENEFITS.description}
+      sections={BENEFITS.sections}
+    />
     {/* Section: Related Content */}
     {/* <RelatedContent /> */}
     {/* Section: Get Started */}
