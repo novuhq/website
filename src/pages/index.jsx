@@ -29,7 +29,7 @@ const HomePage = () => (
     <NotificationInbox
       title="Fully featured Notification Inbox in minutes"
       description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
-      button={{ label: 'Read docs', href: '/inbox?utm_campaign=ws_inbox_section' }}
+      button={{ label: 'Read docs', link: '/inbox?utm_campaign=ws_inbox_section' }}
     />
     <Infrastructure />
     {/* Hiding this temporarily for launch */}

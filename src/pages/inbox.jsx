@@ -139,7 +139,7 @@ const Inbox = () => (
       description="Enable in-app notifications in you app with Novu's pre-built and customizable components in popular frameworks."
       button={{
         label: 'LEARN MORE',
-        href: 'https://roadmap.novu.co/changelog/d7eb37e8-9237-415d-921e-495220cecf11',
+        link: 'https://roadmap.novu.co/changelog/d7eb37e8-9237-415d-921e-495220cecf11',
       }}
     />
     <SectionWithSmallIcons
@@ -172,6 +172,7 @@ const Inbox = () => (
     />
     */}
     <CtaWithForm
+      className="mb-30"
       title="It's time to add in-app notifications"
       description="Create a free account, send your first notification, and add an Inbox... all for free."
       leftItem={{
