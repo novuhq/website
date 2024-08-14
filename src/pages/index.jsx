@@ -13,8 +13,10 @@ import Reviews from 'components/pages/home/reviews';
 import SkinnyCTA from 'components/pages/home/skinny-cta';
 // import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
+// import NotificationInbox from 'components/shared/reusable-sections/notification-inbox';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
+// import LINKS from 'constants/links';
 
 const HomePage = () => (
   <Layout mainClassName="echo overflow-hidden pb-px bg-[#05050B]">
@@ -26,6 +28,12 @@ const HomePage = () => (
     <Flexibility />
     <Libraries />
     <Inbox />
+    {/*    <NotificationInbox
+      title="Fully featured Notification Inbox in minutes"
+      description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
+      button={{ label: 'Read docs', href: LINKS.docsHomePage }}
+    />
+*/}
     <Infrastructure />
     {/* Hiding this temporarily for launch */}
     {/* <Testimonials /> */}
