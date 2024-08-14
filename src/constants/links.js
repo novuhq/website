@@ -58,7 +58,7 @@ export default {
   workflow: { to: 'https://docs.novu.co/workflows/notification-workflows' },
   contentManagment: { to: 'https://docs.novu.co/workflow/content' },
   // translation: { to: '/' }, -> We need to add this page
-  embedComponent: { to: 'https://docs.novu.co/inbox/introduction' },
+  embedComponent: { to: '/inbox' },
   endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
   // observability: { to: '/' }, -> We need to add this page
 

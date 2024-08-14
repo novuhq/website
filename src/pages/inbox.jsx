@@ -89,21 +89,21 @@ const GET_INVOLVED = [
     title: 'React',
     description: 'React Inbox components',
     linkText: 'React Docs',
-    linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=website-inbox',
+    linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=inbox-fp',
   },
   {
     icon: vueJSIcon,
     title: 'Vue',
     description: 'Vue.js Inbox components',
-    linkText: 'Vue Docs',
-    linkUrl: 'https://docs.novu.co/inbox/client/vue?utm_campaign=website-inbox',
+    linkText: 'Coming Soon',
+    linkUrl: '/inbox?utm_campaign=inbox-vue',
   },
   {
     icon: angularIcon,
     title: 'Angular',
     description: 'Angular Inbox components',
-    linkText: 'Angular Docs',
-    linkUrl: 'https://docs.novu.co/inbox/client/angular?utm_campaign=website-inbox',
+    linkText: 'Coming Soon',
+    linkUrl: '/inbox?utm_campaign=inbox_angular',
   },
 ];
 
