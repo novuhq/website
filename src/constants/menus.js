@@ -37,10 +37,10 @@ const MENUS = {
             description: 'What Novu can do',
             icon: FeaturesIcon,
             items: [
+              { title: 'Inbox component', ...LINKS.embedComponent },
               { title: 'Notifications workflows', ...LINKS.workflow },
               { title: 'Content management', ...LINKS.contentManagment },
               // { title: 'Translation', ...LINKS.translation }, -> We don't have that page yet
-              { title: 'Embeddable inbox component', ...LINKS.embedComponent },
               { title: 'End user preferences', ...LINKS.endUserPreferences },
               // { title: 'Observability', ...LINKS.observability }, -> We don't have that page yet
             ],
