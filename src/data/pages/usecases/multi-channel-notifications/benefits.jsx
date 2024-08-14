@@ -12,7 +12,6 @@ const BENEFITS = {
         'Integrates with all popular providers and channels, and you can easily extend support to your own custom code.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/multi-channel-notifications/benefits/extensible-integration.jpg"
           alt=""
           width={842}
@@ -26,7 +25,6 @@ const BENEFITS = {
         'Easily implement multi-channel notifications and flexible provider management, boosting platform user engagement.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/multi-channel-notifications/benefits/engage-end-users.jpg"
           alt=""
           width={842}
@@ -40,7 +38,6 @@ const BENEFITS = {
         'Eliminate productivity barriers when developers provide notifications infrastructure to product teams. Development teams focus on core app value while product iterates.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/multi-channel-notifications/benefits/reduce-distractions.jpg"
           alt=""
           width={842}
@@ -54,7 +51,6 @@ const BENEFITS = {
         'Engineering teams easily deliver notification capabilities into the applications.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/multi-channel-notifications/benefits/ship-faster.jpg"
           alt=""
           width={842}

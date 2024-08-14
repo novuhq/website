@@ -12,7 +12,6 @@ const BENEFITS = {
         'Communicate with your users at the right time, in the right channel, and in the best language for them.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/improve-communication-experience/benefits/time-relevant-notifications.jpg"
           alt=""
           width={842}
@@ -26,7 +25,6 @@ const BENEFITS = {
         'Highly-customized and tailored messages increase brand perception and customer experience.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/improve-communication-experience/benefits/personalized-messages.jpg"
           alt=""
           width={842}
@@ -40,7 +38,6 @@ const BENEFITS = {
         'Product and marketing teams maintain ownership of messaging and branding, and can iterate as fast as they need to.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/improve-communication-experience/benefits/consistent-branding.jpg"
           alt=""
           width={842}
@@ -54,7 +51,6 @@ const BENEFITS = {
         'Reach your users on the channels they prefer, be it email, SMS, push notifications, Chat or in-app messages.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/improve-communication-experience/benefits/multi-channel-accessibility.jpg"
           alt=""
           width={842}

@@ -26,19 +26,20 @@ const Hero = ({ title, description, link, code }) => {
   }, [isCopied]);
 
   return (
-    <section className="safe-paddings relative overflow-hidden pb-10 pt-34 lg:pb-16 lg:pt-32 md:pt-[104px] sm:pb-10 sm:pt-[95px]">
+    <section className="safe-paddings relative overflow-hidden pt-[138px] lg:pt-32 md:pt-[120px] sm:pt-[100px]">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
-          className="text-[52px] mx-auto max-w-[920px] text-center font-medium leading-denser lg:text-5xl md:text-4xl sm:text-[30px]"
+          className="mx-auto max-w-3xl text-center font-medium leading-denser tracking-snug lg:max-w-[717px] lg:text-6xl md:text-[44px] md:max-w-[659px] sm:text-5xl"
           tag="h1"
           theme="white"
+          size="2xl"
         >
           {title}
         </Heading>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-lg font-book leading-tight text-white/70 lg:mt-5 lg:max-w-xl md:mt-4 md:max-w-lg sm:mt-3">
+        <p className="mx-auto mt-4 max-w-[623px] text-center text-lg font-book leading-snug text-white/70 lg:max-w-xl md:mt-3.5 sm:text-base">
           {description}
         </p>
-        <div className="flex justify-center gap-x-8 mt-12 md:mt-7 sm:flex-col sm:items-center">
+        <div className="flex justify-center gap-x-7 mt-10 lg:mt-9 md:mt-8 sm:flex-col sm:items-center">
           <div className="w-[392px] h-[54px] pl-5 pr-2 relative flex items-center justify-between rounded-md bg-black border border-transparent bg-clip-border before:absolute before:-z-20 before:-inset-0.5 before:rounded-md before:bg-pink-yellow-gradient lg:h-[46px] sm:pl-4 sm:w-[320px]">
             <span className="font-mono font-medium">{code}</span>
             <Button
@@ -71,7 +72,7 @@ const Hero = ({ title, description, link, code }) => {
             />
           </div>
           <Button
-            className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
+            className="text-sm h-14 min-w-[160px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
             theme="gray-outline"
             to={link.url}
             target={link.target}

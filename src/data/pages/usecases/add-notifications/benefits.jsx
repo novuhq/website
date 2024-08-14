@@ -12,7 +12,6 @@ const BENEFITS = {
         'Integrates with all popular providers and channels, and you can easily extend support to your own custom code.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/add-notifications/benefits/extensible-integration.jpg"
           alt=""
           width={842}
@@ -26,7 +25,6 @@ const BENEFITS = {
         'Product teams can freely edit content, update branding, and change images--all without any developer input.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/add-notifications/benefits/complete-flexibility.jpg"
           alt=""
           width={842}
@@ -40,7 +38,6 @@ const BENEFITS = {
         'Deliver notifications at any scale and through any channel when needed, and get the SLA and observability to prove it.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/add-notifications/benefits/scalable.jpg"
           alt=""
           width={842}
@@ -54,7 +51,6 @@ const BENEFITS = {
         'Simplify debugging with complete observability and ensure compliance with ease.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/add-notifications/benefits/full-visibility.jpg"
           alt=""
           width={842}
@@ -68,7 +64,6 @@ const BENEFITS = {
         'Transparent, flexible and allows you to inspect, modify, and enhance the infrastructure along with the community.',
       image: (
         <StaticImage
-          className="rounded-[20px]"
           src="../../../../images/pages/usecases/add-notifications/benefits/open-source.jpg"
           alt=""
           width={842}

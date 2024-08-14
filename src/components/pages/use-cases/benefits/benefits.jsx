@@ -5,16 +5,16 @@ import Heading from 'components/shared/heading';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 
 const Benefits = ({ title, description, sections }) => (
-  <section className="benefits bg-gray-2 py-20 lg:py-18 md:py-16 sm:py-12">
+  <section className="benefits bg-gray-2 pt-[104px] pb-44 lg:pt-24 lg:pb-34 md:pb-[104px] md:pt-18 sm:pt-12 sm:pb-14">
     <Heading
-      className="mx-auto text-center font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
+      className="mx-auto text-center font-medium leading-denser tracking-snug max-w-[812px] lg:text-[44px] md:text-5xl sm:text-3xl"
       size="xl"
       tag="h2"
       theme="white"
     >
       {title}
     </Heading>
-    <p className="mx-auto max-w-3xl mt-4 text-center text-[17px] leading-snug font-book text-gray-9 lg:mt-5 md:mt-4 md:text-base sm:mt-3">
+    <p className="mx-auto max-w-[712px] mt-4 text-center text-lg leading-snug font-book text-gray-9 sm:text-base sm:mt-3.5">
       {description}
     </p>
     {sections.map(({ title, description, image }, index) => (
