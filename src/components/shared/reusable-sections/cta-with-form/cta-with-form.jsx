@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import copyToClipboard from 'copy-to-clipboard';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
@@ -10,7 +11,7 @@ import CopyIcon from 'icons/copy.inline.svg';
 import background from './images/background.svg';
 import codeDots from './images/code-dots.svg';
 
-const CtaWithForm = ({ title, description, leftItem, rightItem }) => {
+const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
@@ -28,7 +29,12 @@ const CtaWithForm = ({ title, description, leftItem, rightItem }) => {
   }, [isCopied]);
 
   return (
-    <section className="cta-with-form relative safe-paddings mt-60 lg:mt-[204px] md:mt-[124px]">
+    <section
+      className={clsx(
+        'cta-with-form relative safe-paddings mt-60 lg:mt-[204px] md:mt-[124px]',
+        className
+      )}
+    >
       <div className="container-sm relative md:px-8 sm:w-full sm:px-5">
         <div className="relative z-10 flex flex-col items-center">
           <Heading
@@ -114,6 +120,7 @@ const CtaWithForm = ({ title, description, leftItem, rightItem }) => {
 };
 
 CtaWithForm.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   leftItem: PropTypes.shape({
@@ -125,6 +132,10 @@ CtaWithForm.propTypes = {
     text: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+CtaWithForm.defaultProps = {
+  className: '',
 };
 
 export default CtaWithForm;
