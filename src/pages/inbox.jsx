@@ -138,8 +138,8 @@ const Inbox = () => (
       title="Add full-function notifications to your app in minutes"
       description="Enable in-app notifications in you app with Novu's pre-built and customizable components in popular frameworks."
       button={{
-        label: 'Read docs',
-        href: 'https://dashboard.novu.co/?utm_campaign=fa-website-inbox',
+        label: 'LEARN MORE',
+        href: 'https://roadmap.novu.co/changelog/d7eb37e8-9237-415d-921e-495220cecf11',
       }}
     />
     <SectionWithSmallIcons
