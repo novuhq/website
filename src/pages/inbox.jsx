@@ -136,7 +136,7 @@ const Inbox = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <NotificationInbox
       title="Add full-function notifications to your app in minutes"
-      description="Enable in-app notifications in you app with Novu's pre-built and customizable components in popular frameworks."
+      description="Enable in-app notifications in your app or website with Novu's pre-built and customizable components, available in popular frameworks."
       button={{
         label: 'LEARN MORE',
         link: 'https://roadmap.novu.co/changelog/d7eb37e8-9237-415d-921e-495220cecf11',
