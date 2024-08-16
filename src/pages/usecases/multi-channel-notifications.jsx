@@ -23,12 +23,12 @@ const MultiChannelNotificationsPage = () => (
       links={[
         {
           text: 'Create free account',
-          url: 'https://dashboard.novu.co/?utm_campaign=website-usecase-multiChannel',
+          url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
           target: '_blank',
         },
         {
           text: 'Book Meeting',
-          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=usecase-CTA',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-multiChannel',
           target: '_blank',
         },
       ]}
