@@ -28,7 +28,7 @@ const addNotificationsPage = () => (
         },
         {
           text: 'Book Meeting',
-          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-addNotification',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=usecase-CTA',
           target: '_blank',
         },
       ]}
