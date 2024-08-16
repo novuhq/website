@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 const BUTTON_CLASSNAME = 'h-14 px-6 text-sm min-w-[142px]';
 
 const TextWithPicture = ({ title, description, image, button, theme }) => (
-  <section className="text-with-picture safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+  <section className="text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14">
     <div className={clsx('container-lg', { 'max-w-6xl': theme === 'imageFullWidth' })}>
       <div
         className={clsx(
@@ -26,7 +26,7 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
           <Heading
             className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
             tag="h2"
-            size="xl"
+            size="44"
           >
             {title}
           </Heading>
@@ -41,7 +41,9 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
             </Button>
           )}
         </div>
-        {image}
+        <div className="overflow-hidden rounded-2xl lg:rounded-xl md:rounded-2xl sm:rounded-lg">
+          {image}
+        </div>
         {button && theme === 'imageFullWidth' && (
           <Button
             className={clsx(BUTTON_CLASSNAME, 'mt-12 lg:mt-10 md:mt-8 sm:mt-6')}

@@ -1,30 +1,52 @@
 import React from 'react';
 
 // Imprort page-specific components
-import Benefits from 'components/pages/add-notifications/benefits';
-import Cta from 'components/pages/add-notifications/cta';
 import Features from 'components/pages/add-notifications/features';
-import Hero from 'components/pages/add-notifications/hero';
-import PainRestatement from 'components/pages/add-notifications/painRestatement';
+import Benefits from 'components/pages/use-cases/benefits';
+import Hero from 'components/pages/use-cases/hero';
+import PainRestatement from 'components/pages/use-cases/pain-restatement';
 // import RelatedContent from 'components/pages/add-notifications/related-content/related-content';
 // Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 // import SEO component
 import SEO from 'components/shared/seo';
+import BENEFITS from 'data/pages/usecases/add-notifications/benefits';
+import PAIN_RESTATEMENT from 'data/pages/usecases/add-notifications/pain-restatement';
 
 const addNotificationsPage = () => (
   <Layout>
-    {/* Section: Header */}
-    <Hero />
-    {/* Section: Call To Action */}
-    <Cta />
+    {/* Section: Hero with CTA */}
+    <Hero
+      title="Test in minutes, go to prod before dinner"
+      description="Ship notifications in your app with production-ready infrastructure and out-of-the-box components."
+      links={[
+        {
+          text: 'Create free account',
+          url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
+          target: '_blank',
+        },
+        {
+          text: 'Book Meeting',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-addNotification',
+          target: '_blank',
+        },
+      ]}
+    />
     {/* Section: Supporting features */}
     <Features />
     {/* Section: Pain Restatement */}
-    <PainRestatement />
+    <PainRestatement
+      title={PAIN_RESTATEMENT.title}
+      description={PAIN_RESTATEMENT.description}
+      cards={PAIN_RESTATEMENT.cards}
+    />
     {/* Section: Benefits */}
-    <Benefits />
+    <Benefits
+      title={BENEFITS.title}
+      description={BENEFITS.description}
+      sections={BENEFITS.sections}
+    />
     {/* Section: Related Content */}
     {/* <RelatedContent /> */}
     {/* Section: Get Started */}
