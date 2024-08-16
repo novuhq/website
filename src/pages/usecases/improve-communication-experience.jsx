@@ -20,12 +20,18 @@ const improveCommunicationExperiencePage = () => (
     <Hero
       title="Improve end user communication experiences"
       description="Increase engagement with optimized notification experiences tailored to user interactions and preferences."
-      link={{
-        text: 'Book Meeting',
-        url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-improveComms',
-        target: '_blank',
-      }}
-      code="npx novu@latest dev"
+      links={[
+        {
+          text: 'Create free account',
+          url: 'https://dashboard.novu.co/?utm_campaign=website-usecase-improveComms',
+          target: '_blank',
+        },
+        {
+          text: 'Book Meeting',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-improveComms',
+          target: '_blank',
+        },
+      ]}
     />
     {/* Section: Supporting features */}
     <Features />

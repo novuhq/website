@@ -20,12 +20,18 @@ const contentManagementPage = () => (
     <Hero
       title="Eliminate the content dance between development and product teams"
       description="Developers now empower product teams to safely interact with all of your notifications content, no interrupts needed."
-      link={{
-        text: 'Book Meeting',
-        url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-contentManagement',
-        target: '_blank',
-      }}
-      code="npx novu@latest dev"
+      links={[
+        {
+          text: 'Create free account',
+          url: 'https://dashboard.novu.co/?utm_campaign=website-usecase-contentManagement',
+          target: '_blank',
+        },
+        {
+          text: 'Book Meeting',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-contentManagement',
+          target: '_blank',
+        },
+      ]}
     />
     {/* Section: Supporting features */}
     <Features />

@@ -20,12 +20,18 @@ const addNotificationsPage = () => (
     <Hero
       title="Test in minutes, go to prod before dinner"
       description="Ship notifications in your app with production-ready infrastructure and out-of-the-box components."
-      link={{
-        text: 'Book Meeting',
-        url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-addNotification',
-        target: '_blank',
-      }}
-      code="npx novu@latest dev"
+      links={[
+        {
+          text: 'Create free account',
+          url: 'https://dashboard.novu.co/?utm_campaign=website-usecase-addNotification',
+          target: '_blank',
+        },
+        {
+          text: 'Book Meeting',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-addNotification',
+          target: '_blank',
+        },
+      ]}
     />
     {/* Section: Supporting features */}
     <Features />

@@ -20,12 +20,18 @@ const unifiedPlatformPage = () => (
     <Hero
       title="Unified product notification platform for development and product teams"
       description="One platform for all of your notification needs, streamlining how your teams work together, and your users experience notifications."
-      link={{
-        text: 'Book Meeting',
-        url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-unifiedPlatform',
-        target: '_blank',
-      }}
-      code="npx novu@latest dev"
+      links={[
+        {
+          text: 'Create free account',
+          url: 'https://dashboard.novu.co/?utm_campaign=website-usecase-unifiedPlatform',
+          target: '_blank',
+        },
+        {
+          text: 'Book Meeting',
+          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-unifiedPlatform',
+          target: '_blank',
+        },
+      ]}
     />
     {/* Section: Supporting features */}
     <Features />
