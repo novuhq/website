@@ -6,10 +6,10 @@ import Button from 'components/shared/button';
 import LINKS from 'constants/links';
 import buttonClick from 'utils/use-landing-simple-tracking';
 
-const TITLE = 'The JavaScript-native Notification Framework for Developers';
+const TITLE = 'Robust and flexible notification building blocks';
 
 const DESCRIPTION =
-  'Fully extensible open source notifications infrastructure framework for Next.js and more that empowers developers to provide an easy-to-use notifications platform to product teams.';
+  'Open source JavaScript-native notifications framework for developers that makes it easy to build powerful notifications capabilities for your product teams.';
 
 const Hero = () => (
   <section className="hero pt-[339px] pb-[180px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
