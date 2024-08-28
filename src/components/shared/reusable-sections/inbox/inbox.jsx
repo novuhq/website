@@ -89,7 +89,7 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
   const [activeTab, setActiveTab] = useState(DEFAULT_TAB);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
   const [isActiveMessage, setIsActiveMessage] = useState(null);
-  const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+  const [isLoadingMessages, setIsLoadingMessages] = useState(true);
   const tabRefs = useRef([]);
 
   const isUnreadMessages = messageList.some((message) => !message.isRead);
