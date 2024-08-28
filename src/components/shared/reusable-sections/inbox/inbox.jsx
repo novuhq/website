@@ -81,7 +81,7 @@ const DEFAULT_TAB = 'All';
 
 const Inbox = ({ theme, title, description, button, categories, messages }) => {
   const [messageList, setMessageList] = useState(
-    messages.map((message) => ({ ...message, id: crypto.randomUUID() }))
+    messages.map((message, index) => ({ ...message, id: index }))
   );
   const [activeTab, setActiveTab] = useState(DEFAULT_TAB);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
@@ -270,7 +270,7 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
                                 <p
                                   className={clsx(
                                     'col-start-2 row-start-2 text-[13px] opacity-50 transition-all duration-200',
-                                    !isActiveMessage && 'leading-none truncate'
+                                    isActiveMessage !== id && 'leading-none truncate'
                                   )}
                                 >
                                   {text}
