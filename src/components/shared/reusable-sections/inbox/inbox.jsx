@@ -60,7 +60,9 @@ const themes = {
     tabs: {
       border: 'bg-[linear-gradient(90deg,#576282_0%,#7681A3_28%,#394056_66%,#232A43_100%)]',
       borderActive: 'bg-[#CCD9FF]',
-      badge: 'text-black bg-[linear-gradient(180deg,#FFDF66_0%,#FFB433_100%)] border-white/50',
+      badge:
+        'text-black bg-[linear-gradient(180deg,#FFFFFF80,#FFFFFF00),linear-gradient(180deg,#FFDF66_0%,#FFB433_100%)]',
+      badgeInner: 'bg-[linear-gradient(180deg,#FFDF66_0%,#FFB433_100%)]',
     },
     message: {
       avatar: 'text-[#5C71BF] bg-[#35416C]',
@@ -78,6 +80,7 @@ const themes = {
 };
 
 const DEFAULT_TAB = 'All';
+const LOADING_MESSAGES_DURATION = 200;
 
 const Inbox = ({ theme, title, description, button, categories, messages }) => {
   const [messageList, setMessageList] = useState(
@@ -86,6 +89,7 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
   const [activeTab, setActiveTab] = useState(DEFAULT_TAB);
   const [indicator, setIndicator] = useState({ left: 0, width: 0 });
   const [isActiveMessage, setIsActiveMessage] = useState(null);
+  const [isLoadingMessages, setIsLoadingMessages] = useState(false);
   const tabRefs = useRef([]);
 
   const isUnreadMessages = messageList.some((message) => !message.isRead);
@@ -101,20 +105,36 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
     return [{ label: 'All', count: allCount }, ...categoryTabs];
   }, [categories, messageList]);
 
-  const filteredMessageList =
-    activeTab !== DEFAULT_TAB
-      ? messageList.filter((message) => message.category.toLowerCase() === activeTab.toLowerCase())
-      : messageList;
+  const filteredMessageList = useMemo(
+    () =>
+      activeTab !== DEFAULT_TAB
+        ? messageList.filter(
+            (message) => message.category.toLowerCase() === activeTab.toLowerCase()
+          )
+        : messageList,
+    [activeTab, messageList]
+  );
 
-  const handleActiveMessage = (id) =>
-    setIsActiveMessage((currentId) => (currentId === id ? null : id));
-
-  const readMessage = (currentId) => {
-    setMessageList(messageList.map((m) => (m.id === currentId ? { ...m, isRead: true } : m)));
+  const readMessage = (currentId, newState = false) => {
+    setMessageList(
+      messageList.map((m) => (m.id === currentId ? { ...m, isRead: newState || !m.isRead } : m))
+    );
   };
 
   const deleteMessage = (currentId) => {
     setMessageList(messageList.filter((m) => m.id !== currentId));
+  };
+
+  const handleActiveMessage = (id) => {
+    setIsActiveMessage((currentId) => (currentId === id ? null : id));
+    readMessage(id, true);
+  };
+
+  const handleListVisibility = () => {
+    setIsLoadingMessages(true);
+    setTimeout(() => {
+      setIsLoadingMessages(false);
+    }, LOADING_MESSAGES_DURATION);
   };
 
   useEffect(() => {
@@ -126,6 +146,10 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
       });
     }
   }, [activeTab, tabsList]);
+
+  useEffect(() => {
+    handleListVisibility();
+  }, [activeTab]);
 
   const { text, background, mainBlock, innerBlock, header, tabs, message, noMessages } =
     themes[theme];
@@ -143,11 +167,11 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
             <div
               className={clsx(
                 mainBlock.background,
-                'relative z-10 w-full h-full rounded-[20px] py-[22px] px-5 overflow-hidden sm:p-4'
+                'relative z-10 w-full h-full rounded-[20px] pt-[11px] pb-[22px] px-5 overflow-hidden sm:p-4'
               )}
             >
               <div className="relative z-30">
-                <header className="flex items-center -mt-[11px] pb-2.5">
+                <header className="flex items-center pb-2.5">
                   <NovuIcon
                     className="shrink-0 size-[18px] mr-2.5"
                     style={{ '--icon-color': header.logo }}
@@ -208,10 +232,14 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
                                 <span
                                   className={clsx(
                                     tabs.badge,
-                                    'py-px px-[5px] font-normal text-xs leading-none rounded-3xl border '
+                                    'flex p-px font-normal text-xs leading-none rounded-3xl'
                                   )}
                                 >
-                                  {count}
+                                  <span
+                                    className={clsx(tabs.badgeInner, 'py-px px-[5px] rounded-3xl')}
+                                  >
+                                    {count}
+                                  </span>
                                 </span>
                               )}
                             </button>
@@ -238,116 +266,130 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
                         style={{ left: `${indicator.left}px`, width: `${indicator.width}px` }}
                       />
                     </div>
-                    <div className="scrollbar-hidden relative z-20 h-[478px] pb-4 overflow-y-auto">
-                      {filteredMessageList.length === 0 ? (
-                        <div className="flex flex-col items-center h-full pt-40">
-                          <EmptyInboxIcon
-                            className="size-[26px]"
-                            style={{ '--icon-color': noMessages.icon }}
-                          />
-                          <p className={clsx(noMessages.text, 'mt-4 text-center')}>
-                            No messages found
-                          </p>
-                        </div>
-                      ) : (
-                        <ul>
-                          {filteredMessageList.map(({ id, title, text, date, isRead }) => (
-                            <li
-                              className={clsx(message.background, 'group relative px-6 font-light')}
-                              key={id}
-                            >
-                              <div
+                    <div
+                      className={clsx(
+                        'scrollbar-hidden relative z-20 h-[478px] pb-4 overflow-y-auto opacity-1 transition-[opacity] duration-200',
+                        isLoadingMessages && '!opacity-0'
+                      )}
+                    >
+                      {!isLoadingMessages &&
+                        (filteredMessageList.length === 0 ? (
+                          <div className="flex flex-col items-center h-full pt-[164px]">
+                            <EmptyInboxIcon
+                              className="size-[34px]"
+                              style={{ '--icon-color': noMessages.icon }}
+                            />
+                            <p className={clsx(noMessages.text, 'mt-2 text-center')}>
+                              No messages yet
+                            </p>
+                          </div>
+                        ) : (
+                          <ul>
+                            {filteredMessageList.map(({ id, title, text, date, isRead }) => (
+                              <li
                                 className={clsx(
-                                  message.border,
-                                  'relative grid grid-cols-[32px_1fr_72px] gap-x-2.5 gap-y-2 pl-4 pt-4 pb-3.5 border-b'
+                                  message.background,
+                                  'group relative px-6 font-light'
                                 )}
+                                key={id}
                               >
-                                <h4 className="col-start-2 row-start-1 text-sm leading-none">
-                                  <button
-                                    className="after:absolute after:inset-0 after:z-10 outline-none"
-                                    type="button"
-                                    onClick={() => handleActiveMessage(id)}
-                                  >
-                                    {title}
-                                  </button>
-                                </h4>
-                                <p
-                                  className={clsx(
-                                    'col-start-2 row-start-2 text-[13px] opacity-50 transition-all duration-200',
-                                    isActiveMessage !== id && 'leading-none truncate'
-                                  )}
-                                >
-                                  {text}
-                                </p>
                                 <div
                                   className={clsx(
-                                    'relative z-10 col-start-2 row-start-3 items-center gap-3 transition-all duration-200',
-                                    isActiveMessage === id ? 'flex' : 'hidden'
+                                    message.border,
+                                    'relative grid grid-cols-[32px_1fr_72px] gap-x-2.5 gap-y-2 pl-4 pt-4 pb-3.5 border-b'
                                   )}
                                 >
-                                  <Button
-                                    className="rounded-[20px]"
-                                    size="xxs"
-                                    theme="blue-gradient-white-outline"
-                                  >
-                                    Main Button
-                                  </Button>
-                                  <Button
-                                    className="rounded-[20px]"
-                                    size="xxs"
-                                    theme="blue-outline"
-                                  >
-                                    Secondary Btn
-                                  </Button>
-                                </div>
-                                <span className="col-start-3 row-start-1 text-xs leading-none opacity-60 translate-x-1 translate-y-1 transition-all duration-200 group-hover:opacity-0 group-focus-within:opacity-0">
-                                  {date}
-                                </span>
-                                <span
-                                  className={clsx(
-                                    message.avatar,
-                                    'row-span-2 flex items-center justify-center size-8 rounded-full'
-                                  )}
-                                >
-                                  <UserPlaceholder className="size-4" />
-                                </span>
-                                <div className="absolute top-3.5 -right-1 z-10 hidden transition-all duration-200 group-hover:block group-focus-within:block">
-                                  <button
+                                  <h4 className="col-start-2 row-start-1 text-sm leading-none">
+                                    <button
+                                      className="after:absolute after:inset-0 after:z-10 outline-none"
+                                      type="button"
+                                      onClick={() => handleActiveMessage(id)}
+                                    >
+                                      {title}
+                                    </button>
+                                  </h4>
+                                  <p
                                     className={clsx(
-                                      message.action,
-                                      'outline-none transition-all duration-200'
+                                      'col-start-2 row-start-2 text-[13px] opacity-50 transition-all duration-200',
+                                      isActiveMessage !== id && 'leading-none truncate'
                                     )}
-                                    type="button"
-                                    aria-label="Mark as read"
-                                    onClick={() => readMessage(id)}
                                   >
-                                    <ReadIcon className="size-5" />
-                                  </button>
-                                  <button
+                                    {text}
+                                  </p>
+                                  <div
                                     className={clsx(
-                                      message.action,
-                                      'outline-none transition-all duration-200'
+                                      'relative z-10 col-start-2 row-start-3 items-center gap-3 transition-all duration-200',
+                                      isActiveMessage === id ? 'flex' : 'hidden'
                                     )}
-                                    type="button"
-                                    aria-label="Archive"
-                                    onClick={() => deleteMessage(id)}
                                   >
-                                    <ArchiveIcon className="size-5" />
-                                  </button>
-                                </div>
-                                {!isRead && (
+                                    <Button
+                                      className="rounded-[20px] before:rounded-[20px]"
+                                      size="xxs"
+                                      theme="blue-gradient-white-outline"
+                                    >
+                                      <span className="relative">Main Button</span>
+                                    </Button>
+                                    <Button
+                                      className="rounded-[20px]"
+                                      size="xxs"
+                                      theme="blue-outline"
+                                    >
+                                      Secondary Btn
+                                    </Button>
+                                  </div>
+                                  <span className="col-start-3 row-start-1 text-xs leading-none opacity-60 translate-x-1 translate-y-1 group-hover:opacity-0 group-focus-within:opacity-0">
+                                    {date}
+                                  </span>
                                   <span
                                     className={clsx(
-                                      message.dot,
-                                      'absolute top-4 -left-0.5 block size-1.5 rounded-full'
+                                      message.avatar,
+                                      'row-span-2 flex items-center justify-center size-8 rounded-full'
                                     )}
-                                  />
-                                )}
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                                  >
+                                    <UserPlaceholder className="size-4" />
+                                  </span>
+                                  <div
+                                    className={clsx(
+                                      'absolute top-3.5 -right-1 z-10 hidden group-hover:block group-focus-within:block',
+                                      isActiveMessage && '!block'
+                                    )}
+                                  >
+                                    <button
+                                      className={clsx(
+                                        message.action,
+                                        'outline-none transition-all duration-200'
+                                      )}
+                                      type="button"
+                                      aria-label="Mark as read"
+                                      onClick={() => readMessage(id)}
+                                    >
+                                      <ReadIcon className="size-5" />
+                                    </button>
+                                    <button
+                                      className={clsx(
+                                        message.action,
+                                        'outline-none transition-all duration-200'
+                                      )}
+                                      type="button"
+                                      aria-label="Archive"
+                                      onClick={() => deleteMessage(id)}
+                                    >
+                                      <ArchiveIcon className="size-5" />
+                                    </button>
+                                  </div>
+                                  {!isRead && (
+                                    <span
+                                      className={clsx(
+                                        message.dot,
+                                        'absolute top-4 -left-0.5 block size-1.5 rounded-full'
+                                      )}
+                                    />
+                                  )}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        ))}
                     </div>
                     <div className={clsx(innerBlock.background, 'absolute inset-0 blur-2xl')} />
                     <div

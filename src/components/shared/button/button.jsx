@@ -27,7 +27,7 @@ const styles = {
     'pink-to-red-gradient': 'text-white bg-pink-red-gradient',
     yellow: 'bg-yellow text-black hover:bg-white',
     'blue-gradient-white-outline':
-      'bg-transparent text-black bg-white bg-[linear-gradient(180deg,#D6DCF5_0%,#B6C0ED_100%)] border border-[#F3F5FC] transition-[color,background-image] hover:bg-none focus-visible:bg-none',
+      'relative text-black bg-white border border-[#F3F5FC] before:absolute before:-inset-px before:bg-[linear-gradient(180deg,#D6DCF5_0%,#B6C0ED_100%)] before:transition-all before:duration-200 hover:before:opacity-0 focus-visible:before:opacity-0',
     'blue-outline':
       'text-[#BBC5EE]/90 border border-current transition-[color,border-color] hover:text-white focus-visible:text-white',
   },
