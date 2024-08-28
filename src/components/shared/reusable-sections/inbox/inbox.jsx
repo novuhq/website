@@ -113,6 +113,10 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
     setMessageList(messageList.map((m) => (m.id === currentId ? { ...m, isRead: true } : m)));
   };
 
+  const deleteMessage = (currentId) => {
+    setMessageList(messageList.filter((m) => m.id !== currentId));
+  };
+
   useEffect(() => {
     const activeTabIndex = tabsList.findIndex((tab) => tab.label === activeTab);
     if (tabRefs.current[activeTabIndex]) {
@@ -326,6 +330,7 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
                                     )}
                                     type="button"
                                     aria-label="Archive"
+                                    onClick={() => deleteMessage(id)}
                                   >
                                     <ArchiveIcon className="size-5" />
                                   </button>
