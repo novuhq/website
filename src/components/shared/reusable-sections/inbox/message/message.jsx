@@ -118,7 +118,12 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
               </button>
             </div>
           </div>
-          <div className="relative z-10 flex items-end gap-3 ml-[58px] overflow-hidden">
+          <div
+            className={clsx(
+              'relative z-10 flex items-end gap-3 ml-[58px] overflow-hidden',
+              isActiveMessage === id ? 'block' : 'hidden'
+            )}
+          >
             <Button
               className="rounded-[20px] before:rounded-[20px]"
               size="xxs"
