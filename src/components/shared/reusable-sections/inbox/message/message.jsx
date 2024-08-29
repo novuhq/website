@@ -49,7 +49,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
   };
 
   return (
-    <li className={clsx(currentTheme.background, 'group relative px-6 font-light')}>
+    <div className={clsx(currentTheme.background, 'group relative px-6 font-light')}>
       <LazyMotion features={domAnimation}>
         <m.div
           className={clsx(
@@ -146,7 +146,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           )}
         </m.div>
       </LazyMotion>
-    </li>
+    </div>
   );
 };
 

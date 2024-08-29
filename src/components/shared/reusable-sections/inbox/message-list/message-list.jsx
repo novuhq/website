@@ -10,6 +10,18 @@ import EmptyInboxIcon from './images/empty-inbox.inline.svg';
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
 
+const deleteVariants = {
+  animate: {
+    height: 'auto',
+    opacity: 1,
+    transition: { duration: ANIMATION_DURATION, ease: MOTION_EASY },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+  },
+};
+
 const THEMES = {
   dark: {
     text: 'text-[#83889B]',
@@ -59,15 +71,25 @@ const MessageList = ({ theme, activeTab, defaultTab, messages, setMessages }) =>
             </div>
           ) : (
             <ul>
-              {filteredMessageList.map((message) => (
-                <Message
-                  theme={theme}
-                  message={message}
-                  key={message.id}
-                  readMessage={readMessage}
-                  deleteMessage={deleteMessage}
-                />
-              ))}
+              <AnimatePresence>
+                {filteredMessageList.map((message) => (
+                  <m.li
+                    key={message.id}
+                    variants={deleteVariants}
+                    initial="from"
+                    animate="to"
+                    exit="exit"
+                    layout
+                  >
+                    <Message
+                      theme={theme}
+                      message={message}
+                      readMessage={readMessage}
+                      deleteMessage={deleteMessage}
+                    />
+                  </m.li>
+                ))}
+              </AnimatePresence>
             </ul>
           )}
         </m.div>
