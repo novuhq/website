@@ -17,7 +17,7 @@ const messageVariants = {
     gridTemplateRows: '1fr 0px',
   },
   to: {
-    gridTemplateRows: '1fr 36px',
+    gridTemplateRows: '1fr 54px',
     transition: { duration: ANIMATION_DURATION, ease: MOTION_EASY },
   },
   exit: {
@@ -54,7 +54,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
         <m.div
           className={clsx(
             currentTheme.border,
-            'relative grid grid-cols-1 pb-3.5 border-b overflow-hidden'
+            'relative grid grid-cols-1 border-b overflow-hidden'
           )}
           initial="from"
           variants={messageVariants}
@@ -72,7 +72,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </h4>
             <p
               className={clsx(
-                'col-start-2 row-start-2 pt-1 pb-2 text-[13px] opacity-50',
+                'col-start-2 row-start-2 pt-1.5 pb-2.5 text-[13px] opacity-50',
                 isActiveMessage !== id && 'truncate'
               )}
             >
@@ -120,7 +120,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           </div>
           <div
             className={clsx(
-              'relative z-10 flex items-end gap-3 ml-[58px] overflow-hidden',
+              'relative z-10 flex items-end gap-3 ml-[58px] pt-1.5 pb-4 overflow-hidden',
               isActiveMessage === id ? 'block' : 'hidden'
             )}
           >
