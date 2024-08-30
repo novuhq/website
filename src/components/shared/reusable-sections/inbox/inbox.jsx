@@ -31,7 +31,7 @@ const DEFAULT_TAB = 'All';
 
 const Inbox = ({ theme, title, description, button, categories, messages }) => {
   const [messageList, setMessageList] = useState(
-    messages.map((message, index) => ({ ...message, id: index }))
+    messages.map((message, index) => ({ ...message, index }))
   );
   const [activeTab, setActiveTab] = useState(DEFAULT_TAB);
 

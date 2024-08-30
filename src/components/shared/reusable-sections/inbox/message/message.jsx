@@ -32,7 +32,7 @@ const THEMES = {
     dot: 'bg-[#4B73EC]',
     border: 'border-white/5',
     background:
-      'hover:bg-[linear-gradient(90deg,rgba(75,115,236,0.10)_0%,rgba(0,35,140,0.10)_100%)] focus-within:bg-[linear-gradient(90deg,rgba(75,115,236,0.10)_0%,rgba(0,35,140,0.10)_100%)]',
+      'hover:bg-[linear-gradient(90deg,rgba(75,115,236,0.10)_0%,rgba(0,35,140,0.10)_100%)] has-[:focus-visible]:bg-[linear-gradient(90deg,rgba(75,115,236,0.10)_0%,rgba(0,35,140,0.10)_100%)]',
     action: 'text-[#797F93] hover:text-[#CCD9FF] focus-visible:text-[#CCD9FF]',
   },
 };
@@ -60,7 +60,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           variants={messageVariants}
           animate={isActiveMessage === id ? 'to' : 'exit'}
         >
-          <div className="relative grid grid-cols-[32px_1fr_72px] gap-x-2.5 pl-4 pt-4">
+          <div className="grid grid-cols-[32px_1fr_72px] gap-x-2.5 pl-4 pt-4">
             <h4 className="col-start-2 row-start-1 text-sm leading-none">
               <button
                 className="after:absolute after:inset-0 after:z-10 outline-none"
@@ -120,7 +120,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           </div>
           <div
             className={clsx(
-              'relative z-10 flex items-end gap-3 ml-[58px] pt-1.5 pb-4 overflow-hidden',
+              'relative z-10 flex items-end gap-3 w-max ml-[58px] pt-1.5 pb-4 overflow-hidden',
               isActiveMessage === id ? 'block' : 'hidden'
             )}
           >
@@ -153,7 +153,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
 Message.propTypes = {
   theme: PropTypes.oneOf(Object.keys(THEMES)).isRequired,
   message: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    index: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,

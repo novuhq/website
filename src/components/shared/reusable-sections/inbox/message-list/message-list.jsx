@@ -42,12 +42,14 @@ const MessageList = ({ theme, activeTab, defaultTab, messages, setMessages }) =>
 
   const readMessage = (currentId, newState = false) => {
     setMessages(
-      messages.map((m) => (m.id === currentId ? { ...m, isRead: newState || !m.isRead } : m))
+      messages.map((message) =>
+        message.index === currentId ? { ...message, isRead: newState || !message.isRead } : message
+      )
     );
   };
 
   const deleteMessage = (currentId) => {
-    setMessages(messages.filter((m) => m.id !== currentId));
+    setMessages(messages.filter((message) => message.id !== currentId));
   };
 
   return (
@@ -74,7 +76,7 @@ const MessageList = ({ theme, activeTab, defaultTab, messages, setMessages }) =>
               <AnimatePresence>
                 {filteredMessageList.map((message) => (
                   <m.li
-                    key={message.id}
+                    key={message.index}
                     variants={deleteVariants}
                     initial="from"
                     animate="to"
@@ -104,6 +106,7 @@ MessageList.propTypes = {
   defaultTab: PropTypes.string.isRequired,
   messages: PropTypes.arrayOf(
     PropTypes.shape({
+      index: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,

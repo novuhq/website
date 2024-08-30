@@ -38,8 +38,8 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
         {tabs.map(({ label, count }, index) => (
           <li className="h-full" key={label}>
             <button
-              ref={(el) => {
-                tabRefs.current[index] = el;
+              ref={(element) => {
+                tabRefs.current[index] = element;
               }}
               className="flex justify-center items-center gap-1 min-w-[100px] h-full px-4 font-light text-sm capitalize"
               type="button"
