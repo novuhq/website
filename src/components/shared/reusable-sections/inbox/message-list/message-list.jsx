@@ -49,7 +49,7 @@ const MessageList = ({ theme, activeTab, defaultTab, messages, setMessages }) =>
   };
 
   const deleteMessage = (currentId) => {
-    setMessages(messages.filter((message) => message.id !== currentId));
+    setMessages(messages.filter((message) => message.index !== currentId));
   };
 
   return (

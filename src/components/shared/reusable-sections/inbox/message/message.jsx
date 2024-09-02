@@ -40,12 +40,12 @@ const THEMES = {
 const Message = ({ theme, message, readMessage, deleteMessage }) => {
   const [isActiveMessage, setIsActiveMessage] = useState(null);
 
-  const { id, title, text, date, isRead } = message;
+  const { index, title, text, date, isRead } = message;
   const currentTheme = THEMES[theme];
 
-  const handleActiveMessage = (id) => {
-    setIsActiveMessage((currentId) => (currentId === id ? null : id));
-    readMessage(id, true);
+  const handleActiveMessage = (index) => {
+    setIsActiveMessage((currentIndex) => (currentIndex === index ? null : index));
+    readMessage(index, true);
   };
 
   return (
@@ -58,14 +58,14 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           )}
           initial="from"
           variants={messageVariants}
-          animate={isActiveMessage === id ? 'to' : 'exit'}
+          animate={isActiveMessage === index ? 'to' : 'exit'}
         >
           <div className="grid grid-cols-[32px_1fr_72px] gap-x-2.5 pl-4 pt-4">
             <h4 className="col-start-2 row-start-1 text-sm leading-none">
               <button
                 className="after:absolute after:inset-0 after:z-10 outline-none"
                 type="button"
-                onClick={() => handleActiveMessage(id)}
+                onClick={() => handleActiveMessage(index)}
               >
                 {title}
               </button>
@@ -73,7 +73,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             <p
               className={clsx(
                 'col-start-2 row-start-2 pt-1.5 pb-2.5 text-[13px] opacity-50',
-                isActiveMessage !== id && 'truncate'
+                isActiveMessage !== index && 'truncate'
               )}
             >
               {text}
@@ -81,7 +81,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             <span
               className={clsx(
                 'col-start-3 row-start-1 text-xs leading-none opacity-60 translate-x-1 translate-y-1 group-hover:opacity-0',
-                isActiveMessage === id && '!opacity-0'
+                isActiveMessage === index && '!opacity-0'
               )}
             >
               {date}
@@ -97,14 +97,14 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             <div
               className={clsx(
                 'absolute top-3.5 -right-1 z-10 hidden group-hover:block',
-                isActiveMessage === id && '!block'
+                isActiveMessage === index && '!block'
               )}
             >
               <button
                 className={clsx(currentTheme.action, 'outline-none transition-all duration-200')}
                 type="button"
                 aria-label="Mark as read"
-                onClick={() => readMessage(id)}
+                onClick={() => readMessage(index)}
               >
                 <ReadIcon className="size-5" />
               </button>
@@ -112,7 +112,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
                 className={clsx(currentTheme.action, 'outline-none transition-all duration-200')}
                 type="button"
                 aria-label="Archive"
-                onClick={() => deleteMessage(id)}
+                onClick={() => deleteMessage(index)}
               >
                 <ArchiveIcon className="size-5" />
               </button>
@@ -121,7 +121,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           <div
             className={clsx(
               'relative z-10 flex items-end gap-3 w-max ml-[58px] pt-1.5 pb-4 overflow-hidden',
-              isActiveMessage === id ? 'block' : 'hidden'
+              isActiveMessage === index ? 'block' : 'hidden'
             )}
           >
             <Button
