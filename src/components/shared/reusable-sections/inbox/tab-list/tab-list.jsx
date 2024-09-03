@@ -41,7 +41,7 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
               ref={(element) => {
                 tabRefs.current[index] = element;
               }}
-              className="flex justify-center items-center gap-1 min-w-[100px] h-full px-4 font-light text-sm capitalize"
+              className="flex justify-center items-center gap-1 min-w-[100px] h-full px-4 font-light text-sm capitalize transition-[font-weight] duration-200 hover:font-normal focus-visible:font-normal"
               type="button"
               onClick={() => setActiveTab(label)}
             >
