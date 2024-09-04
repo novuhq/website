@@ -1,2 +1,8 @@
 [functions]
   node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/inbox"
+  to = "https://inbox.novu.co"
+  status = 200
+  force = true
