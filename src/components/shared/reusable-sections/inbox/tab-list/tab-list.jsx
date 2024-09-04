@@ -33,7 +33,7 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
   const currentTheme = THEMES[theme];
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 scrollbar-hidden overflow-scroll">
       <ul className="flex items-center h-9">
         {tabs.map(({ label, count }, index) => (
           <li className="h-full" key={label}>
@@ -41,7 +41,7 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
               ref={(element) => {
                 tabRefs.current[index] = element;
               }}
-              className="flex justify-center items-center gap-1 min-w-[100px] h-full px-4 font-light text-sm capitalize transition-[font-weight] duration-200 hover:font-normal focus-visible:font-normal"
+              className="flex justify-center items-center gap-1 min-w-[100px] h-full px-4 font-light text-sm capitalize text-nowrap transition-[font-weight] duration-200 hover:font-normal focus-visible:font-normal"
               type="button"
               onClick={() => setActiveTab(label)}
             >

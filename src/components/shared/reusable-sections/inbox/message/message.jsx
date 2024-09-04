@@ -61,9 +61,12 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           animate={isActiveMessage === index ? 'to' : 'exit'}
         >
           <div className="grid grid-cols-[32px_1fr_72px] gap-x-2.5 pl-4 pt-4">
-            <h4 className="col-start-2 row-start-1 text-sm leading-none">
+            <h4 className="col-start-2 row-start-1 text-sm leading-tight">
               <button
-                className="after:absolute after:inset-0 after:z-10 outline-none"
+                className={clsx(
+                  'max-w-[376px] text-start outline-none after:absolute after:inset-0 after:z-10',
+                  isActiveMessage !== index && 'truncate'
+                )}
                 type="button"
                 onClick={() => handleActiveMessage(index)}
               >
@@ -72,7 +75,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </h4>
             <p
               className={clsx(
-                'col-start-2 row-start-2 pt-1.5 pb-2.5 text-[13px] opacity-50',
+                'col-start-2 row-start-2 pt-0.5 pb-2.5 text-[13px] opacity-50',
                 isActiveMessage !== index && 'truncate'
               )}
             >
