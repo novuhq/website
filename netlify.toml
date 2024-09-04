@@ -2,7 +2,7 @@
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/inbox"
+  from = "/inbox/playground"
   to = "https://inbox.novu.co"
   status = 200
   force = true
