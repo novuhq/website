@@ -343,9 +343,10 @@ const INBOX_MESSAGES = [
   {
     category: 'system',
     title: 'New feature: conditional workflow triggers',
-    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers are thrilled to introduce advanced task dependencies and conditional workflow triggers are thrilled to introduce advanced task dependencies and conditional workflow triggers are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: [],
   },
   {
     category: 'system',
@@ -353,6 +354,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'system',
@@ -360,6 +362,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'system',
@@ -367,6 +370,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'system',
@@ -374,6 +378,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'system',
@@ -381,6 +386,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'system',
@@ -388,6 +394,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -395,6 +402,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -402,6 +410,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -409,6 +418,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -416,6 +426,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -423,6 +434,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -430,6 +442,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -437,6 +450,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -444,6 +458,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -451,6 +466,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -458,6 +474,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -465,6 +482,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -472,6 +490,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -479,6 +498,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -486,6 +506,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -493,6 +514,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: false,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -500,6 +522,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -507,6 +530,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
   {
     category: 'social',
@@ -514,6 +538,7 @@ const INBOX_MESSAGES = [
     text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
     date: 'Sep 23, 2024',
     isRead: true,
+    buttons: ['Main button', 'Secondary button'],
   },
 ];
 

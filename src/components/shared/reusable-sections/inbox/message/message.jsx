@@ -14,14 +14,15 @@ const MOTION_EASY = [0.25, 0.1, 0.25, 1];
 
 const messageVariants = {
   from: {
-    gridTemplateRows: '1fr 0px',
+    height: '66px',
+    transition: { delay: ANIMATION_DURATION },
   },
   to: {
-    gridTemplateRows: '1fr 54px',
+    height: 'auto',
     transition: { duration: ANIMATION_DURATION, ease: MOTION_EASY },
   },
   exit: {
-    gridTemplateRows: '1fr 0px',
+    height: '66px',
     transition: { duration: ANIMATION_DURATION, ease: MOTION_EASY },
   },
 };
@@ -75,11 +76,21 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </h4>
             <p
               className={clsx(
-                'col-start-2 row-start-2 pt-0.5 pb-2.5 text-[13px] opacity-50',
-                isActiveMessage !== index && 'truncate'
+                'relative col-start-2 row-start-2 pt-0.5 pb-2.5 text-[13px] opacity-50'
               )}
             >
-              {text}
+              <span className={clsx('block pt-px', isActiveMessage !== index && 'invisible')}>
+                {text}
+              </span>
+              <span
+                className={clsx(
+                  'absolute top-[3px] block max-w-[min(100%,376px)] truncate',
+                  isActiveMessage === index && 'hidden'
+                )}
+                aria-hidden
+              >
+                {text}
+              </span>
             </p>
             <span
               className={clsx(
@@ -121,24 +132,28 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
               </button>
             </div>
           </div>
-          <div
-            className={clsx(
-              'relative z-10 flex items-end gap-3 w-max ml-[58px] pt-1.5 pb-4 overflow-hidden',
-              isActiveMessage === index ? 'block' : 'hidden'
-            )}
-          >
-            <Button
-              className="rounded-[20px] before:rounded-[20px]"
-              size="xxs"
-              theme="blue-gradient-white-outline"
-              type="button"
-            >
-              <span className="relative">Main Button</span>
-            </Button>
-            <Button className="rounded-[20px]" size="xxs" theme="blue-outline" type="button">
-              Secondary Btn
-            </Button>
-          </div>
+          {message.buttons.length > 0 && (
+            <div className="relative z-10 flex items-end gap-3 w-max ml-[58px] pt-1.5 pb-4 overflow-hidden">
+              <Button
+                className="rounded-[20px] before:rounded-[20px]"
+                size="xxs"
+                theme="blue-gradient-white-outline"
+                type="button"
+                tabIndex={isActiveMessage === index ? 0 : -1}
+              >
+                <span className="relative">{message.buttons[0]}</span>
+              </Button>
+              <Button
+                className="rounded-[20px]"
+                size="xxs"
+                theme="blue-outline"
+                type="button"
+                tabIndex={isActiveMessage === index ? 0 : -1}
+              >
+                {message.buttons[1]}
+              </Button>
+            </div>
+          )}
           {!isRead && (
             <span
               className={clsx(
@@ -161,6 +176,7 @@ Message.propTypes = {
     text: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     isRead: PropTypes.bool.isRequired,
+    buttons: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   readMessage: PropTypes.func.isRequired,
   deleteMessage: PropTypes.func.isRequired,

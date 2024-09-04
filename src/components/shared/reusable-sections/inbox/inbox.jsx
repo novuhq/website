@@ -127,6 +127,7 @@ Inbox.propTypes = {
       text: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       isRead: PropTypes.bool.isRequired,
+      buttons: PropTypes.arrayOf(PropTypes.string),
     })
   ).isRequired,
 };
