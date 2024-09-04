@@ -3,18 +3,13 @@
 
 [[redirects]]
   from = "/inbox/playground"
-  to = "https://inbox.novu.co/inbox/playground"
+  to = "https://inbox.novu.co/"
   status = 200
   force = true
 
 [[redirects]]
   from = "/inbox/playground/*"
-  to = "https://inbox.novu.co/inbox/playground/:splat"
+  to = "https://inbox.novu.co/:splat"
   status = 200
   force = true
 
-[[redirects]]
-  from = "/api/trigger"
-  to = "https://inbox.novu.co/api/trigger"
-  status = 200
-  force = true
