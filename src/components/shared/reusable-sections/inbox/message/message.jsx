@@ -133,7 +133,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </div>
           </div>
           {message.buttons.length > 0 && (
-            <div className="relative z-10 flex items-end gap-3 w-max ml-[58px] pt-1.5 pb-4 overflow-hidden">
+            <div className="relative z-10 flex gap-3 w-max ml-[58px] pt-1.5 pb-4">
               <Button
                 className="rounded-[20px] before:rounded-[20px]"
                 size="xxs"
