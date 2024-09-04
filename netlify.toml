@@ -1,2 +1,20 @@
 [functions]
   node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/inbox/playground"
+  to = "https://inbox.novu.co/inbox/playground"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/inbox/playground/*"
+  to = "https://inbox.novu.co/inbox/playground/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/trigger"
+  to = "https://inbox.novu.co/inbox/playground/api/trigger"
+  status = 200
+  force = true
