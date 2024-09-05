@@ -136,7 +136,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             <div className="relative z-10 flex gap-3 w-max ml-[58px] pt-1.5 pb-4">
               {message.buttons[0] && (
                 <Button
-                  className="rounded-[20px] before:rounded-[20px]"
+                  className="min-w-28 rounded-[20px] before:rounded-[20px]"
                   size="xxs"
                   theme="blue-gradient-white-outline"
                   type="button"
@@ -147,7 +147,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
               )}
               {message.buttons[1] && (
                 <Button
-                  className="rounded-[20px]"
+                  className="min-w-28 rounded-[20px]"
                   size="xxs"
                   theme="blue-outline"
                   type="button"
