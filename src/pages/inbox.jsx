@@ -18,7 +18,6 @@ import integrationIcon from 'images/icons/integration.svg';
 import migrationIcon from 'images/icons/migration.svg';
 import angularIcon from 'images/reusable-sections/section-with-logos/angular.svg';
 import reactLogo from 'images/reusable-sections/section-with-logos/react-icon.svg';
-import vueJSIcon from 'images/reusable-sections/section-with-logos/vuejs.svg';
 
 const INBOX_CATEGORIES = ["What's New", 'Alerts', 'Account'];
 
@@ -189,13 +188,13 @@ const SECTION_WITH_SMALL_ICONS = [
   {
     title: 'Multiple, flexible components',
     description:
-      'Inbox, Bell, Notification, and Preferences provide the ultimate customer-facing notifications experience.',
+      'Inbox, Bell, Notification, and rich user Preferences provide the ultimate customer-facing notifications experience.',
     image: editIcon,
   },
   {
     title: 'Supports popular frameworks',
     description:
-      "React, Vue, vanilla JavaScript, headless, and more. Access Novu's powerful capabilities regardless of which you select",
+      "React, React-native, Vue, vanilla JavaScript, headless, and more. Access Novu's powerful capabilities regardless of framework.",
     image: cloudDataIcon,
   },
   {
@@ -211,8 +210,7 @@ const SECTION_WITH_SMALL_ICONS = [
   },
   {
     title: 'HMAC encryption',
-    description:
-      'Component to Novu service communication and user identifiers are fully secured, and protected from impersonators.',
+    description: 'Component to Novu service communication and user identifiers are fully secured.',
     image: debugIcon,
   },
   {
@@ -257,7 +255,7 @@ const GET_INVOLVED = [
     linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=inbox-fp',
   },
   {
-    icon: vueJSIcon,
+    icon: reactLogo,
     title: 'React Native',
     description: 'React Native Inbox components',
     linkText: 'Week of 9 September',
@@ -281,7 +279,7 @@ const tabs = [
   },
   {
     title: "System",
-    value: ["system],
+    value: ["system"],
   },
 ];
 
@@ -300,11 +298,11 @@ function Novu() {
 const InboxPage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <Inbox
-      title="The most powerful, and customizable notification inbox"
+      title="Add notifications to your application or website"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
-        label: 'LEARN MORE',
-        link: 'https://roadmap.novu.co/changelog/d7eb37e8-9237-415d-921e-495220cecf11',
+        label: 'INBOX PLAYGROUND',
+        link: '/inbox/playgound?utm_campaign=inbox-hero',
       }}
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
@@ -328,16 +326,26 @@ const InboxPage = () => (
       code={CODE_SECTION}
       title="Simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      button={{ label: 'Start customizing', link: '/inbox/playground?utm_campaign=inbox-feature' }}
+      button={{ label: 'PLAY WITH IT LIVE', link: '/inbox/playground?utm_campaign=inbox-feature' }}
     />
-    {/*
-      <SectionWithVideo
-        video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=VBHierIbPHc' }}
-        title="See the Inbox in Action"
-        //        description="words"
-        videoPosition="fullWidth"
+    <TextWithPicture
+      title="Infinitely customizable to seamlessly match your app experience"
+      description="Easily customize the Novu inbox to match your styles, design, and UX."
+      image={
+        <StaticImage
+          src="../images/reddit-inbox.png"
+          alt="Reddit Inbox example using the styled Novu Inbox"
+          loading="eager"
+          /* width={1088}
+            height={480} */
+        />
+      }
+      button={{
+        label: 'Read docs',
+        link: '/',
+      }}
+      theme="imageFullWidth"
     />
-    */}
     <CtaWithForm
       className="mb-30"
       title="It's time to add in-app notifications"
