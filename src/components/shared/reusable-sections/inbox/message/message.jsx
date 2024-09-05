@@ -134,24 +134,28 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
           </div>
           {message.buttons.length > 0 && (
             <div className="relative z-10 flex gap-3 w-max ml-[58px] pt-1.5 pb-4">
-              <Button
-                className="rounded-[20px] before:rounded-[20px]"
-                size="xxs"
-                theme="blue-gradient-white-outline"
-                type="button"
-                tabIndex={isActiveMessage === index ? 0 : -1}
-              >
-                <span className="relative">{message.buttons[0]}</span>
-              </Button>
-              <Button
-                className="rounded-[20px]"
-                size="xxs"
-                theme="blue-outline"
-                type="button"
-                tabIndex={isActiveMessage === index ? 0 : -1}
-              >
-                {message.buttons[1]}
-              </Button>
+              {message.buttons[0] && (
+                <Button
+                  className="rounded-[20px] before:rounded-[20px]"
+                  size="xxs"
+                  theme="blue-gradient-white-outline"
+                  type="button"
+                  tabIndex={isActiveMessage === index ? 0 : -1}
+                >
+                  <span className="relative">{message.buttons[0]}</span>
+                </Button>
+              )}
+              {message.buttons[1] && (
+                <Button
+                  className="rounded-[20px]"
+                  size="xxs"
+                  theme="blue-outline"
+                  type="button"
+                  tabIndex={isActiveMessage === index ? 0 : -1}
+                >
+                  {message.buttons[1]}
+                </Button>
+              )}
             </div>
           )}
           {!isRead && (
