@@ -258,10 +258,10 @@ const GET_INVOLVED = [
   },
   {
     icon: vueJSIcon,
-    title: 'Vue',
-    description: 'Vue.js Inbox components',
-    linkText: 'Coming Soon',
-    linkUrl: '/inbox?utm_campaign=inbox-vue',
+    title: 'React Native',
+    description: 'React Native Inbox components',
+    linkText: 'Week of 9 September',
+    linkUrl: '/inbox?utm_campaign=inbox-reactnative',
   },
   {
     icon: angularIcon,
@@ -276,12 +276,12 @@ const CODE_SECTION = `import { Inbox } from "@novu/react";
 
 const tabs = [
   {
-    title: "My foo",
-    value: "foo",
+    title: "All",
+    value: ["system","account","product"],
   },
   {
-    title: "My foo and bars",
-    value: ["foo", "bar"],
+    title: "System",
+    value: ["system],
   },
 ];
 
@@ -328,7 +328,7 @@ const InboxPage = () => (
       code={CODE_SECTION}
       title="Simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      //        button={{ label: 'Read docs', link: '/' }}
+      button={{ label: 'Start customizing', link: '/inbox/playground?utm_campaign=inbox-feature' }}
     />
     {/*
       <SectionWithVideo
