@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
@@ -5,8 +6,9 @@ import CodeSection from 'components/shared/reusable-sections/code-section';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import GetInvolved from 'components/shared/reusable-sections/get-involved';
 import Inbox from 'components/shared/reusable-sections/inbox';
-// import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
+import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
+// import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 // import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 // import discordIcon from 'icons/discord.svg';
 // import githubIcon from 'icons/github.svg';
@@ -259,7 +261,7 @@ const GET_INVOLVED = [
     title: 'React Native',
     description: 'React Native Inbox components',
     linkText: 'Week of 9 September',
-    linkUrl: '/inbox?utm_campaign=inbox-reactnative',
+    linkUrl: 'https://roadmap.novu.co/roadmap/d84e52ff-4cbe-4c5e-8fab-361a11fff95e',
   },
   {
     icon: angularIcon,
@@ -301,8 +303,9 @@ const InboxPage = () => (
       title="Add notifications to your application or website"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
-        label: 'INBOX PLAYGROUND',
-        link: '/inbox/playgound?utm_campaign=inbox-hero',
+        label: 'INTERACTIVE EXAMPLE',
+        link: 'https://inbox.novu.co',
+        target: '_blank',
       }}
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
@@ -326,23 +329,23 @@ const InboxPage = () => (
       code={CODE_SECTION}
       title="Simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      button={{ label: 'PLAY WITH IT LIVE', link: '/inbox/playground?utm_campaign=inbox-feature' }}
+      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
     />
     <TextWithPicture
       title="Infinitely customizable to seamlessly match your app experience"
       description="Easily customize the Novu inbox to match your styles, design, and UX."
       image={
         <StaticImage
-          src="../images/reddit-inbox.png"
+          src="../images/pages/inbox/inbox-reddit-example.webp"
           alt="Reddit Inbox example using the styled Novu Inbox"
           loading="eager"
-          /* width={1088}
-            height={480} */
+          /* width={800} */
+          /* height={480} */
         />
       }
       button={{
-        label: 'Read docs',
-        link: '/',
+        label: 'INTERACTIVE EXAMPLE',
+        link: 'https://inbox.novu.co',
       }}
       theme="imageFullWidth"
     />
