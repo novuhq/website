@@ -25,6 +25,8 @@
     "@inkeep/widgets": "^0.2.273",
     "@netlify/functions": "^2.4.1",
     "@octokit/rest": "^20.0.2",
+    "@rive-app/canvas": "^2.20.0",
+    "@rive-app/react-canvas": "^4.13.8",
     "axios": "^1.6.4",
     "clsx": "^2.1.0",
     "copy-to-clipboard": "^3.3.3",

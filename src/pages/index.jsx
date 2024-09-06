@@ -13,6 +13,7 @@ import SkinnyCTA from 'components/pages/home/skinny-cta';
 // import Testimonials from 'components/pages/novu-framework/testimonials';
 import Layout from 'components/shared/layout';
 import NotificationInbox from 'components/shared/reusable-sections/notification-inbox';
+import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 // import LINKS from 'constants/links';
@@ -48,5 +49,10 @@ export const Head = () => {
     description:
       'Novu empowers developers and product teams to collaborate seamlessly on notification management. Its unified platform provides centralized content, type-safe schemas, and reusable components, facilitating efficient workflows. With code-first and no-code tools, teams can easily customize and deploy notifications across multiple channels like email, SMS, push, chat, and in-app. Novu enhances communication, reduces friction, and ensures reliable, scalable, and personalized user experiences while maintaining full visibility and control over notifications.',
   };
-  return <SEO {...pageMetadata} />;
+  return (
+    <>
+      <SEO {...pageMetadata} />
+      <RiveWasm />
+    </>
+  );
 };
