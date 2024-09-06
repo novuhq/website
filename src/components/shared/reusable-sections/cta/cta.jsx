@@ -29,6 +29,8 @@ const CTA = ({ title, leftCard, rightCard, theme }) => (
               className="mt-5 h-10 text-sm px-6"
               theme="gray-outline"
               to={leftCard.buttonLink}
+              rel={leftCard.rel}
+              target={leftCard.target}
             >
               {leftCard.buttonText}
             </Button>
@@ -52,6 +54,8 @@ const CTA = ({ title, leftCard, rightCard, theme }) => (
               className="mt-5 h-10 text-sm px-6"
               theme="gray-outline"
               to={rightCard.buttonLink}
+              rel={rightCard.rel}
+              target={rightCard.target}
             >
               {rightCard.buttonText}
             </Button>
@@ -145,12 +149,16 @@ CTA.propTypes = {
     description: PropTypes.string,
     buttonText: PropTypes.string,
     buttonLink: PropTypes.string,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }).isRequired,
   rightCard: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
     buttonText: PropTypes.string,
     buttonLink: PropTypes.string,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }).isRequired,
   theme: PropTypes.oneOf(['blue', 'purple', 'green']),
 };

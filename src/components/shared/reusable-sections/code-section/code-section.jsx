@@ -93,7 +93,13 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
         </Heading>
         <p className="text-[17px] leading-snug text-grey-9 mt-3 md:text-sm">{description}</p>
         {button && (
-          <Button className="h-14 text-sm px-6 mt-7" link={button.link} theme="gray-outline">
+          <Button
+            className="h-14 text-sm px-6 mt-7"
+            to={button.link}
+            rel={button.rel}
+            target={button.target}
+            theme="gray-outline"
+          >
             {button.label}
           </Button>
         )}
@@ -108,6 +114,8 @@ CodeSection.propTypes = {
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }),
   code: PropTypes.string.isRequired,
   codePosition: PropTypes.oneOf(['left', 'right']),
