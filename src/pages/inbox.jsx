@@ -8,6 +8,7 @@ import GetInvolved from 'components/shared/reusable-sections/get-involved';
 import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
+import SEO from 'components/shared/seo';
 // import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 // import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 // import discordIcon from 'icons/discord.svg';
@@ -190,7 +191,7 @@ const SECTION_WITH_SMALL_ICONS = [
   {
     title: 'Multiple, flexible components',
     description:
-      'Inbox, Bell, Notification, and rich user Preferences provide the ultimate customer-facing notifications experience.',
+      '<Inbox/>, <Bell/>, <Notification/>, and rich user <Preferences/> provide the ultimate customer-facing notifications experience.',
     image: editIcon,
   },
   {
@@ -207,7 +208,7 @@ const SECTION_WITH_SMALL_ICONS = [
   },
   {
     title: 'Built-in preferences',
-    description: 'Your app users access and set their preferences with ease.',
+    description: 'Your app users access and set their Preferences with ease.',
     image: migrationIcon,
   },
   {
@@ -310,8 +311,14 @@ const InboxPage = () => (
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
     />
+    <CodeSection
+      code={CODE_SECTION}
+      title="Fast, composable, and simple to implement"
+      description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
+      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
+    />
     <SectionWithSmallIcons
-      title="Powerful notifications Inbox features in minutes, not days"
+      title="Powerful notification <Inbox/> features in minutes, not days"
       items={SECTION_WITH_SMALL_ICONS}
     />
 
@@ -324,13 +331,6 @@ const InboxPage = () => (
     */}
 
     <GetInvolved title="Get started: pick your framework, code, and deploy" items={GET_INVOLVED} />
-
-    <CodeSection
-      code={CODE_SECTION}
-      title="Simple to implement"
-      description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
-    />
     <TextWithPicture
       title="Infinitely customizable to seamlessly match your app experience"
       description="Easily customize the Novu inbox to match your styles, design, and UX."
@@ -366,3 +366,12 @@ const InboxPage = () => (
 );
 
 export default InboxPage;
+
+export const Head = () => {
+  const pageMetadata = {
+    title: 'Novu - Full-stack Inbox for In-app notifications',
+    description:
+      "Novu's Inbox is the easiest way to add a highly customizable notifications Inbox to your application or website.",
+  };
+  return <SEO {...pageMetadata} />;
+};

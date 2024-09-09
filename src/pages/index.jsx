@@ -185,7 +185,7 @@ const HomePage = () => (
     <Hero />
     <Integration />
     <Inbox
-      title="The most powerful and customizable notification inbox"
+      title="The most powerful and customizable notification <Inbox/>"
       description="Drop-in in-app notifications for your app or website, deployable in minutes, and synchronizsed across all your channels."
       button={{
         label: 'LEARN MORE',
