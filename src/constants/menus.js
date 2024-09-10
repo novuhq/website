@@ -39,15 +39,15 @@ const MENUS = {
               },
               {
                 title: '<Bell/> component',
-                to: 'https://docs.novu.co/inbox/react/components#bell?utm_campaign=navbar',
+                to: 'https://docs.novu.co/inbox/react/components?utm_campaign=navbar#bell',
               },
               {
                 title: 'In-app <Notifications/>',
-                to: 'https://docs.novu.co/inbox/react/components#notifications?utm_campaign=navbar',
+                to: 'https://docs.novu.co/inbox/react/components?utm_campaign=navbar#notifications',
               },
               {
                 title: 'User <Preferences/>',
-                to: 'https://docs.novu.co/inbox/react/components#preferences?utm_campaign=navbar',
+                to: 'https://docs.novu.co/inbox/react/components?utm_campaign=navbar#preferences',
               },
               {
                 title: '<Inbox/> playground',
