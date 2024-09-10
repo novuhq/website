@@ -10,11 +10,6 @@ import UseCasesIcon from 'images/header/use-cases-icon.svg';
 
 const MENUS = {
   header: [
-    /* Removing temporarily - justnems 20240301 */
-    /* {
-      text: 'Hacktoberfest',
-      ...LINKS.hacktoberfest,
-    }, */
     {
       text: 'Product',
       menuItems: {
@@ -33,16 +28,32 @@ const MENUS = {
             ],
           },
           {
-            title: 'Features',
+            title: '<Inbox/> Components',
             description: 'What Novu can do',
             icon: FeaturesIcon,
             items: [
-              { title: 'Inbox component', ...LINKS.embedComponent },
-              { title: 'Notifications workflows', ...LINKS.workflow },
-              { title: 'Content management', ...LINKS.contentManagment },
-              // { title: 'Translation', ...LINKS.translation }, -> We don't have that page yet
-              { title: 'End user preferences', ...LINKS.endUserPreferences },
-              // { title: 'Observability', ...LINKS.observability }, -> We don't have that page yet
+              { title: '<Inbox/> for in-app', to: '/inbox?utm_campaign=navbar' },
+              {
+                title: 'React components',
+                to: 'https://docs.novu.co/inbox/react/components?utm_campaign=navbar',
+              },
+              {
+                title: '<Bell/> component',
+                to: 'https://docs.novu.co/inbox/react/components#bell?utm_campaign=navbar',
+              },
+              {
+                title: 'In-app <Notifications/>',
+                to: 'https://docs.novu.co/inbox/react/components#notifications?utm_campaign=navbar',
+              },
+              {
+                title: 'User <Preferences/>',
+                to: 'https://docs.novu.co/inbox/react/components#preferences?utm_campaign=navbar',
+              },
+              {
+                title: '<Inbox/> playground',
+                to: 'https://inbox.novu.co?utm_campaign=navbar',
+                target: '_blank',
+              },
             ],
           },
           {
@@ -148,15 +159,11 @@ const MENUS = {
   ],
   footer: [
     [
-      /* Remocing temporarily - justnems 20240301 */
-      /* { text: 'Hacktoberfest', ...LINKS.hacktoberfest }, */
       { text: 'Blog', ...LINKS.blog },
       { text: 'Community', ...LINKS.community },
       { text: 'Contributors', ...LINKS.contributors },
-      // { text: 'Podcast', ...LINKS.podcast },
       { text: 'Pricing', ...LINKS.pricing },
       { text: 'Careers', ...LINKS.careers },
-      /* { text: '2022 Events', ...LINKS.timeline }, */
       { text: 'OSS Friends', ...LINKS.ossFriends },
     ],
     [
