@@ -6,7 +6,15 @@ import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import { getFormattedDate } from 'utils/get-formatted-date';
 
-const EventsWithImages = ({ title, description, buttonText, buttonUrl, events }) => (
+const EventsWithImages = ({
+  title,
+  description,
+  buttonText,
+  buttonUrl,
+  buttonRel,
+  buttonTarget,
+  events,
+}) => (
   <section className="events-with-images relative safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container-lg relative flex flex-col items-center z-10">
       <header className="max-w-[788px] text-center">
@@ -45,7 +53,13 @@ const EventsWithImages = ({ title, description, buttonText, buttonUrl, events })
           )
         )}
       </ul>
-      <Button className="mt-14 h-12 px-6 text-[13px]" theme="gray-outline" to={buttonUrl}>
+      <Button
+        className="mt-14 h-12 px-6 text-[13px]"
+        theme="gray-outline"
+        to={buttonUrl}
+        rel={buttonRel}
+        target={buttonTarget}
+      >
         {buttonText}
       </Button>
     </div>
@@ -61,6 +75,8 @@ EventsWithImages.propTypes = {
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   buttonUrl: PropTypes.string.isRequired,
+  buttonRel: PropTypes.string,
+  buttonTarget: PropTypes.string,
   events: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,

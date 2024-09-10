@@ -92,6 +92,8 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
                 className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:mb-4"
                 theme="white-filled"
                 to={leftItem.link}
+                rel={leftItem.rel}
+                target={leftItem.target}
               >
                 {leftItem.text}
               </Button>
@@ -100,6 +102,8 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
               className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
               theme="gray-outline"
               to={rightItem.link}
+              rel={rightItem.rel}
+              target={rightItem.target}
             >
               {rightItem.text}
             </Button>
@@ -127,10 +131,14 @@ CtaWithForm.propTypes = {
     code: PropTypes.string,
     text: PropTypes.string,
     link: PropTypes.string,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }).isRequired,
   rightItem: PropTypes.shape({
     text: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }).isRequired,
 };
 

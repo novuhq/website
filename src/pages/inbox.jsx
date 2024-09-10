@@ -1,12 +1,15 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
 import CodeSection from 'components/shared/reusable-sections/code-section';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import GetInvolved from 'components/shared/reusable-sections/get-involved';
-import NotificationInbox from 'components/shared/reusable-sections/notification-inbox';
-// import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
+import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
+import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
+import SEO from 'components/shared/seo';
+// import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 // import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 // import discordIcon from 'icons/discord.svg';
 // import githubIcon from 'icons/github.svg';
@@ -18,19 +21,183 @@ import integrationIcon from 'images/icons/integration.svg';
 import migrationIcon from 'images/icons/migration.svg';
 import angularIcon from 'images/reusable-sections/section-with-logos/angular.svg';
 import reactLogo from 'images/reusable-sections/section-with-logos/react-icon.svg';
-import vueJSIcon from 'images/reusable-sections/section-with-logos/vuejs.svg';
+
+const INBOX_CATEGORIES = ["What's New", 'Alerts', 'Account'];
+
+const INBOX_MESSAGES = [
+  {
+    category: "What's New",
+    title: 'Security Update: Token Management',
+    text: 'Secure your integration with the new token management system to safeguard your API keys.',
+    date: '4 Sep 2024',
+    isRead: false,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'In-App Notification Center Released',
+    text: 'Stay updated with the new in-app notification center for real-time alerts.',
+    date: '2 Sep 2024',
+    isRead: false,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'Improved SMS Delivery Reports',
+    text: 'Get detailed delivery reports for SMS notifications for better tracking and analytics.',
+    date: '2 Sep 2024',
+    isRead: false,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'Personalized Notifications Available',
+    text: 'You can now personalize notifications based on user preferences for a tailored experience.',
+    date: '31 Aug 2024',
+    isRead: false,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'New Webhook Support',
+    text: 'Webhook support added for real-time tracking of notification delivery statuses.',
+    date: '24 Aug 2024',
+    isRead: true,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'New Integration Added!',
+    text: 'You can now integrate with Amazon SES for sending emails seamlessly.',
+    date: '21 Aug 2024',
+    isRead: true,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'Multi-Provider Failover Enabled',
+    text: 'Your notifications are now more reliable with automatic failover to secondary providers.',
+    date: '17 Aug 2024',
+    isRead: true,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'New UI for Notification Templates',
+    text: 'Check out the updated, more intuitive UI for creating and managing notification templates.',
+    date: '16 Aug 2024',
+    isRead: true,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'Email Provider Health Status',
+    text: 'Monitor the health status of your email providers directly from your dashboard.',
+    date: '11 Aug 2024',
+    isRead: true,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: "What's New",
+    title: 'Performance Improvements',
+    text: 'Your notifications now load faster with backend performance enhancements.',
+    date: '11 Aug 2024',
+    isRead: true,
+    buttons: ['Try it now', 'Learn more'],
+  },
+  {
+    category: 'Alerts',
+    title: 'High Error Rate Detected in Workflow',
+    text: 'Your workflow "Order Processing" experienced a high error rate in the past hour. Review the logs for more details.',
+    date: '3 Sep 2024',
+    isRead: false,
+    buttons: ['Go'],
+  },
+  {
+    category: 'Product',
+    title: 'New Provider Added',
+    text: 'You successfully added Twilio as a new SMS provider to your notification system.',
+    date: '29 Aug 2024',
+    isRead: false,
+    buttons: ['Go'],
+  },
+  {
+    category: 'Product',
+    title: 'New Workflow Created',
+    text: 'The "Customer Signup Notification" workflow was successfully created and is now live.',
+    date: '27 Aug 2024',
+    isRead: true,
+    buttons: ['Go'],
+  },
+  {
+    category: 'Product',
+    title: 'Weekly Workflow Summary Available',
+    text: 'Your weekly summary for the "Transaction Alerts" workflow is now available. View performance and insights in the dashboard.',
+    date: '1 Sep 2024',
+    isRead: true,
+    buttons: ['Go'],
+  },
+  {
+    category: 'Product',
+    title: 'Provider Health Alert',
+    text: 'The email provider SendGrid has reported intermittent delays in message delivery over the past 24 hours.',
+    date: '31 Aug 2024',
+    isRead: true,
+    buttons: ['Go'],
+  },
+  {
+    category: 'Account',
+    title: 'New Account User Created',
+    text: 'A new user "justnems" has been successfully added to your account.',
+    date: '4 Sep 2024',
+    isRead: false,
+    buttons: ['Users'],
+  },
+  {
+    category: 'Account',
+    title: 'Payment Successful',
+    text: 'Your payment of $299 for the Pro Plan has been successfully processed.',
+    date: '2 Sep 2024',
+    isRead: false,
+    buttons: ['Billing'],
+  },
+  {
+    category: 'Account',
+    title: 'Subscription Renewal',
+    text: 'Your subscription for the Pro Plan has been renewed. The next billing cycle starts on 01 Oct 2024.',
+    date: '1 Sep 2024',
+    isRead: false,
+    buttons: ['My Subscription'],
+  },
+  {
+    category: 'Account',
+    title: 'Password Changed',
+    text: 'The password for your account has been successfully updated.',
+    date: '28 Aug 2024',
+    isRead: true,
+    buttons: ['My Account'],
+  },
+  {
+    category: 'Account',
+    title: 'Account Settings Updated',
+    text: 'Your account settings were updated. If you did not make this change, please contact support immediately.',
+    date: '25 Aug 2024',
+    isRead: true,
+    buttons: ['Preferences'],
+  },
+];
 
 const SECTION_WITH_SMALL_ICONS = [
   {
     title: 'Multiple, flexible components',
     description:
-      'Inbox, Bell, Notification, and Preferences provide the ultimate customer-facing notifications experience.',
+      '<Inbox/>, <Bell/>, <Notification/>, and rich user <Preferences/> provide the ultimate customer-facing notifications experience.',
     image: editIcon,
   },
   {
     title: 'Supports popular frameworks',
     description:
-      "React, Vue, vanilla JavaScript, headless, and more. Access Novu's powerful capabilities regardless of which you select",
+      "React, React-native, Vue, vanilla JavaScript, headless, and more. Access Novu's powerful capabilities regardless of framework.",
     image: cloudDataIcon,
   },
   {
@@ -41,13 +208,12 @@ const SECTION_WITH_SMALL_ICONS = [
   },
   {
     title: 'Built-in preferences',
-    description: 'Your app users access and set their preferences with ease.',
+    description: 'Your app users access and set their Preferences with ease.',
     image: migrationIcon,
   },
   {
     title: 'HMAC encryption',
-    description:
-      'Component to Novu service communication and user identifiers are fully secured, and protected from impersonators.',
+    description: 'Component to Novu service communication and user identifiers are fully secured.',
     image: debugIcon,
   },
   {
@@ -92,11 +258,11 @@ const GET_INVOLVED = [
     linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=inbox-fp',
   },
   {
-    icon: vueJSIcon,
-    title: 'Vue',
-    description: 'Vue.js Inbox components',
-    linkText: 'Coming Soon',
-    linkUrl: '/inbox?utm_campaign=inbox-vue',
+    icon: reactLogo,
+    title: 'React Native',
+    description: 'React Native Inbox components',
+    linkText: 'Week of 9 September',
+    linkUrl: 'https://roadmap.novu.co/roadmap/d84e52ff-4cbe-4c5e-8fab-361a11fff95e',
   },
   {
     icon: angularIcon,
@@ -111,12 +277,12 @@ const CODE_SECTION = `import { Inbox } from "@novu/react";
 
 const tabs = [
   {
-    title: "My foo",
-    value: "foo",
+    title: "All",
+    value: ["system","account","product"],
   },
   {
-    title: "My foo and bars",
-    value: ["foo", "bar"],
+    title: "System",
+    value: ["system"],
   },
 ];
 
@@ -132,18 +298,27 @@ function Novu() {
   );
 }`;
 
-const Inbox = () => (
+const InboxPage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
-    <NotificationInbox
-      title="Add full-function notifications to your app in minutes"
-      description="Enable in-app notifications in your app or website with Novu's pre-built and customizable components, available in popular frameworks."
+    <Inbox
+      title="Add notifications to your application or website"
+      description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
-        label: 'LEARN MORE',
-        link: 'https://roadmap.novu.co/changelog/d7eb37e8-9237-415d-921e-495220cecf11',
+        label: 'INTERACTIVE EXAMPLE',
+        link: 'https://inbox.novu.co',
+        target: '_blank',
       }}
+      categories={INBOX_CATEGORIES}
+      messages={INBOX_MESSAGES}
+    />
+    <CodeSection
+      code={CODE_SECTION}
+      title="Fast, composable, and simple to implement"
+      description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
+      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
     />
     <SectionWithSmallIcons
-      title="Powerful notifications Inbox features in minutes, not days"
+      title="Powerful notification <Inbox/> features in minutes, not days"
       items={SECTION_WITH_SMALL_ICONS}
     />
 
@@ -156,21 +331,24 @@ const Inbox = () => (
     */}
 
     <GetInvolved title="Get started: pick your framework, code, and deploy" items={GET_INVOLVED} />
-
-    <CodeSection
-      code={CODE_SECTION}
-      title="Simple to implement"
-      description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      //        button={{ label: 'Read docs', link: '/' }}
+    <TextWithPicture
+      title="Infinitely customizable to seamlessly match your app experience"
+      description="Easily customize the Novu inbox to match your styles, design, and UX."
+      image={
+        <StaticImage
+          src="../images/pages/inbox/inbox-reddit-example.webp"
+          alt="Reddit Inbox example using the styled Novu Inbox"
+          loading="eager"
+          /* width={800} */
+          /* height={480} */
+        />
+      }
+      button={{
+        label: 'INTERACTIVE EXAMPLE',
+        link: 'https://inbox.novu.co',
+      }}
+      theme="imageFullWidth"
     />
-    {/*
-      <SectionWithVideo
-        video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=VBHierIbPHc' }}
-        title="See the Inbox in Action"
-        //        description="words"
-        videoPosition="fullWidth"
-    />
-    */}
     <CtaWithForm
       className="mb-30"
       title="It's time to add in-app notifications"
@@ -187,4 +365,13 @@ const Inbox = () => (
   </Layout>
 );
 
-export default Inbox;
+export default InboxPage;
+
+export const Head = () => {
+  const pageMetadata = {
+    title: 'Novu - Full-stack Inbox for In-app notifications',
+    description:
+      "Novu's Inbox is the easiest way to add a highly customizable notifications Inbox to your application or website.",
+  };
+  return <SEO {...pageMetadata} />;
+};

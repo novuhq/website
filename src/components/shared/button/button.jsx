@@ -26,6 +26,10 @@ const styles = {
       'text-black bg-transparent bg-pink-yellow-gradient hover:bg-white hover:bg-none transition-[color,background-image]',
     'pink-to-red-gradient': 'text-white bg-pink-red-gradient',
     yellow: 'bg-yellow text-black hover:bg-white',
+    'blue-gradient-white-outline':
+      'relative text-black bg-white border border-[#F3F5FC] before:absolute before:-inset-px before:bg-[linear-gradient(180deg,#D6DCF5_0%,#B6C0ED_100%)] before:transition-all before:duration-200 hover:before:opacity-0 focus-visible:before:opacity-0',
+    'blue-outline':
+      'text-[#BBC5EE]/90 border border-current transition-[color,border-color] hover:text-white focus-visible:text-white',
   },
 };
 

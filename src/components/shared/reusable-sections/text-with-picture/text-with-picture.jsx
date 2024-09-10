@@ -48,6 +48,9 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
           <Button
             className={clsx(BUTTON_CLASSNAME, 'mt-12 lg:mt-10 md:mt-8 sm:mt-6')}
             theme="gray-outline"
+            to={button.link}
+            rel={button.rel}
+            target={button.target}
           >
             {button.label}
           </Button>
@@ -64,6 +67,8 @@ TextWithPicture.propTypes = {
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }),
   theme: PropTypes.oneOf(['imageLeft', 'imageRight', 'imageFullWidth']),
 };

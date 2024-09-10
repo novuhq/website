@@ -7,7 +7,7 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 import { getFormattedDate } from 'utils/get-formatted-date';
 
-const Events = ({ title, description, buttonText, buttonUrl, events }) => (
+const Events = ({ title, description, buttonText, buttonUrl, buttonRel, buttonTarget, events }) => (
   <section className="events relative safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container relative grid grid-cols-12 grid-gap-x z-10">
       <header className="col-span-4 col-start-3 pt-3 xl:col-span-5 xl:col-start-2 lg:col-span-6 lg:pt-0 sm:col-span-full">
@@ -20,7 +20,13 @@ const Events = ({ title, description, buttonText, buttonUrl, events }) => (
           {title}
         </Heading>
         <p className="mt-4 text-gray-9 font-light leading-snug sm:mt-3">{description}</p>
-        <Button className="mt-7 h-12 px-6 text-[13px]" theme="gray-outline" to={buttonUrl}>
+        <Button
+          className="mt-7 h-12 px-6 text-[13px]"
+          theme="gray-outline"
+          to={buttonUrl}
+          rel={buttonRel}
+          target={buttonTarget}
+        >
           {buttonText}
         </Button>
       </header>
@@ -84,6 +90,8 @@ Events.propTypes = {
   description: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
   buttonUrl: PropTypes.string.isRequired,
+  buttonRel: PropTypes.string,
+  buttonTarget: PropTypes.string,
   events: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
