@@ -311,15 +311,15 @@ const InboxPage = () => (
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
     />
+    <SectionWithSmallIcons
+      title="Powerful notification <Inbox/> features in minutes, not days"
+      items={SECTION_WITH_SMALL_ICONS}
+    />
     <CodeSection
       code={CODE_SECTION}
       title="Fast, composable, and simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
       button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
-    />
-    <SectionWithSmallIcons
-      title="Powerful notification <Inbox/> features in minutes, not days"
-      items={SECTION_WITH_SMALL_ICONS}
     />
 
     {/*
