@@ -277,22 +277,28 @@ const CODE_SECTION = `import { Inbox } from "@novu/react";
 
 const tabs = [
   {
-    title: "All",
-    value: ["system","account","product"],
+    label: "All",
+    value: [],
   },
   {
-    title: "System",
-    value: ["system"],
+    label: "What's New",
+    value: [ 'new' ],
+  },
+  {
+    label: "Alerts",
+    value: [ 'alerts' ],
+  },
+  {
+    label: "Account",
+    value: [ 'account' ],
   },
 ];
 
 function Novu() {
   return (
     <Inbox
-      options={{
-        subscriberId: "SUBSCRIBER_ID",
-        applicationIdentifier: "APPLICATION_IDENTIFIER",
-      }}
+      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
+      subscriberId="YOUR_SUBSCRIBER_ID"
       tabs={tabs}
     />
   );
