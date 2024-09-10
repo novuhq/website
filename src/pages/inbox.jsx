@@ -261,8 +261,8 @@ const GET_INVOLVED = [
     icon: reactLogo,
     title: 'React Native',
     description: 'React Native Inbox components',
-    linkText: 'Week of 9 September',
-    linkUrl: 'https://roadmap.novu.co/roadmap/d84e52ff-4cbe-4c5e-8fab-361a11fff95e',
+    linkText: 'React Native Docs',
+    linkUrl: 'https://docs.novu.co/inbox/react/get-started?utm_campaign=inbox-fp',
   },
   {
     icon: angularIcon,
