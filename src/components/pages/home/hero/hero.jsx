@@ -5,6 +5,7 @@ import Button from 'components/shared/button';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 
+import Animation from './animation';
 import borderGlow from './images/border-glow.svg';
 
 const TITLE = 'Create powerful notification workflows and content using code';
@@ -88,6 +89,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <Animation />
     </section>
   );
 };

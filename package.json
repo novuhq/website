@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@inkeep/widgets": "^0.2.273",
     "@netlify/functions": "^2.4.1",
     "@octokit/rest": "^20.0.2",
@@ -43,6 +44,7 @@
     "gatsby-source-rss-feed": "^1.2.2",
     "gatsby-source-sanity": "^7.9.1",
     "gatsby-source-wordpress": "^7.13.1",
+    "gsap": "^3.12.5",
     "html-react-parser": "^5.0.11",
     "install": "^0.13.0",
     "lodash.isboolean": "^3.0.3",

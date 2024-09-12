@@ -19,24 +19,26 @@ import Separator from 'components/shared/separator';
 // import LINKS from 'constants/links';
 
 const HomePage = () => (
-  <Layout mainClassName="echo overflow-hidden pb-px bg-[#05050B]">
+  <Layout mainClassName="echo pb-px bg-[#05050B]">
     <Hero />
-    <Logos />
-    <Code />
-    <SkinnyCTA />
-    <Integration />
-    <Flexibility />
-    <Libraries />
-    <NotificationInbox
-      title="Fully featured Notification Inbox in minutes"
-      description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
-      button={{ label: 'Learn more', link: '/inbox?utm_campaign=ws_inbox_section' }}
-    />
-    <Infrastructure />
-    {/* Hiding this temporarily for launch */}
-    {/* <Testimonials /> */}
-    <Reviews />
-    <Cta />
+    <div className="overflow-hidden">
+      <Logos />
+      <Code />
+      <SkinnyCTA />
+      <Integration />
+      <Flexibility />
+      <Libraries />
+      <NotificationInbox
+        title="Fully featured Notification Inbox in minutes"
+        description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
+        button={{ label: 'Learn more', link: '/inbox?utm_campaign=ws_inbox_section' }}
+      />
+      <Infrastructure />
+      {/* Hiding this temporarily for launch */}
+      {/* <Testimonials /> */}
+      <Reviews />
+      <Cta />
+    </div>
     <Separator className="w-full max-w-none" backgroundColor="echo-gradient" />
   </Layout>
 );
@@ -53,6 +55,12 @@ export const Head = () => {
     <>
       <SEO {...pageMetadata} />
       <RiveWasm />
+      <link
+        rel="preload"
+        href="/animations/pages/home/hero/new_hero.riv"
+        as="fetch"
+        crossOrigin="anonymous"
+      />
     </>
   );
 };
