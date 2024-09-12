@@ -640,7 +640,19 @@ exports.onPostBuild = require('./gatsby/on-post-build');
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     module: {
-      rules: [{ test: /\.(riv)$/i, type: 'asset/resource' }],
+      rules: [
+        {
+          test: (filePath) => {
+            const fileName = filePath.split('/').pop();
+
+            return fileName === 'rive.wasm';
+          },
+          type: 'asset/resource',
+          generator: {
+            filename: 'static/[name].[hash][ext]',
+          },
+        },
+      ],
     },
   });
 };
