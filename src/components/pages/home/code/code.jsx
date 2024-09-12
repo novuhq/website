@@ -11,14 +11,24 @@ const COMMENT_WORKFLOW_CODE = `import { workflow, CronExpression } from '@novu/f
 import { z } from 'zod';
 import { render } from '@react-email/components';
 
-const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@event@weeklyCommentsEventTooltip@@) => {
+const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@event@weeklyCommentsEventTooltip@left@@) => {
+  await event.step.@@inApp@stepTooltip@@('inbox-notification', async () => ({
+    avatar: event.payload.userAvatar,
+    subject: \`\${event.@@payload@commentPayloadTooltip@@.userName} commented in \${event.payload.project}\`,
+    body: event.payload.comment,
+    primaryAction: { 
+      label: 'Reply',
+      redirect: { url: event.payload.replyUrl }
+    },
+  }));
+
   const digest = await event.step.digest('digest-comments', (controls) => ({
     cron: controls.schedule
   }), { controlSchema: z.object({ schedule: z.nativeEnum(CronExpression) }) });
 
-  await event.step.@@email@stepTooltip@@('digest-email', async (controls) => ({
+  await event.step.email('digest-email', async (controls) => ({
     subject: controls.subject,
-    body: render(<WeeklyDigestEmail {...@@controls@controlsTooltip@@} events={digest.events} />)
+    body: render(<WeeklyDigestEmail {...@@controls@controlsTooltip@left@@} events={digest.events} />)
   }), {
     @@skip@skipTooltip@@: () => !digest.events.length,
     controlSchema: z.object({
@@ -27,10 +37,24 @@ const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@
       aiPrompt: z.string().default('Produce a concise comment digest'),
     })
   });
-}, { payloadSchema: z.object({ name: z.string(), comment: z.string() }) });
+}, { 
+  payloadSchema: z.object({ 
+    userName: z.string(),
+    userAvatar: z.string(),
+    project: z.string(),
+    replyUrl: z.string(),
+    comment: z.string() 
+  })
+});
 
 await weeklyComments.@@trigger@triggerTooltip@@({
-  payload: { name: 'John', comment: 'Are you free to give me a call?' },
+  payload: {
+    userName: 'John Doe',
+    userAvatar: 'https://example.com/avatar.png',
+    project: 'Acme Project',
+    replyUrl: '/reply/123',
+    comment: 'Are you free to give me a call?'
+  },
   to: 'jane@acme.com'
 });`;
 
@@ -67,7 +91,7 @@ const TABS = [
     code: COMMENT_WORKFLOW_CODE,
     image: (
       <StaticImage
-        className="!absolute pointer-events-none bottom-[-45px] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 lg:bottom-[-23px] md:!hidden"
+        className="!absolute pointer-events-none top-[-1.5rem] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 md:!hidden"
         src="./images/ai-digest.png"
         alt=""
         width={368}
@@ -81,7 +105,7 @@ const TABS = [
     code: OTP_WORKFLOW_CODE,
     image: (
       <StaticImage
-        className="!absolute pointer-events-none bottom-[-45px] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 lg:bottom-[-23px] md:!hidden"
+        className="!absolute pointer-events-none top-[-1.5rem] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 md:!hidden"
         src="./images/one-time-password.png"
         alt=""
         width={368}
@@ -107,6 +131,8 @@ const customRenderer = ({ rows, stylesheet, useInlineStyles }) =>
   );
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
+
+const scrollbar = `overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#3D3D4D]`;
 
 const Code = () => {
   const [activeTab, setActiveTab] = useState(TABS[0].title);
@@ -153,7 +179,7 @@ const Code = () => {
                       key={index}
                     >
                       <SyntaxHighlighter
-                        className="echo-code relative z-10 pl-[42px] scrollbar-hidden text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:text-[10px] sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]"
+                        className={`echo-code relative h-full ${scrollbar} w-[67.5%] z-10 pl-[42px] text-sm font-normal md:w-[97%] lg:pl-[35px] lg:text-xs md:pl-[26px] sm:text-[10px] sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]`}
                         style={{
                           marginTop: '20px',
                         }}
