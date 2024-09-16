@@ -98,18 +98,6 @@ const TOOLTIP_CONTENT = {
         </span>
         <span className="whitespace-pre">
           {'  '}
-          <span className="text-yellow">userAvatar</span>: string;
-        </span>
-        <span className="whitespace-pre">
-          {'  '}
-          <span className="text-yellow">project</span>: string;
-        </span>
-        <span className="whitespace-pre">
-          {'  '}
-          <span className="text-yellow">replyUrl</span>: string;
-        </span>
-        <span className="whitespace-pre">
-          {'  '}
           <span className="text-yellow">comment</span>: string;
         </span>
         <span className="whitespace-pre">&#125;;</span>
@@ -228,7 +216,7 @@ const TOOLTIP_CONTENT = {
         </span>
         <span className="whitespace-pre">
           {'    '}
-          <span className="text-yellow">name</span>: string;
+          <span className="text-yellow">userName</span>: string;
         </span>
         <span className="whitespace-pre">
           {'    '}
