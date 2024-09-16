@@ -54,6 +54,10 @@ const MENUS = {
                 to: 'https://docs.novu.co/inbox/react/hooks/overview?utm_campaign=ws_top_nav',
               },
               {
+                title: 'Native JavaScript',
+                to: 'https://docs.novu.co/inbox/headless/get-started?utm_campaign=ws_top_bav',
+              },
+              {
                 title: '<Inbox /> playground',
                 to: 'https://inbox.novu.co?utm_campaign=top_nav',
                 target: '_blank',
