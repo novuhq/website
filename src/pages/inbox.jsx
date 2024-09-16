@@ -19,7 +19,8 @@ import debugIcon from 'images/icons/debug.svg';
 import editIcon from 'images/icons/edit.svg';
 import integrationIcon from 'images/icons/integration.svg';
 import migrationIcon from 'images/icons/migration.svg';
-import angularIcon from 'images/reusable-sections/section-with-logos/angular.svg';
+// import angularIcon from 'images/reusable-sections/section-with-logos/angular.svg';
+import javaScriptLogo from 'images/reusable-sections/section-with-logos/javascript-icon.svg';
 import reactLogo from 'images/reusable-sections/section-with-logos/react-icon.svg';
 
 const INBOX_CATEGORIES = ["What's New", 'Alerts', 'Account'];
@@ -253,23 +254,23 @@ const GET_INVOLVED = [
   {
     icon: reactLogo,
     title: 'React',
-    description: 'React Inbox components',
+    description: 'React <Inbox /> components',
     linkText: 'React Docs',
-    linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=inbox-fp',
+    linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=fp-inbox',
   },
   {
     icon: reactLogo,
     title: 'React Native',
-    description: 'React Native Inbox components',
+    description: 'React Native <Inbox /> components',
     linkText: 'React Native Docs',
-    linkUrl: 'https://docs.novu.co/inbox/react/get-started?utm_campaign=inbox-fp',
+    linkUrl: 'https://docs.novu.co/inbox/react/hooks/overview?utm_campaign=fp-inbox',
   },
   {
-    icon: angularIcon,
-    title: 'Angular',
-    description: 'Angular Inbox components',
-    linkText: 'Coming Soon',
-    linkUrl: '/inbox?utm_campaign=inbox_angular',
+    icon: javaScriptLogo,
+    title: 'Native JavaScript',
+    description: 'DIY interface, powered by Novu',
+    linkText: 'JavaScript Docs',
+    linkUrl: 'https://docs.novu.co/inbox/headless/get-started?utm_campaign=fp-inbox',
   },
 ];
 
