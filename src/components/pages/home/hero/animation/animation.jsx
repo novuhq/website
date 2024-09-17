@@ -210,6 +210,7 @@ const Animation = () => {
     true
   );
   const cardBlueFloating = useStateMachineInput(cardBlueAnimationInstance, 'SM', 'floating', true);
+  const cardBlueDisabled = useStateMachineInput(cardBlueAnimationInstance, 'SM', 'mobile', true);
   const cardCodeFloating = useStateMachineInput(cardCodeAnimationInstance, 'SM', 'floating', true);
 
   const cardCodeChange = useStateMachineInput(cardCodeAnimationInstance, 'SM', 'code-change');
@@ -372,6 +373,10 @@ const Animation = () => {
         onEnter: () => {
           let interval = null;
 
+          if (cardBlueDisabled) {
+            cardBlueDisabled.value = false;
+          }
+
           if (cardBlueChangeName && animationInterval.current === null) {
             let counter = 0;
 
@@ -396,6 +401,10 @@ const Animation = () => {
         onLeave: () => {
           clearInterval(animationInterval.current);
           animationInterval.current = null;
+
+          if (cardBlueDisabled) {
+            cardBlueDisabled.value = true;
+          }
         },
         onLeaveBack: () => {
           if (phoneReset) {
@@ -403,6 +412,9 @@ const Animation = () => {
           }
           if (inboxReset) {
             inboxReset.fire();
+          }
+          if (cardBlueDisabled) {
+            cardBlueDisabled.value = false;
           }
         },
       });
@@ -441,6 +453,7 @@ const Animation = () => {
         animationInterval,
         phoneReset,
         inboxReset,
+        cardBlueDisabled,
       ],
       scope: containerRef,
     }
@@ -664,7 +677,7 @@ const Animation = () => {
         },
       });
       gsap.to(productTeamsRef.current, {
-        startAt: { left: '-11.829%', opacity: 0 },
+        startAt: { left: '9.005%', opacity: 0 },
         left: '-1.412%',
         opacity: 1,
         ease: 'none',
@@ -795,7 +808,7 @@ const Animation = () => {
           </Button>
         </section>
         <section
-          className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[-1.488%] opacity-0 z-50"
+          className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[-1.488%] opacity-0 z-40"
           ref={productTeamsRef}
         >
           <h2 className="text-[44px] leading-denser tracking-snug font-medium">Product teams</h2>
