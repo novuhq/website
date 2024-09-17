@@ -332,10 +332,12 @@ const Animation = () => {
           if (cardCodeChange && animationInterval.current === null) {
             let counter = 0;
 
+            cardCodeChange.fire();
+
             interval = setInterval(() => {
               cardCodeChange.fire();
               counter += 1;
-              if (counter >= 3) {
+              if (counter >= 2) {
                 clearInterval(interval);
               }
             }, 3000);
@@ -373,10 +375,12 @@ const Animation = () => {
           if (cardBlueChangeName && animationInterval.current === null) {
             let counter = 0;
 
+            cardBlueChangeName.fire();
+
             interval = setInterval(() => {
               cardBlueChangeName.fire();
               counter += 1;
-              if (counter >= 3) {
+              if (counter >= 2) {
                 clearInterval(interval);
               }
             }, 3000);
