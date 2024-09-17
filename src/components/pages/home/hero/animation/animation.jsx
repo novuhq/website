@@ -397,6 +397,14 @@ const Animation = () => {
           clearInterval(animationInterval.current);
           animationInterval.current = null;
         },
+        onLeaveBack: () => {
+          if (phoneReset) {
+            phoneReset.fire();
+          }
+          if (inboxReset) {
+            inboxReset.fire();
+          }
+        },
       });
 
       ScrollTrigger.create({
@@ -417,12 +425,6 @@ const Animation = () => {
         onLeaveBack: () => {
           if (cardPurpleSparkle) {
             cardPurpleSparkle.value = false;
-          }
-          if (phoneReset) {
-            phoneReset.fire();
-          }
-          if (inboxReset) {
-            inboxReset.fire();
           }
         },
       });
