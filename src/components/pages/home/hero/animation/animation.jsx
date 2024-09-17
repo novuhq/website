@@ -13,7 +13,7 @@ const useCardBlueAnimation = () => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
   const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new_hero.riv',
+    src: '/animations/pages/home/hero/new-hero.riv',
     artboard: 'card-blue',
     autoplay: false,
     stateMachines: 'SM',
@@ -39,7 +39,7 @@ const useCardPurpleAnimation = () => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
   const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new_hero.riv',
+    src: '/animations/pages/home/hero/new-hero.riv',
     artboard: 'card-purple',
     autoplay: false,
     stateMachines: 'SM',
@@ -65,7 +65,7 @@ const useCardCodeAnimation = () => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
   const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new_hero.riv',
+    src: '/animations/pages/home/hero/new-hero.riv',
     artboard: 'card-code',
     autoplay: false,
     stateMachines: 'SM',
@@ -91,7 +91,7 @@ const usePhoneAnimation = () => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
   const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new_hero.riv',
+    src: '/animations/pages/home/hero/new-hero.riv',
     artboard: 'phone',
     autoplay: false,
     stateMachines: 'SM',
@@ -117,7 +117,7 @@ const useInboxAnimation = () => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
   const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new_hero.riv',
+    src: '/animations/pages/home/hero/new-hero.riv',
     artboard: 'inbox',
     autoplay: false,
     stateMachines: 'SM',
