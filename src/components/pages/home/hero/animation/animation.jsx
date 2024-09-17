@@ -3,7 +3,7 @@ import { Layout, Fit, Alignment, EventType } from '@rive-app/canvas';
 import { useStateMachineInput } from '@rive-app/react-canvas';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 
 import Button from 'components/shared/button';
 import RiveAnimation from 'components/shared/rive-animation';
@@ -140,6 +140,8 @@ const useInboxAnimation = () => {
 };
 
 const Animation = () => {
+  const animationInterval = useRef(null);
+
   const containerRef = useRef(null);
   const animationRef = useRef(null);
 
@@ -246,6 +248,9 @@ const Animation = () => {
     true
   );
 
+  const phoneReset = useStateMachineInput(phoneAnimationInstance, 'SM', 'reset', true);
+  const inboxReset = useStateMachineInput(inboxAnimationInstance, 'SM', 'reset', true);
+
   // create listeners for all animations
 
   const cardCodeAnimationListener = useCallback(
@@ -287,7 +292,7 @@ const Animation = () => {
 
   useGSAP(
     () => {
-      const height = window.innerHeight;
+      const height = animationRef.current.offsetHeight;
 
       ScrollTrigger.create({
         trigger: containerRef.current,
@@ -307,6 +312,20 @@ const Animation = () => {
             cardCodeFloating.value = false;
           }
         },
+        onLeaveBack: () => {
+          if (cardPurpleFloating) {
+            cardPurpleFloating.value = true;
+          }
+          if (cardPurpleSparkle) {
+            cardPurpleSparkle.value = true;
+          }
+          if (cardBlueFloating) {
+            cardBlueFloating.value = true;
+          }
+          if (cardCodeFloating) {
+            cardCodeFloating.value = true;
+          }
+        },
       });
 
       ScrollTrigger.create({
@@ -316,7 +335,7 @@ const Animation = () => {
         onEnter: () => {
           let interval = null;
 
-          if (cardCodeChange) {
+          if (cardCodeChange && animationInterval.current === null) {
             let counter = 0;
 
             interval = setInterval(() => {
@@ -326,11 +345,18 @@ const Animation = () => {
                 clearInterval(interval);
               }
             }, 3000);
+
+            animationInterval.current = interval;
           }
 
           return () => {
             clearInterval(interval);
+            animationInterval.current = null;
           };
+        },
+        onLeave: () => {
+          clearInterval(animationInterval.current);
+          animationInterval.current = null;
         },
       });
 
@@ -341,7 +367,7 @@ const Animation = () => {
         onEnter: () => {
           let interval = null;
 
-          if (cardBlueChangeName) {
+          if (cardBlueChangeName && animationInterval.current === null) {
             let counter = 0;
 
             interval = setInterval(() => {
@@ -351,11 +377,18 @@ const Animation = () => {
                 clearInterval(interval);
               }
             }, 3000);
+
+            animationInterval.current = interval;
           }
 
           return () => {
             clearInterval(interval);
+            animationInterval.current = null;
           };
+        },
+        onLeave: () => {
+          clearInterval(animationInterval.current);
+          animationInterval.current = null;
         },
       });
 
@@ -374,6 +407,17 @@ const Animation = () => {
             cardPurpleSparkle.value = true;
           }
         },
+        onLeaveBack: () => {
+          if (cardPurpleSparkle) {
+            cardPurpleSparkle.value = false;
+          }
+          if (phoneReset) {
+            phoneReset.fire();
+          }
+          if (inboxReset) {
+            inboxReset.fire();
+          }
+        },
       });
     },
     {
@@ -385,6 +429,9 @@ const Animation = () => {
         cardBlueChangeName,
         phoneNotification,
         inboxNotification,
+        animationInterval,
+        phoneReset,
+        inboxReset,
       ],
       scope: containerRef,
     }
@@ -392,7 +439,7 @@ const Animation = () => {
 
   useGSAP(
     () => {
-      const height = window.innerHeight;
+      const height = animationRef.current.offsetHeight;
 
       ScrollTrigger.create({
         trigger: containerRef.current,
@@ -415,9 +462,9 @@ const Animation = () => {
         },
       });
       gsap.to(cardPurpleRef.current, {
-        startAt: { y: 0, x: 0, scale: 1 },
-        y: 249,
-        x: -141,
+        startAt: { top: '-14.722%', left: '6.473%', scale: 1 },
+        top: '8.334%',
+        left: '-3.282%',
         scale: 1.47,
         ease: 'none',
         transformOrigin: 'left center',
@@ -441,10 +488,10 @@ const Animation = () => {
         },
       });
       gsap.to(cardBlueRef.current, {
-        startAt: { y: 0, x: 0, scale: 1 },
-        y: 255,
+        startAt: { top: '6.019%', left: '29.613%', scale: 1 },
+        top: '29.63%',
+        left: '6.771%',
         scale: 1.44,
-        x: -307,
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -467,9 +514,9 @@ const Animation = () => {
         },
       });
       gsap.to(cardCodeRef.current, {
-        startAt: { y: 0, x: 0, scale: 1 },
-        y: 263,
-        x: -188,
+        startAt: { top: '4.074%', right: '11.161%', scale: 1 },
+        top: '28.425%',
+        right: '25.149%',
         scale: 1.42,
         ease: 'none',
         transformOrigin: 'left center',
@@ -484,7 +531,7 @@ const Animation = () => {
       // developers step
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
-        x: 158,
+        left: '18.2%',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -496,7 +543,7 @@ const Animation = () => {
       });
       gsap.to(cardCodeRef.current, {
         immediateRender: false,
-        x: -640,
+        right: '58.779%',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -508,7 +555,7 @@ const Animation = () => {
       });
       gsap.to(cardBlueRef.current, {
         immediateRender: false,
-        x: -100,
+        left: '22.172%',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -527,12 +574,12 @@ const Animation = () => {
           trigger: containerRef.current,
           scrub: true,
           start: `${height * 0.35}px`,
-          end: `+=${height * 0.65}px`,
+          end: `+=${height * 0.15}px`,
         },
       });
       gsap.to(developersRef.current, {
-        startAt: { x: -100, opacity: 0 },
-        x: 0,
+        startAt: { right: '-2.827%', opacity: 0 },
+        right: '4.613%',
         opacity: 1,
         ease: 'none',
         scrollTrigger: {
@@ -546,7 +593,7 @@ const Animation = () => {
       // product teams step
       gsap.to(developersRef.current, {
         immediateRender: false,
-        x: -50,
+        right: '0.893%',
         opacity: 0,
         ease: 'none',
         scrollTrigger: {
@@ -558,7 +605,7 @@ const Animation = () => {
       });
       gsap.to(cardCodeRef.current, {
         immediateRender: false,
-        x: -690,
+        right: '55.059%',
         opacity: 0,
         ease: 'none',
         scrollTrigger: {
@@ -569,10 +616,9 @@ const Animation = () => {
         },
       });
       gsap.to(cardBlueRef.current, {
-        startAt: { x: 446, opacity: 0 },
+        startAt: { left: '53.613%' },
         immediateRender: false,
-        x: 17,
-        opacity: 1,
+        left: '30.771%',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -582,9 +628,22 @@ const Animation = () => {
           end: `+=${height * 0.8}px`,
         },
       });
+      gsap.to(cardBlueRef.current, {
+        startAt: { opacity: 0 },
+        immediateRender: false,
+        opacity: 1,
+        ease: 'none',
+        transformOrigin: 'left center',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          scrub: true,
+          start: `${height * 1.7}px`,
+          end: `+=${height * 0.2}px`,
+        },
+      });
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
-        x: 194,
+        left: '20.879%',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -595,8 +654,8 @@ const Animation = () => {
         },
       });
       gsap.to(productTeamsRef.current, {
-        startAt: { x: 100, opacity: 0 },
-        x: 0,
+        startAt: { left: '-11.829%', opacity: 0 },
+        left: '-1.412%',
         opacity: 1,
         ease: 'none',
         scrollTrigger: {
@@ -634,8 +693,8 @@ const Animation = () => {
         },
       });
       gsap.to(endUsersRef.current, {
-        startAt: { y: -110 },
-        y: 0,
+        startAt: { top: '0.926%' },
+        top: '11.111%',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -657,8 +716,8 @@ const Animation = () => {
       });
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
-        x: 149,
-        y: 349,
+        left: '17.579%',
+        top: '17.734%',
         scale: 1.64,
         ease: 'none',
         transformOrigin: 'left center',
@@ -671,8 +730,8 @@ const Animation = () => {
       });
 
       gsap.to(phoneRef.current, {
-        startAt: { x: 150, opacity: 0 },
-        x: 0,
+        startAt: { right: '-14.731%', opacity: 0 },
+        right: '-3.571%',
         opacity: 1,
         ease: 'none',
         transformOrigin: 'left center',
@@ -685,8 +744,8 @@ const Animation = () => {
       });
 
       gsap.to(inboxRef.current, {
-        startAt: { x: -150, opacity: 0 },
-        x: 0,
+        startAt: { left: '-7.812%', opacity: 0 },
+        left: '3.348%',
         opacity: 1,
         ease: 'none',
         transformOrigin: 'left center',
@@ -703,11 +762,16 @@ const Animation = () => {
     }
   );
 
+  useEffect(() => {
+    const animationContainerHeight = animationRef.current.offsetHeight * 5.5;
+    containerRef.current.style.height = `${animationContainerHeight}px`;
+  }, []);
+
   return (
-    <div className="container-xl relative h-[550vh]" ref={containerRef}>
-      <div className="w-full h-screen" ref={animationRef}>
+    <div className="container-xl relative" ref={containerRef}>
+      <div className="w-full h-auto aspect-[56/45]" ref={animationRef}>
         <section
-          className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[62px] opacity-0"
+          className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[4.613%] opacity-0 z-50"
           ref={developersRef}
         >
           <h2 className="text-[44px] leading-denser tracking-snug font-medium">Developers</h2>
@@ -720,7 +784,7 @@ const Animation = () => {
           </Button>
         </section>
         <section
-          className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 -left-5 opacity-0"
+          className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[-1.488%] opacity-0 z-50"
           ref={productTeamsRef}
         >
           <h2 className="text-[44px] leading-denser tracking-snug font-medium">Product teams</h2>
@@ -734,7 +798,7 @@ const Animation = () => {
           </Button>
         </section>
         <section
-          className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-30 text-center opacity-0"
+          className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-[11.111%] text-center opacity-0 z-50"
           ref={endUsersRef}
         >
           <h2 className="text-[44px] leading-denser tracking-snug font-medium">End users</h2>
@@ -744,7 +808,7 @@ const Animation = () => {
           </p>
         </section>
         <div
-          className="card-code absolute w-[578px] h-auto aspect-[137/107] top-[44px] right-[150px]"
+          className="card-code absolute w-auto h-[41.46%] aspect-[137/107] top-[4.074%] right-[11.161%] z-30"
           ref={cardCodeRef}
         >
           <span
@@ -762,12 +826,12 @@ const Animation = () => {
             />
           </div>
           <div
-            className="absolute w-full h-[404px] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+            className="absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
             aria-hidden
           />
         </div>
         <div
-          className="card-blue absolute w-[575px] h-auto aspect-[59/46] left-[398px] top-[65px]"
+          className="card-blue absolute w-auto h-[41.481%] aspect-[59/46] top-[6.019%] left-[29.613%] z-30"
           ref={cardBlueRef}
         >
           <span
@@ -785,12 +849,12 @@ const Animation = () => {
             />
           </div>
           <div
-            className="absolute w-full h-[154px] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+            className="absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
             aria-hidden
           />
         </div>
         <div
-          className="card-purple absolute w-[539px] h-auto aspect-[789/1084] left-[87px] top-[-159px] pointer-events-none"
+          className="card-purple absolute w-auto h-[68.611%] aspect-[789/1084] top-[-14.722%] left-[6.473%] pointer-events-none z-40"
           ref={cardPurpleRef}
         >
           <span
@@ -808,12 +872,12 @@ const Animation = () => {
             />
           </div>
           <div
-            className="absolute w-[58.5%] h-[344px] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+            className="absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
             aria-hidden
           />
         </div>
         <div
-          className="phone absolute w-[547px] h-auto aspect-[547/805] right-[-48px] top-[347px] opacity-0"
+          className="phone absolute w-auto h-[74.537%] aspect-[547/805] top-[32.129%] right-[-3.571%] opacity-0 z-30"
           ref={phoneRef}
         >
           <span
@@ -828,12 +892,12 @@ const Animation = () => {
             <RiveAnimation setRiveInstance={setPhoneAnimationInstance} {...phoneAnimationProps} />
           </div>
           <div
-            className="absolute w-[67%] h-[640px] bottom-0 left-[15.5%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+            className="absolute w-[67%] h-[79.503%] bottom-0 left-[15.5%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
             aria-hidden
           />
         </div>
         <div
-          className="inbox absolute w-[341px] h-auto aspect-[341/480] left-[45px] top-[428px] opacity-0"
+          className="inbox absolute w-auto h-[44.444%] aspect-[341/480] top-[39.629%] left-[3.348%] opacity-0 z-30"
           ref={inboxRef}
         >
           <span
@@ -848,7 +912,7 @@ const Animation = () => {
             <RiveAnimation setRiveInstance={setInboxAnimationInstance} {...inboxAnimationProps} />
           </div>
           <div
-            className="absolute w-full h-[154px] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+            className="absolute w-full h-[32.083%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
             aria-hidden
           />
         </div>
