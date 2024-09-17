@@ -302,9 +302,6 @@ const Animation = () => {
           if (cardPurpleFloating) {
             cardPurpleFloating.value = false;
           }
-          if (cardPurpleSparkle) {
-            cardPurpleSparkle.value = false;
-          }
           if (cardBlueFloating) {
             cardBlueFloating.value = false;
           }
@@ -315,9 +312,6 @@ const Animation = () => {
         onLeaveBack: () => {
           if (cardPurpleFloating) {
             cardPurpleFloating.value = true;
-          }
-          if (cardPurpleSparkle) {
-            cardPurpleSparkle.value = true;
           }
           if (cardBlueFloating) {
             cardBlueFloating.value = true;
@@ -357,6 +351,15 @@ const Animation = () => {
         onLeave: () => {
           clearInterval(animationInterval.current);
           animationInterval.current = null;
+
+          if (cardPurpleSparkle) {
+            cardPurpleSparkle.value = false;
+          }
+        },
+        onLeaveBack: () => {
+          if (cardPurpleSparkle) {
+            cardPurpleSparkle.value = true;
+          }
         },
       });
 
@@ -644,6 +647,7 @@ const Animation = () => {
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
         left: '20.879%',
+        pointerEvents: 'none',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -718,6 +722,7 @@ const Animation = () => {
         immediateRender: false,
         left: '17.579%',
         top: '17.734%',
+        pointerEvents: 'auto',
         scale: 1.64,
         ease: 'none',
         transformOrigin: 'left center',
@@ -854,7 +859,7 @@ const Animation = () => {
           />
         </div>
         <div
-          className="card-purple absolute w-auto h-[68.611%] aspect-[789/1084] top-[-14.722%] left-[6.473%] pointer-events-none z-40"
+          className="card-purple absolute w-auto h-[68.611%] aspect-[789/1084] top-[-14.722%] left-[6.473%] z-40"
           ref={cardPurpleRef}
         >
           <span
