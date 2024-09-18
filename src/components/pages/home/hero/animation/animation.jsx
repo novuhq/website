@@ -358,10 +358,17 @@ const Animation = () => {
           if (cardPurpleSparkle) {
             cardPurpleSparkle.value = false;
           }
+          if (cardBlueDisabled) {
+            cardBlueDisabled.value = false;
+          }
         },
         onLeaveBack: () => {
           if (cardPurpleSparkle) {
             cardPurpleSparkle.value = true;
+          }
+
+          if (cardBlueDisabled) {
+            cardBlueDisabled.value = true;
           }
         },
       });
@@ -372,10 +379,6 @@ const Animation = () => {
         end: `+=${height * 0.5}px`,
         onEnter: () => {
           let interval = null;
-
-          if (cardBlueDisabled) {
-            cardBlueDisabled.value = false;
-          }
 
           if (cardBlueChangeName && animationInterval.current === null) {
             let counter = 0;
@@ -437,6 +440,11 @@ const Animation = () => {
         onLeaveBack: () => {
           if (cardPurpleSparkle) {
             cardPurpleSparkle.value = false;
+          }
+        },
+        onEnterBack: () => {
+          if (cardBlueDisabled) {
+            cardBlueDisabled.value = false;
           }
         },
       });
@@ -600,9 +608,10 @@ const Animation = () => {
         },
       });
       gsap.to(developersRef.current, {
-        startAt: { right: '-2.827%', opacity: 0 },
+        startAt: { right: '-2.827%', opacity: 0, pointerEvents: 'none' },
         right: '4.613%',
         opacity: 1,
+        pointerEvents: 'auto',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -617,6 +626,7 @@ const Animation = () => {
         immediateRender: false,
         right: '0.893%',
         opacity: 0,
+        pointerEvents: 'none',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -629,6 +639,7 @@ const Animation = () => {
         immediateRender: false,
         right: '55.059%',
         opacity: 0,
+        pointerEvents: 'none',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -677,9 +688,10 @@ const Animation = () => {
         },
       });
       gsap.to(productTeamsRef.current, {
-        startAt: { left: '9.005%', opacity: 0 },
+        startAt: { left: '9.005%', opacity: 0, pointerEvents: 'none' },
         left: '-1.412%',
         opacity: 1,
+        pointerEvents: 'auto',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -694,6 +706,7 @@ const Animation = () => {
         immediateRender: false,
         y: -60,
         opacity: 0,
+        pointerEvents: 'none',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -716,8 +729,9 @@ const Animation = () => {
         },
       });
       gsap.to(endUsersRef.current, {
-        startAt: { top: '0.926%' },
+        startAt: { top: '0.926%', pointerEvents: 'none' },
         top: '11.111%',
+        pointerEvents: 'auto',
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -754,9 +768,10 @@ const Animation = () => {
       });
 
       gsap.to(phoneRef.current, {
-        startAt: { right: '-14.731%', opacity: 0 },
+        startAt: { right: '-14.731%', opacity: 0, pointerEvents: 'none' },
         right: '-3.571%',
         opacity: 1,
+        pointerEvents: 'auto',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
@@ -768,9 +783,10 @@ const Animation = () => {
       });
 
       gsap.to(inboxRef.current, {
-        startAt: { left: '-7.812%', opacity: 0 },
+        startAt: { left: '-7.812%', opacity: 0, pointerEvents: 'none' },
         left: '3.348%',
         opacity: 1,
+        pointerEvents: 'auto',
         ease: 'none',
         transformOrigin: 'left center',
         scrollTrigger: {
