@@ -11,14 +11,19 @@ const COMMENT_WORKFLOW_CODE = `import { workflow, CronExpression } from '@novu/f
 import { z } from 'zod';
 import { render } from '@react-email/components';
 
-const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@event@weeklyCommentsEventTooltip@@) => {
+const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@event@weeklyCommentsEventTooltip@left@@) => {
+  await event.step.@@inApp@stepTooltip@@('inbox-notification', async () => ({
+    subject: \`**\${event.@@payload@commentPayloadTooltip@@.userName}** commented in project\`,
+    body: event.payload.comment,
+  }));
+
   const digest = await event.step.digest('digest-comments', (controls) => ({
     cron: controls.schedule
   }), { controlSchema: z.object({ schedule: z.nativeEnum(CronExpression) }) });
 
-  await event.step.@@email@stepTooltip@@('digest-email', async (controls) => ({
+  await event.step.email('digest-email', async (controls) => ({
     subject: controls.subject,
-    body: render(<WeeklyDigestEmail {...@@controls@controlsTooltip@@} events={digest.events} />)
+    body: render(<WeeklyDigestEmail {...@@controls@controlsTooltip@left@@} events={digest.events} />)
   }), {
     @@skip@skipTooltip@@: () => !digest.events.length,
     controlSchema: z.object({
@@ -27,10 +32,10 @@ const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@
       aiPrompt: z.string().default('Produce a concise comment digest'),
     })
   });
-}, { payloadSchema: z.object({ name: z.string(), comment: z.string() }) });
+}, { payloadSchema: z.object({ userName: z.string(), comment: z.string() }) });
 
 await weeklyComments.@@trigger@triggerTooltip@@({
-  payload: { name: 'John', comment: 'Are you free to give me a call?' },
+  payload: { userName: 'John Doe', comment: 'Are you free to give me a call?' },
   to: 'jane@acme.com'
 });`;
 

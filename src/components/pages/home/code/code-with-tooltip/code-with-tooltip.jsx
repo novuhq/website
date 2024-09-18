@@ -62,12 +62,9 @@ const TOOLTIP_CONTENT = {
         </span>
         <span className="whitespace-pre">
           {'    '}
-          <span className="text-yellow">name</span>: string;
+          <span className="text-yellow">userName</span>: string;
         </span>
-        <span className="whitespace-pre">
-          {'    '}
-          <span className="text-yellow">comment</span>: string;
-        </span>
+        <span className="whitespace-pre">{'    '}...</span>
         <span className="whitespace-pre">{'  '}&#125;;</span>
         <span className="whitespace-pre">
           {'  '}
@@ -87,6 +84,27 @@ const TOOLTIP_CONTENT = {
       </span>
       <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">The event that triggered the workflow.</span>
+    </span>
+  ),
+  commentPayloadTooltip: (
+    <span className="flex flex-col py-3.5">
+      <span className="px-3.5 flex flex-col">
+        <span className="whitespace-pre">
+          <span className="text-yellow">payload</span>: &#123;
+        </span>
+        <span className="whitespace-pre">
+          {'  '}
+          <span className="text-yellow">userName</span>: string;
+        </span>
+        <span className="whitespace-pre">
+          {'  '}
+          <span className="text-yellow">comment</span>: string;
+        </span>
+        <span className="whitespace-pre">&#125;;</span>
+      </span>
+      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="px-3.5">The data passed during the trigger, types</span>
+      <span className="px-3.5">are generated from `payloadSchema`</span>
     </span>
   ),
   otpEventTooltip: (
@@ -198,7 +216,7 @@ const TOOLTIP_CONTENT = {
         </span>
         <span className="whitespace-pre">
           {'    '}
-          <span className="text-yellow">name</span>: string;
+          <span className="text-yellow">userName</span>: string;
         </span>
         <span className="whitespace-pre">
           {'    '}
@@ -228,11 +246,17 @@ const TOOLTIP_CONTENT = {
   ),
 };
 
-const CodeWithTooltip = ({ tooltipId, children }) => (
+const CodeWithTooltip = ({ tooltipId, children, tooltipPosition }) => (
   <span className="group relative bg-white/10 border border-white/35 rounded-sm" id={tooltipId}>
     {children}
 
-    <span className="tooltip-animation absolute top-full left-full bg-[linear-gradient(159.72deg,rgba(16,26,37,1)_9.88%,rgba(16,20,37,1)_87.56%)] rounded-lg border border-[rgba(58,64,81,1)] z-20 invisible opacity-0 group-hover:visible group-hover:opacity-100 [transition:visibility_0s_0.6s,opacity_0.3s_0.3s_linear] group-hover:[transition:visibility_0s_0s,opacity_0.3s_0s_linear] md:hidden">
+    <span
+      className={`tooltip-animation absolute top-[105%] ${
+        tooltipPosition === 'right' ? 'left-0' : 'right-0'
+      } ${
+        tooltipPosition === 'right' ? '' : ''
+      } bg-[linear-gradient(159.72deg,rgba(16,26,37,1)_9.88%,rgba(16,20,37,1)_87.56%)] rounded-lg border border-[rgba(58,64,81,1)] z-20 invisible opacity-0 group-hover:visible group-hover:opacity-100 [transition:visibility_0s_0.6s,opacity_0.3s_0.3s_linear] group-hover:[transition:visibility_0s_0s,opacity_0.3s_0s_linear] md:hidden`}
+    >
       {TOOLTIP_CONTENT[tooltipId]}
     </span>
   </span>

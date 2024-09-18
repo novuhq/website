@@ -19,7 +19,8 @@ import debugIcon from 'images/icons/debug.svg';
 import editIcon from 'images/icons/edit.svg';
 import integrationIcon from 'images/icons/integration.svg';
 import migrationIcon from 'images/icons/migration.svg';
-import angularIcon from 'images/reusable-sections/section-with-logos/angular.svg';
+// import angularIcon from 'images/reusable-sections/section-with-logos/angular.svg';
+import javaScriptLogo from 'images/reusable-sections/section-with-logos/javascript-icon.svg';
 import reactLogo from 'images/reusable-sections/section-with-logos/react-icon.svg';
 
 const INBOX_CATEGORIES = ["What's New", 'Alerts', 'Account'];
@@ -253,23 +254,23 @@ const GET_INVOLVED = [
   {
     icon: reactLogo,
     title: 'React',
-    description: 'React Inbox components',
+    description: 'React <Inbox /> components',
     linkText: 'React Docs',
-    linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=inbox-fp',
+    linkUrl: 'https://docs.novu.co/inbox/react/components?utm_campaign=fp-inbox',
   },
   {
     icon: reactLogo,
     title: 'React Native',
-    description: 'React Native Inbox components',
-    linkText: 'Week of 9 September',
-    linkUrl: 'https://roadmap.novu.co/roadmap/d84e52ff-4cbe-4c5e-8fab-361a11fff95e',
+    description: 'React Native hooks',
+    linkText: 'React Native Docs',
+    linkUrl: 'https://docs.novu.co/inbox/react/hooks/overview?utm_campaign=fp-inbox',
   },
   {
-    icon: angularIcon,
-    title: 'Angular',
-    description: 'Angular Inbox components',
-    linkText: 'Coming Soon',
-    linkUrl: '/inbox?utm_campaign=inbox_angular',
+    icon: javaScriptLogo,
+    title: 'Native JavaScript',
+    description: 'DIY interface, powered by Novu',
+    linkText: 'JavaScript Docs',
+    linkUrl: 'https://docs.novu.co/inbox/headless/get-started?utm_campaign=fp-inbox',
   },
 ];
 
@@ -277,22 +278,28 @@ const CODE_SECTION = `import { Inbox } from "@novu/react";
 
 const tabs = [
   {
-    title: "All",
-    value: ["system","account","product"],
+    label: "All",
+    value: [],
   },
   {
-    title: "System",
-    value: ["system"],
+    label: "What's New",
+    value: [ 'new' ],
+  },
+  {
+    label: "Alerts",
+    value: [ 'alerts' ],
+  },
+  {
+    label: "Account",
+    value: [ 'account' ],
   },
 ];
 
 function Novu() {
   return (
     <Inbox
-      options={{
-        subscriberId: "SUBSCRIBER_ID",
-        applicationIdentifier: "APPLICATION_IDENTIFIER",
-      }}
+      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
+      subscriberId="YOUR_SUBSCRIBER_ID"
       tabs={tabs}
     />
   );
@@ -311,15 +318,15 @@ const InboxPage = () => (
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
     />
+    <SectionWithSmallIcons
+      title="Powerful notification <Inbox/> features in minutes, not days"
+      items={SECTION_WITH_SMALL_ICONS}
+    />
     <CodeSection
       code={CODE_SECTION}
       title="Fast, composable, and simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
       button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
-    />
-    <SectionWithSmallIcons
-      title="Powerful notification <Inbox/> features in minutes, not days"
-      items={SECTION_WITH_SMALL_ICONS}
     />
 
     {/*
