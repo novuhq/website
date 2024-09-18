@@ -261,7 +261,7 @@ const GET_INVOLVED = [
   {
     icon: reactLogo,
     title: 'React Native',
-    description: 'React Native <Inbox /> components',
+    description: 'React Native hooks',
     linkText: 'React Native Docs',
     linkUrl: 'https://docs.novu.co/inbox/react/hooks/overview?utm_campaign=fp-inbox',
   },
