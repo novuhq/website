@@ -3,7 +3,7 @@ import { Layout, Fit, Alignment, EventType } from '@rive-app/canvas';
 import { useStateMachineInput } from '@rive-app/react-canvas';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useCallback } from 'react';
 
 import Button from 'components/shared/button';
 import RiveAnimation from 'components/shared/rive-animation';
@@ -325,8 +325,8 @@ const Animation = () => {
 
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: `${height}px`,
-        end: `+=${height * 0.5}px`,
+        start: `${height * 0.99}px`,
+        end: `+=${height * 0.1}px`,
         onEnter: () => {
           let interval = null;
 
@@ -375,8 +375,8 @@ const Animation = () => {
 
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: `${height * 2.5}px`,
-        end: `+=${height * 0.5}px`,
+        start: `${height * 1.99}px`,
+        end: `+=${height * 0.1}px`,
         onEnter: () => {
           let interval = null;
 
@@ -424,8 +424,8 @@ const Animation = () => {
 
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: `${height * 4}px`,
-        end: `+=${height * 0.5}px`,
+        start: `${height * 2.99}px`,
+        end: `+=${height * 0.1}px`,
         onEnter: () => {
           if (phoneNotification) {
             phoneNotification.fire();
@@ -471,12 +471,16 @@ const Animation = () => {
     () => {
       const height = animationRef.current.offsetHeight;
 
+      const snapTo = [0, 1 / 3, 2 / 3, 1];
+
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: 'top top',
         pin: animationRef.current,
         pinSpacing: false,
         end: 'bottom bottom',
+        markers: true,
+        snap: { snapTo, duration: 0.3, delay: 0, ease: 'power1.inOut' },
       });
 
       // first step
@@ -631,7 +635,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 1.5}px`,
+          start: `${height}px`,
           end: `+=${height * 0.2}px`,
         },
       });
@@ -644,7 +648,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 1.5}px`,
+          start: `${height}px`,
           end: `+=${height * 0.2}px`,
         },
       });
@@ -657,7 +661,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 1.7}px`,
+          start: `${height * 1.2}px`,
           end: `+=${height * 0.8}px`,
         },
       });
@@ -670,7 +674,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 1.7}px`,
+          start: `${height * 1.2}px`,
           end: `+=${height * 0.2}px`,
         },
       });
@@ -683,7 +687,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 1.5}px`,
+          start: `${height}px`,
           end: `+=${height}px`,
         },
       });
@@ -696,7 +700,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 1.7}px`,
+          start: `${height * 1.2}px`,
           end: `+=${height * 0.8}px`,
         },
       });
@@ -711,7 +715,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.0}px`,
+          start: `${height * 2.0}px`,
           end: `+=${height * 0.2}px`,
         },
       });
@@ -724,7 +728,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.0}px`,
+          start: `${height * 2.0}px`,
           end: `+=${height * 0.5}px`,
         },
       });
@@ -736,7 +740,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.4}px`,
+          start: `${height * 2.4}px`,
           end: `+=${height * 0.6}px`,
         },
       });
@@ -747,7 +751,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.4}px`,
+          start: `${height * 2.4}px`,
           end: `+=${height * 0.2}px`,
         },
       });
@@ -762,7 +766,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.3}px`,
+          start: `${height * 2.3}px`,
           end: `+=${height * 0.7}px`,
         },
       });
@@ -777,7 +781,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.3}px`,
+          start: `${height * 2.3}px`,
           end: `+=${height * 0.7}px`,
         },
       });
@@ -792,7 +796,7 @@ const Animation = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: `${height * 3.3}px`,
+          start: `${height * 2.3}px`,
           end: `+=${height * 0.7}px`,
         },
       });
@@ -802,14 +806,9 @@ const Animation = () => {
     }
   );
 
-  useEffect(() => {
-    const animationContainerHeight = animationRef.current.offsetHeight * 5.5;
-    containerRef.current.style.height = `${animationContainerHeight}px`;
-  }, []);
-
   return (
-    <div className="container-xl relative" ref={containerRef}>
-      <div className="w-full h-auto aspect-[56/45]" ref={animationRef}>
+    <div className="container-xl relative h-[400vh]" ref={containerRef}>
+      <div className="w-full h-screen" ref={animationRef}>
         <section
           className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[4.613%] opacity-0 z-50"
           ref={developersRef}
