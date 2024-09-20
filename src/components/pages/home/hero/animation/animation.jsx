@@ -479,7 +479,6 @@ const Animation = () => {
         pin: animationRef.current,
         pinSpacing: false,
         end: 'bottom bottom',
-        markers: true,
         snap: { snapTo, duration: 0.3, delay: 0, ease: 'power1.inOut' },
       });
 
