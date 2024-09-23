@@ -495,7 +495,6 @@ const Animation = () => {
         trigger: snapRef.current,
         start: 'top top',
         end: 'bottom bottom',
-        markers: true,
         snap: {
           snapTo,
           duration: 0.5,
