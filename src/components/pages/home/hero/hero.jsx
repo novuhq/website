@@ -39,7 +39,7 @@ const Hero = () => {
 
   return (
     <section className="hero pt-[152px] pb-[180px] lg:pt-[196px] lg:pb-[200px] md:pt-[98px] md:pb-0">
-      <div className="container-xl relative xl:px-10 lg:px-8 lg:max-w-none md:max-w-3xl sm:max-w-lg sm:px-5">
+      <div className="container-xl relative xl:px-10 lg:px-8 lg:max-w-none md:max-w-3xl sm:max-w-lg sm:px-5 z-10">
         <div className="flex flex-col items-center">
           <h1 className="text-[52px] leading-denser tracking-snug font-medium max-w-[902px] lg:text-5xl md:text-4xl sm:text-[30px] text-center">
             {TITLE}

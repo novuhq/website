@@ -144,6 +144,7 @@ const Animation = () => {
 
   const containerRef = useRef(null);
   const animationRef = useRef(null);
+  const snapRef = useRef(null);
 
   const cardPurpleRef = useRef(null);
   const cardBlueRef = useRef(null);
@@ -463,7 +464,7 @@ const Animation = () => {
         inboxReset,
         cardBlueDisabled,
       ],
-      scope: containerRef,
+      scope: containerRef.current,
     }
   );
 
@@ -471,7 +472,16 @@ const Animation = () => {
     () => {
       const height = animationRef.current.offsetHeight;
 
-      const snapTo = [0, 1 / 3, 2 / 3, 1];
+      const offsetHeight = 448;
+
+      const containerHeight = height * 3;
+
+      const snapTo = [
+        0,
+        (offsetHeight + height) / (containerHeight + offsetHeight),
+        (offsetHeight + height * 2) / (containerHeight + offsetHeight),
+        1,
+      ];
 
       ScrollTrigger.create({
         trigger: containerRef.current,
@@ -479,7 +489,19 @@ const Animation = () => {
         pin: animationRef.current,
         pinSpacing: false,
         end: 'bottom bottom',
-        snap: { snapTo, duration: 0.3, delay: 0, ease: 'power1.inOut' },
+      });
+
+      ScrollTrigger.create({
+        trigger: snapRef.current,
+        start: 'top top',
+        end: 'bottom bottom',
+        markers: true,
+        snap: {
+          snapTo,
+          duration: 0.5,
+          delay: 0,
+          ease: 'power1.inOut',
+        },
       });
 
       // first step
@@ -801,161 +823,168 @@ const Animation = () => {
       });
     },
     {
-      scope: containerRef,
+      scope: containerRef.current,
     }
   );
 
   return (
-    <div className="container-xl relative h-[400vh]" ref={containerRef}>
-      <div className="w-full h-screen" ref={animationRef}>
-        <section
-          className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[4.613%] opacity-0 z-50"
-          ref={developersRef}
-        >
-          <h2 className="text-[44px] leading-denser tracking-snug font-medium">Developers</h2>
-          <p className="mt-3 text-white/70 text-lg leading-snug">
-            Define workflows as code, re-use components, and deploy confidently while developing in
-            your IDE of choice. Experience seamless GitOps.
-          </p>
-          <Button className="text-sm h-10 min-w-[140px] mt-6" theme="white-filled">
-            Learn more
-          </Button>
-        </section>
-        <section
-          className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[-1.488%] opacity-0 z-40"
-          ref={productTeamsRef}
-        >
-          <h2 className="text-[44px] leading-denser tracking-snug font-medium">Product teams</h2>
-          <p className="mt-3 text-white/70 text-lg leading-snug">
-            Define workflows as code, re-use components, and deploy confidently while developing in
-            your IDE of choice. Experience seamless GitOps Notifications revolutionizing workflow
-            management
-          </p>
-          <Button className="text-sm h-10 min-w-[140px] mt-6" theme="white-filled">
-            Learn more
-          </Button>
-        </section>
-        <section
-          className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-[11.111%] text-center opacity-0 z-50"
-          ref={endUsersRef}
-        >
-          <h2 className="text-[44px] leading-denser tracking-snug font-medium">End users</h2>
-          <p className="mt-3 text-white/70 text-lg leading-snug">
-            Define workflows as code, re-use components, and deploy confidently while developing in
-            your IDE of choice.
-          </p>
-        </section>
-        <div
-          className="card-code absolute w-auto h-[41.46%] aspect-[137/107] top-[4.074%] right-[11.161%] z-30"
-          ref={cardCodeRef}
-        >
-          <span
-            className="absolute left-0 top-0 -z-10 h-full w-px"
-            ref={cardCodeAnimationWrapperRef}
-            aria-hidden
-          />
-          <div
-            className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
-            ref={cardCodeAnimationRef}
+    <>
+      <div className="container-xl relative h-[400vh] z-0 mb-20" ref={containerRef}>
+        <div className="w-full h-screen" ref={animationRef}>
+          <section
+            className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[4.613%] opacity-0 z-50"
+            ref={developersRef}
           >
-            <RiveAnimation
-              setRiveInstance={setCardCodeAnimationInstance}
-              {...cardCodeAnimationProps}
+            <h2 className="text-[44px] leading-denser tracking-snug font-medium">Developers</h2>
+            <p className="mt-3 text-white/70 text-lg leading-snug">
+              Define workflows as code, re-use components, and deploy confidently while developing
+              in your IDE of choice. Experience seamless GitOps.
+            </p>
+            <Button className="text-sm h-10 min-w-[140px] mt-6" theme="white-filled">
+              Learn more
+            </Button>
+          </section>
+          <section
+            className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[-1.488%] opacity-0 z-40"
+            ref={productTeamsRef}
+          >
+            <h2 className="text-[44px] leading-denser tracking-snug font-medium">Product teams</h2>
+            <p className="mt-3 text-white/70 text-lg leading-snug">
+              Define workflows as code, re-use components, and deploy confidently while developing
+              in your IDE of choice. Experience seamless GitOps Notifications revolutionizing
+              workflow management
+            </p>
+            <Button className="text-sm h-10 min-w-[140px] mt-6" theme="white-filled">
+              Learn more
+            </Button>
+          </section>
+          <section
+            className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-[11.111%] text-center opacity-0 z-50"
+            ref={endUsersRef}
+          >
+            <h2 className="text-[44px] leading-denser tracking-snug font-medium">End users</h2>
+            <p className="mt-3 text-white/70 text-lg leading-snug">
+              Define workflows as code, re-use components, and deploy confidently while developing
+              in your IDE of choice.
+            </p>
+          </section>
+          <div
+            className="card-code absolute w-auto h-[448px] aspect-[137/107] top-[4.074%] right-[11.161%] z-30"
+            ref={cardCodeRef}
+          >
+            <span
+              className="absolute left-0 top-0 -z-10 h-full w-px"
+              ref={cardCodeAnimationWrapperRef}
+              aria-hidden
+            />
+            <div
+              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              ref={cardCodeAnimationRef}
+            >
+              <RiveAnimation
+                setRiveInstance={setCardCodeAnimationInstance}
+                {...cardCodeAnimationProps}
+              />
+            </div>
+            <div
+              className="absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              aria-hidden
             />
           </div>
           <div
-            className="absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
-            aria-hidden
-          />
-        </div>
-        <div
-          className="card-blue absolute w-auto h-[41.481%] aspect-[59/46] top-[6.019%] left-[29.613%] z-30"
-          ref={cardBlueRef}
-        >
-          <span
-            className="absolute left-0 top-0 -z-10 h-full w-px"
-            ref={cardBlueAnimationWrapperRef}
-            aria-hidden
-          />
-          <div
-            className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
-            ref={cardBlueAnimationRef}
+            className="card-blue absolute w-auto h-[448px] aspect-[59/46] top-[6.019%] left-[29.613%] z-30"
+            ref={cardBlueRef}
           >
-            <RiveAnimation
-              setRiveInstance={setCardBlueAnimationInstance}
-              {...cardBlueAnimationProps}
+            <span
+              className="absolute left-0 top-0 -z-10 h-full w-px"
+              ref={cardBlueAnimationWrapperRef}
+              aria-hidden
+            />
+            <div
+              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              ref={cardBlueAnimationRef}
+            >
+              <RiveAnimation
+                setRiveInstance={setCardBlueAnimationInstance}
+                {...cardBlueAnimationProps}
+              />
+            </div>
+            <div
+              className="absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              aria-hidden
             />
           </div>
           <div
-            className="absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
-            aria-hidden
-          />
-        </div>
-        <div
-          className="card-purple absolute w-auto h-[68.611%] aspect-[789/1084] top-[-14.722%] left-[6.473%] z-40"
-          ref={cardPurpleRef}
-        >
-          <span
-            className="absolute left-0 top-0 -z-10 h-full w-px"
-            ref={cardPurpleAnimationWrapperRef}
-            aria-hidden
-          />
-          <div
-            className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
-            ref={cardPurpleAnimationRef}
+            className="card-purple absolute w-auto h-[740px] aspect-[789/1084] top-[-14.722%] left-[6.473%] z-40"
+            ref={cardPurpleRef}
           >
-            <RiveAnimation
-              setRiveInstance={setCardPurpleAnimationInstance}
-              {...cardPurpleAnimationProps}
+            <span
+              className="absolute left-0 top-0 -z-10 h-full w-px"
+              ref={cardPurpleAnimationWrapperRef}
+              aria-hidden
+            />
+            <div
+              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              ref={cardPurpleAnimationRef}
+            >
+              <RiveAnimation
+                setRiveInstance={setCardPurpleAnimationInstance}
+                {...cardPurpleAnimationProps}
+              />
+            </div>
+            <div
+              className="absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              aria-hidden
             />
           </div>
           <div
-            className="absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
-            aria-hidden
-          />
-        </div>
-        <div
-          className="phone absolute w-auto h-[74.537%] aspect-[547/805] top-[32.129%] right-[-3.571%] opacity-0 z-30"
-          ref={phoneRef}
-        >
-          <span
-            className="absolute left-0 top-0 -z-10 h-full w-px"
-            ref={phoneAnimationWrapperRef}
-            aria-hidden
-          />
-          <div
-            className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
-            ref={phoneAnimationRef}
+            className="phone absolute w-auto h-[805px] aspect-[547/805] top-[32.129%] right-[-3.571%] opacity-0 z-30"
+            ref={phoneRef}
           >
-            <RiveAnimation setRiveInstance={setPhoneAnimationInstance} {...phoneAnimationProps} />
+            <span
+              className="absolute left-0 top-0 -z-10 h-full w-px"
+              ref={phoneAnimationWrapperRef}
+              aria-hidden
+            />
+            <div
+              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              ref={phoneAnimationRef}
+            >
+              <RiveAnimation setRiveInstance={setPhoneAnimationInstance} {...phoneAnimationProps} />
+            </div>
+            <div
+              className="absolute w-[67%] h-[79.503%] bottom-0 left-[15.5%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              aria-hidden
+            />
           </div>
           <div
-            className="absolute w-[67%] h-[79.503%] bottom-0 left-[15.5%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
-            aria-hidden
-          />
-        </div>
-        <div
-          className="inbox absolute w-auto h-[44.444%] aspect-[341/480] top-[39.629%] left-[3.348%] opacity-0 z-30"
-          ref={inboxRef}
-        >
-          <span
-            className="absolute left-0 top-0 -z-10 h-full w-px"
-            ref={inboxAnimationWrapperRef}
-            aria-hidden
-          />
-          <div
-            className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
-            ref={inboxAnimationRef}
+            className="inbox absolute w-auto h-[480px] aspect-[341/480] top-[39.629%] left-[3.348%] opacity-0 z-30"
+            ref={inboxRef}
           >
-            <RiveAnimation setRiveInstance={setInboxAnimationInstance} {...inboxAnimationProps} />
+            <span
+              className="absolute left-0 top-0 -z-10 h-full w-px"
+              ref={inboxAnimationWrapperRef}
+              aria-hidden
+            />
+            <div
+              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              ref={inboxAnimationRef}
+            >
+              <RiveAnimation setRiveInstance={setInboxAnimationInstance} {...inboxAnimationProps} />
+            </div>
+            <div
+              className="absolute w-full h-[32.083%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              aria-hidden
+            />
           </div>
-          <div
-            className="absolute w-full h-[32.083%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
-            aria-hidden
-          />
         </div>
       </div>
-    </div>
+      <div
+        className="-z-10 absolute top-0 w-full h-[calc(400vh+448px)]"
+        ref={snapRef}
+        aria-hidden
+      />
+    </>
   );
 };
 
