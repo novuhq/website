@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
+
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 import React from 'react';
 
+import Author from 'components/pages/blog-post/author';
 import Code from 'components/pages/blog-post/code';
 import Hero from 'components/pages/blog-post/hero';
 import RelatedArticles from 'components/pages/blog-post/related-articles';
 import SocialShare from 'components/pages/blog-post/social-share';
+import TableOfContents from 'components/pages/blog-post/table-of-contents';
 import Content from 'components/shared/content';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
@@ -16,6 +19,12 @@ import Subscribe from 'components/shared/subscribe';
 import ArrowIcon from 'images/arrow.inline.svg';
 import getReactContentWithLazyBlocks from 'utils/get-react-content-with-lazy-blocks';
 
+const getHeadings = (content) =>
+  content.filter(
+    (block) =>
+      block?.props?.className === 'wp-block-heading' && (block.type === 'h2' || block.type === 'h3')
+  );
+
 const BlogPost = (props) => {
   const {
     data: {
@@ -24,7 +33,7 @@ const BlogPost = (props) => {
         title,
         date,
         categories,
-        pageBlogPost: { description, image, author },
+        pageBlogPost: { description, image, author, showTableOfContents },
       },
       relatedArticles,
     },
@@ -86,20 +95,33 @@ const BlogPost = (props) => {
     true
   );
 
+  const headings = getHeadings(contentWithLazyBlocks);
+
   return (
     <Layout seo={{}}>
       <article className="safe-paddings pt-40 sm:pt-28">
-        <div className="container-sm relative">
+        <div className="container-lm relative">
           <Link
             className="sticky top-8 z-10 -mb-8 -ml-28 flex h-8 w-8 items-center justify-center rounded-full bg-gray-2 transition-colors duration-200 hover:text-primary-1 lg:-ml-20 md:hidden"
             to={pageContext.blogPageURL}
           >
             <ArrowIcon className="h-2" />
           </Link>
-          <Hero {...hero} />
-          <Content content={contentWithLazyBlocks} />
-          <Separator className="mt-14 px-0" backgroundColor="black" />
-          <SocialShare {...socialShare} />
+          <Hero className="max-w-[704px] md:max-w-[800px] md:mx-auto" {...hero} />
+          <div className="flex gap-x-16 md:flex-col">
+            <div className="max-w-[704px] md:max-w-[800px] md:mx-auto sm:max-w-full">
+              <Content content={contentWithLazyBlocks} />
+              <Separator className="mt-14 px-0" backgroundColor="black" />
+              <SocialShare className="hidden md:flex" {...socialShare} />
+            </div>
+            <aside className="mt-10 md:mt-8 max-w-[256px] w-full md:hidden">
+              <div className="sticky top-10 flex flex-col gap-y-12">
+                {showTableOfContents && <TableOfContents headings={headings} />}
+                <Author author={author} />
+                <SocialShare {...socialShare} />
+              </div>
+            </aside>
+          </div>
         </div>
       </article>
       {relatedArticlesProps.items.length >= 3 && <RelatedArticles {...relatedArticlesProps} />}
@@ -165,6 +187,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        showTableOfContents
       }
       ...wpPostSeo
     }
