@@ -779,13 +779,15 @@ const Animation = () => {
             <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
               {firstSectionData.description}
             </p>
-            <Button
-              className="text-sm h-10 min-w-[140px] mt-6"
-              theme="white-filled"
-              to={firstSectionData.button.link}
-            >
-              {firstSectionData.button.label}
-            </Button>
+            {firstSectionData.button && (
+              <Button
+                className="text-sm h-10 min-w-[140px] mt-6"
+                theme="white-filled"
+                to={firstSectionData.button.link}
+              >
+                {firstSectionData.button.label}
+              </Button>
+            )}
           </section>
           <section
             className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[14%] opacity-0 z-40 xl:left-[7%] lg:left-[10%] lg:max-w-72"
@@ -797,13 +799,15 @@ const Animation = () => {
             <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
               {secondSectionData.description}
             </p>
-            <Button
-              className="text-sm h-10 min-w-[140px] mt-6"
-              theme="white-filled"
-              to={secondSectionData.button.link}
-            >
-              {secondSectionData.button.label}
-            </Button>
+            {secondSectionData.button && (
+              <Button
+                className="text-sm h-10 min-w-[140px] mt-6"
+                theme="white-filled"
+                to={secondSectionData.button.link}
+              >
+                {secondSectionData.button.label}
+              </Button>
+            )}
           </section>
           <section
             className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-[11.111%] text-center opacity-0 z-50 lg:max-w-md"
