@@ -1,20 +1,22 @@
 import { useGSAP } from '@gsap/react';
 import { Layout, Fit, Alignment, EventType } from '@rive-app/canvas';
 import { useStateMachineInput } from '@rive-app/react-canvas';
+import { clsx } from 'clsx';
+import { StaticImage } from 'gatsby-plugin-image';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useState, useEffect } from 'react';
 
 import Button from 'components/shared/button';
 import RiveAnimation from 'components/shared/rive-animation';
 import useRiveAnimation from 'hooks/use-rive-animation';
 
-const useCardBlueAnimation = () => {
+const useAnimation = (artboard) => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
   const riveAnimationProps = {
     src: '/animations/pages/home/hero/new-hero.riv',
-    artboard: 'card-blue',
+    artboard,
     autoplay: false,
     stateMachines: 'SM',
     layout: new Layout({
@@ -27,115 +29,11 @@ const useCardBlueAnimation = () => {
   };
 
   return {
-    cardBlueAnimationInstance: riveInstance,
-    cardBlueAnimationWrapperRef: wrapperRef,
-    cardBlueAnimationRef: animationRef,
-    setCardBlueAnimationInstance: setRiveInstance,
-    cardBlueAnimationProps: riveAnimationProps,
-  };
-};
-
-const useCardPurpleAnimation = () => {
-  const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
-
-  const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new-hero.riv',
-    artboard: 'card-purple',
-    autoplay: false,
-    stateMachines: 'SM',
-    layout: new Layout({
-      fit: Fit.Fill,
-      alignment: Alignment.Center,
-    }),
-    onLoad: () => {
-      riveInstance?.resizeDrawingSurfaceToCanvas();
-    },
-  };
-
-  return {
-    cardPurpleAnimationInstance: riveInstance,
-    cardPurpleAnimationWrapperRef: wrapperRef,
-    cardPurpleAnimationRef: animationRef,
-    setCardPurpleAnimationInstance: setRiveInstance,
-    cardPurpleAnimationProps: riveAnimationProps,
-  };
-};
-
-const useCardCodeAnimation = () => {
-  const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
-
-  const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new-hero.riv',
-    artboard: 'card-code',
-    autoplay: false,
-    stateMachines: 'SM',
-    layout: new Layout({
-      fit: Fit.Fill,
-      alignment: Alignment.Center,
-    }),
-    onLoad: () => {
-      riveInstance?.resizeDrawingSurfaceToCanvas();
-    },
-  };
-
-  return {
-    cardCodeAnimationInstance: riveInstance,
-    cardCodeAnimationWrapperRef: wrapperRef,
-    cardCodeAnimationRef: animationRef,
-    setCardCodeAnimationInstance: setRiveInstance,
-    cardCodeAnimationProps: riveAnimationProps,
-  };
-};
-
-const usePhoneAnimation = () => {
-  const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
-
-  const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new-hero.riv',
-    artboard: 'phone',
-    autoplay: false,
-    stateMachines: 'SM',
-    layout: new Layout({
-      fit: Fit.Fill,
-      alignment: Alignment.Center,
-    }),
-    onLoad: () => {
-      riveInstance?.resizeDrawingSurfaceToCanvas();
-    },
-  };
-
-  return {
-    phoneAnimationInstance: riveInstance,
-    phoneAnimationWrapperRef: wrapperRef,
-    phoneAnimationRef: animationRef,
-    setPhoneAnimationInstance: setRiveInstance,
-    phoneAnimationProps: riveAnimationProps,
-  };
-};
-
-const useInboxAnimation = () => {
-  const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
-
-  const riveAnimationProps = {
-    src: '/animations/pages/home/hero/new-hero.riv',
-    artboard: 'inbox',
-    autoplay: false,
-    stateMachines: 'SM',
-    layout: new Layout({
-      fit: Fit.Fill,
-      alignment: Alignment.Center,
-    }),
-    onLoad: () => {
-      riveInstance?.resizeDrawingSurfaceToCanvas();
-    },
-  };
-
-  return {
-    inboxAnimationInstance: riveInstance,
-    inboxAnimationWrapperRef: wrapperRef,
-    inboxAnimationRef: animationRef,
-    setInboxAnimationInstance: setRiveInstance,
-    inboxAnimationProps: riveAnimationProps,
+    riveInstance,
+    wrapperRef,
+    animationRef,
+    setRiveInstance,
+    riveAnimationProps,
   };
 };
 
@@ -156,45 +54,67 @@ const Animation = () => {
   const productTeamsRef = useRef(null);
   const endUsersRef = useRef(null);
 
-  const {
-    cardBlueAnimationInstance,
-    cardBlueAnimationWrapperRef,
-    cardBlueAnimationRef,
-    setCardBlueAnimationInstance,
-    cardBlueAnimationProps,
-  } = useCardBlueAnimation();
+  const [isCodeAnimationReady, setIsCodeAnimationReady] = useState(false);
+  const [isBlueAnimationReady, setIsBlueAnimationReady] = useState(false);
+  const [isPurpleAnimationReady, setIsPurpleAnimationReady] = useState(false);
 
   const {
-    cardPurpleAnimationInstance,
-    cardPurpleAnimationWrapperRef,
-    cardPurpleAnimationRef,
-    setCardPurpleAnimationInstance,
-    cardPurpleAnimationProps,
-  } = useCardPurpleAnimation();
+    riveInstance: cardBlueAnimationInstance,
+    wrapperRef: cardBlueAnimationWrapperRef,
+    animationRef: cardBlueAnimationRef,
+    setRiveInstance: setCardBlueAnimationInstance,
+    riveAnimationProps: cardBlueAnimationProps,
+  } = useAnimation('card-blue');
 
   const {
-    cardCodeAnimationInstance,
-    cardCodeAnimationWrapperRef,
-    cardCodeAnimationRef,
-    setCardCodeAnimationInstance,
-    cardCodeAnimationProps,
-  } = useCardCodeAnimation();
+    riveInstance: cardPurpleAnimationInstance,
+    wrapperRef: cardPurpleAnimationWrapperRef,
+    animationRef: cardPurpleAnimationRef,
+    setRiveInstance: setCardPurpleAnimationInstance,
+    riveAnimationProps: cardPurpleAnimationProps,
+  } = useAnimation('card-purple');
 
   const {
-    phoneAnimationInstance,
-    phoneAnimationWrapperRef,
-    phoneAnimationRef,
-    setPhoneAnimationInstance,
-    phoneAnimationProps,
-  } = usePhoneAnimation();
+    riveInstance: cardCodeAnimationInstance,
+    wrapperRef: cardCodeAnimationWrapperRef,
+    animationRef: cardCodeAnimationRef,
+    setRiveInstance: setCardCodeAnimationInstance,
+    riveAnimationProps: cardCodeAnimationProps,
+  } = useAnimation('card-code');
 
   const {
-    inboxAnimationInstance,
-    inboxAnimationWrapperRef,
-    inboxAnimationRef,
-    setInboxAnimationInstance,
-    inboxAnimationProps,
-  } = useInboxAnimation();
+    riveInstance: phoneAnimationInstance,
+    wrapperRef: phoneAnimationWrapperRef,
+    animationRef: phoneAnimationRef,
+    setRiveInstance: setPhoneAnimationInstance,
+    riveAnimationProps: phoneAnimationProps,
+  } = useAnimation('phone');
+
+  const {
+    riveInstance: inboxAnimationInstance,
+    wrapperRef: inboxAnimationWrapperRef,
+    animationRef: inboxAnimationRef,
+    setRiveInstance: setInboxAnimationInstance,
+    riveAnimationProps: inboxAnimationProps,
+  } = useAnimation('inbox');
+
+  useEffect(() => {
+    if (cardBlueAnimationInstance?.readyForPlaying) {
+      setIsBlueAnimationReady(true);
+    }
+  }, [cardBlueAnimationInstance]);
+
+  useEffect(() => {
+    if (cardPurpleAnimationInstance?.readyForPlaying) {
+      setIsPurpleAnimationReady(true);
+    }
+  }, [cardPurpleAnimationInstance]);
+
+  useEffect(() => {
+    if (cardCodeAnimationInstance?.readyForPlaying) {
+      setIsCodeAnimationReady(true);
+    }
+  }, [cardCodeAnimationInstance]);
 
   // create stateMachineInputs for all animations
 
@@ -298,159 +218,163 @@ const Animation = () => {
 
       const offsetHeight = containerRef.current.offsetTop;
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: `top ${offsetHeight}px`,
-        end: `+=${offsetHeight}px`,
-        onEnter: () => {
-          if (cardPurpleFloating) {
-            cardPurpleFloating.value = false;
-          }
-          if (cardBlueFloating) {
-            cardBlueFloating.value = false;
-          }
-          if (cardCodeFloating) {
-            cardCodeFloating.value = false;
-          }
-        },
-        onLeaveBack: () => {
-          if (cardPurpleFloating) {
-            cardPurpleFloating.value = true;
-          }
-          if (cardBlueFloating) {
-            cardBlueFloating.value = true;
-          }
-          if (cardCodeFloating) {
-            cardCodeFloating.value = true;
-          }
-        },
-      });
+      const isAnimationPlayable = window.innerWidth >= 1024;
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: `${height * 0.99}px`,
-        end: `+=${height * 0.1}px`,
-        onEnter: () => {
-          let interval = null;
+      if (isAnimationPlayable) {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
+          onEnter: () => {
+            if (cardPurpleFloating) {
+              cardPurpleFloating.value = false;
+            }
+            if (cardBlueFloating) {
+              cardBlueFloating.value = false;
+            }
+            if (cardCodeFloating) {
+              cardCodeFloating.value = false;
+            }
+          },
+          onLeaveBack: () => {
+            if (cardPurpleFloating) {
+              cardPurpleFloating.value = true;
+            }
+            if (cardBlueFloating) {
+              cardBlueFloating.value = true;
+            }
+            if (cardCodeFloating) {
+              cardCodeFloating.value = true;
+            }
+          },
+        });
 
-          if (cardCodeChange && animationInterval.current === null) {
-            let counter = 0;
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: `${height * 0.99}px`,
+          end: `+=${height * 0.1}px`,
+          onEnter: () => {
+            let interval = null;
 
-            cardCodeChange.fire();
+            if (cardCodeChange && animationInterval.current === null) {
+              let counter = 0;
 
-            interval = setInterval(() => {
               cardCodeChange.fire();
-              counter += 1;
-              if (counter >= 2) {
-                clearInterval(interval);
-              }
-            }, 3000);
 
-            animationInterval.current = interval;
-          }
+              interval = setInterval(() => {
+                cardCodeChange.fire();
+                counter += 1;
+                if (counter >= 2) {
+                  clearInterval(interval);
+                }
+              }, 3000);
 
-          return () => {
-            clearInterval(interval);
+              animationInterval.current = interval;
+            }
+
+            return () => {
+              clearInterval(interval);
+              animationInterval.current = null;
+            };
+          },
+          onLeave: () => {
+            clearInterval(animationInterval.current);
             animationInterval.current = null;
-          };
-        },
-        onLeave: () => {
-          clearInterval(animationInterval.current);
-          animationInterval.current = null;
 
-          if (cardPurpleSparkle) {
-            cardPurpleSparkle.value = false;
-          }
-          if (cardBlueDisabled) {
-            cardBlueDisabled.value = false;
-          }
-        },
-        onLeaveBack: () => {
-          if (cardPurpleSparkle) {
-            cardPurpleSparkle.value = true;
-          }
+            if (cardPurpleSparkle) {
+              cardPurpleSparkle.value = false;
+            }
+            if (cardBlueDisabled) {
+              cardBlueDisabled.value = false;
+            }
+          },
+          onLeaveBack: () => {
+            if (cardPurpleSparkle) {
+              cardPurpleSparkle.value = true;
+            }
 
-          if (cardBlueDisabled) {
-            cardBlueDisabled.value = true;
-          }
-        },
-      });
+            if (cardBlueDisabled) {
+              cardBlueDisabled.value = true;
+            }
+          },
+        });
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: `${height * 1.99}px`,
-        end: `+=${height * 0.1}px`,
-        onEnter: () => {
-          let interval = null;
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: `${height * 1.99}px`,
+          end: `+=${height * 0.1}px`,
+          onEnter: () => {
+            let interval = null;
 
-          if (cardBlueChangeName && animationInterval.current === null) {
-            let counter = 0;
+            if (cardBlueChangeName && animationInterval.current === null) {
+              let counter = 0;
 
-            cardBlueChangeName.fire();
-
-            interval = setInterval(() => {
               cardBlueChangeName.fire();
-              counter += 1;
-              if (counter >= 2) {
-                clearInterval(interval);
-              }
-            }, 3000);
 
-            animationInterval.current = interval;
-          }
+              interval = setInterval(() => {
+                cardBlueChangeName.fire();
+                counter += 1;
+                if (counter >= 2) {
+                  clearInterval(interval);
+                }
+              }, 3000);
 
-          return () => {
-            clearInterval(interval);
+              animationInterval.current = interval;
+            }
+
+            return () => {
+              clearInterval(interval);
+              animationInterval.current = null;
+            };
+          },
+          onLeave: () => {
+            clearInterval(animationInterval.current);
             animationInterval.current = null;
-          };
-        },
-        onLeave: () => {
-          clearInterval(animationInterval.current);
-          animationInterval.current = null;
 
-          if (cardBlueDisabled) {
-            cardBlueDisabled.value = true;
-          }
-        },
-        onLeaveBack: () => {
-          if (phoneReset) {
-            phoneReset.fire();
-          }
-          if (inboxReset) {
-            inboxReset.fire();
-          }
-          if (cardBlueDisabled) {
-            cardBlueDisabled.value = false;
-          }
-        },
-      });
+            if (cardBlueDisabled) {
+              cardBlueDisabled.value = true;
+            }
+          },
+          onLeaveBack: () => {
+            if (phoneReset) {
+              phoneReset.fire();
+            }
+            if (inboxReset) {
+              inboxReset.fire();
+            }
+            if (cardBlueDisabled) {
+              cardBlueDisabled.value = false;
+            }
+          },
+        });
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: `${height * 2.99}px`,
-        end: `+=${height * 0.1}px`,
-        onEnter: () => {
-          if (phoneNotification) {
-            phoneNotification.fire();
-          }
-          if (inboxNotification) {
-            inboxNotification.fire();
-          }
-          if (cardPurpleSparkle) {
-            cardPurpleSparkle.value = true;
-          }
-        },
-        onLeaveBack: () => {
-          if (cardPurpleSparkle) {
-            cardPurpleSparkle.value = false;
-          }
-        },
-        onEnterBack: () => {
-          if (cardBlueDisabled) {
-            cardBlueDisabled.value = false;
-          }
-        },
-      });
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: `${height * 2.99}px`,
+          end: `+=${height * 0.1}px`,
+          onEnter: () => {
+            if (phoneNotification) {
+              phoneNotification.fire();
+            }
+            if (inboxNotification) {
+              inboxNotification.fire();
+            }
+            if (cardPurpleSparkle) {
+              cardPurpleSparkle.value = true;
+            }
+          },
+          onLeaveBack: () => {
+            if (cardPurpleSparkle) {
+              cardPurpleSparkle.value = false;
+            }
+          },
+          onEnterBack: () => {
+            if (cardBlueDisabled) {
+              cardBlueDisabled.value = false;
+            }
+          },
+        });
+      }
     },
     {
       dependencies: [
@@ -478,6 +402,8 @@ const Animation = () => {
 
       const isTablet = window.innerWidth < 1279;
 
+      const isAnimationPlayable = window.innerWidth >= 1024;
+
       const containerHeight = height * 3;
 
       const snapTo = [
@@ -487,361 +413,333 @@ const Animation = () => {
         1,
       ];
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: 'top top',
-        pin: animationRef.current,
-        pinSpacing: false,
-        end: 'bottom bottom',
-      });
+      if (isAnimationPlayable) {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: 'top top',
+          pin: animationRef.current,
+          pinSpacing: false,
+          end: 'bottom bottom',
+        });
 
-      ScrollTrigger.create({
-        trigger: snapRef.current,
-        start: 'top top',
-        end: 'bottom bottom',
-        snap: {
-          snapTo,
-          duration: 0.5,
-          delay: 0,
-          ease: 'power2.inOut',
-        },
-      });
+        ScrollTrigger.create({
+          trigger: snapRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          snap: {
+            snapTo,
+            duration: 0.5,
+            delay: 0,
+            ease: 'power2.inOut',
+          },
+        });
 
-      // first step
-      gsap.from(cardPurpleRef.current, {
-        skewY: 15,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `top ${offsetHeight}px`,
-          end: `+=${offsetHeight}px`,
-        },
-      });
-      gsap.to(cardPurpleRef.current, {
-        startAt: { top: '0%', yPercent: -12, left: '19.473%', scale: 1 },
-        top: '50%',
-        yPercent: -61,
-        left: '22.708%',
-        scale: 1.47,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `top ${offsetHeight}px`,
-          end: `+=${offsetHeight}px`,
-        },
-      });
+        // first step
+        gsap.to(cardPurpleRef.current, {
+          startAt: { yPercent: 0, left: '19.473%', scale: 1 },
+          top: '50%',
+          yPercent: -49,
+          left: '22.708%',
+          skewY: -15,
+          scale: 1.47,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `top ${offsetHeight}px`,
+            end: `+=${offsetHeight}px`,
+          },
+        });
 
-      gsap.from(cardBlueRef.current, {
-        skewY: 15,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `top ${offsetHeight}px`,
-          end: `+=${offsetHeight}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        startAt: { top: '0%', yPercent: 31, x: 0, left: '35.713%', scale: 1 },
-        top: '50%',
-        yPercent: -50,
-        left: '29.74%',
-        x: 0,
-        scale: 1.44,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `top ${offsetHeight}px`,
-          end: `+=${offsetHeight}px`,
-        },
-      });
+        gsap.to(cardBlueRef.current, {
+          startAt: { yPercent: 0, x: 0, left: '35.713%', scale: 1 },
+          top: '50%',
+          yPercent: -81,
+          left: '29.74%',
+          x: 0,
+          skewY: -15,
+          scale: 1.44,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `top ${offsetHeight}px`,
+            end: `+=${offsetHeight}px`,
+          },
+        });
 
-      gsap.from(cardCodeRef.current, {
-        skewY: 15,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `top ${offsetHeight}px`,
-          end: `+=${offsetHeight}px`,
-        },
-      });
-      gsap.to(cardCodeRef.current, {
-        startAt: { top: '0%', yPercent: 27, right: '23.061%', scale: 1 },
-        top: '50%',
-        yPercent: -54,
-        right: '22.604%',
-        scale: 1.42,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `top ${offsetHeight}px`,
-          end: `+=${offsetHeight}px`,
-        },
-      });
+        gsap.to(cardCodeRef.current, {
+          startAt: { yPercent: 0, right: '23.061%', scale: 1 },
+          top: '50%',
+          yPercent: -81,
+          right: '22.604%',
+          skewY: -15,
+          scale: 1.42,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `top ${offsetHeight}px`,
+            end: `+=${offsetHeight}px`,
+          },
+        });
 
-      // developers step
-      gsap.to(cardPurpleRef.current, {
-        immediateRender: false,
-        left: '34.4%',
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: 'top',
-          end: `+=${height}px`,
-        },
-      });
-      gsap.to(cardCodeRef.current, {
-        immediateRender: false,
-        right: '50.2%',
-        x: 0,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: 'top',
-          end: `+=${height}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        immediateRender: false,
-        left: '22.172%',
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: 'top',
-          end: `+=${height * 0.5}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        immediateRender: false,
-        opacity: 0,
-        x: 0,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 0.35}px`,
-          end: `+=${height * 0.15}px`,
-        },
-      });
-      gsap.to(developersRef.current, {
-        startAt: { x: 100, opacity: 0, pointerEvents: 'none' },
-        x: 0,
-        opacity: 1,
-        pointerEvents: 'auto',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 0.5}px`,
-          end: `+=${height * 0.5}px`,
-        },
-      });
+        // developers step
+        gsap.to(cardPurpleRef.current, {
+          immediateRender: false,
+          left: '34.4%',
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: 'top',
+            end: `+=${height}px`,
+          },
+        });
+        gsap.to(cardCodeRef.current, {
+          immediateRender: false,
+          right: '50.2%',
+          x: 0,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: 'top',
+            end: `+=${height}px`,
+          },
+        });
+        gsap.to(cardBlueRef.current, {
+          immediateRender: false,
+          left: '22.172%',
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: 'top',
+            end: `+=${height * 0.5}px`,
+          },
+        });
+        gsap.to(cardBlueRef.current, {
+          immediateRender: false,
+          opacity: 0,
+          x: 0,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 0.35}px`,
+            end: `+=${height * 0.15}px`,
+          },
+        });
+        gsap.to(developersRef.current, {
+          startAt: { x: 100, opacity: 0, pointerEvents: 'none' },
+          x: 0,
+          opacity: 1,
+          pointerEvents: 'auto',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 0.5}px`,
+            end: `+=${height * 0.5}px`,
+          },
+        });
 
-      // product teams step
-      gsap.to(developersRef.current, {
-        immediateRender: false,
-        x: -50,
-        opacity: 0,
-        pointerEvents: 'none',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height}px`,
-          end: `+=${height * 0.2}px`,
-        },
-      });
-      gsap.to(cardCodeRef.current, {
-        immediateRender: false,
-        x: -50,
-        opacity: 0,
-        pointerEvents: 'none',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height}px`,
-          end: `+=${height * 0.2}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        startAt: { left: '43.2%', x: 140 },
-        immediateRender: false,
-        x: 0,
-        left: isTablet ? '50.2%' : '43.2%',
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 1.2}px`,
-          end: `+=${height * 0.8}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        startAt: { opacity: 0 },
-        immediateRender: false,
-        opacity: 1,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 1.2}px`,
-          end: `+=${height * 0.2}px`,
-        },
-      });
-      gsap.to(cardPurpleRef.current, {
-        immediateRender: false,
-        left: isTablet ? '43.3%' : '36.3%',
-        pointerEvents: 'none',
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height}px`,
-          end: `+=${height}px`,
-        },
-      });
-      gsap.to(productTeamsRef.current, {
-        startAt: { x: 140, opacity: 0, pointerEvents: 'none' },
-        x: 0,
-        opacity: 1,
-        pointerEvents: 'auto',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 1.2}px`,
-          end: `+=${height * 0.8}px`,
-        },
-      });
+        // product teams step
+        gsap.to(developersRef.current, {
+          immediateRender: false,
+          x: -50,
+          opacity: 0,
+          pointerEvents: 'none',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height}px`,
+            end: `+=${height * 0.2}px`,
+          },
+        });
+        gsap.to(cardCodeRef.current, {
+          immediateRender: false,
+          x: -50,
+          opacity: 0,
+          pointerEvents: 'none',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height}px`,
+            end: `+=${height * 0.2}px`,
+          },
+        });
+        gsap.to(cardBlueRef.current, {
+          startAt: { left: '43.2%', x: 140 },
+          immediateRender: false,
+          x: 0,
+          left: isTablet ? '50.2%' : '43.2%',
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 1.2}px`,
+            end: `+=${height * 0.8}px`,
+          },
+        });
+        gsap.to(cardBlueRef.current, {
+          startAt: { opacity: 0 },
+          immediateRender: false,
+          opacity: 1,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 1.2}px`,
+            end: `+=${height * 0.2}px`,
+          },
+        });
+        gsap.to(cardPurpleRef.current, {
+          immediateRender: false,
+          left: isTablet ? '43.3%' : '36.3%',
+          pointerEvents: 'none',
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height}px`,
+            end: `+=${height}px`,
+          },
+        });
+        gsap.to(productTeamsRef.current, {
+          startAt: { x: 140, opacity: 0, pointerEvents: 'none' },
+          x: 0,
+          opacity: 1,
+          pointerEvents: 'auto',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 1.2}px`,
+            end: `+=${height * 0.8}px`,
+          },
+        });
 
-      // end users step
-      gsap.to(productTeamsRef.current, {
-        immediateRender: false,
-        y: -60,
-        opacity: 0,
-        pointerEvents: 'none',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.0}px`,
-          end: `+=${height * 0.2}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        immediateRender: false,
-        y: -700,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.0}px`,
-          end: `+=${height * 0.5}px`,
-        },
-      });
-      gsap.to(cardBlueRef.current, {
-        immediateRender: false,
-        opacity: 0,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.0}px`,
-          end: `+=${height * 0.2}px`,
-        },
-      });
-      gsap.to(endUsersRef.current, {
-        startAt: { top: '0.926%', pointerEvents: 'none' },
-        top: '11.111%',
-        pointerEvents: 'auto',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.4}px`,
-          end: `+=${height * 0.6}px`,
-        },
-      });
-      gsap.to(endUsersRef.current, {
-        startAt: { opacity: 0 },
-        opacity: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.4}px`,
-          end: `+=${height * 0.2}px`,
-        },
-      });
-      gsap.to(cardPurpleRef.current, {
-        immediateRender: false,
-        left: '36.3%',
-        yPercent: -47.3,
-        pointerEvents: 'auto',
-        scale: 1.63,
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.3}px`,
-          end: `+=${height * 0.7}px`,
-        },
-      });
+        // end users step
+        gsap.to(productTeamsRef.current, {
+          immediateRender: false,
+          y: -60,
+          opacity: 0,
+          pointerEvents: 'none',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.0}px`,
+            end: `+=${height * 0.2}px`,
+          },
+        });
+        gsap.to(cardBlueRef.current, {
+          immediateRender: false,
+          y: -700,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.0}px`,
+            end: `+=${height * 0.5}px`,
+          },
+        });
+        gsap.to(cardBlueRef.current, {
+          immediateRender: false,
+          opacity: 0,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.0}px`,
+            end: `+=${height * 0.2}px`,
+          },
+        });
+        gsap.to(endUsersRef.current, {
+          startAt: { top: '0.926%', pointerEvents: 'none' },
+          top: '11.111%',
+          pointerEvents: 'auto',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.4}px`,
+            end: `+=${height * 0.6}px`,
+          },
+        });
+        gsap.to(endUsersRef.current, {
+          startAt: { opacity: 0 },
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.4}px`,
+            end: `+=${height * 0.2}px`,
+          },
+        });
+        gsap.to(cardPurpleRef.current, {
+          immediateRender: false,
+          left: '36.3%',
+          yPercent: -35.3,
+          pointerEvents: 'auto',
+          scale: 1.58,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.3}px`,
+            end: `+=${height * 0.7}px`,
+          },
+        });
 
-      gsap.to(phoneRef.current, {
-        startAt: { x: 150, opacity: 0, pointerEvents: 'none' },
-        x: 0,
-        opacity: 1,
-        pointerEvents: 'auto',
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.3}px`,
-          end: `+=${height * 0.7}px`,
-        },
-      });
+        gsap.to(phoneRef.current, {
+          startAt: { x: 150, opacity: 0, pointerEvents: 'none' },
+          x: 0,
+          opacity: 1,
+          pointerEvents: 'auto',
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.3}px`,
+            end: `+=${height * 0.7}px`,
+          },
+        });
 
-      gsap.to(inboxRef.current, {
-        startAt: { x: -150, opacity: 0, pointerEvents: 'none' },
-        x: 0,
-        opacity: 1,
-        pointerEvents: 'auto',
-        ease: 'none',
-        transformOrigin: 'center center',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: true,
-          start: `${height * 2.3}px`,
-          end: `+=${height * 0.7}px`,
-        },
-      });
+        gsap.to(inboxRef.current, {
+          startAt: { x: -150, opacity: 0, pointerEvents: 'none' },
+          x: 0,
+          opacity: 1,
+          pointerEvents: 'auto',
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `${height * 2.3}px`,
+            end: `+=${height * 0.7}px`,
+          },
+        });
+      }
     },
     {
       scope: containerRef.current,
@@ -851,9 +749,20 @@ const Animation = () => {
   return (
     <>
       <div
-        className="w-full max-w-[1920px] mx-auto relative h-[400vh] z-0 mb-20 lg:mb-0"
+        className="w-full max-w-[1920px] mx-auto relative h-[400vh] z-0 mb-20 lg:mb-0 md:hidden"
         ref={containerRef}
       >
+        <div className="absolute top-0 left-0 w-full translate-y-[-28%]">
+          <StaticImage
+            className="w-full h-auto"
+            src="../images/light.png"
+            alt=""
+            width={1919}
+            height={1136}
+            loading="eager"
+            quality={100}
+          />
+        </div>
         <div className="w-full h-screen" ref={animationRef}>
           <section
             className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[18.313%] opacity-0 z-50 xl:right-[12%] lg:right-[5%] lg:max-w-72"
@@ -899,9 +808,16 @@ const Animation = () => {
             </p>
           </section>
           <div
-            className="card-code absolute w-[29.896%] h-auto aspect-[137/107] top-0 right-[11.161%] z-30"
+            className="card-code absolute w-[29.896%] h-auto aspect-[137/107] top-0 right-[23.061%] z-30 skew-y-[15deg] translate-y-[27%]"
             ref={cardCodeRef}
           >
+            <div
+              className={clsx(
+                'card-code-skeleton absolute bg-[#0e1c20] rounded-2xl w-full h-full top-0 left-0 overflow-hidden border border-[#D9C7FF]/20',
+                isCodeAnimationReady && 'hidden'
+              )}
+              aria-hidden
+            />
             <span
               className="absolute left-0 top-0 -z-10 h-full w-px"
               ref={cardCodeAnimationWrapperRef}
@@ -917,14 +833,24 @@ const Animation = () => {
               />
             </div>
             <div
-              className="absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              className={clsx(
+                'absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none opacity-0',
+                isCodeAnimationReady && 'opacity-100'
+              )}
               aria-hidden
             />
           </div>
           <div
-            className="card-blue absolute w-[29.948%] h-auto aspect-[59/46] top-0 left-[29.613%] z-30"
+            className="card-blue absolute w-[29.948%] h-auto aspect-[59/46] top-0 left-[35.713%] z-30 skew-y-[15deg] translate-y-[31%]"
             ref={cardBlueRef}
           >
+            <div
+              className={clsx(
+                'card-blue-skeleton absolute bg-[#131c34] rounded-2xl w-full h-full top-0 left-0 overflow-hidden border border-[#D9C7FF]/20',
+                isBlueAnimationReady && 'hidden'
+              )}
+              aria-hidden
+            />
             <span
               className="absolute left-0 top-0 -z-10 h-full w-px"
               ref={cardBlueAnimationWrapperRef}
@@ -940,14 +866,24 @@ const Animation = () => {
               />
             </div>
             <div
-              className="absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              className={clsx(
+                'absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none opacity-0',
+                isBlueAnimationReady && 'opacity-100'
+              )}
               aria-hidden
             />
           </div>
           <div
-            className="card-purple absolute w-[28.073%] h-auto aspect-[789/1084] top-0 left-[19.473%] z-40"
+            className="card-purple absolute w-[28.073%] h-auto aspect-[789/1084] top-0 left-[19.473%] skew-y-[15deg] z-40 translate-y-[-12%]"
             ref={cardPurpleRef}
           >
+            <div
+              className={clsx(
+                'card-purple-skeleton absolute bg-[#282038] rounded-2xl w-[58%] h-[61%] top-[31%] left-[50%] translate-x-[-51%] overflow-hidden border border-[#D9C7FF]/10',
+                isPurpleAnimationReady && 'hidden'
+              )}
+              aria-hidden
+            />
             <span
               className="absolute left-0 top-0 -z-10 h-full w-px"
               ref={cardPurpleAnimationWrapperRef}
@@ -963,7 +899,10 @@ const Animation = () => {
               />
             </div>
             <div
-              className="absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
+              className={clsx(
+                'absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none opacity-0',
+                isPurpleAnimationReady && 'opacity-100'
+              )}
               aria-hidden
             />
           </div>
@@ -1009,7 +948,7 @@ const Animation = () => {
           </div>
         </div>
       </div>
-      <div className="-z-10 absolute top-0 w-full h-full" ref={snapRef} aria-hidden />
+      <div className="-z-10 absolute top-0 w-full h-full md:hidden" ref={snapRef} aria-hidden />
     </>
   );
 };

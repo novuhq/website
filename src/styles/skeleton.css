@@ -16,6 +16,57 @@
     }
   }
 
+  .card-purple-skeleton {
+    &::after {
+      @apply absolute inset-0 -translate-x-full content-[''] z-10;
+
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 186, 244, 0),
+        rgba(255, 186, 244, 0.05) 15%,
+        rgba(255, 186, 244, 0.1) 30%,
+        rgba(255, 186, 244, 0.05) 45%,
+        rgba(255, 186, 244, 0) 60%
+      );
+
+      animation: shimmer 2s infinite;
+    }
+  }
+
+  .card-blue-skeleton {
+    &::after {
+      @apply absolute inset-0 -translate-x-full content-[''] z-10;
+
+      background-image: linear-gradient(
+        90deg,
+        rgba(39, 44, 69, 0),
+        rgba(39, 44, 69, 0.25) 15%,
+        rgba(39, 44, 69, 0.5) 30%,
+        rgba(39, 44, 69, 0.25) 45%,
+        rgba(39, 44, 69, 0) 60%
+      );
+
+      animation: shimmer 2s infinite;
+    }
+  }
+
+  .card-code-skeleton {
+    &::after {
+      @apply absolute inset-0 -translate-x-full content-[''] z-10;
+
+      background-image: linear-gradient(
+        90deg,
+        rgba(22, 51, 64, 0),
+        rgba(22, 51, 64, 0.25) 15%,
+        rgba(22, 51, 64, 0.5) 30%,
+        rgba(22, 51, 64, 0.25) 45%,
+        rgba(22, 51, 64, 0) 60%
+      );
+
+      animation: shimmer 2s infinite;
+    }
+  }
+
   @keyframes shimmer {
     100% {
       transform: translateX(100%);
