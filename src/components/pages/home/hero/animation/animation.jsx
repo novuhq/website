@@ -11,6 +11,8 @@ import Button from 'components/shared/button';
 import RiveAnimation from 'components/shared/rive-animation';
 import useRiveAnimation from 'hooks/use-rive-animation';
 
+import { firstSectionData, secondSectionData, thirdSectionData } from './data';
+
 const useAnimation = (artboard) => {
   const { riveInstance, wrapperRef, animationRef, setRiveInstance } = useRiveAnimation({});
 
@@ -38,6 +40,7 @@ const useAnimation = (artboard) => {
 };
 
 const Animation = () => {
+  // define refs for all animations
   const animationInterval = useRef(null);
 
   const containerRef = useRef(null);
@@ -54,10 +57,7 @@ const Animation = () => {
   const productTeamsRef = useRef(null);
   const endUsersRef = useRef(null);
 
-  const [isCodeAnimationReady, setIsCodeAnimationReady] = useState(false);
-  const [isBlueAnimationReady, setIsBlueAnimationReady] = useState(false);
-  const [isPurpleAnimationReady, setIsPurpleAnimationReady] = useState(false);
-
+  // initialize animations
   const {
     riveInstance: cardBlueAnimationInstance,
     wrapperRef: cardBlueAnimationWrapperRef,
@@ -98,6 +98,11 @@ const Animation = () => {
     riveAnimationProps: inboxAnimationProps,
   } = useAnimation('inbox');
 
+  // define ready states for animations
+  const [isCodeAnimationReady, setIsCodeAnimationReady] = useState(false);
+  const [isBlueAnimationReady, setIsBlueAnimationReady] = useState(false);
+  const [isPurpleAnimationReady, setIsPurpleAnimationReady] = useState(false);
+
   useEffect(() => {
     if (cardBlueAnimationInstance?.readyForPlaying) {
       setIsBlueAnimationReady(true);
@@ -117,7 +122,6 @@ const Animation = () => {
   }, [cardCodeAnimationInstance]);
 
   // create stateMachineInputs for all animations
-
   const cardPurpleFloating = useStateMachineInput(
     cardPurpleAnimationInstance,
     'SM',
@@ -174,7 +178,6 @@ const Animation = () => {
   const inboxReset = useStateMachineInput(inboxAnimationInstance, 'SM', 'reset', true);
 
   // create listeners for all animations
-
   const cardCodeAnimationListener = useCallback(
     (event) => {
       if (event.data.name === 'numbers' && cardPurpleChangeNumbers) {
@@ -212,6 +215,7 @@ const Animation = () => {
 
   gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+  // GSAP section for animation triggers
   useGSAP(
     () => {
       const height = animationRef.current.offsetHeight;
@@ -394,6 +398,7 @@ const Animation = () => {
     }
   );
 
+  // GSAP section for animation positioning
   useGSAP(
     () => {
       const height = animationRef.current.offsetHeight;
@@ -769,14 +774,17 @@ const Animation = () => {
             ref={developersRef}
           >
             <h2 className="text-[44px] leading-denser tracking-snug font-medium xl:text-5xl lg:text-4xl">
-              Developers
+              {firstSectionData.title}
             </h2>
             <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
-              Define workflows as code, re-use components, and deploy confidently while developing
-              in your IDE of choice. Experience seamless GitOps.
+              {firstSectionData.description}
             </p>
-            <Button className="text-sm h-10 min-w-[140px] mt-6" theme="white-filled">
-              Learn more
+            <Button
+              className="text-sm h-10 min-w-[140px] mt-6"
+              theme="white-filled"
+              to={firstSectionData.button.link}
+            >
+              {firstSectionData.button.label}
             </Button>
           </section>
           <section
@@ -784,15 +792,17 @@ const Animation = () => {
             ref={productTeamsRef}
           >
             <h2 className="text-[44px] leading-denser tracking-snug font-medium xl:text-5xl lg:text-4xl">
-              Product teams
+              {secondSectionData.title}
             </h2>
             <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
-              Define workflows as code, re-use components, and deploy confidently while developing
-              in your IDE of choice. Experience seamless GitOps Notifications revolutionizing
-              workflow management
+              {secondSectionData.description}
             </p>
-            <Button className="text-sm h-10 min-w-[140px] mt-6" theme="white-filled">
-              Learn more
+            <Button
+              className="text-sm h-10 min-w-[140px] mt-6"
+              theme="white-filled"
+              to={secondSectionData.button.link}
+            >
+              {secondSectionData.button.label}
             </Button>
           </section>
           <section
@@ -800,24 +810,16 @@ const Animation = () => {
             ref={endUsersRef}
           >
             <h2 className="text-[44px] leading-denser tracking-snug font-medium xl:text-5xl lg:text-4xl">
-              End users
+              {thirdSectionData.title}
             </h2>
             <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
-              Define workflows as code, re-use components, and deploy confidently while developing
-              in your IDE of choice.
+              {thirdSectionData.description}
             </p>
           </section>
           <div
             className="card-code absolute w-[29.896%] h-auto aspect-[137/107] top-0 right-[23.061%] z-30 skew-y-[15deg] translate-y-[27%]"
             ref={cardCodeRef}
           >
-            <div
-              className={clsx(
-                'card-code-skeleton absolute bg-[#0e1c20] rounded-2xl w-full h-full top-0 left-0 overflow-hidden border border-[#D9C7FF]/20',
-                isCodeAnimationReady && 'hidden'
-              )}
-              aria-hidden
-            />
             <span
               className="absolute left-0 top-0 -z-10 h-full w-px"
               ref={cardCodeAnimationWrapperRef}
@@ -844,13 +846,6 @@ const Animation = () => {
             className="card-blue absolute w-[29.948%] h-auto aspect-[59/46] top-0 left-[35.713%] z-30 skew-y-[15deg] translate-y-[31%]"
             ref={cardBlueRef}
           >
-            <div
-              className={clsx(
-                'card-blue-skeleton absolute bg-[#131c34] rounded-2xl w-full h-full top-0 left-0 overflow-hidden border border-[#D9C7FF]/20',
-                isBlueAnimationReady && 'hidden'
-              )}
-              aria-hidden
-            />
             <span
               className="absolute left-0 top-0 -z-10 h-full w-px"
               ref={cardBlueAnimationWrapperRef}
@@ -877,13 +872,6 @@ const Animation = () => {
             className="card-purple absolute w-[28.073%] h-auto aspect-[789/1084] top-0 left-[19.473%] skew-y-[15deg] z-40 translate-y-[-12%]"
             ref={cardPurpleRef}
           >
-            <div
-              className={clsx(
-                'card-purple-skeleton absolute bg-[#282038] rounded-2xl w-[58%] h-[61%] top-[31%] left-[50%] translate-x-[-51%] overflow-hidden border border-[#D9C7FF]/10',
-                isPurpleAnimationReady && 'hidden'
-              )}
-              aria-hidden
-            />
             <span
               className="absolute left-0 top-0 -z-10 h-full w-px"
               ref={cardPurpleAnimationWrapperRef}
