@@ -296,10 +296,12 @@ const Animation = () => {
     () => {
       const height = animationRef.current.offsetHeight;
 
+      const offsetHeight = containerRef.current.offsetTop;
+
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: 'top 448px',
-        end: '+=448px',
+        start: `top ${offsetHeight}px`,
+        end: `+=${offsetHeight}px`,
         onEnter: () => {
           if (cardPurpleFloating) {
             cardPurpleFloating.value = false;
@@ -472,7 +474,9 @@ const Animation = () => {
     () => {
       const height = animationRef.current.offsetHeight;
 
-      const offsetHeight = 448;
+      const offsetHeight = containerRef.current.offsetTop;
+
+      const isTablet = window.innerWidth < 1279;
 
       const containerHeight = height * 3;
 
@@ -499,7 +503,7 @@ const Animation = () => {
           snapTo,
           duration: 0.5,
           delay: 0,
-          ease: 'power1.inOut',
+          ease: 'power2.inOut',
         },
       });
 
@@ -507,87 +511,91 @@ const Animation = () => {
       gsap.from(cardPurpleRef.current, {
         skewY: 15,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: 'top 448px',
-          end: '+=448px',
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
         },
       });
       gsap.to(cardPurpleRef.current, {
-        startAt: { top: '-14.722%', left: '6.473%', scale: 1 },
-        top: '8.334%',
-        left: '-3.282%',
+        startAt: { top: '0%', yPercent: -12, left: '19.473%', scale: 1 },
+        top: '50%',
+        yPercent: -61,
+        left: '22.708%',
         scale: 1.47,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: 'top 448px',
-          end: '+=448px',
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
         },
       });
 
       gsap.from(cardBlueRef.current, {
         skewY: 15,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: 'top 448px',
-          end: '+=448px',
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
         },
       });
       gsap.to(cardBlueRef.current, {
-        startAt: { top: '6.019%', left: '29.613%', scale: 1 },
-        top: '29.63%',
-        left: '6.771%',
+        startAt: { top: '0%', yPercent: 31, x: 0, left: '35.713%', scale: 1 },
+        top: '50%',
+        yPercent: -50,
+        left: '29.74%',
+        x: 0,
         scale: 1.44,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: 'top 448px',
-          end: '+=448px',
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
         },
       });
 
       gsap.from(cardCodeRef.current, {
         skewY: 15,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: 'top 448px',
-          end: '+=448px',
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
         },
       });
       gsap.to(cardCodeRef.current, {
-        startAt: { top: '4.074%', right: '11.161%', scale: 1 },
-        top: '28.425%',
-        right: '25.149%',
+        startAt: { top: '0%', yPercent: 27, right: '23.061%', scale: 1 },
+        top: '50%',
+        yPercent: -54,
+        right: '22.604%',
         scale: 1.42,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
-          start: 'top 448px',
-          end: '+=448px',
+          start: `top ${offsetHeight}px`,
+          end: `+=${offsetHeight}px`,
         },
       });
 
       // developers step
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
-        left: '18.2%',
+        left: '34.4%',
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -597,9 +605,10 @@ const Animation = () => {
       });
       gsap.to(cardCodeRef.current, {
         immediateRender: false,
-        right: '58.779%',
+        right: '50.2%',
+        x: 0,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -611,7 +620,7 @@ const Animation = () => {
         immediateRender: false,
         left: '22.172%',
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -622,8 +631,9 @@ const Animation = () => {
       gsap.to(cardBlueRef.current, {
         immediateRender: false,
         opacity: 0,
+        x: 0,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -632,8 +642,8 @@ const Animation = () => {
         },
       });
       gsap.to(developersRef.current, {
-        startAt: { right: '-2.827%', opacity: 0, pointerEvents: 'none' },
-        right: '4.613%',
+        startAt: { x: 100, opacity: 0, pointerEvents: 'none' },
+        x: 0,
         opacity: 1,
         pointerEvents: 'auto',
         ease: 'none',
@@ -648,7 +658,7 @@ const Animation = () => {
       // product teams step
       gsap.to(developersRef.current, {
         immediateRender: false,
-        right: '0.893%',
+        x: -50,
         opacity: 0,
         pointerEvents: 'none',
         ease: 'none',
@@ -661,7 +671,7 @@ const Animation = () => {
       });
       gsap.to(cardCodeRef.current, {
         immediateRender: false,
-        right: '55.059%',
+        x: -50,
         opacity: 0,
         pointerEvents: 'none',
         ease: 'none',
@@ -673,11 +683,12 @@ const Animation = () => {
         },
       });
       gsap.to(cardBlueRef.current, {
-        startAt: { left: '53.613%' },
+        startAt: { left: '43.2%', x: 140 },
         immediateRender: false,
-        left: '30.771%',
+        x: 0,
+        left: isTablet ? '50.2%' : '43.2%',
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -690,7 +701,7 @@ const Animation = () => {
         immediateRender: false,
         opacity: 1,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -700,10 +711,10 @@ const Animation = () => {
       });
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
-        left: '20.879%',
+        left: isTablet ? '43.3%' : '36.3%',
         pointerEvents: 'none',
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -712,8 +723,8 @@ const Animation = () => {
         },
       });
       gsap.to(productTeamsRef.current, {
-        startAt: { left: '9.005%', opacity: 0, pointerEvents: 'none' },
-        left: '-1.412%',
+        startAt: { x: 140, opacity: 0, pointerEvents: 'none' },
+        x: 0,
         opacity: 1,
         pointerEvents: 'auto',
         ease: 'none',
@@ -742,14 +753,25 @@ const Animation = () => {
       gsap.to(cardBlueRef.current, {
         immediateRender: false,
         y: -700,
-        opacity: 0,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
           start: `${height * 2.0}px`,
           end: `+=${height * 0.5}px`,
+        },
+      });
+      gsap.to(cardBlueRef.current, {
+        immediateRender: false,
+        opacity: 0,
+        ease: 'none',
+        transformOrigin: 'center center',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          scrub: true,
+          start: `${height * 2.0}px`,
+          end: `+=${height * 0.2}px`,
         },
       });
       gsap.to(endUsersRef.current, {
@@ -777,12 +799,12 @@ const Animation = () => {
       });
       gsap.to(cardPurpleRef.current, {
         immediateRender: false,
-        left: '17.579%',
-        top: '17.734%',
+        left: '36.3%',
+        yPercent: -47.3,
         pointerEvents: 'auto',
-        scale: 1.64,
+        scale: 1.63,
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -792,12 +814,12 @@ const Animation = () => {
       });
 
       gsap.to(phoneRef.current, {
-        startAt: { right: '-14.731%', opacity: 0, pointerEvents: 'none' },
-        right: '-3.571%',
+        startAt: { x: 150, opacity: 0, pointerEvents: 'none' },
+        x: 0,
         opacity: 1,
         pointerEvents: 'auto',
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -807,12 +829,12 @@ const Animation = () => {
       });
 
       gsap.to(inboxRef.current, {
-        startAt: { left: '-7.812%', opacity: 0, pointerEvents: 'none' },
-        left: '3.348%',
+        startAt: { x: -150, opacity: 0, pointerEvents: 'none' },
+        x: 0,
         opacity: 1,
         pointerEvents: 'auto',
         ease: 'none',
-        transformOrigin: 'left center',
+        transformOrigin: 'center center',
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: true,
@@ -828,14 +850,19 @@ const Animation = () => {
 
   return (
     <>
-      <div className="container-xl relative h-[400vh] z-0 mb-20" ref={containerRef}>
+      <div
+        className="w-full max-w-[1920px] mx-auto relative h-[400vh] z-0 mb-20 lg:mb-0"
+        ref={containerRef}
+      >
         <div className="w-full h-screen" ref={animationRef}>
           <section
-            className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[4.613%] opacity-0 z-50"
+            className="developers max-w-80 absolute bottom-1/2 translate-y-1/2 right-[18.313%] opacity-0 z-50 xl:right-[12%] lg:right-[5%] lg:max-w-72"
             ref={developersRef}
           >
-            <h2 className="text-[44px] leading-denser tracking-snug font-medium">Developers</h2>
-            <p className="mt-3 text-white/70 text-lg leading-snug">
+            <h2 className="text-[44px] leading-denser tracking-snug font-medium xl:text-5xl lg:text-4xl">
+              Developers
+            </h2>
+            <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
               Define workflows as code, re-use components, and deploy confidently while developing
               in your IDE of choice. Experience seamless GitOps.
             </p>
@@ -844,11 +871,13 @@ const Animation = () => {
             </Button>
           </section>
           <section
-            className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[-1.488%] opacity-0 z-40"
+            className="product-teams max-w-[360px] absolute bottom-1/2 translate-y-1/2 left-[14%] opacity-0 z-40 xl:left-[7%] lg:left-[10%] lg:max-w-72"
             ref={productTeamsRef}
           >
-            <h2 className="text-[44px] leading-denser tracking-snug font-medium">Product teams</h2>
-            <p className="mt-3 text-white/70 text-lg leading-snug">
+            <h2 className="text-[44px] leading-denser tracking-snug font-medium xl:text-5xl lg:text-4xl">
+              Product teams
+            </h2>
+            <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
               Define workflows as code, re-use components, and deploy confidently while developing
               in your IDE of choice. Experience seamless GitOps Notifications revolutionizing
               workflow management
@@ -858,17 +887,19 @@ const Animation = () => {
             </Button>
           </section>
           <section
-            className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-[11.111%] text-center opacity-0 z-50"
+            className="end-users max-w-[552px] absolute left-1/2 -translate-x-1/2 top-[11.111%] text-center opacity-0 z-50 lg:max-w-md"
             ref={endUsersRef}
           >
-            <h2 className="text-[44px] leading-denser tracking-snug font-medium">End users</h2>
-            <p className="mt-3 text-white/70 text-lg leading-snug">
+            <h2 className="text-[44px] leading-denser tracking-snug font-medium xl:text-5xl lg:text-4xl">
+              End users
+            </h2>
+            <p className="mt-3 text-white/70 text-lg leading-snug lg:text-sm">
               Define workflows as code, re-use components, and deploy confidently while developing
               in your IDE of choice.
             </p>
           </section>
           <div
-            className="card-code absolute w-auto h-[448px] aspect-[137/107] top-[4.074%] right-[11.161%] z-30"
+            className="card-code absolute w-[29.896%] h-auto aspect-[137/107] top-0 right-[11.161%] z-30"
             ref={cardCodeRef}
           >
             <span
@@ -891,7 +922,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="card-blue absolute w-auto h-[448px] aspect-[59/46] top-[6.019%] left-[29.613%] z-30"
+            className="card-blue absolute w-[29.948%] h-auto aspect-[59/46] top-0 left-[29.613%] z-30"
             ref={cardBlueRef}
           >
             <span
@@ -914,7 +945,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="card-purple absolute w-auto h-[740px] aspect-[789/1084] top-[-14.722%] left-[6.473%] z-40"
+            className="card-purple absolute w-[28.073%] h-auto aspect-[789/1084] top-0 left-[19.473%] z-40"
             ref={cardPurpleRef}
           >
             <span
@@ -937,7 +968,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="phone absolute w-auto h-[805px] aspect-[547/805] top-[32.129%] right-[-3.571%] opacity-0 z-30"
+            className="phone absolute w-[28.49%] h-auto aspect-[547/805] top-[50%] translate-y-[-24%] right-[12.5%] opacity-0 z-30"
             ref={phoneRef}
           >
             <span
@@ -957,7 +988,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="inbox absolute w-auto h-[480px] aspect-[341/480] top-[39.629%] left-[3.348%] opacity-0 z-30"
+            className="inbox absolute w-[17.76%] h-auto aspect-[341/480] top-[50%] translate-y-[-23.8%] left-[17.3%] opacity-0 z-30"
             ref={inboxRef}
           >
             <span
@@ -979,7 +1010,7 @@ const Animation = () => {
         </div>
       </div>
       <div
-        className="-z-10 absolute top-0 w-full h-[calc(400vh+448px)]"
+        className="-z-10 absolute top-0 w-full h-[calc(400vh+448px)] lg:h-[calc(400vh+446px)]"
         ref={snapRef}
         aria-hidden
       />

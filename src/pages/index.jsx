@@ -21,7 +21,7 @@ import Separator from 'components/shared/separator';
 const HomePage = () => (
   <Layout mainClassName="echo pb-px bg-[#05050B]">
     <Hero />
-    <div className="overflow-hidden">
+    <div className="relative overflow-hidden z-20 lg:pt-[160px] lg:mt-[-160px]">
       <Logos />
       <Code />
       <SkinnyCTA />
