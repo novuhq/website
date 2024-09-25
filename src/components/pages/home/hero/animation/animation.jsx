@@ -1009,11 +1009,7 @@ const Animation = () => {
           </div>
         </div>
       </div>
-      <div
-        className="-z-10 absolute top-0 w-full h-[calc(400vh+448px)] lg:h-[calc(400vh+446px)]"
-        ref={snapRef}
-        aria-hidden
-      />
+      <div className="-z-10 absolute top-0 w-full h-full" ref={snapRef} aria-hidden />
     </>
   );
 };
