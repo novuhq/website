@@ -13,7 +13,7 @@ const DESCRIPTION =
   'Open source JavaScript-native notifications framework for developers that makes it easy to build powerful notifications capabilities for your product teams.';
 
 const Hero = () => (
-  <section className="hero pt-[152px] mb-20 lg:pt-[196px] md:pt-[98px] md:mb-0 relative">
+  <section className="hero pt-[152px] mb-20 lg:pt-[196px] md:pt-[98px] sm:mb-10 relative">
     <div className="container-xl relative xl:px-10 lg:px-8 lg:max-w-none md:max-w-3xl sm:max-w-lg sm:px-5 z-10">
       <div className="flex flex-col items-center">
         <h1 className="text-[52px] leading-denser tracking-snug font-medium max-w-[690px] lg:text-5xl md:text-4xl sm:text-[30px] text-center">
@@ -44,15 +44,18 @@ const Hero = () => (
         </div>
       </div>
     </div>
-    <StaticImage
-      className="w-full h-auto !hidden md:!inline-block translate-y-[-20%] md:w-[150%] md:-translate-x-1/2 md:left-1/2 mb-[-20%]"
-      src="./images/illustration-full.png"
-      alt=""
-      width={1919}
-      height={1136}
-      loading="eager"
-      quality={100}
-    />
+    <div className="hidden absolute pointer-events-none w-full h-full left-0 top-0 z-0 md:block md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
+      <StaticImage
+        className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
+        src="./images/illustration.png"
+        alt=""
+        width={1652}
+        height={1371}
+        loading="eager"
+        quality={100}
+        aria-hidden
+      />
+    </div>
     <Animation />
   </section>
 );
