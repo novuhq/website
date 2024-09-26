@@ -46,7 +46,7 @@ const CARDS = [
 ];
 
 const Integration = () => (
-  <section className="integration mt-[120px] lg:mt-[100px] md:mt-20">
+  <section className="relative integration mt-[120px] lg:mt-[100px] md:mt-20 z-20">
     <div className="container-md">
       <h2
         className="text-5xl leading-tight tracking-snug font-medium text-center max-w-4xl mx-auto lg:text-[32px] lg:max-w-2xl md:text-3xl"
