@@ -400,6 +400,22 @@ const Animation = () => {
     }
   );
 
+  useGSAP(
+    () => {
+      if (isCodeAnimationReady && isBlueAnimationReady && isPurpleAnimationReady) {
+        gsap.to(lightImageRef.current, {
+          opacity: 1,
+          duration: 0.3,
+          ease: 'power2.inOut',
+        });
+      }
+    },
+    {
+      dependencies: [isCodeAnimationReady, isBlueAnimationReady, isPurpleAnimationReady],
+      scope: lightImageRef.current,
+    }
+  );
+
   // GSAP section for animation positioning
   useGSAP(
     () => {
@@ -443,6 +459,7 @@ const Animation = () => {
 
         // first step
         gsap.to(lightImageRef.current, {
+          immediateRender: false,
           opacity: 0,
           ease: 'none',
           transformOrigin: 'center center',
@@ -450,7 +467,7 @@ const Animation = () => {
             trigger: containerRef.current,
             scrub: true,
             start: `top ${offsetHeight}px`,
-            end: `+=${offsetHeight * 0.2}px`,
+            end: `+=${offsetHeight * 0.5}px`,
           },
         });
 
@@ -772,7 +789,7 @@ const Animation = () => {
         ref={containerRef}
       >
         <div
-          className="absolute w-[60%] h-auto top-0 left-0 translate-x-[-11.5%] translate-y-[-47%]"
+          className="absolute w-[60%] h-auto top-0 left-0 translate-x-[-11.5%] translate-y-[-47%] opacity-0"
           ref={lightImageRef}
         >
           <StaticImage
@@ -847,7 +864,10 @@ const Animation = () => {
               aria-hidden
             />
             <div
-              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              className={clsx(
+                'relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full transition-opacity duration-300',
+                isCodeAnimationReady ? 'opacity-100' : 'opacity-0'
+              )}
               ref={cardCodeAnimationRef}
             >
               <RiveAnimation
@@ -856,10 +876,7 @@ const Animation = () => {
               />
             </div>
             <div
-              className={clsx(
-                'absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none opacity-0',
-                isCodeAnimationReady && 'opacity-100'
-              )}
+              className="absolute w-full h-[89.58%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
               aria-hidden
             />
           </div>
@@ -873,7 +890,10 @@ const Animation = () => {
               aria-hidden
             />
             <div
-              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              className={clsx(
+                'relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full transition-opacity duration-300',
+                isBlueAnimationReady ? 'opacity-100' : 'opacity-0'
+              )}
               ref={cardBlueAnimationRef}
             >
               <RiveAnimation
@@ -882,10 +902,7 @@ const Animation = () => {
               />
             </div>
             <div
-              className={clsx(
-                'absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none opacity-0',
-                isBlueAnimationReady && 'opacity-100'
-              )}
+              className="absolute w-full h-[34.375%] bottom-0 left-0 bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
               aria-hidden
             />
           </div>
@@ -899,7 +916,10 @@ const Animation = () => {
               aria-hidden
             />
             <div
-              className="relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full"
+              className={clsx(
+                'relative w-full h-full [&_canvas]:!h-full [&_canvas]:!w-full transition-opacity duration-300',
+                isPurpleAnimationReady ? 'opacity-100' : 'opacity-0'
+              )}
               ref={cardPurpleAnimationRef}
             >
               <RiveAnimation
@@ -908,10 +928,7 @@ const Animation = () => {
               />
             </div>
             <div
-              className={clsx(
-                'absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none opacity-0',
-                isPurpleAnimationReady && 'opacity-100'
-              )}
+              className="absolute w-[58.5%] h-[46.423%] bottom-0 left-[20%] bg-[linear-gradient(180deg,rgba(5,5,11,0)_9.7%,#05050B_69.1%)] pointer-events-none"
               aria-hidden
             />
           </div>
