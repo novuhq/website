@@ -14,6 +14,35 @@ module.exports = {
     authorName: 'Pixel Point',
   },
   trailingSlash: 'always',
+  headers: [
+    {
+      source: '/lottie-assets/*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable',
+        },
+      ],
+    },
+    {
+      source: '/fonts/*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable',
+        },
+      ],
+    },
+    {
+      source: '/animations/*',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable',
+        },
+      ],
+    },
+  ],
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
