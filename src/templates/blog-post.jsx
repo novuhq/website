@@ -115,7 +115,7 @@ const BlogPost = (props) => {
               <SocialShare className="hidden md:flex" {...socialShare} />
             </div>
             <aside className="mt-10 md:mt-8 max-w-[256px] w-full md:hidden">
-              <div className="sticky top-10 flex flex-col gap-y-12">
+              <div className="sticky top-10 flex flex-col gap-y-12 overflow-y-auto max-h-[calc(100vh-40px)] scrollbar-hidden">
                 {showTableOfContents && <TableOfContents headings={headings} />}
                 <Author author={author} />
                 <SocialShare {...socialShare} />
