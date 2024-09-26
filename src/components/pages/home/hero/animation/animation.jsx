@@ -40,7 +40,7 @@ const useAnimation = (artboard) => {
 };
 
 const Animation = () => {
-  // define refs for all animations
+  // define refs for all animation elements
   const animationInterval = useRef(null);
 
   const containerRef = useRef(null);
@@ -56,6 +56,8 @@ const Animation = () => {
   const developersRef = useRef(null);
   const productTeamsRef = useRef(null);
   const endUsersRef = useRef(null);
+
+  const lightImageRef = useRef(null);
 
   // initialize animations
   const {
@@ -440,6 +442,18 @@ const Animation = () => {
         });
 
         // first step
+        gsap.to(lightImageRef.current, {
+          opacity: 0,
+          ease: 'none',
+          transformOrigin: 'center center',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: true,
+            start: `top ${offsetHeight}px`,
+            end: `+=${offsetHeight * 0.2}px`,
+          },
+        });
+
         gsap.to(cardPurpleRef.current, {
           startAt: { yPercent: 0, left: '19.473%', scale: 1 },
           top: '50%',
@@ -757,13 +771,16 @@ const Animation = () => {
         className="w-full max-w-[1920px] mx-auto relative h-[400vh] z-0 mb-20 lg:mb-0 md:hidden"
         ref={containerRef}
       >
-        <div className="absolute top-0 left-0 w-full translate-y-[-28%]">
+        <div
+          className="absolute w-[60%] h-auto top-0 left-0 translate-x-[-11.5%] translate-y-[-47%]"
+          ref={lightImageRef}
+        >
           <StaticImage
             className="w-full h-auto"
             src="../images/light.png"
             alt=""
-            width={1919}
-            height={1136}
+            width={1453}
+            height={1305}
             loading="eager"
             quality={100}
           />
