@@ -10,6 +10,7 @@ import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-w
 import Events from 'components/shared/reusable-sections/events';
 import EventsWithImages from 'components/shared/reusable-sections/events-with-images';
 import GetInvolved from 'components/shared/reusable-sections/get-involved';
+import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
@@ -336,6 +337,211 @@ const EVENTS_WITH_IMAGES = [
   },
 ];
 
+const INBOX_CATEGORIES = ['System', 'Social', 'Test'];
+
+const INBOX_MESSAGES = [
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers are thrilled to introduce advanced task dependencies and conditional workflow triggers are thrilled to introduce advanced task dependencies and conditional workflow triggers are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: [],
+  },
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'system',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: false,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+  {
+    category: 'social',
+    title: 'New feature: conditional workflow triggers',
+    text: 'We are thrilled to introduce advanced task dependencies and conditional workflow triggers',
+    date: 'Sep 23, 2024',
+    isRead: true,
+    buttons: ['Main button', 'Secondary button'],
+  },
+];
+
 const CODE_SECTION = `import { Echo } from '@novu/echo';
 
 const echo = new Echo();
@@ -388,6 +594,16 @@ const ReusableComponents = (props) => {
 
   return (
     <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+      <Inbox
+        title="Fully featured Notification Inbox in minutes"
+        description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
+        button={{
+          label: 'READ DOCS',
+          link: 'https://docs.novu.co/getting-started/introduction',
+        }}
+        categories={INBOX_CATEGORIES}
+        messages={INBOX_MESSAGES}
+      />
       <TextWithPicture
         title="Some header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."

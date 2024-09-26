@@ -156,14 +156,19 @@ export default function createCustomElement({
 }) {
   const { properties, type, tagName: TagName, value } = node;
   if (type === 'text') {
-    const regex = /@@(.*)@(.*)@@/;
+    const regex = /@@(.*?)@(.*?)(?:@(.*?))?@@/;
 
     if (regex.test(value)) {
       const matchedValue = value.match(regex);
+      const [tooltipValue, tooltipId, tooltipPosition] = matchedValue
+        ? matchedValue.slice(1).filter(Boolean)
+        : [];
       return (
         <>
           {matchedValue.index > 0 && ' '.repeat(matchedValue.index)}
-          <CodeWithTooltip tooltipId={matchedValue[2]}>{matchedValue[1]}</CodeWithTooltip>
+          <CodeWithTooltip tooltipId={tooltipId} tooltipPosition={tooltipPosition ?? 'right'}>
+            {tooltipValue}
+          </CodeWithTooltip>
           {value[value.length - 1] === ' ' && ' '}
         </>
       );

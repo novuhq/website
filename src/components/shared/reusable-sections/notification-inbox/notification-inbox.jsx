@@ -53,6 +53,8 @@ const NotificationInbox = ({ title, description, button }) => (
               className="h-14 px-6 text-sm min-w-[142px] mt-7 md:mt-5"
               theme="gray-outline"
               to={button.link}
+              rel={button.rel}
+              target={button.target}
             >
               {button.label}
             </Button>
@@ -69,6 +71,8 @@ NotificationInbox.propTypes = {
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
   }),
 };
 
