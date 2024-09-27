@@ -13,6 +13,7 @@ import GetInvolved from 'components/shared/reusable-sections/get-involved';
 import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
+import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
@@ -568,6 +569,55 @@ commentWorkflow.trigger({
   payload: { postId: '12345' }
 });`;
 
+const SECTION_WITH_FORM_LEFT = {
+  title: 'Getting started with Novu',
+  description:
+    "Do any of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
+  features: [
+    {
+      title: 'Non-technical users',
+      description: 'Do you prefer a UI when building out workflows?',
+    },
+    {
+      title: 'Backend stack',
+      description:
+        'Is your backend comprised of something other than Javascript (NodeJS, Next.Js, etc.)?',
+    },
+    {
+      title: 'Not you? Keep reading below.',
+      description:
+        'Our code-first workflow approach insanely powerful. Keep reading to see how you can get started.',
+    },
+  ],
+  formPosition: 'left',
+  hubspotFormId: '6ec81561-2562-477e-92a3-dcb06c35f510',
+  headingTag: 'h1',
+};
+
+const SECTION_WITH_FORM_RIGHT = {
+  title: 'Getting started with Novu',
+  description:
+    "Do any of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
+  features: [
+    {
+      title: 'Non-technical users',
+      description: 'Do you prefer a UI when building out workflows?',
+    },
+    {
+      title: 'Backend stack',
+      description:
+        'Is your backend comprised of something other than Javascript (NodeJS, Next.Js, etc.)?',
+    },
+    {
+      title: 'Not you? Keep reading below.',
+      description:
+        'Our code-first workflow approach insanely powerful. Keep reading to see how you can get started.',
+    },
+  ],
+  formPosition: 'right',
+  hubspotFormId: 'e7e1ff66-ecd4-4c5c-a670-0de73dae69d4',
+};
+
 const ReusableComponents = (props) => {
   const {
     data: {
@@ -594,6 +644,8 @@ const ReusableComponents = (props) => {
 
   return (
     <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+      <SectionWithForm {...SECTION_WITH_FORM_LEFT} />
+      <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />
       <Inbox
         title="Fully featured Notification Inbox in minutes"
         description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."

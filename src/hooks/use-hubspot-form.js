@@ -10,7 +10,7 @@ export const initForm = async (element, onFormHandles) => {
   await injectScript(formScriptSrc);
   const formId = element.getAttribute('data-form-id');
 
-  window.hbspt.forms.create({
+  window.hbspt?.forms?.create({
     portalId: formPortalId,
     formId,
     target: `div[data-form-id='${formId}']`,
