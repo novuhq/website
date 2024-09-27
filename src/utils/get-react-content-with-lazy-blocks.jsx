@@ -3,6 +3,7 @@ import parse, { attributesToProps } from 'html-react-parser';
 import isBoolean from 'lodash.isboolean';
 import isEmpty from 'lodash.isempty';
 import React from 'react';
+import slugify from 'slugify';
 
 function isBooleanString(string) {
   return string === 'true' || string === 'false';
@@ -87,6 +88,22 @@ export default function getReactContentWithLazyBlocks(content, pageComponents, i
           const props = transformProps(attributesToProps(element.attribs));
 
           return <Component {...props} />;
+        }
+
+        if (domNode.attribs?.class?.includes('wp-block-heading')) {
+          const text = domNode.children.reduce((acc, child) => {
+            if (child.type === 'text') acc += child.data;
+            if (child.type === 'tag')
+              acc += child.children.reduce((acc, child) => {
+                if (child.type === 'text') acc += child.data;
+                return acc;
+              }, '');
+            return acc;
+          }, '');
+
+          const id = slugify(text, { lower: true, remove: /[*+~.()'"!:@/]/g });
+
+          domNode.attribs.id = id;
         }
 
         if (!includeBaseTags) return <></>;
