@@ -591,6 +591,8 @@ const SECTION_WITH_FORM_LEFT = {
   ],
   formPosition: 'left',
   hubspotFormId: '6ec81561-2562-477e-92a3-dcb06c35f510',
+  // If you want to use more than one form on the page, you need to provide unique tag ids
+  hubspotTagClass: 'first-form',
   headingTag: 'h1',
 };
 
@@ -616,6 +618,8 @@ const SECTION_WITH_FORM_RIGHT = {
   ],
   formPosition: 'right',
   hubspotFormId: 'e7e1ff66-ecd4-4c5c-a670-0de73dae69d4',
+  // If you want to use more than one form on the page, you need to provide unique tag ids
+  hubspotTagClass: 'second-form',
 };
 
 const ReusableComponents = (props) => {

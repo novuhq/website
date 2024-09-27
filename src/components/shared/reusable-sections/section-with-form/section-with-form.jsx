@@ -13,11 +13,12 @@ const SectionWithForm = ({
   features,
   formPosition,
   hubspotFormId,
+  hubspotTagClass,
   headingTag,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useHubspotForm('hubspot-form', {
+  useHubspotForm(hubspotTagClass, {
     onFormReady: () => {
       setIsLoading(false);
     },
@@ -81,7 +82,10 @@ const SectionWithForm = ({
               </div>
             )}
             <div
-              className={clsx('hubspot-form not-prose', isLoading ? 'hidden' : 'block')}
+              className={clsx(
+                `${hubspotTagClass} hubspot-form not-prose`,
+                isLoading ? 'hidden' : 'block'
+              )}
               data-form-id={hubspotFormId}
             />
           </div>
@@ -102,6 +106,8 @@ SectionWithForm.propTypes = {
   ),
   formPosition: PropTypes.string.isRequired,
   hubspotFormId: PropTypes.string.isRequired,
+  // If you want to use more than one form on the page, you need to provide unique tag ids
+  hubspotTagClass: PropTypes.string,
   headingTag: PropTypes.string,
 };
 
@@ -109,6 +115,7 @@ SectionWithForm.defaultProps = {
   description: '',
   features: [],
   headingTag: 'h2',
+  hubspotTagClass: 'single-form',
 };
 
 export default SectionWithForm;
