@@ -204,7 +204,7 @@ const HomePage = () => (
       }}
       rightItem={{
         text: 'BOOK A DEMO',
-        link: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=ws-cta',
+        link: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=ws-cta',
       }}
     />
     <Flexibility />
