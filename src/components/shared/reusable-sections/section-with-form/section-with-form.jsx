@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Heading from 'components/shared/heading';
-import useHubspotForm from 'hooks/use-hubspot-form';
+import { initForm } from 'hooks/use-hubspot-form';
 
 import 'styles/hubspot-form.css';
 
@@ -18,11 +18,17 @@ const SectionWithForm = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  useHubspotForm(hubspotTagClass, {
-    onFormReady: () => {
-      setIsLoading(false);
-    },
-  });
+  useEffect(() => {
+    const elements = document.getElementsByClassName(hubspotTagClass);
+
+    Array.from(elements).forEach((element) => {
+      initForm(element, {
+        onFormReady: () => {
+          setIsLoading(false);
+        },
+      });
+    });
+  }, [hubspotTagClass, setIsLoading]);
 
   return (
     <section className="section-with-form safe-paddings mt-28 lg:mt-20 md:mt-16 sm:mt-12">

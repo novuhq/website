@@ -10,12 +10,17 @@ export const initForm = async (element, onFormHandles) => {
   await injectScript(formScriptSrc);
   const formId = element.getAttribute('data-form-id');
 
-  window.hbspt?.forms?.create({
-    portalId: formPortalId,
-    formId,
-    target: `div[data-form-id='${formId}']`,
-    ...onFormHandles,
-  });
+  const interval = setInterval(() => {
+    if (window.hbspt) {
+      window.hbspt?.forms?.create({
+        portalId: formPortalId,
+        formId,
+        target: `div[data-form-id='${formId}']`,
+        ...onFormHandles,
+      });
+      clearInterval(interval);
+    }
+  }, 100);
 };
 
 export default function useHubspotForm(lazyBlockSelector, onFormHandles = null) {
