@@ -24,7 +24,7 @@ const SECTION_WITH_FORM_RIGHT = {
   formPosition: 'right',
   hubspotFormId: '6ec81561-2562-477e-92a3-dcb06c35f510',
   // If you want to use more than one form on the page, you need to provide unique tag ids
-  hubspotTagClass: 'second-form',
+  hubspotTagClass: 'cta-gs-form1',
 };
 
 const CODE_SECTION = `import { Inbox } from "@novu/react";
@@ -63,16 +63,16 @@ const GSLandingPage = () => (
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />
     <CodeSection
       code={CODE_SECTION}
-      title="Fast, composable, and simple to implement"
+      title="Javascript at the core delivers total flexibility"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
+      //      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
     />
     <CTA
-      title="Create and send your first code-based notification"
+      title="Get started with Novu in two easy steps"
       leftCard={{
-        title: 'Self-Hosted',
-        description: 'Create complex workflows, access local data, and reuse existing content.',
-        buttonText: 'Read Docs',
+        title: 'Watch the Tutorial',
+        description: 'Use our video walkthrough as a guide.',
+        buttonText: 'Onboarding Walkthrough',
         buttonLink: '/',
       }}
       rightCard={{
