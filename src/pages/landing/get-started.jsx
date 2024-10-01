@@ -73,16 +73,23 @@ const GSLandingPage = () => (
         title: 'Watch the Tutorial',
         description: 'Use our video walkthrough as a guide.',
         buttonText: 'Onboarding Walkthrough',
-        buttonLink: '/',
+        buttonLink: '#video',
       }}
       rightCard={{
         title: 'Get started now',
-        description: 'Create complex workflows, access local data, and reuse existing content.',
-        buttonText: 'Book a demo',
-        buttonLink: '/',
+        description: 'Create a free account, and get notifying.',
+        buttonText: 'Create Account',
+        buttonLink: 'https://dashboard.novu.com/?utm_campaign=lp-mez-gs',
       }}
       theme="purple"
     />
+    <a id="video">
+      <SectionWithVideo
+        video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=YRlXxS3Uodw' }}
+        title="Video header that includes up to three lines of engaging text"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+      />
+    </a>
   </Layout>
 );
 
@@ -90,9 +97,9 @@ export default GSLandingPage;
 
 export const Head = () => {
   const pageMetadata = {
-    title: 'Novu - Full-stack Inbox for In-app notifications',
+    title: 'Novu - Learn how to get started with notifications',
     description:
-      "Novu's Inbox is the easiest way to add a highly customizable notifications Inbox to your application or website.",
+      'Novu is a powerful and complete Javascript-based notifications infrastructure platform. Use Inbox for in-app, sms, email, and other providers for omnichannel notifications.',
   };
   return <SEO {...pageMetadata} />;
 };
