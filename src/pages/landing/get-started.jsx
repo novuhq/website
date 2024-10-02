@@ -2,7 +2,9 @@ import React from 'react';
 
 import Layout from 'components/shared/layout';
 import CodeSection from 'components/shared/reusable-sections/code-section';
+import CTA from 'components/shared/reusable-sections/cta';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
+import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 import SEO from 'components/shared/seo';
 
 const SECTION_WITH_FORM_RIGHT = {
@@ -65,7 +67,7 @@ const GSLandingPage = () => (
       code={CODE_SECTION}
       title="Javascript at the core delivers total flexibility"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      //      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
+      /* button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }} */
     />
     <CTA
       title="Get started with Novu in two easy steps"
