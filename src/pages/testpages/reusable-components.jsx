@@ -646,6 +646,8 @@ const ReusableComponents = (props) => {
     },
   }));
 
+  // START OF PAGE LAYOUT
+
   return (
     <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
       <SectionWithForm {...SECTION_WITH_FORM_LEFT} />
