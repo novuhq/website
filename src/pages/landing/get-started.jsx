@@ -63,14 +63,15 @@ function Novu() {
 const GSLandingPage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />
-    <CodeSection
-      code={CODE_SECTION}
-      title="Javascript at the core delivers total flexibility"
-      description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      /* button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }} */
-    />
+    <a id="video">
+      <SectionWithVideo
+        video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=YRlXxS3Uodw' }}
+        title="If you\'re ready to write osme Javascript and get notifying"
+        description="This video walks you through all the important details to get your local dev environment up and running and code your first workflow."
+      />
+    </a>
     <CTA
-      title="Get started with Novu in two easy steps"
+      title="Get started with Novu"
       leftCard={{
         title: 'Watch the Tutorial',
         description: 'Use our video walkthrough as a guide.',
@@ -78,20 +79,20 @@ const GSLandingPage = () => (
         buttonLink: '#video',
       }}
       rightCard={{
-        title: 'Get started now',
+        title: 'Create a free account',
         description: 'Create a free account, and get notifying.',
         buttonText: 'Create Account',
         buttonLink: 'https://dashboard.novu.com/?utm_campaign=lp-mez-gs',
       }}
       theme="purple"
     />
-    <a id="video">
-      <SectionWithVideo
-        video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=YRlXxS3Uodw' }}
-        title="Video header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
-      />
-    </a>
+
+    <CodeSection
+      code={CODE_SECTION}
+      title="Javascript at the core delivers total flexibility"
+      description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
+      /* button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }} */
+    />
   </Layout>
 );
 
