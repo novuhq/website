@@ -10,12 +10,12 @@ import SEO from 'components/shared/seo';
 const SECTION_WITH_FORM_RIGHT = {
   title: 'Ready to Getting Started with Novu?',
   description:
-    "Do either of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
+    "Do either of these statenments describe you? If so, please fill the form out, and we'll respond with next steps.",
   features: [
     {
       title: 'Non-technical user',
       description:
-        "Novu's next-generation code-based workflows require access to an IDE, command line, and knowledge of Jacascript.",
+        "Novu's next-generation code-based workflows require access to an IDE, command line, and knowledge of Javascript.",
     },
     {
       title: "Backend stack isn't Javascript",
