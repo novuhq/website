@@ -379,6 +379,7 @@ export const Head = () => {
     title: 'Novu - Full-stack Inbox for In-app notifications',
     description:
       "Novu's Inbox is the easiest way to add a highly customizable notifications Inbox to your application or website.",
+    ogImage: `/images/seo/og-novu-inbox.jpg`,
   };
   return <SEO {...pageMetadata} />;
 };
