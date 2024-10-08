@@ -311,8 +311,8 @@ const InboxPage = () => (
       title="Add notifications to your application or website"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
-        label: 'INTERACTIVE EXAMPLE',
-        link: 'https://inbox.novu.co',
+        label: 'View Playground',
+        link: 'https://inbox.novu.co?utm_campaign=fp-inbox-view-playground-hero',
         target: '_blank',
       }}
       categories={INBOX_CATEGORIES}
@@ -326,7 +326,10 @@ const InboxPage = () => (
       code={CODE_SECTION}
       title="Fast, composable, and simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
-      button={{ label: 'LIVE EXAMPLE', link: 'https://inbox.novu.co' }}
+      button={{
+        label: 'VIEW PLAYGROUND',
+        link: 'https://inbox.novu.co?utm_campaign=fp-inbox-view-playground-code',
+      }}
     />
 
     {/*
@@ -351,8 +354,8 @@ const InboxPage = () => (
         />
       }
       button={{
-        label: 'INTERACTIVE EXAMPLE',
-        link: 'https://inbox.novu.co',
+        label: 'VIEW PLAYGROUND',
+        link: 'https://inbox.novu.co?utm_campaign=fp-inbox-view-playground-reddit',
       }}
       theme="imageFullWidth"
     />
