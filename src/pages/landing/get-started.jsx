@@ -80,7 +80,10 @@ const GSLandingPage = () => (
     />
     <a id="video">
       <SectionWithVideo
-        video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=YRlXxS3Uodw' }}
+        video={{
+          type: 'youtube',
+          url: 'https://www.youtube.com/watch?v=A1ciB-LgY8w&ab_channel=Novu',
+        }}
         title="If you're ready to write osme Javascript and get notifying"
         description="This video walks you through all the important details to get your local dev environment up and running and code your first workflow."
       />
