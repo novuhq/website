@@ -101,7 +101,7 @@ export default function getReactContentWithLazyBlocks(content, pageComponents, i
             return acc;
           }, '');
 
-          const id = slugify(text, { lower: true, remove: /[*+~.()'"!:@/]/g });
+          const id = slugify(text, { lower: true, remove: /[*+~.()'"!:@/?]/g });
 
           domNode.attribs.id = id;
         }

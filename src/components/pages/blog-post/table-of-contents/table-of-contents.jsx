@@ -54,7 +54,7 @@ const TableOfContents = ({ headings }) => {
 
           const text = headingText.join(' ');
 
-          const id = slugify(text, { lower: true, remove: /[*+~.()'"!:@/]/g });
+          const id = slugify(text, { lower: true, remove: /[*+~.()'"!:@/?]/g });
           return (
             <li className="group flex" key={id}>
               <Link
