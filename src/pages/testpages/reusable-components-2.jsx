@@ -100,13 +100,11 @@ const SECTION_WITH_FORM_RIGHT = {
 
 const IMAGE_CARDS = [
   {
-    image: 'https://placehold.co/384x214',
     title: 'Missed Updates',
     description:
       'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
   },
   {
-    image: 'https://placehold.co/384x214',
     title: 'Irrelevant Notifications',
     description:
       'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
