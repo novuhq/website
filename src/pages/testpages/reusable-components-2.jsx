@@ -9,14 +9,14 @@ const cards = [
     description:
       'BoxyHQ’s suite of APIs for security and privacy helps engineering teams build and ship compliant cloud applications faster.',
     linkTitle: 'Visit boxyhq',
-    link: 'https://boxyhq.com',
+    linkUrl: 'https://boxyhq.com',
   },
   {
     title: 'User preferences',
     description:
       'Cal.com is a scheduling tool that helps you schedule meetings without the back-and-forth emails.',
     linkTitle: 'Visit cal.com',
-    link: 'https://cal.com',
+    linkUrl: 'https://cal.com',
   },
   {
     title: 'Monitoring',
