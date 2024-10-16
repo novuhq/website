@@ -38,6 +38,7 @@ export const Head = () => {
     slug: '/pricing/',
     title: 'Pricing - Novu',
     description: 'Flexible pricing for companies and developers',
+    ogImage: `/images/seo/og-novu-pricing.jpg`,
   };
   return <SEO {...pageMetadata} />;
 };
