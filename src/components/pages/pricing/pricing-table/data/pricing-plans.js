@@ -139,8 +139,8 @@ const LABELS = [
     items: {
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
-      channels: 'Channels: Email, In-app, SMS, Chat, Push, and Custom',
-      subscribers: 'Notification subscribers',
+      channels: 'Channels supported: email, in-app, SMS, chat, push, and custom',
+      subscribers: 'Notification Subscribers',
     },
   },
   {
@@ -165,13 +165,13 @@ const LABELS = [
     },
   },
   {
-    title: 'Account Administration and Security',
+    title: 'Administration and Security',
     items: {
-      teamMembers: 'Maximum Team Members',
+      teamMembers: 'Maximum team members',
       rbac: 'Role-Based Access Control (RBAC)',
-      standardSAML: 'Standard SAML Authentication (Google, Github)',
+      standardSAML: 'Standard SAML authentication (Google, Github)',
       customSAML: 'Custom SAML SSO, enterprise providers',
-      local: 'Built-In Authentication',
+      local: 'Built-In authentication',
       mfa: 'Multi-Factor Authentication (MFA)',
     },
   },
@@ -180,8 +180,8 @@ const LABELS = [
     items: {
       gdpr: 'GDPR',
       soc2: 'SOC 2 / ISO 27001',
-      customSOC: 'Custom Security Reviews',
-      dpa: 'Data Processing Agreements',
+      customSOC: 'Custom security reviews',
+      dpa: 'Data Processing Agreements (DPA)',
     },
   },
 ];
