@@ -216,6 +216,9 @@ export default {
     to: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-cta-bottom',
     target: '_blank',
   },
+  hpCodeSection: {
+    to: '#codefirst',
+  },
 
   // Social
   discord: {
