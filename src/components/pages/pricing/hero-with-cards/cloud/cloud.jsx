@@ -47,12 +47,12 @@ const getPricingData = (rangeValue) => [
     prices: {
       default: 0,
     },
-    description: 'For testing and evaluation or small-scale deployments.',
+    description: 'A generous free tier for testing and evaluation, or smaller requirements.',
     items: ['30K events/month included'],
     buttons: {
       default: {
         text: 'Get started for free',
-        url: LINKS.getStarted.to,
+        url: LINKS.getStartedPricingFree.to,
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
@@ -84,15 +84,15 @@ const getPricingData = (rangeValue) => [
       60: 1.62,
       70: 1.28,
     },
-    description: 'Good place for bigger projects, startups, and businesses.',
+    description: 'Best fit for most businesses.',
     items: [
       `${getEventsMonthValue(rangeValue) || '250K'} events/month included`,
-      `$0.0012 per additional event`,
+      `$1.20 per 1,000 additional events`,
     ],
     buttons: {
       default: {
         text: 'Get started for free',
-        url: LINKS.getStarted.to,
+        url: LINKS.getStartedPricingBus.to,
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Business',
@@ -115,8 +115,7 @@ const getPricingData = (rangeValue) => [
       60: 1.62,
       70: 1.28,
     },
-    description:
-      'For businesses that need Premium Enterprise Support, custom SLAs, and/or very large deployments.',
+    description: 'For businesses with the most demanding notification requirements.',
     items: [
       `${Number(rangeValue) >= 40 ? getEventsMonthValue(rangeValue) : '5M'} events/month included`,
     ],
@@ -125,7 +124,7 @@ const getPricingData = (rangeValue) => [
         text: 'Contact us',
         url: LINKS.pricingContactUs.to,
         onClick: () => {
-          buttonClick('book_a_call', { type: 'enterprise_contact' });
+          buttonClick('contact_us_pricing_ent', { type: 'enterprise_contact' });
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
             sliderValue: RANGES[rangeValue],
