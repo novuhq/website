@@ -24,5 +24,5 @@ export const secondSectionData = {
 export const thirdSectionData = {
   title: 'End users',
   description:
-    'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice.',
+    'Set notification channel and subscription preferences, and engage with your notification content.',
 };
