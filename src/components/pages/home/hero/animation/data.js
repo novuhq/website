@@ -5,20 +5,20 @@ export const firstSectionData = {
   title: 'Developers',
   description:
     'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice. Experience seamless GitOps.',
-  // button: {
+  //  button: {
   //   label: 'Learn more',
-  //   link: LINKS.home,
-  // },
+  //   link: LINKS.hpCodeSection,
+  //  },
 };
 
 export const secondSectionData = {
   title: 'Product teams',
   description:
-    'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice. Experience seamless GitOps Notifications revolutionizing workflow management',
-  // button: {
-  //   label: 'Learn more',
-  //   link: LINKS.home,
-  // },
+    'Unify content, messaging, and experience across all notifications channels. Seamlessly manage content without involving developers.',
+  //  button: {
+  //    label: 'Learn more',
+  //    link: LINKS.hpCodeSection,
+  //  },
 };
 
 export const thirdSectionData = {
