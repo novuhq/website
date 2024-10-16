@@ -43,7 +43,7 @@ const FloatingButton = ({ isCookieBannerVisible }) => {
         {isVisible && (
           <m.button
             className={clsx(
-              'fixed bottom-24 right-4 z-40 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-gray-6 bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] text-gray-6 backdrop-blur-[5px] transition-colors duration-200 hover:bg-gray-6 hover:text-white',
+              'fixed bottom-5 right-4 z-40 flex h-[60px] w-[60px] items-center justify-center rounded-full border border-gray-6 bg-[linear-gradient(180deg,rgba(26,26,26,0.4)_0%,rgba(26,26,26,0.28)_100%)] text-gray-6 backdrop-blur-[5px] transition-colors duration-200 hover:bg-gray-6 hover:text-white',
               {
                 'sm:bottom-32': isCookieBannerVisible,
               }
