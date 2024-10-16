@@ -4,7 +4,7 @@
 export const firstSectionData = {
   title: 'Developers',
   description:
-    'Define workflows as code, re-use components, and deploy confidently while developing in your IDE of choice. Experience seamless GitOps.',
+    'Define workflows as code, re-use components, integrated existing frameworks and tooling, and deploy confidently while developing in your IDE of choice.',
   //  button: {
   //   label: 'Learn more',
   //   link: LINKS.hpCodeSection,
