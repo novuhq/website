@@ -5,7 +5,7 @@ const PLANS = {
   free: {
     title: 'Free',
     linkText: 'Get started',
-    linkUrl: LINKS.getStarted.to,
+    linkUrl: LINKS.getStartedPricingFree.to,
     common: {},
     platform: {
       events: '30k',
@@ -47,7 +47,7 @@ const PLANS = {
   business: {
     title: 'Business',
     linkText: 'Get Started',
-    linkUrl: LINKS.getStarted.to,
+    linkUrl: LINKS.getStartedPricingBus.to,
     common: {},
     platform: {
       events: '250k',
@@ -89,7 +89,7 @@ const PLANS = {
   enterprise: {
     title: 'Enterprise',
     linkText: 'Contact Us',
-    linkUrl: LINKS.getStarted.to,
+    linkUrl: LINKS.getStartedPricingEnt.to,
     common: {},
     platform: {
       events: '5 million',
