@@ -146,6 +146,18 @@ export default {
     to: 'https://dashboard.novu.co?utm_campaign=gs_website',
     target: '_blank',
   },
+  getStartedPricingFree: {
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_free',
+    target: '_blank',
+  },
+  getStartedPricingBus: {
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_bus',
+    target: '_blank',
+  },
+  getStartedPricingEnt: {
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_ent',
+    target: '_blank',
+  },
   getStartedTopBar: {
     to: 'https://dashboard.novu.co?utm_campaign=gs_top_bar',
     target: '_blank',
