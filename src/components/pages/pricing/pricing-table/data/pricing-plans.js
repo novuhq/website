@@ -169,7 +169,7 @@ const LABELS = [
     items: {
       teamMembers: 'Maximum team members',
       rbac: 'Role-Based Access Control (RBAC)',
-      standardSAML: 'Standard SAML authentication (Google, Github)',
+      standardSAML: 'Standard SAML authentication (Google, GitHub)',
       customSAML: 'Custom SAML SSO, enterprise providers',
       local: 'Built-In authentication',
       mfa: 'Multi-Factor Authentication (MFA)',

@@ -23,7 +23,7 @@ const FAQ_DATA = [
         <Link to="https://github.com/novuhq/novu" target="_blank" rel="noreferrer" theme="primary">
           The Novu Project
         </Link>{' '}
-        is an open source notificaitons system that is built and maintained by Novu and the Novu
+        is an open source notifications system that is built and maintained by Novu and the Novu
         community. You can download, modify, build and deploy it yourself, or use pre-built{' '}
         <Link
           to="https://docs.novu.co/community/self-hosting-novu/introduction?utm_campaign=ws-faq"
@@ -70,7 +70,7 @@ const FAQ_DATA = [
     ),
   },
   {
-    question: 'Do you offer an enterprise-grade support plan?',
+    question: 'Do you offer enterprise support?',
     answer:
       'As part of our enterprise plan, you’ll get our usual support channels as well as a Microsoft Teams/Slack/Discord channel. In case you want to add an enterprise support plan, with dedicated technical support, we are happy to offer that next to an active enterprise plan.',
   },
@@ -80,12 +80,25 @@ const FAQ_DATA = [
       <>
         We sure can. We are happy to work with enterprises and build Novu to support both their
         needs as well as the grand community ones. From new features, security, and privacy, or if
-        you need to send dozens or hundreds of events a month, we are here to help. Feel free to
-        reach out to us over Chat, or send us an email at{' '}
-        <Link to="mailto:sales@novu.co" theme="primary">
-          sales@novu.co
-        </Link>
-        .
+        you need to send dozens or tens of millions of events a month, we are here to help.{' '}
+        <Link
+          to="/contact-us/?utm_campaign=ws-faq"
+          target="_blank"
+          rel="noreferrer"
+          theme="primary"
+        >
+          Contact us
+        </Link>{' '}
+        or{' '}
+        <Link
+          to="https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=ws-faq"
+          target="_blank"
+          rel="noreferrer"
+          theme="primary"
+        >
+          book a meeting
+        </Link>{' '}
+        so we can learn how to help you answer your question.
       </>
     ),
   },
@@ -94,17 +107,26 @@ const FAQ_DATA = [
     answer: (
       <>
         We regularly work with big companies and are happy to help and support you with guidance,
-        and various compliances including reports to ease your security and legal team. If you have
-        very complicated PII needs, you can use our OS version, Novu Hybrid-Cloud enterprise plan,
-        or reach out to us at{' '}
-        <Link to="mailto:sales@novu.co" theme="primary">
-          sales@novu.co
-        </Link>
-        , or our support, or{' '}
-        <Link to="https://discord.novu.co" theme="primary">
-          Discord
-        </Link>
-        .
+        and various compliance needs including reports to ease your security and legal team. If you
+        have very complicated PII needs,{' '}
+        <Link
+          to="/contact-us/?utm_campaign=ws-faq"
+          target="_blank"
+          rel="noreferrer"
+          theme="primary"
+        >
+          contact us
+        </Link>{' '}
+        or{' '}
+        <Link
+          to="https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=ws-faq"
+          target="_blank"
+          rel="noreferrer"
+          theme="primary"
+        >
+          book a meeting
+        </Link>{' '}
+        to discuss more.
       </>
     ),
   },
@@ -112,10 +134,10 @@ const FAQ_DATA = [
     question: 'What is your Service Level Agreement (SLA)?',
     answer: (
       <>
-        Yes! Our cloud uptime SLA is 99.99%. We also offer a support ticket SLA for our Business and
+        Our cloud uptime SLA is 99.99%. We also offer a support ticket SLA for our Business and
         Enterprise tier plans, which includes a private Slack channel with our support team. Free
         tier and the Novu Project are supported via{' '}
-        <Link to="https://discord.novu.co?utm_campaign=pricing-faq" theme="primary">
+        <Link to="https://discord.novu.co" theme="primary">
           Discord
         </Link>
         .
