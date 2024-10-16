@@ -10,8 +10,11 @@ const PlanCard = ({
   linkText,
   linkUrl,
   common,
-  notificationCenter,
-  features,
+  platform,
+  framework,
+  inbox,
+  account,
+  compliance,
   activeTier,
   className,
   currentRow,
@@ -51,8 +54,11 @@ const PlanCard = ({
           )}
         </div>
         <FeatureList features={common} currentRow={currentRow} />
-        <FeatureList features={notificationCenter} currentRow={currentRow} />
-        <FeatureList features={features} currentRow={currentRow} />
+        <FeatureList features={platform} currentRow={currentRow} />
+        <FeatureList features={framework} currentRow={currentRow} />
+        <FeatureList features={inbox} currentRow={currentRow} />
+        <FeatureList features={account} currentRow={currentRow} />
+        <FeatureList features={compliance} currentRow={currentRow} />
       </div>
     </div>
   );
