@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,9 +7,12 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 const FeatureCards = ({ title, description, cards, columns = 3 }) => (
-  <section className="feature-cards safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+  <section className="feature-cards relative safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <StaticImage src="./images/bg-blur.svg" alt="" loading="" width={1652} height={928} />
+    </div>
     <div
-      className={clsx('container-lg', {
+      className={clsx('container-lg relative z-10', {
         'max-w-[960px]': columns === 2,
       })}
     >
@@ -34,7 +38,7 @@ const FeatureCards = ({ title, description, cards, columns = 3 }) => (
       >
         {cards.map(({ title, description, linkTitle, linkUrl }, index) => (
           <li className="bg-common-card-border rounded-xl" key={index}>
-            <div className="m-px w-full h-full rounded-xl p-8 bg-[#0F0F15] lg:p-6 flex flex-col items-start">
+            <div className="m-px w-[calc(100%-2px)] h-[calc(100%-2px)] rounded-xl p-8 bg-[#0F0F15] lg:p-6 flex flex-col items-start">
               <Heading className="lg:text-xl" size="xs" tag="h3" theme="white">
                 {title}
               </Heading>
