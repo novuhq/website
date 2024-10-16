@@ -195,7 +195,9 @@ const HomePage = () => (
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
     />
-    <Code />
+    <a id="codefirst">
+      <Code />
+    </a>
     <CtaWithForm
       title="Send your first notification in minutes"
       /* description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo." */
