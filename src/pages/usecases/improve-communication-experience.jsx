@@ -28,7 +28,7 @@ const improveCommunicationExperiencePage = () => (
         },
         {
           text: 'Book Meeting',
-          url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-usecase-improveComms',
+          url: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-usecase-improveComms',
           target: '_blank',
         },
       ]}

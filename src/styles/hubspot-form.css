@@ -296,3 +296,11 @@
     }
   }
 }
+
+.section-with-form {
+  .hs-form {
+    .hs-button {
+      @apply bg-none bg-white text-black hover:bg-[rgba(255,255,255,0.8)];
+    }
+  }
+}

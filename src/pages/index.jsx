@@ -186,7 +186,7 @@ const HomePage = () => (
     <Hero />
     <Integration />
     <Inbox
-      title="The most powerful and customizable notification <Inbox/>"
+      title="The most customizable <Inbox&nbsp;/>"
       description="Drop-in in-app notifications for your app or website, deployable in minutes, and synchronizsed across all your channels."
       button={{
         label: 'LEARN MORE',
@@ -205,7 +205,7 @@ const HomePage = () => (
       }}
       rightItem={{
         text: 'BOOK A DEMO',
-        link: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=ws-cta',
+        link: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=ws-cta',
       }}
     />
     <Flexibility />
@@ -233,9 +233,9 @@ export default HomePage;
 
 export const Head = () => {
   const pageMetadata = {
-    title: 'Novu - Open-source notifications infrastructure and framework',
+    title: 'Novu - Open-source notifications infrastructure for devs and product teams',
     description:
-      'Novu empowers developers and product teams to collaborate seamlessly on notification management. Its unified platform provides centralized content, type-safe schemas, and reusable components, facilitating efficient workflows. With code-first and no-code tools, teams can easily customize and deploy notifications across multiple channels like email, SMS, push, chat, and in-app. Novu enhances communication, reduces friction, and ensures reliable, scalable, and personalized user experiences while maintaining full visibility and control over notifications.',
+      'Novu is an open-source notification platform that empowers developers to create robust, multi-channel notifications for web and mobile apps. With powerful workflows, seamless integrations, and a flexible API-first approach, Novu enables product teams to manage notifications without breaking production.',
   };
   return (
     <>
