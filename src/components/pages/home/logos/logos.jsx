@@ -91,7 +91,7 @@ const LOGOS = [
 ];
 
 const Logos = () => (
-  <section className="logos safe-paddings md:mt-24 sm:mt-20">
+  <section className="logos safe-paddings md:mt-10">
     <div className="container">
       <h2 className="text-md text-center font-book uppercase leading-none sm:text-sm sm:leading-snug">
         {TITLE}

@@ -10,6 +10,7 @@ import Reviews from 'components/pages/home/reviews';
 import Layout from 'components/shared/layout';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import Inbox from 'components/shared/reusable-sections/inbox';
+import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
 
@@ -194,7 +195,9 @@ const HomePage = () => (
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
     />
-    <Code />
+    <a id="codefirst">
+      <Code />
+    </a>
     <CtaWithForm
       title="Send your first notification in minutes"
       /* description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo." */
@@ -236,5 +239,16 @@ export const Head = () => {
     description:
       'Novu is an open-source notification platform that empowers developers to create robust, multi-channel notifications for web and mobile apps. With powerful workflows, seamless integrations, and a flexible API-first approach, Novu enables product teams to manage notifications without breaking production.',
   };
-  return <SEO {...pageMetadata} />;
+  return (
+    <>
+      <SEO {...pageMetadata} />
+      <RiveWasm />
+      <link
+        rel="preload"
+        href="/animations/pages/home/hero/new_hero.riv"
+        as="fetch"
+        crossOrigin="anonymous"
+      />
+    </>
+  );
 };

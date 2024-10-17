@@ -636,3 +636,23 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 exports.onPostBuild = require('./gatsby/on-post-build');
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: (filePath) => {
+            const fileName = filePath.split('/').pop();
+
+            return fileName === 'rive.wasm';
+          },
+          type: 'asset/resource',
+          generator: {
+            filename: 'static/[name].[hash][ext]',
+          },
+        },
+      ],
+    },
+  });
+};
