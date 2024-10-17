@@ -38,8 +38,16 @@ const FeatureCards = ({ title, description, cards, columns = 3 }) => (
       >
         {cards.map(({ title, description, linkTitle, linkUrl }, index) => (
           <li className="bg-common-card-border rounded-xl" key={index}>
-            <div className="m-px w-[calc(100%-2px)] h-[calc(100%-2px)] rounded-xl p-8 bg-[#0F0F15] lg:p-6 flex flex-col items-start">
-              <Heading className="lg:text-xl" size="xs" tag="h3" theme="white">
+            <div
+              className={clsx(
+                'm-px w-[calc(100%-2px)] h-[calc(100%-2px)] rounded-xl bg-[#0F0F15] lg:p-6 flex flex-col items-start',
+                {
+                  'p-[26px]': columns === 3,
+                  'p-8': columns === 2,
+                }
+              )}
+            >
+              <Heading className="lg:text-xl" size="sm" tag="h3" theme="white">
                 {title}
               </Heading>
               <p className="mt-3 text-gray-9 font-light leading-snug md:mt-2">{description}</p>

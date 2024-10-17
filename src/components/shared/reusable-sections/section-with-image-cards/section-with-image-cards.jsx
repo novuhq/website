@@ -7,7 +7,7 @@ const SectionWithImageCards = ({ title, cards }) => (
   <section className="section-with-cards safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container-lg">
       <Heading
-        className="font-medium max-w-[960px] mx-auto text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="font-medium max-w-[900px] mx-auto text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl tracking-snug"
         tag="h2"
         size="44"
         theme="white"
@@ -17,15 +17,17 @@ const SectionWithImageCards = ({ title, cards }) => (
       <ul className="grid grid-cols-3 gap-8 mt-11 lg:grid-cols-2 lg:gap-7 md:gap-6 sm:grid-cols-1">
         {cards.map(({ title, description, image }, index) => (
           <li className="bg-common-card-border rounded-xl" key={index}>
-            <div className="m-px w-full h-full rounded-xl bg-[#0F0F15] lg:p-6">
+            <div className="m-px w-full h-full rounded-xl bg-[#0F0F15]">
               {image ? (
                 <img
-                  className="w-[384px] h-[214px] bg-[#161622] block rounded-t-xl"
+                  className="w-[384px] h-[214px] bg-[#161622] block rounded-t-xl lg:object-cover lg:w-full"
                   src={image}
                   alt=""
+                  width={384}
+                  height={214}
                 />
               ) : (
-                <span className="w-[384px] h-[214px] bg-[#161622] block rounded-t-xl" />
+                <span className="w-[384px] h-[214px] bg-[#161622] block rounded-t-xl lg:w-full" />
               )}
               <div className="px-6 pb-7">
                 <Heading
