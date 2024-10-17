@@ -1,8 +1,28 @@
-.hubspot-form-wrapper {
-  @apply rounded-[20px] bg-hs-form-gradient px-9 py-10 md:p-8;
+.hubspot-form-wrapper.with-blur {
+  @apply relative before:absolute before:-inset-px before:bg-[linear-gradient(180deg,rgba(51,51,71,0.6),rgba(43,43,59,0.4))] before:rounded-[20px];
+
+  .hubspot-form {
+    @apply relative z-10 bg-[linear-gradient(180deg,rgba(20,20,31,1),rgba(20,20,31,1))];
+    .hs-form-field {
+      input {
+        &[type='text'],
+        &[type='email'],
+        &[type='number'],
+        &[type='tel'] {
+          @apply bg-[rgba(51,51,71,0.4)] border-[rgba(51,51,71,0.4)] !important;
+        }
+      }
+
+      textarea,
+      select {
+        @apply bg-[rgba(51,51,71,0.4)] border-[rgba(51,51,71,0.4)] !important;
+      }
+    }
+  }
 }
 
 .hubspot-form {
+  @apply px-9 py-10 md:p-8 bg-hs-form-gradient rounded-[20px];
   .actions {
     @apply flex items-center space-x-7 sm:flex-col sm:space-x-0 sm:space-y-5;
   }
