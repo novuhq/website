@@ -19,11 +19,11 @@
     }
 
     h2 {
-      @apply mb-8 mt-12 text-[30px] sm:mb-4 sm:mt-8 sm:text-2xl;
+      @apply mb-8 mt-12 text-[30px] sm:mb-4 sm:mt-8 sm:text-2xl scroll-mt-12 sm:scroll-mt-8;
     }
 
     h3 {
-      @apply mb-6 mt-10 text-2xl sm:mb-4 sm:mt-6 sm:text-xl;
+      @apply mb-6 mt-10 text-2xl sm:mb-4 sm:mt-6 sm:text-xl scroll-mt-10 sm:scroll-mt-6;
     }
 
     ul,

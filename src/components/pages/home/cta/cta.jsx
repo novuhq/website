@@ -15,7 +15,7 @@ const DESCRIPTION =
 
 const LINK = {
   text: 'Book Session',
-  url: 'https://notify.novu.co/meetings/novumeet/discovery-session?utm_campaign=website-homeCTA',
+  url: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-homeCTA',
 };
 
 const CODE = 'npx novu@latest dev';
