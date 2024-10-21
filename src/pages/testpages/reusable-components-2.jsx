@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
@@ -100,17 +101,43 @@ const SECTION_WITH_FORM_RIGHT = {
 
 const IMAGE_CARDS = [
   {
+    image: (
+      <StaticImage
+        src="../../images/placeholder.jpg"
+        alt="Placeholder image"
+        loading="lazy"
+        width={384}
+        height={214}
+      />
+    ),
     title: 'Missed Updates',
     description:
       'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
   },
   {
+    image: (
+      <StaticImage
+        src="../../images/placeholder.jpg"
+        alt="Placeholder image"
+        loading="lazy"
+        width={384}
+        height={214}
+      />
+    ),
     title: 'Irrelevant Notifications',
     description:
       'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
   },
   {
-    image: 'https://placehold.co/384x214',
+    image: (
+      <StaticImage
+        src="../../images/placeholder.jpg"
+        alt="Placeholder image"
+        loading="lazy"
+        width={384}
+        height={214}
+      />
+    ),
     title: 'Negative Brand Perception',
     description:
       'Poorly managed notifications can reflect negatively on the brand, portraying it as intrusive, unorganized, or unresponsive to user needs and preferences.',

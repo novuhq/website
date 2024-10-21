@@ -17,18 +17,8 @@ const SectionWithImageCards = ({ title, cards }) => (
       <ul className="grid grid-cols-3 gap-8 mt-11 lg:grid-cols-2 lg:gap-7 md:gap-6 sm:grid-cols-1">
         {cards.map(({ title, description, image }, index) => (
           <li className="bg-common-card-border rounded-xl" key={index}>
-            <div className="m-px w-full h-full rounded-xl bg-[#0F0F15]">
-              {image ? (
-                <img
-                  className="w-[384px] h-[214px] bg-[#161622] block rounded-t-xl lg:object-cover lg:w-full"
-                  src={image}
-                  alt=""
-                  width={384}
-                  height={214}
-                />
-              ) : (
-                <span className="w-[384px] h-[214px] bg-[#161622] block rounded-t-xl lg:w-full" />
-              )}
+            <div className="m-px w-full h-full rounded-xl bg-[#0F0F15] overflow-hidden">
+              {image}
               <div className="px-6 pb-7">
                 <Heading
                   className="mt-5 lg:text-xl lg:mt-4 md:mt-3.5"
