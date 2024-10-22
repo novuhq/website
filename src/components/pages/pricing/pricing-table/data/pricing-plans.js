@@ -19,6 +19,7 @@ const PLANS = {
       feedRetention: '30 days',
       digest: true,
       stepControl: true,
+      translations: true,
     },
     inbox: {
       inboxComponent: true,
@@ -39,6 +40,7 @@ const PLANS = {
     compliance: {
       gdpr: true,
       soc2: false,
+      hipaa: false,
       customSOC: false,
       dpa: 'Standard',
     },
@@ -61,6 +63,7 @@ const PLANS = {
       feedRetention: '90 days',
       digest: true,
       stepControl: true,
+      translations: true,
     },
     inbox: {
       inboxComponent: true,
@@ -81,6 +84,7 @@ const PLANS = {
     compliance: {
       gdpr: true,
       soc2: true,
+      hipaa: false,
       customSOC: false,
       dpa: 'Standard',
     },
@@ -103,6 +107,7 @@ const PLANS = {
       feedRetention: 'Unlimited',
       digest: true,
       stepControl: true,
+      translations: true,
     },
     inbox: {
       inboxComponent: true,
@@ -123,6 +128,7 @@ const PLANS = {
     compliance: {
       gdpr: true,
       soc2: true,
+      hipaa: true,
       customSOC: true,
       dpa: 'Custom',
     },
@@ -135,7 +141,7 @@ const LABELS = [
     items: {},
   },
   {
-    title: 'Framework',
+    title: 'Platform',
     items: {
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
@@ -151,6 +157,7 @@ const LABELS = [
       feedRetention: 'Activity Feed retention',
       digest: 'Notification Digests',
       stepControl: 'Workflow Step Controls',
+      translations: 'Translations',
     },
   },
   {
@@ -180,6 +187,7 @@ const LABELS = [
     items: {
       gdpr: 'GDPR',
       soc2: 'SOC 2 / ISO 27001',
+      hipaa: 'US HIPAA',
       customSOC: 'Custom security reviews',
       dpa: 'Data Processing Agreements (DPA)',
     },
