@@ -53,7 +53,7 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
   return (
     <section className={clsx(text, 'inbox safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14')}>
       <div className="container-lg">
-        <div className="flex items-center justify-center pl-8 sm:flex-col">
+        <div className="flex items-center justify-center pl-8 sm:flex-col md:pl-0">
           <Container className="md:hidden" theme={theme} isUnreadMessages={isUnreadMessages}>
             <div className={clsx(border, shadow, 'relative z-30 p-px rounded-xl')}>
               <div className="relative rounded-xl overflow-hidden">
@@ -95,7 +95,9 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
             >
               {title}
             </Heading>
-            <p className="mt-3 text-[17px] leading-snug md:text-sm font-book">{description}</p>
+            <p className="mt-3 text-[17px] leading-snug md:text-sm font-book sm:max-w-[600px]">
+              {description}
+            </p>
             {button && (
               <Button
                 className="h-14 px-6 text-sm min-w-[142px] mt-7 md:mt-5"
