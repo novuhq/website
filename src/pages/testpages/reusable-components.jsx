@@ -38,16 +38,28 @@ import settingsIcon from 'images/icons/settings.svg';
 import negativeIcon from 'images/reusable-sections/section-with-cards/negative.svg';
 import notificationIcon from 'images/reusable-sections/section-with-cards/notification.svg';
 import warningIcon from 'images/reusable-sections/section-with-cards/warning.svg';
+import allstarLogo from 'images/reusable-sections/section-with-logos/allstar.svg';
 import astroLogo from 'images/reusable-sections/section-with-logos/astro.svg';
+import axiosHqLogo from 'images/reusable-sections/section-with-logos/axios-hq.svg';
+import baskLogo from 'images/reusable-sections/section-with-logos/bask.svg';
+import capgeminiLogo from 'images/reusable-sections/section-with-logos/capgemini.svg';
 import expressLogo from 'images/reusable-sections/section-with-logos/express.svg';
 import honoLogo from 'images/reusable-sections/section-with-logos/hono.svg';
 import koaLogo from 'images/reusable-sections/section-with-logos/koa.svg';
 import launchDarklyLogo from 'images/reusable-sections/section-with-logos/launch-darkly.svg';
 import mjmlLogo from 'images/reusable-sections/section-with-logos/mjml.svg';
+import mongoDbLogo from 'images/reusable-sections/section-with-logos/mongodb.svg';
+import mothershipLogo from 'images/reusable-sections/section-with-logos/mothership.svg';
 import nestJsLogo from 'images/reusable-sections/section-with-logos/nestjs.svg';
 import reactEmailLogo from 'images/reusable-sections/section-with-logos/react-email.svg';
 import remixLogo from 'images/reusable-sections/section-with-logos/remix.svg';
+import rocheLogo from 'images/reusable-sections/section-with-logos/roche.svg';
+import runnLogo from 'images/reusable-sections/section-with-logos/runn.svg';
+import saladLogo from 'images/reusable-sections/section-with-logos/salad.svg';
+import siemensLogo from 'images/reusable-sections/section-with-logos/siemens.svg';
+import teocoLogo from 'images/reusable-sections/section-with-logos/teoco.svg';
 import twilioLogo from 'images/reusable-sections/section-with-logos/twilio.svg';
+import unityLogo from 'images/reusable-sections/section-with-logos/unity.svg';
 
 const SECTION_WITH_SMALL_ICONS = [
   {
@@ -200,6 +212,57 @@ const SECTION_WITH_LOGOS = [
   {
     title: 'Koa',
     src: koaLogo,
+  },
+];
+
+const SECTION_WITH_LOGOS_2 = [
+  {
+    title: 'Salad',
+    src: saladLogo,
+  },
+  {
+    title: 'MongoDB',
+    src: mongoDbLogo,
+  },
+  {
+    title: 'Mothership',
+    src: mothershipLogo,
+  },
+  {
+    title: 'Capgemini',
+    src: capgeminiLogo,
+  },
+  {
+    title: 'Bask',
+    src: baskLogo,
+  },
+  {
+    title: 'Roche',
+    src: rocheLogo,
+  },
+  {
+    title: 'Unity',
+    src: unityLogo,
+  },
+  {
+    title: 'Siemens',
+    src: siemensLogo,
+  },
+  {
+    title: 'Teoco',
+    src: teocoLogo,
+  },
+  {
+    title: 'Axio HQ',
+    src: axiosHqLogo,
+  },
+  {
+    title: 'Runn',
+    src: runnLogo,
+  },
+  {
+    title: 'Allstar',
+    src: allstarLogo,
   },
 ];
 
@@ -766,6 +829,12 @@ const ReusableComponents = (props) => {
         title="Integrates with anything"
         description="Built from scratch to integrate your existing tooling and content with the Novu Platform."
         logos={SECTION_WITH_LOGOS}
+      />
+      <SectionWithLogos
+        containerSize="lg"
+        title="Integrates with anything"
+        description="Built from scratch to integrate your existing tooling and content with the Novu Platform."
+        logos={SECTION_WITH_LOGOS_2}
       />
       <GetInvolved title="Get involved: start, engage, contribute" items={GET_INVOLVED} />
       <SectionWithCards

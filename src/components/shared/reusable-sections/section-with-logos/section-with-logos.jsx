@@ -4,11 +4,16 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-const SectionWithLogos = ({ title, description, logos }) => {
+const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) => {
   const gridCols = Math.round(logos.length / 2);
   return (
     <section className="libraries safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
-      <div className="container-md flex flex-col items-center text-center md:px-8 sm:w-full sm:px-5">
+      <div
+        className={clsx('flex flex-col items-center text-center md:px-8 sm:w-full sm:px-5', {
+          'container-md': containerSize === 'md',
+          'container-lg': containerSize === 'lg',
+        })}
+      >
         <Heading
           className="leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl"
           size="lg"
