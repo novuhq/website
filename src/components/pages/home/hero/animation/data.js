@@ -14,7 +14,7 @@ export const firstSectionData = {
 export const secondSectionData = {
   title: 'Product teams',
   description:
-    'Unify content, messaging, and experience across all notifications channels. Seamlessly manage content without involving developers.',
+    'Unify content, messaging, and experience across all notification channels. Seamlessly manage content without involving developers.',
   //  button: {
   //    label: 'Learn more',
   //    link: LINKS.hpCodeSection,
