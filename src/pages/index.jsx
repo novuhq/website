@@ -185,6 +185,7 @@ const HomePage = () => (
     <Hero />
     <Integration />
     <Inbox
+      theme="dark"
       title="The most customizable <Inbox&nbsp;/>"
       description="Drop-in in-app notifications for your app or website, deployable in minutes, and synchronizsed across all your channels."
       button={{

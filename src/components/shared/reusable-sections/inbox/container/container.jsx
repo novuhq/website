@@ -28,9 +28,9 @@ const THEMES = {
       shine: 'bg-[linear-gradient(90deg,#FFFFFF00_13.5%,#FFFFFF_57.86%,#FFFFFF00_100%)]',
       fade: 'bg-[linear-gradient(180deg,#05050B00_66.82%,#05050B_100%)]',
       gradients: {
-        lg: 'bg-[radial-gradient(circle_at_center,#232B5B_0%,#232B5B00_100%)]',
-        md: 'bg-[radial-gradient(circle_at_center,#3D4B7A_0%,#3D4B7A00_100%)]',
-        sm: 'bg-[radial-gradient(circle_at_center,#46568B_0%,#46568B00_100%)]',
+        lg: 'bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0.00)100%)]',
+        md: 'bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0.00)100%)]',
+        sm: 'bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0.00)100%)]',
       },
     },
     header: {
@@ -107,7 +107,7 @@ const Container = ({ className, theme, children, isUnreadMessages }) => {
           <div
             className={clsx(
               currentTheme.mainBlock.gradients.sm,
-              'absolute z-20 -top-[30%] left-[10%] w-[312px] h-[246px] rounded-[50%] blur-3xl opacity-80 rotate-45  mix-blend-plus-lighter pointer-events-none'
+              'absolute z-20 -top-[30%] left-[10%] w-[312px] h-[246px] rounded-[50%] blur-3xl opacity-80 rotate-45 mix-blend-plus-lighter pointer-events-none'
             )}
           />
         </div>
