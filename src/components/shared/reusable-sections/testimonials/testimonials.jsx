@@ -13,7 +13,7 @@ const NextArrow = (props) => {
 
   return (
     <button
-      className="absolute right-0 top-[-74px] flex justify-center items-center w-11 h-11 border border-gray-5 hover:bg-gray-4 hover:border-gray-4 rounded-md lg:top-[-70px] md:w-9 md:h-9 md:-top-16 sm:top-[calc(100%+30px)] sm:right-[calc(100%-82px)]"
+      className="absolute right-0 top-[-74px] flex justify-center items-center w-11 h-11 border border-gray-5 hover:bg-gray-4 hover:border-gray-4 rounded-md lg:top-[-70px] md:w-9 md:h-9 md:-top-16 sm:top-[calc(100%+30px)] sm:right-[calc(100%-82px)] transition-colors duration-200"
       type="button"
       aria-label="Next testimonial"
       onClick={onClick}
@@ -31,7 +31,7 @@ const PrevArrow = (props) => {
 
   return (
     <button
-      className="absolute right-[58px] top-[-74px] flex justify-center items-center w-11 h-11 border border-gray-5 hover:bg-gray-4 hover:border-gray-4 rounded-md lg:top-[-70px] md:w-9 md:h-9 md:-top-16 md:right-[46px] sm:top-[calc(100%+30px)] sm:right-[calc(100%-36px)]"
+      className="absolute right-[58px] top-[-74px] flex justify-center items-center w-11 h-11 border border-gray-5 hover:bg-gray-4 hover:border-gray-4 rounded-md lg:top-[-70px] md:w-9 md:h-9 md:-top-16 md:right-[46px] sm:top-[calc(100%+30px)] sm:right-[calc(100%-36px)] transition-colors duration-200"
       type="button"
       aria-label="Prev testimonial"
       onClick={onClick}
