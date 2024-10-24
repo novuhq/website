@@ -21,7 +21,15 @@ const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) =
         >
           {title}
         </Heading>
-        <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 max-w-lg mx-auto lg:max-w-md md:text-base">
+        <p
+          className={clsx(
+            'text-[17px] leading-snug font-book text-gray-9 mt-3 mx-auto lg:max-w-md md:text-base',
+            {
+              'max-w-lg': containerSize === 'md',
+              'max-w-xl': containerSize === 'lg',
+            }
+          )}
+        >
           {description}
         </p>
         <ul
