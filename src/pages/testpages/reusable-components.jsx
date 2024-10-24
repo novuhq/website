@@ -292,7 +292,7 @@ const EVENTS_WITH_IMAGES = [
     image: (
       <StaticImage
         className="w-full"
-        src="../images/placeholder-image.jpg"
+        src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
         width={384}
@@ -310,7 +310,7 @@ const EVENTS_WITH_IMAGES = [
     image: (
       <StaticImage
         className="w-full"
-        src="../images/placeholder-image.jpg"
+        src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
         width={384}
@@ -328,7 +328,7 @@ const EVENTS_WITH_IMAGES = [
     image: (
       <StaticImage
         className="w-full"
-        src="../images/placeholder-image.jpg"
+        src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
         width={384}
@@ -667,7 +667,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
-            src="../images/placeholder-image.jpg"
+            src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
             width={576}
@@ -684,7 +684,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
-            src="../images/placeholder-image.jpg"
+            src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
             width={576}
@@ -697,7 +697,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
-            src="../images/placeholder-image.jpg"
+            src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
             width={576}
@@ -715,7 +715,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
-            src="../images/placeholder-image.jpg"
+            src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
             width={576}
@@ -729,7 +729,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
-            src="../images/placeholder-image.jpg"
+            src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
             width={1088}
@@ -747,7 +747,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
-            src="../images/placeholder-image.jpg"
+            src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
             width={1088}
