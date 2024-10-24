@@ -47,9 +47,7 @@ const useGSAPAnimations = ({
   useGSAP(
     () => {
       const height = animationRef.current.offsetHeight;
-
       const offsetHeight = containerRef.current.offsetTop;
-
       const isAnimationPlayable = window.innerWidth >= 1024;
 
       if (isAnimationPlayable) {
@@ -246,13 +244,9 @@ const useGSAPAnimations = ({
   useGSAP(
     () => {
       const height = animationRef.current.offsetHeight;
-
       const offsetHeight = containerRef.current.offsetTop;
-
       const isTablet = window.innerWidth < 1279;
-
       const isAnimationPlayable = window.innerWidth >= 1024;
-
       const containerHeight = height * 3;
 
       const snapTo = [
