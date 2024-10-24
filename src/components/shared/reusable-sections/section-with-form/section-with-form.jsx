@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 
@@ -15,6 +16,7 @@ const SectionWithForm = ({
   hubspotFormId,
   hubspotTagClass,
   headingTag,
+  withBlur,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,11 +38,13 @@ const SectionWithForm = ({
         <div
           className={clsx(
             'md:order-first',
-            formPosition === 'left' ? 'col-start-7 col-end-13' : 'col-start-1 col-end-6'
+            formPosition === 'left'
+              ? 'col-start-7 col-end-13 max-w-[516px] justify-self-end'
+              : 'col-start-1 col-end-7 max-w-[516px] justify-self-start'
           )}
         >
           <Heading
-            className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
+            className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl pt-8 md:pt-0"
             tag={headingTag}
             size="44"
             theme="white"
@@ -75,10 +79,19 @@ const SectionWithForm = ({
             formPosition === 'left'
               ? 'order-first col-start-1 col-end-7'
               : 'col-start-7 col-end-13',
-            'md:mt-20 sm:mt-16'
+            'relative md:mt-20 sm:mt-16'
           )}
         >
-          <div className="hubspot-form-wrapper">
+          {withBlur && (
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1327px] h-[1014px] pointer-events-none">
+              <StaticImage src="./images/bg-blur.svg" alt="" width={1327} height={1014} />
+            </div>
+          )}
+          <div
+            className={clsx('hubspot-form-wrapper relative z-10', {
+              'with-blur': withBlur,
+            })}
+          >
             {isLoading && (
               <div className="flex w-full flex-col items-start justify-center gap-y-8 overflow-hidden md:gap-y-6">
                 <span className="skeleton h-12" />
