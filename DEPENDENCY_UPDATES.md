@@ -137,8 +137,8 @@ import/require error. Plugin needs dynamic import() to be supported
 ### eslint-plugin-react-hooks
 
 - **Issue found on:** 23 Oct, 2024
-- **Problematic version:** 4.6.2
-- **Last stable version:** 5.0.0
+- **Problematic version:** 5.0.0
+- **Last stable version:** 4.6.2
 
 Conflicting peer dependency error
 
