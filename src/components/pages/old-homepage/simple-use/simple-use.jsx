@@ -72,7 +72,7 @@ const CARDS = [
   },
   {
     icon: sendinBlue,
-    title: 'SendinBlue',
+    title: 'Brevo',
     text: 'Email',
     to: 'https://github.com/novuhq/novu/tree/main/providers/sendinblue',
   },

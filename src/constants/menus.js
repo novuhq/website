@@ -78,7 +78,7 @@ const MENUS = {
               { title: 'Mailgun', ...LINKS.mailgun },
               { title: 'Postmark', ...LINKS.postmark },
               { title: 'Discord', ...LINKS.discord },
-              { title: 'Sendinblue', ...LINKS.sendinblue },
+              { title: 'Brevo', ...LINKS.sendinblue },
             ],
           },
           {
