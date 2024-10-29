@@ -195,11 +195,11 @@ export default {
     target: '_blank',
   },
   changeLog: {
-    to: 'https://roadmap.novu.co/changelog?utm_campaign=website',
+    to: 'https://roadmap.novu.co/changelog',
     target: '_blank',
   },
   roadmapPage: {
-    to: 'https://roadmap.novu.co?utm_campaign=website',
+    to: 'https://roadmap.novu.co',
     target: '_blank',
   },
   trustPage: {
