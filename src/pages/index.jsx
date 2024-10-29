@@ -255,7 +255,7 @@ const HomePage = () => (
     />
     <Inbox
       title="The most customizable <Inbox&nbsp;/>"
-      description="Drop-in in-app notifications for your app or website, deployable in minutes, and synchronizsed across all your channels."
+      description="Drop-in in-app notifications for your app or website, deployable in minutes, and synchronized across all your channels."
       button={{
         label: 'LEARN MORE',
         link: '/inbox?utm_campaign=ws-inbox-hero',
