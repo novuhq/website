@@ -117,3 +117,29 @@ Space for a free-form description of the problem
 import/require error. Plugin needs dynamic import() to be supported
 
 </details>
+
+<details>
+  <summary>@octokit/rest</summary>
+
+### @octokit/rest
+
+- **Issue found on:** 23 Oct, 2024
+- **Problematic version:** 21.0.2
+- **Last stable version:** 20.0.2
+
+import/require error. Plugin needs dynamic import() to be supported
+
+</details>
+
+<details>
+  <summary>eslint-plugin-react-hooks</summary>
+
+### eslint-plugin-react-hooks
+
+- **Issue found on:** 23 Oct, 2024
+- **Problematic version:** 5.0.0
+- **Last stable version:** 4.6.2
+
+Conflicting peer dependency error
+
+</details>
