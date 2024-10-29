@@ -249,11 +249,10 @@ const HomePage = () => (
     <Hero />
     <SectionWithLogos
       containerSize="lg"
-      title="Notifications That Brands Count On"
+      title="Notifications brands count on"
       description="Ensuring seamless notifications from business to users, with zero hassle."
       logos={SECTION_WITH_LOGOS_2}
     />
-    <Integration />
     <Inbox
       title="The most customizable <Inbox&nbsp;/>"
       description="Drop-in in-app notifications for your app or website, deployable in minutes, and synchronizsed across all your channels."
@@ -264,6 +263,7 @@ const HomePage = () => (
       categories={INBOX_CATEGORIES}
       messages={INBOX_MESSAGES}
     />
+    <Integration />
     <a id="codefirst">
       <Code />
     </a>
