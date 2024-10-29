@@ -195,7 +195,7 @@ export default {
     target: '_blank',
   },
   changeLog: {
-    to: 'https://novu.productlane.com/changelog',
+    to: 'https://roadmap.novu.co/changelog',
     target: '_blank',
   },
   roadmapPage: {
