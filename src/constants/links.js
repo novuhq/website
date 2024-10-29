@@ -232,6 +232,9 @@ export default {
     to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-cta-bottom',
     target: '_blank',
   },
+  hpCodeSection: {
+    to: '#codefirst',
+  },
 
   // Social
   discord: {

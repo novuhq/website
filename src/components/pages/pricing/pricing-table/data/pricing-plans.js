@@ -12,6 +12,10 @@ const PLANS = {
       additionalEvents: '-',
       channels: true,
       subscribers: 'Unlimited',
+      guiWorkflow: 'Nov 2025',
+      codeWorkflow: true,
+      subscriberManagement: 'Q1 2025',
+      multiTenant: false,
     },
     framework: {
       workflows: 'Unlimited',
@@ -19,6 +23,8 @@ const PLANS = {
       feedRetention: '30 days',
       digest: true,
       stepControl: true,
+      translations: true,
+      blockEmailEditor: 'Nov 2024',
     },
     inbox: {
       inboxComponent: true,
@@ -39,6 +45,7 @@ const PLANS = {
     compliance: {
       gdpr: true,
       soc2: false,
+      hipaa: false,
       customSOC: false,
       dpa: 'Standard',
     },
@@ -54,6 +61,10 @@ const PLANS = {
       additionalEvents: '$1.20 per 1,000',
       channels: true,
       subscribers: true,
+      guiWorkflow: 'Nov 2024',
+      codeWorkflow: true,
+      subscriberManagement: 'Q1 2025',
+      multiTenant: 'Q1 2025',
     },
     framework: {
       workflows: 'Unlimited',
@@ -61,6 +72,8 @@ const PLANS = {
       feedRetention: '90 days',
       digest: true,
       stepControl: true,
+      translations: true,
+      blockEmailEditor: 'Nov 2024',
     },
     inbox: {
       inboxComponent: true,
@@ -72,7 +85,7 @@ const PLANS = {
     },
     account: {
       teamMembers: '10',
-      rbac: true,
+      rbac: 'Q2 2025',
       standardSAML: true,
       customSAML: false,
       local: true,
@@ -81,6 +94,7 @@ const PLANS = {
     compliance: {
       gdpr: true,
       soc2: true,
+      hipaa: false,
       customSOC: false,
       dpa: 'Standard',
     },
@@ -96,6 +110,10 @@ const PLANS = {
       additionalEvents: 'Custom',
       channels: true,
       subscribers: true,
+      guiWorkflow: 'Nov 2024',
+      codeWorkflow: true,
+      subscriberManagement: 'Q1 2025',
+      multiTenant: 'Q1 2025',
     },
     framework: {
       workflows: 'Unlimited',
@@ -103,6 +121,8 @@ const PLANS = {
       feedRetention: 'Unlimited',
       digest: true,
       stepControl: true,
+      translations: true,
+      blockEmailEditor: 'Nov 2024',
     },
     inbox: {
       inboxComponent: true,
@@ -114,7 +134,7 @@ const PLANS = {
     },
     account: {
       teamMembers: 'Unlimited',
-      rbac: true,
+      rbac: 'Q2 2025',
       standardSAML: true,
       customSAML: true,
       local: true,
@@ -123,6 +143,7 @@ const PLANS = {
     compliance: {
       gdpr: true,
       soc2: true,
+      hipaa: true,
       customSOC: true,
       dpa: 'Custom',
     },
@@ -135,12 +156,16 @@ const LABELS = [
     items: {},
   },
   {
-    title: 'Framework',
+    title: 'Platform',
     items: {
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
       channels: 'Channels supported: email, in-app, SMS, chat, push, and custom',
       subscribers: 'Notification Subscribers',
+      guiWorkflow: 'GUI-based workflows',
+      codeWorkflow: 'Code-based workflows',
+      subscriberManagement: 'Subscriber management',
+      multiTenant: 'Multi-org/Multi-tenancy',
     },
   },
   {
@@ -151,6 +176,8 @@ const LABELS = [
       feedRetention: 'Activity Feed retention',
       digest: 'Notification Digests',
       stepControl: 'Workflow Step Controls',
+      translations: 'Translations',
+      blockEmailEditor: 'Block-based email editor',
     },
   },
   {
@@ -170,7 +197,7 @@ const LABELS = [
       teamMembers: 'Maximum team members',
       rbac: 'Role-Based Access Control (RBAC)',
       standardSAML: 'Standard SAML authentication (Google, GitHub)',
-      customSAML: 'Custom SAML SSO, enterprise providers',
+      customSAML: 'Custom SAML SSO, OIDC enterprise providers',
       local: 'Built-In authentication',
       mfa: 'Multi-Factor Authentication (MFA)',
     },
@@ -180,6 +207,7 @@ const LABELS = [
     items: {
       gdpr: 'GDPR',
       soc2: 'SOC 2 / ISO 27001',
+      hipaa: 'HIPAA BAA',
       customSOC: 'Custom security reviews',
       dpa: 'Data Processing Agreements (DPA)',
     },
