@@ -9,6 +9,7 @@ import { firstSectionData, secondSectionData, thirdSectionData } from './data';
 import useAnimation from './use-animation';
 import useAnimationSetup from './use-animation-setup';
 import useGSAPAnimations from './use-gsap-animations';
+import useGSAPPositioning from './use-gsap-positioning';
 
 const Animation = () => {
   // define refs for all animation elements
@@ -102,6 +103,9 @@ const Animation = () => {
     isBlueAnimationReady,
     isPurpleAnimationReady,
   });
+
+  // GSAP section for animation positioning
+  useGSAPPositioning({ refs });
 
   return (
     <>
