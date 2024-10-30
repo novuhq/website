@@ -1,7 +1,6 @@
 // Gatsby has dotenv by default
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config();
-const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
@@ -15,16 +14,9 @@ module.exports = {
     authorName: 'Pixel Point',
   },
   trailingSlash: 'always',
-  developMiddleware: (app) => {
-    app.use(
-      '/inbox/playground',
-      createProxyMiddleware({
-        target: 'https://inbox.novu.co/',
-        pathRewrite: {
-          '/inbox/playground': '',
-        },
-      })
-    );
+  proxy: {
+    prefix: '/inbox/playground',
+    url: 'https://inbox.novu.co/',
   },
   plugins: [
     {
