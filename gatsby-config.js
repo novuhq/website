@@ -14,10 +14,6 @@ module.exports = {
     authorName: 'Pixel Point',
   },
   trailingSlash: 'always',
-  proxy: {
-    prefix: '/inbox/playground',
-    url: 'https://inbox.novu.co/',
-  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

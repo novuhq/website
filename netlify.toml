@@ -25,3 +25,11 @@
     status = 200
     force = true
     headers = {X-From = "Netlify"}
+  
+[[redirects]]
+    from = "/images/*"
+    to = "https://inbox.novu.co/"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+    conditions = {Path = "/inbox/playground"}
