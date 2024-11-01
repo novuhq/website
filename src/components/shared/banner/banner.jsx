@@ -17,8 +17,9 @@ const Banner = () => (
         {/* Novu won the Product Hunt Golden Kitty <span className="text-xl font-bold sm:text-base">open-source</span>, help us by
         starring our GitHub repo 🚀 */}
         {/* -----------------callout for golden kitty awards */}
-        Novu won a Product Hunt {' '}
-        <span className="text-xl font-bold sm:text-base">Golden Kitty Award</span> for best Open Source project
+        Novu won a Product Hunt{' '}
+        <span className="text-xl font-bold sm:text-base">Golden Kitty Award</span> for best Open
+        Source project
         {/* ------------------------------------------------ */}
         <ArrowIcon
           className="ml-2.5 inline-block h-2.5 w-5 transition-colors duration-200 group-hover:text-primary-1"
