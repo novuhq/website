@@ -12,7 +12,7 @@ const PLANS = {
       additionalEvents: '-',
       channels: true,
       subscribers: 'Unlimited',
-      guiWorkflow: 'Nov 2025',
+      guiWorkflow: 'Nov 2024',
       codeWorkflow: true,
       subscriberManagement: 'Q1 2025',
       multiTenant: false,
