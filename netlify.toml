@@ -39,3 +39,10 @@
     status = 200
     force = true
     headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/novuLogo.svg"
+    to = "https://inbox.novu.co/novuLogo.svg"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
