@@ -28,7 +28,7 @@ const SECTION_WITH_FORM_RIGHT = {
     },
   ],
   formPosition: 'right',
-  hubspotFormId: '6ec81561-2562-477e-92a3-dcb06c35f510',
+  hubspotFormId: '5d849051-7b65-4843-add4-a38bc24312de',
   // If you want to use more than one form on the page, you need to provide unique tag ids
   hubspotTagClass: 'cta-gs-form1',
 };
