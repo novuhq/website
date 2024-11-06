@@ -46,3 +46,17 @@
     status = 200
     force = true
     headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/api/trigger"
+    to = "https://inbox.novu.co/api/trigger"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/api/novu"
+    to = "https://inbox.novu.co/api/novu"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
