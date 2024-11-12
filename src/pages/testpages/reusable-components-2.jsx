@@ -5,6 +5,7 @@ import Layout from 'components/shared/layout';
 import FeatureCards from 'components/shared/reusable-sections/feature-cards';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
 import SectionWithImageCards from 'components/shared/reusable-sections/section-with-image-cards';
+import SEO from 'components/shared/seo';
 
 const FEATURE_CARDS = [
   {
@@ -167,3 +168,12 @@ const ReusableComponents2 = () => (
 );
 
 export default ReusableComponents2;
+
+export const Head = () => {
+  const pageMetadata = {
+    slug: '/reusable-components/',
+    title: 'Novu - Reusable Components Examples',
+    description: 'Reusable components examples',
+  };
+  return <SEO {...pageMetadata} />;
+};

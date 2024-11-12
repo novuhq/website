@@ -19,6 +19,7 @@ import SectionWithSmallIcons from 'components/shared/reusable-sections/section-w
 import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 import Testimonials from 'components/shared/reusable-sections/testimonials';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
+import SEO from 'components/shared/seo';
 import LINKS from 'constants/links';
 import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
@@ -971,3 +972,12 @@ export const pageQuery = graphql`
 `;
 
 export default ReusableComponents;
+
+export const Head = () => {
+  const pageMetadata = {
+    slug: '/reusable-components/',
+    title: 'Novu - Reusable Components Examples',
+    description: 'Reusable components examples',
+  };
+  return <SEO {...pageMetadata} />;
+};
