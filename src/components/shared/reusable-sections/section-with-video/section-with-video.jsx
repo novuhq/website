@@ -12,7 +12,7 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
       case 'youtube':
         return (
           <iframe
-            className="w-full aspect-video"
+            className="aspect-video w-full"
             src={`https://www.youtube.com/embed/${getYouTubeId(video.url)}`}
             title="Youtube video"
             allowFullScreen
@@ -21,14 +21,14 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
       case 'vimeo':
         return (
           <div
-            className="[&_iframe]:w-full [&_iframe]:aspect-video"
+            className="[&_iframe]:aspect-video [&_iframe]:w-full"
             dangerouslySetInnerHTML={{ __html: video.embed }}
           />
         );
       case 'loom':
         return (
           <div
-            className="relative w-full aspect-video"
+            className="relative aspect-video w-full"
             dangerouslySetInnerHTML={{ __html: video.embed }}
           />
         );
@@ -52,10 +52,10 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
         )}
       >
         <div
-          className={clsx('md:order-first md:w-full md:p-0 md:text-center md:max-w-lg', {
+          className={clsx('md:order-first md:w-full md:max-w-lg md:p-0 md:text-center', {
             'order-last pr-8': videoPosition === 'left',
             'pl-8': videoPosition === 'right',
-            'w-full flex flex-col max-w-[655px] text-center': videoPosition === 'fullWidth',
+            'flex w-full max-w-[655px] flex-col text-center': videoPosition === 'fullWidth',
           })}
         >
           <Heading
@@ -65,14 +65,12 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
           >
             {title}
           </Heading>
-          <p className="text-gray-9 text-[17px] leading-snug mt-3 md:text-sm md:mt-2">
-            {description}
-          </p>
+          <p className="mt-3 text-lg leading-snug text-gray-8 md:mt-2 md:text-sm">{description}</p>
         </div>
         <figure
           className={clsx(
-            'shrink-0 h-full md:mt-8',
-            videoPosition !== 'fullWidth' ? 'w-[672px] lg:w-[480px] md:w-full' : 'w-full mt-12'
+            'h-full shrink-0 md:mt-8',
+            videoPosition !== 'fullWidth' ? 'w-[672px] lg:w-[480px] md:w-full' : 'mt-12 w-full'
           )}
           aria-describedby="transcript"
         >
@@ -81,16 +79,16 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
         {transcription !== null && videoPosition === 'fullWidth' && (
           <div
             id="transcript"
-            className="relative w-full max-w-[776px] mx-auto pl-9 mt-[88px] after:absolute after:w-0.5 after:h-full after:rounded-full after:bg-[linear-gradient(180deg,#5D9CB1_0%,#475B94_100%)] after:opacity-30 after:left-0.5 after:top-0 sm:after:hidden sm:pl-0 lg:mt-20 md:mt-16 sm:mt-10"
+            className="relative mx-auto mt-[88px] w-full max-w-[776px] pl-9 after:absolute after:left-0.5 after:top-0 after:h-full after:w-0.5 after:rounded-full after:bg-[linear-gradient(180deg,#5D9CB1_0%,#475B94_100%)] after:opacity-30 lg:mt-20 md:mt-16 sm:mt-10 sm:pl-0 sm:after:hidden"
           >
             <Heading
-              className="font-medium tracking-snug text-[32px] leading-denser lg:text-3xl md:text-2xl sm:text-xl"
+              className="text-[32px] font-medium leading-denser tracking-snug lg:text-3xl md:text-2xl sm:text-xl"
               tag="h3"
             >
               Transcript
             </Heading>
             {transcription.map((item, index) => (
-              <p key={index} className="text-gray-9 text-[17px] leading-snug mt-5 first:mt-6">
+              <p key={index} className="mt-5 text-lg leading-snug text-gray-8 first:mt-6">
                 {item}
               </p>
             ))}

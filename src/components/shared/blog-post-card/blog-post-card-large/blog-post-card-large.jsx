@@ -38,7 +38,7 @@ const BlogPostCardLarge = ({
               {title}
             </Link>
           </Heading>
-          <p className="mt-2.5 line-clamp-3 text-gray-9 xl:line-clamp-2 md:line-clamp-3">
+          <p className="mt-2.5 line-clamp-3 leading-snug tracking-snug text-gray-8 xl:line-clamp-2 md:line-clamp-3">
             {description}
           </p>
         </header>

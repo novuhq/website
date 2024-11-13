@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import DEFAULT_EASE from 'constants/default-ease';
+import ArrowIcon from 'icons/chevron-right.inline.svg';
 
 const styles = {
   base: 'inline-block leading-none',
@@ -16,14 +17,15 @@ const styles = {
     xxs: 'text-[11px]',
   },
   theme: {
+    primary: 'text-primary-1 transition-colors duration-200 hover:text-primary-2',
     'primary-underline':
       'text-primary-1 relative tracking-wide uppercase pb-1.5 transition-colors duration-200 hover:text-primary-1',
     'white-underline':
       'text-white relative tracking-wide uppercase pb-1.5 transition-colors duration-200',
     white: 'text-white hover:text-primary-1 transition-colors duration-200',
     gray: 'text-gray-8 hover:text-primary-1 transition-colors duration-200',
-    primary: 'text-primary-1 transition-colors duration-200 hover:text-white',
   },
+  withArrow: 'group inline-flex items-center gap-1.5',
 };
 
 const underlineVariants = {
@@ -62,7 +64,16 @@ const underlineVariants = {
   },
 };
 
-const Link = ({ className: additionalClassName, size, theme, to, tag, children, ...props }) => {
+const Link = ({
+  className: additionalClassName,
+  size,
+  theme,
+  to,
+  tag,
+  withArrow,
+  children,
+  ...props
+}) => {
   const [canAnimate, setCanAnimate] = useState(true);
   const controls = useAnimation();
 
@@ -72,6 +83,7 @@ const Link = ({ className: additionalClassName, size, theme, to, tag, children, 
     size && theme && styles.base,
     styles.size[size],
     styles.theme[theme],
+    withArrow && styles.withArrow,
     additionalClassName
   );
 
@@ -123,6 +135,12 @@ const Link = ({ className: additionalClassName, size, theme, to, tag, children, 
     >
       {children}
       {isUnderline && underline}
+      {withArrow && (
+        <span className="relative mt-0.5 w-1.5 overflow-hidden transition-[width] duration-200 group-hover:w-3">
+          <ArrowIcon className="ml-auto w-1.5" />
+          <span className="absolute right-px top-1/2 h-px w-full -translate-y-1/2 bg-primary-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+        </span>
+      )}
     </Tag>
   );
 };
@@ -133,6 +151,7 @@ Link.propTypes = {
   size: PropTypes.oneOf(Object.keys(styles.size)),
   theme: PropTypes.oneOf(Object.keys(styles.theme)),
   tag: PropTypes.string,
+  withArrow: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
@@ -142,6 +161,7 @@ Link.defaultProps = {
   size: null,
   theme: null,
   tag: null,
+  withArrow: false,
 };
 
 export default Link;

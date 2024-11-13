@@ -7,8 +7,8 @@ import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
 const FeatureCards = ({ title, description, cards, columns = 3 }) => (
-  <section className="feature-cards relative safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+  <section className="feature-cards safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <StaticImage src="./images/bg-blur.svg" alt="" loading="" width={1652} height={928} />
     </div>
     <div
@@ -17,19 +17,19 @@ const FeatureCards = ({ title, description, cards, columns = 3 }) => (
       })}
     >
       <Heading
-        className="font-medium max-w-[500px] mx-auto text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="mx-auto max-w-[500px] text-center font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
         size="44"
         theme="white"
       >
         {title}
       </Heading>
-      <p className="mt-3 max-w-[692px] mx-auto text-gray-9 font-[350] leading-snug md:mt-2 text-center text-lg">
+      <p className="mx-auto mt-3 max-w-[692px] text-center text-lg font-[350] leading-snug text-gray-8 md:mt-2">
         {description}
       </p>
       <ul
         className={clsx(
-          'grid gap-8 mt-12 lg:grid-cols-2 lg:gap-7 md:gap-6 sm:grid-cols-1 auto-rows-[260px]',
+          'mt-12 grid auto-rows-[260px] gap-8 lg:grid-cols-2 lg:gap-7 md:gap-6 sm:grid-cols-1',
           {
             'grid-cols-3': columns === 3,
             'grid-cols-2': columns === 2,
@@ -37,10 +37,10 @@ const FeatureCards = ({ title, description, cards, columns = 3 }) => (
         )}
       >
         {cards.map(({ title, description, linkTitle, linkUrl }, index) => (
-          <li className="bg-common-card-border rounded-xl" key={index}>
+          <li className="rounded-xl bg-common-card-border" key={index}>
             <div
               className={clsx(
-                'm-px w-[calc(100%-2px)] h-[calc(100%-2px)] rounded-xl bg-[#0F0F15] lg:p-6 flex flex-col items-start',
+                'm-px flex h-[calc(100%-2px)] w-[calc(100%-2px)] flex-col items-start rounded-xl bg-[#0F0F15] lg:p-6',
                 {
                   'p-[26px]': columns === 3,
                   'p-8': columns === 2,
@@ -50,9 +50,9 @@ const FeatureCards = ({ title, description, cards, columns = 3 }) => (
               <Heading className="lg:text-xl" size="sm" tag="h3" theme="white">
                 {title}
               </Heading>
-              <p className="mt-3 text-gray-9 font-light leading-snug md:mt-2">{description}</p>
+              <p className="mt-3 font-light leading-snug text-gray-8 md:mt-2">{description}</p>
               <Link
-                className="mt-auto !tracking-normal font-medium leading-none text-[13px] md:mt-4 sm:mt-5"
+                className="mt-auto text-[13px] font-medium leading-none !tracking-normal md:mt-4 sm:mt-5"
                 theme="primary-underline"
                 to={linkUrl}
                 target="_blank"

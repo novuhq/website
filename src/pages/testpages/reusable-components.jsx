@@ -19,6 +19,7 @@ import SectionWithSmallIcons from 'components/shared/reusable-sections/section-w
 import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 import Testimonials from 'components/shared/reusable-sections/testimonials';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
+import SEO from 'components/shared/seo';
 import LINKS from 'constants/links';
 import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
@@ -35,9 +36,6 @@ import microphoneIcon from 'images/icons/microphone.svg';
 import migrationIcon from 'images/icons/migration.svg';
 import paintIcon from 'images/icons/paint.svg';
 import settingsIcon from 'images/icons/settings.svg';
-import negativeIcon from 'images/reusable-sections/section-with-cards/negative.svg';
-import notificationIcon from 'images/reusable-sections/section-with-cards/notification.svg';
-import warningIcon from 'images/reusable-sections/section-with-cards/warning.svg';
 import astroLogo from 'images/reusable-sections/section-with-logos/astro.svg';
 import expressLogo from 'images/reusable-sections/section-with-logos/express.svg';
 import honoLogo from 'images/reusable-sections/section-with-logos/hono.svg';
@@ -132,7 +130,7 @@ const TESTIMONIALS = [
       "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydrating and notification routing issues.",
     avatar: (
       <StaticImage
-        src="../images/reusable-sections/testimonials/jesselynn-mah.jpg"
+        src="../../images/reusable-sections/testimonials/jesselynn-mah.jpg"
         width={32}
         height={32}
         alt="Jesselynn Mah"
@@ -144,17 +142,7 @@ const TESTIMONIALS = [
   },
   {
     content:
-      "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users. Rapidly identify and solve previously complicated content hydrating and notification routing issues.",
-
-    avatar: (
-      <StaticImage
-        src="../images/reusable-sections/testimonials/jesselynn-mah.jpg"
-        width={32}
-        height={32}
-        alt="Jesselynn Mah"
-        loading="lazy"
-      />
-    ),
+      "Deploy within your organization's VPC, Kubernetes, serverless setups, or locally for secure data access. Integrate content across notification channels and use Novu to choose when and where to notify users.",
     name: 'Jesselynn Mah',
     company: 'KnowledgeTouch',
   },
@@ -205,19 +193,46 @@ const SECTION_WITH_LOGOS = [
 
 const SECTION_WITH_CARDS = [
   {
-    icon: warningIcon,
+    image: (
+      <StaticImage
+        className="size-full object-cover"
+        src="../../images/placeholder-image.jpg"
+        alt="Placeholder image"
+        loading="lazy"
+        width={384}
+        height={214}
+      />
+    ),
     title: 'Missed Updates',
     description:
       'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
   },
   {
-    icon: notificationIcon,
+    image: (
+      <StaticImage
+        className="size-full object-cover"
+        src="../../images/placeholder-image.jpg"
+        alt="Placeholder image"
+        loading="lazy"
+        width={384}
+        height={214}
+      />
+    ),
     title: 'Irrelevant Notifications',
     description:
       'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
   },
   {
-    icon: negativeIcon,
+    image: (
+      <StaticImage
+        className="size-full object-cover"
+        src="../../images/placeholder-image.jpg"
+        alt="Placeholder image"
+        loading="lazy"
+        width={384}
+        height={214}
+      />
+    ),
     title: 'Negative Brand Perception',
     description:
       'Poorly managed notifications can reflect negatively on the brand, portraying it as intrusive, unorganized, or unresponsive to user needs and preferences.',
@@ -250,48 +265,54 @@ const GET_INVOLVED = [
 
 const EVENTS = [
   {
-    title: 'The Help Desk Session',
-    description: 'Solving your most common Novu questions.',
+    title: 'Webinar marketing planning',
+    description:
+      'An application to help consumers find agencies providing a specific service tasked to build.',
     category: 'Webinar',
     categoryColor: 'text-yellow-2',
     date: '2024-08-07T15:30:00Z',
-    venue: 'Youtube',
+    venue: 'Discord',
     linkUrl: 'https://www.youtube.com/watch?v=VBHierIbPHc',
-    linkText: 'Ask questions',
+    linkText: 'Learn more',
   },
   {
-    title: 'Inbox Component',
-    description: 'How to add in-app notifications to any app in minutes.',
-    category: 'Webinar',
+    title: '7 Strategies for success',
+    description:
+      'Tasked to build an application to help consumers find agencies providing a specific service tasked to build.',
+    category: 'Meetup',
     categoryColor: 'text-purple-2',
     date: '2024-08-21T15:30:00Z',
-    venue: 'Youtube',
+    venue: 'Discord',
     linkUrl: 'https://www.youtube.com/watch?v=8fpghRkVWBY',
-    linkText: 'Watch live',
+    linkText: 'Learn more',
   },
   {
-    title: 'SSO and RBAC',
-    description: 'How we migrated our user management to Clerk with one engineer.',
-    category: 'Webinar',
+    title: 'Application to help consumers',
+    description:
+      'Let’s say you’ve been tasked to build an application to help consumers find agencies providing a specific.',
+    category: 'Conference',
     categoryColor: 'text-blue-2',
     date: '2024-09-04T15:30:00Z',
-    venue: 'Youtube',
+    venue: 'Discord',
     linkUrl: 'https://www.youtube.com/watch?v=zpz3Q2Iox2k',
-    linkText: 'Join us',
+    linkText: 'Learn more',
   },
 ];
 
 const EVENTS_WITH_IMAGES = [
   {
-    title: 'The Help Desk Session',
-    description: 'Solving your most common Novu questions.',
+    title: 'Webinar marketing planning',
+    description:
+      'An application to help consumers find agencies providing a specific service tasked to build.',
     category: 'Webinar',
     categoryColor: 'text-yellow-2',
     date: '2024-08-07T15:30:00Z',
-    venue: 'Youtube',
+    venue: 'Discord',
+    linkUrl: 'https://www.youtube.com/watch?v=VBHierIbPHc',
+    linkText: 'Learn more',
     image: (
       <StaticImage
-        className="w-full"
+        className="size-full object-cover"
         src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
@@ -301,15 +322,18 @@ const EVENTS_WITH_IMAGES = [
     ),
   },
   {
-    title: 'Inbox Component',
-    description: 'How to add in-app notifications to any app in minutes.',
-    category: 'Webinar',
+    title: '7 Strategies for success',
+    description:
+      'Tasked to build an application to help consumers find agencies providing a specific service tasked to build.',
+    category: 'Meetup',
     categoryColor: 'text-purple-2',
     date: '2024-08-21T15:30:00Z',
-    venue: 'Youtube',
+    venue: 'Discord',
+    linkUrl: 'https://www.youtube.com/watch?v=8fpghRkVWBY',
+    linkText: 'Learn more',
     image: (
       <StaticImage
-        className="w-full"
+        className="size-full object-cover"
         src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
@@ -319,15 +343,18 @@ const EVENTS_WITH_IMAGES = [
     ),
   },
   {
-    title: 'SSO and RBAC',
-    description: 'How we migrated our user management to Clerk with one engineer.',
-    category: 'Webinar',
+    title: 'Application to help consumers',
+    description:
+      'Let’s say you’ve been tasked to build an application to help consumers find agencies providing a specific.',
+    category: 'Conference',
     categoryColor: 'text-blue-2',
     date: '2024-09-04T15:30:00Z',
-    venue: 'Youtube',
+    venue: 'Discord',
+    linkUrl: 'https://www.youtube.com/watch?v=zpz3Q2Iox2k',
+    linkText: 'Learn more',
     image: (
       <StaticImage
-        className="w-full"
+        className="size-full object-cover"
         src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="eager"
@@ -656,7 +683,7 @@ const ReusableComponents = (props) => {
         title="Fully featured Notification Inbox in minutes"
         description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
         button={{
-          label: 'READ DOCS',
+          label: 'Learn more',
           link: 'https://docs.novu.co/getting-started/introduction',
         }}
         categories={INBOX_CATEGORIES}
@@ -667,6 +694,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
+            className="size-full object-cover"
             src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
@@ -675,7 +703,7 @@ const ReusableComponents = (props) => {
           />
         }
         button={{
-          label: 'Read docs',
+          label: 'Learn more',
           link: '/',
         }}
       />
@@ -684,6 +712,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
+            className="size-full object-cover"
             src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
@@ -697,6 +726,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
+            className="size-full object-cover"
             src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
@@ -705,7 +735,7 @@ const ReusableComponents = (props) => {
           />
         }
         button={{
-          label: 'Read docs',
+          label: 'Learn more',
           link: '/',
         }}
         theme="imageRight"
@@ -715,6 +745,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
+            className="size-full object-cover"
             src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
@@ -729,6 +760,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
+            className="size-full object-cover"
             src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
@@ -737,7 +769,7 @@ const ReusableComponents = (props) => {
           />
         }
         button={{
-          label: 'Read docs',
+          label: 'Learn more',
           link: '/',
         }}
         theme="imageFullWidth"
@@ -747,6 +779,7 @@ const ReusableComponents = (props) => {
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         image={
           <StaticImage
+            className="size-full object-cover"
             src="../../images/placeholder-image.jpg"
             alt="Placeholder image"
             loading="eager"
@@ -800,7 +833,7 @@ const ReusableComponents = (props) => {
         leftCard={{
           title: 'Self-Hosted',
           description: 'Create complex workflows, access local data, and reuse existing content.',
-          buttonText: 'Read Docs',
+          buttonText: 'Learn more',
           buttonLink: '/',
         }}
         rightCard={{
@@ -816,7 +849,7 @@ const ReusableComponents = (props) => {
         leftCard={{
           title: 'Self-Hosted',
           description: 'Create complex workflows, access local data, and reuse existing content.',
-          buttonText: 'Read Docs',
+          buttonText: 'Learn more',
           buttonLink: '/',
         }}
         rightCard={{
@@ -832,7 +865,7 @@ const ReusableComponents = (props) => {
         leftCard={{
           title: 'Self-Hosted',
           description: 'Create complex workflows, access local data, and reuse existing content.',
-          buttonText: 'Read Docs',
+          buttonText: 'Learn more',
           buttonLink: '/',
         }}
         rightCard={{
@@ -892,7 +925,7 @@ const ReusableComponents = (props) => {
         code={CODE_SECTION}
         title="Some header that includes up to three lines of text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
-        button={{ label: 'Read docs', link: '/' }}
+        button={{ label: 'Learn more', link: '/' }}
       />
       <CodeSection
         code={CODE_SECTION}
@@ -903,7 +936,7 @@ const ReusableComponents = (props) => {
         code={CODE_SECTION}
         title="Some header that includes up to three lines of text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
-        button={{ label: 'Read docs', link: '/' }}
+        button={{ label: 'Learn more', link: '/' }}
         codePosition="right"
       />
       <CodeSection
@@ -971,3 +1004,12 @@ export const pageQuery = graphql`
 `;
 
 export default ReusableComponents;
+
+export const Head = () => {
+  const pageMetadata = {
+    slug: '/reusable-components/',
+    title: 'Novu - Reusable Components Examples',
+    description: 'Reusable components examples',
+  };
+  return <SEO {...pageMetadata} />;
+};
