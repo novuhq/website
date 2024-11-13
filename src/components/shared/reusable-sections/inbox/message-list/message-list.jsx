@@ -3,10 +3,6 @@ import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 
-import Message from '../message';
-import NotionMessage from '../notion-message';
-import TabList from '../tab-list';
-
 import ArchiveAllIcon from './images/archive-all.inline.svg';
 import ArchiveReadIcon from './images/archive-read.inline.svg';
 import ArchivedIcon from './images/archived.inline.svg';
@@ -15,8 +11,11 @@ import MarkReadIcon from './images/mark-read.inline.svg';
 import NotionEmptyInboxIcon from './images/notion-empty-inbox.inline.svg';
 import UnreadReadIcon from './images/unread-read.inline.svg';
 import UnreadIcon from './images/unread.inline.svg';
+import Message from './message';
 import NotionHeader from './notion-header';
+import NotionMessage from './notion-message';
 import NovuHeader from './novu-header';
+import TabList from './tab-list';
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];

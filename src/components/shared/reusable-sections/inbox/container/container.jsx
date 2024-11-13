@@ -59,10 +59,10 @@ const THEMES = {
   notionDark: {
     background: {
       gradients: [
-        'absolute w-[267px] h-[480px] top-[94px] left-[138px] blur-[22px] rounded-full rotate-[7deg] bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)]',
-        'absolute w-[510px] h-[648px] -top-10 -right-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
-        'absolute w-[510px] h-[648px] top-2.5 left-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
-        'absolute w-[884px] h-[1090px] top-[-250px] left-[-130px] rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)]',
+        'w-[267px] h-[480px] top-[94px] left-[138px] blur-[22px] rounded-full rotate-[7deg] bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)]',
+        'w-[510px] h-[648px] -top-10 -right-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
+        'w-[510px] h-[648px] top-2.5 left-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
+        'w-[884px] h-[1090px] top-[-250px] left-[-130px] rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)]',
       ],
     },
     mainBlock: {
@@ -85,10 +85,10 @@ const THEMES = {
   notionLight: {
     background: {
       gradients: [
-        'absolute w-[267px] h-[480px] top-[94px] left-[138px] blur-[22px] rounded-full rotate-[7deg] bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)]',
-        'absolute w-[510px] h-[648px] -top-10 -right-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
-        'absolute w-[510px] h-[648px] top-2.5 left-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
-        'absolute w-[884px] h-[1090px] top-[-250px] left-[-130px] rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)]',
+        'w-[267px] h-[480px] top-[94px] left-[138px] blur-[22px] rounded-full rotate-[7deg] bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)]',
+        'w-[510px] h-[648px] -top-10 -right-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
+        'w-[510px] h-[648px] top-2.5 left-8 rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]',
+        'w-[884px] h-[1090px] top-[-250px] left-[-130px] rounded-full rotate-[52deg] bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)]',
       ],
     },
     mainBlock: {
