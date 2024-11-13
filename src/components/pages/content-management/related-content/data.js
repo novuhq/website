@@ -1,8 +1,7 @@
 const relatedContentItems = [
   {
     name: 'Send Multi-Channel Notifications',
-    description:
-      'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
+    description: 'Reach Your Audience Where They Are: Multi-Channel Notification Solutions',
     linkUrl: 'https://novu.co/usecases/multi-channel-notifications/',
   },
   {

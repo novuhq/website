@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import getChannelName from 'utils/get-channel-name';
 
 import addIcon from './images/add.svg';

@@ -7,7 +7,6 @@ import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
 import novuIcon from 'icons/novu-gradient-logo.svg';
 
-
 const TITLE = 'Get involved: start, engage, contribute';
 
 const ITEMS = [
