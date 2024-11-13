@@ -1,4 +1,6 @@
 @layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
   @font-face {
     font-family: 'Brother-1816';
     src: url('/fonts/brother-1816/brother-1816-light.woff2') format('woff2');

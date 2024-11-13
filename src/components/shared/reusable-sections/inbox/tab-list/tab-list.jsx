@@ -7,7 +7,14 @@ const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
 
 const THEMES = {
-  dark: {
+  novuDefault: {
+    border: 'bg-[linear-gradient(90deg,#576282_0%,#7681A3_28%,#394056_66%,#232A43_100%)]',
+    borderActive: 'bg-[#CCD9FF]',
+    badge:
+      'text-black bg-[linear-gradient(180deg,#FFFFFF80,#FFFFFF00),linear-gradient(180deg,#FFDF66_0%,#FFB433_100%)]',
+    badgeInner: 'bg-[linear-gradient(180deg,#FFDF66_0%,#FFB433_100%)]',
+  },
+  notionDark: {
     border: 'bg-[linear-gradient(90deg,#576282_0%,#7681A3_28%,#394056_66%,#232A43_100%)]',
     borderActive: 'bg-[#CCD9FF]',
     badge:
@@ -33,7 +40,7 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
   const currentTheme = THEMES[theme];
 
   return (
-    <div className="relative z-10 scrollbar-hidden overflow-scroll">
+    <div className="relative z-10 scrollbar-hidden overflow-scroll shrink-0 h-[38px]">
       <ul className="flex items-center h-9">
         {tabs.map(({ label, count }, index) => (
           <li className="h-full" key={label}>
