@@ -31,53 +31,53 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
   return (
     <section
       className={clsx(
-        'cta-with-form relative safe-paddings mt-60 lg:mt-[204px] md:mt-[124px]',
+        'cta-with-form safe-paddings relative mt-60 lg:mt-[204px] md:mt-[124px]',
         className
       )}
     >
       <div className="container-sm relative md:px-8 sm:w-full sm:px-5">
         <div className="relative z-10 flex flex-col items-center">
           <Heading
-            className="leading-denser tracking-snug font-medium max-w-4xl lg:text-4xl md:text-[32px]"
+            className="max-w-4xl font-medium leading-denser tracking-snug lg:text-4xl md:text-[32px]"
             size="44"
             tag="h2"
           >
             {title}
           </Heading>
-          <p className="max-w-md text-center text-[17px] leading-snug font-book text-gray-9 mt-3.5 md:text-base md:max-w-sm">
+          <p className="mt-3.5 max-w-md text-center text-lg font-book leading-snug text-gray-8 md:max-w-sm md:text-base">
             {description}
           </p>
-          <div className="flex justify-center gap-x-8 mt-12 md:mt-7 sm:flex-col sm:items-center">
+          <div className="mt-12 flex justify-center gap-x-8 md:mt-7 sm:flex-col sm:items-center">
             {leftItem.code && (
-              <div className="w-[392px] h-[54px] pl-5 pr-2 relative flex items-center justify-between rounded-md bg-black border border-transparent bg-clip-border shadow-[#C2B2FF_0_0_6px_0] before:absolute before:-z-20 before:-inset-0.5 before:rounded-md before:bg-[linear-gradient(0deg,rgba(255,255,255,0.5),rgba(255,255,255,0.5)),radial-gradient(30.74%_144.53%_at_59.44%_100%,#FFFFFF_2.5%,#A7BBFF_21.5%,rgba(183,165,255,0.2)_100%)] lg:h-[46px] sm:pl-4 sm:w-[320px]">
+              <div className="relative flex h-[54px] w-[392px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-2 shadow-[#C2B2FF_0_0_6px_0] before:absolute before:-inset-0.5 before:-z-20 before:rounded-md before:bg-[linear-gradient(0deg,rgba(255,255,255,0.5),rgba(255,255,255,0.5)),radial-gradient(30.74%_144.53%_at_59.44%_100%,#FFFFFF_2.5%,#A7BBFF_21.5%,rgba(183,165,255,0.2)_100%)] lg:h-[46px] sm:w-[320px] sm:pl-4">
                 <span className="font-mono font-medium">{leftItem.code}</span>
                 <Button
-                  className="min-w-[88px] h-10 text-sm lg:h-[34px] sm:min-w-[34px]"
+                  className="h-10 min-w-[88px] text-sm lg:h-[34px] sm:min-w-[34px]"
                   theme="white-filled"
                   onClick={handleCopy}
                 >
                   {isCopied ? (
                     <>
                       <span className="sm:hidden">Copied!</span>
-                      <CheckIcon className="w-[18px] h-3 hidden sm:block" />
+                      <CheckIcon className="hidden h-3 w-[18px] sm:block" />
                     </>
                   ) : (
                     <>
                       <span className="sm:hidden">Copy</span>
-                      <CopyIcon className="w-4 h-4 hidden sm:block" />
+                      <CopyIcon className="hidden h-4 w-4 sm:block" />
                     </>
                   )}
                 </Button>
                 <div
-                  className="absolute -top-0.5 right-px w-[144px] h-[3px] blur-[2px] bg-[linear-gradient(91.15deg,rgba(205,204,255,0)_2.67%,rgba(205,204,255,0.76156)_21.19%,#CDCCFF_60.95%,rgba(205,204,255,0)_93.27%)] mix-blend-plus-lighter opacity-70"
+                  className="absolute -top-0.5 right-px h-[3px] w-[144px] bg-[linear-gradient(91.15deg,rgba(205,204,255,0)_2.67%,rgba(205,204,255,0.76156)_21.19%,#CDCCFF_60.95%,rgba(205,204,255,0)_93.27%)] opacity-70 mix-blend-plus-lighter blur-[2px]"
                   aria-hidden
                 />
                 <div
-                  className="absolute -bottom-[3px] left-[155px] w-[144px] h-[3px] before:absolute before:inset-0 before:bg-[linear-gradient(91.15deg,rgba(205,204,255,0)_2.67%,rgba(205,204,255,0.76156)_21.19%,#CDCCFF_60.95%,rgba(205,204,255,0)_93.27%)] before:blur-[5px] before:opacity-60 after:absolute after:inset-0 after:bg-[linear-gradient(91.15deg,rgba(205,204,255,0)_2.67%,rgba(205,204,255,0.76156)_21.19%,#CDCCFF_60.95%,rgba(205,204,255,0)_93.27%)] after:blur-[2px] after:opacity-50 after:mix-blend-plus-lighter"
+                  className="absolute -bottom-[3px] left-[155px] h-[3px] w-[144px] before:absolute before:inset-0 before:bg-[linear-gradient(91.15deg,rgba(205,204,255,0)_2.67%,rgba(205,204,255,0.76156)_21.19%,#CDCCFF_60.95%,rgba(205,204,255,0)_93.27%)] before:opacity-60 before:blur-[5px] after:absolute after:inset-0 after:bg-[linear-gradient(91.15deg,rgba(205,204,255,0)_2.67%,rgba(205,204,255,0.76156)_21.19%,#CDCCFF_60.95%,rgba(205,204,255,0)_93.27%)] after:opacity-50 after:mix-blend-plus-lighter after:blur-[2px]"
                   aria-hidden
                 />
                 <img
-                  className="absolute max-w-none bottom-[-105px] left-[-69px] pointer-events-none z-0"
+                  className="pointer-events-none absolute bottom-[-105px] left-[-69px] z-0 max-w-none"
                   src={codeDots}
                   width={482}
                   height={206}
@@ -89,7 +89,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
             )}
             {leftItem.text && (
               <Button
-                className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:mb-4"
+                className="-mt-px h-14 min-w-[148px] text-sm lg:h-12 sm:mb-4"
                 theme="white-filled"
                 to={leftItem.link}
                 rel={leftItem.rel}
@@ -99,7 +99,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
               </Button>
             )}
             <Button
-              className="text-sm h-14 min-w-[148px] -mt-px lg:h-12 sm:border-none sm:h-auto sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px] sm:mt-[18px]"
+              className="-mt-px h-14 min-w-[148px] text-sm lg:h-12 sm:mt-[18px] sm:h-auto sm:border-none sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
               theme="gray-outline"
               to={rightItem.link}
               rel={rightItem.rel}
@@ -110,7 +110,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
           </div>
         </div>
         <img
-          className="absolute max-w-none bottom-[-435px] left-[-357px] pointer-events-none z-0 md:left-1/2 md:-translate-x-1/2"
+          className="pointer-events-none absolute bottom-[-435px] left-[-357px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
           src={background}
           width={1523}
           height={1012}

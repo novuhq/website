@@ -20,7 +20,7 @@
   }
 
   .container-md {
-    @apply mx-auto max-w-[968px] md:px-7 sm:max-w-full sm:px-4;
+    @apply mx-auto max-w-[960px] md:px-7 sm:max-w-full sm:px-4;
   }
 
   .container-sm {

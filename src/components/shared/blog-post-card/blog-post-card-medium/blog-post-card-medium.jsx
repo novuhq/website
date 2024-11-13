@@ -39,7 +39,9 @@ const BlogPostCardMedium = ({
             {title}
           </Link>
         </h1>
-        <p className="line-clamp-3 text-base font-book text-gray-9">{description}</p>
+        <p className="line-clamp-3 text-base font-book leading-snug tracking-snug text-gray-8">
+          {description}
+        </p>
       </header>
       <footer className="mt-3.5 flex items-center space-x-3 md:mt-5">
         <AuthorWithDate author={author} date={date} />

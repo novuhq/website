@@ -5,31 +5,31 @@ import React from 'react';
 import Link from 'components/shared/link';
 
 const styles = {
-  base: 'inline-flex items-center justify-center !leading-none text-center whitespace-nowrap rounded transition-[colors, opacity] duration-200 outline-none uppercase font-medium',
+  base: 'relative inline-flex items-center justify-center text-center whitespace-nowrap rounded outline-none transition-[colors, opacity] duration-200 uppercase font-medium !leading-none',
   size: {
-    sm: 'h-12 px-6 text-sm',
+    sm: 'h-12 px-6 text-sm rounded-md',
     xs: 'h-10 px-5 text-xs',
     xxs: 'h-8 px-4 text-[11px]',
   },
   theme: {
     primary: 'bg-primary-1 text-black hover:bg-white',
     'black-filled': 'bg-black text-white hover:bg-[rgba(0,0,0,0.8)]',
-    'white-filled': 'bg-white text-black hover:bg-[rgba(255,255,255,0.8)]',
+    'white-filled': 'bg-white text-black hover:bg-gray-10',
     'black-outline':
-      'bg-transparent text-black border border-black hover:bg-gray-5 hover:border-gray-5',
-    'white-outline': 'bg-transparent text-white border border-white hover:bg-gray-4',
+      'bg-transparent border border-black text-black hover:border-gray-5 hover:bg-gray-5',
+    'white-outline': 'bg-transparent border border-white text-white hover:bg-gray-4',
     'gray-outline':
-      'bg-transparent text-white border border-gray-5 hover:bg-gray-4 hover:border-gray-4',
+      'bg-gray-gradient-3 text-white before:absolute before:z-10 before:inset-px before:rounded-[inherit] before:bg-[#05050B] after:absolute after:z-20 after:inset-px after:rounded-[inherit] after:bg-gray-gradient-4 after:opacity-0 after:transition-opacity after:duration-200 hover:after:opacity-100',
     'blue-gradient':
-      'text-black bg-blue-gradient relative before:absolute before:-z-10 before:h-[calc(100%+4px)] before:w-[calc(100%+4px)] before:rounded before:bg-blue-gradient before:blur-[3px] before:opacity-100 hover:before:opacity-0 before:transition-opacity before:duration-200',
+      'text-black bg-blue-gradient before:absolute before:-z-10 before:h-[calc(100%+4px)] before:w-[calc(100%+4px)] before:rounded-inherit before:bg-blue-gradient before:blur-[3px] before:opacity-100 before:transition-opacity before:duration-200 hover:before:opacity-0',
     'pink-to-yellow-gradient':
-      'text-black bg-transparent bg-pink-yellow-gradient hover:bg-white hover:bg-none transition-[color,background-image]',
-    'pink-to-red-gradient': 'text-white bg-pink-red-gradient',
+      'bg-transparent bg-pink-yellow-gradient text-black transition-[color,background-image] hover:bg-white hover:bg-none',
+    'pink-to-red-gradient': 'bg-pink-red-gradient text-white',
     yellow: 'bg-yellow text-black hover:bg-white',
     'blue-gradient-white-outline':
-      'relative text-black bg-white border border-[#F3F5FC] before:absolute before:-inset-px before:bg-[linear-gradient(180deg,#D6DCF5_0%,#B6C0ED_100%)] before:transition-all before:duration-200 hover:before:opacity-0 focus-visible:before:opacity-0',
+      'bg-white border border-[#F3F5FC] text-black before:absolute before:-inset-px before:bg-[linear-gradient(180deg,#D6DCF5_0%,#B6C0ED_100%)] before:transition-all before:duration-200 hover:before:opacity-0 focus-visible:before:opacity-0',
     'blue-outline':
-      'text-[#BBC5EE]/90 border border-current transition-[color,border-color] hover:text-white focus-visible:text-white',
+      'border border-current text-[#BBC5EE]/90 transition-[color,border-color] hover:text-white focus-visible:text-white',
   },
 };
 
@@ -40,7 +40,7 @@ const Button = ({ className: additionalClassName, to, size, theme, children, ...
 
   return (
     <Tag className={className} to={to} {...otherProps}>
-      {children}
+      <span className="relative z-30 inline-flex items-center justify-center">{children}</span>
     </Tag>
   );
 };

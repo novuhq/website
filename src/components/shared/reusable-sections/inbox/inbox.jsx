@@ -53,14 +53,14 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
   return (
     <section className={clsx(text, 'inbox safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14')}>
       <div className="container-lg">
-        <div className="flex items-center justify-center pl-8 sm:flex-col md:pl-0">
+        <div className="flex items-center justify-center pl-8 md:pl-0 sm:flex-col">
           <Container className="md:hidden" theme={theme} isUnreadMessages={isUnreadMessages}>
-            <div className={clsx(border, shadow, 'relative z-30 p-px rounded-xl')}>
-              <div className="relative rounded-xl overflow-hidden">
-                <div className="relative z-10 flex items-center h-14 px-[22px]">
-                  <InboxText className="w-14 h-7" />
-                  <ArrowIcon className="w-2.5 mt-1.5 ml-2 mr-auto" />
-                  <MoreIcon className="size-5 mr-4" style={{ '--icon-color': icons }} />
+            <div className={clsx(border, shadow, 'relative z-30 rounded-xl p-px')}>
+              <div className="relative overflow-hidden rounded-xl">
+                <div className="relative z-10 flex h-14 items-center px-[22px]">
+                  <InboxText className="h-7 w-14" />
+                  <ArrowIcon className="ml-2 mr-auto mt-1.5 w-2.5" />
+                  <MoreIcon className="mr-4 size-5" style={{ '--icon-color': icons }} />
                   <SettingsIcon className="size-5" style={{ '--icon-color': icons }} />
                 </div>
                 <TabList
@@ -80,14 +80,14 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
                 <div
                   className={clsx(
                     shine,
-                    'absolute top-0 left-3.5 w-[318px] h-px blur-[1px] mix-blend-plus-lighter pointer-events-none'
+                    'pointer-events-none absolute left-3.5 top-0 h-px w-[318px] mix-blend-plus-lighter blur-[1px]'
                   )}
                 />
               </div>
             </div>
           </Container>
           <AdaptiveStatic className="hidden md:block" theme={theme} />
-          <div className="relative z-10 pl-32 pr-3 mb-[18px] xl:pl-20 xl:pr-0 md:pl-18 sm:pl-0 sm:mb-6 sm:text-center">
+          <div className="relative z-10 mb-[18px] pl-32 pr-3 xl:pl-20 xl:pr-0 md:pl-18 sm:mb-6 sm:pl-0 sm:text-center">
             <Heading
               className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
               tag="h2"
@@ -95,12 +95,12 @@ const Inbox = ({ theme, title, description, button, categories, messages }) => {
             >
               {title}
             </Heading>
-            <p className="mt-3 text-[17px] leading-snug md:text-sm font-book sm:max-w-[600px]">
+            <p className="mt-3 text-lg font-book leading-snug md:text-sm sm:max-w-[600px]">
               {description}
             </p>
             {button && (
               <Button
-                className="h-14 px-6 text-sm min-w-[142px] mt-7 md:mt-5"
+                className="mt-7 h-12 min-w-[142px] px-6 text-sm md:mt-5"
                 theme="gray-outline"
                 to={button.link}
                 rel={button.rel}

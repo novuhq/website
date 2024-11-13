@@ -3,8 +3,8 @@ import React from 'react';
 
 import Layout from 'components/shared/layout';
 import FeatureCards from 'components/shared/reusable-sections/feature-cards';
+import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
-import SectionWithImageCards from 'components/shared/reusable-sections/section-with-image-cards';
 import SEO from 'components/shared/seo';
 
 const FEATURE_CARDS = [
@@ -100,11 +100,11 @@ const SECTION_WITH_FORM_RIGHT = {
   hubspotTagClass: 'second-form',
 };
 
-const IMAGE_CARDS = [
+const SECTION_WITH_CARDS = [
   {
     image: (
       <StaticImage
-        src="../../images/placeholder.jpg"
+        src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="lazy"
         width={384}
@@ -118,7 +118,7 @@ const IMAGE_CARDS = [
   {
     image: (
       <StaticImage
-        src="../../images/placeholder.jpg"
+        src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="lazy"
         width={384}
@@ -132,7 +132,7 @@ const IMAGE_CARDS = [
   {
     image: (
       <StaticImage
-        src="../../images/placeholder.jpg"
+        src="../../images/placeholder-image.jpg"
         alt="Placeholder image"
         loading="lazy"
         width={384}
@@ -146,7 +146,7 @@ const IMAGE_CARDS = [
 ];
 
 const ReusableComponents2 = () => (
-  <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B] reusable-components">
     <FeatureCards
       title="Loved by engineers from around the world"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
@@ -160,9 +160,9 @@ const ReusableComponents2 = () => (
     />
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} withBlur />
     <SectionWithForm {...SECTION_WITH_FORM_LEFT} withBlur />
-    <SectionWithImageCards
+    <SectionWithCards
       title="Seamlessly integrate with existing services and legacy systems to facilitate adoption"
-      cards={IMAGE_CARDS}
+      cards={SECTION_WITH_CARDS}
     />
   </Layout>
 );

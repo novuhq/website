@@ -12,32 +12,34 @@ const GetInvolved = ({ title, items, bottomMargin }) => (
       bottomMargin
     )}
   >
-    <div className="container grid grid-cols-12 grid-gap-x z-10">
+    <div className="container-md px-8 sm:w-full sm:px-5">
       <Heading
-        className="font-medium col-span-full text-center leading-tight lg:text-[32px] md:text-3xl"
+        className="text-center font-medium leading-denser tracking-snug lg:text-[32px] md:text-3xl"
         tag="h2"
         size="lg"
         theme="white"
       >
         {title}
       </Heading>
-      <ul className="col-span-8 col-start-3 mt-14 grid grid-cols-3 gap-y-8 gap-x-16 lg:col-span-full lg:gap-x-7 lg:mt-12 md:mt-11 md:gap-x-5 sm:grid-cols-1 sm:mt-8">
+      <ul className="mt-14 grid grid-cols-3 gap-x-16 lg:mt-12 lg:max-w-none lg:gap-x-[52px] lg:px-9 md:mt-10 md:gap-x-7 md:gap-y-8 md:px-0 sm:mt-8 sm:grid-cols-1 sm:gap-7">
         {items.map(({ icon, title, description, linkText, linkUrl }, index) => (
           <li key={index} className="flex flex-col items-center">
-            <img className="w-auto h-10 md:h-9 sm:h-8" src={icon} alt="" width={40} height={40} />
-            <h3 className="mt-6 text-3xl font-medium leading-tight text-center lg:text-2xl md:mt-5 md:text-xl sm:mt-4">
+            <img className="w-auto md:size-9 sm:size-8" src={icon} alt="" width={40} height={40} />
+            <h3 className="mt-5 text-center text-2xl font-medium leading-tight tracking-snug lg:text-2xl md:mt-5 md:text-xl sm:mt-4">
               {title}
             </h3>
-            <p className="mt-1.5 text-gray-9 text-center font-light leading-snug md:mt-2 sm:max-w-[280px]">
+            <p className="mt-2 text-center text-[15px] font-book leading-snug tracking-snug text-gray-8 md:mt-2 sm:max-w-[280px]">
               {description}
             </p>
             <Link
-              className="mt-6 !tracking-normal font-medium leading-none text-[13px] md:mt-4 sm:mt-5"
-              theme="primary-underline"
+              className="mt-2.5 w-fit text-[15px] font-book leading-snug !tracking-normal"
+              theme="primary"
               to={linkUrl}
               target="_blank"
               rel="noopener noreferrer"
+              withArrow
             >
+              <span className="sr-only">{title} - </span>
               {linkText}
             </Link>
           </li>

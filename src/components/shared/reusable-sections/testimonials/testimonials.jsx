@@ -7,6 +7,7 @@ import ArrowIcon from 'icons/chevron.inline.svg';
 import blockquote from 'images/reusable-sections/testimonials/blockquote.svg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './slider.css';
 
 const NextArrow = (props) => {
   const { onClick } = props;
@@ -73,7 +74,7 @@ const Testimonials = ({ title, testimonials }) => {
                 </p>
               </blockquote>
 
-              <figcaption className="mt-3.5 sm:mt-4">
+              <figcaption className="mt-5 sm:mt-4">
                 <div className="flex items-center">
                   {avatar && (
                     <div className="mr-3.5 h-8 w-8 overflow-hidden rounded-full grayscale">
@@ -82,7 +83,7 @@ const Testimonials = ({ title, testimonials }) => {
                   )}
                   <p className="text-sm leading-snug">
                     {name}
-                    {company && <span className="ml-0.5 font-light">{company}</span>}
+                    {company && <span className="ml-0.5 font-light"> – {company}</span>}
                   </p>
                 </div>
               </figcaption>
