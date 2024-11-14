@@ -58,7 +58,7 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
       className={clsx(
         currentTheme.background,
         currentTheme.text,
-        'group block relative px-3 font-inter cursor-pointer text-left transition-none'
+        'group relative block cursor-pointer px-3 text-left font-inter transition-none'
       )}
       type="button"
       onClick={handleReadMessage}
@@ -66,7 +66,7 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
       <div
         className={clsx(
           currentTheme.border,
-          'relative grid grid-cols-1 overflow-hidden py-4 group-hover:after:bg-transparent after:absolute after:left-0 after:right-0 after:bottom-0 after:h-px'
+          'relative grid grid-cols-1 overflow-hidden py-4 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px group-hover:after:bg-transparent'
         )}
       >
         <div className="grid grid-cols-[48px_1fr_48px]">
@@ -79,22 +79,22 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
               aria-hidden
             />
             <img
-              className={clsx('size-[26px] border rounded-full', currentTheme.avatarBorder)}
+              className={clsx('size-[26px] rounded-full border', currentTheme.avatarBorder)}
               src={message.authors[0].avatar}
               alt={message.authors[0].name}
               width={26}
               height={26}
             />
           </div>
-          <h4 className="col-start-2 leading-none pt-[5px]">
-            <span className="font-semibold inline-block">{message.authors[0].name}</span>{' '}
-            <span className="font-medium inline-block">{message.subtitle}</span>
+          <h4 className="col-start-2 pt-[5px] leading-none">
+            <span className="inline-block font-semibold">{message.authors[0].name}</span>{' '}
+            <span className="inline-block font-medium">{message.subtitle}</span>
           </h4>
-          <div className="col-start-2 h-[22px] flex items-center gap-x-2 mt-1.5">
+          <div className="col-start-2 mt-1.5 flex h-[22px] items-center gap-x-2">
             <FileIcon className={clsx('size-4', currentTheme.icons)} />
             <span
               className={clsx(
-                'leading-none inline-block font-semibold relative after:absolute after:w-full after:h-px after:-bottom-1.5 after:left-0',
+                'relative inline-block font-semibold leading-none after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full',
                 currentTheme.fileBorder
               )}
             >
@@ -103,15 +103,15 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
           </div>
           {message.authors.length > 1 && (
             <div className="col-start-2 mt-5">
-              <span className="flex items-center text-sm leading-none text-[#6F727B] gap-x-2">
+              <span className="flex items-center gap-x-2 text-sm leading-none text-[#6F727B]">
                 <UsersIcon className={clsx('size-4', currentTheme.icons)} />
                 Person
               </span>
-              <ul className="flex items-center mt-2.5 gap-x-4">
+              <ul className="mt-2.5 flex items-center gap-x-4">
                 {message.authors.map((author, index) => (
                   <li className="flex items-center gap-x-1.5" key={index}>
                     <img
-                      className={clsx('border rounded-full size-[22px]', currentTheme.avatarBorder)}
+                      className={clsx('size-[22px] rounded-full border', currentTheme.avatarBorder)}
                       src={author.avatar}
                       width={22}
                       height={22}
@@ -127,30 +127,30 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
             <p className={clsx('text-sm leading-none', currentTheme.authorText)}>
               {message.authors[0].name}
             </p>
-            <p className="mt-1.5 text-ellipsis line-clamp-2">{text}</p>
+            <p className="mt-1.5 line-clamp-2 text-ellipsis">{text}</p>
           </div>
           <button
             className={clsx(
-              'col-start-2 mt-[18px] text-sm leading-none flex items-center justify-center w-[58px] h-[30px] font-semibold border rounded',
+              'col-start-2 mt-[18px] flex h-[30px] w-[58px] items-center justify-center rounded border text-sm font-semibold leading-none',
               currentTheme.buttonBorder
             )}
             type="button"
           >
             Reply
           </button>
-          <span className="col-start-3 row-start-1 text-sm leading-none flex items-center justify-center text-[#6F727B] translate-x-0.5 translate-y-0.5 group-hover:opacity-0">
+          <span className="col-start-3 row-start-1 flex translate-x-0.5 translate-y-0.5 items-center justify-center text-sm leading-none text-[#6F727B] group-hover:opacity-0">
             {date}
           </span>
           <div
             className={clsx(
-              'absolute top-3.5 right-2.5 z-10 hidden group-hover:flex gap-x-1.5 py-0.5 px-1 rounded-[5px]',
+              'absolute right-2.5 top-3.5 z-10 hidden gap-x-1.5 rounded-[5px] px-1 py-0.5 group-hover:flex',
               currentTheme.actionContainer
             )}
           >
             <button
               className={clsx(
                 currentTheme.action,
-                'flex size-[28px] items-center justify-center rounded outline-none transition-all duration-200'
+                'flex size-7 items-center justify-center rounded outline-none transition-all duration-200'
               )}
               type="button"
               aria-label="Mark as read"
@@ -161,7 +161,7 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
             <button
               className={clsx(
                 currentTheme.action,
-                'flex size-[28px] items-center justify-center rounded outline-none transition-all duration-200'
+                'flex size-7 items-center justify-center rounded outline-none transition-all duration-200'
               )}
               type="button"
               aria-label="Archive"

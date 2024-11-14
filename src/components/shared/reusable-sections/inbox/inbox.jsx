@@ -44,7 +44,7 @@ const Inbox = ({ title, description, button }) => {
     <section className="inbox safe-paddings mt-40 pb-8 text-white lg:mt-36 md:mt-[104px] md:pb-0 sm:mt-14">
       <div className="container-lg">
         <div className="flex items-center justify-center pl-8 md:pl-0 sm:flex-col">
-          <div className="relative h-[639px] w-[608px] shrink-0 lg:h-[558px] lg:w-[531px] md:h-[398px] md:w-[380px] sm:order-last">
+          <div className="relative h-[639px] w-[608px] shrink-0 lg:h-[558px] lg:w-[531px] md:h-[398px] md:w-[380px] sm:order-last sm:aspect-[380/398] sm:h-auto sm:w-full sm:max-w-[380px]">
             <LazyMotion features={domAnimation}>
               {inboxData.map((data, index) => (
                 <AnimatePresence mode="wait">
