@@ -9,7 +9,7 @@ import SEO from 'components/shared/seo';
 const SECTION_WITH_FORM_RIGHT = {
   title: 'Coming soon: Novu Dashboard 2.0',
   description:
-    "We're making huge changes to the Novu Dashboard experience, and we're looking for users that want early access. Sign up here to get a sneak peek a few weeks early!",
+    "We're making huge changes to the Novu Dashboard experience, and are looking for users that want early access. Sign up for a sneak peek!",
   features: [
     {
       title: 'UI-based workflow creation and editing',
