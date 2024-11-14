@@ -885,8 +885,8 @@ const ReusableComponents = (props) => {
       <CtaWithForm
         title="Get started now"
         description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo."
-        leftItem={{ text: 'Book a demo', link: '/' }}
-        rightItem={{ text: 'Book a demo', link: '/' }}
+        leftItem={{ text: 'Get started', link: '/' }}
+        rightItem={{ text: 'Contact us', link: '/' }}
       />
       <SectionWithVideo
         video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=VBHierIbPHc' }}

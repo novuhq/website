@@ -44,16 +44,23 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
           >
             {title}
           </Heading>
-          <p className="mt-3.5 max-w-md text-center text-lg font-book leading-snug text-gray-8 md:max-w-sm md:text-base">
+          <p className="mt-3 max-w-[464px] text-center text-lg font-book tracking-snug text-gray-8 md:max-w-sm md:text-base">
             {description}
           </p>
-          <div className="mt-12 flex justify-center gap-x-8 md:mt-7 sm:flex-col sm:items-center">
+          <div className="mt-8 flex justify-center gap-5 md:mt-7 sm:flex-col sm:items-center">
             {leftItem.code && (
-              <div className="relative flex h-[54px] w-[392px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-2 shadow-[#C2B2FF_0_0_6px_0] before:absolute before:-inset-0.5 before:-z-20 before:rounded-md before:bg-[linear-gradient(0deg,rgba(255,255,255,0.5),rgba(255,255,255,0.5)),radial-gradient(30.74%_144.53%_at_59.44%_100%,#FFFFFF_2.5%,#A7BBFF_21.5%,rgba(183,165,255,0.2)_100%)] lg:h-[46px] sm:w-[320px] sm:pl-4">
-                <span className="font-mono font-medium">{leftItem.code}</span>
+              <div
+                className={clsx(
+                  'relative flex h-12 w-[392px] items-center justify-between rounded-md border border-transparent bg-black bg-clip-border pl-5 pr-1.5 shadow-[#C2B2FF_0_0_6px_0]',
+                  'before:absolute before:-inset-0.5 before:-z-20 before:rounded-md before:bg-[linear-gradient(0deg,rgba(255,255,255,0.5),rgba(255,255,255,0.5)),radial-gradient(30.74%_144.53%_at_59.44%_100%,#FFFFFF_2.5%,#A7BBFF_21.5%,rgba(183,165,255,0.2)_100%)]',
+                  'lg:h-[46px] sm:w-[320px] sm:pl-4 2xs:w-[280px]'
+                )}
+              >
+                <span className="font-mono font-medium 2xs:text-sm">{leftItem.code}</span>
                 <Button
-                  className="h-10 min-w-[88px] text-sm lg:h-[34px] sm:min-w-[34px]"
+                  className="h-9 sm:px-2.5"
                   theme="white-filled"
+                  size="xs"
                   onClick={handleCopy}
                 >
                   {isCopied ? (
@@ -87,26 +94,30 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
                 />
               </div>
             )}
-            {leftItem.text && (
+            <div className="flex gap-x-7 sm:gap-x-5">
+              {leftItem.text && (
+                <Button
+                  className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
+                  theme="white-filled"
+                  size="sm"
+                  to={leftItem.link}
+                  rel={leftItem.rel}
+                  target={leftItem.target}
+                >
+                  {leftItem.text}
+                </Button>
+              )}
               <Button
-                className="-mt-px h-14 min-w-[148px] text-sm lg:h-12 sm:mb-4"
-                theme="white-filled"
-                to={leftItem.link}
-                rel={leftItem.rel}
-                target={leftItem.target}
+                className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
+                theme="gray-outline"
+                size="sm"
+                to={rightItem.link}
+                rel={rightItem.rel}
+                target={rightItem.target}
               >
-                {leftItem.text}
+                {rightItem.text}
               </Button>
-            )}
-            <Button
-              className="-mt-px h-14 min-w-[148px] text-sm lg:h-12 sm:mt-[18px] sm:h-auto sm:border-none sm:text-[13px] sm:text-primary-1 sm:underline sm:underline-offset-[6px]"
-              theme="gray-outline"
-              to={rightItem.link}
-              rel={rightItem.rel}
-              target={rightItem.target}
-            >
-              {rightItem.text}
-            </Button>
+            </div>
           </div>
         </div>
         <img
