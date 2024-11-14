@@ -365,8 +365,6 @@ const EVENTS_WITH_IMAGES = [
   },
 ];
 
-const INBOX_CATEGORIES = ['System', 'Social', 'Test'];
-
 const INBOX_MESSAGES = [
   {
     category: 'system',
@@ -596,57 +594,62 @@ commentWorkflow.trigger({
   payload: { postId: '12345' }
 });`;
 
+const INBOX_CATEGORIES = ['System', 'Social', 'Test'];
+
 const SECTION_WITH_FORM_LEFT = {
-  title: 'Getting started with Novu',
+  title: 'Get in touch',
   description:
-    "Do any of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
+    "We're here to support you in navigating the open-source notification infrastructure for developers.",
   features: [
     {
-      title: 'Non-technical users',
-      description: 'Do you prefer a UI when building out workflows?',
+      title: 'Seamless integration',
+      description:
+        'Integrate Novu effortlessly into your workflow for streamlined notification management.',
     },
     {
-      title: 'Backend stack',
+      title: 'Customization at its core',
       description:
-        'Is your backend comprised of something other than Javascript (NodeJS, Next.Js, etc.)?',
+        "Tailor notifications to your unique needs with Novu's flexible and customizable features.",
     },
     {
-      title: 'Not you? Keep reading below.',
+      title: 'Developer-friendly',
       description:
-        'Our code-first workflow approach insanely powerful. Keep reading to see how you can get started.',
+        'Empowering developers with an open-source infrastructure, Novu simplifies the way you handle notifications.',
     },
   ],
   formPosition: 'left',
   hubspotFormId: '6ec81561-2562-477e-92a3-dcb06c35f510',
   // If you want to use more than one form on the page, you need to provide unique tag ids
   hubspotTagClass: 'first-form',
-  headingTag: 'h1',
+  withBlur: true,
 };
 
 const SECTION_WITH_FORM_RIGHT = {
-  title: 'Getting started with Novu',
+  title: 'Get in touch',
   description:
-    "Do any of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
+    "We're here to support you in navigating the open-source notification infrastructure for developers.",
   features: [
     {
-      title: 'Non-technical users',
-      description: 'Do you prefer a UI when building out workflows?',
+      title: 'Seamless integration',
+      description:
+        'Integrate Novu effortlessly into your workflow for streamlined notification management.',
     },
     {
-      title: 'Backend stack',
+      title: 'Customization at its core',
       description:
-        'Is your backend comprised of something other than Javascript (NodeJS, Next.Js, etc.)?',
+        "Tailor notifications to your unique needs with Novu's flexible and customizable features.",
     },
     {
-      title: 'Not you? Keep reading below.',
+      title: 'Developer-friendly',
       description:
-        'Our code-first workflow approach insanely powerful. Keep reading to see how you can get started.',
+        'Empowering developers with an open-source infrastructure, Novu simplifies the way you handle notifications.',
     },
   ],
   formPosition: 'right',
   hubspotFormId: 'e7e1ff66-ecd4-4c5c-a670-0de73dae69d4',
   // If you want to use more than one form on the page, you need to provide unique tag ids
   hubspotTagClass: 'second-form',
+  withBlur: true,
 };
 
 const ReusableComponents = (props) => {
@@ -677,18 +680,6 @@ const ReusableComponents = (props) => {
 
   return (
     <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
-      <SectionWithForm {...SECTION_WITH_FORM_LEFT} />
-      <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />
-      <Inbox
-        title="Fully featured Notification Inbox in minutes"
-        description="Include a real-time Notification Center using our embeddable components or connect your custom UI with our notification feed API."
-        button={{
-          label: 'Learn more',
-          link: 'https://docs.novu.co/getting-started/introduction',
-        }}
-        categories={INBOX_CATEGORIES}
-        messages={INBOX_MESSAGES}
-      />
       <TextWithPicture
         title="Some header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
@@ -910,7 +901,7 @@ const ReusableComponents = (props) => {
             '<iframe src="https://www.loom.com/embed/5bbdeb480ba84e65b1b3de8c190e2003?sid=9dc95980-6f6f-4f80-be82-6cb77240ad1e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>',
         }}
         title="Video header that includes up to two lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface."
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         videoPosition="fullWidth"
         transcription={[
           'Like concerts, live webinars are time-based and singular events. Sure, you can have on-demand webinars, but there is something special about attending a live webinar - the excitement leading up to the presentation and the energy between presenter and the audience.',
@@ -923,28 +914,40 @@ const ReusableComponents = (props) => {
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of text"
+        title="Some header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{ label: 'Learn more', link: '/' }}
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of text"
+        title="Some header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of text"
+        title="Some header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{ label: 'Learn more', link: '/' }}
         codePosition="right"
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of text"
+        title="Some header that includes up to three lines of engaging text"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         codePosition="right"
       />
+      <Inbox
+        title="Some header that includes up to three lines of engaging text"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{
+          label: 'Learn more',
+          link: 'https://docs.novu.co/getting-started/introduction',
+        }}
+        categories={INBOX_CATEGORIES}
+        messages={INBOX_MESSAGES}
+      />
+      <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />
+      <SectionWithForm {...SECTION_WITH_FORM_LEFT} />
     </Layout>
   );
 };
