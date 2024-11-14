@@ -21,11 +21,13 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
   };
 
   useEffect(() => {
+    let timeout;
     if (isCopied) {
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setIsCopied(false);
       }, 1500);
     }
+    return () => clearTimeout(timeout);
   }, [isCopied]);
 
   return (
