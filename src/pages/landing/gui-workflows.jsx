@@ -2,29 +2,32 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
-import CTA from 'components/shared/reusable-sections/cta';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
-import SectionWithVideo from 'components/shared/reusable-sections/section-with-video';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import SEO from 'components/shared/seo';
 
 const SECTION_WITH_FORM_RIGHT = {
   title: 'Coming soon: Novu Dashboard 2.0',
   description:
-    "We're making huge changes to the Novu Dashboard experience, and we're looking for users that want early access.",
+    "We're making huge changes to the Novu Dashboard experience, and we're looking for users that want early access. Sign up here to get a sneak peek a few weeks early!",
   features: [
     {
       title: 'UI-based workflow creation and editing',
       description: 'Create and manage workflows right from the UI, no coding experience required.',
     },
     {
-      title: 'Fully cloud-based',
+      title: '100% cloud-based',
       description: "New workflows don't require local a locally-run Novu Framework Engine.",
     },
     {
-      title: 'Fully customizable for any use case',
+      title: 'Workflows customizable for any use case',
       description:
-        "When you need the full power of code, eject to code, and access the unlimited power of Novu's code-based workflow.",
+        "When you need the full power of code, eject to code and access the unlimited power of Novu's.",
+    },
+    {
+      title: 'Email block editor',
+      description:
+        'Your soon-to-be new favorite way to create email content. Build, design, and edit email content right inside Novu, and output React and HTML.',
     },
   ],
   formPosition: 'right',
@@ -61,32 +64,9 @@ const GSLandingPage = () => (
       }
       theme="imageRight"
     />
-    <CTA
-      title="Ready to get started?"
-      leftCard={{
-        title: 'Watch the tutorial',
-        description: 'Use our video walkthrough as a guide to get started quickly.',
-        buttonText: 'Onboarding Walkthrough',
-        buttonLink: '#video',
-      }}
-      rightCard={{
-        title: 'Create a free account',
-        description: 'Create a free account, and get notifying.',
-        buttonText: 'Create Account',
-        buttonLink: 'https://dashboard.novu.com/?utm_campaign=lp-mez-gs',
-      }}
-      theme="purple"
-    />
-    <a id="video">
-      <SectionWithVideo
-        video={{
-          type: 'youtube',
-          url: 'https://www.youtube.com/watch?v=A1ciB-LgY8w&ab_channel=Novu',
-        }}
-        title="If you're ready to write osme Javascript and get notifying"
-        description="This video walks you through all the important details to get your local dev environment up and running and code your first workflow."
-      />
-    </a>
+    <br />
+    <br />
+    <br />
   </Layout>
 );
 
