@@ -2,9 +2,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 
-import Languages from 'components/pages/old-homepage/languages';
 import Features from 'components/pages/landing/features';
 import Hero from 'components/pages/landing/hero';
+import Languages from 'components/pages/old-homepage/languages';
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';

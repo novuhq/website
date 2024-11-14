@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 // import { graphql, useStaticQuery } from 'gatsby';
 import moment from 'moment';
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
+// import { useMemo } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -15,7 +16,6 @@ const DESCRIPTION =
 const Issues = ({ className }) => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const data = []
   // FIXME: If necessary - To get this data it is necessary to uncomment a part of the code that fetches and organizes this data at the gatsby-node file level.
   // const {
   //   hacktoberfestIssues: { data },
@@ -31,7 +31,10 @@ const Issues = ({ className }) => {
   //   }
   // `);
 
-  const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
+  // const list = useMemo(() => (isShownMore ? data : data.slice(0, 5)), [isShownMore, data]);
+
+  const data = [];
+  const list = [];
 
   return (
     <section className={clsx('issues safe-paddings', className)}>

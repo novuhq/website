@@ -1,0 +1,31 @@
+.reviews {
+  & .slick-track {
+    @apply !flex;
+  }
+
+  & .slick-slide {
+    @apply float-none h-auto shrink-0 px-4 md:px-[10px] sm:px-2 xs:px-5;
+  }
+
+  & .slick-slide > div {
+    @apply h-full;
+  }
+
+  & .slick-dots {
+    @apply -bottom-11 !flex items-center justify-center;
+
+    li {
+      @apply m-0;
+
+      button {
+        @apply relative flex justify-center before:relative before:h-2 before:w-2 before:rounded before:border before:border-gray-5 before:opacity-100 before:transition-colors before:duration-300 before:content-[''];
+      }
+
+      &.slick-active {
+        button {
+          @apply before:border-white before:bg-white;
+        }
+      }
+    }
+  }
+}

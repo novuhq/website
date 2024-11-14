@@ -1,8 +1,11 @@
-import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import Slider from 'react-slick';
 
 import Link from 'components/shared/link';
+import ArrowIcon from 'icons/review-arrow.inline.svg';
+
+import Heading from '../../../shared/heading';
 
 import aeswibon from './images/aeswibon.jpg';
 import csabaKissi from './images/csaba-kissi.jpg';
@@ -14,10 +17,15 @@ import nikkisiapno from './images/nikkisiapno.jpg';
 import pontusab from './images/pontusab.jpg';
 // import psteinroe from './images/psteinroe.jpg';
 import rauchg from './images/rauchg.jpg';
+// import ArrowIcon from 'icons/chevron.inline.svg';
 // import nathanTarbert from './images/nathan-tarbert.jpg';
 // import fgribreau from './images/fgribreau.jpg';
 // import merlindru from './images/merlindru.jpg';
 // import vishucodes from './images/vishucodes.jpg';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './reviews.css';
 
 const TITLE = 'Loved by developers and product teams';
 const DESCRIPTION =
@@ -139,7 +147,7 @@ const ITEMS = [
       username: '@merlindru',
       avatar: merlindru,
     },
-  }, 
+  },
   {
     text: 'Amazon Simple Notification Service: <span>@novuhq</span>',
     linkUrl: 'https://twitter.com/nathan_tarbert/status/1692654472952959300',
@@ -161,61 +169,125 @@ const ITEMS = [
 */
 ];
 
-const Reviews = () => (
-  <section className="reviews safe-paddings mt-40 lg:mt-28 md:mt-16 sm:mt-20">
-    <div className="container">
-      <h3 className="text-center text-6xl leading-tight text-white md:text-3xl">{TITLE}</h3>
-      <p className="mx-auto mt-5 max-w-[720px] text-center text-lg leading-snug text-gray-9 lg:mt-3 lg:text-base">
-        {DESCRIPTION}
-      </p>
-      <ul className="mt-10 flex h-[687px] w-full flex-col flex-wrap content-between gap-10 lg:h-[760px] lg:gap-7 md:h-[662px] sm:mt-6 sm:h-auto sm:flex-nowrap sm:gap-5">
-        {ITEMS.map(({ text, image, author, linkUrl }, index) => (
-          <li
-            key={index}
-            className={clsx(
-              index % 4 === 0 && 'order-1',
-              index % 4 === 1 && 'order-2',
-              index % 4 === 2 && 'order-3',
-              index % 4 === 3 && 'order-4',
-              index % 3 === 0 && 'lg:order-1',
-              index % 3 === 1 && 'lg:order-2',
-              index % 3 === 2 && 'lg:order-3',
-              'relative w-[calc(25%-30px)] overflow-hidden rounded-xl md:w-[calc(33%-13px)] sm:order-none sm:w-full'
-            )}
-          >
-            <Link
-              className="relative z-10 block bg-gradient-to-b from-gray-2 to-gray-2/70 px-7 py-6 transition-colors duration-300 hover:bg-gray-3 lg:px-6 lg:pt-5"
-              to={linkUrl}
-              target="_blank"
-              rel="nofollow noopener"
-            >
-              <p
-                className="text-lg leading-snug lg:text-base [&>span]:text-primary-1"
-                dangerouslySetInnerHTML={{ __html: text }}
-              />
-              {image && image}
-              <div className="mt-8 flex items-center gap-x-3 lg:mt-6">
-                <img
-                  className="h-12 w-12 rounded-full lg:h-11 lg:w-11"
-                  src={author.avatar}
-                  alt={author.name}
-                  width={48}
-                  height={48}
-                  loading="lazy"
-                />
-                <div>
-                  <span className="block leading-tight lg:text-sm">{author.name}</span>
-                  <span className="mt-1 block leading-tight text-gray-8 lg:text-sm">
-                    {author.username}
-                  </span>
-                </div>
+const NextArrow = (props) => {
+  const { onClick } = props;
+
+  return (
+    <button
+      className="group absolute inset-y-1/2 -right-12 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-2xl bg-gradient-to-br from-[#333347]/60 to-[#2B2B3B]/40 p-[1px] transition-all duration-300 hover:from-[#272730] hover:via-[#5C638A]/50 hover:to-[#5C638A]"
+      type="button"
+      aria-label="Prev testimonial"
+      onClick={onClick}
+    >
+      <span className="flex h-full w-full items-center justify-center rounded-full bg-[#111018] transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#111018] group-hover:via-[#302D43] group-hover:to-[#464C6D]">
+        <ArrowIcon
+          className="h-auto w-full rotate-180 transition-colors duration-300 [&>path]:stroke-[#666666] group-hover:[&>path]:stroke-[#C7C9D1]"
+          aria-hidden
+        />
+      </span>
+    </button>
+  );
+};
+
+const PrevArrow = (props) => {
+  const { onClick } = props;
+
+  return (
+    <button
+      className="group absolute inset-y-1/2 -left-12 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-2xl bg-gradient-to-br from-[#333347]/60 to-[#2B2B3B]/40 p-[1px] transition-all duration-300 hover:from-[#272730] hover:via-[#5C638A]/50 hover:to-[#5C638A]"
+      type="button"
+      aria-label="Prev testimonial"
+      onClick={onClick}
+    >
+      <span className="flex h-full w-full items-center justify-center rounded-full bg-[#111018] transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#111018] group-hover:via-[#302D43] group-hover:to-[#464C6D]">
+        <ArrowIcon
+          className="h-auto w-full transition-colors duration-300 [&>path]:stroke-[#666666] group-hover:[&>path]:stroke-[#C7C9D1]"
+          aria-hidden
+        />
+      </span>
+    </button>
+  );
+};
+
+const Reviews = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 639,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
+  return (
+    <section className="reviews safe-paddings mt-[200px] md:mt-36 sm:mt-20">
+      <div className="container-lg xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
+        <Heading
+          className="text-center font-medium leading-denser tracking-snug md:text-[40px] sm:text-[32px] xs:text-[29px]"
+          size="44"
+          tag="h3"
+        >
+          {TITLE}
+        </Heading>
+        <p className="mx-auto mt-3.5 max-w-xl text-center text-[17px] font-book leading-snug text-gray-9 md:text-base">
+          {DESCRIPTION}
+        </p>
+        <div className="relative -mx-4 mt-14 xl:mx-12 md:mx-[42px] md:mt-12 sm:mx-10 sm:mt-10 xs:-mx-5 xs:mt-9">
+          <Slider className="flex w-full" {...settings}>
+            {ITEMS.map(({ text, author, linkUrl }, index) => (
+              <div key={index} className="relative h-full">
+                <Link
+                  className="relative z-10 flex h-full flex-col rounded-xl border border-[rgba(51,51,71,0.60)] bg-[#111018] px-6 py-5 transition-colors duration-300 hover:bg-[#15141D] xs:px-5 xs:pb-4"
+                  to={linkUrl}
+                  target="_blank"
+                  rel="nofollow noopener"
+                >
+                  <p
+                    className="xs:mb-4.5 mb-5 line-clamp-5 text-base leading-snug md:text-[15px] [&>span]:text-primary-1"
+                    dangerouslySetInnerHTML={{ __html: text }}
+                  />
+                  <div className="mt-auto flex items-center gap-x-3 border-t border-t-[#333347] pt-5">
+                    <img
+                      className="h-9 w-9 rounded-full"
+                      src={author.avatar}
+                      alt={author.name}
+                      width={36}
+                      height={36}
+                      loading="lazy"
+                    />
+                    <div>
+                      <span className="block text-base leading-none text-gray-9 md:text-[15px]">
+                        {author.name}
+                      </span>
+                      <span className="mt-[6px] block text-sm leading-none text-gray-8 md:text-sm">
+                        {author.username}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-);
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Reviews;

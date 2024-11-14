@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import ChevronIcon from 'icons/chevron.inline.svg';
 import { buttonClick } from 'utils/use-landing-simple-tracking';
 
-
 const ANIMATION_DURATION = 0.3;
 
 const variantsAnimation = {
