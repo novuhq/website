@@ -15,7 +15,7 @@ const THEMES = {
       <StaticImage
         className={clsx(
           INBOX_IMAGE_CLASSNAMES,
-          'left-[-5px] md:w-[390px] sm:max-w-[628px] sm:left-0'
+          'left-[-5px] md:w-[390px] sm:left-0 sm:max-w-[628px]'
         )}
         src="./images/inbox.png"
         alt=""
@@ -55,7 +55,7 @@ const AdaptiveStatic = ({ theme, className }) => {
     <m.div
       className={clsx(
         className,
-        'absolute top-0 left-0 w-full h-full shrink-0 sm:order-last sm:mt-6'
+        'absolute left-0 top-0 h-full w-full shrink-0 sm:order-last sm:mt-6'
       )}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.3 } }}
@@ -65,7 +65,7 @@ const AdaptiveStatic = ({ theme, className }) => {
       {inboxImage}
       {backgroundImage && (
         <img
-          className="absolute z-10 w-[76.7516%] h-[31.4112%] top-[-13.8088%] left-[-5.2548%]"
+          className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"
           src={backgroundImage}
           alt=""
           width="482"
@@ -73,15 +73,15 @@ const AdaptiveStatic = ({ theme, className }) => {
         />
       )}
       <div
-        className="absolute z-0 bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)] w-[39.8089%] h-[68.2852%] rotate-90 top-[-23.3687%] left-[13.3757%] blur-[22px]"
+        className="pointer-events-none absolute left-[13.3757%] top-[-23.3687%] z-0 h-[68.2852%] w-[39.8089%] rotate-90 bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)] blur-[22px]"
         aria-hidden
       />
       <div
-        className="absolute z-0 bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)] w-[76.1146%] h-[91.9575%] -rotate-45 top-[-23.3687%] left-[4.5523%]"
+        className="pointer-events-none absolute left-[4.5523%] top-[-23.3687%] z-0 h-[91.9575%] w-[76.1146%] -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]"
         aria-hidden
       />
       <div
-        className="absolute z-0 bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)] w-[131.8471%] h-[154.7799%] -rotate-45 top-[-44.006%] left-[-17.5159%]"
+        className="pointer-events-none absolute left-[-17.5159%] top-[-44.006%] z-0 h-[154.7799%] w-[131.8471%] -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)]"
         aria-hidden
       />
     </m.div>

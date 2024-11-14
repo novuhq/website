@@ -284,7 +284,7 @@ const HomePage = () => (
     <Infrastructure />
     <Reviews />
     <CtaWithForm
-      className="mb-30"
+      className="mb-30 mt-[166px]"
       title="It's time to add in-app notifications"
       description="Create a free account, send your first notification, and add an Inbox... all for free."
       leftItem={{

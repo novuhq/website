@@ -44,14 +44,14 @@ const SectionWithForm = ({
           )}
         >
           <Heading
-            className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl pt-8 md:pt-0"
+            className="pt-8 font-medium leading-denser tracking-snug lg:text-5xl md:pt-0 md:text-[32px] sm:text-3xl"
             tag={headingTag}
             size="44"
             theme="white"
           >
             {title}
           </Heading>
-          <p className="mt-3 text-[17px] leading-snug md:text-sm">{description}</p>
+          <p className="mt-3 text-lg leading-snug md:text-sm">{description}</p>
           {features.length > 0 && (
             <ul className="mt-8 flex flex-col gap-y-4 pl-6 md:gap-y-2.5 md:pl-8">
               {features.map(({ title, description }, idx) => (
@@ -66,7 +66,7 @@ const SectionWithForm = ({
                   >
                     {title}
                   </Heading>
-                  <p className="mt-1 text-base font-light leading-snug text-gray-9">
+                  <p className="mt-1 text-base font-light leading-snug text-gray-8">
                     {description}
                   </p>
                 </li>
@@ -83,7 +83,7 @@ const SectionWithForm = ({
           )}
         >
           {withBlur && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1327px] h-[1014px] pointer-events-none">
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[1014px] w-[1327px] -translate-x-1/2 -translate-y-1/2">
               <StaticImage src="./images/bg-blur.svg" alt="" width={1327} height={1014} />
             </div>
           )}

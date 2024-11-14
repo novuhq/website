@@ -39,6 +39,7 @@ module.exports = {
       white: '#ffffff',
       primary: {
         1: '#00D5FF',
+        2: '#80EAFF',
       },
       secondary: {
         1: '#FF33DE',
@@ -76,17 +77,19 @@ module.exports = {
     backgroundImage: {
       'join-us': 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%);',
       'input-gradient':
-        'linear-gradient(268.91deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
+        'linear-gradient(268deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
       'hero-gradient': "url('components/pages/hacktoberfest/hero/images/background.svg')",
       'blue-gradient': 'linear-gradient(135deg, #FFE27D 14.04%, #64E3FF 50.5%, #9192FF 86.21%)',
       'pink-yellow-gradient':
-        'linear-gradient(257.22deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
+        'linear-gradient(258deg, #FFBB33 21.09%, #E300BD 55.18%, #FF006A 92.64%)',
       'pink-red-gradient': 'linear-gradient(278.49deg, #F9493E 38.24%, #EA1C71 101.21%)',
       'gray-gradient': 'linear-gradient(180deg, #262626 0%, #171717 100%)',
       'gray-gradient-2':
-        'linear-gradient(258.24deg, rgba(88, 88, 88, 0.0804) -4.87%, rgba(24, 24, 24, 0.12) 49.06%, rgba(92, 92, 92, 0.12) 96.07%)',
+        'linear-gradient(258deg, rgba(88, 88, 88, 0.0804) -4.87%, rgba(24, 24, 24, 0.12) 49.06%, rgba(92, 92, 92, 0.12) 96.07%)',
       'gray-gradient-3':
-        'linear-gradient(258.12deg, rgba(176, 166, 191, 0.6) -8.62%, rgba(176, 166, 191, 0.3) 113.79%)',
+        'linear-gradient(258deg, rgba(176, 166, 191, 0.6) -8.62%, rgba(176, 166, 191, 0.3) 113.79%)',
+      'gray-gradient-4':
+        'linear-gradient(258deg, rgba(176, 166, 191, 0.2) -8.62%, rgba(176, 166, 191, 0.1) 113.79%)',
       'active-gray-gradient': 'linear-gradient(180deg, #131313 0%, #0B0B0B 100%)',
       'hs-form-gradient':
         'linear-gradient(180deg, rgba(26, 26, 26, 0.80) 0%, rgba(26, 26, 26, 0.70) 100%)',
@@ -131,6 +134,8 @@ module.exports = {
         'linear-gradient(168.3deg, #1B2137 6.29%, #111522 91.42%), radial-gradient(67.44% 45.73% at 27.61% 0%, rgba(194, 209, 255, 0.09) 0%, rgba(194, 209, 255, 0) 76.65%)',
       'code-block-border':
         'radial-gradient(83.26% 102.85% at 61.61% -2.85%, #6B7DB3 6.8%, #1A1E2E 65.55%)',
+      'testimonials-text':
+        'linear-gradient(98.67deg, rgba(255, 255, 255, 0.85) 9.63%, rgba(255, 255, 255, 0.6) 113.79%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {
@@ -153,6 +158,7 @@ module.exports = {
       },
       letterSpacing: {
         snug: '-0.02em',
+        tighter: '-0.04em',
       },
       spacing: {
         18: '4.5rem',

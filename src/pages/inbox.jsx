@@ -346,11 +346,11 @@ const InboxPage = () => (
       description="Easily customize the Novu inbox to match your styles, design, and UX."
       image={
         <StaticImage
-          src="../images/pages/inbox/inbox-reddit-example.webp"
+          src="../images/pages/inbox/reddit-illustration.png"
           alt="Reddit Inbox example using the styled Novu Inbox"
-          loading="eager"
-          /* width={800} */
-          /* height={480} */
+          loading="lazy"
+          width={1001}
+          height={632}
         />
       }
       button={{

@@ -30,7 +30,7 @@ const handler = async (req, res) => {
 
     return res.status(200).json({ sent: true });
   } catch (error) {
-    const errMessage = error instanceof Error ? error?.message ?? error?.toString() ?? '' : '';
+    const errMessage = error instanceof Error ? (error?.message ?? error?.toString() ?? '') : '';
 
     return res.status(500).json({ error: true, message: errMessage });
   }

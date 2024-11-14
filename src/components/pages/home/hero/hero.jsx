@@ -13,18 +13,18 @@ const DESCRIPTION =
   'Open source JavaScript-native notifications framework for developers that makes it easy to build powerful notifications capabilities for your product teams.';
 
 const Hero = () => (
-  <section className="hero pt-[152px] mb-20 lg:pt-[196px] md:pt-[98px] sm:mb-10 relative">
-    <div className="container-xl relative xl:px-10 lg:px-8 lg:max-w-none md:max-w-3xl sm:max-w-lg sm:px-5 z-10">
+  <section className="hero relative mb-20 pt-[152px] lg:pt-[196px] md:pt-[98px] sm:mb-10">
+    <div className="container-xl relative z-10 xl:px-10 lg:max-w-none lg:px-8 md:max-w-3xl sm:max-w-lg sm:px-5">
       <div className="flex flex-col items-center">
-        <h1 className="text-[52px] leading-denser tracking-snug font-medium max-w-[690px] lg:text-5xl md:text-4xl sm:text-[30px] text-center">
+        <h1 className="max-w-[690px] text-center text-[52px] font-medium leading-denser tracking-snug lg:text-5xl md:text-4xl sm:text-[30px]">
           {TITLE}
         </h1>
-        <p className="mt-5 text-lg font-book leading-snug text-white/70 max-w-xl text-center">
+        <p className="mt-5 max-w-xl text-center text-lg font-book leading-snug text-white/70">
           {DESCRIPTION}
         </p>
-        <div className="relative mt-11 z-10 flex items-center justify-left gap-x-7 gap-y-5 sm:mt-7 sm:gap-x-4 sm:justify-center 2xs:flex-wrap">
+        <div className="justify-left relative z-10 mt-11 flex items-center gap-x-7 gap-y-5 sm:mt-7 sm:justify-center sm:gap-x-4 2xs:flex-wrap">
           <Button
-            className="w-[190px] sm:text-xs sm-xs:w-full"
+            className="w-[208px] sm:text-xs sm-xs:w-full"
             size="sm"
             theme="white-filled"
             {...LINKS.getStarted}
@@ -33,7 +33,7 @@ const Hero = () => (
             Create Free Account
           </Button>
           <Button
-            className="w-[190px] sm:text-xs sm-xs:w-full"
+            className="w-[208px] sm:text-xs sm-xs:w-full"
             size="sm"
             theme="gray-outline"
             {...LINKS.contactUsCTA}
@@ -44,9 +44,9 @@ const Hero = () => (
         </div>
       </div>
     </div>
-    <div className="hidden absolute pointer-events-none w-full h-full left-0 top-0 z-0 md:block md:relative md:w-[702px] md:mx-auto md:h-auto md:aspect-[1.2] sm:w-80 sm:aspect-[0.65]">
+    <div className="pointer-events-none absolute left-0 top-0 z-0 hidden h-full w-full md:relative md:mx-auto md:block md:aspect-[1.2] md:h-auto md:w-[702px] sm:aspect-[0.65] sm:w-80">
       <StaticImage
-        className="!absolute w-[1652px] h-auto left-[-188px] top-[-797px] lg:w-[1246px] lg:left-[-93px] lg:top-[-538px] md:w-[1353px] md:left-[-616px] md:top-[-454px] sm:w-[994px] sm:left-[-466px] sm:top-[-280px]"
+        className="!absolute left-[-188px] top-[-797px] h-auto w-[1652px] lg:left-[-93px] lg:top-[-538px] lg:w-[1246px] md:left-[-616px] md:top-[-454px] md:w-[1353px] sm:left-[-466px] sm:top-[-280px] sm:w-[994px]"
         src="./images/illustration.png"
         alt=""
         width={1652}

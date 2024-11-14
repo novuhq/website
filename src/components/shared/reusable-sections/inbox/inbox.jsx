@@ -41,10 +41,10 @@ const Inbox = ({ title, description, button }) => {
   };
 
   return (
-    <section className="inbox safe-paddings pb-8 mt-40 lg:mt-36 md:pb-0 md:mt-[104px] sm:mt-14 text-white">
+    <section className="inbox safe-paddings mt-40 pb-8 text-white lg:mt-36 md:mt-[104px] md:pb-0 sm:mt-14">
       <div className="container-lg">
-        <div className="flex items-center justify-center pl-8 sm:flex-col md:pl-0">
-          <div className="relative h-[639px] w-[608px] shrink-0 lg:w-[531px] lg:h-[558px] md:w-[380px] md:h-[398px] sm:order-last">
+        <div className="flex items-center justify-center pl-8 md:pl-0 sm:flex-col">
+          <div className="relative h-[639px] w-[608px] shrink-0 lg:h-[558px] lg:w-[531px] md:h-[398px] md:w-[380px] sm:order-last">
             <LazyMotion features={domAnimation}>
               {inboxData.map((data, index) => (
                 <AnimatePresence mode="wait">
@@ -61,9 +61,9 @@ const Inbox = ({ title, description, button }) => {
                 </AnimatePresence>
               ))}
             </LazyMotion>
-            <div className="absolute left-0 right-0 -bottom-8 flex justify-center items-center sm:-bottom-14">
+            <div className="absolute -bottom-8 left-0 right-0 flex items-center justify-center sm:-bottom-14">
               <button
-                className="opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30 px-2.5"
+                className="px-2.5 opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30"
                 type="button"
                 disabled={activeTheme === 0}
                 onClick={handlePreviousTheme}
@@ -71,14 +71,14 @@ const Inbox = ({ title, description, button }) => {
                 <img className="rotate-180" src={arrowNext} alt="" width={10} height={16} />
                 <span className="sr-only">Previous</span>
               </button>
-              <div className="overflow-hidden relative w-[115px]">
+              <div className="relative w-[115px] overflow-hidden">
                 <motion.ul
-                  className="relative flex transition-transform duration-300 gap-x-1"
+                  className="relative flex gap-x-1 transition-transform duration-300"
                   style={{ x: labelsOffset }}
                 >
                   {inboxData.map((data, index) => (
                     <li
-                      className="w-[115px] h-full shrink-0 text-center text-sm font-medium leading-none text-gray-9 uppercase whitespace-nowrap"
+                      className="h-full w-[115px] shrink-0 whitespace-nowrap text-center text-sm font-medium uppercase leading-none text-gray-9"
                       key={index}
                     >
                       {data.title}
@@ -87,7 +87,7 @@ const Inbox = ({ title, description, button }) => {
                 </motion.ul>
               </div>
               <button
-                className="opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30 px-2.5"
+                className="px-2.5 opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30"
                 type="button"
                 disabled={activeTheme === inboxData.length - 1}
                 onClick={handleNextTheme}
@@ -97,7 +97,7 @@ const Inbox = ({ title, description, button }) => {
               </button>
             </div>
           </div>
-          <div className="relative z-10 pl-32 pr-3 mb-[18px] xl:pl-20 xl:pr-0 md:pl-18 sm:pl-0 sm:mb-6 sm:text-center">
+          <div className="relative z-10 mb-[18px] pl-32 pr-3 xl:pl-20 xl:pr-0 md:pl-18 sm:mb-6 sm:pl-0 sm:text-center">
             <Heading
               className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
               tag="h2"
@@ -105,12 +105,12 @@ const Inbox = ({ title, description, button }) => {
             >
               {title}
             </Heading>
-            <p className="mt-3 text-[17px] leading-snug md:text-sm font-book sm:max-w-[600px]">
+            <p className="mt-3 text-lg font-book leading-snug md:text-sm sm:max-w-[600px]">
               {description}
             </p>
             {button && (
               <Button
-                className="h-14 px-6 text-sm min-w-[142px] mt-7 md:mt-5"
+                className="mt-7 h-12 min-w-[142px] px-6 text-sm md:mt-5"
                 theme="gray-outline"
                 to={button.link}
                 rel={button.rel}

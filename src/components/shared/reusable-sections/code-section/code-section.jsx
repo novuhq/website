@@ -14,10 +14,10 @@ SyntaxHighlighter.registerLanguage('javascript', javascript);
 const CodeSection = ({ title, description, button, code, codePosition }) => (
   <section className="code-section safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container-lg flex items-center gap-x-24 lg:gap-x-16 md:flex-col">
-      <div className="relative max-w-[672px] bg-code-block-border rounded-xl p-px lg:max-w-[532px] md:w-full md:max-w-[672px] md:mt-12 sm:max-w-[520px]">
-        <div className="relative z-10 w-full h-full bg-code-block-bg rounded-xl p-[22px] overflow-hidden sm:p-4">
+      <div className="relative max-w-[672px] rounded-xl bg-code-block-border p-px lg:max-w-[532px] md:mt-12 md:w-full md:max-w-[672px] sm:max-w-[520px]">
+        <div className="relative z-10 h-full w-full overflow-hidden rounded-xl bg-code-block-bg p-[22px] sm:p-4">
           <SyntaxHighlighter
-            className="echo-code [&_code]:!block relative z-10 scrollbar-hidden text-[13px] font-normal shadow-[10px_10px_20px_0px_rgba(0,0,0,0.15),4px_4px_8px_0px_rgba(0,0,0,0.1),-2px_-2px_10px_0px_rgba(4,9,15,0.1)] [mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)] overflow-y-scroll lg:text-xs sm:text-[10px]"
+            className="echo-code scrollbar-hidden relative z-10 overflow-y-scroll text-[13px] font-normal shadow-[10px_10px_20px_0px_rgba(0,0,0,0.15),4px_4px_8px_0px_rgba(0,0,0,0.1),-2px_-2px_10px_0px_rgba(4,9,15,0.1)] [mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)] lg:text-xs sm:text-[10px] [&_code]:!block"
             language="javascript"
             useInlineStyles={false}
             showLineNumbers
@@ -25,59 +25,59 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
             {code}
           </SyntaxHighlighter>
           <div
-            className="absolute top-[-260px] right-[-130px] w-[724px] h-[464px] rotate-[158deg] mix-blend-soft-light opacity-40 blur-3xl rounded-[50%] bg-[#BBCBFB] pointer-events-none sm:right-1/2 sm:translate-x-1/2"
+            className="pointer-events-none absolute right-[-130px] top-[-260px] h-[464px] w-[724px] rotate-[158deg] rounded-[50%] bg-[#BBCBFB] opacity-40 mix-blend-soft-light blur-3xl sm:right-1/2 sm:translate-x-1/2"
             aria-hidden
           />
           <div
-            className="absolute top-[-140px] right-[-40px] w-[466px] h-[221px] rotate-[158deg] mix-blend-soft-light opacity-80 blur-3xl rounded-[50%] bg-[#B8C9FF] pointer-events-none sm:right-1/2 sm:translate-x-1/2"
+            className="pointer-events-none absolute right-[-40px] top-[-140px] h-[221px] w-[466px] rotate-[158deg] rounded-[50%] bg-[#B8C9FF] opacity-80 mix-blend-soft-light blur-3xl sm:right-1/2 sm:translate-x-1/2"
             aria-hidden
           />
           <div
-            className="absolute top-[-120px] right-[-55px] w-[417px] h-[145px] rotate-[161deg] mix-blend-soft-light opacity-60 blur-3xl rounded-[50%] bg-[#E0E8FF] pointer-events-none sm:right-1/2 sm:translate-x-1/2"
+            className="pointer-events-none absolute right-[-55px] top-[-120px] h-[145px] w-[417px] rotate-[161deg] rounded-[50%] bg-[#E0E8FF] opacity-60 mix-blend-soft-light blur-3xl sm:right-1/2 sm:translate-x-1/2"
             aria-hidden
           />
           <div
-            className="absolute top-[-145px] right-[-110px] w-[481px] h-[130px] rotate-[161deg] mix-blend-soft-light opacity-80 blur-3xl rounded-[50%] bg-[#E0E8FF] pointer-events-none sm:right-1/2 sm:translate-x-1/2"
+            className="pointer-events-none absolute right-[-110px] top-[-145px] h-[130px] w-[481px] rotate-[161deg] rounded-[50%] bg-[#E0E8FF] opacity-80 mix-blend-soft-light blur-3xl sm:right-1/2 sm:translate-x-1/2"
             aria-hidden
           />
         </div>
         <div
-          className="absolute z-20 top-0 right-2.5 opacity-30 mix-blend-plus-lighter blur-sm pointer-events-none w-[500px] h-px bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] sm:w-full sm:right-0"
+          className="pointer-events-none absolute right-2.5 top-0 z-20 h-px w-[500px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] opacity-30 mix-blend-plus-lighter blur-sm sm:right-0 sm:w-full"
           aria-hidden
         />
         <div
-          className="absolute z-20 top-0 right-2.5 opacity-40 mix-blend-plus-lighter blur-[2px] pointer-events-none w-[500px] h-px bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] sm:w-full sm:right-0"
+          className="pointer-events-none absolute right-2.5 top-0 z-20 h-px w-[500px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] opacity-40 mix-blend-plus-lighter blur-[2px] sm:right-0 sm:w-full"
           aria-hidden
         />
         <div
-          className="absolute z-20 top-0 right-2.5 opacity-50 mix-blend-plus-lighter blur-[1px] pointer-events-none w-[500px] h-px bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] sm:w-full sm:right-0"
+          className="pointer-events-none absolute right-2.5 top-0 z-20 h-px w-[500px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] opacity-50 mix-blend-plus-lighter blur-[1px] sm:right-0 sm:w-full"
           aria-hidden
         />
         <div
-          className="absolute z-20 top-0 right-2.5 opacity-50 mix-blend-plus-lighter pointer-events-none w-[500px] h-px bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] sm:w-full sm:right-0"
+          className="pointer-events-none absolute right-2.5 top-0 z-20 h-px w-[500px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#FFFFFF_42.53%,rgba(255,255,255,0)_100%)] opacity-50 mix-blend-plus-lighter sm:right-0 sm:w-full"
           aria-hidden
         />
         <img
-          className="absolute top-[-102px] right-[-52px] max-w-none sm:right-1/3 sm:translate-x-1/2"
+          className="absolute right-[-52px] top-[-102px] max-w-none sm:right-1/3 sm:translate-x-1/2"
           src={dots}
           alt=""
           width={482}
           height={206}
         />
         <div
-          className="absolute -top-2 right-[60px] opacity-30 pointer-events-none w-[314px] h-[155px] bg-[#7599F5] blur-3xl rounded-[50%] sm:right-1/2 sm:translate-x-1/2"
+          className="pointer-events-none absolute -top-2 right-[60px] h-[155px] w-[314px] rounded-[50%] bg-[#7599F5] opacity-30 blur-3xl sm:right-1/2 sm:translate-x-1/2"
           aria-hidden
         />
         <div
-          className="absolute -top-2 right-[60px] opacity-30 pointer-events-none w-[314px] h-[155px] bg-[#7599F5] blur-3xl rounded-[50%] sm:right-1/2 sm:translate-x-1/2"
+          className="pointer-events-none absolute -top-2 right-[60px] h-[155px] w-[314px] rounded-[50%] bg-[#7599F5] opacity-30 blur-3xl sm:right-1/2 sm:translate-x-1/2"
           aria-hidden
         />
         <div
-          className="absolute -top-2 rotate-[148deg] right-[60px] opacity-20 pointer-events-none w-[376px] h-[233px] bg-[#4474F2] blur-3xl rounded-[50%] sm:right-1/2 sm:translate-x-1/2"
+          className="pointer-events-none absolute -top-2 right-[60px] h-[233px] w-[376px] rotate-[148deg] rounded-[50%] bg-[#4474F2] opacity-20 blur-3xl sm:right-1/2 sm:translate-x-1/2"
           aria-hidden
         />
         <div
-          className="absolute top-0 rotate-[156deg] right-0 opacity-20 pointer-events-none w-[704px] h-[524px] bg-[linear-gradient(354.24deg,#4474F2_4.81%,rgba(68,116,242,0.6)_95.42%)] blur-3xl rounded-[50%] lg:w-[604px] lg:h-[424px] sm:right-1/2 sm:translate-x-1/2"
+          className="pointer-events-none absolute right-0 top-0 h-[524px] w-[704px] rotate-[156deg] rounded-[50%] bg-[linear-gradient(354.24deg,#4474F2_4.81%,rgba(68,116,242,0.6)_95.42%)] opacity-20 blur-3xl lg:h-[424px] lg:w-[604px] sm:right-1/2 sm:translate-x-1/2"
           aria-hidden
         />
       </div>
@@ -91,10 +91,10 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
         >
           {title}
         </Heading>
-        <p className="text-[17px] leading-snug text-grey-9 mt-3 md:text-sm">{description}</p>
+        <p className="text-grey-9 mt-3 text-lg leading-snug md:text-sm">{description}</p>
         {button && (
           <Button
-            className="h-14 text-sm px-6 mt-7"
+            className="mt-7 h-14 px-6 text-sm"
             to={button.link}
             rel={button.rel}
             target={button.target}

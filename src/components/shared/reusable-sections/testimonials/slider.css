@@ -1,0 +1,3 @@
+.slick-list {
+  @apply transition-[height] duration-500;
+}

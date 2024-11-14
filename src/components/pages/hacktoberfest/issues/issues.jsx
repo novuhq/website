@@ -15,7 +15,7 @@ const DESCRIPTION =
 const Issues = ({ className }) => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const data = []
+  const data = useMemo(() => [], []);
   // FIXME: If necessary - To get this data it is necessary to uncomment a part of the code that fetches and organizes this data at the gatsby-node file level.
   // const {
   //   hacktoberfestIssues: { data },
