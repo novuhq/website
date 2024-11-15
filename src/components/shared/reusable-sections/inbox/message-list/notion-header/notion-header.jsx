@@ -24,24 +24,24 @@ const NotionHeader = ({ theme, filters, actions, handleAction, handleFilter }) =
   const currentTheme = THEMES[theme];
 
   return (
-    <div className="relative z-20 flex items-start justify-between mt-5 mb-1 px-[26px] shrink-0">
+    <div className="relative z-20 mb-1 mt-5 flex shrink-0 items-start justify-between px-[26px]">
       <span
         className={clsx(
           currentTheme.titleColor,
-          'inline-block leading-none text-xl font-inter font-semibold'
+          'inline-block font-inter text-xl font-semibold leading-none'
         )}
       >
         Inbox
       </span>
       <div className="flex items-center gap-x-6">
-        <button className="group relative pb-2.5 h-[30px] flex items-center" type="button">
+        <button className="group relative flex h-[30px] items-center pb-2.5" type="button">
           <NotionMoreIcon
-            className={clsx('w-[18px] h-1.5', currentTheme.mainIconsColor)}
+            className={clsx('h-1.5 w-[18px]', currentTheme.mainIconsColor)}
             aria-hidden
           />
           <ul
             className={clsx(
-              'absolute top-full right-0 w-[219px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-[opacity,visibility] duration-300 rounded-[10px] px-1 py-0.5 gap-y-0.5',
+              'invisible absolute right-0 top-full w-[219px] gap-y-0.5 rounded-[10px] px-1 py-0.5 opacity-0 transition-[opacity,visibility] duration-300 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100',
               currentTheme.menuStyles
             )}
           >
@@ -49,7 +49,7 @@ const NotionHeader = ({ theme, filters, actions, handleAction, handleFilter }) =
               <li key={index}>
                 <button
                   className={clsx(
-                    'text-left flex items-center h-[30px] w-full rounded-md pl-4 gap-x-2.5',
+                    'flex h-[30px] w-full items-center gap-x-2.5 rounded-md pl-4 text-left',
                     currentTheme.menuItemStyles
                   )}
                   type="button"
@@ -62,11 +62,11 @@ const NotionHeader = ({ theme, filters, actions, handleAction, handleFilter }) =
             ))}
           </ul>
         </button>
-        <button className="group relative pb-2.5 h-[30px] flex items-center" type="button">
+        <button className="group relative flex h-[30px] items-center pb-2.5" type="button">
           <NotionSettingsIcon className={clsx('size-4', currentTheme.mainIconsColor)} aria-hidden />
           <ul
             className={clsx(
-              'absolute top-full right-0 w-[219px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-[opacity,visibility] duration-300 rounded-[10px] px-1 py-0.5 gap-y-0.5',
+              'invisible absolute right-0 top-full w-[219px] gap-y-0.5 rounded-[10px] px-1 py-0.5 opacity-0 transition-[opacity,visibility] duration-300 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100',
               currentTheme.menuStyles
             )}
           >
@@ -74,7 +74,7 @@ const NotionHeader = ({ theme, filters, actions, handleAction, handleFilter }) =
               <li key={index}>
                 <button
                   className={clsx(
-                    'text-left flex items-center h-[30px] w-full rounded-md pl-4 gap-x-2.5',
+                    'flex h-[30px] w-full items-center gap-x-2.5 rounded-md pl-4 text-left',
                     currentTheme.menuItemStyles
                   )}
                   type="button"

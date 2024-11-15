@@ -11,7 +11,7 @@ const THEMES = {
   notionDark: {
     dot: 'bg-[#4B73EC]',
     border: 'after:bg-[#242528]',
-    background: 'hover:bg-[#292B32] has-[:focus-visible]:bg-[#292B32]',
+    background: 'hover:bg-[#292B32] focus-within:bg-[#292B32] has-[:focus-visible]:bg-[#292B32]',
     action: 'text-[#6F727B] hover:bg-[#40434E] focus-visible:bg-[#40434E]',
     avatarBorder: 'border-[#6F727B]',
     text: 'text-[#FFFFFF]',
@@ -23,7 +23,7 @@ const THEMES = {
   notionLight: {
     dot: 'bg-[#4B73EC]',
     border: 'after:bg-[#F1F0F0]',
-    background: 'hover:bg-[#F7F7F7] has-[:focus-visible]:bg-[#F7F7F7]',
+    background: 'hover:bg-[#F7F7F7] focus-within:bg-[#F7F7F7] has-[:focus-visible]:bg-[#F7F7F7]',
     action: 'text-[#91918E] hover:bg-[#F0F0F0] focus-visible:bg-[#F0F0F0]',
     actionContainer: 'bg-[#FFFFFF] border border-[#E7E7E7]',
     avatarBorder: 'border-[rgba(125,124,124,0.1)]',
@@ -138,12 +138,12 @@ const NotionMessage = ({ theme, message, readMessage, deleteMessage }) => {
           >
             Reply
           </button>
-          <span className="col-start-3 row-start-1 flex translate-x-0.5 translate-y-0.5 items-center justify-center text-sm leading-none text-[#6F727B] group-hover:opacity-0">
+          <span className="col-start-3 row-start-1 flex translate-x-0.5 translate-y-0.5 items-center justify-center text-sm leading-none text-[#6F727B] group-focus-within:opacity-0 group-hover:opacity-0">
             {date}
           </span>
           <div
             className={clsx(
-              'absolute right-2.5 top-3.5 z-10 hidden gap-x-1.5 rounded-[5px] px-1 py-0.5 group-hover:flex',
+              'absolute right-2.5 top-3.5 z-10 hidden gap-x-1.5 rounded-[5px] px-1 py-0.5 group-focus-within:flex group-hover:flex',
               currentTheme.actionContainer
             )}
           >
