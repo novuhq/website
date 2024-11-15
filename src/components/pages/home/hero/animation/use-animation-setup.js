@@ -46,7 +46,12 @@ const useAnimationSetup = ({
     true
   );
 
-  const cardPurpleOnScroll = useStateMachineInput(cardPurpleAnimationInstance, 'SM', 'scroll');
+  const cardPurpleCapitalized = useStateMachineInput(
+    cardPurpleAnimationInstance,
+    'SM',
+    'capitalized'
+  );
+  const cardBlueCapitalized = useStateMachineInput(cardBlueAnimationInstance, 'SM', 'capitalized');
 
   const cardBlueFloating = useStateMachineInput(cardBlueAnimationInstance, 'SM', 'floating', true);
   const cardBlueDisabled = useStateMachineInput(cardBlueAnimationInstance, 'SM', 'mobile', true);
@@ -130,7 +135,8 @@ const useAnimationSetup = ({
   const stateMachineInputs = {
     cardPurpleFloating,
     cardPurpleSparkle,
-    cardPurpleOnScroll,
+    cardPurpleCapitalized,
+    cardBlueCapitalized,
     cardBlueFloating,
     cardBlueDisabled,
     cardBlueChangeName,

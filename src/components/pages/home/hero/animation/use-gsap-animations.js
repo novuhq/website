@@ -17,7 +17,8 @@ const useGSAPAnimations = ({
   const {
     cardPurpleFloating,
     cardPurpleSparkle,
-    cardPurpleOnScroll,
+    cardPurpleCapitalized,
+    cardBlueCapitalized,
     cardBlueFloating,
     cardCodeFloating,
     cardCodeChange,
@@ -127,11 +128,11 @@ const useGSAPAnimations = ({
             }
           },
           onLeave: () => {
-            if (cardBlueDisabled) {
-              cardBlueDisabled.value = true;
+            if (cardBlueDisabled && cardBlueCapitalized) {
+              cardBlueCapitalized.fire();
             }
-            if (cardPurpleOnScroll) {
-              cardPurpleOnScroll.fire();
+            if (cardPurpleCapitalized) {
+              cardPurpleCapitalized.fire();
             }
           },
           onLeaveBack: () => {
@@ -140,9 +141,6 @@ const useGSAPAnimations = ({
             }
             if (inboxReset) {
               inboxReset.fire();
-            }
-            if (cardBlueDisabled) {
-              cardBlueDisabled.value = false;
             }
           },
         });
@@ -165,11 +163,6 @@ const useGSAPAnimations = ({
           onLeaveBack: () => {
             if (cardPurpleSparkle) {
               cardPurpleSparkle.value = false;
-            }
-          },
-          onEnterBack: () => {
-            if (cardBlueDisabled) {
-              cardBlueDisabled.value = false;
             }
           },
         });
