@@ -17,6 +17,7 @@ const useGSAPAnimations = ({
   const {
     cardPurpleFloating,
     cardPurpleSparkle,
+    cardPurpleOnScroll,
     cardBlueFloating,
     cardCodeFloating,
     cardCodeChange,
@@ -121,35 +122,16 @@ const useGSAPAnimations = ({
           start: `${height * 1.99}px`,
           end: `+=${height * 0.1}px`,
           onEnter: () => {
-            let interval = null;
-
-            if (cardBlueChangeName && animationInterval.current === null) {
-              let counter = 0;
-
+            if (cardBlueChangeName) {
               cardBlueChangeName.fire();
-
-              interval = setInterval(() => {
-                cardBlueChangeName.fire();
-                counter += 1;
-                if (counter >= 2) {
-                  clearInterval(interval);
-                }
-              }, 3000);
-
-              animationInterval.current = interval;
             }
-
-            return () => {
-              clearInterval(interval);
-              animationInterval.current = null;
-            };
           },
           onLeave: () => {
-            clearInterval(animationInterval.current);
-            animationInterval.current = null;
-
             if (cardBlueDisabled) {
               cardBlueDisabled.value = true;
+            }
+            if (cardPurpleOnScroll) {
+              cardPurpleOnScroll.fire();
             }
           },
           onLeaveBack: () => {
