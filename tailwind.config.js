@@ -9,7 +9,7 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ['Brother-1816', ...defaultTheme.fontFamily.sans],
+      sans: ['Brother-1816', 'Brother-1816 Fallback', ...defaultTheme.fontFamily.sans],
       mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {

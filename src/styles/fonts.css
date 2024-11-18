@@ -12,7 +12,7 @@
     src: url('/fonts/brother-1816/brother-1816-book.woff2') format('woff2');
     font-weight: 350;
     font-style: normal;
-    font-display: fallback;
+    font-display: swap;
   }
 
   @font-face {
@@ -37,5 +37,16 @@
     font-weight: 400;
     font-style: normal;
     font-display: fallback;
+  }
+
+  @font-face {
+    font-family: 'Brother-1816 Fallback';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arial');
+    ascent-override: 106.63%;
+    descent-override: 33.29%;
+    line-gap-override: 0%;
+    size-adjust: 106.35%;
   }
 }
