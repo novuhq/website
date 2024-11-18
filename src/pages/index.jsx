@@ -264,9 +264,9 @@ const HomePage = () => (
       messages={INBOX_MESSAGES}
     />
     <Integration />
-    <a id="codefirst">
+    <div id="codefirst">
       <Code />
-    </a>
+    </div>
     <CtaWithForm
       title="Send your first notification in minutes"
       /* description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo." */
@@ -284,7 +284,7 @@ const HomePage = () => (
     <Infrastructure />
     <Reviews />
     <CtaWithForm
-      className="mt-[166px] mb-30"
+      className="mb-30 mt-[166px]"
       title="It's time to add in-app notifications"
       description="Create a free account, send your first notification, and add an Inbox... all for free."
       leftItem={{

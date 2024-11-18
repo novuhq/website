@@ -174,22 +174,14 @@ const NextArrow = (props) => {
 
   return (
     <button
-      className="
-            group absolute -right-12 inset-y-1/2 -translate-y-1/2 flex justify-center items-center w-8 h-8 rounded-2xl transition-all duration-300
-            p-[1px] bg-gradient-to-br from-[#333347]/60 to-[#2B2B3B]/40
-            hover:from-[#272730] hover:via-[#5C638A]/50 hover:to-[#5C638A]
-          "
+      className="group absolute inset-y-1/2 -right-12 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-2xl bg-gradient-to-br from-[#333347]/60 to-[#2B2B3B]/40 p-[1px] transition-all duration-300 hover:from-[#272730] hover:via-[#5C638A]/50 hover:to-[#5C638A]"
       type="button"
       aria-label="Prev testimonial"
       onClick={onClick}
     >
-      <span
-        className="w-full h-full rounded-full bg-[#111018] transition-all duration-300 flex justify-center items-center
-            group-hover:bg-gradient-to-br group-hover:from-[#111018] group-hover:via-[#302D43] group-hover:to-[#464C6D]
-          "
-      >
+      <span className="flex h-full w-full items-center justify-center rounded-full bg-[#111018] transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#111018] group-hover:via-[#302D43] group-hover:to-[#464C6D]">
         <ArrowIcon
-          className="rotate-180 w-full h-auto [&>path]:stroke-[#666666] group-hover:[&>path]:stroke-[#C7C9D1] transition-colors duration-300"
+          className="h-auto w-full rotate-180 transition-colors duration-300 [&>path]:stroke-[#666666] group-hover:[&>path]:stroke-[#C7C9D1]"
           aria-hidden
         />
       </span>
@@ -202,22 +194,14 @@ const PrevArrow = (props) => {
 
   return (
     <button
-      className="
-            group absolute -left-12 inset-y-1/2 -translate-y-1/2 flex justify-center items-center w-8 h-8 rounded-2xl transition-all duration-300
-            p-[1px] bg-gradient-to-br from-[#333347]/60 to-[#2B2B3B]/40
-            hover:from-[#272730] hover:via-[#5C638A]/50 hover:to-[#5C638A]
-          "
+      className="group absolute inset-y-1/2 -left-12 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-2xl bg-gradient-to-br from-[#333347]/60 to-[#2B2B3B]/40 p-[1px] transition-all duration-300 hover:from-[#272730] hover:via-[#5C638A]/50 hover:to-[#5C638A]"
       type="button"
       aria-label="Prev testimonial"
       onClick={onClick}
     >
-      <span
-        className="w-full h-full rounded-full bg-[#111018] transition-all duration-300 flex justify-center items-center
-            group-hover:bg-gradient-to-br group-hover:from-[#111018] group-hover:via-[#302D43] group-hover:to-[#464C6D]
-          "
-      >
+      <span className="flex h-full w-full items-center justify-center rounded-full bg-[#111018] transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-[#111018] group-hover:via-[#302D43] group-hover:to-[#464C6D]">
         <ArrowIcon
-          className="w-full h-auto [&>path]:stroke-[#666666] group-hover:[&>path]:stroke-[#C7C9D1] transition-colors duration-300"
+          className="h-auto w-full transition-colors duration-300 [&>path]:stroke-[#666666] group-hover:[&>path]:stroke-[#C7C9D1]"
           aria-hidden
         />
       </span>
@@ -253,35 +237,32 @@ const Reviews = () => {
 
   return (
     <section className="reviews safe-paddings mt-[200px] md:mt-36 sm:mt-20">
-      <div className="container-lg xl:px-0 lg:px-8 lg:w-full lg:max-w-5xl md:max-w-3xl sm:px-5">
+      <div className="container-lg xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
         <Heading
-          className="text-center leading-denser tracking-snug font-medium md:text-[40px] sm:text-[32px] xs:text-[29px]"
+          className="text-center font-medium leading-denser tracking-snug md:text-[40px] sm:text-[32px] xs:text-[29px]"
           size="44"
           tag="h3"
         >
           {TITLE}
         </Heading>
-        <p className="mx-auto max-w-xl text-center text-[17px] leading-snug font-book text-gray-9 mt-3.5 md:text-base">
+        <p className="mx-auto mt-3.5 max-w-xl text-center text-[17px] font-book leading-snug text-gray-9 md:text-base">
           {DESCRIPTION}
         </p>
-        <div className="relative -mx-4 mt-14 xl:mx-12 md:mt-12 md:mx-[42px] sm:mt-10 sm:mx-10 xs:mt-9 xs:-mx-5">
+        <div className="relative -mx-4 mt-14 xl:mx-12 md:mx-[42px] md:mt-12 sm:mx-10 sm:mt-10 xs:-mx-5 xs:mt-9">
           <Slider className="flex w-full" {...settings}>
             {ITEMS.map(({ text, author, linkUrl }, index) => (
               <div key={index} className="relative h-full">
                 <Link
-                  className="
-                          relative z-10 flex flex-col h-full rounded-xl border border-[rgba(51,51,71,0.60)] bg-[#111018] px-6 py-5 transition-colors duration-300 hover:bg-[#15141D]
-                          xs:px-5 xs:pb-4
-                        "
+                  className="relative z-10 flex h-full flex-col rounded-xl border border-[rgba(51,51,71,0.60)] bg-[#111018] px-6 py-5 transition-colors duration-300 hover:bg-[#15141D] xs:px-5 xs:pb-4"
                   to={linkUrl}
                   target="_blank"
                   rel="nofollow noopener"
                 >
                   <p
-                    className="text-base leading-snug [&>span]:text-primary-1 mb-5 line-clamp-5 md:text-[15px] xs:mb-4.5"
+                    className="xs:mb-4.5 mb-5 line-clamp-5 text-base leading-snug md:text-[15px] [&>span]:text-primary-1"
                     dangerouslySetInnerHTML={{ __html: text }}
                   />
-                  <div className="mt-auto pt-5 border-t border-t-[#333347] flex items-center gap-x-3">
+                  <div className="mt-auto flex items-center gap-x-3 border-t border-t-[#333347] pt-5">
                     <img
                       className="h-9 w-9 rounded-full"
                       src={author.avatar}
@@ -291,7 +272,7 @@ const Reviews = () => {
                       loading="lazy"
                     />
                     <div>
-                      <span className="block text-base text-gray-9 leading-none md:text-[15px]">
+                      <span className="block text-base leading-none text-gray-9 md:text-[15px]">
                         {author.name}
                       </span>
                       <span className="mt-[6px] block text-sm leading-none text-gray-8 md:text-sm">
