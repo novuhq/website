@@ -14,7 +14,7 @@ const GetInvolved = ({ title, items, bottomMargin }) => (
   >
     <div className="container-md px-8 sm:w-full sm:px-5">
       <Heading
-        className="text-center font-medium leading-denser tracking-snug lg:text-[32px] md:text-3xl"
+        className="text-pretty text-center font-medium leading-denser tracking-snug lg:text-[32px] md:text-3xl"
         tag="h2"
         size="lg"
         theme="white"
@@ -24,7 +24,13 @@ const GetInvolved = ({ title, items, bottomMargin }) => (
       <ul className="mt-14 grid grid-cols-3 gap-x-16 lg:mt-12 lg:max-w-none lg:gap-x-[52px] lg:px-9 md:mt-10 md:gap-x-7 md:gap-y-8 md:px-0 sm:mt-8 sm:grid-cols-1 sm:gap-7">
         {items.map(({ icon, title, description, linkText, linkUrl }, index) => (
           <li key={index} className="flex flex-col items-center">
-            <img className="w-auto md:size-9 sm:size-8" src={icon} alt="" width={40} height={40} />
+            <img
+              className="size-10 w-auto md:size-9 sm:size-8"
+              src={icon}
+              alt=""
+              width={40}
+              height={40}
+            />
             <h3 className="mt-5 text-center text-2xl font-medium leading-tight tracking-snug lg:text-2xl md:mt-5 md:text-xl sm:mt-4">
               {title}
             </h3>
