@@ -6,7 +6,15 @@ import Heading from 'components/shared/heading';
 
 import transcriptBorderGlow from './images/transcript-border-glow.svg';
 
-const SectionWithVideo = ({ video, title, description, videoPosition, transcription }) => {
+const SectionWithVideo = ({
+  video,
+  title,
+  description,
+  videoPosition,
+  transcription,
+  id,
+  className,
+}) => {
   const getVideoComponent = () => {
     switch (video.type) {
       case 'youtube':
@@ -44,7 +52,13 @@ const SectionWithVideo = ({ video, title, description, videoPosition, transcript
   };
 
   return (
-    <section className="section-with-video safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+    <section
+      className={clsx(
+        'section-with-video safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20',
+        className
+      )}
+      id={id}
+    >
       <div
         className={clsx(
           'container-lg flex items-center justify-center gap-x-16 lg:gap-x-12 md:flex-col',
@@ -119,11 +133,15 @@ SectionWithVideo.propTypes = {
   description: PropTypes.string.isRequired,
   videoPosition: PropTypes.oneOf(['left', 'right', 'fullWidth']),
   transcription: PropTypes.arrayOf(PropTypes.string),
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 
 SectionWithVideo.defaultProps = {
   videoPosition: 'right',
   transcription: null,
+  id: null,
+  className: null,
 };
 
 export default SectionWithVideo;
