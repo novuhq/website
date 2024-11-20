@@ -25,7 +25,12 @@ const Hero = () => (
       <p className="mt-3.5 max-w-[720px] text-center text-lg font-book leading-snug text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
         In the meantime, have you played with our new Inbox playground?
       </p>
-      <Button className="mt-10 sm:mt-7" size="sm" theme="white-filled" to="https://inbox.novu.co?utm_source=thank-you-early-access_page">
+      <Button
+        className="mt-10 sm:mt-7"
+        size="sm"
+        theme="white-filled"
+        to="https://inbox.novu.co?utm_source=thank-you-early-access_page"
+      >
         Experience It Now
       </Button>
     </div>

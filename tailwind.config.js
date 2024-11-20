@@ -11,6 +11,7 @@ module.exports = {
     fontFamily: {
       sans: ['Brother-1816', ...defaultTheme.fontFamily.sans],
       mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
+      inter: ['Inter', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       xs: ['12px'],

@@ -28,7 +28,7 @@ const messageVariants = {
 };
 
 const THEMES = {
-  dark: {
+  novuDefault: {
     avatar: 'text-[#5C71BF] bg-[#35416C]',
     dot: 'bg-[#4B73EC]',
     border: 'border-white/5',
@@ -94,7 +94,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </p>
             <span
               className={clsx(
-                'col-start-3 row-start-1 text-xs leading-none opacity-60 translate-x-1 translate-y-1 group-hover:opacity-0',
+                'col-start-3 row-start-1 text-xs leading-none text-[#6F727B] translate-x-0.5 translate-y-1 group-hover:opacity-0',
                 isActiveMessage === index && '!opacity-0'
               )}
             >
@@ -180,7 +180,12 @@ Message.propTypes = {
     text: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     isRead: PropTypes.bool.isRequired,
-    buttons: PropTypes.arrayOf(PropTypes.string),
+    authors: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        avatar: PropTypes.string.isRequired,
+      })
+    ),
   }).isRequired,
   readMessage: PropTypes.func.isRequired,
   deleteMessage: PropTypes.func.isRequired,
