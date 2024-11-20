@@ -18,7 +18,7 @@ const EventsWithImages = ({
 }) => (
   <section className="events-with-images safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container-lg relative z-10 flex flex-col items-center">
-      <header className="max-w-[788px] text-center">
+      <header className="max-w-[788px] text-center md:max-w-lg">
         <Heading
           className="font-medium leading-denser tracking-snug lg:text-5xl lg:leading-tight md:text-[32px] sm:text-3xl"
           tag="h2"

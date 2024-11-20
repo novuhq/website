@@ -10,6 +10,7 @@ const PLANS = {
     platform: {
       events: '30k',
       additionalEvents: '-',
+      maxRPS: '60/20/30 per second',
       channels: true,
       subscribers: 'Unlimited',
       guiWorkflow: 'Nov 2024',
@@ -59,6 +60,7 @@ const PLANS = {
     platform: {
       events: '250k',
       additionalEvents: '$1.20 per 1,000',
+      maxRPS: '600/200/300 per second',
       channels: true,
       subscribers: true,
       guiWorkflow: 'Nov 2024',
@@ -108,6 +110,7 @@ const PLANS = {
     platform: {
       events: '5 million',
       additionalEvents: 'Custom',
+      maxRPS: '6k/2k/3k per second',
       channels: true,
       subscribers: true,
       guiWorkflow: 'Nov 2024',
@@ -160,6 +163,7 @@ const LABELS = [
     items: {
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
+      maxRPS: 'Max API Requests (RPS) (Trigger events/Configuration/Global)',
       channels: 'Channels supported: email, in-app, SMS, chat, push, and custom',
       subscribers: 'Notification Subscribers',
       guiWorkflow: 'GUI-based workflows',

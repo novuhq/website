@@ -10,7 +10,7 @@ const CTA = ({ title, leftCard, rightCard, theme }) => (
   <section className="cta safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container relative z-10 max-w-[960px]">
       <Heading
-        className="mx-auto max-w-xl text-center font-medium leading-denser tracking-snug lg:text-5xl lg:leading-tight md:text-[32px] sm:text-3xl"
+        className="mx-auto max-w-xl text-center font-medium leading-denser tracking-snug lg:text-5xl lg:leading-tight md:max-w-lg md:text-[32px] sm:text-3xl"
         tag="h2"
         size="44"
         theme="white"

@@ -16,7 +16,8 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
       >
         <div
           className={clsx('sm:order-first sm:mb-6 sm:pl-0 sm:text-center', {
-            'mb-12 max-w-[704px] text-center lg:mb-10 md:mb-8 sm:mb-6': theme === 'imageFullWidth',
+            'mb-12 max-w-[704px] text-center lg:mb-10 md:mb-8 md:max-w-lg sm:mb-6':
+              theme === 'imageFullWidth',
             'order-last pl-24 lg:pl-16 md:pl-8': theme === 'imageLeft',
             'order-first pr-24 lg:pr-16 md:pr-8': theme === 'imageRight',
           })}

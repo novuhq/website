@@ -97,9 +97,9 @@ const HomePage = () => (
       }}
     />
     <Integration />
-    <a id="codefirst">
+    <div id="codefirst">
       <Code />
-    </a>
+    </div>
     <CtaWithForm
       title="Send your first notification in minutes"
       /* description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo." */

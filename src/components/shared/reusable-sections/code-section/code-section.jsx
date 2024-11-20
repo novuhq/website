@@ -13,7 +13,7 @@ SyntaxHighlighter.registerLanguage('javascript', javascript);
 
 const CodeSection = ({ title, description, button, code, codePosition }) => (
   <section className="code-section safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20">
-    <div className="container-lg flex items-center gap-x-24 lg:gap-x-16 md:flex-col">
+    <div className="container-lg flex items-center gap-x-16 md:flex-col">
       <div className="relative max-w-[672px] rounded-xl bg-code-block-border p-px lg:max-w-[532px] md:mt-12 md:w-full md:max-w-[672px] sm:max-w-[520px]">
         <div className="relative z-10 h-full w-full overflow-hidden rounded-xl bg-code-block-bg p-[22px] sm:p-4">
           <SyntaxHighlighter
@@ -82,7 +82,10 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
         />
       </div>
       <div
-        className={clsx('md:order-first md:text-center', codePosition === 'right' && 'order-first')}
+        className={clsx(
+          'md:order-first md:max-w-lg md:text-center',
+          codePosition === 'right' && 'order-first'
+        )}
       >
         <Heading
           className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
@@ -91,14 +94,17 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
         >
           {title}
         </Heading>
-        <p className="text-grey-9 mt-3 text-lg leading-snug md:text-sm">{description}</p>
+        <p className="mt-3 text-pretty text-lg tracking-snug text-gray-8 md:text-sm">
+          {description}
+        </p>
         {button && (
           <Button
-            className="mt-7 h-14 px-6 text-sm"
+            className="mt-8"
+            theme="gray-outline"
+            size="sm"
             to={button.link}
             rel={button.rel}
             target={button.target}
-            theme="gray-outline"
           >
             {button.label}
           </Button>

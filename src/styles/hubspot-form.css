@@ -1,28 +1,28 @@
 .hubspot-form-wrapper.with-blur {
-  @apply relative before:absolute before:-inset-px before:bg-[linear-gradient(180deg,rgba(51,51,71,0.6),rgba(43,43,59,0.4))] before:rounded-[20px];
+  @apply relative before:absolute before:-inset-px before:rounded-[10px] before:bg-[linear-gradient(215deg,rgba(51,51,71,.9)_20%,rgba(43,43,59,.5)75%)];
 
   .hubspot-form {
-    @apply relative z-10 bg-[linear-gradient(180deg,rgba(20,20,31,1),rgba(20,20,31,1))];
+    @apply relative z-10 bg-[#14141F];
     .hs-form-field {
       input {
         &[type='text'],
         &[type='email'],
         &[type='number'],
         &[type='tel'] {
-          @apply bg-[rgba(51,51,71,0.4)] border-[rgba(51,51,71,0.4)] !important;
+          @apply border-[#262534] bg-[#1D1C28] !important;
         }
       }
 
       textarea,
       select {
-        @apply bg-[rgba(51,51,71,0.4)] border-[rgba(51,51,71,0.4)] !important;
+        @apply border-[#262534] bg-[#1D1C28] !important;
       }
     }
   }
 }
 
 .hubspot-form {
-  @apply px-9 py-10 md:p-8 bg-hs-form-gradient rounded-[20px];
+  @apply rounded-[10px] p-9 md:p-8;
   .actions {
     @apply flex items-center space-x-7 sm:flex-col sm:space-x-0 sm:space-y-5;
   }
@@ -45,11 +45,11 @@
   }
 
   .hs-form {
-    @apply space-y-7 md:space-y-5;
+    @apply flex flex-wrap items-center space-y-6 md:space-y-5;
 
     fieldset {
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-      @apply max-w-full;
+      @apply w-full max-w-full;
 
       &.form-columns-2 {
         @apply flex space-x-6;
@@ -76,6 +76,14 @@
           }
         }
       }
+
+      &:has(.legal-consent-container) {
+        @apply w-64 lg:w-56 md:w-64 xs:w-full;
+      }
+    }
+
+    .hs-submit {
+      @apply ml-auto xs:w-full;
     }
 
     .hs-error-msgs {
@@ -98,7 +106,7 @@
 
     .hs-form-field {
       label {
-        @apply block text-base font-normal leading-snug text-gray-9;
+        @apply block text-sm font-normal leading-snug text-gray-9;
       }
 
       input {
@@ -112,13 +120,13 @@
         &[type='email'],
         &[type='number'],
         &[type='tel'] {
-          @apply mt-2 h-12 w-full bg-gray-2 px-3 text-base leading-none !important;
+          @apply mt-1.5 h-11 w-full bg-gray-2 px-3 text-base leading-none !important;
           @apply appearance-none rounded border border-gray-3 outline-none transition-colors duration-200 hover:border-gray-4 focus:border-primary-1;
         }
       }
 
       select {
-        @apply mt-2.5 h-12 w-full appearance-none bg-gray-2 bg-no-repeat px-3 text-base !important;
+        @apply mt-2.5 h-11 w-full appearance-none bg-gray-2 bg-no-repeat px-3 text-base !important;
         @apply rounded border border-gray-3 outline-none transition-colors duration-200 hover:border-gray-4 focus:border-primary-1;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='9' fill='none' viewBox='0 0 16 9'%3E%3Cpath stroke='white' d='M15 1 8 8 1 1'/%3E%3C/svg%3E%0A");
         background-position-x: calc(100% - 16px);
@@ -162,7 +170,7 @@
     }
 
     .hs-button {
-      @apply inline-flex h-12 items-center justify-center whitespace-nowrap rounded bg-transparent bg-pink-yellow-gradient px-10 text-center text-lg font-medium leading-none text-black transition-[color,background] duration-200 hover:cursor-pointer hover:bg-white hover:bg-none disabled:pointer-events-none disabled:bg-gray-3 disabled:text-white md:h-[54px] sm:w-full;
+      @apply inline-flex h-12 min-w-[194px] items-center justify-center whitespace-nowrap rounded-md bg-transparent bg-pink-yellow-gradient px-10 text-center text-sm font-medium uppercase leading-none text-black transition-[color,background] duration-200 hover:cursor-pointer hover:bg-white hover:bg-none disabled:pointer-events-none disabled:bg-gray-3 disabled:text-white lg:min-w-0 md:h-[54px] md:min-w-[194px] sm:w-full;
     }
 
     .hs_what_are_you_interested_in_ {
@@ -296,10 +304,10 @@
 }
 
 .legal-consent-container {
-  @apply space-y-5 text-sm font-light leading-snug;
+  @apply space-y-5 text-sm font-book leading-snug tracking-snug text-gray-6;
 
   a {
-    @apply font-semibold text-primary-1 transition-colors duration-200 hover:underline;
+    @apply text-primary-1 transition-colors duration-200 hover:underline;
 
     & > span {
       @apply no-underline !important;
@@ -320,7 +328,7 @@
 .section-with-form {
   .hs-form {
     .hs-button {
-      @apply bg-none bg-white text-black hover:bg-[rgba(255,255,255,0.8)];
+      @apply bg-white bg-none text-black hover:bg-[rgba(255,255,255,0.8)];
     }
   }
 }

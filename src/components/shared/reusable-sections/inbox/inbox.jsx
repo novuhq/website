@@ -97,7 +97,7 @@ const Inbox = ({ title, description, button }) => {
               </button>
             </div>
           </div>
-          <div className="relative z-10 mb-[18px] pl-32 pr-3 xl:pl-20 xl:pr-0 md:pl-18 sm:mb-6 sm:pl-0 sm:text-center">
+          <div className="relative z-10 mb-[18px] pl-24 pr-3 xl:pl-20 xl:pr-0 md:pl-18 sm:mb-6 sm:max-w-lg sm:pl-0 sm:text-center">
             <Heading
               className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
               tag="h2"
@@ -105,13 +105,14 @@ const Inbox = ({ title, description, button }) => {
             >
               {title}
             </Heading>
-            <p className="mt-3 text-lg font-book leading-snug md:text-sm sm:max-w-[600px]">
+            <p className="mt-4 text-pretty text-lg font-book tracking-snug text-gray-8 md:text-sm">
               {description}
             </p>
             {button && (
               <Button
-                className="mt-7 h-12 min-w-[142px] px-6 text-sm md:mt-5"
+                className="mt-8"
                 theme="gray-outline"
+                size="sm"
                 to={button.link}
                 rel={button.rel}
                 target={button.target}

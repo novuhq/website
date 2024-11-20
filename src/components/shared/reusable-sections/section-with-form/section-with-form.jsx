@@ -33,7 +33,7 @@ const SectionWithForm = ({
   }, [hubspotTagClass, setIsLoading]);
 
   return (
-    <section className="section-with-form safe-paddings mt-28 lg:mt-20 md:mt-16 sm:mt-12">
+    <section className="section-with-form safe-paddings py-40 lg:py-36 md:py-[104px] sm:py-14">
       <div className="container-lg relative grid grid-cols-12 gap-x-8 xl:px-0 lg:px-10 md:flex md:flex-col md:px-7 sm:px-4">
         <div
           className={clsx(
@@ -51,22 +51,24 @@ const SectionWithForm = ({
           >
             {title}
           </Heading>
-          <p className="mt-3 text-lg leading-snug md:text-sm">{description}</p>
+          <p className="mt-4 text-lg font-book leading-normal tracking-snug text-gray-8 xs:text-sm">
+            {description}
+          </p>
           {features.length > 0 && (
-            <ul className="mt-8 flex flex-col gap-y-4 pl-6 md:gap-y-2.5 md:pl-8">
+            <ul className="mt-10 flex flex-col gap-y-7 pl-6 md:gap-y-5 md:pl-8">
               {features.map(({ title, description }, idx) => (
                 <li
                   className="relative before:absolute before:-left-4 before:top-3 before:h-2 before:w-2 before:-translate-x-full before:rounded-full before:bg-primary-1"
                   key={idx}
                 >
                   <Heading
-                    className="text-2xl leading-snug md:text-xl"
+                    className="text-2xl font-medium leading-tight tracking-snug md:text-xl"
                     size="xs"
                     tag={headingTag === 'h1' ? 'h2' : 'h3'}
                   >
                     {title}
                   </Heading>
-                  <p className="mt-1 text-base font-light leading-snug text-gray-8">
+                  <p className="mt-2 text-base font-light leading-snug tracking-snug text-gray-8">
                     {description}
                   </p>
                 </li>
@@ -77,8 +79,8 @@ const SectionWithForm = ({
         <div
           className={clsx(
             formPosition === 'left'
-              ? 'order-first col-start-1 col-end-7'
-              : 'col-start-7 col-end-13',
+              ? 'order-first col-start-1 col-end-7 mr-4 lg:mr-0'
+              : 'col-start-7 col-end-13 ml-4 lg:ml-0',
             'relative md:mt-20 sm:mt-16'
           )}
         >
@@ -93,11 +95,18 @@ const SectionWithForm = ({
             })}
           >
             {isLoading && (
-              <div className="flex w-full flex-col items-start justify-center gap-y-8 overflow-hidden md:gap-y-6">
-                <span className="skeleton h-12" />
-                <span className="skeleton h-12" />
-                <span className="skeleton h-12" />
-                <span className="skeleton h-12" />
+              <div
+                className={clsx(
+                  'relative w-full rounded-[10px] p-9 md:p-8',
+                  'before:absolute before:-inset-px before:rounded-[10px] before:bg-[linear-gradient(215deg,rgba(51,51,71,.9)_20%,rgba(43,43,59,.5)75%)]'
+                )}
+              >
+                <div className="flex flex-col gap-y-6 overflow-hidden md:gap-y-5">
+                  <span className="skeleton h-[70px]" />
+                  <span className="skeleton h-[70px]" />
+                  <span className="skeleton h-[70px]" />
+                  <span className="skeleton h-[70px]" />
+                </div>
               </div>
             )}
             <div
