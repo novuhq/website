@@ -49,7 +49,7 @@ const FEATURE_CARDS_2 = [
 ];
 
 const SECTION_WITH_FORM_LEFT = {
-  title: 'Getting started with Novu',
+  title: 'SectionWithForm',
   description:
     "Do any of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
   features: [
@@ -75,7 +75,7 @@ const SECTION_WITH_FORM_LEFT = {
 };
 
 const SECTION_WITH_FORM_RIGHT = {
-  title: 'Getting started with Novu',
+  title: 'SectionWithForm',
   description:
     "Do any of these questions describe you? If so, please fill the form out, and we'll respond with next steps.",
   features: [
@@ -148,22 +148,19 @@ const SECTION_WITH_CARDS = [
 const ReusableComponents2 = () => (
   <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B] reusable-components">
     <FeatureCards
-      title="Loved by engineers from around the world"
+      title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
       cards={FEATURE_CARDS}
     />
     <FeatureCards
-      title="Loved by engineers from around the world"
+      title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
       cards={FEATURE_CARDS_2}
       columns={2}
     />
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} withBlur />
     <SectionWithForm {...SECTION_WITH_FORM_LEFT} withBlur />
-    <SectionWithCards
-      title="Seamlessly integrate with existing services and legacy systems to facilitate adoption"
-      cards={SECTION_WITH_CARDS}
-    />
+    <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} />
   </Layout>
 );
 
