@@ -15,7 +15,7 @@ const Hero = ({ className, title, description, author, date, image, category, bl
         <CategoryLabel url={blogPageURL + category.slug} theme={category.color} size="sm">
           {category.name}
         </CategoryLabel>
-        <span className="text-sm leading-none uppercase text-gray-8 relative before:absolute before:left-[-11px] before:top-1/2 before:-translate-y-1/2 before:h-[3px] before:w-[3px] before:rounded-full before:bg-[#2E3038] md:hidden">
+        <span className="relative text-sm uppercase leading-none text-gray-8 before:absolute before:left-[-11px] before:top-1/2 before:h-[3px] before:w-[3px] before:-translate-y-1/2 before:rounded-full before:bg-[#2E3038] md:hidden">
           {formattedDate}
         </span>
       </div>

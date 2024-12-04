@@ -110,7 +110,7 @@ export const Share = ({ type, imageUrl, url }) => {
                 <LazyMotion features={domAnimation}>
                   <AnimatePresence>
                     <m.span
-                      className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black py-1 px-1.5 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
+                      className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded bg-black px-1.5 py-1 text-xs font-normal capitalize text-white opacity-50 md:-ml-2"
                       initial="hidden"
                       animate="visible"
                       exit="hidden"
@@ -140,7 +140,7 @@ export const Share = ({ type, imageUrl, url }) => {
               <span className={clsx({ 'opacity-0': isCopied })}>Copy Code</span>
               <span
                 className={clsx(
-                  'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0',
+                  'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0',
                   { 'opacity-100': isCopied }
                 )}
               >

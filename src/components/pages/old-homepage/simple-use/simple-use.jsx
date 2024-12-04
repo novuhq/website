@@ -97,7 +97,7 @@ const CARDS = [
 ];
 
 const SimpleUse = () => (
-  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:pt-32 lg:pb-24 md:pt-20 md:pb-18 sm:pt-18 sm:pb-12">
+  <section className="simple-use safe-paddings bg-gray-2 pb-30 pt-40 lg:pb-24 lg:pt-32 md:pb-18 md:pt-20 sm:pb-12 sm:pt-18">
     <div className="container flex flex-col items-center">
       <Heading
         size="md"

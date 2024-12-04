@@ -18,7 +18,7 @@ const MenuItem = ({ text, to, target, menuItems, className, icon }) => {
     <li className="px-7 sm:px-4">
       <Link
         className={clsx(
-          'flex justify-between items-center w-full text-xl text-left leading-none sm:text-[15px]',
+          'flex w-full items-center justify-between text-left text-xl leading-none sm:text-[15px]',
           className
         )}
         tag={to ? null : 'button'}
@@ -31,7 +31,7 @@ const MenuItem = ({ text, to, target, menuItems, className, icon }) => {
           {icon && <img src={icon} width={24} height={24} alt="" loading="lazy" />}
           {text}
         </span>
-        {menuItems && <ChevronIcon className="w-3.5 h-3.5 -rotate-90" />}
+        {menuItems && <ChevronIcon className="h-3.5 w-3.5 -rotate-90" />}
       </Link>
       {menuItems && (
         <SubMenu isOpen={isOpen} setIsOpen={setIsOpen}>

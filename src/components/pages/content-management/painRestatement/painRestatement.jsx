@@ -46,7 +46,7 @@ const PainRestatement = () => (
         {SUBTITLE}
       </p>
 
-      <div className="mt-10 pt-10 grid grid-cols-3 gap-x-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
+      <div className="mt-10 grid grid-cols-3 gap-x-10 pt-10 lg:gap-x-7 md:block md:gap-x-0 md:space-y-7 sm:mt-9 sm:space-y-5">
         {CARDS.map(({ title, description, image }, index) => (
           <div
             className="rounded-[20px] bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)] lg:rounded-2xl"
@@ -55,7 +55,7 @@ const PainRestatement = () => (
             <div className="p-8 lg:p-5">
               {image}
               <Heading
-                className="leading-snug mt-4 lg:text-2xl md:text-3xl sm:text-2xl"
+                className="mt-4 leading-snug lg:text-2xl md:text-3xl sm:text-2xl"
                 tag="h3"
                 size="sm"
                 theme="white"

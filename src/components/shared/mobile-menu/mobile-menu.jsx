@@ -60,7 +60,7 @@ const MobileMenu = ({ isOpen }) => {
         {isOpen && (
           <m.div
             className={clsx(
-              'hidden safe-paddings fixed inset-0 justify-between w-full flex-col overflow-x-hidden overflow-y-scroll md:flex pointer-events-none',
+              'safe-paddings pointer-events-none fixed inset-0 hidden w-full flex-col justify-between overflow-x-hidden overflow-y-scroll md:flex',
               paddingTopClassName
             )}
             initial="hidden"
@@ -68,8 +68,8 @@ const MobileMenu = ({ isOpen }) => {
             exit="hidden"
             variants={variants}
           >
-            <nav className="flex h-full w-full overflow-y-scroll overflow-x-hidden pointer-events-auto bg-black">
-              <ul className="flex h-full w-full flex-col relative bg-black border-t border-t-[#1F1F1F]">
+            <nav className="pointer-events-auto flex h-full w-full overflow-x-hidden overflow-y-scroll bg-black">
+              <ul className="relative flex h-full w-full flex-col border-t border-t-[#1F1F1F] bg-black">
                 {MENUS.header.map(({ to, text, target, menuItems }, index) => (
                   <MenuItem
                     className="h-[60px] border-b border-b-gray-2"
@@ -83,9 +83,9 @@ const MobileMenu = ({ isOpen }) => {
               </ul>
             </nav>
 
-            <div className="bg-black pointer-events-auto">
+            <div className="pointer-events-auto bg-black">
               <div className="container">
-                <div className="flex w-full justify-between space-x-4 py-7 border-t border-t-gray-2">
+                <div className="flex w-full justify-between space-x-4 border-t border-t-gray-2 py-7">
                   <Button
                     className="w-full sm:text-xs"
                     to={GITHUB.repoUrl}

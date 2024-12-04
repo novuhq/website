@@ -15,16 +15,16 @@ const LINK = {
 
 const Flexibility = () => (
   <section className="flexibility mt-[245px] lg:mt-[207px] md:mt-[180px] sm:mt-[100px]">
-    <div className="container-2xl relative flex justify-end xl:px-10 lg:px-8 lg:max-w-none sm:px-5 sm:flex-col">
-      <div className="relative z-10 max-w-96 min-h-[558px] lg:max-w-72 lg:min-h-[425px] md:max-w-64 md:min-h-[305px] sm:max-w-none sm:min-h-fit">
-        <h2 className="text-[44px] leading-denser tracking-snug font-medium max-w-4xl lg:text-[34px] md:text-[30px]">
+    <div className="container-2xl relative flex justify-end xl:px-10 lg:max-w-none lg:px-8 sm:flex-col sm:px-5">
+      <div className="relative z-10 min-h-[558px] max-w-96 lg:min-h-[425px] lg:max-w-72 md:min-h-[305px] md:max-w-64 sm:min-h-fit sm:max-w-none">
+        <h2 className="max-w-4xl text-[44px] font-medium leading-denser tracking-snug lg:text-[34px] md:text-[30px]">
           {TITLE}
         </h2>
-        <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 lg:mt-2.5 md:text-base md:mt-3">
+        <p className="mt-3 text-[17px] font-book leading-snug text-gray-9 lg:mt-2.5 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
         <Button
-          className="mt-[26px] text-sm h-14 min-w-[142px] lg:h-12 lg:mt-6 md:mt-7"
+          className="mt-[26px] h-14 min-w-[142px] text-sm lg:mt-6 lg:h-12 md:mt-7"
           theme="gray-outline"
           to={LINK.url}
         >
@@ -32,7 +32,7 @@ const Flexibility = () => (
         </Button>
       </div>
       <StaticImage
-        className="!absolute bottom-0 right-[30px] w-[1555px] pointer-events-none z-0 lg:w-[1181px] lg:right-[43px] md:w-[830px] md:right-[87px] sm:!relative sm:w-[183.75%] sm:right-[32.5%] sm:mt-[-36.824%]"
+        className="pointer-events-none !absolute bottom-0 right-[30px] z-0 w-[1555px] lg:right-[43px] lg:w-[1181px] md:right-[87px] md:w-[830px] sm:!relative sm:right-[32.5%] sm:mt-[-36.824%] sm:w-[183.75%]"
         src="./images/background.png"
         width={1555}
         height={1048}

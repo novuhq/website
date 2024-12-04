@@ -182,37 +182,37 @@ module.exports = {
     //     name: `Podcast`,
     //   },
     // },
-    {
-      resolve: `gatsby-source-github-api`,
-      options: {
-        token: process.env.GITHUB_TOKEN,
-        graphQLQuery: `
-        query {
-          repository(owner: "novuhq", name: "novu") {
-            issues(first: 100, filterBy: {labels: ["polishing"]}) {
-              nodes {
-                title
-                number
-                url
-                state
-                assignees(first: 1) {
-                  nodes {
-                    name
-                    login
-                    avatarUrl
-                    url
-                  }
-                }
-                author {
-                  url
-                  avatarUrl
-                  login 
-                }
-              }
-            }
-          }
-        }`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-github-api`,
+    //   options: {
+    //     token: process.env.GITHUB_TOKEN,
+    //     graphQLQuery: `
+    //     query {
+    //       repository(owner: "novuhq", name: "novu") {
+    //         issues(first: 100, filterBy: {labels: ["polishing"]}) {
+    //           nodes {
+    //             title
+    //             number
+    //             url
+    //             state
+    //             assignees(first: 1) {
+    //               nodes {
+    //                 name
+    //                 login
+    //                 avatarUrl
+    //                 url
+    //               }
+    //             }
+    //             author {
+    //               url
+    //               avatarUrl
+    //               login
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }`,
+    //   },
+    // },
   ],
 };

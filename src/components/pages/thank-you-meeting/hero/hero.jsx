@@ -23,7 +23,7 @@ const Hero = () => (
       </p>
     </div>
     <StaticImage
-      className="!absolute w-[541px] left-1/2 -translate-x-1/2 -top-20 pointer-events-none sm:w-[448px] sm:-top-28"
+      className="pointer-events-none !absolute -top-20 left-1/2 w-[541px] -translate-x-1/2 sm:-top-28 sm:w-[448px]"
       src="./images/illustration.png"
       width={541}
       height={541}

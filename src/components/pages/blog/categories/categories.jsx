@@ -52,14 +52,14 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
   return (
     <div className="categories safe-paddings bg-gray-2 pt-10">
       <div className="container-lg">
-        <ul className="scrollbar-hidden relative flex space-x-10 overflow-auto after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-gray-4 md:hidden">
+        <ul className="scrollbar-hidden relative flex space-x-10 overflow-auto after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gray-4 md:hidden">
           {allItems.map(({ id, name, slug }, index) => (
             <li key={index}>
               <Link
                 className={clsx(
                   'relative inline-block whitespace-nowrap rounded-full py-4 align-top text-xs font-medium uppercase leading-none',
                   activeCategoryId === id
-                    ? 'text-primary-1 after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-primary-1'
+                    ? 'text-primary-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-primary-1'
                     : 'transition-colors duration-200 hover:text-primary-1'
                 )}
                 to={slug ? `${blogPageURL}${slug}/` : blogPageURL}
@@ -71,7 +71,7 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
           ))}
         </ul>
 
-        <div className="relative hidden after:absolute after:left-0 after:bottom-0 after:h-px after:w-full after:bg-gray-4 md:block">
+        <div className="relative hidden after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-gray-4 md:block">
           <select
             className="ml-auto w-full appearance-none rounded-full bg-gray-2 py-4 pr-8 text-base font-medium uppercase outline-none"
             value={selectValue}
@@ -83,7 +83,7 @@ const Categories = ({ items, activeCategoryId, blogPageURL }) => {
               </option>
             ))}
           </select>
-          <Arrow className="absolute top-1/2 right-3 h-auto w-2.5 -translate-y-1/2 -rotate-90 text-white" />
+          <Arrow className="absolute right-3 top-1/2 h-auto w-2.5 -translate-y-1/2 -rotate-90 text-white" />
         </div>
       </div>
     </div>

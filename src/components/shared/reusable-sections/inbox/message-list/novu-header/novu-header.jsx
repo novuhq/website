@@ -6,13 +6,13 @@ import MoreIcon from './images/more.inline.svg';
 import SettingsIcon from './images/settings.inline.svg';
 
 const NovuHeader = () => (
-  <div className="relative z-20 flex items-center justify-between h-14 px-[22px] shrink-0">
+  <div className="relative z-20 flex h-14 shrink-0 items-center justify-between px-[22px]">
     <div className="flex items-center">
-      <InboxText className="w-14 h-7" />
-      <ArrowIcon className="w-2.5 mt-1.5 ml-2 mr-auto" />
+      <InboxText className="h-7 w-14" />
+      <ArrowIcon className="ml-2 mr-auto mt-1.5 w-2.5" />
     </div>
     <div className="flex items-center">
-      <MoreIcon className="size-5 mr-4" />
+      <MoreIcon className="mr-4 size-5" />
       <SettingsIcon className="size-5" />
     </div>
   </div>

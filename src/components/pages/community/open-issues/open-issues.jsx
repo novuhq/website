@@ -89,7 +89,7 @@ const Filter = ({
           );
           return (
             <li key={`${name}-${index}`}>
-              <label className="group flex items-center gap-x-2 cursor-pointer">
+              <label className="group flex cursor-pointer items-center gap-x-2">
                 <input
                   className="hidden"
                   type="checkbox"
@@ -97,10 +97,10 @@ const Filter = ({
                 />
                 <span
                   className={clsx(
-                    'w-4 h-4 border shrink-0 flex items-center justify-center rounded-sm transition-colors duration-200',
+                    'flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border transition-colors duration-200',
                     isFilterSelected
-                      ? 'bg-primary-1 border-primary-1'
-                      : 'border-[#FFEBFF] border-opacity-15 bg-[#FFEBFF] bg-opacity-5 group-hover:bg-opacity-10 group-hover:border-opacity-25'
+                      ? 'border-primary-1 bg-primary-1'
+                      : 'border-[#FFEBFF] border-opacity-15 bg-[#FFEBFF] bg-opacity-5 group-hover:border-opacity-25 group-hover:bg-opacity-10'
                   )}
                 >
                   {isFilterSelected && (
@@ -113,7 +113,7 @@ const Filter = ({
                     />
                   )}
                 </span>
-                <span className="text-[#FFF9FF] opacity-65 text-sm leading-none transition-opacity duration-200 group-hover:opacity-90">
+                <span className="text-sm leading-none text-[#FFF9FF] opacity-65 transition-opacity duration-200 group-hover:opacity-90">
                   {name}
                 </span>
               </label>
@@ -143,7 +143,7 @@ const Label = ({ theme }) => {
   return (
     <span
       className={clsx(
-        'inline-block px-1.5 py-[3px] bg-opacity-10 rounded leading-none tracking-[0.01em] text-xs ml-1.5',
+        'ml-1.5 inline-block rounded bg-opacity-10 px-1.5 py-[3px] text-xs leading-none tracking-[0.01em]',
         className
       )}
     >
@@ -193,19 +193,19 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
   }, [selectedFilters, issues]);
 
   return (
-    <section className="open-issues safe-paddings relative z-10 -mt-5 xl:overflow-x-hidden xl:-mt-11 xl:pt-16 md:-mt-8 md:pt-40 sm:-mt-6 sm:pt-[114px]">
-      <div className="container grid grid-cols-12 grid-gap-x relative z-10">
+    <section className="open-issues safe-paddings relative z-10 -mt-5 xl:-mt-11 xl:overflow-x-hidden xl:pt-16 md:-mt-8 md:pt-40 sm:-mt-6 sm:pt-[114px]">
+      <div className="container grid-gap-x relative z-10 grid grid-cols-12">
         <header className="relative z-10 col-span-8 col-start-3 flex justify-between pl-11 pr-[58px] xl:col-span-10 xl:col-start-2 lg:col-span-full lg:px-[53px] md:px-6 sm:px-0">
-          <div className="pt-[59px] lg:pt-16 md:pt-[72px] sm:pt-0 sm:w-full">
+          <div className="pt-[59px] lg:pt-16 md:pt-[72px] sm:w-full sm:pt-0">
             <Heading
-              className="font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-3xl sm:text-center"
+              className="font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-center sm:text-3xl"
               tag="h2"
               size="xl"
               theme="white"
             >
               {TITLE}
             </Heading>
-            <p className="mt-3 max-w-[546px] text-gray-9 text-lg lg:text-base lg:mt-[23px] lg:max-w-[518px] md:mt-3.5 md:max-w-[325px] md:leading-snug sm:mt-3 sm:max-w-sm sm:mx-auto sm:text-center">
+            <p className="mt-3 max-w-[546px] text-lg text-gray-9 lg:mt-[23px] lg:max-w-[518px] lg:text-base md:mt-3.5 md:max-w-[325px] md:leading-snug sm:mx-auto sm:mt-3 sm:max-w-sm sm:text-center">
               {DESCRIPTION}
             </p>
           </div>
@@ -218,13 +218,13 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
             loading="lazy"
           />
         </header>
-        <div className="col-span-8 col-start-3 relative rounded-xl flex bg-open-issues-table-bg xl:col-span-10 xl:col-start-2 lg:col-span-full sm:mt-8">
-          <div className="grow py-12 pl-12 pr-11 lg:p-11 md:px-6 md:pt-6 md:pb-8 sm:pt-3 sm:px-3.5 sm:pb-[22px]">
-            <div className="flex border-b border-[#FFD5EE] border-opacity-[0.13] pb-4 uppercase text-sm font-medium md:pb-3.5 sm:text-[10px]">
-              <span className="w-[126px] text-[#FFDFEF] bg-gradient-to-r from-[#E0C4D8] via-40% via-[#DFBCD7] to-[#DFBCD7] shrink-0 bg-clip-text text-transparent lg:w-[113px] md:w-[89px] sm:w-[55px]">
+        <div className="relative col-span-8 col-start-3 flex rounded-xl bg-open-issues-table-bg xl:col-span-10 xl:col-start-2 lg:col-span-full sm:mt-8">
+          <div className="grow py-12 pl-12 pr-11 lg:p-11 md:px-6 md:pb-8 md:pt-6 sm:px-3.5 sm:pb-[22px] sm:pt-3">
+            <div className="flex border-b border-[#FFD5EE] border-opacity-[0.13] pb-4 text-sm font-medium uppercase md:pb-3.5 sm:text-[10px]">
+              <span className="w-[126px] shrink-0 bg-gradient-to-r from-[#E0C4D8] via-[#DFBCD7] via-40% to-[#DFBCD7] bg-clip-text text-[#FFDFEF] text-transparent lg:w-[113px] md:w-[89px] sm:w-[55px]">
                 Issue #
               </span>
-              <span className="leading-tight grow bg-gradient-to-r from-[#DAAFC9] to-[#D7A7C3] w-fit bg-clip-text text-transparent">
+              <span className="w-fit grow bg-gradient-to-r from-[#DAAFC9] to-[#D7A7C3] bg-clip-text leading-tight text-transparent">
                 Title
               </span>
             </div>
@@ -232,14 +232,14 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
               {filteredIssues.map(({ title, number, html_url: url, tags }, index) => (
                 <li className="border-b border-[#FFD5EE] border-opacity-[0.13]" key={index}>
                   <Link
-                    className="group py-4 flex text-lg md:text-base sm:text-sm md:py-3.5"
+                    className="group flex py-4 text-lg md:py-3.5 md:text-base sm:text-sm"
                     to={url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <span
                       className={clsx(
-                        'w-[126px] text-[#FFDFEF] shrink-0 lg:w-[113px] md:w-[89px] sm:w-[55px]',
+                        'w-[126px] shrink-0 text-[#FFDFEF] lg:w-[113px] md:w-[89px] sm:w-[55px]',
                         index < 4 && 'opacity-65',
                         index === 4 && 'opacity-60',
                         index > 4 && index < 8 && 'opacity-55',
@@ -249,7 +249,7 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
                     >
                       #{number}
                     </span>
-                    <span className="leading-tight grow text-white transition-colors duration-200 group-hover:text-white/70">
+                    <span className="grow leading-tight text-white transition-colors duration-200 group-hover:text-white/70">
                       {title}
                       {tags.map((tag) => (
                         <Label theme={tag} />
@@ -270,11 +270,11 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
               {BUTTON_TEXT}
             </Button>
           </div>
-          <aside className="p-12 w-[248px] shrink-0 border-l border-[#33282D] border-opacity-80 flex flex-col gap-y-5 lg:w-60 lg:p-11 md:hidden">
+          <aside className="flex w-[248px] shrink-0 flex-col gap-y-5 border-l border-[#33282D] border-opacity-80 p-12 lg:w-60 lg:p-11 md:hidden">
             <form>
               {FILTERS.map(({ label, fieldKey, items }, index) => (
                 <Filter
-                  className="pb-5 after:absolute after:bottom-0 after:inset-x-0 after:h-px after:bg-white/60 after:mix-blend-overlay"
+                  className="pb-5 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/60 after:mix-blend-overlay"
                   setSelectedFilters={setSelectedFilters}
                   selectedFilters={selectedFilters}
                   label={label}
@@ -293,19 +293,19 @@ const OpenIssues = ({ issues, reposWithIssues }) => {
             />
           </aside>
           <div
-            className="absolute left-1 top-4 z-10 -translate-x-1/2 opacity-45 w-[70px] h-60 blur-3xl bg-[radial-gradient(rgba(241,126,222,.9),rgba(241,126,222,.2))] rounded-[100%] pointer-events-none"
+            className="pointer-events-none absolute left-1 top-4 z-10 h-60 w-[70px] -translate-x-1/2 rounded-[100%] bg-[radial-gradient(rgba(241,126,222,.9),rgba(241,126,222,.2))] opacity-45 blur-3xl"
             aria-hidden
           />
           <div
-            className="absolute left-1 top-24 z-10 -translate-x-1/2 w-7 h-20 bg-[radial-gradient(#fff,#fff_20%,rgba(255,255,255,.2))] mix-blend-overlay opacity-35 blur-xl rounded-[100%] pointer-events-none"
+            className="pointer-events-none absolute left-1 top-24 z-10 h-20 w-7 -translate-x-1/2 rounded-[100%] bg-[radial-gradient(#fff,#fff_20%,rgba(255,255,255,.2))] opacity-35 mix-blend-overlay blur-xl"
             aria-hidden
           />
           <div
-            className="border-gradient absolute inset-0 pointer-events-none rounded-[inherit] border-image-open-issues-table-border"
+            className="border-gradient pointer-events-none absolute inset-0 rounded-[inherit] border-image-open-issues-table-border"
             aria-hidden
           />
           <div
-            className="absolute -z-10 -top-36 right-24 w-[200px] h-[260px] bg-[linear-gradient(84.66deg,#F0655C_18%,#00D5FF_70%)] rounded-[100%] blur-3xl scale-[1.2] opacity-25 lg:right-16 md:-right-1.5 sm:-right-24"
+            className="absolute -top-36 right-24 -z-10 h-[260px] w-[200px] scale-[1.2] rounded-[100%] bg-[linear-gradient(84.66deg,#F0655C_18%,#00D5FF_70%)] opacity-25 blur-3xl lg:right-16 md:-right-1.5 sm:-right-24"
             aria-hidden
           />
         </div>

@@ -17,19 +17,19 @@ const SocialShare = ({ className, author, date, url }) => (
   >
     <AuthorWithDate className="hidden md:flex" author={author} date={date} />
     <span className="text-[#EEEFF1] md:hidden">Share article:</span>
-    <div className="flex gap-x-4 mt-2.5 md:mt-0">
+    <div className="mt-2.5 flex gap-x-4 md:mt-0">
       <TwitterShareButton url={url} resetButtonStyle={false}>
-        <div className="rounded-full bg-white w-8 h-8 flex justify-center items-center transition-opacity duration-200 hover:opacity-80 md:w-6 md:h-6">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white transition-opacity duration-200 hover:opacity-80 md:h-6 md:w-6">
           <TwitterIcon className="h-4 w-4 md:h-3 md:w-3" />
         </div>
       </TwitterShareButton>
       <FacebookShareButton url={url} resetButtonStyle={false}>
-        <div className="rounded-full bg-white w-8 h-8 flex justify-center items-center transition-opacity duration-200 hover:opacity-80 md:w-6 md:h-6">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white transition-opacity duration-200 hover:opacity-80 md:h-6 md:w-6">
           <FacebookIcon className="h-4 w-4 md:h-3 md:w-3" />
         </div>
       </FacebookShareButton>
       <LinkedinShareButton url={url} resetButtonStyle={false}>
-        <div className="rounded-full bg-white w-8 h-8 flex justify-center items-center transition-opacity duration-200 hover:opacity-80 md:w-6 md:h-6">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white transition-opacity duration-200 hover:opacity-80 md:h-6 md:w-6">
           <LinkedinIcon className="h-4 w-4 md:h-3 md:w-3" />
         </div>
       </LinkedinShareButton>

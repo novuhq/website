@@ -106,7 +106,7 @@ const Benefits = () => (
           </div>
 
           <div
-            className={clsx('relative md:mt-11 md:w-full md:flex md:justify-center sm:mt-8', {
+            className={clsx('relative md:mt-11 md:flex md:w-full md:justify-center sm:mt-8', {
               'col-start-7 col-end-13 lg:col-start-6': index % 2 === 0,
               'col-start-1 col-end-7 row-start-1 lg:col-end-8': index % 2 === 1,
             })}

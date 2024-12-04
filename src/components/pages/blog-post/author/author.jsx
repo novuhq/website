@@ -5,9 +5,9 @@ import React from 'react';
 const Author = ({ author }) => (
   <div>
     <span className="text-[#EEEFF1]">Author</span>
-    <div className="flex items-center mt-3.5">
+    <div className="mt-3.5 flex items-center">
       <GatsbyImage
-        className="mr-2.5 w-11 h-11"
+        className="mr-2.5 h-11 w-11"
         imgClassName="rounded-full"
         image={getImage(author.postAuthor?.photo?.localFile)}
         alt={author.postAuthor?.photo?.altText || author.title}

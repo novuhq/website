@@ -93,7 +93,7 @@ const Timeline = () => {
           </div>
 
           <div
-            className="relative grid w-fit min-w-[1920px] border-l border-r border-[rgba(255,255,255,0.1)] "
+            className="relative grid w-fit min-w-[1920px] border-l border-r border-[rgba(255,255,255,0.1)]"
             style={{
               gridTemplateColumns: `repeat(${TIMELINE_DATA.length},1fr)`,
             }}

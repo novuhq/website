@@ -148,7 +148,7 @@ const SubscribeForm = ({
   return (
     <form
       className={clsx(
-        'autocomplete relative border border-transparent bg-clip-border rounded-md w-full',
+        'autocomplete relative w-full rounded-md border border-transparent bg-clip-border',
         'before:absolute before:-inset-0.5 before:-z-10 before:rounded-[inherit]',
         'after:absolute after:-inset-px after:-z-20 after:rounded-[inherit] after:blur-sm',
         alignment === 'center' && 'mx-auto',
@@ -183,8 +183,8 @@ const SubscribeForm = ({
               className={clsx(
                 'absolute -bottom-2 w-full max-w-[330px] translate-y-full text-sm text-gray-8',
                 {
-                  'text-center left-1/2 -translate-x-1/2': alignment === 'center',
-                  'left-5 md:text-center md:left-1/2 md:-translate-x-1/2': alignment === 'left',
+                  'left-1/2 -translate-x-1/2 text-center': alignment === 'center',
+                  'left-5 md:left-1/2 md:-translate-x-1/2 md:text-center': alignment === 'left',
                 }
               )}
               initial="initial"

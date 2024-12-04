@@ -40,15 +40,15 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
   const currentTheme = THEMES[theme];
 
   return (
-    <div className="relative z-10 scrollbar-hidden overflow-scroll shrink-0 h-[38px]">
-      <ul className="flex items-center h-9">
+    <div className="scrollbar-hidden relative z-10 h-[38px] shrink-0 overflow-scroll">
+      <ul className="flex h-9 items-center">
         {tabs.map(({ label, count }, index) => (
           <li className="h-full" key={label}>
             <button
               ref={(element) => {
                 tabRefs.current[index] = element;
               }}
-              className="flex justify-center items-center gap-1 min-w-[100px] h-full px-4 font-light text-sm capitalize text-nowrap transition-[font-weight] duration-200 hover:font-normal focus-visible:font-normal"
+              className="flex h-full min-w-[100px] items-center justify-center gap-1 text-nowrap px-4 text-sm font-light capitalize transition-[font-weight] duration-200 hover:font-normal focus-visible:font-normal"
               type="button"
               onClick={() => setActiveTab(label)}
             >
@@ -57,10 +57,10 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
                 <span
                   className={clsx(
                     currentTheme.badge,
-                    'flex p-px font-normal text-xs leading-none rounded-3xl'
+                    'flex rounded-3xl p-px text-xs font-normal leading-none'
                   )}
                 >
-                  <span className={clsx(currentTheme.badgeInner, 'py-px px-[5px] rounded-3xl')}>
+                  <span className={clsx(currentTheme.badgeInner, 'rounded-3xl px-[5px] py-px')}>
                     {count}
                   </span>
                 </span>
@@ -70,17 +70,17 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
         ))}
       </ul>
       <div
-        className={clsx(currentTheme.border, 'absolute inset-x-0 top-0 h-px pointer-events-none')}
+        className={clsx(currentTheme.border, 'pointer-events-none absolute inset-x-0 top-0 h-px')}
       />
       <div
         className={clsx(
           currentTheme.border,
-          'absolute inset-x-0 bottom-0 h-px pointer-events-none'
+          'pointer-events-none absolute inset-x-0 bottom-0 h-px'
         )}
       />
       <LazyMotion features={domAnimation}>
         <m.div
-          className={clsx(currentTheme.borderActive, 'absolute bottom-0 h-px pointer-events-none')}
+          className={clsx(currentTheme.borderActive, 'pointer-events-none absolute bottom-0 h-px')}
           animate={{
             left: activeTabIndicator.left,
             width: activeTabIndicator.width,

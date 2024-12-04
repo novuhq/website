@@ -34,14 +34,14 @@ const Pagination = ({ currentPageIndex, pageCount, blogPageURL, categoryPath }) 
           disabledClassName="text-gray-5 pointer-events-none"
           previousLabel={
             <>
-              <Arrow className="text-primary-2 mt-0.5 w-2.5" />
+              <Arrow className="mt-0.5 w-2.5 text-primary-2" />
               <span className="md:hidden">Previous</span>
             </>
           }
           nextLabel={
             <>
               <span className="md:hidden">Next</span>
-              <Arrow className="text-primary-2 mt-0.5 w-2.5 rotate-180" />
+              <Arrow className="mt-0.5 w-2.5 rotate-180 text-primary-2" />
             </>
           }
           forcePage={currentPageIndex}

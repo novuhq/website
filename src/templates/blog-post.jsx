@@ -107,15 +107,15 @@ const BlogPost = (props) => {
           >
             <ArrowIcon className="h-2" />
           </Link>
-          <Hero className="max-w-[704px] md:max-w-[800px] md:mx-auto" {...hero} />
+          <Hero className="max-w-[704px] md:mx-auto md:max-w-[800px]" {...hero} />
           <div className="flex gap-x-16 md:flex-col">
-            <div className="max-w-[704px] md:max-w-[800px] md:mx-auto sm:max-w-full">
+            <div className="max-w-[704px] md:mx-auto md:max-w-[800px] sm:max-w-full">
               <Content content={contentWithLazyBlocks} />
               <Separator className="mt-14 px-0" backgroundColor="black" />
               <SocialShare className="hidden md:flex" {...socialShare} />
             </div>
-            <aside className="mt-10 md:mt-8 max-w-[256px] w-full md:hidden">
-              <div className="sticky top-10 flex flex-col gap-y-12 overflow-y-auto max-h-[calc(100vh-40px)] scrollbar-hidden">
+            <aside className="mt-10 w-full max-w-[256px] md:mt-8 md:hidden">
+              <div className="scrollbar-hidden sticky top-10 flex max-h-[calc(100vh-40px)] flex-col gap-y-12 overflow-y-auto">
                 {showTableOfContents && <TableOfContents headings={headings} />}
                 <Author author={author} />
                 <SocialShare {...socialShare} />

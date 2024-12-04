@@ -158,12 +158,12 @@ const Avatar = ({ borderClassName, size, login, avatarUrl, contributions, lights
     <>
       <div
         className={clsx(
-          'relative rounded-full p-px bg-opacity-50',
+          'relative rounded-full bg-opacity-50 p-px',
           borderClassName || lightsTheme.defaultBorderClassName
         )}
       >
         <img
-          className={clsx('relative z-10 rounded-full w-auto saturate-0', className)}
+          className={clsx('relative z-10 w-auto rounded-full saturate-0', className)}
           src={avatarUrl}
           alt={login}
           width={width}
@@ -172,22 +172,22 @@ const Avatar = ({ borderClassName, size, login, avatarUrl, contributions, lights
         />
         <span
           className={clsx(
-            'absolute -inset-2 bg-opacity-[0.06] p-1 rounded-full xl:-inset-1.5 md:p-0.5 md:-inset-1',
+            'absolute -inset-2 rounded-full bg-opacity-[0.06] p-1 xl:-inset-1.5 md:-inset-1 md:p-0.5',
             lightsTheme.className
           )}
         >
           <span
             className={clsx(
-              'flex items-center justify-center h-full w-full rounded-full bg-opacity-[0.18]',
+              'flex h-full w-full items-center justify-center rounded-full bg-opacity-[0.18]',
               lightsTheme.className
             )}
           />
         </span>
       </div>
-      <span className="mt-2.5 text-primary-1 leading-tight text-xs whitespace-nowrap xl:text-[10px] md:text-[8px] md:mt-1.5 sm:text-[7px]">
+      <span className="mt-2.5 whitespace-nowrap text-xs leading-tight text-primary-1 xl:text-[10px] md:mt-1.5 md:text-[8px] sm:text-[7px]">
         {login}
       </span>
-      <span className="text-white font-light leading-tight opacity-70 text-[10px] whitespace-nowrap xl:text-[8px] md:text-[7px] sm:text-[6px]">
+      <span className="whitespace-nowrap text-[10px] font-light leading-tight text-white opacity-70 xl:text-[8px] md:text-[7px] sm:text-[6px]">
         {contributions} commits
       </span>
     </>
@@ -195,10 +195,10 @@ const Avatar = ({ borderClassName, size, login, avatarUrl, contributions, lights
 };
 
 const MembersMap = ({ contributors }) => (
-  <section className="members-map safe-paddings -mt-16 relative overflow-hidden xl:mt-0 md:mt-11">
-    <div className="container absolute left-1/2 -translate-x-1/2 top-[46.25%] flex flex-col items-center z-10 sm:top-[46.75%]">
+  <section className="members-map safe-paddings relative -mt-16 overflow-hidden xl:mt-0 md:mt-11">
+    <div className="container absolute left-1/2 top-[46.25%] z-10 flex -translate-x-1/2 flex-col items-center sm:top-[46.75%]">
       <Heading
-        className="relative z-10 font-medium text-center max-w-lg mx-auto tracking-normal leading-tight xl:max-w-md xl:text-5xl md:max-w-sm md:text-[32px] sm:text-2xl sm:leading-denser"
+        className="relative z-10 mx-auto max-w-lg text-center font-medium leading-tight tracking-normal xl:max-w-md xl:text-5xl md:max-w-sm md:text-[32px] sm:text-2xl sm:leading-denser"
         size="xl"
         tag="h2"
         theme="white"
@@ -206,7 +206,7 @@ const MembersMap = ({ contributors }) => (
         {TITLE}
       </Heading>
       <Button
-        className="relative z-10 mt-7 !text-[13px] !tracking-normal text-center mx-auto md:h-11 md:mt-7 sm:mt-5 sm:h-10 sm:px-5"
+        className="relative z-10 mx-auto mt-7 text-center !text-[13px] !tracking-normal md:mt-7 md:h-11 sm:mt-5 sm:h-10 sm:px-5"
         to="https://github.com/novuhq/novu/graphs/contributors"
         size="sm"
         theme="gray-outline"
@@ -216,9 +216,9 @@ const MembersMap = ({ contributors }) => (
         {BUTTON_TEXT}
       </Button>
     </div>
-    <div className="w-[1920px] relative left-1/2 -translate-x-1/2 [mask-image:radial-gradient(65%_38%_at_50%_52%,black,black_55%,transparent)] xl:w-[1560px] xl:-top-2 lg:[mask-image:radial-gradient(57%_63%_at_50%_52%,black,black_35%,transparent_70%,transparent)] md:aspect-[1.5193] md:w-[1024px] md:[mask-image:radial-gradient(53%_63%_at_50%_52%,black,black_56%,transparent_86%,transparent)] sm:w-[800px]">
+    <div className="relative left-1/2 w-[1920px] -translate-x-1/2 [mask-image:radial-gradient(65%_38%_at_50%_52%,black,black_55%,transparent)] xl:-top-2 xl:w-[1560px] lg:[mask-image:radial-gradient(57%_63%_at_50%_52%,black,black_35%,transparent_70%,transparent)] md:aspect-[1.5193] md:w-[1024px] md:[mask-image:radial-gradient(53%_63%_at_50%_52%,black,black_56%,transparent_86%,transparent)] sm:w-[800px]">
       <img
-        className="relative z-0 top-0 left-0 w-full max-w-none shrink-0 md:hidden"
+        className="relative left-0 top-0 z-0 w-full max-w-none shrink-0 md:hidden"
         src={bg}
         width={1920}
         height={1219}
@@ -227,7 +227,7 @@ const MembersMap = ({ contributors }) => (
         aria-hidden
       />
       <img
-        className="relative z-0 top-0 left-0 w-full max-w-none shrink-0 hidden md:block"
+        className="relative left-0 top-0 z-0 hidden w-full max-w-none shrink-0 md:block"
         src={bgMd}
         width={1024}
         height={674}
@@ -241,7 +241,7 @@ const MembersMap = ({ contributors }) => (
           return (
             <li
               className={clsx(
-                'flex flex-col items-center absolute',
+                'absolute flex flex-col items-center',
                 className,
                 size === 'lg' && 'w-[92px]',
                 size === 'md' && 'w-[72px]',

@@ -48,8 +48,8 @@ const ITEMS = [
 ];
 
 const Features = () => (
-  <section className="features safe-paddings relative overflow-hidden mt-[200px] lg:mt-[152px] md:mt-[120px] sm:mt-20">
-    <div className="container max-w-[1382px] relative z-10">
+  <section className="features safe-paddings relative mt-[200px] overflow-hidden lg:mt-[152px] md:mt-[120px] sm:mt-20">
+    <div className="container relative z-10 max-w-[1382px]">
       <ul className="grid grid-cols-3 gap-x-[126px] gap-y-20 lg:gap-y-16 md:grid-cols-2 md:gap-x-6 md:gap-y-14 sm:flex sm:flex-col sm:items-center sm:gap-0 sm:space-y-10 sm:text-center">
         {ITEMS.map((item, index) => (
           <Item {...item} key={index} />

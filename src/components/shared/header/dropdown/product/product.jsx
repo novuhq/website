@@ -39,8 +39,8 @@ const Product = ({ items }) => {
           })}
           onMouseLeave={() => setActiveElement(null)}
         >
-          <div className="grid grid-rows-1 grid-cols-[240px_262px] gap-x-0">
-            <ul className="relative flex flex-col min-h-[280px] w-[240px]">
+          <div className="grid grid-cols-[240px_262px] grid-rows-1 gap-x-0">
+            <ul className="relative flex min-h-[280px] w-[240px] flex-col">
               {items.map(({ title, description, icon, items }, index) => (
                 <li
                   className="pr-2.5"
@@ -50,7 +50,7 @@ const Product = ({ items }) => {
                 >
                   <button
                     className={clsx(
-                      'relative w-full flex items-center gap-x-3 p-2.5 rounded-lg transition-colors duration-300 after:absolute after:w-[7px] after:h-[7px] after:-right-1 after:top-0 after:bottom-0 after:my-auto after:bg-gray-2 after:rotate-45 after:opacity-0 after:transition-opacity after:duration-300 after:pointer-events-none',
+                      'relative flex w-full items-center gap-x-3 rounded-lg p-2.5 transition-colors duration-300 after:pointer-events-none after:absolute after:-right-1 after:bottom-0 after:top-0 after:my-auto after:h-[7px] after:w-[7px] after:rotate-45 after:bg-gray-2 after:opacity-0 after:transition-opacity after:duration-300',
                       {
                         'bg-gray-2 after:opacity-100': activeElement === index,
                       }
@@ -59,10 +59,10 @@ const Product = ({ items }) => {
                   >
                     <img src={icon} alt="" width={36} height={36} />
                     <span className="flex flex-col items-start gap-y-1">
-                      <span className="text-[15px] leading-none text-gray-10 whitespace-nowrap">
+                      <span className="whitespace-nowrap text-[15px] leading-none text-gray-10">
                         {title}
                       </span>
-                      <span className="text-[13px] leading-none text-gray-8 whitespace-nowrap">
+                      <span className="whitespace-nowrap text-[13px] leading-none text-gray-8">
                         {description}
                       </span>
                     </span>
@@ -72,7 +72,7 @@ const Product = ({ items }) => {
             </ul>
             {isDropdownOpen && (
               <m.ul
-                className="w-[262px] flex flex-col items-start gap-y-3 p-4 pt-[13px] bg-gray-2 border border-gray-3 rounded-lg shadow-[0px_3px_8px_0px_rgba(0,0,0,0.1)] will-change-transform"
+                className="flex w-[262px] flex-col items-start gap-y-3 rounded-lg border border-gray-3 bg-gray-2 p-4 pt-[13px] shadow-[0px_3px_8px_0px_rgba(0,0,0,0.1)] will-change-transform"
                 initial={{
                   opacity: 0,
                   minHeight: 0,
@@ -101,7 +101,7 @@ const Product = ({ items }) => {
               >
                 {dropdownMenuContent.map(({ title, to }, index) => (
                   <li className="text-sm leading-snug" key={index}>
-                    <Link className="text-gray-10 font-light hover:text-primary-1" to={to}>
+                    <Link className="font-light text-gray-10 hover:text-primary-1" to={to}>
                       {title}
                     </Link>
                   </li>

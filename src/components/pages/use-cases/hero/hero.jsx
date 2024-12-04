@@ -20,7 +20,7 @@ const Hero = ({ title, description, links }) => {
     <section className="safe-paddings relative overflow-hidden pt-[138px] lg:pt-32 md:pt-[120px] sm:pt-[100px]">
       <div className="container relative z-10 flex flex-col items-center">
         <Heading
-          className="mx-auto max-w-3xl text-center font-medium leading-denser tracking-snug lg:max-w-[717px] lg:text-6xl md:text-[44px] md:max-w-[659px] sm:text-5xl"
+          className="mx-auto max-w-3xl text-center font-medium leading-denser tracking-snug lg:max-w-[717px] lg:text-6xl md:max-w-[659px] md:text-[44px] sm:text-5xl"
           tag="h1"
           theme="white"
           size="2xl"
@@ -30,10 +30,10 @@ const Hero = ({ title, description, links }) => {
         <p className="mx-auto mt-4 max-w-[623px] text-center text-lg font-book leading-snug text-white/70 lg:max-w-xl md:mt-3.5 sm:text-base">
           {description}
         </p>
-        <div className="flex justify-center gap-x-7 mt-10 lg:mt-9 md:mt-8 sm-xs:flex-col sm-xs:gap-y-4 sm-xs:items-center">
+        <div className="mt-10 flex justify-center gap-x-7 lg:mt-9 md:mt-8 sm-xs:flex-col sm-xs:items-center sm-xs:gap-y-4">
           {links.map(({ text, url, target }, index) => (
             <Button
-              className="text-sm h-14 min-w-[216px] -mt-px lg:h-12"
+              className="-mt-px h-14 min-w-[216px] text-sm lg:h-12"
               key={index}
               theme={index === 0 ? 'white-filled' : 'gray-outline'}
               to={url}

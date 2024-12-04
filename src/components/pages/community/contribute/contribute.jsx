@@ -53,20 +53,20 @@ const ITEMS = [
 
 const Contribute = () => (
   <section className="contribute safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
-    <div className="container grid grid-cols-12 grid-gap-x relative z-10">
+    <div className="container grid-gap-x relative z-10 grid grid-cols-12">
       <Heading
-        className="font-medium col-span-full text-center leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="col-span-full text-center font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
         size="44"
         theme="white"
       >
         {TITLE}
       </Heading>
-      <ul className="col-span-10 col-start-2 px-11 mt-12 grid grid-cols-3 gap-x-14 gap-y-12 xl:px-0 lg:col-span-full lg:gap-x-8 md:mt-[58px] md:grid-cols-2 md:gap-x-5 md:gap-y-9 sm:mt-8 sm:grid-cols-1 sm:gap-y-8">
+      <ul className="col-span-10 col-start-2 mt-12 grid grid-cols-3 gap-x-14 gap-y-12 px-11 xl:px-0 lg:col-span-full lg:gap-x-8 md:mt-[58px] md:grid-cols-2 md:gap-x-5 md:gap-y-9 sm:mt-8 sm:grid-cols-1 sm:gap-y-8">
         {ITEMS.map(({ icon, title, description, linkUrl }, index) => (
           <li key={index} className="flex flex-col">
             <img
-              className="w-fit h-10 sm:h-8"
+              className="h-10 w-fit sm:h-8"
               src={icon}
               alt=""
               width={40}
@@ -76,9 +76,9 @@ const Contribute = () => (
             <h3 className="mt-6 text-2xl leading-snug lg:mt-4 md:text-xl sm:mt-3.5 sm:text-lg">
               {title}
             </h3>
-            <p className="mt-2 text-gray-9 font-light leading-snug sm:mt-1">{description}</p>
+            <p className="mt-2 font-light leading-snug text-gray-9 sm:mt-1">{description}</p>
             <Link
-              className="mt-2.5 !tracking-normal font-light leading-snug text-sm"
+              className="mt-2.5 text-sm font-light leading-snug !tracking-normal"
               theme="primary"
               to={linkUrl}
               target="_blank"

@@ -164,7 +164,7 @@ const MessageList = ({
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
           <m.div
-            className="scrollbar-hidden relative z-10 h-full pb-4 overflow-y-auto"
+            className="scrollbar-hidden relative z-10 h-full overflow-y-auto pb-4"
             key={activeTab}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -172,7 +172,7 @@ const MessageList = ({
             transition={{ duration: ANIMATION_DURATION, ease: MOTION_EASY }}
           >
             {filteredMessageList.length === 0 ? (
-              <div className="flex flex-col items-center h-full pt-[164px]">
+              <div className="flex h-full flex-col items-center pt-[164px]">
                 {emptyInboxIcon}
                 <p className={clsx(currentTheme.text, 'mt-2 text-center')}>No messages yet</p>
               </div>

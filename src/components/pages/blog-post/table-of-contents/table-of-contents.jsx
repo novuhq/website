@@ -40,7 +40,7 @@ const TableOfContents = ({ headings }) => {
 
   return (
     <div className="text-sm">
-      <span className="leading-none font-medium tracking-snug">In this article</span>
+      <span className="font-medium leading-none tracking-snug">In this article</span>
       <ul className="mt-[18px] flex flex-col">
         {headings.map((heading) => {
           const { type } = heading;
@@ -59,9 +59,9 @@ const TableOfContents = ({ headings }) => {
             <li className="group flex" key={id}>
               <Link
                 className={clsx(
-                  'tracking-snug py-[7px] group-last:pb-0 group-first:pt-0 leading-snug hover:text-white transition-colors duration-200',
+                  'py-[7px] leading-snug tracking-snug transition-colors duration-200 hover:text-white group-first:pt-0 group-last:pb-0',
                   { 'pl-2.5': type === 'h3' },
-                  currentHeading === id ? 'text-white font-medium' : 'text-[#777A88]'
+                  currentHeading === id ? 'font-medium text-white' : 'text-[#777A88]'
                 )}
                 to={`#${id}`}
               >

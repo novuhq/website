@@ -41,13 +41,13 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
         { 'bg-black': isMobileMenuOpen }
       )}
     >
-      <div className="container flex items-center justify-between py-3 lg:gap-x-4 md:py-4 md:px-7 sm:px-4 sm:py-3.5">
+      <div className="container flex items-center justify-between py-3 lg:gap-x-4 md:px-7 md:py-4 sm:px-4 sm:py-3.5">
         <Link {...LINKS.home}>
           <Logo className="h-8 sm:h-7" aria-hidden />
           <span className="sr-only">Novu</span>
         </Link>
 
-        <nav className="absolute left-1/2 -translate-x-1/2 h-full">
+        <nav className="absolute left-1/2 h-full -translate-x-1/2">
           <ul className="flex h-full md:hidden">
             {MENUS.header.map(({ to, text, target, menuItems }, index) => (
               <li
@@ -56,7 +56,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 onMouseLeave={handleMouseLeave(menuItems)}
               >
                 <Link
-                  className="flex items-center gap-x-1.5 h-full px-[18px] text-[15px] leading-none lg:px-2.5"
+                  className="flex h-full items-center gap-x-1.5 px-[18px] text-[15px] leading-none lg:px-2.5"
                   tag={to ? null : 'button'}
                   to={to}
                   theme="white"
@@ -64,7 +64,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 >
                   {text}
 
-                  {menuItems && <ChevronIcon className="w-2 h-2" />}
+                  {menuItems && <ChevronIcon className="h-2 w-2" />}
                 </Link>
               </li>
             ))}

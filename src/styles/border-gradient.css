@@ -1,6 +1,6 @@
 @layer utilities {
   .border-gradient {
-    @apply border border-transparent rounded-[inherit];
+    @apply rounded-[inherit] border border-transparent;
     mask:
       linear-gradient(#fff 0 0) padding-box,
       linear-gradient(#fff 0 0);

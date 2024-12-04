@@ -78,3 +78,10 @@ yarn-error.log
 
 # Local Netlify folder
 .netlify
+
+# ESLint cache files
+.eslintcache
+.eslint.cache
+
+# Ignore paths with spaces (if needed)
+**/Mobile Documents/**

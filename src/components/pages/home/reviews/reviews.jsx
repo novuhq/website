@@ -27,9 +27,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './reviews.css';
 
-const TITLE = 'Loved by developers and product teams';
+const TITLE = "Don't just take our word for it...";
 const DESCRIPTION =
-  "Explore tweets from developers and non-technical users and see why they're fans of our open-source notifications framework.";
+  "Explore what developers and non-technical users say about why they're fans of our open-source notifications framework";
 
 const ITEMS = [
   {

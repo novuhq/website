@@ -61,15 +61,15 @@ const Integration = () => (
   <section className="integration mt-[120px] lg:mt-[100px] md:mt-20">
     <div className="container-md md:px-8 sm:w-full sm:px-5">
       <h2
-        className="text-5xl leading-tight tracking-snug font-medium text-center max-w-4xl mx-auto lg:text-[32px] lg:max-w-2xl md:text-3xl"
+        className="mx-auto max-w-4xl text-center text-5xl font-medium leading-tight tracking-snug lg:max-w-2xl lg:text-[32px] md:text-3xl"
         dangerouslySetInnerHTML={{ __html: TITLE }}
       />
-      <ul className="grid grid-cols-3 grid-rows-2 mt-12 ml-9 max-w-[928px] gap-y-12 gap-x-8 lg:mt-[44px] lg:gap-x-[52px] lg:ml-0 lg:max-w-none lg:px-9 md:px-0 md:mt-9 md:gap-x-7 md:gap-y-8 sm:grid-cols-2 sm-xs:grid-cols-1 sm:gap-y-[27px] sm:mt-8">
+      <ul className="ml-9 mt-12 grid max-w-[928px] grid-cols-3 grid-rows-2 gap-x-8 gap-y-12 lg:ml-0 lg:mt-[44px] lg:max-w-none lg:gap-x-[52px] lg:px-9 md:mt-9 md:gap-x-7 md:gap-y-8 md:px-0 sm:mt-8 sm:grid-cols-2 sm:gap-y-[27px] sm-xs:grid-cols-1">
         {CARDS.map(({ title, description, image }, index) => (
           <li key={index}>
             <div className="flex items-center">
               <img
-                className="mr-3 md:w-5 md:h-5 md:mr-2.5"
+                className="mr-3 md:mr-2.5 md:h-5 md:w-5"
                 src={image}
                 alt={title}
                 width={22}
@@ -79,7 +79,7 @@ const Integration = () => (
               <h3 className="font-medium leading-snug tracking-snug md:text-[15px]">{title}</h3>
             </div>
             <p
-              className="text-[15px] font-light leading-snug text-gray-9 mt-2.5 md:text-sm"
+              className="mt-2.5 text-[15px] font-light leading-snug text-gray-9 md:text-sm"
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </li>

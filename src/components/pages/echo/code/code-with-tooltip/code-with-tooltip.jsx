@@ -10,7 +10,7 @@ const TOOLTIP_CONTENT = {
         (alias) <span className="text-yellow">new Echo</span>(&#123; apiKey, ... opts &#125;?:
         ClientOptions): Echo
       </span>
-      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="mx-3.5 my-3 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">Echo, the Notifications as Code client.</span>
     </span>
   ),
@@ -40,31 +40,31 @@ const TOOLTIP_CONTENT = {
       <span className="whitespace-normal px-3.5 text-white/40">
         (property) payload: &#123; postId: string &#125;
       </span>
-      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="mx-3.5 my-3 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">The payload for the event, provided during trigger</span>
     </span>
   ),
   seenTooltip: (
     <span className="flex flex-col py-3.5">
       <span className="whitespace-normal px-3.5 text-white/40">(property) seen: boolean</span>
-      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="mx-3.5 my-3 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">Flag indicating if the notification has been seen.</span>
     </span>
   ),
   triggerTooltip: (
     <span className="flex flex-col py-3.5">
       <span className="whitespace-normal px-3.5 text-white/40">(method) trigger: Trigger</span>
-      <span className="my-3 mx-3.5 h-px bg-white/50" aria-hidden />
+      <span className="mx-3.5 my-3 h-px bg-white/50" aria-hidden />
       <span className="px-3.5">Trigger a notification workflow.</span>
     </span>
   ),
 };
 
 const CodeWithTooltip = ({ tooltipId, children }) => (
-  <span className="group relative bg-white/10 border border-white/35 rounded-sm" id={tooltipId}>
+  <span className="group relative rounded-sm border border-white/35 bg-white/10" id={tooltipId}>
     {children}
 
-    <span className="tooltip-animation absolute top-full left-full bg-[linear-gradient(159.72deg,rgba(16,26,37,1)_9.88%,rgba(16,20,37,1)_87.56%)] rounded-lg border border-[rgba(58,64,81,1)] z-20 invisible opacity-0 group-hover:visible group-hover:opacity-100 [transition:visibility_0s_0.6s,opacity_0.3s_0.3s_linear] group-hover:[transition:visibility_0s_0s,opacity_0.3s_0s_linear] md:hidden">
+    <span className="tooltip-animation invisible absolute left-full top-full z-20 rounded-lg border border-[rgba(58,64,81,1)] bg-[linear-gradient(159.72deg,rgba(16,26,37,1)_9.88%,rgba(16,20,37,1)_87.56%)] opacity-0 [transition:visibility_0s_0.6s,opacity_0.3s_0.3s_linear] group-hover:visible group-hover:opacity-100 group-hover:[transition:visibility_0s_0s,opacity_0.3s_0s_linear] md:hidden">
       {TOOLTIP_CONTENT[tooltipId]}
     </span>
   </span>

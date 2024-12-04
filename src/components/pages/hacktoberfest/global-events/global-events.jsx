@@ -111,14 +111,14 @@ const GlobalEvents = () => {
               <tr key={index}>
                 <td
                   className={`whitespace-nowrap py-4 pr-5 ${
-                    date === 'Date' ? 'text-2xl ' : 'font-medium'
+                    date === 'Date' ? 'text-2xl' : 'font-medium'
                   } md:pr-3.5`}
                 >
                   {date}
                 </td>
                 <td
                   className={`whitespace-nowrap pr-5 ${
-                    time === 'Time' ? 'text-2xl ' : 'font-medium'
+                    time === 'Time' ? 'text-2xl' : 'font-medium'
                   } md:pr-3.5`}
                 >
                   {time}
@@ -126,7 +126,7 @@ const GlobalEvents = () => {
                 <td
                   className={`whitespace-nowrap pr-5 ${
                     time === 'Time' ? 'text-2xl font-medium' : 'text-gray-9'
-                  }  md:pr-3.5`}
+                  } md:pr-3.5`}
                 >
                   {utc}
                 </td>

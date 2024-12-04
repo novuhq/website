@@ -141,35 +141,35 @@ const Container = ({ theme, categories, messages }) => {
 
   return (
     <m.div
-      className="absolute top-0 left-0 md:hidden"
+      className="absolute left-0 top-0 md:hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.3 } }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="w-[608px] relative z-30 overflow-hidden pb-[22px] px-5 rounded-[20px] lg:w-[531px]">
-        <header className="relative flex items-center h-[46px] z-40">
-          <LogoIcon className={clsx('shrink-0 size-[18px]', currentTheme.header.logo)} />
+      <div className="relative z-30 w-[608px] overflow-hidden rounded-[20px] px-5 pb-[22px] lg:w-[531px]">
+        <header className="relative z-40 flex h-[46px] items-center">
+          <LogoIcon className={clsx('size-[18px] shrink-0', currentTheme.header.logo)} />
           <h3 className={clsx('mr-auto leading-none', currentTheme.header.logoTextClassName)}>
             {currentTheme.header.logoText}
           </h3>
           {NotificationIcon && (
-            <div className="shrink-0 relative mr-3.5">
+            <div className="relative mr-3.5 shrink-0">
               <NotificationIcon className={clsx('size-6', currentTheme.header.icon)} />
               {isUnreadMessages && (
-                <div className="absolute top-1 right-[3px] size-2 bg-[linear-gradient(232.66deg,#FFDF66_9.72%,#FFB433_89.91%)] border border-[#151b37] rounded-full" />
+                <div className="absolute right-[3px] top-1 size-2 rounded-full border border-[#151b37] bg-[linear-gradient(232.66deg,#FFDF66_9.72%,#FFB433_89.91%)]" />
               )}
             </div>
           )}
           {ThemeIcon && (
-            <ThemeIcon className={clsx('shrink-0 size-6 mr-3.5', currentTheme.header.icon)} />
+            <ThemeIcon className={clsx('mr-3.5 size-6 shrink-0', currentTheme.header.icon)} />
           )}
           {MessageIcon && (
-            <MessageIcon className={clsx('shrink-0 size-6 mr-5', currentTheme.header.icon)} />
+            <MessageIcon className={clsx('mr-5 size-6 shrink-0', currentTheme.header.icon)} />
           )}
           {currentTheme.header.userAvatar && (
             <img
-              className="shrink-0 size-6 rounded-sm"
+              className="size-6 shrink-0 rounded-sm"
               src={currentTheme.header.userAvatar}
               alt="User's avatar"
               width="24"
@@ -181,10 +181,10 @@ const Container = ({ theme, categories, messages }) => {
           className={clsx(
             currentTheme.container.border,
             currentTheme.container.shadow,
-            'relative z-30 p-px rounded-xl h-[573px] lg:h-[500px]'
+            'relative z-30 h-[573px] rounded-xl p-px lg:h-[500px]'
           )}
         >
-          <div className="relative z-30 rounded-xl overflow-hidden h-full flex flex-col">
+          <div className="relative z-30 flex h-full flex-col overflow-hidden rounded-xl">
             <MessageList
               theme={theme}
               tabs={tabsList}
@@ -201,7 +201,7 @@ const Container = ({ theme, categories, messages }) => {
               <div
                 className={clsx(
                   currentTheme.container.shine,
-                  'absolute -top-0.5 left-3.5 w-[318px] h-px blur-[2px] mix-blend-plus-lighter pointer-events-none'
+                  'pointer-events-none absolute -top-0.5 left-3.5 h-px w-[318px] mix-blend-plus-lighter blur-[2px]'
                 )}
                 aria-hidden
               />
@@ -212,20 +212,20 @@ const Container = ({ theme, categories, messages }) => {
       <div
         className={clsx(
           currentTheme.mainBlock.border,
-          'absolute top-0 left-0 shrink-0 aspect-[608/573] h-[573px] w-auto rounded-[20px] p-px z-10 lg:h-[501px]'
+          'absolute left-0 top-0 z-10 aspect-[608/573] h-[573px] w-auto shrink-0 rounded-[20px] p-px lg:h-[501px]'
         )}
       >
         <div
           className={clsx(
             currentTheme.mainBlock.background,
-            'relative z-20 w-full h-full rounded-[20px] overflow-hidden'
+            'relative z-20 h-full w-full overflow-hidden rounded-[20px]'
           )}
         >
           {currentTheme.mainBlock.gradients &&
             currentTheme.mainBlock.gradients.map((gradient, index) => (
               <div
                 key={index}
-                className={clsx(gradient, 'absolute z-20 pointer-events-none')}
+                className={clsx(gradient, 'pointer-events-none absolute z-20')}
                 aria-hidden
               />
             ))}
@@ -233,7 +233,7 @@ const Container = ({ theme, categories, messages }) => {
             <div
               className={clsx(
                 currentTheme.mainBlock.fade,
-                'absolute inset-0 pointer-events-none rounded-[20px]'
+                'pointer-events-none absolute inset-0 rounded-[20px]'
               )}
               aria-hidden
             />
@@ -244,21 +244,21 @@ const Container = ({ theme, categories, messages }) => {
             <div
               className={clsx(
                 currentTheme.mainBlock.shine,
-                'absolute z-30 top-0 left-0 w-[380px] h-px blur-[5px] mix-blend-plus-lighter pointer-events-none'
+                'pointer-events-none absolute left-0 top-0 z-30 h-px w-[380px] mix-blend-plus-lighter blur-[5px]'
               )}
               aria-hidden
             />
             <div
               className={clsx(
                 currentTheme.mainBlock.shine,
-                'absolute z-30 top-0 left-0 w-[380px] h-px blur-[3px] mix-blend-plus-lighter pointer-events-none'
+                'pointer-events-none absolute left-0 top-0 z-30 h-px w-[380px] mix-blend-plus-lighter blur-[3px]'
               )}
               aria-hidden
             />
             <div
               className={clsx(
                 currentTheme.mainBlock.shine,
-                'absolute z-30 top-0 left-0 w-[380px] h-px blur-[1px] mix-blend-plus-lighter pointer-events-none'
+                'pointer-events-none absolute left-0 top-0 z-30 h-px w-[380px] mix-blend-plus-lighter blur-[1px]'
               )}
               aria-hidden
             />
@@ -267,13 +267,13 @@ const Container = ({ theme, categories, messages }) => {
         {currentTheme.background.gradients.map((gradient, index) => (
           <div
             key={index}
-            className={clsx(gradient, 'absolute pointer-events-none z-10')}
+            className={clsx(gradient, 'pointer-events-none absolute z-10')}
             aria-hidden
           />
         ))}
         {currentTheme.background.image && (
           <img
-            className="absolute -top-[102px] -left-16 pointer-events-none"
+            className="pointer-events-none absolute -left-16 -top-[102px]"
             src={currentTheme.background.image}
             alt=""
             width="482"

@@ -55,7 +55,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
         <m.div
           className={clsx(
             currentTheme.border,
-            'relative grid grid-cols-1 border-b overflow-hidden'
+            'relative grid grid-cols-1 overflow-hidden border-b'
           )}
           initial="from"
           variants={messageVariants}
@@ -76,7 +76,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </h4>
             <p
               className={clsx(
-                'relative col-start-2 row-start-2 pt-0.5 pb-2.5 text-[13px] opacity-50'
+                'relative col-start-2 row-start-2 pb-2.5 pt-0.5 text-[13px] opacity-50'
               )}
             >
               <span className={clsx('block pt-px', isActiveMessage !== index && 'invisible')}>
@@ -94,7 +94,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </p>
             <span
               className={clsx(
-                'col-start-3 row-start-1 text-xs leading-none text-[#6F727B] translate-x-0.5 translate-y-1 group-hover:opacity-0',
+                'col-start-3 row-start-1 translate-x-0.5 translate-y-1 text-xs leading-none text-[#6F727B] group-hover:opacity-0',
                 isActiveMessage === index && '!opacity-0'
               )}
             >
@@ -103,14 +103,14 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             <span
               className={clsx(
                 currentTheme.avatar,
-                'row-span-2 flex items-center justify-center size-8 rounded-full'
+                'row-span-2 flex size-8 items-center justify-center rounded-full'
               )}
             >
               <UserPlaceholder className="size-4" />
             </span>
             <div
               className={clsx(
-                'absolute top-3.5 -right-1 z-10 hidden group-hover:block',
+                'absolute -right-1 top-3.5 z-10 hidden group-hover:block',
                 isActiveMessage === index && '!block'
               )}
             >
@@ -133,7 +133,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             </div>
           </div>
           {message.buttons.length > 0 && (
-            <div className="relative z-10 flex gap-3 w-max ml-[58px] pt-1.5 pb-4">
+            <div className="relative z-10 ml-[58px] flex w-max gap-3 pb-4 pt-1.5">
               {message.buttons[0] && (
                 <Button
                   className="min-w-28 rounded-[20px] before:rounded-[20px]"
@@ -162,7 +162,7 @@ const Message = ({ theme, message, readMessage, deleteMessage }) => {
             <span
               className={clsx(
                 currentTheme.dot,
-                'absolute top-4 left-0 block size-1.5 rounded-full'
+                'absolute left-0 top-4 block size-1.5 rounded-full'
               )}
             />
           )}

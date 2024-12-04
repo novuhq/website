@@ -6,27 +6,27 @@ import Link from 'components/shared/link';
 
 const Developers = ({ items }) => (
   <div className="w-full overflow-hidden">
-    <ul className="top-0 left-0 p-2 grid grid-cols-[156px_158px] grid-rows-2 gap-y-6 gap-x-8">
+    <ul className="left-0 top-0 grid grid-cols-[156px_158px] grid-rows-2 gap-x-8 gap-y-6 p-2">
       {items.map(
         ({ title, icon, items: subItems, mobileOnly }, index) =>
           !mobileOnly && (
             <li
               className={clsx('text-[15px] leading-none', {
-                'col-start-1 row-start-1 col-span-1 row-span-1': index === 1,
-                'col-start-1 row-start-2 col-span-1 row-span-1': index === 2,
-                'col-start-2 row-start-1 col-span-1 row-span-2': index === 3,
+                'col-span-1 col-start-1 row-span-1 row-start-1': index === 1,
+                'col-span-1 col-start-1 row-span-1 row-start-2': index === 2,
+                'col-span-1 col-start-2 row-span-2 row-start-1': index === 3,
               })}
               key={index}
             >
               {title && (
-                <span className="mb-3.5 flex gap-x-3 items-center">
+                <span className="mb-3.5 flex items-center gap-x-3">
                   {icon && <img src={icon} alt="" width={28} height={28} />}
                   {title}
                 </span>
               )}
               <ul
                 className={clsx('flex flex-col gap-y-2.5', {
-                  'pl-6 border-l border-l-[#1F1F1F] h-full': index === 3,
+                  'h-full border-l border-l-[#1F1F1F] pl-6': index === 3,
                 })}
               >
                 {subItems.map(({ title, to, withImage }, index) => (
@@ -44,12 +44,12 @@ const Developers = ({ items }) => (
                           height={108}
                           quality={100}
                         />
-                        <span className="absolute text-sm leading-none top-3.5 inset-x-0 text-center">
+                        <span className="absolute inset-x-0 top-3.5 text-center text-sm leading-none">
                           {title}
                         </span>
                       </Link>
                     ) : (
-                      <Link className="text-gray-10 font-light hover:text-primary-1" to={to}>
+                      <Link className="font-light text-gray-10 hover:text-primary-1" to={to}>
                         {title}
                       </Link>
                     )}
