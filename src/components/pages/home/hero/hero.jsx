@@ -10,7 +10,7 @@ import Animation from './animation';
 const TITLE = 'Robust and flexible notification building blocks';
 
 const DESCRIPTION =
-  'Open source JavaScript-native notifications framework for developers that makes it easy to build powerful notifications capabilities for your product teams.';
+  'The open-source notification infrastructure for in-app, email, push, chat, and push.';
 
 const Hero = () => (
   <section className="hero relative mb-20 pt-[152px] lg:pt-[196px] md:pt-[98px] sm:mb-10">
@@ -22,7 +22,7 @@ const Hero = () => (
         <p className="mt-5 max-w-xl text-center text-lg font-book leading-snug text-white/70">
           {DESCRIPTION}
         </p>
-        <div className="justify-left relative z-10 mt-11 flex items-center gap-x-7 gap-y-5 sm:mt-7 sm:justify-center sm:gap-x-4 2xs:flex-wrap">
+        {/* <div className="justify-left relative z-10 mt-11 flex items-center gap-x-7 gap-y-5 sm:mt-7 sm:justify-center sm:gap-x-4 2xs:flex-wrap">
           <Button
             className="w-[208px] sm:text-xs sm-xs:w-full"
             size="sm"
@@ -41,7 +41,7 @@ const Hero = () => (
           >
             Contact Us
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
     <div className="pointer-events-none absolute left-0 top-0 z-0 hidden h-full w-full md:relative md:mx-auto md:block md:aspect-[1.2] md:h-auto md:w-[702px] sm:aspect-[0.65] sm:w-80">

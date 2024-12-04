@@ -72,7 +72,7 @@ const TABS = [
     code: COMMENT_WORKFLOW_CODE,
     image: (
       <StaticImage
-        className="!absolute pointer-events-none bottom-[-45px] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 lg:bottom-[-23px] md:!hidden"
+        className="pointer-events-none !absolute -right-2.5 bottom-[-45px] z-10 w-[368px] lg:-right-2 lg:bottom-[-23px] lg:w-[307px] md:!hidden"
         src="./images/ai-digest.png"
         alt=""
         width={368}
@@ -86,7 +86,7 @@ const TABS = [
     code: OTP_WORKFLOW_CODE,
     image: (
       <StaticImage
-        className="!absolute pointer-events-none bottom-[-45px] -right-2.5 z-10 w-[368px] lg:w-[307px] lg:-right-2 lg:bottom-[-23px] md:!hidden"
+        className="pointer-events-none !absolute -right-2.5 bottom-[-45px] z-10 w-[368px] lg:-right-2 lg:bottom-[-23px] lg:w-[307px] md:!hidden"
         src="./images/one-time-password.png"
         alt=""
         width={368}
@@ -97,9 +97,9 @@ const TABS = [
   },
 ];
 
-const TITLE = 'Built by developers,<br>used by the rest of the team';
+const TITLE = 'Complete control and flexibility';
 const DESCRIPTION =
-  'Unapologetically built for development teams to provide notifications infrastructure to their product and business. Eliminate the expense and burden of building and maintaining home-grown notifications infrastructure, and still keep all of the flexibility you need and want.';
+  'Optionally extend Novu with the Novu Framework for all the power of home-grown notifications infrastructure with complete flexibility to implement any workflow imaginable.';
 
 const customRenderer = ({ rows, stylesheet, useInlineStyles }) =>
   rows.map((node, i) =>
@@ -118,20 +118,20 @@ const Code = () => {
 
   return (
     <section className="code mt-[206px] lg:mt-36 md:mt-[116px] sm:mt-20">
-      <div className="container-lg px-8 min-h-[836px] relative lg:w-full sm:px-5 lg:max-w-5xl lg:min-h-[692px] md:max-w-3xl md:min-h-[535px] sm:min-h-[324px]">
+      <div className="container-lg relative min-h-[836px] px-8 lg:min-h-[692px] lg:w-full lg:max-w-5xl md:min-h-[535px] md:max-w-3xl sm:min-h-[324px] sm:px-5">
         <h2
-          className="relative z-10 text-[44px] leading-none tracking-snug font-medium text-transparent max-w-[700px] bg-clip-text bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] ml-[42px] lg:text-5xl lg:ml-8 md:text-4xl md:max-w-lg md:ml-0 sm:text-[32px]"
+          className="relative z-10 ml-[42px] max-w-[700px] bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] bg-clip-text text-[44px] font-medium leading-none tracking-snug text-transparent lg:ml-8 lg:text-5xl md:ml-0 md:max-w-lg md:text-4xl sm:text-[32px]"
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
-        <p className="mt-4 text-[17px] leading-snug font-book text-gray-9 max-w-[800px] ml-[42px] lg:ml-8 md:ml-0 lg:mt-2.5 md:text-base md:mt-3">
+        <p className="ml-[42px] mt-4 max-w-[800px] text-[17px] font-book leading-snug text-gray-9 lg:ml-8 lg:mt-2.5 md:ml-0 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
-        <ul className="relative z-10 flex justify-end gap-x-7 font-medium text-[15px] text-[#CAE9FF]/60 leading-snug mt-8 pr-8 lg:mt-5 lg:gap-x-6 md:text-sm md:mt-4 md:pr-0 md:gap-x-[22px] sm:justify-start sm:mt-[30px]">
+        <ul className="relative z-10 mt-8 flex justify-end gap-x-7 pr-8 text-[15px] font-medium leading-snug text-[#CAE9FF]/60 lg:mt-5 lg:gap-x-6 md:mt-4 md:gap-x-[22px] md:pr-0 md:text-sm sm:mt-[30px] sm:justify-start">
           {TABS.map(({ title }, index) => (
             <li key={index}>
               <button
                 className={clsx(
-                  'relative hover:text-[#FFE071] transition-colors duration-300 after:absolute after:w-full after:h-px after:left-0 after:-bottom-1.5 after:bg-gradient-to-br after:from-[#FFE071] after:to-[#FFE071] after:bg-no-repeat after:bg-[length:0%_1px] after:transition-all after:duration-300 hover:after:bg-[length:100%_1px]',
+                  'relative transition-colors duration-300 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-gradient-to-br after:from-[#FFE071] after:to-[#FFE071] after:bg-[length:0%_1px] after:bg-no-repeat after:transition-all after:duration-300 hover:text-[#FFE071] hover:after:bg-[length:100%_1px]',
                   {
                     'text-[#FFE071] after:bg-[length:100%_1px]': title === activeTab,
                   }
@@ -144,21 +144,21 @@ const Code = () => {
             </li>
           ))}
         </ul>
-        <div className="relative z-10 h-[546px] mt-[70px] lg:mt-[62px] lg:mx-auto lg:h-[468px] md:mt-[53px] sm:mt-11 sm:max-w-[572px] sm:h-[390px] sm:mx-auto sm-xs:max-w-80">
+        <div className="relative z-10 mt-[70px] h-[546px] lg:mx-auto lg:mt-[62px] lg:h-[468px] md:mt-[53px] sm:mx-auto sm:mt-11 sm:h-[390px] sm:max-w-[572px] sm-xs:max-w-80">
           <LazyMotion features={domAnimation}>
             <AnimatePresence>
               {TABS.map(
                 ({ title, code }, index) =>
                   activeTab === title && (
                     <m.div
-                      className="absolute z-20 top-0 left-0 w-full h-full"
+                      className="absolute left-0 top-0 z-20 h-full w-full"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1, transition: { delay: 0.4 } }}
                       exit={{ opacity: 0 }}
                       key={index}
                     >
                       <SyntaxHighlighter
-                        className="echo-code relative z-10 pl-[42px] scrollbar-hidden text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:text-[10px] sm:overflow-y-scroll sm:ml-2 sm:pl-[7px] sm:mr-1.5 sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]"
+                        className="echo-code scrollbar-hidden relative z-10 pl-[42px] text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:ml-2 sm:mr-1.5 sm:overflow-y-scroll sm:pl-[7px] sm:text-[10px] sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]"
                         style={{
                           marginTop: '20px',
                         }}
@@ -180,7 +180,7 @@ const Code = () => {
                 ({ title, image }, index) =>
                   activeTab === title && (
                     <m.div
-                      className="absolute z-10 top-0 left-0 w-full h-full"
+                      className="absolute left-0 top-0 z-10 h-full w-full"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1, transition: { delay: 0.4 } }}
                       exit={{ opacity: 0 }}
@@ -194,7 +194,7 @@ const Code = () => {
           </LazyMotion>
 
           <StaticImage
-            className="!absolute pointer-events-none bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
+            className="pointer-events-none !absolute bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
             src="./images/code-background.png"
             alt=""
             width={1252}
@@ -203,7 +203,7 @@ const Code = () => {
             aria-hidden
           />
           <StaticImage
-            className="!absolute pointer-events-none !hidden z-0 md:!inline-block md:w-[775px] md:bottom-[-28px] md:left-[-61px] sm:w-[652px] sm-xs:!hidden"
+            className="pointer-events-none !absolute z-0 !hidden md:bottom-[-28px] md:left-[-61px] md:!inline-block md:w-[775px] sm:w-[652px] sm-xs:!hidden"
             src="./images/code-background-tablet.png"
             alt=""
             width={775}
@@ -212,7 +212,7 @@ const Code = () => {
             aria-hidden
           />
           <StaticImage
-            className="!absolute pointer-events-none !hidden z-0 sm-xs:!inline-block sm-xs:w-[351px] sm-xs:bottom-[-18px] sm-xs:-left-7"
+            className="pointer-events-none !absolute z-0 !hidden sm-xs:-left-7 sm-xs:bottom-[-18px] sm-xs:!inline-block sm-xs:w-[351px]"
             src="./images/code-background-mobile.png"
             alt=""
             width={351}
@@ -222,11 +222,11 @@ const Code = () => {
           />
         </div>
         <div
-          className="absolute left-[-90px] top-[90px] h-[348px] w-[490px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#3BDCFF_27.2%,#69B7FF_80.5%,#4759FF_100%)] opacity-15 blur-3xl scale-[1.5] z-0 pointer-events-none will-change-transform lg:w-[408px] lg:h-[290px] md:w-[300px] md:h-[212px] sm:w-[136px] sm:h-[96px] sm:left-[-20px] sm:top-[120px]"
+          className="pointer-events-none absolute left-[-90px] top-[90px] z-0 h-[348px] w-[490px] scale-[1.5] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#3BDCFF_27.2%,#69B7FF_80.5%,#4759FF_100%)] opacity-15 blur-3xl will-change-transform lg:h-[290px] lg:w-[408px] md:h-[212px] md:w-[300px] sm:left-[-20px] sm:top-[120px] sm:h-[96px] sm:w-[136px]"
           aria-hidden
         />
         <div
-          className="absolute right-[-200px] top-[-200px] h-[712px] w-[733px] rounded-[50%] bg-[#4474F2] opacity-10 blur-3xl scale-[1.3] z-0 pointer-events-none will-change-transform lg:w-[611px] lg:h-[594px] md:w-[448px] md:h-[435px] md:top-[-50px] sm:w-[203px] sm:h-[196px] sm:top-[120px] sm:right-[-20px]"
+          className="pointer-events-none absolute right-[-200px] top-[-200px] z-0 h-[712px] w-[733px] scale-[1.3] rounded-[50%] bg-[#4474F2] opacity-10 blur-3xl will-change-transform lg:h-[594px] lg:w-[611px] md:top-[-50px] md:h-[435px] md:w-[448px] sm:right-[-20px] sm:top-[120px] sm:h-[196px] sm:w-[203px]"
           aria-hidden
         />
       </div>
