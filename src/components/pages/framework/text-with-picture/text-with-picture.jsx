@@ -1,0 +1,89 @@
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
+
+const TextWithPicture = ({ title, description, image, button, theme }) => (
+  <section className="text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14">
+    <div className="container-lg px-8 md:px-7 sm:px-4">
+      <div
+        className={clsx(
+          'grid items-center justify-items-center sm:grid-cols-1',
+          theme === 'imageFullWidth' ? 'grid-cols-1' : 'grid-cols-2'
+        )}
+      >
+        <div
+          className={clsx('sm:order-first sm:mb-6 sm:pl-0 sm:text-center', {
+            'mb-12 max-w-[704px] text-center lg:mb-10 md:mb-8 md:max-w-lg sm:mb-6':
+              theme === 'imageFullWidth',
+            'order-last pl-24 lg:pl-16 md:pl-8': theme === 'imageLeft',
+            'order-first pr-24 lg:pr-16 md:pr-8': theme === 'imageRight',
+          })}
+        >
+          <Heading
+            className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
+            tag="h2"
+            size="xl"
+          >
+            {title}
+          </Heading>
+          <p
+            className={clsx(
+              'mt-4 text-lg font-book tracking-snug text-gray-8',
+              theme === 'imageFullWidth' ? 'sm:text-sm' : 'md:text-sm'
+            )}
+          >
+            {description}
+          </p>
+          {button && theme !== 'imageFullWidth' && (
+            <Button
+              className="mt-8 md:mt-6 sm:mt-5"
+              theme="gray-outline"
+              size="sm"
+              to={button.link}
+              rel={button.rel}
+              target={button.target}
+            >
+              {button.label}
+            </Button>
+          )}
+        </div>
+        <div className="overflow-hidden rounded-lg">{image}</div>
+        {button && theme === 'imageFullWidth' && (
+          <Button
+            className="mt-9 md:mt-8 sm:mt-6"
+            theme="gray-outline"
+            size="sm"
+            to={button.link}
+            rel={button.rel}
+            target={button.target}
+          >
+            {button.label}
+          </Button>
+        )}
+      </div>
+    </div>
+  </section>
+);
+
+TextWithPicture.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.node.isRequired,
+  button: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
+  }),
+  theme: PropTypes.oneOf(['imageLeft', 'imageRight', 'imageFullWidth']),
+};
+
+TextWithPicture.defaultProps = {
+  button: null,
+  theme: 'imageLeft',
+};
+
+export default TextWithPicture;
