@@ -1,13 +1,17 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
+// Dedicated components
+
 import Code from 'components/pages/home/code';
 import Hero from 'components/pages/home/hero';
 import SectionWithCards from 'components/pages/home/cards/section-with-cards';
-import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SectionWithSmallIcons from 'components/pages/home/channels/section-with-small-icons';
-
 import Reviews from 'components/pages/home/reviews';
+
+// Shared components
+
+import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import Layout from 'components/shared/layout';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import Inbox from 'components/shared/reusable-sections/inbox';
@@ -15,6 +19,9 @@ import SectionWithLogos from 'components/shared/reusable-sections/section-with-l
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
+
+// Logos and images
+
 import allstarLogo from 'images/reusable-sections/section-with-logos/allstar.svg';
 import axiosHqLogo from 'images/reusable-sections/section-with-logos/axios-hq.svg';
 import baskLogo from 'images/reusable-sections/section-with-logos/bask.svg';
@@ -27,7 +34,6 @@ import saladLogo from 'images/reusable-sections/section-with-logos/salad.svg';
 import siemensLogo from 'images/reusable-sections/section-with-logos/siemens.svg';
 import teocoLogo from 'images/reusable-sections/section-with-logos/teoco.svg';
 import unityLogo from 'images/reusable-sections/section-with-logos/unity.svg';
-import premierDxImage from 'images/reusable-sections/section-with-cards/premier-dx.png';
 
 //Big Icons
 
@@ -39,6 +45,7 @@ import componentsIcon from 'images/icons/components.svg';
 import apifirstIcon from 'images/icons/api-first.svg';
 
 //Small Icons
+
 import inappIcon from 'images/icons/in-app.svg';
 import emailIcon from 'images/icons/email.svg';
 import pushIcon from 'images/icons/push.svg';
