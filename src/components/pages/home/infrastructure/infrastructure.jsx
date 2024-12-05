@@ -137,18 +137,18 @@ const CARDS = [
 
 const Infrastructure = () => (
   <section className="infrastructure mt-40 md:mt-[88px]">
-    <div className="container-lg relative xl:px-0 lg:px-8 lg:w-full lg:max-w-5xl md:max-w-3xl sm:px-5">
-      <h2 className="relative z-10 text-6xl leading-denser tracking-snug font-medium max-w-3xl lg:text-4xl lg:max-w-xl md:text-[32px] md:max-w-lg sm:text-3xl">
+    <div className="container-lg relative xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
+      <h2 className="relative z-10 max-w-3xl text-6xl font-medium leading-denser tracking-snug lg:max-w-xl lg:text-4xl md:max-w-lg md:text-[32px] sm:text-3xl">
         {TITLE}
       </h2>
-      <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 max-w-xl lg:mt-2.5 md:text-base md:mt-3">
+      <p className="mt-3 max-w-xl text-[17px] font-book leading-snug text-gray-9 lg:mt-2.5 md:mt-3 md:text-base">
         {DESCRIPTION}
       </p>
-      <ul className="relative z-10 flex flex-wrap gap-7 mt-12 lg:mt-11 lg:gap-6 md:gap-[18px] md:mt-9 sm:justify-center sm:mt-8">
+      <ul className="relative z-10 mt-12 flex flex-wrap gap-7 lg:mt-11 lg:gap-6 md:mt-9 md:gap-[18px] sm:mt-8 sm:justify-center">
         {CARDS.map(({ title, description, className, image, imageMobile }, index) => (
           <li
             className={clsx(
-              'relative h-[382px] rounded-xl bg-clip-border border border-transparent lg:h-[322px] md:h-[252px] sm:max-w-[380px] sm:w-full sm:h-[250px]',
+              'relative h-[382px] rounded-xl border border-transparent bg-clip-border lg:h-[322px] md:h-[252px] sm:h-[250px] sm:w-full sm:max-w-[380px]',
               className,
               {
                 'w-[770px] lg:w-[608px] md:w-[446px]': index % 2 === 0,
@@ -159,9 +159,9 @@ const Infrastructure = () => (
           >
             <div
               className={clsx(
-                'relative z-10 w-full h-full p-[30px] lg:p-[26px] md:p-[18px] sm:p-4',
+                'relative z-10 h-full w-full p-[30px] lg:p-[26px] md:p-[18px] sm:p-4',
                 {
-                  'max-w-md lg:max-w-[330px] md:max-w-[300px] sm:flex sm:flex-col sm:justify-end sm:max-w-none':
+                  'max-w-md lg:max-w-[330px] md:max-w-[300px] sm:flex sm:max-w-none sm:flex-col sm:justify-end':
                     index % 2 === 0,
                   'flex flex-col justify-end': index % 2 === 1,
                 }
@@ -171,7 +171,7 @@ const Infrastructure = () => (
                 {title}
               </h3>
               <p
-                className="text-[15px] font-light leading-snug text-gray-9 mt-1.5 md:text-sm md:mt-1"
+                className="mt-1.5 text-[15px] font-light leading-snug text-gray-9 md:mt-1 md:text-sm"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </div>
@@ -180,8 +180,8 @@ const Infrastructure = () => (
           </li>
         ))}
       </ul>
-      <div className="absolute z-0 top-20 -right-36 w-[564px] h-[420px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#D886FF_27.2%,#EA69FF_80.5%,#A347FF_100%)] opacity-10 blur-3xl lg:w-[508px] lg:h-[378px] md:-right-9 md:w-[377px] md:h-[281px] sm:top-64 sm:-right-28" />
-      <div className="absolute z-0 -left-44 -bottom-12 w-[553px] h-[394px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#6789FF_27.2%,#69B7FF_80.5%,#4786FF_100%)] opacity-10 blur-3xl lg:w-[522px] lg:h-[372px] md:-left-10 md:w-[372px] md:h-[265px] sm:-left-36" />
+      <div className="absolute -right-36 top-20 z-0 h-[420px] w-[564px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#D886FF_27.2%,#EA69FF_80.5%,#A347FF_100%)] opacity-10 blur-3xl lg:h-[378px] lg:w-[508px] md:-right-9 md:h-[281px] md:w-[377px] sm:-right-28 sm:top-64" />
+      <div className="absolute -bottom-12 -left-44 z-0 h-[394px] w-[553px] rounded-[50%] bg-[radial-gradient(88.94%_88.94%_at_62.86%_11.06%,#6789FF_27.2%,#69B7FF_80.5%,#4786FF_100%)] opacity-10 blur-3xl lg:h-[372px] lg:w-[522px] md:-left-10 md:h-[265px] md:w-[372px] sm:-left-36" />
     </div>
   </section>
 );
