@@ -48,8 +48,6 @@ import customIcon from 'images/icons/custom.svg';
 
 // import LINKS from 'constants/links';
 
-console.log('premierDxImage path:', premierDxImage);
-
 const SECTION_WITH_LOGOS_2 = [
   {
     title: 'Salad',
