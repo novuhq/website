@@ -2,7 +2,7 @@
 // import LINKS from 'constants/links';
 
 export const firstSectionData = {
-  title: 'Built for teams, loved by developers',
+  title: 'Built for teams, loved by developers...',
   description:
     'Design powerful, flexible, and fully extensible notification workflows that deliver rich notifications to your end users via any channel.',
   //  button: {
