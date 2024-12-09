@@ -46,6 +46,28 @@ const THEMES = {
       />
     ),
   },
+  linearDark: {
+    inboxImage: (
+      <StaticImage
+        className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        src="./images/linear-dark.png"
+        alt=""
+        width={608}
+        height={619}
+      />
+    ),
+  },
+  linearLight: {
+    inboxImage: (
+      <StaticImage
+        className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        src="./images/linear-light.png"
+        alt=""
+        width={608}
+        height={619}
+      />
+    ),
+  },
 };
 
 const AdaptiveStatic = ({ theme, className }) => {
