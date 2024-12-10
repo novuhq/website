@@ -1,6 +1,18 @@
+import AddedIcon from './images/added.inline.svg';
+import aliceAvatar from './images/alice.png';
+import AssignedIcon from './images/assigned.inline.svg';
+import completeIcon from './images/complete.svg';
+import CompletedIcon from './images/completed.inline.svg';
+import cubeIcon from './images/cube.svg';
+import danielAvatar from './images/daniel.png';
 import evanClarkAvatar from './images/evan-clark.jpg';
 import johnDoeAvatar from './images/john-doe.jpg';
+import MentionedIcon from './images/mentioned.inline.svg';
 import oliverJamesAvatar from './images/oliver-james.jpg';
+import rayAvatar from './images/ray.png';
+import RepliedIcon from './images/replied.inline.svg';
+import rhombIcon from './images/rhomb.svg';
+import yellowHalfCircleIcon from './images/yellow-half-circle.svg';
 
 const inboxData = [
   {
@@ -263,6 +275,198 @@ const inboxData = [
           {
             name: 'John Doe',
             avatar: johnDoeAvatar,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    theme: 'linearDark',
+    title: 'Linear Dark',
+    messages: [
+      {
+        title: 'Update youtube block preview',
+        actionType: 'mentioned you in project',
+        avatarIcon: MentionedIcon,
+        additionalText: '',
+        date: '38min',
+        dateIcon: cubeIcon,
+        isRead: false,
+        authors: [
+          {
+            name: 'Daniel',
+            avatar: danielAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Ensure compatibility with the mobile app and the web version.',
+        actionType: 'assigned to you',
+        avatarIcon: AssignedIcon,
+        additionalText: '',
+        date: '2h',
+        dateIcon: yellowHalfCircleIcon,
+        isRead: false,
+        authors: [
+          {
+            name: 'Ray',
+            avatar: rayAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Refactor user authentication flow',
+        actionType: 'marked as completed',
+        avatarIcon: CompletedIcon,
+        additionalText: '',
+        date: '1h',
+        dateIcon: completeIcon,
+        isRead: true,
+        authors: [
+          {
+            name: 'Daniel',
+            avatar: danielAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Create a new design for the hero section for i,mproving user engagement.',
+        actionType: 'replied:',
+        avatarIcon: RepliedIcon,
+        additionalText: 'Love it!',
+        date: '3h',
+        dateIcon: completeIcon,
+        isRead: true,
+        authors: [
+          {
+            name: 'Alice',
+            avatar: aliceAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Replace current cookie-based authentication with JWT tokens for enhanced security.',
+        actionType: 'added you to project',
+        avatarIcon: AddedIcon,
+        additionalText: '',
+        date: '13h',
+        dateIcon: cubeIcon,
+        isRead: false,
+        authors: [
+          {
+            name: 'Daniel',
+            avatar: danielAvatar,
+          },
+        ],
+      },
+      {
+        title: 'User Testing Phase Start',
+        actionType: 'mentioned you in project',
+        avatarIcon: MentionedIcon,
+        additionalText: 'milestone',
+        date: '12h',
+        dateIcon: rhombIcon,
+        isRead: true,
+        authors: [
+          {
+            name: 'Ray',
+            avatar: rayAvatar,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    theme: 'linearLight',
+    title: 'Linear Light',
+    messages: [
+      {
+        title: 'Update youtube block preview',
+        actionType: 'mentioned you in project',
+        avatarIcon: MentionedIcon,
+        additionalText: '',
+        date: '38min',
+        dateIcon: cubeIcon,
+        isRead: false,
+        authors: [
+          {
+            name: 'Daniel',
+            avatar: danielAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Ensure compatibility with the mobile app and the web version.',
+        actionType: 'assigned to you',
+        avatarIcon: AssignedIcon,
+        additionalText: '',
+        date: '2h',
+        dateIcon: yellowHalfCircleIcon,
+        isRead: false,
+        authors: [
+          {
+            name: 'Ray',
+            avatar: rayAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Refactor user authentication flow',
+        actionType: 'marked as completed',
+        avatarIcon: CompletedIcon,
+        additionalText: '',
+        date: '1h',
+        dateIcon: completeIcon,
+        isRead: true,
+        authors: [
+          {
+            name: 'Daniel',
+            avatar: danielAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Create a new design for the hero section for i,mproving user engagement.',
+        actionType: 'replied:',
+        avatarIcon: RepliedIcon,
+        additionalText: 'Love it!',
+        date: '3h',
+        dateIcon: completeIcon,
+        isRead: true,
+        authors: [
+          {
+            name: 'Alice',
+            avatar: aliceAvatar,
+          },
+        ],
+      },
+      {
+        title: 'Replace current cookie-based authentication with JWT tokens for enhanced security.',
+        actionType: 'added you to project',
+        avatarIcon: AddedIcon,
+        additionalText: '',
+        date: '13h',
+        dateIcon: cubeIcon,
+        isRead: false,
+        authors: [
+          {
+            name: 'Daniel',
+            avatar: danielAvatar,
+          },
+        ],
+      },
+      {
+        title: 'User Testing Phase Start',
+        actionType: 'mentioned you in project',
+        avatarIcon: MentionedIcon,
+        additionalText: 'milestone',
+        date: '12h',
+        dateIcon: rhombIcon,
+        isRead: true,
+        authors: [
+          {
+            name: 'Ray',
+            avatar: rayAvatar,
           },
         ],
       },
