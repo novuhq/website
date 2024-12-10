@@ -158,6 +158,7 @@ const LinearHeader = ({
             'invisible absolute right-0 top-[calc(100%+12px)] min-w-[306px] rounded-[10px] px-[19px] pb-[17px] pt-3 font-inter opacity-0 transition-[opacity,visibility] duration-300 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100',
             currentTheme.orderingMenuStyles
           )}
+          onMouseLeave={() => setIsExpanded(false)}
         >
           <div className="relative flex items-center justify-between gap-x-2">
             <div className="flex items-center gap-x-3">
