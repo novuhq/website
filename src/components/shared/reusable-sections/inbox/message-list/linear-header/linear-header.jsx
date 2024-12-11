@@ -145,7 +145,8 @@ const LinearHeader = ({
       </div>
       <button
         className={clsx(
-          'menu-btn relative size-7 items-center justify-center rounded-[6px] bg-transparent transition-colors before:absolute before:left-0 before:top-0 before:size-11 before:bg-transparent'
+          'menu-btn relative flex size-7 items-center justify-center rounded-[6px] bg-transparent transition-colors before:absolute before:left-0 before:top-0 before:size-11 before:bg-transparent',
+          currentTheme.mainIconsUnderlayStyles
         )}
         type="button"
       >
