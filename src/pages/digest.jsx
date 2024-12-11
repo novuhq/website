@@ -88,8 +88,8 @@ const USE_CASE_EXAMPLES = [
 const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <TextWithPicture
-      title="Some header that includes up to three lines of engaging text"
-      description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+      title="Digest notifications and stop overnotifying"
+      description="Consolidate multiple events into a single message, reducing notification overload while keeping users informed. Optimize workflows with custom grouping, time intervals, and strategies tailored to your communication needs."
       image={
         <StaticImage
           className="size-full object-cover"
@@ -103,8 +103,8 @@ const HomePage = () => (
     />
 
     <TextWithPicture
-      title="Some header that includes up to three lines of engaging text"
-      description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+      title="Multiple digest strategies that work"
+      description="Batch notifications in a set window, or look back to the last received notification and make a game time decision. It’s all configurable for set-it and forget-it notification digests."
       image={
         <StaticImage
           className="size-full object-cover"
@@ -123,8 +123,8 @@ const HomePage = () => (
     />
 
     <TextWithPicture
-      title="Some header that includes up to three lines of engaging text"
-      description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+      title="Eliminate notification fatigue"
+      description="Novu makes it easy to insert digest steps into your notifications workflows, and delivers  complete flexibility to adjust notification frequency and content."
       image={
         <StaticImage
           className="size-full object-cover"
