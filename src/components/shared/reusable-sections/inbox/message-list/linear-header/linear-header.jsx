@@ -181,7 +181,7 @@ const LinearHeader = ({
           {isExpanded && (
             <div
               className={clsx(
-                'absolute right-0 top-0 z-10 flex flex-col gap-y-2 rounded-[6px] border-[0.5px] p-2.5',
+                'absolute right-0 top-0 z-10 flex flex-col items-start gap-y-2 rounded-[6px] border-[0.5px] p-2.5',
                 currentTheme.orderingDropdownStyles
               )}
             >
@@ -243,7 +243,7 @@ const LinearHeader = ({
             >
               <span
                 className={clsx(
-                  'absolute top-1/2 size-3.5 -translate-y-1/2 rounded-full bg-white transition-transform duration-300 ease-in-out',
+                  'absolute top-1/2 size-3.5 shrink-0 -translate-y-1/2 rounded-full bg-white transition-transform duration-300 ease-in-out',
                   showUnreadFirst ? 'translate-x-0' : '-translate-x-full'
                 )}
               />
@@ -254,7 +254,7 @@ const LinearHeader = ({
             <p>Show read</p>
             <button
               className={clsx(
-                'relative h-[20px] w-[32px] rounded-full px-[2px] py-[3px] transition-colors duration-300 ease-in-out',
+                'relative h-[20px] w-[32px] shrink-0 rounded-full px-[2px] py-[3px] transition-colors duration-300 ease-in-out',
                 showRead ? currentTheme.toggleOnBgColor : currentTheme.toggleOffBgColor
               )}
               type="button"

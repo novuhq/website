@@ -130,7 +130,7 @@ const LINEAR_FILTERS = {
       filter: (messages, isShowUnreadFirst) => sortMessages(messages, isShowUnreadFirst, true),
     },
     {
-      label: 'Latest',
+      label: 'Oldest',
       filter: (messages, isShowUnreadFirst) => sortMessages(messages, isShowUnreadFirst, false),
     },
   ],
