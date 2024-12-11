@@ -3,7 +3,7 @@ import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 
-import parseDateToMinutes from 'utils/parse-date';
+import { prepareAndFilterMessages } from 'utils/linear-theme-utils';
 
 import ArchiveAllIcon from './images/archive-all.inline.svg';
 import ArchiveReadIcon from './images/archive-read.inline.svg';
@@ -27,19 +27,6 @@ import TabList from './tab-list';
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
-
-const sortMessages = (messages, isShowUnreadFirst, isNewest) =>
-  messages.slice().sort((a, b) => {
-    const dateA = parseDateToMinutes(a.date);
-    const dateB = parseDateToMinutes(b.date);
-
-    if (isShowUnreadFirst) {
-      if (!a.isRead && b.isRead) return -1;
-      if (a.isRead && !b.isRead) return 1;
-    }
-
-    return isNewest ? dateA - dateB : dateB - dateA;
-  });
 
 const deleteVariants = {
   animate: {
@@ -127,11 +114,9 @@ const LINEAR_FILTERS = {
   ordering: [
     {
       label: 'Newest',
-      filter: (messages, isShowUnreadFirst) => sortMessages(messages, isShowUnreadFirst, true),
     },
     {
       label: 'Oldest',
-      filter: (messages, isShowUnreadFirst) => sortMessages(messages, isShowUnreadFirst, false),
     },
   ],
   actions: [
@@ -183,13 +168,10 @@ const MessageList = ({
         return NOTION_FILTERS[filterIndex].filter(messages);
       case 'linearDark':
       case 'linearLight':
-        if (!showRead) {
-          return messages.filter((message) => !message.isRead);
-        }
+        // eslint-disable-next-line no-case-declarations
+        const isNewest = orderingPosition === 'Newest';
 
-        return LINEAR_FILTERS.ordering
-          .find((filter) => filter.label === orderingPosition)
-          .filter(messages, showUnreadFirst);
+        return prepareAndFilterMessages(messages, showRead, showUnreadFirst, isNewest);
       default:
         return messages;
     }
