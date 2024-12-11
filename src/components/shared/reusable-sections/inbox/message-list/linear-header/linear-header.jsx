@@ -87,7 +87,7 @@ const LinearHeader = ({
   };
 
   return (
-    <div className="relative z-20 mb-2.5 flex shrink-0 items-center justify-between py-[18px] pl-[26px] pr-6">
+    <div className="relative z-20 mb-2.5 flex shrink-0 items-center justify-between pb-[15px] pl-[26px] pr-5 pt-3.5">
       <div className="flex items-center gap-x-2.5">
         <span
           className={clsx(
@@ -145,7 +145,7 @@ const LinearHeader = ({
       </div>
       <button
         className={clsx(
-          'menu-btn relative flex size-7 items-center justify-center rounded-[6px] bg-transparent transition-colors before:absolute before:left-0 before:top-0 before:size-11 before:bg-transparent',
+          'menu-btn relative flex size-7 items-center justify-center rounded-[6px] bg-transparent transition-colors before:absolute before:right-0 before:top-0 before:size-11 before:bg-transparent',
           currentTheme.mainIconsUnderlayStyles
         )}
         type="button"
@@ -157,7 +157,7 @@ const LinearHeader = ({
       </button>
       <div
         className={clsx(
-          'menu invisible absolute right-0 top-[calc(100%+12px)] min-w-[306px] rounded-[10px] px-[19px] pb-[17px] pt-3 font-inter opacity-0 transition-[opacity,visibility] duration-300',
+          'menu invisible absolute right-5 top-[calc(100%-3px)] min-w-[306px] rounded-[10px] px-[19px] pb-[17px] pt-3 font-inter opacity-0 transition-[opacity,visibility] duration-300',
           currentTheme.orderingMenuStyles
         )}
         onMouseLeave={() => setIsExpanded(false)}
