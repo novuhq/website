@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import Button from 'components/shared/button';
-import LINKS from 'constants/links';
-import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
+// import Button from 'components/shared/button';
+// import LINKS from 'constants/links';
+// import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
 
 import Animation from './animation';
 
@@ -13,13 +13,13 @@ const DESCRIPTION =
   'The open-source notification infrastructure for in-app, email, push, chat, and push.';
 
 const Hero = () => (
-  <section className="hero relative mb-20 pt-[152px] lg:pt-[196px] md:pt-[98px] sm:mb-10">
+  <section className="hero relative mb-20 pt-[80px] lg:pt-[196px] md:pt-[98px] sm:mb-10">
     <div className="container-xl relative z-10 xl:px-10 lg:max-w-none lg:px-8 md:max-w-3xl sm:max-w-lg sm:px-5">
       <div className="flex flex-col items-center">
         <h1 className="max-w-[690px] text-center text-[52px] font-medium leading-denser tracking-snug lg:text-5xl md:text-4xl sm:text-[30px]">
           {TITLE}
         </h1>
-        <p className="mt-5 max-w-xl text-center text-lg font-book leading-snug text-white/70">
+        <p className="mt-5 max-w-xl text-center text-lg leading-normal tracking-snug text-gray-8">
           {DESCRIPTION}
         </p>
         {/* <div className="justify-left relative z-10 mt-11 flex items-center gap-x-7 gap-y-5 sm:mt-7 sm:justify-center sm:gap-x-4 2xs:flex-wrap">

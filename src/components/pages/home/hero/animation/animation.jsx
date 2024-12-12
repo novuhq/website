@@ -135,12 +135,12 @@ const Animation = () => {
             <h2 className="text-[44px] font-medium leading-denser tracking-snug xl:text-5xl lg:text-4xl">
               {firstSectionData.title}
             </h2>
-            <p className="mt-3 text-lg leading-snug text-white/70 lg:text-sm">
+            <p className="mt-4 text-lg leading-normal tracking-snug text-gray-8 lg:text-sm">
               {firstSectionData.description}
             </p>
             {firstSectionData.button && (
               <Button
-                className="mt-6 h-10 min-w-[140px] text-sm"
+                className="mt-8 h-10 min-w-[165px] text-sm"
                 theme="white-filled"
                 to={firstSectionData.button.link}
               >
@@ -155,12 +155,12 @@ const Animation = () => {
             <h2 className="text-[44px] font-medium leading-denser tracking-snug xl:text-5xl lg:text-4xl">
               {secondSectionData.title}
             </h2>
-            <p className="mt-3 text-lg leading-snug text-white/70 lg:text-sm">
+            <p className="mt-4 text-lg leading-normal tracking-snug text-gray-8 lg:text-sm">
               {secondSectionData.description}
             </p>
             {secondSectionData.button && (
               <Button
-                className="mt-6 h-10 min-w-[140px] text-sm"
+                className="mt-8 h-10 min-w-[198px] text-sm"
                 theme="white-filled"
                 to={secondSectionData.button.link}
               >
@@ -169,13 +169,13 @@ const Animation = () => {
             )}
           </section>
           <section
-            className="end-users absolute left-1/2 top-[9%] z-50 max-w-[560px] -translate-x-1/2 text-center opacity-0 lg:max-w-md"
+            className="end-users absolute left-1/2 top-[9%] z-50 max-w-[704px] -translate-x-1/2 text-center opacity-0 lg:max-w-md"
             ref={endUsersRef}
           >
             <h2 className="text-[44px] font-medium leading-denser tracking-snug xl:text-5xl lg:text-4xl">
               {thirdSectionData.title}
             </h2>
-            <p className="mt-3 text-lg leading-snug text-white/70 lg:text-sm">
+            <p className="mt-4 text-lg leading-normal tracking-snug text-gray-8 lg:text-sm">
               {thirdSectionData.description}
             </p>
           </section>

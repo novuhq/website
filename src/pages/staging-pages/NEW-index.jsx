@@ -1,27 +1,31 @@
-import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
 
-// Dedicated components
-
+import SectionWithSmallIcons from 'components/pages/home/channels/section-with-small-icons';
 import Code from 'components/pages/home/code';
 import Hero from 'components/pages/home/hero';
-import SectionWithCards from 'components/pages/home/cards/section-with-cards';
-import SectionWithSmallIcons from 'components/pages/home/channels/section-with-small-icons';
 import Reviews from 'components/pages/home/reviews';
-
-// Shared components
-
-import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import Layout from 'components/shared/layout';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import Inbox from 'components/shared/reusable-sections/inbox';
+import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
+import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-
-// Logos and images
-
+import apifirstIcon from 'images/icons/api-first.svg';
+import bellOutlineIcon from 'images/icons/bell-outline.svg';
+import chatOutlineIcon from 'images/icons/chat-outline.svg';
+import componentsIcon from 'images/icons/components.svg';
+import emailOutlineIcon from 'images/icons/email-outline.svg';
+import gearOutlineIcon from 'images/icons/gear-outline.svg';
+import inappOutlineIcon from 'images/icons/in-app-outline.svg';
+import integration2Icon from 'images/icons/integration2.svg';
+import observabilityIcon from 'images/icons/observability.svg';
+import planeOutlineIcon from 'images/icons/plane-outline.svg';
+import preferencesIcon from 'images/icons/preferences.svg';
+import workflowsIcon from 'images/icons/workflows.svg';
 import allstarLogo from 'images/reusable-sections/section-with-logos/allstar.svg';
 import axiosHqLogo from 'images/reusable-sections/section-with-logos/axios-hq.svg';
 import baskLogo from 'images/reusable-sections/section-with-logos/bask.svg';
@@ -34,24 +38,6 @@ import saladLogo from 'images/reusable-sections/section-with-logos/salad.svg';
 import siemensLogo from 'images/reusable-sections/section-with-logos/siemens.svg';
 import teocoLogo from 'images/reusable-sections/section-with-logos/teoco.svg';
 import unityLogo from 'images/reusable-sections/section-with-logos/unity.svg';
-
-//Big Icons
-
-import preferencesIcon from 'images/icons/preferences.svg';
-import workflowsIcon from 'images/icons/workflows.svg';
-import observabilityIcon from 'images/icons/observability.svg';
-import integration2Icon from 'images/icons/integration2.svg';
-import componentsIcon from 'images/icons/components.svg';
-import apifirstIcon from 'images/icons/api-first.svg';
-
-//Small Icons
-
-import inappIcon from 'images/icons/in-app.svg';
-import emailIcon from 'images/icons/email.svg';
-import pushIcon from 'images/icons/push.svg';
-import smsIcon from 'images/icons/sms.svg';
-import chatIcon from 'images/icons/chat.svg';
-import customIcon from 'images/icons/custom.svg';
 
 // import LINKS from 'constants/links';
 
@@ -114,7 +100,7 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../images/premier-dx.png"
+        src="../../images/reusable-sections/section-with-cards/premier-dx-redesigned.jpg"
       />
     ),
     linkText: 'Learn more',
@@ -127,7 +113,7 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../images/flexible.png"
+        src="../../images/reusable-sections/section-with-cards/flexible-redesigned.jpg"
       />
     ),
     linkText: 'Learn more',
@@ -140,7 +126,7 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../images/opensource.png"
+        src="../../images/reusable-sections/section-with-cards/opensource-redesigned.jpg"
       />
     ),
     linkText: 'Learn more',
@@ -197,72 +183,83 @@ const SECTION_WITH_SMALL_ICONS = [
     title: 'InApp/Inbox',
     description:
       'Display real-time, contextual notifications within your app using customizable components.',
-    image: inappIcon,
+    image: inappOutlineIcon,
   },
   {
     title: 'Email',
     description:
       'Send targeted emails for confirmations, reports, and updates to ensure clear communication.',
-    image: emailIcon,
+    image: emailOutlineIcon,
   },
   {
     title: 'Push',
     description:
       "Deliver instant notifications to users' devices, ensuring real-time engagement and immediate updates.",
-    image: pushIcon,
+    image: bellOutlineIcon,
   },
   {
     title: 'SMS',
     description:
       'Send reliable text messages for authentication and alerts, even without internet access.',
-    image: smsIcon,
+    image: planeOutlineIcon,
   },
   {
     title: 'Chat',
     description:
       'Engage users through instant messaging apps and platforms, enhancing communication and support.',
-    image: chatIcon,
+    image: chatOutlineIcon,
   },
   {
     title: 'Custom',
     description:
       'Create tailored notification channels to meet your specific needs and integrate seamlessly.',
-    image: customIcon,
+    image: gearOutlineIcon,
   },
 ];
 
 const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+    {/* link src? */}
     <Hero />
+    {/* reusable */}
     <SectionWithLogos
       containerSize="lg"
       title="Notifications brands count on"
       description="Ensuring seamless notifications from business to users, with zero hassle."
       logos={SECTION_WITH_LOGOS_2}
     />
-    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} />
+    {/* had changed to reusable */}
+    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} type="withLinks" />
+    {/* reusable */}
     <SectionWithBigIcons
       title="Notification building blocks provide unlimited capability"
       items={SECTION_WITH_BIG_ICONS}
     />
+    {/* desktop ready */}
     <SectionWithSmallIcons
       title="All your channels in one platform"
       items={SECTION_WITH_SMALL_ICONS}
     />
+    {/* reusable */}
     <Inbox
+      sectionOffsets="mt-[250px] sm:mt-20"
       title="Add In-App Notifications with the most customizable <Inbox/>"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
-        label: 'LEARN MORE',
+        label: 'SEE IT LIVE',
         link: '/inbox?utm_campaign=ws-inbox-hero',
       }}
     />
+    {/* desktop ready, skip in-code positioning, container width, shadow */}
     <div id="codefirst">
       <Code />
     </div>
+    {/* ask about testimonials */}
     <Reviews />
+    {/* reusable */}
     <CtaWithForm
-      className="mb-30 mt-[166px]"
+      className="mb-[192px] mt-[238px] text-center"
+      contentMaxWidth="max-w-[700px]"
       title="You're five minutes away from your first Novu-powered notification"
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
       leftItem={{
@@ -274,7 +271,7 @@ const HomePage = () => (
         link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
       }}
     />
-    <Separator className="w-full max-w-none" backgroundColor="echo-gradient" />
+    <Separator className="h-px w-full max-w-none" backgroundColor="black" />
   </Layout>
 );
 

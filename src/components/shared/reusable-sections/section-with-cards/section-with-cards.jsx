@@ -15,28 +15,31 @@ const SectionWithCards = ({ title, cards }) => (
         {title}
       </Heading>
       <ul className="mt-16 grid grid-cols-3 gap-8 lg:mt-14 lg:gap-7 md:mt-12 md:grid-cols-2 md:gap-6 sm:mt-10 xs:flex xs:flex-col xs:items-center">
-        {cards.map(({ title, description, image }, index) => (
-          <li className="group flex w-full justify-center md:last:col-span-2" key={index}>
-            <div className="flex w-full max-w-[384px] flex-col rounded-xl bg-common-card-border p-px md:group-last:w-1/2 xs:group-last:w-full">
-              <div className="aspect-[1.785] w-full shrink-0 overflow-hidden rounded-t-xl">
-                {image}
+        {cards.map(({ title, description, image }, index) => {
+          console.log(image);
+          return (
+            <li className="group flex w-full justify-center md:last:col-span-2" key={index}>
+              <div className="flex w-full max-w-[384px] flex-col rounded-xl bg-common-card-border p-px md:group-last:w-1/2 xs:group-last:w-full">
+                <div className="aspect-[1.785] w-full shrink-0 overflow-hidden rounded-t-xl">
+                  {image}
+                </div>
+                <div className="grow overflow-hidden rounded-b-xl bg-[#0F0F15] p-6 sm:p-5">
+                  <Heading
+                    className="leading-denser tracking-snug md:text-xl sm:text-lg"
+                    tag="h3"
+                    size="xs"
+                    theme="white"
+                  >
+                    {title}
+                  </Heading>
+                  <p className="mt-2.5 text-[15px] font-book leading-snug tracking-snug text-gray-8">
+                    {description}
+                  </p>
+                </div>
               </div>
-              <div className="grow overflow-hidden rounded-b-xl bg-[#0F0F15] p-6 sm:p-5">
-                <Heading
-                  className="leading-denser tracking-snug md:text-xl sm:text-lg"
-                  tag="h3"
-                  size="xs"
-                  theme="white"
-                >
-                  {title}
-                </Heading>
-                <p className="mt-2.5 text-[15px] font-book leading-snug tracking-snug text-gray-8">
-                  {description}
-                </p>
-              </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
     </div>
   </section>
@@ -50,7 +53,7 @@ SectionWithCards.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
+      image: PropTypes.node.isRequired,
     })
   ).isRequired,
 };

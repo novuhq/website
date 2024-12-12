@@ -236,7 +236,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className="reviews safe-paddings mt-[200px] md:mt-36 sm:mt-20">
+    <section className="reviews safe-paddings mt-[308px] md:mt-36 sm:mt-[140px]">
       <div className="container-lg xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
         <Heading
           className="text-center font-medium leading-denser tracking-snug md:text-[40px] sm:text-[32px] xs:text-[29px]"
@@ -245,7 +245,7 @@ const Reviews = () => {
         >
           {TITLE}
         </Heading>
-        <p className="mx-auto mt-3.5 max-w-xl text-center text-[17px] font-book leading-snug text-gray-9 md:text-base">
+        <p className="mx-auto mt-3.5 max-w-[608px] text-center text-[18px] leading-normal tracking-snug text-gray-8 md:text-base">
           {DESCRIPTION}
         </p>
         <div className="relative -mx-4 mt-14 xl:mx-12 md:mx-[42px] md:mt-12 sm:mx-10 sm:mt-10 xs:-mx-5 xs:mt-9">

@@ -11,7 +11,7 @@ import CopyIcon from 'icons/copy.inline.svg';
 import background from './images/background.svg';
 import codeDots from './images/code-dots.svg';
 
-const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => {
+const CtaWithForm = ({ className, contentMaxWidth, title, description, leftItem, rightItem }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
@@ -37,7 +37,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
         className
       )}
     >
-      <div className="container-sm relative md:px-8 sm:w-full sm:px-5">
+      <div className={clsx('container-sm relative md:px-8 sm:w-full sm:px-5', contentMaxWidth)}>
         <div className="relative z-10 flex flex-col items-center">
           <Heading
             className="max-w-4xl font-medium leading-denser tracking-snug lg:text-4xl md:text-[32px]"
@@ -138,6 +138,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
 
 CtaWithForm.propTypes = {
   className: PropTypes.string,
+  contentMaxWidth: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   leftItem: PropTypes.shape({
@@ -157,6 +158,7 @@ CtaWithForm.propTypes = {
 
 CtaWithForm.defaultProps = {
   className: '',
+  contentMaxWidth: '',
 };
 
 export default CtaWithForm;

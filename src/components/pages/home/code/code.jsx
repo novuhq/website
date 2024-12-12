@@ -68,7 +68,7 @@ await oneTimePassword.trigger({
 
 const TABS = [
   {
-    title: 'AI Digest',
+    title: 'AI digest',
     code: COMMENT_WORKFLOW_CODE,
     image: (
       <StaticImage
@@ -117,21 +117,21 @@ const Code = () => {
   const [activeTab, setActiveTab] = useState(TABS[0].title);
 
   return (
-    <section className="code mt-[206px] lg:mt-36 md:mt-[116px] sm:mt-20">
+    <section className="code mt-[176px] lg:mt-36 md:mt-[116px] sm:mt-[140px]">
       <div className="container-lg relative min-h-[836px] px-8 lg:min-h-[692px] lg:w-full lg:max-w-5xl md:min-h-[535px] md:max-w-3xl sm:min-h-[324px] sm:px-5">
         <h2
-          className="relative z-10 ml-[42px] max-w-[700px] bg-[linear-gradient(360deg,rgba(104,181,215,1)_-19.23%,#FFFFFF_30.54%)] bg-clip-text text-[44px] font-medium leading-none tracking-snug text-transparent lg:ml-8 lg:text-5xl md:ml-0 md:max-w-lg md:text-4xl sm:text-[32px]"
+          className="relative z-10 ml-1 max-w-[700px] text-[48px] font-medium leading-denser tracking-snug text-white lg:ml-8 lg:text-5xl md:ml-0 md:max-w-lg md:text-4xl sm:text-[32px]"
           dangerouslySetInnerHTML={{ __html: TITLE }}
         />
-        <p className="ml-[42px] mt-4 max-w-[800px] text-[17px] font-book leading-snug text-gray-9 lg:ml-8 lg:mt-2.5 md:ml-0 md:mt-3 md:text-base">
+        <p className="ml-1 mt-5 max-w-[768px] text-[18px] font-normal leading-normal tracking-snug text-gray-8 lg:ml-8 lg:mt-2.5 md:ml-0 md:mt-3 md:text-base">
           {DESCRIPTION}
         </p>
-        <ul className="relative z-10 mt-8 flex justify-end gap-x-7 pr-8 text-[15px] font-medium leading-snug text-[#CAE9FF]/60 lg:mt-5 lg:gap-x-6 md:mt-4 md:gap-x-[22px] md:pr-0 md:text-sm sm:mt-[30px] sm:justify-start">
+        <ul className="relative z-10 mt-8 flex justify-end gap-x-7 pr-7 text-[15px] leading-snug text-[#CAE9FF]/60 lg:mt-5 lg:gap-x-6 md:mt-4 md:gap-x-[22px] md:pr-0 md:text-sm sm:mt-[30px] sm:justify-start">
           {TABS.map(({ title }, index) => (
             <li key={index}>
               <button
                 className={clsx(
-                  'relative transition-colors duration-300 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-gradient-to-br after:from-[#FFE071] after:to-[#FFE071] after:bg-[length:0%_1px] after:bg-no-repeat after:transition-all after:duration-300 hover:text-[#FFE071] hover:after:bg-[length:100%_1px]',
+                  'relative transition-colors duration-300 after:absolute after:-bottom-[9px] after:left-0 after:h-px after:w-full after:bg-gradient-to-br after:from-[#FFE071] after:to-[#FFE071] after:bg-[length:0%_1px] after:bg-no-repeat after:transition-all after:duration-300 hover:text-[#FFE071] hover:after:bg-[length:100%_1px]',
                   {
                     'text-[#FFE071] after:bg-[length:100%_1px]': title === activeTab,
                   }
@@ -158,7 +158,7 @@ const Code = () => {
                       key={index}
                     >
                       <SyntaxHighlighter
-                        className="echo-code scrollbar-hidden relative z-10 pl-[42px] text-sm font-normal lg:pl-[35px] lg:text-xs md:pl-[26px] sm:ml-2 sm:mr-1.5 sm:overflow-y-scroll sm:pl-[7px] sm:text-[10px] sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]"
+                        className="echo-code scrollbar-hidden relative z-10 pl-[42px] text-sm font-normal before:absolute before:inset-x-0 before:bottom-0 before:z-20 before:h-30 before:bg-gradient-to-b before:from-transparent before:to-[#05050B] before:transition-opacity before:duration-300 lg:pl-[35px] lg:text-xs md:pl-[26px] sm:ml-2 sm:mr-1.5 sm:overflow-y-scroll sm:pl-[7px] sm:text-[10px] sm:[mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_25%)]"
                         style={{
                           marginTop: '20px',
                         }}
@@ -194,7 +194,7 @@ const Code = () => {
           </LazyMotion>
 
           <StaticImage
-            className="pointer-events-none !absolute bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
+            className="code-background pointer-events-none !absolute bottom-[-73px] right-0 z-0 w-[1252px] lg:bottom-[-46px] lg:w-[1044px] md:!hidden"
             src="./images/code-background.png"
             alt=""
             width={1252}
@@ -203,7 +203,7 @@ const Code = () => {
             aria-hidden
           />
           <StaticImage
-            className="pointer-events-none !absolute z-0 !hidden md:bottom-[-28px] md:left-[-61px] md:!inline-block md:w-[775px] sm:w-[652px] sm-xs:!hidden"
+            className="code-background-tablet pointer-events-none !absolute z-0 !hidden md:bottom-[-28px] md:left-[-61px] md:!inline-block md:w-[775px] sm:w-[652px] sm-xs:!hidden"
             src="./images/code-background-tablet.png"
             alt=""
             width={775}
@@ -212,7 +212,7 @@ const Code = () => {
             aria-hidden
           />
           <StaticImage
-            className="pointer-events-none !absolute z-0 !hidden sm-xs:-left-7 sm-xs:bottom-[-18px] sm-xs:!inline-block sm-xs:w-[351px]"
+            className="code-background-mobile pointer-events-none !absolute z-0 !hidden sm-xs:-left-7 sm-xs:bottom-[-18px] sm-xs:!inline-block sm-xs:w-[351px]"
             src="./images/code-background-mobile.png"
             alt=""
             width={351}
