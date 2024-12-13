@@ -219,28 +219,22 @@ const SECTION_WITH_SMALL_ICONS = [
 
 const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
-    {/* link src? */}
     <Hero />
-    {/* reusable */}
     <SectionWithLogos
       containerSize="lg"
       title="Notifications brands count on"
       description="Ensuring seamless notifications from business to users, with zero hassle."
       logos={SECTION_WITH_LOGOS_2}
     />
-    {/* had changed to reusable */}
-    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} type="withLinks" />
-    {/* reusable */}
+    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} withLinks />
     <SectionWithBigIcons
       title="Notification building blocks provide unlimited capability"
       items={SECTION_WITH_BIG_ICONS}
     />
-    {/* desktop ready */}
     <SectionWithSmallIcons
       title="All your channels in one platform"
       items={SECTION_WITH_SMALL_ICONS}
     />
-    {/* reusable */}
     <Inbox
       sectionOffsets="mt-[250px] sm:mt-20"
       title="Add In-App Notifications with the most customizable <Inbox/>"
@@ -250,13 +244,10 @@ const HomePage = () => (
         link: '/inbox?utm_campaign=ws-inbox-hero',
       }}
     />
-    {/* desktop ready, skip in-code positioning, container width, shadow */}
     <div id="codefirst">
       <Code />
     </div>
-    {/* ask about testimonials */}
     <Reviews />
-    {/* reusable */}
     <CtaWithForm
       className="mb-[192px] mt-[238px] text-center"
       contentMaxWidth="max-w-[700px]"
