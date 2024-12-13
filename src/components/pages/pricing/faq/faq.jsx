@@ -8,8 +8,24 @@ import Question from './question';
 const FAQ_DATA = [
   {
     question: 'What is an event?',
-    answer:
-      'An event is a request (for instance, an API call to /v1/events/trigger) that starts off an action in the Novu Workflow Engine. Events can make many different types of actions, including digests, delays, and sending notifications to various channels, as well filters and user preference checks. Event count per notification sent differs based on the complexity of your notification workflows.',
+    answer: (
+      <>
+        An event is a request (for instance, an API call to /v1/events/trigger) that starts off an
+        action in the Novu Workflow Engine. Events can make many differen types of actions,
+        including digests, delays, and sending notifications to various channels, as well filters
+        and user preference checks. If workflow is triggered to a{' '}
+        <Link
+          to="https://docs.novu.co/concepts/topics"
+          target="_blank"
+          rel="noreferrer"
+          theme="primary"
+        >
+          topic
+        </Link>{' '}
+        having 100 subscribers, then 100 events will be counted. So a workflow triggered to a
+        subscriber is an event.
+      </>
+    ),
   },
   {
     question: 'What is a notification?',
