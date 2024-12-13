@@ -36,7 +36,7 @@ const SectionWithSmallIcons = ({ title, items }) => (
           </li>
         ))}
       </ul>
-      <p className="mt-[44px] text-center text-[17px] leading-snug tracking-normal text-[#666666] md:text-sm">
+      <p className="mt-[44px] bg-white-gray-gradient bg-clip-text text-center text-[17px] leading-snug tracking-normal text-transparent md:text-sm">
         and literally anything else...
       </p>
     </div>

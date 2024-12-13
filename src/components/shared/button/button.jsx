@@ -19,7 +19,7 @@ const styles = {
       'bg-transparent border border-black text-black hover:border-gray-5 hover:bg-gray-5',
     'white-outline': 'bg-transparent border border-white text-white hover:bg-gray-4',
     'gray-outline':
-      'relative z-10 text-white border border-[#534B5D] hover:border-[#686170] after:absolute after:-z-10 after:inset-0 after:rounded-[inherit] after:bg-gray-gradient-4 after:opacity-0 after:transition-opacity after:duration-200 hover:after:opacity-100 after:pointer-events-none',
+      'relative z-10 text-white border border-[#534B5D] hover:border-[#686170] bg-gray-btn after:absolute after:-z-10 after:inset-0 after:rounded-[inherit] after:bg-gray-gradient-4 after:opacity-0 after:transition-opacity after:duration-200 hover:after:opacity-100 after:pointer-events-none',
     'blue-gradient':
       'relative z-10 text-black bg-blue-gradient before:absolute before:-z-10 before:h-[calc(100%+4px)] before:w-[calc(100%+4px)] before:rounded-inherit before:bg-blue-gradient before:blur-[3px] before:opacity-100 before:transition-opacity before:duration-200 hover:before:opacity-0',
     'pink-to-yellow-gradient':

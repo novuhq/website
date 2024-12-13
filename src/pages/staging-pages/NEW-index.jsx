@@ -228,7 +228,7 @@ const HomePage = () => (
     />
     <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} withLinks />
     <SectionWithBigIcons
-      title="Notification building blocks provide unlimited capability"
+      title="Notification building blocks provide unlimited capability"
       items={SECTION_WITH_BIG_ICONS}
     />
     <SectionWithSmallIcons
@@ -250,8 +250,7 @@ const HomePage = () => (
     <Reviews />
     <CtaWithForm
       className="mb-[192px] mt-[238px] text-center"
-      contentMaxWidth="max-w-[700px]"
-      title="You're five minutes away from your first Novu-powered notification"
+      title="You're five minutes away from your first Novu-powered notification"
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
       leftItem={{
         text: 'Get started',
