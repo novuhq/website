@@ -17,8 +17,8 @@ const SectionWithCards = ({ title, cards, withLinks }) => (
       </Heading>
       <ul className="mt-16 grid grid-cols-3 gap-8 lg:mt-14 lg:gap-7 md:mt-12 md:grid-cols-2 md:gap-6 sm:mt-10 xs:flex xs:flex-col xs:items-center">
         {cards.map(({ title, description, image, linkText, linkUrl }, index) => (
-          <li className="group flex w-full justify-center md:last:col-span-2" key={index}>
-            <div className="flex w-full max-w-[384px] flex-col rounded-xl bg-common-card-border p-px md:group-last:w-1/2 xs:group-last:w-full">
+          <li className="group/item flex w-full justify-center md:last:col-span-2" key={index}>
+            <div className="flex w-full max-w-[384px] flex-col rounded-xl bg-common-card-border p-px md:group-last/item:w-1/2 xs:group-last/item:w-full">
               <div className="aspect-[1.785] w-full shrink-0 overflow-hidden rounded-t-xl">
                 {image}
               </div>
