@@ -135,12 +135,12 @@ const Animation = () => {
             <h2 className="text-[44px] font-medium leading-denser tracking-snug xl:text-5xl lg:text-4xl">
               {firstSectionData.title}
             </h2>
-            <p className="mt-3 text-lg leading-snug text-white/70 lg:text-sm">
+            <p className="mt-4 text-lg leading-normal tracking-snug text-gray-8 lg:text-sm">
               {firstSectionData.description}
             </p>
             {firstSectionData.button && (
               <Button
-                className="mt-6 h-10 min-w-[140px] text-sm"
+                className="mt-8 h-10 min-w-[165px] text-sm"
                 theme="white-filled"
                 to={firstSectionData.button.link}
               >
@@ -149,18 +149,18 @@ const Animation = () => {
             )}
           </section>
           <section
-            className="product-teams absolute bottom-1/2 left-[14%] z-40 max-w-[360px] translate-y-1/2 opacity-0 xl:left-[7%] lg:left-[10%] lg:max-w-72"
+            className="product-teams absolute bottom-1/2 left-[13%] z-40 max-w-[360px] translate-y-1/2 opacity-0 xl:left-[7%] lg:left-[10%] lg:max-w-72"
             ref={productTeamsRef}
           >
             <h2 className="text-[44px] font-medium leading-denser tracking-snug xl:text-5xl lg:text-4xl">
               {secondSectionData.title}
             </h2>
-            <p className="mt-3 text-lg leading-snug text-white/70 lg:text-sm">
+            <p className="mt-4 text-lg leading-normal tracking-snug text-gray-8 lg:text-sm">
               {secondSectionData.description}
             </p>
             {secondSectionData.button && (
               <Button
-                className="mt-6 h-10 min-w-[140px] text-sm"
+                className="mt-8 h-10 min-w-[198px] text-sm"
                 theme="white-filled"
                 to={secondSectionData.button.link}
               >
@@ -169,13 +169,13 @@ const Animation = () => {
             )}
           </section>
           <section
-            className="end-users absolute left-1/2 top-[11.111%] z-50 max-w-[552px] -translate-x-1/2 text-center opacity-0 lg:max-w-md"
+            className="end-users absolute left-1/2 top-[9%] z-50 max-w-[704px] -translate-x-1/2 text-center opacity-0 lg:max-w-md"
             ref={endUsersRef}
           >
             <h2 className="text-[44px] font-medium leading-denser tracking-snug xl:text-5xl lg:text-4xl">
               {thirdSectionData.title}
             </h2>
-            <p className="mt-3 text-lg leading-snug text-white/70 lg:text-sm">
+            <p className="mt-4 text-lg leading-normal tracking-snug text-gray-8 lg:text-sm">
               {thirdSectionData.description}
             </p>
           </section>
@@ -206,7 +206,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="card-blue absolute left-[35.713%] top-0 z-30 aspect-[59/46] h-auto w-[29.948%] translate-y-[31%] skew-y-[15deg]"
+            className="card-blue absolute left-[35.713%] top-0 z-30 mt-10 aspect-[59/46] h-auto w-[29.948%] translate-y-[31%] skew-y-[15deg]"
             ref={cardBlueRef}
           >
             <span
@@ -232,7 +232,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="card-purple absolute left-[19.473%] top-0 z-40 aspect-[789/1084] h-auto w-[28.073%] translate-y-[-12%] skew-y-[15deg]"
+            className="card-purple absolute left-[19.473%] top-0 z-40 mt-10 aspect-[789/1084] h-auto w-[28.073%] translate-y-[-12%] skew-y-[15deg]"
             ref={cardPurpleRef}
           >
             <span
@@ -258,7 +258,7 @@ const Animation = () => {
             />
           </div>
           <div
-            className="phone absolute right-[12.5%] top-[50%] z-30 aspect-[547/805] h-auto w-[28.49%] translate-y-[-24%] opacity-0"
+            className="phone absolute right-[12.5%] top-[50%] z-30 mb-1 mt-10 aspect-[547/805] h-auto w-[28.49%] translate-y-[-24%] opacity-0"
             ref={phoneRef}
           >
             <span

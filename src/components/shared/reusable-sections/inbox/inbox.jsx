@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { motion, useMotionValue, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -13,7 +14,7 @@ import arrowNext from './images/arrow-next.svg';
 const LABEL_WIDTH = 115;
 const OFFSET_WIDTH = 4;
 
-const Inbox = ({ title, description, button }) => {
+const Inbox = ({ sectionOffsets, title, description, button }) => {
   const [activeTheme, setActiveTheme] = useState(0);
 
   const labelsOffset = useMotionValue((LABEL_WIDTH + OFFSET_WIDTH) * activeTheme);
@@ -41,7 +42,12 @@ const Inbox = ({ title, description, button }) => {
   };
 
   return (
-    <section className="inbox safe-paddings mt-40 pb-8 text-white lg:mt-36 md:mt-[104px] md:pb-0 sm:mt-14">
+    <section
+      className={clsx(
+        'inbox safe-paddings mt-40 pb-8 text-white lg:mt-36 md:mt-[104px] md:pb-0 sm:mt-14',
+        sectionOffsets
+      )}
+    >
       <div className="container-lg">
         <div className="flex items-center justify-center pl-8 md:pl-0 sm:flex-col">
           <div className="relative h-[639px] w-[608px] shrink-0 lg:h-[558px] lg:w-[531px] md:h-[398px] md:w-[380px] sm:order-last sm:aspect-[380/398] sm:h-auto sm:w-full sm:max-w-[380px]">
@@ -128,6 +134,7 @@ const Inbox = ({ title, description, button }) => {
 };
 
 Inbox.propTypes = {
+  sectionOffsets: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   button: PropTypes.shape({
@@ -139,6 +146,7 @@ Inbox.propTypes = {
 };
 
 Inbox.defaultProps = {
+  sectionOffsets: '',
   button: null,
 };
 
