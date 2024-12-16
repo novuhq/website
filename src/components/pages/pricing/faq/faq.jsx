@@ -11,7 +11,7 @@ const FAQ_DATA = [
     answer: (
       <>
         An event is a request (for instance, an API call to /v1/events/trigger) that starts off an
-        action in the Novu Workflow Engine. Events can make many differen types of actions,
+        action in the Novu Workflow Engine. Events can make many different types of actions,
         including digests, delays, and sending notifications to various channels, as well filters
         and user preference checks. If workflow is triggered to a{' '}
         <Link
