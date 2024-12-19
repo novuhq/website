@@ -107,9 +107,9 @@ const Libraries = () => (
           </li>
         ))}
       </ul>
-      <p className="text-[17px] leading-snug font-book text-white mt-8 [mask-image:radial-gradient(34%_361.31%_at_50.23%_-67.39%,#FFFFFF_50%,rgba(255,255,255,0.5)_150%)] lg:mt-7 md:mt-6 md:text-base w-fit mx-auto">
+      {/* <p className="text-[17px] leading-snug font-book text-white mt-8 [mask-image:radial-gradient(34%_361.31%_at_50.23%_-67.39%,#FFFFFF_50%,rgba(255,255,255,0.5)_150%)] lg:mt-7 md:mt-6 md:text-base w-fit mx-auto">
         and literally anything else...
-      </p>
+      </p> */}
     </div>
   </section>
 );
