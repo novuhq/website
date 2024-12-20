@@ -76,16 +76,16 @@ const LIBRARIES = [
 const Libraries = () => (
   <section className="libraries mt-[172px] lg:mt-[100px] md:mt-[131px] sm:mt-18">
     <div className="container-md text-center">
-      <h2 className="text-5xl leading-tight tracking-snug font-medium lg:text-[32px] md:text-3xl">
+      <h2 className="text-5xl font-medium leading-tight tracking-snug lg:text-[32px] md:text-3xl">
         {TITLE}
       </h2>
-      <p className="text-[17px] leading-snug font-book text-gray-9 mt-3 max-w-lg mx-auto lg:max-w-md md:text-base">
+      <p className="mx-auto mt-3 max-w-lg text-[17px] font-book leading-snug text-gray-9 lg:max-w-md md:text-base">
         {DESCRIPTION}
       </p>
-      <ul className="grid grid-cols-5 mt-10 px-1 lg:mt-8 md:mt-7 sm:grid-cols-2 sm:mt-8">
+      <ul className="mt-10 grid grid-cols-5 px-1 lg:mt-8 md:mt-7 sm:mt-8 sm:grid-cols-2">
         {LIBRARIES.map(({ title, src, target }, index) => (
           <li
-            className={clsx('p-8 border-gray-2 lg:py-7 md:p-5', {
+            className={clsx('border-gray-2 p-8 lg:py-7 md:p-5', {
               'border-b': index < 5,
               'border-r': (index + 1) % 5 !== 0,
               'sm:border-r': index % 2 === 0,
@@ -94,7 +94,7 @@ const Libraries = () => (
             })}
             key={index}
           >
-            <Link className="h-full flex items-center" to={target}>
+            <Link className="flex h-full items-center" to={target}>
               <img
                 className="mx-auto sm:max-h-10"
                 src={src}
@@ -107,7 +107,7 @@ const Libraries = () => (
           </li>
         ))}
       </ul>
-      <p className="text-[17px] leading-snug font-book text-white mt-8 [mask-image:radial-gradient(34%_361.31%_at_50.23%_-67.39%,#FFFFFF_50%,rgba(255,255,255,0.5)_150%)] lg:mt-7 md:mt-6 md:text-base w-fit mx-auto">
+      <p className="mx-auto mt-8 w-fit text-[17px] font-book leading-snug text-white [mask-image:radial-gradient(34%_361.31%_at_50.23%_-67.39%,#FFFFFF_50%,rgba(255,255,255,0.5)_150%)] lg:mt-7 md:mt-6 md:text-base">
         and literally anything else...
       </p>
     </div>
