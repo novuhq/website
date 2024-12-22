@@ -1,18 +1,46 @@
+import clsx from 'clsx';
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
+import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 import ChevronIcon from 'icons/chevron-small.inline.svg';
 
-const SubMenu = ({ children, isOpen, setIsOpen }) => {
+const ANIMATION_DURATION = 0.2;
+
+const variantsDropdownMenu = {
+  hidden: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: ANIMATION_DURATION,
+    },
+  },
+  visible: {
+    height: 'auto',
+    opacity: 1,
+    transition: {
+      duration: ANIMATION_DURATION,
+    },
+  },
+};
+
+const SubMenu = ({ currentMenu, handleOpenMenu }) => {
+  const [openSubMenu, setOpenSubMenu] = useState('');
+
   const handleCloseButton = () => {
-    setIsOpen(false);
+    handleOpenMenu(null);
+  };
+
+  const handleOpenSubMenu = (label) => {
+    setOpenSubMenu((current) => (current === label ? '' : label));
   };
 
   return (
     <LazyMotion features={domAnimation}>
       <AnimatePresence>
-        {isOpen && (
+        {currentMenu && (
           <m.div
             className="absolute inset-0 z-50"
             initial={{
@@ -29,14 +57,103 @@ const SubMenu = ({ children, isOpen, setIsOpen }) => {
             }}
           >
             <Button
-              className="fixed top-0 left-7 h-16 w-28 flex items-center !justify-start gap-x-1 !normal-case text-xl font-normal bg-black sm:h-[56px] sm:left-4 sm:text-[15px]"
+              className="fixed inset-x-0 top-0 z-10 flex h-16 w-full items-center !justify-start gap-x-1 border-b border-b-gray-2 !bg-black px-5 text-sm font-normal !normal-case"
               type="button"
               onClick={handleCloseButton}
             >
-              <ChevronIcon className="w-3.5 h-3.5 rotate-90" />
+              <ChevronIcon className="mr-1 h-3.5 w-3.5 rotate-90" />
               Back
             </Button>
-            <ul className="h-full bg-black overflow-x-hidden overflow-y-scroll">{children}</ul>
+            <ul className="h-full overflow-x-hidden overflow-y-scroll bg-black px-5 py-16">
+              {currentMenu?.items?.map(
+                ({ title, icon, image, description, items, to, target }, index) => (
+                  <li className="border-b border-b-gray-2 last:border-b-0" key={index}>
+                    <Link
+                      className="flex w-full items-center justify-between py-5 text-left text-base leading-none"
+                      tag={to ? null : 'button'}
+                      to={to}
+                      theme="white"
+                      target={target}
+                      onClick={to ? null : () => handleOpenSubMenu(title)}
+                    >
+                      <span
+                        className={clsx(
+                          'flex items-center gap-x-2.5',
+                          image && 'flex-col gap-y-3.5'
+                        )}
+                      >
+                        {image && (
+                          <img
+                            className="h-auto w-full rounded-md border border-[#333347]/20"
+                            src={image}
+                            alt=""
+                            width={294}
+                            height={164}
+                          />
+                        )}
+                        {icon && <img src={icon} width={36} height={36} alt="" loading="lazy" />}
+                        <span className="flex flex-col items-start gap-y-1">
+                          <span className={clsx(image && 'leading-snug')}>{title}</span>
+                          {description && (
+                            <span
+                              className={clsx(
+                                'font-light text-gray-8',
+                                image ? 'mt-0.5 text-sm leading-normal' : 'text-[13px]'
+                              )}
+                            >
+                              {description}
+                            </span>
+                          )}
+                        </span>
+                      </span>
+                      {items && (
+                        <ChevronIcon
+                          className={clsx(
+                            'size-3.5 -rotate-90 transition-transform duration-200',
+                            openSubMenu === title && 'rotate-0'
+                          )}
+                        />
+                      )}
+                    </Link>
+                    <AnimatePresence>
+                      {openSubMenu === title && (
+                        <m.div
+                          className=""
+                          initial="hidden"
+                          animate="visible"
+                          exit="hidden"
+                          variants={variantsDropdownMenu}
+                        >
+                          <ul className="-mt-2 flex flex-col gap-y-3 pb-[18px] pl-[22px]">
+                            {items.map(({ title, icon, to }, index) => (
+                              <li key={index}>
+                                <Link
+                                  className="flex items-center gap-x-2"
+                                  to={to}
+                                  target={target}
+                                  theme="gray-9"
+                                >
+                                  <img src={icon} alt="" width={16} height={16} />
+                                  {title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </m.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                )
+              )}
+              {(currentMenu?.label === 'developers' || currentMenu?.label === 'resources') && (
+                <li className="flex flex-col items-center justify-between gap-y-3 rounded-lg border-t border-t-[#333347]/50 p-6 pt-[23px] text-base font-light leading-none text-gray-9">
+                  <span>Any questions? We&apos;re here to help</span>
+                  <Link className="text-[15px]" theme="primary" withArrow {...LINKS.contactUsCTA}>
+                    Contact us
+                  </Link>
+                </li>
+              )}
+            </ul>
           </m.div>
         )}
       </AnimatePresence>

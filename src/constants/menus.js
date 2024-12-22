@@ -1,12 +1,35 @@
 import LINKS from 'constants/links.js';
+import ApiIcon from 'images/header/api-icon.svg';
+import BlogIcon from 'images/header/blog-icon.svg';
 import ChannelsIcon from 'images/header/channels-icon.svg';
-import DocumentationIcon from 'images/header/documentation-icon.svg';
+import ChatIcon from 'images/header/chat-icon.svg';
+import ComponentIcon from 'images/header/component-icon.svg';
+import ContentIcon from 'images/header/content-icon.svg';
+import DeveloperIcon from 'images/header/developer-icon.svg';
+import DiscordIcon from 'images/header/discord-icon.svg';
+import DocsIcon from 'images/header/docs-icon.svg';
+import EmailIcon from 'images/header/email-icon.svg';
 import FeaturesIcon from 'images/header/features-icon.svg';
-import FrameworksIcon from 'images/header/frameworks-icon.svg';
+import FrameworkIcon from 'images/header/framework-icon.svg';
 import GettingStartedIcon from 'images/header/getting-started-icon.svg';
-import GuidesIcon from 'images/header/guides-icon.svg';
+import GuideIcon from 'images/header/guide-icon.svg';
+import InAppIcon from 'images/header/in-app-icon.svg';
+import JoinUsIcon from 'images/header/join-us-icon.svg';
+import LibraryIcon from 'images/header/library-icon.svg';
+import NewsIcon from 'images/header/news-icon.svg';
+import OpenSourceIcon from 'images/header/open-source-icon.svg';
 import ProvidersIcon from 'images/header/providers-icon.svg';
+import PushIcon from 'images/header/push-icon.svg';
+import SecurityIcon from 'images/header/security-icon.svg';
+import SmsIcon from 'images/header/sms-icon.svg';
+import SubscriberIcon from 'images/header/subscriber-icon.svg';
+import TeamCommunityIcon from 'images/header/team-community-icon.svg';
 import UseCasesIcon from 'images/header/use-cases-icon.svg';
+import UserIcon from 'images/header/user-icon.svg';
+import WorkflowDigestIcon from 'images/header/workflow-digest-icon.svg';
+
+import futureOfNovuImage from '../images/header/future-of-novu.jpg';
+import notificationHowToImage from '../images/header/notification-how-to.jpg';
 
 const MENUS = {
   header: [
@@ -16,69 +39,18 @@ const MENUS = {
         label: 'product',
         items: [
           {
-            title: 'Use Cases',
-            description: "How you'll use Novu",
-            icon: UseCasesIcon,
-            items: [
-              { title: 'Multichannel Notifications', ...LINKS.multichannelNotifications },
-              { title: 'Add notifications to your app', ...LINKS.notifications },
-              { title: 'Improve user communication experience', ...LINKS.communication },
-              { title: 'Unified notification platform', ...LINKS.notificationPlatform },
-              { title: 'Notification content management', ...LINKS.notificationContentManagement },
-            ],
-          },
-          {
-            title: '<Inbox /> Components',
-            description: 'What Novu can do',
+            title: 'Features',
+            description: 'Comprehensive solutions',
             icon: FeaturesIcon,
             items: [
-              { title: '<Inbox /> overview', to: '/inbox?utm_campaign=ws_top_nav' },
-              {
-                title: 'React components',
-                to: 'https://docs.novu.co/inbox/react/components/overview?utm_campaign=ws_top_nav',
-              },
-              {
-                title: '<Bell /> component',
-                to: 'https://docs.novu.co/inbox/react/components/bell?utm_campaign=ws_top_nav',
-              },
-              {
-                title: 'In-app <Notifications />',
-                to: 'https://docs.novu.co/inbox/react/components/notifications?utm_campaign=ws_top_nav',
-              },
-              {
-                title: 'User <Preferences />',
-                to: 'https://docs.novu.co/inbox/react/components/preferences?utm_campaign=ws_top_nav',
-              },
-              {
-                title: 'React Native',
-                to: 'https://docs.novu.co/inbox/react/hooks/overview?utm_campaign=ws_top_nav',
-              },
-              {
-                title: 'Native JavaScript',
-                to: 'https://docs.novu.co/inbox/headless/get-started?utm_campaign=ws_top_bav',
-              },
-              {
-                title: '<Inbox /> playground',
-                to: 'https://inbox.novu.co?utm_campaign=top_nav',
-                target: '_blank',
-              },
-            ],
-          },
-          {
-            title: 'Providers',
-            description: 'Who Novu connects with',
-            icon: ProvidersIcon,
-            items: [
-              { title: 'Sendgrid', ...LINKS.sendgrid },
-              { title: 'FCM', ...LINKS.fcm },
-              { title: 'SES', ...LINKS.ses },
-              { title: 'Twilio', ...LINKS.twilio },
-              { title: 'Nodemailer', ...LINKS.nodemailer },
-              { title: 'Slack', ...LINKS.slack },
-              { title: 'Mailgun', ...LINKS.mailgun },
-              { title: 'Postmark', ...LINKS.postmark },
-              { title: 'Discord', ...LINKS.discord },
-              { title: 'Brevo', ...LINKS.sendinblue },
+              { title: 'Inbox and In-App Components', icon: ComponentIcon, ...LINKS.home },
+              { title: 'Subscriber management', icon: SubscriberIcon, ...LINKS.home },
+              { title: 'User preferences', icon: UserIcon, ...LINKS.home },
+              { title: 'Digest', icon: WorkflowDigestIcon, ...LINKS.home },
+              { title: 'Workflows', icon: WorkflowDigestIcon, ...LINKS.home },
+              { title: 'Framework', icon: FrameworkIcon, ...LINKS.home },
+              { title: 'Notification content management', icon: ContentIcon, ...LINKS.home },
+              { title: 'Compliance and Security', icon: SecurityIcon, ...LINKS.home },
             ],
           },
           {
@@ -86,28 +58,27 @@ const MENUS = {
             description: 'Where Novu integrates',
             icon: ChannelsIcon,
             items: [
-              { title: 'In-app', ...LINKS.inAppChannel },
-              { title: 'Push', ...LINKS.pushChannel },
-              { title: 'Email', ...LINKS.emailChannel },
-              { title: 'SMS', ...LINKS.smsChannel },
-              { title: 'Chat', ...LINKS.chatChannel },
-              // { title: 'Mobile*', ...LINKS.mobileChannel }, -> We don't have that page yet
+              { title: 'In-app', icon: InAppIcon, ...LINKS.inAppChannel },
+              { title: 'Push', icon: PushIcon, ...LINKS.pushChannel },
+              { title: 'E-mail', icon: EmailIcon, ...LINKS.emailChannel },
+              { title: 'SMS', icon: SmsIcon, ...LINKS.smsChannel },
+              { title: 'Chat', icon: ChatIcon, ...LINKS.chatChannel },
             ],
           },
           {
-            title: 'Frameworks',
-            description: 'What Novu builds on',
-            icon: FrameworksIcon,
+            title: 'Novu for',
+            description: 'Who Novu connects with',
+            icon: ProvidersIcon,
             items: [
-              { title: 'Remix', ...LINKS.remix },
-              { title: 'NextJS', ...LINKS.nextjs },
-              { title: 'Nuxt', ...LINKS.nuxt },
-              { title: 'Svelte', ...LINKS.svelte },
-              { title: 'Express', ...LINKS.express },
-              { title: 'H3', ...LINKS.h3 },
-              // { title: 'Hono', ...LINKS.hono }, -> We don't have that page yet
-              // { title: 'Nest.js', ...LINKS.nestjs }, -> We don't have that page yet
+              { title: 'Developers', icon: DeveloperIcon, ...LINKS.home },
+              { title: 'Product teams', icon: TeamCommunityIcon, ...LINKS.home },
             ],
+          },
+          {
+            title: 'Use Cases',
+            description: "How you'll use Novu",
+            icon: UseCasesIcon,
+            ...LINKS.home,
           },
         ],
       },
@@ -118,39 +89,51 @@ const MENUS = {
         label: 'developers',
         items: [
           {
-            title: 'Documentation',
-            icon: DocumentationIcon,
-            mobileOnly: true,
-            ...LINKS.documentation,
-          },
-          {
-            title: 'Getting started',
+            title: 'Get started',
+            description: 'Developer essentials',
             icon: GettingStartedIcon,
             items: [
-              { title: 'How-to guides', ...LINKS.howToGuides }, // We might consider changing it
-              { title: 'Libraries and SDKs', ...LINKS.librariesAndSdks },
-              { title: 'Integrations', ...LINKS.integrations },
+              { title: 'Docs', icon: DocsIcon, ...LINKS.documentation },
+              { title: 'API', icon: ApiIcon, ...LINKS.home },
+              { title: 'Frameworks', icon: FrameworkIcon, ...LINKS.home },
+              { title: "What's new", icon: NewsIcon, ...LINKS.home },
+              { title: 'How to guides', icon: GuideIcon, ...LINKS.home },
+              { title: 'Components', icon: ComponentIcon, ...LINKS.home },
+              { title: 'Libraries and integrations', icon: LibraryIcon, ...LINKS.home },
             ],
           },
           {
-            title: 'Code-first examples',
-            icon: GuidesIcon,
-            items: [{ title: 'Workflow examples', ...LINKS.preBuiltWorkflows }],
+            title: 'How to Add Real-Time Notifications to a React App',
+            description:
+              'A comprehensive guide for\ndevelopers on selecting notification\nplatforms',
+            image: notificationHowToImage,
+            ...LINKS.home,
           },
+        ],
+      },
+    },
+    {
+      text: 'Resources',
+      menuItems: {
+        label: 'resources',
+        items: [
           {
+            title: 'Join us',
+            description: 'Explore opportunities',
+            icon: JoinUsIcon,
             items: [
-              {
-                title: 'Documentation',
-                withImage: true,
-                desktopOnly: true,
-                ...LINKS.documentation,
-              },
-              { title: 'Community', ...LINKS.community },
-              { title: 'API Reference', ...LINKS.apiReference },
-              { title: 'Changelog', ...LINKS.changeLog },
-              { title: 'System Status', ...LINKS.systemStatus },
-              { title: 'Discord', ...LINKS.discord },
+              { title: 'Blog', icon: BlogIcon, ...LINKS.blog },
+              { title: 'Discord', icon: DiscordIcon, ...LINKS.home },
+              { title: 'Community', icon: TeamCommunityIcon, ...LINKS.home },
+              { title: 'Open source', icon: OpenSourceIcon, ...LINKS.home },
             ],
+          },
+          {
+            title: 'The future of Novu',
+            description:
+              "Explore what's next for Novu, the open-\nsource notification infrastructure,\nincluding its innovative UI, code-first workflows, and seamless integration for delivering top-notch notification experiences.",
+            image: futureOfNovuImage,
+            ...LINKS.home,
           },
         ],
       },
@@ -163,7 +146,6 @@ const MENUS = {
       text: 'Docs',
       ...LINKS.documentation,
     },
-    { text: 'Blog', ...LINKS.blog },
   ],
   footer: [
     [

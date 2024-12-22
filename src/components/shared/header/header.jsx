@@ -40,14 +40,15 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
         'safe-paddings absolute left-0 right-0 top-0 z-40 w-full transition-colors duration-200',
         { 'bg-black': isMobileMenuOpen }
       )}
+      data-disable-document-scroll={isMobileMenuOpen}
     >
-      <div className="container flex items-center justify-between py-3 lg:gap-x-4 md:py-4 md:px-7 sm:px-4 sm:py-3.5">
+      <div className="container flex items-center justify-between py-3 lg:gap-x-4 md:px-7 md:py-4 sm:px-5">
         <Link {...LINKS.home}>
-          <Logo className="h-8 sm:h-7" aria-hidden />
+          <Logo className="h-8" aria-hidden />
           <span className="sr-only">Novu</span>
         </Link>
 
-        <nav className="absolute left-1/2 -translate-x-1/2 h-full">
+        <nav className="absolute left-1/2 h-full -translate-x-[48.7%] lg:-translate-x-[69%]">
           <ul className="flex h-full md:hidden">
             {MENUS.header.map(({ to, text, target, menuItems }, index) => (
               <li
@@ -56,7 +57,11 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 onMouseLeave={handleMouseLeave(menuItems)}
               >
                 <Link
-                  className="flex items-center gap-x-1.5 h-full px-[18px] text-[15px] leading-none lg:px-2.5"
+                  className={clsx(
+                    'relative flex h-full cursor-pointer items-center gap-x-1.5 px-[18px] pt-1.5 text-[15px] leading-none lg:px-3.5',
+                    menuItems &&
+                      'after:absolute after:-bottom-5 after:left-0 after:z-10 after:h-8 after:w-full'
+                  )}
                   tag={to ? null : 'button'}
                   to={to}
                   theme="white"
@@ -64,7 +69,14 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
                 >
                   {text}
 
-                  {menuItems && <ChevronIcon className="w-2 h-2" />}
+                  {menuItems && (
+                    <ChevronIcon
+                      className={clsx('h-2 w-2 transition-transform duration-200', {
+                        'rotate-180':
+                          isDropdownOpen && dropdownMenuContent?.label === menuItems.label,
+                      })}
+                    />
+                  )}
                 </Link>
               </li>
             ))}
@@ -76,7 +88,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
           />
         </nav>
         <div className="flex gap-x-5 lg:gap-x-3 md:hidden">
-          <ButtonGithubStars className="pl-3" />
+          <ButtonGithubStars className="pl-3" size="small" />
+          <Button size="xs" theme="white-outline" onClick={click}>
+            Login
+          </Button>
           <Button size="xs" theme="white-filled" {...LINKS.getStartedTopBar} onClick={click}>
             Get Started
           </Button>

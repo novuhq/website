@@ -71,7 +71,7 @@ export default {
   slack: { to: 'https://docs.novu.co/integrations/providers/chat/slack' },
   mailgun: { to: 'https://docs.novu.co/integrations/providers/email/mailgun' },
   postmark: { to: 'https://docs.novu.co/integrations/providers/email/postmark' },
-  discord: { to: 'https://docs.novu.co/integrations/providers/chat/discord' },
+  // discord: { to: 'https://docs.novu.co/integrations/providers/chat/discord' }, // same name as social link
   sendinblue: { to: 'https://docs.novu.co/integrations/providers/email/sendinblue' },
 
   // Channels
