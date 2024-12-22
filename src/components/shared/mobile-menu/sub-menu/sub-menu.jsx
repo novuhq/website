@@ -79,7 +79,7 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
                       <span
                         className={clsx(
                           'flex items-center gap-x-2.5',
-                          image && 'flex-col gap-y-3.5'
+                          image && 'w-full flex-col gap-y-3.5'
                         )}
                       >
                         {image && (
@@ -92,7 +92,7 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
                           />
                         )}
                         {icon && <img src={icon} width={36} height={36} alt="" loading="lazy" />}
-                        <span className="flex flex-col items-start gap-y-1">
+                        <span className="flex w-full flex-col items-start gap-y-1">
                           <span className={clsx(image && 'leading-snug')}>{title}</span>
                           {description && (
                             <span
