@@ -103,8 +103,8 @@ const SECTION_WITH_CARDS = [
         src="../../images/reusable-sections/section-with-cards/premier-dx-redesigned.jpg"
       />
     ),
-    //    linkText: 'Learn more',
-    //    linkUrl: 'https://docs.novu.co/getting-started/introduction',
+    linkText: 'Learn more',
+    linkUrl: 'https://docs.novu.co/getting-started/introduction',
   },
   {
     title: '100% flexible',
@@ -116,8 +116,8 @@ const SECTION_WITH_CARDS = [
         src="../../images/reusable-sections/section-with-cards/flexible-redesigned.jpg"
       />
     ),
-    //    linkText: 'Learn more',
-    //    linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
+    linkText: 'Learn more',
+    linkUrl: 'https://docs.novu.co/getting-started/introduction',
   },
   {
     title: 'Open source backed',
@@ -129,8 +129,8 @@ const SECTION_WITH_CARDS = [
         src="../../images/reusable-sections/section-with-cards/opensource-redesigned.jpg"
       />
     ),
-    //    linkText: 'Learn more',
-    //    linkUrl: 'https://github.com/novuhq/novu',
+    linkText: 'Learn more',
+    linkUrl: 'https://github.com/novuhq/novu',
   },
 ];
 
@@ -140,41 +140,41 @@ const SECTION_WITH_BIG_ICONS = [
     title: '<Inbox /> components',
     description:
       'Drop-in and fully configurable, the Novu <Inbox /> is the fastest way to add InApp notifications to your app.',
-    linkUrl: 'https://docs.novu.co/inbox/overview',
+    linkUrl: 'https://docs.novu.co/',
   },
   {
     icon: integration2Icon,
     title: 'Integrations',
     description:
       'Use ReactEmail, MJML, LaunchDarkly (and more!), and fetch content and values from anywhere.',
-    linkUrl: 'https://docs.novu.co/concepts/integrations',
+    linkUrl: 'https://docs.novu.co/',
   },
   {
     icon: preferencesIcon,
     title: 'Preferences',
     description:
       'End users directly set their own communication preferences like channels, timezone, and language.',
-    linkUrl: 'https://docs.novu.co/inbox',
+    linkUrl: 'https://docs.novu.co/',
   },
   {
     icon: workflowsIcon,
     title: 'Powerful workflows',
     description:
       'Start with a Ul workflow and achieve unlimited power and flexibility through code.',
-    linkUrl: 'https://docs.novu.co/concepts/workflows',
+    linkUrl: 'https://docs.novu.co/',
   },
   {
     icon: observabilityIcon,
     title: 'Observability',
     description:
       'Rapidly identify and solve previously complicated content hydratin and notification routing issues.',
-    linkUrl: 'https://docs.novu.co/api-reference/execution-details/get-execution-details',
+    linkUrl: 'https://docs.novu.co/',
   },
   {
     icon: apifirstIcon,
     title: 'API-first, and open source backed',
     description: "Native developer experience that's backed by a huge community.",
-    linkUrl: 'https://docs.novu.co/api-reference/overview',
+    linkUrl: 'https://docs.novu.co/',
   },
 ];
 
@@ -240,7 +240,7 @@ const HomePage = () => (
       title="Add In-App Notifications with the most customizable <Inbox/>"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
-        label: 'Learn more',
+        label: 'SEE IT LIVE',
         link: '/inbox?utm_campaign=ws-inbox-hero',
       }}
     />
@@ -250,7 +250,7 @@ const HomePage = () => (
     <Reviews />
     <CtaWithForm
       className="mb-[192px] mt-[238px] text-center"
-      title="You're five minutes away from your first Novu-powered notification"
+      title="You're five minutes away from your first Novu-powered notification"
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
       leftItem={{
         text: 'Get started',

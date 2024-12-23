@@ -37,7 +37,7 @@ const StepTooltip = () => {
   const [method, setMethod] = useState('email');
 
   return (
-    <span className="w-[411px] flex flex-col py-3.5 [mask-image:linear-gradient(180deg,#101425_0%,rgba(16,20,37,0.6)_100%)]">
+    <span className="flex w-[411px] flex-col py-3.5 [mask-image:linear-gradient(180deg,#101425_0%,rgba(16,20,37,0.6)_100%)]">
       <span className="flex flex-col pb-3">
         {Object.keys(METHODS_DESCRIPTIONS).map((key) => (
           <button
@@ -47,12 +47,12 @@ const StepTooltip = () => {
             aria-hidden
             onClick={() => setMethod(key)}
           >
-            <img className="lg:w-3.5 lg:h-3.5" src={codeIcon} alt="" width={16} height={16} />
+            <img className="lg:h-3.5 lg:w-3.5" src={codeIcon} alt="" width={16} height={16} />
             {key}
           </button>
         ))}
       </span>
-      <span className="px-3.5 py-3 whitespace-normal border-t border-[#3A4051] text-[13px] leading-denser tracking-[-0.01em] text-white/40 lg:text-[11px]">
+      <span className="whitespace-normal border-t border-[#3A4051] px-3.5 py-3 text-[13px] leading-denser tracking-[-0.01em] text-white/40 lg:text-[11px]">
         {METHODS_DESCRIPTIONS[method].code}
       </span>
       <span className="mx-3.5 h-px bg-white/50" aria-hidden />
