@@ -73,7 +73,7 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
                 'h-full overflow-x-hidden overflow-y-scroll bg-black px-5',
                 hasScroll &&
                   !isScrolledToBottom &&
-                  'after:pointer-events-none after:fixed after:inset-x-4 after:bottom-[88px] after:top-16 after:z-50 after:bg-[linear-gradient(180deg,#05050B00_92.46%,#05050B_100%)]'
+                  'after:pointer-events-none after:fixed after:inset-x-4 after:bottom-[88px] after:top-16 after:z-50 after:bg-[linear-gradient(180deg,#05050B00_92.46%,#05050B_100%)] xs:after:bottom-[142px]'
               )}
               onScroll={handleScroll}
             >
