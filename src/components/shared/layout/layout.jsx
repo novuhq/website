@@ -9,7 +9,6 @@ import FloatingButton from 'components/shared/floating-button';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
-import TabletMenu from 'components/shared/tablet-menu';
 import UtmParams from 'components/shared/utm-params';
 // import Banner from '../banner/banner';
 
@@ -32,7 +31,6 @@ const Layout = ({ className, mainClassName, children, headerTheme = 'default' })
         />
         <main className={clsx('flex-grow', mainClassName)}>{children}</main>
         <Footer />
-        <TabletMenu isOpen={isMobileMenuOpen} />
         <MobileMenu isOpen={isMobileMenuOpen} />
       </div>
       <CookieBanner

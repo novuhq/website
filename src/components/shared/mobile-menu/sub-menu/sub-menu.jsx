@@ -1,10 +1,12 @@
 import clsx from 'clsx';
 import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
 import LINKS from 'constants/links';
+import useScrollStatus from 'hooks/use-scroll-status';
 import ChevronIcon from 'icons/chevron-small.inline.svg';
 
 const ANIMATION_DURATION = 0.2;
@@ -28,8 +30,10 @@ const variantsDropdownMenu = {
 
 const SubMenu = ({ currentMenu, handleOpenMenu }) => {
   const [openSubMenu, setOpenSubMenu] = useState('');
+  const { isScrolledToBottom, hasScroll, handleScroll } = useScrollStatus();
 
   const handleCloseButton = () => {
+    setOpenSubMenu('');
     handleOpenMenu(null);
   };
 
@@ -42,7 +46,7 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
       <AnimatePresence>
         {currentMenu && (
           <m.div
-            className="absolute inset-0 z-50"
+            className="absolute inset-0 z-50 hidden sm:block"
             initial={{
               opacity: 0,
             }}
@@ -64,7 +68,15 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
               <ChevronIcon className="mr-1 h-3.5 w-3.5 rotate-90" />
               Back
             </Button>
-            <ul className="h-full overflow-x-hidden overflow-y-scroll bg-black px-5 py-16">
+            <ul
+              className={clsx(
+                'h-full overflow-x-hidden overflow-y-scroll bg-black px-5',
+                hasScroll &&
+                  !isScrolledToBottom &&
+                  'after:pointer-events-none after:fixed after:inset-x-4 after:bottom-[88px] after:top-16 after:z-50 after:bg-[linear-gradient(180deg,#05050B00_92.46%,#05050B_100%)]'
+              )}
+              onScroll={handleScroll}
+            >
               {currentMenu?.items?.map(
                 ({ title, icon, image, description, items, to, target }, index) => (
                   <li className="border-b border-b-gray-2 last:border-b-0" key={index}>
@@ -159,6 +171,17 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
       </AnimatePresence>
     </LazyMotion>
   );
+};
+
+SubMenu.propTypes = {
+  currentMenu: PropTypes.shape({
+    items: PropTypes.array,
+    label: PropTypes.string,
+  }),
+};
+
+SubMenu.defaultProps = {
+  currentMenu: null,
 };
 
 export default SubMenu;
