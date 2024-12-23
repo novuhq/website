@@ -28,6 +28,7 @@ const CODE_SECTION = {
   containerClassName: 'max-w-[1470px] gap-x-[121px] lg:gap-x-16',
   textContentClassName: 'max-w-[417px] lg:max-w-lg',
   codeClassName: 'max-w-[806px] xl:max-w-[672px]',
+  isPriorityImageLoading: true,
   code: `import { workflow, CronExpression } from '@novu/framework';
 import { z } from 'zod';
 import { render } from '@react-email/components';
@@ -169,11 +170,10 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={SECTION_BENTO_CLASS_NAME.CARDS_IMAGE_CLASS_NAME_DESKTOP}
-          src="../components/shared/bento/images/code.png"
+          src="../components/shared/bento/images/code.jpg"
           alt=""
           width={768}
           height={380}
-          loading="eager"
           quality={100}
           aria-hidden
         />
@@ -185,7 +185,6 @@ const SECTION_BENTO = {
           alt=""
           width={320}
           height={250}
-          loading="eager"
           quality={100}
           aria-hidden
         />
@@ -199,11 +198,10 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={SECTION_BENTO_CLASS_NAME.CARDS_IMAGE_CLASS_NAME_DESKTOP}
-          src="../components/shared/bento/images/type-safe.png"
+          src="../components/shared/bento/images/type-safe.jpg"
           alt=""
           width={416}
           height={380}
-          loading="eager"
           quality={100}
           aria-hidden
         />
@@ -215,7 +213,6 @@ const SECTION_BENTO = {
           alt=""
           width={320}
           height={250}
-          loading="lazy"
           quality={100}
           aria-hidden
         />
@@ -229,11 +226,10 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={SECTION_BENTO_CLASS_NAME.CARDS_IMAGE_CLASS_NAME_DESKTOP}
-          src="../components/shared/bento/images/debug.png"
+          src="../components/shared/bento/images/debug.jpg"
           alt=""
           width={768}
           height={380}
-          loading="lazy"
           quality={100}
           aria-hidden
         />
@@ -245,7 +241,6 @@ const SECTION_BENTO = {
           alt=""
           width={320}
           height={250}
-          loading="lazy"
           quality={100}
           aria-hidden
         />
@@ -259,11 +254,10 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={SECTION_BENTO_CLASS_NAME.CARDS_IMAGE_CLASS_NAME_DESKTOP}
-          src="../components/shared/bento/images/git-notification.png"
+          src="../components/shared/bento/images/git-notification.jpg"
           alt=""
           width={416}
           height={380}
-          loading="lazy"
           quality={100}
           aria-hidden
         />
@@ -275,7 +269,6 @@ const SECTION_BENTO = {
           alt=""
           width={320}
           height={250}
-          loading="lazy"
           quality={100}
           aria-hidden
         />

@@ -21,6 +21,7 @@ const CodeSection = ({
   code,
   codePosition,
   codeClassName,
+  isPriorityImageLoading,
 }) => (
   <section
     className={clsx(
@@ -85,6 +86,7 @@ const CodeSection = ({
           alt=""
           width={482}
           height={206}
+          loading={isPriorityImageLoading ? 'eager' : 'lazy'}
         />
         <div
           className="pointer-events-none absolute -top-2 right-[60px] h-[155px] w-[314px] rounded-[50%] bg-[#7599F5] opacity-30 blur-3xl sm:right-1/2 sm:translate-x-1/2"
@@ -140,6 +142,10 @@ const CodeSection = ({
 CodeSection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  containerClassName: PropTypes.string,
+  textContentClassName: PropTypes.string,
+  codeClassName: PropTypes.string,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
@@ -148,11 +154,17 @@ CodeSection.propTypes = {
   }),
   code: PropTypes.string.isRequired,
   codePosition: PropTypes.oneOf(['left', 'right']),
+  isPriorityImageLoading: PropTypes.bool,
 };
 
 CodeSection.defaultProps = {
+  className: '',
+  containerClassName: '',
+  textContentClassName: '',
+  codeClassName: '',
   button: null,
   codePosition: 'left',
+  isPriorityImageLoading: false,
 };
 
 export default CodeSection;
