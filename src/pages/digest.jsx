@@ -131,6 +131,7 @@ const Digests = () => (
       imageClassName="relative w-full h-[657px] !overflow-visible lg:h-96 md:h-80 sm:h-72 sm-xs:h-56"
       button={{
         label: 'Learn more',
+        hiddenLabel: 'about multiple digest strategies',
         link: '/',
       }}
       theme="imageRight"
@@ -154,6 +155,7 @@ const Digests = () => (
       imageClassName="relative w-full h-96 !overflow-visible lg:h-[400px] md:h-80 sm:h-48"
       button={{
         label: 'Learn more',
+        hiddenLabel: 'how to eliminate notification fatigue',
         link: '/',
       }}
     />

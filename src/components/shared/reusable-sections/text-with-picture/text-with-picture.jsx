@@ -74,6 +74,7 @@ const TextWithPicture = ({
             target={button.target}
           >
             {button.label}
+            {button.hiddenLabel && <span className="sr-only"> {button.hiddenLabel}</span>}
           </Button>
         )}
       </div>
@@ -92,6 +93,7 @@ TextWithPicture.propTypes = {
     link: PropTypes.string.isRequired,
     rel: PropTypes.string,
     target: PropTypes.string,
+    hiddenLabel: PropTypes.string,
   }),
   theme: PropTypes.oneOf(['imageLeft', 'imageRight', 'imageFullWidth']),
 };
