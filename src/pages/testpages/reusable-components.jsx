@@ -245,7 +245,7 @@ const GET_INVOLVED = [
     title: 'Novu Cloud',
     description: 'Embark on your journey by creating your personalized account',
     linkText: 'Get started',
-    linkUrl: 'https://dashboard.novu.co/?utm_campaign=community_page',
+    linkUrl: 'https://dashboard-v2.novu.co/?utm_campaign=community_page',
   },
   {
     icon: discordIcon,

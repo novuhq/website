@@ -105,7 +105,7 @@ const HomePage = () => (
       /* description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo." */
       leftItem={{
         text: 'GET STARTED',
-        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'BOOK A DEMO',
@@ -122,7 +122,7 @@ const HomePage = () => (
       description="Create a free account, send your first notification, and add an Inbox... all for free."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'Contact us',
