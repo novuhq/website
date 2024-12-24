@@ -2,27 +2,27 @@
 // import LINKS from 'constants/links';
 
 export const firstSectionData = {
-  title: 'Developers',
+  title: 'Built for teams, loved by developers...',
   description:
-    'Define workflows in code using frameworks like Next.JS, Nest.JS, and React, and deploy confidently while developing in your IDE of choice.',
-  //  button: {
-  //   label: 'Learn more',
-  //   link: LINKS.hpCodeSection,
-  //  },
+    'Design powerful, flexible, and fully extensible notification workflows that deliver rich notifications to your end users via any channel.',
+  // button: {
+  //   label: 'Novu for devs',
+  //   link: '/',
+  // },
 };
 
 export const secondSectionData = {
-  title: 'Product teams',
+  title: '...and Product teams',
   description:
-    'Unify content, messaging, and experience across all notification channels. Seamlessly manage content without involving developers.',
+    'Unify content, messaging, and experience across all notification channels. Seamlessly manage content without ever involving developers.',
   //  button: {
-  //    label: 'Learn more',
-  //    link: LINKS.hpCodeSection,
+  //    label: 'Novu for product',
+  //    link: '/',
   //  },
 };
 
 export const thirdSectionData = {
-  title: 'End users',
+  title: 'Captivating end-user notifications',
   description:
-    'Set notification channel and subscription preferences, and engage with your notification content.',
+    'Build and deliver rich, highly customized notifications to your end users when and where you want to, all based on their preferences.',
 };

@@ -3,14 +3,22 @@ import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 
+import { prepareAndFilterMessages } from 'utils/linear-theme-utils';
+
 import ArchiveAllIcon from './images/archive-all.inline.svg';
 import ArchiveReadIcon from './images/archive-read.inline.svg';
 import ArchivedIcon from './images/archived.inline.svg';
 import EmptyInboxIcon from './images/empty-inbox.inline.svg';
+import DeleteLinearIcon from './images/linear-delete.inline.svg';
+import LinearEmptyInboxIcon from './images/linear-empty-inbox.inline.svg';
+import LinearLightEmptyInboxIcon from './images/linear-light-empty-inbox.inline.svg';
+import MarkReadLinearIcon from './images/linear-mark-read.inline.svg';
 import MarkReadIcon from './images/mark-read.inline.svg';
 import NotionEmptyInboxIcon from './images/notion-empty-inbox.inline.svg';
 import UnreadReadIcon from './images/unread-read.inline.svg';
 import UnreadIcon from './images/unread.inline.svg';
+import LinearHeader from './linear-header';
+import LinearMessage from './linear-message';
 import Message from './message';
 import NotionHeader from './notion-header';
 import NotionMessage from './notion-message';
@@ -49,6 +57,18 @@ const THEMES = {
     text: 'text-[#D8D5D5]',
     icons: {
       emptyInboxIcon: <NotionEmptyInboxIcon className="size-12 text-[#D8D5D5]" />,
+    },
+  },
+  linearDark: {
+    text: 'text-[#9A9AA1]',
+    icons: {
+      emptyInboxIcon: <LinearEmptyInboxIcon className="size-12 text-[#D8D5D5]" />,
+    },
+  },
+  linearLight: {
+    text: 'text-[#5D5D5E]',
+    icons: {
+      emptyInboxIcon: <LinearLightEmptyInboxIcon className="size-12" />,
     },
   },
 };
@@ -90,6 +110,34 @@ const NOTION_ACTIONS = [
   },
 ];
 
+const LINEAR_FILTERS = {
+  ordering: [
+    {
+      label: 'Newest',
+    },
+    {
+      label: 'Oldest',
+    },
+  ],
+  actions: [
+    {
+      label: 'Mark all as read',
+      Icon: MarkReadLinearIcon,
+      action: (messages) => messages.map((message) => ({ ...message, isRead: true })),
+    },
+    {
+      label: 'Delete all notifications',
+      Icon: DeleteLinearIcon,
+      action: () => [],
+    },
+    {
+      label: 'Delete all read notifications',
+      Icon: DeleteLinearIcon,
+      action: (messages) => messages.filter((message) => !message.isRead),
+    },
+  ],
+};
+
 const MessageList = ({
   theme,
   tabs,
@@ -102,6 +150,9 @@ const MessageList = ({
   const currentTheme = THEMES[theme];
 
   const [filterIndex, setFilterIndex] = useState(0);
+  const [orderingPosition, setOrderingPosition] = useState(LINEAR_FILTERS.ordering[0].label);
+  const [showUnreadFirst, setShowUnreadFirst] = useState(false);
+  const [showRead, setShowRead] = useState(true);
 
   const filteredMessageList = useMemo(() => {
     switch (theme) {
@@ -115,10 +166,25 @@ const MessageList = ({
       case 'notionDark':
       case 'notionLight':
         return NOTION_FILTERS[filterIndex].filter(messages);
+      case 'linearDark':
+      case 'linearLight':
+        // eslint-disable-next-line no-case-declarations
+        const isNewest = orderingPosition === 'Newest';
+
+        return prepareAndFilterMessages(messages, showRead, showUnreadFirst, isNewest);
       default:
         return messages;
     }
-  }, [activeTab, messages, defaultTab, theme, filterIndex]);
+  }, [
+    activeTab,
+    messages,
+    defaultTab,
+    theme,
+    filterIndex,
+    orderingPosition,
+    showUnreadFirst,
+    showRead,
+  ]);
 
   const readMessage = (currentId, newState = false) => {
     setMessages(
@@ -144,6 +210,18 @@ const MessageList = ({
     setFilterIndex(filter);
   };
 
+  const handleOrdering = (value) => {
+    setOrderingPosition(value);
+  };
+
+  const toggleShowUnreadFirst = () => {
+    setShowUnreadFirst((prev) => !prev);
+  };
+
+  const toggleShowRead = () => {
+    setShowRead((prev) => !prev);
+  };
+
   const { emptyInboxIcon } = currentTheme.icons;
 
   return (
@@ -158,13 +236,27 @@ const MessageList = ({
           handleFilter={handleFilter}
         />
       )}
+      {['linearDark', 'linearLight'].includes(theme) && (
+        <LinearHeader
+          theme={theme}
+          ordering={LINEAR_FILTERS.ordering}
+          actions={LINEAR_FILTERS.actions}
+          handleAction={handleAction}
+          orderingPosition={orderingPosition}
+          handleOrdering={handleOrdering}
+          showRead={showRead}
+          showUnreadFirst={showUnreadFirst}
+          toggleShowRead={toggleShowRead}
+          toggleShowUnreadFirst={toggleShowUnreadFirst}
+        />
+      )}
       {theme === 'novuDefault' && (
         <TabList theme={theme} tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
           <m.div
-            className="scrollbar-hidden relative z-10 h-full pb-4 overflow-y-auto"
+            className="scrollbar-hidden relative z-10 h-full overflow-y-auto pb-4"
             key={activeTab}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -172,9 +264,13 @@ const MessageList = ({
             transition={{ duration: ANIMATION_DURATION, ease: MOTION_EASY }}
           >
             {filteredMessageList.length === 0 ? (
-              <div className="flex flex-col items-center h-full pt-[164px]">
+              <div className="flex h-full flex-col items-center pt-[164px]">
                 {emptyInboxIcon}
-                <p className={clsx(currentTheme.text, 'mt-2 text-center')}>No messages yet</p>
+                <p className={clsx(currentTheme.text, 'mt-2 text-center')}>
+                  {['linearDark', 'linearLight'].includes(theme)
+                    ? 'No notifications'
+                    : 'No messages yet'}
+                </p>
               </div>
             ) : (
               <ul>
@@ -203,6 +299,9 @@ const MessageList = ({
                           readMessage={readMessage}
                           deleteMessage={deleteMessage}
                         />
+                      )}
+                      {['linearDark', 'linearLight'].includes(theme) && (
+                        <LinearMessage theme={theme} message={message} readMessage={readMessage} />
                       )}
                     </m.li>
                   ))}
@@ -235,9 +334,13 @@ MessageList.propTypes = {
       label: PropTypes.string.isRequired,
       count: PropTypes.number.isRequired,
     })
-  ).isRequired,
+  ),
   setActiveTab: PropTypes.func.isRequired,
   setMessages: PropTypes.func.isRequired,
+};
+
+MessageList.defaultProps = {
+  tabs: [],
 };
 
 export default MessageList;

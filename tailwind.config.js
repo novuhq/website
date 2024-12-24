@@ -9,7 +9,7 @@ module.exports = {
   },
   theme: {
     fontFamily: {
-      sans: ['Brother-1816', ...defaultTheme.fontFamily.sans],
+      sans: ['Brother-1816', 'Brother-1816 Fallback', ...defaultTheme.fontFamily.sans],
       mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
       inter: ['Inter', ...defaultTheme.fontFamily.sans],
     },
@@ -144,6 +144,10 @@ module.exports = {
         'radial-gradient(78.44% 46.25% at 27.61% 0%, rgba(194, 229, 255, 0.08) 0%, rgba(194, 240, 255, 0.00) 76.65%), linear-gradient(168deg, rgba(38, 45, 60, 0.45) 6.29%, rgba(38, 40, 60, 0.18) 91.42%)',
       'green-code-border':
         'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.08) 74%, rgba(212, 250, 255, 0.05) 100%)',
+      'gray-btn':
+        'linear-gradient(258deg, rgba(176, 166, 191, 0.06) -8.62%, rgba(176, 166, 191, 0.03) 113.79%)',
+      'white-gray-gradient':
+        'radial-gradient(66.82% 361.31% at 50.23% -67.39%, #ffffff 0%, #666666 100%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {

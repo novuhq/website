@@ -36,4 +36,20 @@
       linear-gradient(#fff 0 0);
     mask-composite: exclude;
   }
+
+  .menu-btn:focus-within + .menu,
+  .menu-btn:has(+ .menu button:focus-visible) + .menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .menu-btn:hover + .menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .menu:hover {
+    visibility: visible;
+    opacity: 1;
+  }
 }

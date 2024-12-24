@@ -86,7 +86,7 @@ const PLANS = {
       branding: true,
     },
     account: {
-      teamMembers: '10',
+      teamMembers: 'Unlimited',
       rbac: 'Q2 2025',
       standardSAML: true,
       customSAML: false,

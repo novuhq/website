@@ -245,7 +245,7 @@ const GET_INVOLVED = [
     title: 'Novu Cloud',
     description: 'Embark on your journey by creating your personalized account',
     linkText: 'Get started',
-    linkUrl: 'https://dashboard.novu.co/?utm_campaign=community_page',
+    linkUrl: 'https://dashboard-v2.novu.co/?utm_campaign=community_page',
   },
   {
     icon: discordIcon,
@@ -392,7 +392,7 @@ commentWorkflow.trigger({
 });`;
 
 const SECTION_WITH_FORM_LEFT = {
-  title: 'Get in touch',
+  title: 'SectionWithForm',
   description:
     "We're here to support you in navigating the open-source notification infrastructure for developers.",
   features: [
@@ -420,7 +420,7 @@ const SECTION_WITH_FORM_LEFT = {
 };
 
 const SECTION_WITH_FORM_RIGHT = {
-  title: 'Get in touch',
+  title: 'SectionWithForm',
   description:
     "We're here to support you in navigating the open-source notification infrastructure for developers.",
   features: [
@@ -476,8 +476,8 @@ const ReusableComponents = (props) => {
   return (
     <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
       <TextWithPicture
-        title="Some header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        title="TextWithPicture"
+        description="You can set many different options to change the side of text and image, as well as add or remove the button."
         image={
           <StaticImage
             className="size-full object-cover"
@@ -494,8 +494,8 @@ const ReusableComponents = (props) => {
         }}
       />
       <TextWithPicture
-        title="Some header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        title="TextWithPicture"
+        description="You can set many different options to change the side of text and image, as well as add or remove the button."
         image={
           <StaticImage
             className="size-full object-cover"
@@ -508,8 +508,8 @@ const ReusableComponents = (props) => {
         }
       />
       <TextWithPicture
-        title="Some header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        title="TextWithPicture"
+        description="You can set many different options to change the side of text and image, as well as add or remove the button."
         image={
           <StaticImage
             className="size-full object-cover"
@@ -527,8 +527,8 @@ const ReusableComponents = (props) => {
         theme="imageRight"
       />
       <TextWithPicture
-        title="Some header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        title="TextWithPicture"
+        description="You can set many different options to change the side of text and image, as well as add or remove the button."
         image={
           <StaticImage
             className="size-full object-cover"
@@ -542,8 +542,8 @@ const ReusableComponents = (props) => {
         theme="imageRight"
       />
       <TextWithPicture
-        title="Some header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        title="TextWithPicture"
+        description="You can set many different options to change the side of text and image, as well as add or remove the button."
         image={
           <StaticImage
             className="size-full object-cover"
@@ -561,8 +561,8 @@ const ReusableComponents = (props) => {
         theme="imageFullWidth"
       />
       <TextWithPicture
-        title="Some header that includes up to three lines of engaging text"
-        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        title="TextWithPicture"
+        description="You can set many different options to change the side of text and image, as well as add or remove the button."
         image={
           <StaticImage
             className="size-full object-cover"
@@ -575,24 +575,18 @@ const ReusableComponents = (props) => {
         }
         theme="imageFullWidth"
       />
-      <SectionWithSmallIcons
-        title="Seamlessly integrate with existing services and legacy systems to facilitate adoption"
-        items={SECTION_WITH_SMALL_ICONS}
-      />
-      <SectionWithBigIcons title="Other ways to help" items={SECTION_WITH_BIG_ICONS} />
-      <Testimonials title="Don't just listen to us" testimonials={TESTIMONIALS} />
+      <SectionWithSmallIcons title="SectionWithSmallIcons" items={SECTION_WITH_SMALL_ICONS} />
+      <SectionWithBigIcons title="SectionWithBigIcons" items={SECTION_WITH_BIG_ICONS} />
+      <Testimonials title="Testimonials" testimonials={TESTIMONIALS} />
       <SectionWithLogos
-        title="Integrates with anything"
+        title="SectionWithLogos"
         description="Built from scratch to integrate your existing tooling and content with the Novu Platform."
         logos={SECTION_WITH_LOGOS}
       />
-      <GetInvolved title="Get involved: start, engage, contribute" items={GET_INVOLVED} />
-      <SectionWithCards
-        title="Seamlessly integrate with existing services and legacy systems to facilitate adoption"
-        cards={SECTION_WITH_CARDS}
-      />
+      <GetInvolved title="GetInvolved" items={GET_INVOLVED} />
+      <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} />
       <Events
-        title="Engage in events, forging connections, and gaining insights"
+        title="Events"
         description="Let’s say you’ve been tasked to build an application to help consumers find agencies
           providing a specific service tasked to build. To&nbsp;build an application to help
           consumers"
@@ -601,21 +595,21 @@ const ReusableComponents = (props) => {
         events={EVENTS}
       />
       <EventsWithImages
-        title="Engage in events, forging connections, and gaining insights"
+        title="EventsWithImages"
         description="Let’s say you’ve been tasked to build an application to help consumers find agencies providing a specific service tasked to build. To&nbsp;build an application to help consumers"
         buttonText="View all events"
         buttonUrl="/"
         events={EVENTS_WITH_IMAGES}
       />
       <BlogPosts
-        title="Check out our latest blog posts"
+        title="BlogPosts"
         buttonText="Submit Your Content"
         buttonUrl="https://github.com/novuhq/blog"
         items={latestBlogPosts}
         blogPageURL={LINKS.blog.to}
       />
       <CTA
-        title="Create and send your first code-based notification"
+        title="CTA"
         leftCard={{
           title: 'Self-Hosted',
           description: 'Create complex workflows, access local data, and reuse existing content.',
@@ -631,7 +625,7 @@ const ReusableComponents = (props) => {
         theme="purple"
       />
       <CTA
-        title="Create and send your first code-based notification"
+        title="CTA"
         leftCard={{
           title: 'Self-Hosted',
           description: 'Create complex workflows, access local data, and reuse existing content.',
@@ -647,7 +641,7 @@ const ReusableComponents = (props) => {
         theme="blue"
       />
       <CTA
-        title="Create and send your first code-based notification"
+        title="CTA"
         leftCard={{
           title: 'Self-Hosted',
           description: 'Create complex workflows, access local data, and reuse existing content.',
@@ -663,20 +657,20 @@ const ReusableComponents = (props) => {
         theme="green"
       />
       <CtaWithForm
-        title="Get started now"
+        title="CtaWithForm"
         description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo."
         leftItem={{ code: 'npx novu-labs@latest echo' }}
         rightItem={{ text: 'Book a demo', link: '/' }}
       />
       <CtaWithForm
-        title="Get started now"
+        title="CtaWithForm"
         description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo."
         leftItem={{ text: 'Get started', link: '/' }}
         rightItem={{ text: 'Contact us', link: '/' }}
       />
       <SectionWithVideo
         video={{ type: 'youtube', url: 'https://www.youtube.com/watch?v=VBHierIbPHc' }}
-        title="Video header that includes up to three lines of engaging text"
+        title="SectionWithVideo"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
       />
       <SectionWithVideo
@@ -685,7 +679,7 @@ const ReusableComponents = (props) => {
           embed:
             '<div style="padding:54% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/961460192?h=401d48f654" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>',
         }}
-        title="Video header that includes up to three lines of engaging text"
+        title="SectionWithVideo"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         videoPosition="left"
       />
@@ -695,7 +689,7 @@ const ReusableComponents = (props) => {
           embed:
             '<iframe src="https://www.loom.com/embed/5bbdeb480ba84e65b1b3de8c190e2003?sid=9dc95980-6f6f-4f80-be82-6cb77240ad1e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>',
         }}
-        title="Video header that includes up to two lines of engaging text"
+        title="SectionWithVideo"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         videoPosition="fullWidth"
         transcription={[
@@ -709,30 +703,30 @@ const ReusableComponents = (props) => {
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of engaging text"
+        title="CodeSection"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{ label: 'Learn more', link: '/' }}
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of engaging text"
+        title="CodeSection"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of engaging text"
+        title="CodeSection"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{ label: 'Learn more', link: '/' }}
         codePosition="right"
       />
       <CodeSection
         code={CODE_SECTION}
-        title="Some header that includes up to three lines of engaging text"
+        title="CodeSection"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         codePosition="right"
       />
       <Inbox
-        title="Some header that includes up to three lines of engaging text"
+        title="Inbox"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{
           label: 'Learn more',
