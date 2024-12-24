@@ -39,7 +39,7 @@ const CodeSection = ({
           codeClassName
         )}
       >
-        <div className="code-block-bg relative z-10 h-full w-full overflow-hidden rounded-[20px] p-5 sm:p-4">
+        <div className="code-block-bg relative z-10 h-full w-full overflow-hidden rounded-[20px] p-5 [transform:translateZ(0)] sm:p-4">
           <div
             className="border-linear pointer-events-none absolute inset-5 z-10 rounded-xl blur-lg border-image-green-code-border sm:inset-4"
             aria-hidden
@@ -49,7 +49,7 @@ const CodeSection = ({
             aria-hidden
           />
           <SyntaxHighlighter
-            className="echo-code relative z-10 mr-1.5 overflow-y-scroll rounded-xl bg-inside-code-underlay-green p-[22px] text-[13px] font-normal shadow-[-2px_-2px_10px_0px_rgba(4,9,15,0.1),4px_4px_8px_0px_rgba(0,0,0,0.1),10px_10px_20px_0px_rgba(0,0,0,0.15)] [mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_15%)] lg:text-xs sm:text-[10px] [&_code]:!block"
+            className="echo-code relative z-10 overflow-y-scroll rounded-xl bg-inside-code-underlay-green p-[22px] text-[13px] font-normal shadow-[-2px_-2px_10px_0px_rgba(4,9,15,0.1),4px_4px_8px_0px_rgba(0,0,0,0.1),10px_10px_20px_0px_rgba(0,0,0,0.15)] [mask-image:linear-gradient(270deg,transparent_1%,#FFFFFF_15%)] lg:text-xs sm:text-[10px] [&_code]:!block"
             language="javascript"
             useInlineStyles={false}
             showLineNumbers
