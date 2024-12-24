@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import CodeSection from 'components/pages/framework/code-section';
 import Bento from 'components/shared/bento';
 import Layout from 'components/shared/layout';
-import CodeSection from 'components/shared/reusable-sections/code-section';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
@@ -34,9 +34,9 @@ const CODE_SECTION = {
 import { z } from 'zod';
 import { render } from '@react-email/components';
 
-const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@event@weeklyCommentsEventTooltip@left@@) => {
-  await event.step.@@inApp@stepTooltip@@('inbox-notification', async () => ({
-    subject: \`**\${event.@@payload@commentPayloadTooltip@@.userName}** commented in project\`,
+const weeklyComments = workflow('weekly-comments', async (event) => {
+  await event.step.inApp('inbox-notification', async () => ({
+    subject: \`**\${event.payload.userName}** commented in project\`,
     body: event.payload.comment,
   }));
 
@@ -46,9 +46,9 @@ const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@
 
   await event.step.email('digest-email', async (controls) => ({
     subject: controls.subject,
-    body: render(<WeeklyDigestEmail {...@@controls@controlsTooltip@left@@} events={digest.events} />)
+    body: render(<WeeklyDigestEmail {...controls} events={digest.events} />)
   }), {
-    @@skip@skipTooltip@@: () => !digest.events.length,
+    skip: () => !digest.events.length,
     controlSchema: z.object({
       subject: z.string().default('Hi {{subscriber.firstName}} - Acme Comments'),
       openAiModel: z.enum(['gpt-3.5-turbo', 'gpt-4o']).default('gpt-4o'),
@@ -57,7 +57,7 @@ const weeklyComments = @@workflow@workflowTooltip@@('weekly-comments', async (@@
   });
 }, { payloadSchema: z.object({ userName: z.string(), comment: z.string() }) });
 
-await weeklyComments.@@trigger@triggerTooltip@@({
+await weeklyComments.trigger({
   payload: { userName: 'John Doe', comment: 'Are you free to give me a call?' },
   to: 'jane@acme.com'
 });`,
