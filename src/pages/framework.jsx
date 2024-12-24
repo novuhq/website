@@ -29,6 +29,7 @@ const CODE_SECTION = {
   textContentClassName: 'max-w-[417px] lg:max-w-lg',
   codeClassName: 'max-w-[806px] xl:max-w-[672px]',
   isPriorityImageLoading: true,
+  btnStyle: 'white-filled',
   code: `import { workflow, CronExpression } from '@novu/framework';
 import { z } from 'zod';
 import { render } from '@react-email/components';

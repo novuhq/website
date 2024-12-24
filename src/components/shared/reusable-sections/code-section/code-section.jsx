@@ -22,6 +22,7 @@ const CodeSection = ({
   codePosition,
   codeClassName,
   isPriorityImageLoading,
+  btnStyle,
 }) => (
   <section
     className={clsx(
@@ -125,7 +126,7 @@ const CodeSection = ({
         {button && (
           <Button
             className="mt-8"
-            theme="gray-outline"
+            theme={btnStyle}
             size="sm"
             to={button.link}
             rel={button.rel}
@@ -155,6 +156,7 @@ CodeSection.propTypes = {
   code: PropTypes.string.isRequired,
   codePosition: PropTypes.oneOf(['left', 'right']),
   isPriorityImageLoading: PropTypes.bool,
+  btnStyle: PropTypes.oneOf(['gray-outline', 'white-filled']),
 };
 
 CodeSection.defaultProps = {
@@ -165,6 +167,7 @@ CodeSection.defaultProps = {
   button: null,
   codePosition: 'left',
   isPriorityImageLoading: false,
+  btnStyle: 'gray-outline',
 };
 
 export default CodeSection;
