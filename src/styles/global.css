@@ -13,7 +13,7 @@
   }
 
   .code-block-bg {
-    background: linear-gradient(135deg, #16222e, #080c1a 74%, #05050b),
+    background: linear-gradient(135deg, #16222e, #080c1a 54%, #05050b),
       radial-gradient(
         circle at 41.5% 0%,
         rgba(135, 188, 195, 0.15),

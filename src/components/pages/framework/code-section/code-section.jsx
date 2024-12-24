@@ -39,7 +39,7 @@ const CodeSection = ({
           codeClassName
         )}
       >
-        <div className="code-block-bg relative z-10 h-full w-full overflow-hidden rounded-[20px] p-5 sm:p-4 [&_pre]:p-[22px]">
+        <div className="code-block-bg relative z-10 h-full w-full overflow-hidden rounded-[20px] p-5 sm:p-4">
           <div
             className="border-linear pointer-events-none absolute inset-5 z-10 rounded-xl blur-lg border-image-green-code-border sm:inset-4"
             aria-hidden

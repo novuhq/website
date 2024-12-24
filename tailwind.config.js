@@ -135,7 +135,7 @@ module.exports = {
       'code-block-border':
         'radial-gradient(83.26% 102.85% at 61.61% -2.85%, #6B7DB3 6.8%, #1A1E2E 65.55%)',
       'code-underlay-border':
-        'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(135, 188, 195, 0.15) 0%, #1E2438 49%, rgba(30, 36, 56, 0.5) 100%)',
+        'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(135, 188, 195, 0.15) 0%, #1E2438 49%, #05050b 100%)',
       'testimonials-text':
         'linear-gradient(98.67deg, rgba(255, 255, 255, 0.85) 9.63%, rgba(255, 255, 255, 0.6) 113.79%)',
       'code-underlay-green':
