@@ -365,7 +365,7 @@ const InboxPage = () => (
       description="Create a free account, send your first notification, and add an Inbox... all for free."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'Contact us',

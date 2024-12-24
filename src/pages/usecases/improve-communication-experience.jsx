@@ -23,7 +23,7 @@ const improveCommunicationExperiencePage = () => (
       links={[
         {
           text: 'Create free account',
-          url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
+          url: 'https://dashboard-v2.novu.co/?utm_campaign=usecase-CTA',
           target: '_blank',
         },
         {

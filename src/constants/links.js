@@ -1,4 +1,4 @@
-export const WEB_APP_URL = 'https://dashboard.novu.co';
+export const WEB_APP_URL = 'https://dashboard-v2.novu.co';
 export const applyQueryParams = (link, queryParams = []) => ({
   ...link,
   to: `${link.to}?${queryParams.join('&')}`,
@@ -143,31 +143,31 @@ export default {
     target: '_blank',
   },
   getStarted: {
-    to: 'https://dashboard.novu.co?utm_campaign=gs_website',
+    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedPricingFree: {
-    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_free',
+    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_free',
     target: '_blank',
   },
   getStartedPricingBus: {
-    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_bus',
+    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_bus',
     target: '_blank',
   },
   getStartedPricingEnt: {
-    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_ent',
+    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_ent',
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://dashboard.novu.co?utm_campaign=gs_top_bar',
+    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_top_bar',
     target: '_blank',
   },
   getStartedCommunity: {
-    to: `https://dashboard.novu.co?utm_campaign=community_page`,
+    to: `https://dashboard-v2.novu.co?utm_campaign=community_page`,
     target: '_blank',
   },
   getStartedBase: {
-    to: 'https://dashboard.novu.co',
+    to: 'https://dashboard-v2.novu.co',
     target: '_blank',
   },
   quickStart: {

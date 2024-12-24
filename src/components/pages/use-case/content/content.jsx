@@ -34,7 +34,7 @@ const Content = ({ content, templateId }) => {
       </div>
       <div className="mt-14 flex justify-end">
         <Button
-          to={`https://dashboard.novu.co/?blueprintId=${templateId}`}
+          to={`https://dashboard-v2.novu.co/?blueprintId=${templateId}`}
           theme="primary"
           size="sm"
         >
