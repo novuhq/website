@@ -100,7 +100,7 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../../images/reusable-sections/section-with-cards/premier-dx-redesigned.jpg"
+        src="../images/reusable-sections/section-with-cards/premier-dx-redesigned.jpg"
       />
     ),
     //    linkText: 'Learn more',
@@ -113,7 +113,7 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../../images/reusable-sections/section-with-cards/flexible-redesigned.jpg"
+        src="../images/reusable-sections/section-with-cards/flexible-redesigned.jpg"
       />
     ),
     //    linkText: 'Learn more',
@@ -126,7 +126,7 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../../images/reusable-sections/section-with-cards/opensource-redesigned.jpg"
+        src="../images/reusable-sections/section-with-cards/opensource-redesigned.jpg"
       />
     ),
     //    linkText: 'Learn more',
@@ -254,7 +254,7 @@ const HomePage = () => (
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'Contact us',
