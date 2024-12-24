@@ -45,7 +45,7 @@ const CodeSection = ({
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute left-3.5 top-5 z-20 h-px w-full max-w-[590px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#BAFFFF_42.53%,rgba(255,255,255,0)_100%)] mix-blend-plus-lighter blur-[1px] sm:top-4 sm:max-w-[calc(100%-32px)]"
+            className="pointer-events-none absolute left-3.5 top-5 z-20 h-px w-full max-w-[590px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#BAFFFF_42.53%,rgba(255,255,255,0)_100%)] mix-blend-plus-lighter blur-[1px] xl:max-w-[430px] sm:top-4 sm:max-w-[calc(100%-32px)]"
             aria-hidden
           />
           <SyntaxHighlighter
