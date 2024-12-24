@@ -84,6 +84,10 @@ const CodeSection = ({
             className="pointer-events-none absolute left-[16px] top-[-11px] h-[23px] w-[400px] rounded-[50%] bg-[#E6FCFF] opacity-20 mix-blend-plus-lighter blur-[25px] sm:left-0"
             aria-hidden
           />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-b from-transparent to-[#05050B]"
+            aria-hidden
+          />
         </div>
         <div
           className="pointer-events-none absolute left-0 top-[-16px] h-[32px] w-[448px] rounded-[50%] bg-[#67DBFF] opacity-25 mix-blend-plus-lighter blur-[50px] sm:left-0"
