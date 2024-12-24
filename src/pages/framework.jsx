@@ -278,7 +278,7 @@ const SECTION_BENTO = {
 };
 
 const FrameworkPage = () => (
-  <Layout mainClassName="overflow-hidden pt-16 sm:pt-14">
+  <Layout mainClassName="overflow-hidden pt-16 sm:pt-14 bg-[#05050B]">
     <CodeSection {...CODE_SECTION} />
     <SectionWithCards {...SECTION_WITH_CARDS} />
     <Bento {...SECTION_BENTO} />
