@@ -44,6 +44,10 @@ const CodeSection = ({
             className="border-linear pointer-events-none absolute inset-5 z-10 rounded-xl blur-lg border-image-green-code-border sm:inset-4"
             aria-hidden
           />
+          <div
+            className="pointer-events-none absolute left-3.5 top-5 z-20 h-px w-full max-w-[590px] bg-[linear-gradient(90deg,rgba(255,255,255,0)_10%,#BAFFFF_42.53%,rgba(255,255,255,0)_100%)] mix-blend-plus-lighter blur-[1px] sm:top-4 sm:max-w-[calc(100%-32px)]"
+            aria-hidden
+          />
           <SyntaxHighlighter
             className="echo-code scrollbar-hidden relative z-10 overflow-y-scroll rounded-xl bg-inside-code-underlay-green p-[22px] text-[13px] font-normal shadow-[-2px_-2px_10px_0px_rgba(4,9,15,0.1),4px_4px_8px_0px_rgba(0,0,0,0.1),10px_10px_20px_0px_rgba(0,0,0,0.15)] lg:text-xs sm:text-[10px] [&_code]:!block"
             language="javascript"
