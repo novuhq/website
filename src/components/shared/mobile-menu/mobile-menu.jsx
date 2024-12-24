@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
@@ -35,18 +35,29 @@ const variants = {
 
 const MobileMenu = ({ isOpen }) => {
   const [openMenu, setOpenMenu] = useState(null);
+  const [isBanner, setIsBanner] = useState(false);
   const { isScrolledToBottom, hasScroll, handleScroll } = useScrollStatus();
 
   const handleOpenMenu = (items) => {
     setOpenMenu((current) => (current?.label === items?.label ? null : items));
   };
 
+  useEffect(() => {
+    const topBanner = document.querySelector('.top-banner');
+    if (topBanner) {
+      setIsBanner(true);
+    }
+  }, []);
+
   return (
     <LazyMotion features={domAnimation}>
       <AnimatePresence>
         {isOpen && (
           <m.div
-            className="safe-paddings pointer-events-none fixed inset-0 hidden w-full flex-col justify-between overflow-x-hidden overflow-y-scroll pt-16 md:flex"
+            className={clsx(
+              'safe-paddings pointer-events-none fixed inset-0 hidden w-full flex-col justify-between overflow-x-hidden overflow-y-scroll pt-16 md:flex',
+              isBanner ? 'pt-[108px]' : 'pt-16'
+            )}
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -88,7 +99,7 @@ const MobileMenu = ({ isOpen }) => {
                   </li>
                 ))}
               </ul>
-              <SubMenu currentMenu={openMenu} handleOpenMenu={handleOpenMenu} />
+              <SubMenu currentMenu={openMenu} handleOpenMenu={handleOpenMenu} isBanner={isBanner} />
             </nav>
 
             <div className="pointer-events-auto bg-black">

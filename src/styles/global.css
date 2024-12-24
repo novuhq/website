@@ -27,8 +27,7 @@
     visibility: visible;
     opacity: 1;
   }
-
   body:has([data-disable-document-scroll='true']) {
-    overflow: hidden;
+    @apply md:overflow-hidden;
   }
 }

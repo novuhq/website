@@ -61,6 +61,8 @@ export default {
   embedComponent: { to: '/inbox' },
   endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
   // observability: { to: '/' }, -> We need to add this page
+  userPreferences: { to: '/inbox/react/components/preferences?' },
+  framework: { to: 'https://docs.novu.co/framework/overview' },
 
   // Providers
   sendgrid: { to: 'https://docs.novu.co/integrations/providers/email/sendgrid' },
@@ -258,5 +260,13 @@ export default {
   },
   notificationDirectory: {
     to: 'https://notifications.directory?utm_campaign=website',
+  },
+
+  // Blog posts
+  howToNotificationsReact: {
+    to: '/blog/how-to-add-real-time-notifications-to-a-react-app',
+  },
+  futureOfNovu: {
+    to: '/blog/the-future-of-novu/',
   },
 };

@@ -11,7 +11,7 @@ import ChevronIcon from 'icons/chevron-small.inline.svg';
 
 const ANIMATION_DURATION = 0.2;
 
-const variantsDropdownMenu = {
+const variants = {
   hidden: {
     height: 0,
     opacity: 0,
@@ -28,7 +28,7 @@ const variantsDropdownMenu = {
   },
 };
 
-const SubMenu = ({ currentMenu, handleOpenMenu }) => {
+const SubMenu = ({ currentMenu, handleOpenMenu, isBanner }) => {
   const [openSubMenu, setOpenSubMenu] = useState('');
   const { isScrolledToBottom, hasScroll, handleScroll } = useScrollStatus();
 
@@ -61,7 +61,10 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
             }}
           >
             <Button
-              className="fixed inset-x-0 top-0 z-10 flex h-16 w-full items-center !justify-start gap-x-1 border-b border-b-gray-2 !bg-black px-5 text-sm font-normal !normal-case"
+              className={clsx(
+                'fixed inset-x-0 z-10 flex h-16 w-full items-center !justify-start gap-x-1 !rounded-none border-b border-b-gray-2 !bg-black px-5 text-sm font-normal !normal-case',
+                isBanner ? 'top-11' : 'top-0'
+              )}
               type="button"
               onClick={handleCloseButton}
             >
@@ -104,7 +107,7 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
                           />
                         )}
                         {icon && <img src={icon} width={36} height={36} alt="" loading="lazy" />}
-                        <span className="flex w-full flex-col items-start gap-y-1">
+                        <span className="flex w-full flex-col items-start gap-y-2">
                           <span className={clsx(image && 'leading-snug')}>{title}</span>
                           {description && (
                             <span
@@ -130,13 +133,13 @@ const SubMenu = ({ currentMenu, handleOpenMenu }) => {
                     <AnimatePresence>
                       {openSubMenu === title && (
                         <m.div
-                          className=""
+                          className="pb-[18px] pl-[22px]"
                           initial="hidden"
                           animate="visible"
                           exit="hidden"
-                          variants={variantsDropdownMenu}
+                          variants={variants}
                         >
-                          <ul className="-mt-2 flex flex-col gap-y-3 pb-[18px] pl-[22px]">
+                          <ul className="-mt-2 flex flex-col gap-y-3">
                             {items.map(({ title, icon, to }, index) => (
                               <li key={index}>
                                 <Link
@@ -178,6 +181,7 @@ SubMenu.propTypes = {
     items: PropTypes.array,
     label: PropTypes.string,
   }),
+  isBanner: PropTypes.bool.isRequired,
 };
 
 SubMenu.defaultProps = {

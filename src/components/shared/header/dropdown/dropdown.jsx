@@ -11,7 +11,7 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
       {isDropdownOpen && (
         <m.div
           className={clsx(
-            'absolute -bottom-2 w-[680px] translate-y-full rounded-2xl bg-[#0F0F0F] p-2 shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] outline outline-gray-2 transition-[left,min-width] duration-[0.4s] ease-in-out will-change-transform lg:-left-3.5',
+            'absolute -bottom-2 w-[680px] translate-y-full rounded-2xl border border-gray-2 bg-[#0F0F0F] p-2 shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] duration-[0.4s] ease-in-out will-change-transform lg:-left-3.5',
             'before:absolute before:-top-1.5 before:left-1/2 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
             {
               '-left-[272px] before:-translate-x-6 lg:before:-translate-x-72':
@@ -87,7 +87,7 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
                 return (
                   <li
                     className={clsx(
-                      'rounded-lg border border-[#333347]/50 bg-[#12121C]/50 p-6 pt-[22px]',
+                      'rounded-lg border border-[#333347]/30 bg-[#12121C]/50 p-6 pt-[22px]',
                       {
                         'col-span-full': index === 0,
                         'row-span-2 row-start-2': index === 1,
