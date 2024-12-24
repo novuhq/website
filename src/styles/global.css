@@ -12,6 +12,31 @@
     color-scheme: light;
   }
 
+  .code-block-bg {
+    background: linear-gradient(135deg, #16222e, #080c1a 54%, #05050b),
+      radial-gradient(
+        circle at 41.5% 0%,
+        rgba(135, 188, 195, 0.15),
+        #1e2438 49%,
+        rgba(30, 36, 56, 0.5) 100%
+      ),
+      radial-gradient(
+        circle at 22.5% 5.4%,
+        #ffffff,
+        #bee0ff 33.2%,
+        rgba(134, 204, 255, 0.5) 50.5%,
+        rgba(67, 64, 74, 0) 100%
+      );
+  }
+
+  .border-linear {
+    @apply border border-transparent;
+    mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
   .menu-btn:focus-within + .menu,
   .menu-btn:has(+ .menu button:focus-visible) + .menu {
     visibility: visible;

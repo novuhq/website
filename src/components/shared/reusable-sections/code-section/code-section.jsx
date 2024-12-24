@@ -11,10 +11,34 @@ import dots from './images/dots.svg';
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 
-const CodeSection = ({ title, description, button, code, codePosition }) => (
-  <section className="code-section safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20">
-    <div className="container-lg flex items-center gap-x-16 md:flex-col">
-      <div className="relative max-w-[672px] rounded-xl bg-code-block-border p-px lg:max-w-[532px] md:mt-12 md:w-full md:max-w-[672px] sm:max-w-[520px]">
+const CodeSection = ({
+  className,
+  title,
+  description,
+  button,
+  containerClassName,
+  textContentClassName,
+  code,
+  codePosition,
+  codeClassName,
+  isPriorityImageLoading,
+  btnStyle,
+}) => (
+  <section
+    className={clsx(
+      'code-section safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20',
+      className
+    )}
+  >
+    <div
+      className={clsx('container-lg flex items-center gap-x-16 md:flex-col', containerClassName)}
+    >
+      <div
+        className={clsx(
+          'relative max-w-[672px] rounded-xl bg-code-block-border p-px lg:max-w-[532px] md:mt-12 md:w-full md:max-w-[672px] sm:max-w-[520px]',
+          codeClassName
+        )}
+      >
         <div className="relative z-10 h-full w-full overflow-hidden rounded-xl bg-code-block-bg p-[22px] sm:p-4">
           <SyntaxHighlighter
             className="echo-code scrollbar-hidden relative z-10 overflow-y-scroll text-[13px] font-normal shadow-[10px_10px_20px_0px_rgba(0,0,0,0.15),4px_4px_8px_0px_rgba(0,0,0,0.1),-2px_-2px_10px_0px_rgba(4,9,15,0.1)] [mask-image:linear-gradient(270deg,rgba(255,255,255,0.5)_0%,#FFFFFF_11.33%)] lg:text-xs sm:text-[10px] [&_code]:!block"
@@ -63,6 +87,7 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
           alt=""
           width={482}
           height={206}
+          loading={isPriorityImageLoading ? 'eager' : 'lazy'}
         />
         <div
           className="pointer-events-none absolute -top-2 right-[60px] h-[155px] w-[314px] rounded-[50%] bg-[#7599F5] opacity-30 blur-3xl sm:right-1/2 sm:translate-x-1/2"
@@ -84,7 +109,8 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
       <div
         className={clsx(
           'md:order-first md:max-w-lg md:text-center',
-          codePosition === 'right' && 'order-first'
+          codePosition === 'right' && 'order-first',
+          textContentClassName
         )}
       >
         <Heading
@@ -100,7 +126,7 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
         {button && (
           <Button
             className="mt-8"
-            theme="gray-outline"
+            theme={btnStyle}
             size="sm"
             to={button.link}
             rel={button.rel}
@@ -117,6 +143,10 @@ const CodeSection = ({ title, description, button, code, codePosition }) => (
 CodeSection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  containerClassName: PropTypes.string,
+  textContentClassName: PropTypes.string,
+  codeClassName: PropTypes.string,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
@@ -125,11 +155,19 @@ CodeSection.propTypes = {
   }),
   code: PropTypes.string.isRequired,
   codePosition: PropTypes.oneOf(['left', 'right']),
+  isPriorityImageLoading: PropTypes.bool,
+  btnStyle: PropTypes.oneOf(['gray-outline', 'white-filled']),
 };
 
 CodeSection.defaultProps = {
+  className: '',
+  containerClassName: '',
+  textContentClassName: '',
+  codeClassName: '',
   button: null,
   codePosition: 'left',
+  isPriorityImageLoading: false,
+  btnStyle: 'gray-outline',
 };
 
 export default CodeSection;

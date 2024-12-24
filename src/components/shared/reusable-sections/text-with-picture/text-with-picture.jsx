@@ -5,8 +5,21 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-const TextWithPicture = ({ title, description, image, button, theme }) => (
-  <section className="text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14">
+const TextWithPicture = ({
+  className,
+  title,
+  description,
+  image,
+  imageClassName,
+  button,
+  theme,
+}) => (
+  <section
+    className={clsx(
+      'text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14',
+      className
+    )}
+  >
     <div className="container-lg px-8 md:px-7 sm:px-4">
       <div
         className={clsx(
@@ -15,7 +28,7 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
         )}
       >
         <div
-          className={clsx('sm:order-first sm:mb-6 sm:pl-0 sm:text-center', {
+          className={clsx('relative z-10 sm:order-first sm:mb-6 sm:pl-0 sm:pr-0 sm:text-center', {
             'mb-12 max-w-[704px] text-center lg:mb-10 md:mb-8 md:max-w-lg sm:mb-6':
               theme === 'imageFullWidth',
             'order-last pl-24 lg:pl-16 md:pl-8': theme === 'imageLeft',
@@ -50,7 +63,7 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
             </Button>
           )}
         </div>
-        <div className="overflow-hidden rounded-lg">{image}</div>
+        <div className={clsx('overflow-hidden rounded-lg', imageClassName)}>{image}</div>
         {button && theme === 'imageFullWidth' && (
           <Button
             className="mt-9 md:mt-8 sm:mt-6"
@@ -69,9 +82,11 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
 );
 
 TextWithPicture.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.node.isRequired,
+  imageClassName: PropTypes.string,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
@@ -82,8 +97,10 @@ TextWithPicture.propTypes = {
 };
 
 TextWithPicture.defaultProps = {
+  className: '',
   button: null,
   theme: 'imageLeft',
+  imageClassName: '',
 };
 
 export default TextWithPicture;

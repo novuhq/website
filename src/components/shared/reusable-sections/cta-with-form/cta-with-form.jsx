@@ -46,9 +46,10 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
           >
             {title}
           </Heading>
-          <p className="mt-3 max-w-[464px] text-center text-lg font-book tracking-snug text-gray-8 md:max-w-sm md:text-base">
-            {description}
-          </p>
+          <p
+            className="mt-3 max-w-[464px] text-center text-lg font-book tracking-snug text-gray-8 md:max-w-sm md:text-base"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
           <div className="mt-8 flex justify-center gap-5 md:mt-7 sm:flex-col sm:items-center">
             {leftItem.code && (
               <div
