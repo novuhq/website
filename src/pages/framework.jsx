@@ -222,7 +222,7 @@ const SECTION_BENTO = {
     {
       title: 'Observable and Scalable',
       description:
-        'Novu handles any volume, any channel, and any team for mission-critical notifications.',
+        'Novu handles any volume, any channel,&nbsp;and any team for mission-critical notifications.',
       className: 'order-4 bg-[#27222F] sm:order-3',
       image: (
         <StaticImage
