@@ -34,11 +34,9 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
         variants={{
           initial: {
             display: 'block',
-            transition: { delay: ANIMATION_DURATION },
           },
           toggled: {
             display: 'none',
-            transition: { delay: ANIMATION_DURATION },
           },
         }}
       />

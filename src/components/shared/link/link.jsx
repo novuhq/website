@@ -8,7 +8,7 @@ import DEFAULT_EASE from 'constants/default-ease';
 import ArrowIcon from 'icons/chevron-right.inline.svg';
 
 const styles = {
-  base: 'inline-block leading-none',
+  base: 'inline-block leading-none transition-colors duration-200',
   size: {
     xl: 'text-xl',
     base: 'text-base',
@@ -17,13 +17,13 @@ const styles = {
     xxs: 'text-[11px]',
   },
   theme: {
-    primary: 'text-primary-1 transition-colors duration-200 hover:text-primary-2',
+    primary: 'text-primary-1 hover:text-primary-2 focus-visible:text-primary-2',
     'primary-underline':
-      'text-primary-1 relative tracking-wide uppercase pb-1.5 transition-colors duration-200 hover:text-primary-1',
-    'white-underline':
-      'text-white relative tracking-wide uppercase pb-1.5 transition-colors duration-200',
-    white: 'text-white hover:text-primary-1 transition-colors duration-200',
-    gray: 'text-gray-8 hover:text-primary-1 transition-colors duration-200',
+      'text-primary-1 relative tracking-wide uppercase pb-1.5 hover:text-primary-1 focus-visible:text-primary-1',
+    'white-underline': 'text-white relative tracking-wide uppercase pb-1.5',
+    white: 'text-white hover:text-primary-1 focus-visible:text-primary-1',
+    gray: 'text-gray-8 hover:text-primary-1 focus-visible:text-primary-1',
+    'gray-9': 'text-gray-9 hover:text-primary-1 focus-visible:text-primary-1',
   },
   withArrow: 'group inline-flex items-center gap-1.5',
 };
@@ -112,6 +112,13 @@ const Link = ({
     </LazyMotion>
   );
 
+  const arrow = (
+    <span className="relative mt-0.5 w-1.5 overflow-hidden transition-[width] duration-200 group-hover:w-3">
+      <ArrowIcon className="ml-auto w-1.5" />
+      <span className="absolute right-px top-1/2 h-px w-full -translate-y-1/2 bg-primary-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+    </span>
+  );
+
   if (to?.startsWith('/') && !tag) {
     return (
       <GatsbyLink
@@ -122,6 +129,7 @@ const Link = ({
       >
         {children}
         {isUnderline && underline}
+        {withArrow && arrow}
       </GatsbyLink>
     );
   }
@@ -135,12 +143,7 @@ const Link = ({
     >
       {children}
       {isUnderline && underline}
-      {withArrow && (
-        <span className="relative mt-0.5 w-1.5 overflow-hidden transition-[width] duration-200 group-hover:w-3">
-          <ArrowIcon className="ml-auto w-1.5" />
-          <span className="absolute right-px top-1/2 h-px w-full -translate-y-1/2 bg-primary-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-        </span>
-      )}
+      {withArrow && arrow}
     </Tag>
   );
 };
