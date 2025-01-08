@@ -6,7 +6,7 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const FeatureCards = ({ title, description, cards, columns = 3 }) => (
+const FeatureCards = ({ title, titleSize = '44', description, cards, columns = 3 }) => (
   <section className="feature-cards safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <StaticImage src="./images/bg-blur.svg" alt="" loading="" width={1652} height={928} />
@@ -17,14 +17,14 @@ const FeatureCards = ({ title, description, cards, columns = 3 }) => (
       })}
     >
       <Heading
-        className="mx-auto max-w-[500px] text-center font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
+        className="mx-auto max-w-[700px] text-center font-medium leading-tight lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
-        size="44"
+        size={titleSize}
         theme="white"
       >
         {title}
       </Heading>
-      <p className="mx-auto mt-3 max-w-[692px] text-center text-lg font-[350] leading-snug text-gray-8 md:mt-2">
+      <p className="mx-auto mt-3 max-w-[710px] text-center text-lg font-[350] leading-snug text-gray-8 md:mt-2">
         {description}
       </p>
       <ul
