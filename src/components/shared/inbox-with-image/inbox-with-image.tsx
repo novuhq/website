@@ -4,7 +4,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import dots from 'components/shared/inbox-with-image/images/dots.svg';
+import dots from 'components/shared/inbox-with-image/images/dots.png';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -16,7 +16,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
         sectionOffsets
       )}
     >
-      <div className="container-lg flex gap-x-[85px] md:items-center sm:flex-col">
+      <div className="container-lg flex items-center gap-x-[85px] sm:flex-col">
         <div className="flex items-center justify-center pl-[24px] md:pl-0 sm:order-last">
           <div className="relative w-full max-w-[628px] shrink-0 lg:w-[531px] md:max-w-[380px] sm:w-full sm:max-w-[440px]">
             <div className={clsx('relative h-full w-full sm:left-1/2 sm:-translate-x-1/2')}>
@@ -51,7 +51,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
             </div>
           </div>
         </div>
-        <div className="relative z-10 mt-[132px] w-full max-w-[480px] lg:mt-[70px] md:mt-0 sm:mb-6 sm:mt-0 sm:max-w-lg sm:pl-0 sm:text-center">
+        <div className="relative z-10 w-full max-w-[480px] sm:mb-6 sm:max-w-lg sm:pl-0 sm:text-center">
           <Heading
             className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
             tag="h1"

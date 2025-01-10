@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 
-import background from './images/background.svg';
+import background from './images/bg.png';
 import codeDots from './images/code-dots.svg';
 
 const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => {
