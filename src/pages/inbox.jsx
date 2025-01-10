@@ -134,7 +134,7 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={BENTO_IMAGE_CLASS_NAME}
-          src="../components/shared/bento-five-blocks/images/actions.jpg"
+          src="../components/pages/inbox/bento-five-blocks/images/actions.jpg"
           alt=""
           width={402}
           height={384}
@@ -151,7 +151,7 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={BENTO_IMAGE_CLASS_NAME}
-          src="../components/shared/bento-five-blocks/images/bell.jpg"
+          src="../components/pages/inbox/bento-five-blocks/images/bell.jpg"
           alt=""
           width={484}
           height={384}
@@ -167,7 +167,7 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={BENTO_IMAGE_CLASS_NAME}
-          src="../components/shared/bento-five-blocks/images/embed.jpg"
+          src="../components/pages/inbox/bento-five-blocks/images/embed.jpg"
           alt=""
           width={270}
           height={384}
@@ -184,7 +184,7 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={BENTO_IMAGE_CLASS_NAME}
-          src="../components/shared/bento-five-blocks/images/preferences.jpg"
+          src="../components/pages/inbox/bento-five-blocks/images/preferences.jpg"
           alt=""
           width={546}
           height={434}
@@ -201,7 +201,7 @@ const SECTION_BENTO = {
       image: (
         <StaticImage
           className={BENTO_IMAGE_CLASS_NAME}
-          src="../components/shared/bento-five-blocks/images/notification.jpg"
+          src="../components/pages/inbox/bento-five-blocks/images/notification.jpg"
           alt=""
           width={640}
           height={434}

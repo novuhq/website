@@ -26,7 +26,7 @@ const CodeSection = ({
 }) => (
   <section
     className={clsx(
-      'code-section safe-paddings mt-[300px] lg:mt-[120px] md:mt-[100px] sm:mt-20',
+      'code-section safe-paddings mt-[300px] lg:mt-30 md:mt-[100px] sm:mt-20',
       className
     )}
   >

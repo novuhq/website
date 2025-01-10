@@ -26,6 +26,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
                 alt=""
                 width={628}
                 height={659}
+                loading="eager"
               />
               <img
                 className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"
@@ -33,6 +34,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
                 alt=""
                 width="482"
                 height="206"
+                loading="eager"
               />
               <div
                 className="pointer-events-none absolute left-[13.3757%] top-[-23.3687%] z-0 h-[68.2852%] w-[39.8089%] rotate-90 bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)] blur-[22px]"
@@ -52,7 +54,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
         <div className="relative z-10 mt-[132px] w-full max-w-[480px] lg:mt-[70px] md:mt-0 sm:mb-6 sm:mt-0 sm:max-w-lg sm:pl-0 sm:text-center">
           <Heading
             className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
-            tag="h2"
+            tag="h1"
             size="xl"
             theme="white"
             asHTML={false}

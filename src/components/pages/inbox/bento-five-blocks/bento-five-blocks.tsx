@@ -2,13 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 import Button from 'components/shared/button';
 
-const BentoFiveBlocks = ({
-  className,
-  title,
-  description,
-  cards,
-  button,
-}) => (
+const BentoFiveBlocks = ({ className, title, description, cards, button }) => (
   <section className={clsx('bento mt-40 md:mt-[88px]', className)}>
     <div className="container-lg relative flex flex-col items-center xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
       <h2
@@ -16,11 +10,11 @@ const BentoFiveBlocks = ({
         dangerouslySetInnerHTML={{ __html: title }}
       />
       {description && (
-        <p className="mt-[14px] max-w-[768px] text-center text-lg leading-normal tracking-snug text-gray-8 lg:mt-3 md:mt-4 md:max-w-[576px] md:text-[18px] sm:max-w-none sm:text-[16px]">
+        <p className="mt-3.5 max-w-[768px] text-center text-lg leading-normal tracking-snug text-gray-8 lg:mt-3 md:mt-4 md:max-w-[576px] md:text-[18px] sm:max-w-none sm:text-[16px]">
           {description}
         </p>
       )}
-      <ul className="relative z-10 mt-[58px] flex flex-wrap gap-[30px] lg:mt-[60px] lg:gap-6 md:mt-12 md:gap-[18px] sm:mt-[40px] sm:justify-center sm:gap-4">
+      <ul className="relative z-10 mt-[58px] flex flex-wrap gap-[30px] lg:mt-[60px] lg:gap-6 md:mt-12 md:gap-[18px] sm:mt-10 sm:justify-center sm:gap-4">
         {cards.map(({ title, description, className, image, imageMobile }, index) => (
           <li
             className={clsx(
@@ -43,7 +37,7 @@ const BentoFiveBlocks = ({
           >
             <div
               className={clsx(
-                'relative z-20 flex h-full w-full flex-col justify-end p-[30px] lg:p-[20px] md:p-3.5 sm:p-3'
+                'relative z-20 flex h-full w-full flex-col justify-end p-[30px] lg:p-5 md:p-3.5 sm:p-3'
               )}
             >
               <h3 className="text-xl font-medium leading-denser tracking-snug md:text-[18px] sm:text-[16px]">

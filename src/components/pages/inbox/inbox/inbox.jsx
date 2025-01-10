@@ -48,7 +48,7 @@ const Inbox = ({ sectionOffsets, title, description, button }) => {
       )}
     >
       <div className="container-lg flex gap-x-[117px] sm:flex-col sm:items-center sm:justify-center">
-        <div className="relative z-10 ml-[32px] mt-[178px] w-full max-w-[416px] md:mt-[84px] sm:mb-6 sm:ml-0 sm:max-w-lg sm:pl-0 sm:text-center">
+        <div className="relative z-10 ml-8 mt-[178px] w-full max-w-[416px] lg:mt-[150px] md:mt-[84px] sm:mb-6 sm:ml-0 sm:max-w-lg sm:pl-0 sm:text-center">
           <Heading
             className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
             tag="h2"
@@ -56,7 +56,7 @@ const Inbox = ({ sectionOffsets, title, description, button }) => {
           >
             {title}
           </Heading>
-          <p className="mt-4 text-pretty text-lg font-book tracking-snug text-gray-8 md:text-sm">
+          <p className="mt-4 text-pretty text-lg tracking-snug text-gray-8 md:text-sm">
             {description}
           </p>
           {button && (
