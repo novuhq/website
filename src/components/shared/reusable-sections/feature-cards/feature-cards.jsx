@@ -40,14 +40,17 @@ const FeatureCards = ({ className, title, titleSize = '44', description, cards, 
       >
         {cards.map(({ title, description, linkTitle, linkUrl }, index) => (
           <li className="rounded-xl bg-common-card-border" key={index}>
-            <div
+            <Link
               className={clsx(
-                'm-px flex h-[calc(100%-2px)] w-[calc(100%-2px)] flex-col items-start rounded-xl bg-[#0F0F15] lg:p-6',
+                'group m-px flex h-[calc(100%-2px)] w-[calc(100%-2px)] flex-col items-start rounded-xl bg-[#0F0F15] lg:p-6',
                 {
                   'p-[26px]': columns === 3,
                   'p-8': columns === 2,
                 }
               )}
+              to={linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Heading
                 className="leading-denser tracking-snug lg:text-xl"
@@ -64,14 +67,12 @@ const FeatureCards = ({ className, title, titleSize = '44', description, cards, 
                 className="mt-auto text-[13px] leading-snug !tracking-normal md:mt-4 sm:mt-5"
                 theme="primary"
                 size="md"
-                to={linkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                tag="button"
                 withArrow
               >
                 {linkTitle}
               </Link>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>
