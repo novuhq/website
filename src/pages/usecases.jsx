@@ -108,7 +108,6 @@ const UseCasesPage = () => (
             loading="lazy"
             width={1107}
             height={1007}
-            quality={100}
           />
         </div>
       }
