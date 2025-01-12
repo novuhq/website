@@ -5,8 +5,22 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-const TextWithPicture = ({ title, description, image, button, theme }) => (
-  <section className="text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14">
+const TextWithPicture = ({
+  className,
+  contentClassName,
+  title,
+  description,
+  image,
+  imageWrapperClassName = 'overflow-hidden rounded-lg',
+  button,
+  theme,
+}) => (
+  <section
+    className={clsx(
+      'text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14',
+      className
+    )}
+  >
     <div className="container-lg px-8 md:px-7 sm:px-4">
       <div
         className={clsx(
@@ -15,12 +29,16 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
         )}
       >
         <div
-          className={clsx('sm:order-first sm:mb-6 sm:pl-0 sm:text-center', {
-            'mb-12 max-w-[704px] text-center lg:mb-10 md:mb-8 md:max-w-lg sm:mb-6':
-              theme === 'imageFullWidth',
-            'order-last pl-24 lg:pl-16 md:pl-8': theme === 'imageLeft',
-            'order-first pr-24 lg:pr-16 md:pr-8': theme === 'imageRight',
-          })}
+          className={clsx(
+            'relative z-10 sm:order-first sm:mb-6 sm:px-0 sm:text-center',
+            {
+              'mb-12 max-w-[704px] text-center lg:mb-10 md:mb-8 md:max-w-lg sm:mb-6':
+                theme === 'imageFullWidth',
+              'order-last pl-24 lg:pl-16 md:pl-8': theme === 'imageLeft',
+              'order-first pr-24 lg:pr-16 md:pr-8': theme === 'imageRight',
+            },
+            contentClassName
+          )}
         >
           <Heading
             className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
@@ -50,7 +68,7 @@ const TextWithPicture = ({ title, description, image, button, theme }) => (
             </Button>
           )}
         </div>
-        <div className="overflow-hidden rounded-lg">{image}</div>
+        <div className={imageWrapperClassName}>{image}</div>
         {button && theme === 'imageFullWidth' && (
           <Button
             className="mt-9 md:mt-8 sm:mt-6"
