@@ -12,6 +12,7 @@ const styles = {
   size: {
     xl: 'text-xl',
     base: 'text-base',
+    md: 'text-md',
     sm: 'text-sm',
     xs: 'text-xs',
     xxs: 'text-[11px]',
@@ -122,6 +123,12 @@ const Link = ({
       >
         {children}
         {isUnderline && underline}
+        {withArrow && (
+          <span className="relative mt-0.5 w-1.5 overflow-hidden transition-[width] duration-200 group-hover:w-3">
+            <ArrowIcon className="ml-auto w-1.5" />
+            <span className="absolute right-px top-1/2 h-px w-full -translate-y-1/2 bg-primary-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+          </span>
+        )}
       </GatsbyLink>
     );
   }
