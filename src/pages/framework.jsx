@@ -22,7 +22,7 @@ import twilioLogo from 'images/reusable-sections/section-with-logos/twilio.svg';
 
 const CODE_SECTION = {
   className: 'mt-[134px] mb-[222px] lg:mb-[134px] md:mt-[100px] md:mb-[145px] sm:mt-20',
-  title: 'Code-backed workflows that can accomplish anything',
+  title: 'Code-backed workflows can accomplish anything',
   description:
     'Optionally extend your Novu workflows with a locally-run Novu Framework engine. Define workflows in code, tie into local data, apply advanced logic, and solve for any notifications requirement imaginable.',
   containerClassName: 'max-w-[1470px] gap-x-[121px] lg:gap-x-16',
@@ -62,8 +62,8 @@ await weeklyComments.trigger({
   to: 'jane@acme.com'
 });`,
   button: {
-    label: 'Get started',
-    link: '/',
+    label: 'Try Novu',
+    link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_framework',
   },
 };
 
@@ -289,12 +289,12 @@ const FrameworkPage = () => (
       title="Get started now"
       description="Create complex workflows, access local data, and reuse existing content templates with Novu Framework."
       leftItem={{
-        text: 'Get started',
-        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+        text: 'Try Novu',
+        link: 'https://dashboard.novu.co/?utm_campaign=ws_framework',
       }}
       rightItem={{
         text: 'Contact us',
-        link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
+        link: 'https://novu.co/contact-us/?utm_campaign=ws_framework',
       }}
     />
     <SectionWithLogos
@@ -321,8 +321,8 @@ const FrameworkPage = () => (
       }
       imageClassName="relative w-full h-full !overflow-visible"
       button={{
-        label: 'Learn more',
-        link: '/',
+        label: 'Complete Control',
+        link: 'https://docs.novu.co/framework/overview?utm_campaign?ws_framework',
       }}
       theme="imageRight"
     />
@@ -343,6 +343,10 @@ const FrameworkPage = () => (
         </div>
       }
       imageClassName="relative w-full h-full !overflow-visible"
+      button={{
+        label: 'Do More With Controls',
+        link: 'https://docs.novu.co/framework/controls?utm_campaign?ws_framework',
+      }}
     />
     <TextWithPicture
       title="Reuse existing content and providers"
@@ -362,8 +366,8 @@ const FrameworkPage = () => (
       }
       imageClassName="relative w-full h-full !overflow-visible"
       button={{
-        label: 'Learn more',
-        link: '/',
+        label: 'Reuse my content',
+        link: 'https://docs.novu.co/framework/content/react-email',
       }}
       theme="imageRight"
     />
@@ -384,18 +388,22 @@ const FrameworkPage = () => (
         </div>
       }
       imageClassName="relative w-full h-full !overflow-visible"
+      button={{
+        label: 'Local Studio',
+        link: 'https://docs.novu.co/framework/studio?utm_campaign=ws_framework',
+      }}
     />
     <CtaWithForm
       className="mb-[147px] mt-[370px] text-center xl:mt-[280px] sm:mt-[320px]"
       title="Get started for free"
       description="No credit card required. <br/>You're just five minutes from your first Novu notification."
       leftItem={{
-        text: 'Get started',
-        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+        text: 'Try Now',
+        link: 'https://dashboard.novu.co/?utm_campaign=ws_framework',
       }}
       rightItem={{
         text: 'Contact us',
-        link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
+        link: 'https://novu.co/contact-us/?utm_campaign=ws_framework',
       }}
     />
   </Layout>
