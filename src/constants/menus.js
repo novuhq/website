@@ -46,7 +46,7 @@ const MENUS = {
               {
                 title: 'Inbox and In-App Components',
                 icon: ComponentIcon,
-                ...LINKS.embedComponent,
+                to: '/inbox/?utm_campaign=ws_nav',
               },
               {
                 title: 'Subscriber management',
@@ -79,7 +79,7 @@ const MENUS = {
           },
           {
             title: 'Channels',
-            description: 'Where Novu integrates',
+            description: 'Ways to send notifications',
             icon: ChannelsIcon,
             items: [
               {
