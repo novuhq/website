@@ -13,21 +13,22 @@ const FEATURE_CARDS = [
     description:
       'Novu includes everything you need to deploy rich notifications and sophisticated workflows with any channel.',
     linkTitle: 'Learn more',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/getting-started/how-novu-works?utm_campaign=ws_usecases',
   },
   {
-    title: 'Enhanced collaboration',
+    title: 'Improve collaboration',
     description:
       'Reduce friction between development and product teams. Eliminate common development interrupts required for simple operations like content updates.',
     linkTitle: 'Learn more',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/framework/controls?utm_campaign=ws_usecases',
   },
   {
-    title: 'Enhanced engagement',
+    title: 'Enhance engagement',
     description:
       'Timely, personalized, and relevant notifications across preferred channels leads to higher user engagement and satisfaction.',
     linkTitle: 'Learn more',
-    linkUrl: '/',
+    linkUrl:
+      'https://novu.co/blog/digest-notifications-best-practices-example/?utm_campaign=ws-usecases',
   },
 ];
 
@@ -52,7 +53,7 @@ const UseCasesPage = () => (
       }
       button={{
         label: 'Learn more',
-        link: '/',
+        link: 'https://docs.novu.co/recipes/workflows/introduction?utm_campaign=ws_usecases',
       }}
       theme="imageRight"
     />
@@ -66,8 +67,14 @@ const UseCasesPage = () => (
       className="relative z-10 mt-[275px]"
       title="Get started now"
       description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo."
-      leftItem={{ text: 'Get started', link: '/' }}
-      rightItem={{ text: 'Contact us', link: '/' }}
+      leftItem={{
+        text: 'Try Novu',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_usecases',
+      }}
+      rightItem={{
+        text: 'Contact us',
+        link: 'https://novu.co/contact-us/?utm_campaign=ws_usecases',
+      }}
     />
     <TextWithPicture
       className="sm:!mt-28"
@@ -88,8 +95,8 @@ const UseCasesPage = () => (
         </div>
       }
       button={{
-        label: 'Learn more',
-        link: '/',
+        label: 'Check out Channels',
+        link: 'https://docs.novu.co/workflow/channel-steps#available-channels',
       }}
       theme="imageRight"
     />
@@ -112,8 +119,8 @@ const UseCasesPage = () => (
         </div>
       }
       button={{
-        label: 'Learn more',
-        link: '/',
+        label: 'In-App Overview',
+        link: 'https://docs.novu.co/inbox/overview',
       }}
     />
     <TextWithPicture
@@ -135,7 +142,7 @@ const UseCasesPage = () => (
       }
       button={{
         label: 'Learn more',
-        link: '/',
+        link: 'https://docs.novu.co/concepts/notifications?utm_campaign=ws_usecases',
       }}
       theme="imageRight"
     />
@@ -159,15 +166,21 @@ const UseCasesPage = () => (
       }
       button={{
         label: 'Learn more',
-        link: '/',
+        link: 'https://docs.novu.co/workflow/template-editor?utm_campaign=ws_usecases',
       }}
     />
     <CtaWithForm
       className="mb-52"
       title="We’re ready for your requirements..."
       description="Whatever your use case, Novu is ready. Start for free, no credit card required."
-      leftItem={{ text: 'Get started', link: '/' }}
-      rightItem={{ text: 'Contact us', link: '/' }}
+      leftItem={{
+        text: 'Try Novu',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_usecases',
+      }}
+      rightItem={{
+        text: 'Contact us',
+        link: 'https://novu.co/contact-us/?utm_campaign=ws_usecases',
+      }}
     />
   </Layout>
 );
@@ -176,8 +189,9 @@ export default UseCasesPage;
 
 export const Head = () => {
   const pageMetadata = {
-    title: 'Novu - Use Cases',
-    description: 'Use Cases',
+    title: 'Novu Use Cases: Enhance Engagement with Multi-Channel Notifications',
+    description:
+      "Discover how Novu's unified platform enables teams to deliver personalized, multi-channel notifications, boosting user satisfaction and retention. Learn more about accelerating development, enhancing collaboration, and driving engagement.",
   };
   return <SEO {...pageMetadata} />;
 };
