@@ -111,7 +111,7 @@ const MENUS = {
           },
           {
             title: 'Novu for',
-            description: 'Who Novu connects with',
+            description: 'Loved by Developers and Product Teams',
             icon: ProvidersIcon,
             items: [
               { title: 'Developers', icon: DeveloperIcon, ...LINKS.home },
