@@ -60,23 +60,23 @@ const CodeSection = ({
             {code}
           </SyntaxHighlighter>
           <div
-            className="pointer-events-none absolute left-[-94px] top-[50px] h-[328px] w-[1295px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#D2FCFF_13.37%,rgba(210,252,255,0.10)_45.79%)] opacity-30 mix-blend-plus-lighter blur-3xl sm:left-0"
+            className="pointer-events-none absolute left-[-94px] top-[50px] h-[328px] w-[1295px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#D2FCFF_13.37%,rgba(210,252,255,0.10)_45.79%)] opacity-30 mix-blend-plus-lighter blur-[100px] sm:left-0"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute left-[-38px] top-[-42px] h-[209px] w-[867px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#97E6FF_13.17%,rgba(151,230,255,0.10)_90.73%)] opacity-20 mix-blend-color-dodge blur-3xl sm:left-0"
+            className="pointer-events-none absolute left-[-38px] top-[-42px] h-[209px] w-[867px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#97E6FF_13.17%,rgba(151,230,255,0.10)_90.73%)] opacity-20 mix-blend-color-dodge blur-[100px] sm:left-0"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute left-[-69px] top-[-27px] h-[335px] w-[1067px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#97CDFF_0%,rgba(151,205,255,0.10)_46.49%)] opacity-50 mix-blend-overlay blur-3xl sm:left-0"
+            className="pointer-events-none absolute left-[-69px] top-[-27px] h-[335px] w-[1067px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#97CDFF_0%,rgba(151,205,255,0.10)_46.49%)] opacity-50 mix-blend-overlay blur-[100px] sm:left-0"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute left-[-176px] top-[-168px] h-[742px] w-[1472px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#2666E3_0%,rgba(38,102,227,0.10)_39.76%,rgba(38,102,227,0.00)_75.86%)] opacity-10 blur-3xl sm:left-0"
+            className="pointer-events-none absolute left-[-176px] top-[-168px] h-[742px] w-[1472px] rotate-[-147deg] rounded-[50%] bg-[linear-gradient(270deg,#2666E3_0%,rgba(38,102,227,0.10)_39.76%,rgba(38,102,227,0.00)_75.86%)] opacity-10 blur-[100px] sm:left-0"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute left-[-176px] top-[-168px] h-[1468px] w-[1382px] rotate-[-147deg] rounded-full bg-[#6498FF] opacity-[0.03] blur-3xl sm:left-0"
+            className="pointer-events-none absolute left-[-176px] top-[-168px] h-[1468px] w-[1382px] rotate-[-147deg] rounded-full bg-[#6498FF] opacity-[0.03] blur-[100px] sm:left-0"
             aria-hidden
           />
           <div
@@ -125,11 +125,11 @@ const CodeSection = ({
           loading={isPriorityImageLoading ? 'eager' : 'lazy'}
         />
         <div
-          className="pointer-events-none absolute right-[-250px] top-[-102px] h-[712px] w-[733px] rounded-full bg-[#4474F2] opacity-[0.11] blur-3xl lg:scale-90 sm:hidden"
+          className="pointer-events-none absolute right-[-250px] top-[-102px] h-[712px] w-[733px] rounded-full bg-[#4474F2] opacity-[0.11] blur-[100px] lg:scale-90 sm:hidden"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute left-[-125px] top-[-52px] h-[348px] w-[490px] rounded-full bg-[radial-gradient(92.52%_89.86%_at_62.86%_11.06%,#3BDCFF_27.2%,#69B7FF_80.5%,#4759FF_100%)] opacity-[0.25] blur-3xl lg:scale-90 sm:hidden"
+          className="pointer-events-none absolute left-[-125px] top-[-52px] h-[348px] w-[490px] rounded-full bg-[radial-gradient(92.52%_89.86%_at_62.86%_11.06%,#3BDCFF_27.2%,#69B7FF_80.5%,#4759FF_100%)] opacity-[0.25] blur-[100px] lg:scale-90 sm:hidden"
           aria-hidden
         />
       </div>

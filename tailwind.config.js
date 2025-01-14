@@ -147,7 +147,7 @@ module.exports = {
       'inside-code-underlay-green':
         'radial-gradient(78.44% 46.25% at 27.61% 0%, rgba(194, 229, 255, 0.08) 0%, rgba(194, 240, 255, 0.00) 76.65%), linear-gradient(168deg, rgba(38, 45, 60, 0.45) 6.29%, rgba(38, 40, 60, 0.18) 91.42%)',
       'green-code-border':
-        'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.08) 74%, rgba(212, 250, 255, 0.05) 100%)',
+        'radial-gradient(203.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.18) 74%, rgba(212, 250, 255, 0.05) 100%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {

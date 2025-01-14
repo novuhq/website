@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import BentoFiveBlocks from 'components/pages/inbox/bento-five-blocks';
 import InboxWithImage from 'components/shared/inbox-with-image';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -180,10 +181,13 @@ const SECTION_BENTO = {
       title: 'Preferences',
       description:
         'Allows users to customize how and when they receive notifications, ensuring a tailored experience.',
-      className: 'bg-[#27222F]',
+      className: 'bg-[#27222F] overflow-hidden',
       image: (
         <StaticImage
-          className={BENTO_IMAGE_CLASS_NAME}
+          className={clsx(
+            BENTO_IMAGE_CLASS_NAME,
+            'md:bottom-4 md:scale-[1.15] sm:bottom-0 sm:scale-100'
+          )}
           src="../components/pages/inbox/bento-five-blocks/images/preferences.jpg"
           alt=""
           width={546}

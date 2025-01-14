@@ -227,7 +227,8 @@ const Container = ({ theme, categories, messages }) => {
           className={clsx(
             currentTheme.container.border,
             currentTheme.container.shadow,
-            'relative z-30 h-[573px] rounded-xl lg:h-[500px]'
+            'relative z-30 h-[573px] rounded-xl lg:h-[500px]',
+            theme !== 'linearDark' && theme !== 'linearLight' && 'p-px'
           )}
         >
           <div className="relative z-30 flex h-full flex-col overflow-hidden rounded-xl">
