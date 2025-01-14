@@ -114,8 +114,16 @@ const MENUS = {
             description: 'Loved by Developers and Product Teams',
             icon: ProvidersIcon,
             items: [
-              { title: 'Developers', icon: DeveloperIcon, ...LINKS.home },
-              { title: 'Product teams', icon: TeamCommunityIcon, ...LINKS.home },
+              {
+                title: 'Developers',
+                icon: DeveloperIcon,
+                to: 'https://docs.novu.co/getting-started/novu-for/developers?utm_campaign=ws_nav',
+              },
+              {
+                title: 'Product teams',
+                icon: TeamCommunityIcon,
+                to: 'https://docs.novu.co/getting-started/novu-for/product?utm_campaign=ws_nav',
+              },
             ],
           },
           {
@@ -137,13 +145,33 @@ const MENUS = {
             description: 'Developer essentials',
             icon: GettingStartedIcon,
             items: [
-              { title: 'Docs', icon: DocsIcon, ...LINKS.documentation },
-              { title: 'API', icon: ApiIcon, ...LINKS.apiReference },
-              { title: 'Frameworks', icon: FrameworkIcon, ...LINKS.framework },
-              { title: "What's new", icon: NewsIcon, ...LINKS.changelog },
-              { title: 'How to guides', icon: GuideIcon, ...LINKS.howToGuides },
-              { title: 'Components', icon: ComponentIcon, ...LINKS.embedComponent },
-              { title: 'Libraries and integrations', icon: LibraryIcon, ...LINKS.librariesAndSdks },
+              { title: 'Docs', icon: DocsIcon, to: 'https://docs.novu.co?utm_campaign=ws_nav' },
+              {
+                title: 'API',
+                icon: ApiIcon,
+                to: 'https://docs.novu.co/api-reference/overview?utm_campaign=ws_nav',
+              },
+              {
+                title: 'Frameworks',
+                icon: FrameworkIcon,
+                to: 'https://docs.novu.co/sdks/overview?utm_campaign=ws_nav',
+              },
+              { title: "What's new", icon: NewsIcon, to: 'https://roadmap.novu.co/changelog' },
+              {
+                title: 'How to guides',
+                icon: GuideIcon,
+                to: 'hhttps://docs.novu.co/recipes/workflows/introduction?utm_campaign=ws_nav',
+              },
+              {
+                title: 'Components',
+                icon: ComponentIcon,
+                to: 'https://docs.novu.co/inbox/react/components/overview?utm_campaign=ws_nav',
+              },
+              {
+                title: 'Libraries and integrations',
+                icon: LibraryIcon,
+                to: 'https://docs.novu.co/sdks/overview?utm_campaign=ws_nav',
+              },
             ],
           },
           {
@@ -151,7 +179,7 @@ const MENUS = {
             description:
               'A comprehensive guide for\ndevelopers on selecting notification\nplatforms',
             image: notificationHowToImage,
-            ...LINKS.howToNotificationsReact,
+            to: '/blog/how-to-add-real-time-notifications-to-a-react-app?utm_campaign=ws_nav',
           },
         ],
       },
