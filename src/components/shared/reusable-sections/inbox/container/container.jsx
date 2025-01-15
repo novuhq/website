@@ -259,7 +259,8 @@ const Container = ({ theme, categories, messages }) => {
       <div
         className={clsx(
           currentTheme.mainBlock.border,
-          'absolute left-0 top-0 z-10 aspect-[608/573] h-[573px] w-auto shrink-0 rounded-[20px] lg:h-[501px]'
+          'absolute left-0 top-0 z-10 aspect-[608/573] h-[573px] w-auto shrink-0 rounded-[20px] lg:h-[501px]',
+          theme !== 'linearDark' && theme !== 'linearLight' && 'p-px'
         )}
       >
         <div
