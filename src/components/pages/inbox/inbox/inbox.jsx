@@ -1,0 +1,152 @@
+import clsx from 'clsx';
+import { motion, useMotionValue, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+
+import Button from 'components/shared/button';
+import Heading from 'components/shared/heading';
+import AdaptiveStatic from 'components/shared/reusable-sections/inbox/adaptive-static';
+import Container from 'components/shared/reusable-sections/inbox/container';
+import inboxData from 'components/shared/reusable-sections/inbox/data';
+import arrowNext from 'components/shared/reusable-sections/inbox/images/arrow-next.svg';
+
+const LABEL_WIDTH = 115;
+const OFFSET_WIDTH = 4;
+
+const Inbox = ({ sectionOffsets, title, description, button }) => {
+  const [activeTheme, setActiveTheme] = useState(3);
+
+  const labelsOffset = useMotionValue((LABEL_WIDTH + OFFSET_WIDTH) * -activeTheme);
+
+  const handlePreviousTheme = () => {
+    setActiveTheme((prev) => {
+      if (prev > 0) {
+        labelsOffset.set(-(LABEL_WIDTH + OFFSET_WIDTH) * (prev - 1));
+        return prev - 1;
+      }
+
+      return prev;
+    });
+  };
+
+  const handleNextTheme = () => {
+    setActiveTheme((prev) => {
+      if (prev < inboxData.length - 1) {
+        labelsOffset.set(-(LABEL_WIDTH + OFFSET_WIDTH) * (prev + 1));
+        return prev + 1;
+      }
+
+      return prev;
+    });
+  };
+
+  return (
+    <section
+      className={clsx(
+        'inbox safe-paddings mt-40 pb-8 text-white lg:mt-36 md:mt-[104px] md:pb-0 sm:mt-14',
+        sectionOffsets
+      )}
+    >
+      <div className="container-lg flex gap-x-[117px] sm:flex-col sm:items-center sm:justify-center">
+        <div className="relative z-10 ml-8 mt-[178px] w-full max-w-[416px] lg:mt-[150px] md:mt-[84px] sm:mb-6 sm:ml-0 sm:max-w-lg sm:pl-0 sm:text-center">
+          <Heading
+            className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
+            tag="h2"
+            size="xl"
+          >
+            {title}
+          </Heading>
+          <p className="mt-4 text-pretty text-lg tracking-snug text-gray-8 md:text-sm">
+            {description}
+          </p>
+          {button && (
+            <Button
+              className="mt-8"
+              theme="gray-outline"
+              size="sm"
+              to={button.link}
+              rel={button.rel}
+              target={button.target}
+            >
+              {button.label}
+            </Button>
+          )}
+        </div>
+        <div className="flex items-center justify-center md:pl-0 sm:flex-col">
+          <div className="relative h-[639px] w-[608px] shrink-0 lg:h-[558px] lg:w-[531px] md:h-[398px] md:w-[380px] sm:w-[340px]">
+            <LazyMotion features={domAnimation}>
+              {inboxData.map((data, index) => (
+                <AnimatePresence mode="wait">
+                  {index === activeTheme && (
+                    <>
+                      <Container
+                        theme={data.theme}
+                        categories={data.categories}
+                        messages={data.messages}
+                      />
+                      <AdaptiveStatic className="hidden md:block" theme={data.theme} />
+                    </>
+                  )}
+                </AnimatePresence>
+              ))}
+            </LazyMotion>
+            <div className="absolute -bottom-[42px] left-0 right-0 flex items-center justify-center sm:-bottom-6">
+              <button
+                className="px-2.5 opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30"
+                type="button"
+                disabled={activeTheme === 0}
+                onClick={handlePreviousTheme}
+              >
+                <img className="rotate-180" src={arrowNext} alt="" width={10} height={16} />
+                <span className="sr-only">Previous</span>
+              </button>
+              <div className="relative w-[115px] overflow-hidden">
+                <motion.ul
+                  className="relative flex gap-x-1 transition-transform duration-300"
+                  style={{ x: labelsOffset }}
+                >
+                  {inboxData.map((data, index) => (
+                    <li
+                      className="h-full w-[115px] shrink-0 whitespace-nowrap text-center text-sm font-medium uppercase leading-none text-gray-9"
+                      key={index}
+                    >
+                      {data.title}
+                    </li>
+                  ))}
+                </motion.ul>
+              </div>
+              <button
+                className="px-2.5 opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30"
+                type="button"
+                disabled={activeTheme === inboxData.length - 1}
+                onClick={handleNextTheme}
+              >
+                <img src={arrowNext} alt="" width={10} height={16} />
+                <span className="sr-only">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+Inbox.propTypes = {
+  sectionOffsets: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  button: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
+  }),
+};
+
+Inbox.defaultProps = {
+  sectionOffsets: '',
+  button: null,
+};
+
+export default Inbox;
