@@ -36,6 +36,7 @@ const complianceItems = [
 
 const Digests = () => (
   <Layout mainClassName="overflow-hidden pb-52 lg:pb-32 md:pb-28">
+    <h1 className="sr-only">About secure notifications</h1>
     <TextWithPicture
       className="sm:pt-14 [&_p]:tracking-normal"
       title="Secure and robust notifications"
@@ -83,7 +84,14 @@ const Digests = () => (
               className="flex flex-col items-center gap-y-2.5 border-r border-gray-2 py-[74px] last:border-r-0 sm:border-b sm:border-r-0 sm:py-8 sm:last:border-b-0"
               key={index}
             >
-              <img className="h-auto md:w-14" src={image} alt="" width={80} height={80} />
+              <img
+                className="h-auto md:w-14"
+                src={image}
+                alt=""
+                width={80}
+                height={80}
+                loading="lazy"
+              />
               <p className="font-medium leading-tight tracking-tight">{title}</p>
             </li>
           ))}
