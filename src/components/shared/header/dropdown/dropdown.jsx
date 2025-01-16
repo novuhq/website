@@ -61,7 +61,12 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
                     ) : (
                       <img src={icon} alt="" width={44} height={44} />
                     )}
-                    <span className={clsx('flex flex-col items-start gap-y-2', image && 'pr-9')}>
+                    <span
+                      className={clsx(
+                        'flex flex-col items-start gap-y-2',
+                        image ? 'pr-9' : 'max-w-[calc(100%-48px)]'
+                      )}
+                    >
                       <span
                         className={clsx(
                           'text-lg text-current',
@@ -75,7 +80,7 @@ const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
                           'text-gray-8',
                           image
                             ? 'line-clamp-3 text-sm leading-normal'
-                            : 'whitespace-nowrap text-base leading-none'
+                            : 'max-w-full truncate whitespace-nowrap text-base leading-none'
                         )}
                       >
                         {description}
