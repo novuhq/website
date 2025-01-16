@@ -89,7 +89,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
         </nav>
         <div className="flex gap-x-5 lg:gap-x-3 md:hidden">
           <ButtonGithubStars className="pl-3" size="small" />
-          <Button size="xs" theme="white-outline" onClick={click}>
+          <Button size="xs" theme="white-outline" {...LINKS.loginTopBar} onClick={click}>
             Login
           </Button>
           <Button size="xs" theme="white-filled" {...LINKS.getStartedTopBar} onClick={click}>

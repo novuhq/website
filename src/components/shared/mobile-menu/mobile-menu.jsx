@@ -104,10 +104,15 @@ const MobileMenu = ({ isOpen }) => {
 
             <div className="pointer-events-auto bg-black">
               <div className="container flex justify-between gap-x-4 gap-y-3.5 py-7 sm:px-5 sm:py-6 xs:flex-col">
-                <Button className="w-full" size="xs" theme="white-outline">
+                <Button className="w-full" size="xs" theme="white-outline" {...LINKS.loginTopBar}>
                   Login
                 </Button>
-                <Button className="w-full" size="xs" theme="white-filled" {...LINKS.getStarted}>
+                <Button
+                  className="w-full"
+                  size="xs"
+                  theme="white-filled"
+                  {...LINKS.getStartedTopBar}
+                >
                   Get Started
                 </Button>
               </div>
