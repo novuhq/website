@@ -16,6 +16,7 @@ module.exports = {
     fontSize: {
       xs: ['12px'],
       sm: ['14px'],
+      md: ['15px'],
       base: ['16px'],
       lg: ['18px'],
       xl: ['20px'],
@@ -134,8 +135,20 @@ module.exports = {
         'linear-gradient(168.3deg, #1B2137 6.29%, #111522 91.42%), radial-gradient(67.44% 45.73% at 27.61% 0%, rgba(194, 209, 255, 0.09) 0%, rgba(194, 209, 255, 0) 76.65%)',
       'code-block-border':
         'radial-gradient(83.26% 102.85% at 61.61% -2.85%, #6B7DB3 6.8%, #1A1E2E 65.55%)',
+      'code-underlay-border':
+        'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(135, 188, 195, 0.15) 0%, #1E2438 49%, #05050b 100%)',
       'testimonials-text':
         'linear-gradient(98.67deg, rgba(255, 255, 255, 0.85) 9.63%, rgba(255, 255, 255, 0.6) 113.79%)',
+      'code-underlay-green':
+        'linear-gradient(168.3deg, #1B2137 6.29%, #111522 91.42%), radial-gradient(67.44% 45.73% at 27.61% 0%, rgba(194, 209, 255, 0.09) 0%, rgba(194, 209, 255, 0) 76.65%)',
+      'inside-code-underlay-green':
+        'radial-gradient(78.44% 46.25% at 27.61% 0%, rgba(194, 229, 255, 0.08) 0%, rgba(194, 240, 255, 0.00) 76.65%), linear-gradient(168deg, rgba(38, 45, 60, 0.45) 6.29%, rgba(38, 40, 60, 0.18) 91.42%)',
+      'green-code-border':
+        'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.08) 74%, rgba(212, 250, 255, 0.05) 100%)',
+      'gray-btn':
+        'linear-gradient(258deg, rgba(176, 166, 191, 0.06) -8.62%, rgba(176, 166, 191, 0.03) 113.79%)',
+      'white-gray-gradient':
+        'radial-gradient(66.82% 361.31% at 50.23% -67.39%, #ffffff 0%, #666666 100%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {

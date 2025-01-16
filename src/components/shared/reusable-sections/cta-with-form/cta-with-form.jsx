@@ -40,15 +40,16 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
       <div className="container-sm relative md:px-8 sm:w-full sm:px-5">
         <div className="relative z-10 flex flex-col items-center">
           <Heading
-            className="max-w-4xl font-medium leading-denser tracking-snug lg:text-4xl md:text-[32px]"
+            className="max-w-4xl text-center font-medium leading-denser tracking-snug lg:text-4xl md:text-[32px]"
             size="44"
             tag="h2"
           >
             {title}
           </Heading>
-          <p className="mt-3 max-w-[464px] text-center text-lg font-book tracking-snug text-gray-8 md:max-w-sm md:text-base">
-            {description}
-          </p>
+          <p
+            className="mt-3 max-w-[464px] text-center text-lg font-book tracking-snug text-gray-8 md:max-w-sm md:text-base"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
           <div className="mt-8 flex justify-center gap-5 md:mt-7 sm:flex-col sm:items-center">
             {leftItem.code && (
               <div

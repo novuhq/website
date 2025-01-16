@@ -8,6 +8,7 @@ const styles = {
     '2xl': 'text-7xl',
     xl: 'text-6xl',
     44: 'text-[44px]',
+    40: 'text-[40px]',
     lg: 'text-5xl',
     md: 'text-4xl',
     sm: 'text-3xl',

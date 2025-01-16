@@ -12,6 +12,7 @@ const styles = {
   size: {
     xl: 'text-xl',
     base: 'text-base',
+    md: 'text-md',
     sm: 'text-sm',
     xs: 'text-xs',
     xxs: 'text-[11px]',
