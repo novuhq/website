@@ -161,8 +161,11 @@ export default {
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_top_bar',
+    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_top_bar',
     target: '_blank',
+  },
+  loginTopBar: {
+    to: 'https://dashboard-v2.novu.co/auth/sign-in?utm_campaign=ws_top_bar',
   },
   getStartedCommunity: {
     to: `https://dashboard-v2.novu.co?utm_campaign=community_page`,

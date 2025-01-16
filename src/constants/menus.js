@@ -226,7 +226,6 @@ const MENUS = {
       { text: 'Documentation', to: 'https://docs.novu.co/?utm_campaign=ws_nav_bottom' },
       { text: 'Roadmap', to: 'https://roadmap.novu.co/roadmap' },
       { text: 'Changelog', to: 'https://roadmap.novu.co/' },
-      { text: 'Providers', to: '' },
       { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', to: 'https://novu.co/contact-us/?utm_campaign=ws_nav_bottom' },
     ],
