@@ -227,7 +227,8 @@ const Container = ({ theme, categories, messages }) => {
           className={clsx(
             currentTheme.container.border,
             currentTheme.container.shadow,
-            'relative z-30 h-[573px] rounded-xl p-px lg:h-[500px]'
+            'relative z-30 h-[573px] rounded-xl lg:h-[500px]',
+            theme !== 'linearDark' && theme !== 'linearLight' && 'p-px'
           )}
         >
           <div className="relative z-30 flex h-full flex-col overflow-hidden rounded-xl">
@@ -258,7 +259,8 @@ const Container = ({ theme, categories, messages }) => {
       <div
         className={clsx(
           currentTheme.mainBlock.border,
-          'absolute left-0 top-0 z-10 aspect-[608/573] h-[573px] w-auto shrink-0 rounded-[20px] p-px lg:h-[501px]'
+          'absolute left-0 top-0 z-10 aspect-[608/573] h-[573px] w-auto shrink-0 rounded-[20px] lg:h-[501px]',
+          theme !== 'linearDark' && theme !== 'linearLight' && 'p-px'
         )}
       >
         <div
