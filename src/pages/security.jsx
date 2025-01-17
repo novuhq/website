@@ -56,11 +56,6 @@ const Digests = () => (
         </div>
       }
       imageClassName="relative w-full h-[560px] !overflow-visible lg:h-[400px] md:h-[300px] sm:w-full sm-xs:!h-48"
-      button={{
-        label: 'Learn more',
-        hiddenLabel: 'about secure and robust notifications',
-        link: '/',
-      }}
     />
     <section className="security-compliance safe-paddings relative z-10 mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
       <div className="container-md flex flex-col items-center pt-1 text-center md:px-8 sm:w-full sm:px-5">
@@ -106,39 +101,41 @@ const Digests = () => (
           icon: complianceIcon,
           title: 'Compliance certifications',
           description: 'Novu Cloud is compliant with GDPR, SOC 2 Type II, and ISO 27001 standards.',
-          linkUrl: '/',
+          linkUrl: 'https://trust.novu.co',
         },
         {
           icon: residencyIcon,
           title: 'Data residency options',
           description:
             'Novu Cloud is deployed in North America (US) and EU (Germany), with more geographies planned soon.',
-          linkUrl: '/',
+          linkUrl: 'https://docs.novu.co/additional-resources/security?utm_campaign=ws_security',
         },
         {
           icon: encryptionIcon,
           title: 'HMAC encryption',
           description: 'Data exchanges are always encrypted by default.',
-          linkUrl: '/',
+          linkUrl:
+            'https://docs.novu.co/inbox/react/production#hmac-encryption?utm_campaign=ws_security',
         },
         {
           icon: assessmentIcon,
           title: 'Security assessments',
           description:
             'Regular penetration tests and evidence collection ensure we stay proactive.',
-          linkUrl: '/',
+          linkUrl: 'https://trust.novu.co',
         },
         {
           icon: dataManagementIcon,
           title: 'User data management',
           description: 'Clear data storage guidelines and examples help you do the right thing.',
-          linkUrl: '/',
+          linkUrl:
+            'https://docs.novu.co/additional-resources/security#for-how-long-user-data-is-stored?utm_campaign=ws_security',
         },
         {
           icon: openSourceIcon,
           title: 'Open source',
           description: 'No other notification provider lets you see the source code.',
-          linkUrl: '/',
+          linkUrl: 'https://docs.novu.co/community/overview?utm_campaign=ws_security',
         },
       ]}
     />
@@ -152,20 +149,21 @@ const Digests = () => (
           description:
             'Certifiably the best way to securely send mission-critical notifications to your users.',
           linkTitle: 'Learn more',
-          linkUrl: '/',
+          linkUrl: 'https://docs.novu.co/?utm_campaign=ws_security',
         },
         {
           title: 'Novu Cloud + Framework',
           description:
             'Cloud delivery with available local notification hydration and custom workflow management.',
           linkTitle: 'Learn more',
-          linkUrl: '/',
+          linkUrl: 'https://docs.novu.co/framework/overview?utm_campaign=ws_security',
         },
         {
           title: 'Self-hosted project',
           description: 'Completely run your own Novu Project in your own environment.',
           linkTitle: 'Learn more',
-          linkUrl: '/',
+          linkUrl:
+            'https://docs.novu.co/community/self-hosting-novu/overview?utm_campaign=ws_security',
         },
       ]}
     />
@@ -173,17 +171,19 @@ const Digests = () => (
       className="mt-52 [&_ul]:mt-12"
       title="Securely send your first code-based notification"
       leftCard={{
-        title: 'Novu Project',
+        title: 'Novu Cloud',
         description:
-          'Run the open source community-supported Novu Project in your own infrastructure.',
-        buttonText: 'Read docs',
-        buttonLink: '/',
+          'Try Novu for free today, and send your first notification while your coffee is still too hot to drink.',
+        buttonText: 'Try Novu',
+        buttonLink: 'https://dashboard-v2.novu.co/?utm_campaign=ws_security',
       }}
       rightCard={{
-        title: 'Novu Cloud',
-        description: 'Create complex workflows, access local data, and reuse existing content.',
-        buttonText: 'Get started',
-        buttonLink: '/',
+        title: 'Book a Meeting',
+        description:
+          "Ready to chat instead? Book a meeting with us, and we'll get your questions answered.",
+        buttonText: 'Meet with Novu',
+        buttonLink:
+          'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=ws_security',
       }}
       theme="purple"
     />
@@ -194,9 +194,9 @@ export default Digests;
 
 export const Head = () => {
   const pageMetadata = {
-    title: "Streamline Notifications with Novu's Digest",
+    title: 'Comprehensive Security Features for Novu: Protecting Your Data and Systems',
     description:
-      "Consolidate notifications, reduce overload, and keep users informed with Novu's flexible Digest feature.",
+      "Explore Novu's robust security features designed to safeguard your data and ensure seamless, secure notifications. Learn about our encryption protocols, access controls, and compliance with industry standards to protect your systems and maintain privacy.",
   };
   return <SEO {...pageMetadata} />;
 };
