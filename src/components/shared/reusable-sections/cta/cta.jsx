@@ -6,8 +6,13 @@ import React from 'react';
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-const CTA = ({ title, leftCard, rightCard, theme }) => (
-  <section className="cta safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+const CTA = ({ title, leftCard, rightCard, theme, className }) => (
+  <section
+    className={clsx(
+      'cta safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20',
+      className
+    )}
+  >
     <div className="container relative z-10 max-w-[960px]">
       <Heading
         className="mx-auto max-w-xl text-center font-medium leading-denser tracking-snug lg:text-5xl lg:leading-tight md:max-w-lg md:text-[32px] sm:text-3xl"
@@ -170,10 +175,12 @@ CTA.propTypes = {
     target: PropTypes.string,
   }).isRequired,
   theme: PropTypes.oneOf(['blue', 'purple', 'green']),
+  className: PropTypes.string,
 };
 
 CTA.defaultProps = {
   theme: 'purple',
+  className: '',
 };
 
 export default CTA;
