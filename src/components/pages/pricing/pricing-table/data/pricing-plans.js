@@ -165,8 +165,8 @@ const LABELS = [
     title: 'Platform',
     items: {
       events: 'Included monthly events',
-      environments: 'Environments',
       additionalEvents: 'Additional events',
+      environments: 'Environments',
       maxRPS: 'Max API Requests (RPS) (Trigger events/Configuration/Global)',
       channels: 'Channels supported: email, in-app, SMS, chat, push, and custom',
       subscribers: 'Notification Subscribers',
