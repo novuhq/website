@@ -306,9 +306,9 @@ const FrameworkPage = () => (
     <TextWithPicture
       title="Complete workflow control"
       description="Development teams have complete control over customizations and workflows, and what other teams can safely edit or update."
-      className="mt-[405px] lg:mt-[280px] md:mt-[250px] sm:mt-[110px]"
+      className="mt-[238px] lg:mt-[100px] md:mt-[88px] sm:mt-[60px]"
       image={
-        <div className="absolute left-1/2 top-1/2 -translate-x-[53%] -translate-y-[59%] lg:-translate-x-[54%] lg:-translate-y-[57%] md:-translate-x-[56%] md:-translate-y-[52%] sm:top-0 sm:-translate-x-[55%] sm:-translate-y-[156px]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-[53%] -translate-y-[48%] xl:-translate-y-[45%] lg:-translate-x-[54%] lg:-translate-y-[50%] md:-translate-x-[56%] md:-translate-y-[52%] sm:top-0 sm:-translate-x-[55%] sm:-translate-y-[156px]">
           <StaticImage
             className="pointer-events-none w-[1198px] lg:w-[1012px] md:w-[816px] sm:w-[700px]"
             src="../images/pages/framework/workflow.png"
@@ -329,9 +329,9 @@ const FrameworkPage = () => (
     <TextWithPicture
       title="Self service access for non-technical teams"
       description="Product teams can safely make targeted content updates without breaking workflow or business logic. Reduce developer interrupts for things like content updates."
-      className="mt-[540px] lg:mt-[282px] md:mt-[250px] sm:mt-[410px]"
+      className="mt-[380px] lg:mt-[184px] md:mt-[110px] sm:mt-[410px]"
       image={
-        <div className="absolute left-1/2 top-1/2 -translate-x-[60%] -translate-y-[61%] xl:-translate-x-[53%] lg:-translate-x-[55%] lg:-translate-y-[65%] md:-translate-x-[52%] md:-translate-y-[63%] sm:top-0 sm:-translate-y-[176px] sm-xs:-translate-y-[156px]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-[60%] -translate-y-[47%] xl:-translate-x-[53%] lg:-translate-x-[55%] lg:-translate-y-[47%] md:-translate-x-[52%] md:-translate-y-[52%] sm:top-0 sm:-translate-y-[176px] sm-xs:-translate-y-[156px]">
           <StaticImage
             className="pointer-events-none w-[1128px] xl:w-[850px] lg:w-[600px] md:w-[506px] sm-xs:w-[440px]"
             src="../images/pages/framework/self-service.png"
@@ -351,9 +351,9 @@ const FrameworkPage = () => (
     <TextWithPicture
       title="Reuse existing content and providers"
       description="Integrate with legacy systems and platforms, and easily include content from any source and in any format."
-      className="mt-[654px] lg:mt-[282px] md:mt-[250px] sm:mt-[324px]"
+      className="mt-[414px] lg:mt-[184px] md:mt-[88px] sm:mt-[280px]"
       image={
-        <div className="absolute left-1/2 top-1/2 -translate-x-[44%] -translate-y-[66%] lg:-translate-x-[43%] lg:-translate-y-[65%] md:-translate-x-[46%] sm:top-0 sm:-translate-y-[142px] sm-xs:-translate-y-[126px]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-[44%] -translate-y-[40%] lg:-translate-x-[43%] lg:-translate-y-[45%] md:-translate-x-[46%] md:-translate-y-[52%] sm:top-0 sm:-translate-y-[142px] sm-xs:-translate-y-[126px]">
           <StaticImage
             className="pointer-events-none w-[1024px] lg:w-[720px] md:w-[580px] sm:w-[600px] sm-xs:w-[540px]"
             src="../images/pages/framework/reuse.png"
@@ -374,9 +374,9 @@ const FrameworkPage = () => (
     <TextWithPicture
       title="Locally run, cloud powered"
       description="Your local Novu Framework integrates with Novu Cloud to power delivery, management, and analytics."
-      className="mb-[100px] mt-[553px] lg:mt-[282px] md:mt-[250px] sm:mb-[220px] sm:mt-[310px]"
+      className="mb-[100px] mt-[402px] lg:mt-[184px] md:mb-[50px] md:mt-[88px] sm:mb-[220px] sm:mt-[260px]"
       image={
-        <div className="absolute left-1/2 top-1/2 -translate-x-[42%] -translate-y-[64%] xl:-translate-x-[38%] lg:-translate-x-[39%] lg:-translate-y-[65%] md:-translate-x-[38%] sm:top-0 sm:-translate-y-[118px] sm-xs:-translate-y-[96px]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-[42%] -translate-y-[51%] xl:-translate-x-[38%] xl:-translate-y-[45%] lg:-translate-x-[39%] lg:-translate-y-[56%] md:-translate-x-[38%] sm:top-0 sm:-translate-y-[288px]">
           <StaticImage
             className="pointer-events-none w-[1081px] xl:w-[850px] lg:w-[620px] md:w-[480px] sm-xs:w-[440px]"
             src="../images/pages/framework/cloud.png"
@@ -394,7 +394,7 @@ const FrameworkPage = () => (
       }}
     />
     <CtaWithForm
-      className="mb-[147px] mt-[370px] text-center xl:mt-[280px] sm:mt-[320px]"
+      className="mb-[147px] mt-[190px] text-center xl:mt-[280px] lg:mt-[140px]"
       title="Get started for free"
       description="No credit card required. <br/>You're just five minutes from your first Novu notification."
       leftItem={{

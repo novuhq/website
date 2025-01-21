@@ -35,10 +35,10 @@ const FEATURE_CARDS = [
 const UseCasesPage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <TextWithPicture
-      contentClassName="pt-[76px] pb-[100px] md:pt-0 md:pb-16"
+      className="pb-[100px] pt-[76px] md:pb-16 md:pt-0"
       title="Elevate Engagement with Robust Notifications"
       description="Deliver personalized, multi-channel notifications with ease using Novu’s unified platform—empowering teams to create seamless communication experiences that drive user satisfaction and retention."
-      imageWrapperClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
+      imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
       image={
         <div className="absolute left-1/2 top-1/2 h-[791px] w-[1216px] max-w-none -translate-x-1/2 -translate-y-[calc(50%+94px)] lg:h-auto lg:w-[1000px] lg:-translate-x-[calc(50%+50px)] md:w-[700px] md:-translate-y-[calc(50%+76px)] sm:w-[130%] xs:w-[160%]">
           <StaticImage
@@ -77,11 +77,10 @@ const UseCasesPage = () => (
       }}
     />
     <TextWithPicture
-      className="sm:!mt-28"
-      contentClassName="py-52 md:py-40 sm:pt-0 sm:pb-20"
+      className="py-52 md:py-40 sm:!mt-28 sm:pb-20 sm:pt-0"
       title="Multi-channel notifications"
       description="Expand your reach by adding more channels ensuring users receive critical information on time, and through their preferred channel."
-      imageWrapperClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
+      imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
       image={
         <div className="absolute left-1/2 top-1/2 h-[1205px] w-[1354px] max-w-none -translate-x-[calc(50%+4px)] -translate-y-[calc(50%+42px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]">
           <StaticImage
@@ -101,11 +100,10 @@ const UseCasesPage = () => (
       theme="imageRight"
     />
     <TextWithPicture
-      className="relative z-10"
-      contentClassName="py-[184px] md:py-32 sm:pt-0 sm:pb-28 xs:pb-36"
+      className="relative z-10 py-[184px] md:py-32 sm:pb-28 sm:pt-0 xs:pb-36"
       title="Add notifications to your application"
       description="Notifications are the best way to keep your users and customers informed through relevant, timely updates, and adding them to your app or website is easier than you think."
-      imageWrapperClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
+      imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px] z-10"
       image={
         <div className="absolute left-1/2 top-1/2 h-[1007px] w-[1107px] max-w-none -translate-x-[calc(50%-73px)] -translate-y-[calc(50%+156px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]">
           <StaticImage
@@ -124,10 +122,10 @@ const UseCasesPage = () => (
       }}
     />
     <TextWithPicture
-      contentClassName="py-20 md:py-10 sm:pt-0 sm:pb-20 xs:pb-32"
+      className="py-20 md:py-10 sm:pb-20 sm:pt-0 xs:pb-32"
       title="Unified notification management"
       description="Reduce your app’s complexity by designing, managing, and triggering notifications from a central platform instead of multiple different tools."
-      imageWrapperClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
+      imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
       image={
         <div className="absolute left-1/2 top-1/2 h-[915px] w-[919px] max-w-none -translate-x-[calc(50%+19px)] -translate-y-[calc(50%+111px)] md:h-auto md:w-[800px] md:-translate-x-[calc(50%+49px)] sm:w-[130%] xs:w-[150%]">
           <StaticImage
@@ -150,9 +148,9 @@ const UseCasesPage = () => (
       contentClassName="py-[248px] md:py-32 sm:pt-0 sm:pb-20"
       title="Centrally manage notification content"
       description="Eliminate the content dance between development and product teams. Developers now empower product teams to safely interact with all of your notifications content, no interrupts needed."
-      imageWrapperClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
+      imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
       image={
-        <div className="absolute left-1/2 top-1/2 h-[1054px] w-[1343px] max-w-none -translate-x-1/2 -translate-y-[calc(50%+56px)] xl:h-auto xl:w-[1000px] xl:-translate-x-[calc(50%-60px)] lg:w-[850px] lg:-translate-x-[calc(50%-55px)] md:w-[700px] sm:w-[130%] xs:w-[150%]">
+        <div className="absolute left-1/2 top-1/2 h-[1054px] w-[1343px] max-w-none -translate-x-1/2 -translate-y-[calc(50%+56px)] xl:h-auto xl:w-[1000px] xl:-translate-x-[calc(50%-60px)] lg:w-[850px] lg:-translate-x-[calc(50%-55px)] md:w-[700px] sm:w-[130%] sm:-translate-y-[calc(50%-20px)] sm-xs:w-[150%]">
           <StaticImage
             className="size-full object-cover"
             src="../images/pages/usecases/index/content/illustration.png"
@@ -170,7 +168,7 @@ const UseCasesPage = () => (
       }}
     />
     <CtaWithForm
-      className="mb-52"
+      className="mb-52 sm:mt-[224px] sm-xs:mt-[164px]"
       title="We’re ready for your requirements..."
       description="Whatever your use case, Novu is ready. Start for free, no credit card required."
       leftItem={{
