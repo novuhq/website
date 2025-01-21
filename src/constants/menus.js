@@ -130,7 +130,7 @@ const MENUS = {
             title: 'Use Cases',
             description: "How you'll use Novu",
             icon: UseCasesIcon,
-            to: 'usecases/?utm_campaign=ws_nav',
+            to: '/usecases/?utm_campaign=ws_nav',
           },
         ],
       },
