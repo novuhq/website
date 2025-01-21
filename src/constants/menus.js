@@ -217,11 +217,10 @@ const MENUS = {
     [
       { text: 'Blog', to: '/blog/?utm_campaign=ws_nav_bottom' },
       { text: 'Pricing', to: '/pricing/?utm_campaign=ws_nav_bottom' },
-      { text: 'Security', to: '/security?utm_campaign?ws_nav_bottom'}
+      { text: 'Security', to: '/security?utm_campaign?ws_nav_bottom' },
       { text: 'Community', to: '/community/?utm_campaign=ws_nav_bottom' },
       { text: 'Contributors', to: '/contributors/?utm_campaign=ws_nav_bottom' },
       { text: 'Careers', ...LINKS.careers },
-
     ],
     [
       { text: 'Documentation', to: 'https://docs.novu.co/?utm_campaign=ws_nav_bottom' },
