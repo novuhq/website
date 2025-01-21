@@ -145,7 +145,7 @@ const UseCasesPage = () => (
       theme="imageRight"
     />
     <TextWithPicture
-      contentClassName="py-[248px] md:py-32 sm:pt-0 sm:pb-20"
+      className="py-[288px] md:py-32 sm:pb-20 sm:pt-0"
       title="Centrally manage notification content"
       description="Eliminate the content dance between development and product teams. Developers now empower product teams to safely interact with all of your notifications content, no interrupts needed."
       imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
