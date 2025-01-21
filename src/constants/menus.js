@@ -73,7 +73,7 @@ const MENUS = {
               {
                 title: 'Compliance and Security',
                 icon: SecurityIcon,
-                to: 'https://trust.novu.co/',
+                to: '/security?utm_campaign=ws_nav',
               },
             ],
           },
@@ -216,16 +216,17 @@ const MENUS = {
   footer: [
     [
       { text: 'Blog', to: '/blog/?utm_campaign=ws_nav_bottom' },
+      { text: 'Pricing', to: '/pricing/?utm_campaign=ws_nav_bottom' },
+      { text: 'Security', to: '/security?utm_campaign?ws_nav_bottom'}
       { text: 'Community', to: '/community/?utm_campaign=ws_nav_bottom' },
       { text: 'Contributors', to: '/contributors/?utm_campaign=ws_nav_bottom' },
-      { text: 'Pricing', to: '/pricing/?utm_campaign=ws_nav_bottom' },
       { text: 'Careers', ...LINKS.careers },
-      { text: 'OSS Friends', to: '/oss-friends/?utm_campaign=ws_nav_bottom' },
+
     ],
     [
       { text: 'Documentation', to: 'https://docs.novu.co/?utm_campaign=ws_nav_bottom' },
       { text: 'Roadmap', to: 'https://roadmap.novu.co/roadmap' },
-      { text: 'Changelog', to: 'https://roadmap.novu.co/' },
+      { text: 'Changelog', to: 'https://roadmap.novu.co/changelog' },
       { text: 'Handbook', ...LINKS.handbook },
       { text: 'Contact Us', to: 'https://novu.co/contact-us/?utm_campaign=ws_nav_bottom' },
     ],
