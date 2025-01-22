@@ -10,12 +10,13 @@ const PLANS = {
     platform: {
       events: '30k',
       additionalEvents: false,
+      environments: '2',
       maxRPS: '60/20/30 per second',
       channels: true,
       subscribers: 'Unlimited',
-      guiWorkflow: 'Nov 2024',
+      guiWorkflow: true,
       codeWorkflow: true,
-      subscriberManagement: 'Q1 2025',
+      subscriberManagement: true,
       multiTenant: false,
     },
     framework: {
@@ -25,7 +26,7 @@ const PLANS = {
       digest: true,
       stepControl: true,
       translations: true,
-      blockEmailEditor: 'Nov 2024',
+      blockEmailEditor: true,
     },
     inbox: {
       inboxComponent: true,
@@ -60,12 +61,13 @@ const PLANS = {
     platform: {
       events: '250k',
       additionalEvents: '$1.20 per 1,000',
+      environments: '10',
       maxRPS: '600/200/300 per second',
       channels: true,
-      subscribers: true,
-      guiWorkflow: 'Nov 2024',
+      subscribers: `Unlimited`,
+      guiWorkflow: true,
       codeWorkflow: true,
-      subscriberManagement: 'Q1 2025',
+      subscriberManagement: true,
       multiTenant: 'Q1 2025',
     },
     framework: {
@@ -75,7 +77,7 @@ const PLANS = {
       digest: true,
       stepControl: true,
       translations: true,
-      blockEmailEditor: 'Nov 2024',
+      blockEmailEditor: true,
     },
     inbox: {
       inboxComponent: true,
@@ -110,12 +112,13 @@ const PLANS = {
     platform: {
       events: '5 million',
       additionalEvents: 'Custom',
+      environments: 'Unlimited',
       maxRPS: '6k/2k/3k per second',
       channels: true,
-      subscribers: true,
-      guiWorkflow: 'Nov 2024',
+      subscribers: `Unlimited`,
+      guiWorkflow: true,
       codeWorkflow: true,
-      subscriberManagement: 'Q1 2025',
+      subscriberManagement: true,
       multiTenant: 'Q1 2025',
     },
     framework: {
@@ -125,7 +128,7 @@ const PLANS = {
       digest: true,
       stepControl: true,
       translations: true,
-      blockEmailEditor: 'Nov 2024',
+      blockEmailEditor: true,
     },
     inbox: {
       inboxComponent: true,
@@ -163,6 +166,7 @@ const LABELS = [
     items: {
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
+      environments: 'Environments',
       maxRPS: 'Max API Requests (RPS) (Trigger events/Configuration/Global)',
       channels: 'Channels supported: email, in-app, SMS, chat, push, and custom',
       subscribers: 'Notification Subscribers',

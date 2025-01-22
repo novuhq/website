@@ -61,6 +61,8 @@ export default {
   embedComponent: { to: '/inbox' },
   endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
   // observability: { to: '/' }, -> We need to add this page
+  userPreferences: { to: '/inbox/react/components/preferences?' },
+  framework: { to: 'https://docs.novu.co/framework/overview' },
 
   // Providers
   sendgrid: { to: 'https://docs.novu.co/integrations/providers/email/sendgrid' },
@@ -71,7 +73,7 @@ export default {
   slack: { to: 'https://docs.novu.co/integrations/providers/chat/slack' },
   mailgun: { to: 'https://docs.novu.co/integrations/providers/email/mailgun' },
   postmark: { to: 'https://docs.novu.co/integrations/providers/email/postmark' },
-  discord: { to: 'https://docs.novu.co/integrations/providers/chat/discord' },
+  // discord: { to: 'https://docs.novu.co/integrations/providers/chat/discord' }, // same name as social link
   sendinblue: { to: 'https://docs.novu.co/integrations/providers/email/sendinblue' },
 
   // Channels
@@ -159,8 +161,11 @@ export default {
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_top_bar',
+    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_top_bar',
     target: '_blank',
+  },
+  loginTopBar: {
+    to: 'https://dashboard-v2.novu.co/auth/sign-in?utm_campaign=ws_top_bar',
   },
   getStartedCommunity: {
     to: `https://dashboard-v2.novu.co?utm_campaign=community_page`,
@@ -258,5 +263,13 @@ export default {
   },
   notificationDirectory: {
     to: 'https://notifications.directory?utm_campaign=website',
+  },
+
+  // Blog posts
+  howToNotificationsReact: {
+    to: '/blog/how-to-add-real-time-notifications-to-a-react-app',
+  },
+  futureOfNovu: {
+    to: '/blog/the-future-of-novu/',
   },
 };
