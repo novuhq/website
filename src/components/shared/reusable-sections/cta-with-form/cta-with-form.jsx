@@ -110,16 +110,18 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
                   {leftItem.text}
                 </Button>
               )}
-              <Button
-                className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
-                theme="gray-outline"
-                size="sm"
-                to={rightItem.link}
-                rel={rightItem.rel}
-                target={rightItem.target}
-              >
-                {rightItem.text}
-              </Button>
+              {rightItem && rightItem.text && (
+                <Button
+                  className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
+                  theme="gray-outline"
+                  size="sm"
+                  to={rightItem.link}
+                  rel={rightItem.rel}
+                  target={rightItem.target}
+                >
+                  {rightItem.text}
+                </Button>
+              )}
             </div>
           </div>
         </div>

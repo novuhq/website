@@ -9,7 +9,7 @@ const PLANS = {
     common: {},
     platform: {
       events: '30k',
-      additionalEvents: '-',
+      additionalEvents: false,
       maxRPS: '60/20/30 per second',
       channels: true,
       subscribers: 'Unlimited',

@@ -22,8 +22,8 @@ const FAQ_DATA = [
         >
           topic,
         </Link>{' '}
-         Novu creates one event per topic subscriber, this means that a workflow trigger to a topic with 100 subscribers
-        creates 100 events.
+        Novu creates one event per topic subscriber, this means that a workflow trigger to a topic
+        with 100 subscribers creates 100 events.
       </>
     ),
   },
@@ -168,15 +168,17 @@ const FAQ_DATA = [
 ];
 
 const FAQ = () => (
-  <section className="safe-paddings bg-gray-2 py-20 lg:py-16 md:py-12 sm:py-10">
-    <div className="container-md text-center">
-      <Heading className="leading-tight md:text-5xl sm:text-4xl" size="xl" tag="h2" theme="white">
-        Frequently Asked Questions
+  <section className="safe-paddings pb-20 pt-[141px] lg:pb-16 md:pb-5 md:pt-[90px] sm:pb-10">
+    <div className="container max-w-[832px] lg:max-w-[914px] sm:px-5">
+      <Heading
+        className="text-[40px] font-medium leading-denser tracking-snug sm:text-[32px]"
+        size="xl"
+        tag="h2"
+        theme="white"
+      >
+        Frequently asked questions
       </Heading>
-      <p className="mt-7 text-lg font-book text-gray-9 lg:mt-5 sm:mt-4 sm:text-base">
-        Looking for answers? Here are some common questions we've been asked.
-      </p>
-      <ul className="mt-16 divide-y divide-gray-3 border-y border-gray-3 xl:mt-10">
+      <ul className="mt-[19px] divide-y divide-gray-3 border-b border-gray-3 sm:mt-[9px]">
         {FAQ_DATA.map((questionItem, index) => (
           <Question {...questionItem} key={index} />
         ))}

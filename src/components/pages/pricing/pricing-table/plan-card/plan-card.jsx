@@ -19,27 +19,22 @@ const PlanCard = ({
   className,
   currentRow,
 }) => {
-  const isActive = activeTier.value === title.split(' ')[0].toLowerCase();
+  const isActive = activeTier === title.split(' ')[0].toLowerCase();
 
   return (
     <div
       className={clsx(
-        'relative flex flex-col overflow-hidden rounded-lg text-center after:absolute after:inset-0 after:-z-10 after:rounded-lg after:bg-pink-yellow-gradient after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
-        isActive && 'p-px after:opacity-100',
+        'relative flex flex-col rounded-lg after:absolute after:inset-0 after:left-1/2 after:w-[208px] after:-translate-x-1/2 after:rounded-lg after:bg-[#14141FBF] after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
+        isActive && 'after:opacity-100',
         className
       )}
     >
-      <div
-        className={clsx(
-          'flex flex-col rounded-lg py-5 text-left',
-          isActive ? 'bg-gray-1' : 'bg-black'
-        )}
-      >
-        <div className="flex flex-col space-y-3 px-[52px] lg:px-10 md:px-8">
-          <h3 className="text-xl">{title}</h3>
+      <div className={clsx('z-10 flex flex-col rounded-lg py-5')}>
+        <div className="flex flex-col space-y-3 px-[70px] lg:px-[27px] md:px-8">
+          <h3 className="text-[24px] tracking-snug">{title}</h3>
           {linkText && linkUrl && (
             <Button
-              theme={isActive ? 'pink-to-yellow-gradient' : 'gray-outline'}
+              theme={isActive ? 'white-filled' : 'gray-outline'}
               size="xs"
               to={linkUrl}
               onClick={() =>
