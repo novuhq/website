@@ -6,7 +6,7 @@ import CheckIcon from 'images/check.inline.svg';
 import XIcon from 'images/x.inline.svg';
 
 const presentFeature = (
-  <CheckIcon className="my-[5.5px] h-2.5 w-4 text-gray-9" aria-label="Present Feature" />
+  <CheckIcon className="my-[5.5px] w-4 text-gray-9" aria-label="Present Feature" />
 );
 const missingFeature = <XIcon className="my-[5.5px] w-3.5" aria-label="Missing Feature" />;
 

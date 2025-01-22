@@ -11,7 +11,7 @@ import CheckIcon from 'images/check.inline.svg';
 
 import codeDots from './images/code-dots.svg';
 import LoadingIcon from './images/loading.inline.svg';
-import SendIcon from './images/send.inline.svg';
+// import SendIcon from './images/send.inline.svg';
 
 const STATES = {
   DEFAULT: 'default',
@@ -153,7 +153,7 @@ const SubscribeForm = ({
     >
       <LazyMotion features={domAnimation}>
         <input
-          className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pl-5 pr-32 text-[16px] !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base"
+          className="remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pl-5 pr-32 text-[16px] !leading-none text-white placeholder-white outline-none sm:pl-4 sm:pr-24 sm:text-base"
           name="email"
           type="email"
           placeholder={placeholder}
@@ -201,8 +201,8 @@ const SubscribeForm = ({
         )}
 
         <Button
-          className={clsx('absolute right-1.5 top-1/2 !h-9 -translate-y-1/2', {
-            'w-[108px]': formState === STATES.LOADING,
+          className={clsx('absolute right-1.5 top-1/2 !h-9 -translate-y-1/2 sm:!px-2', {
+            'w-[108px] sm:w-[60px]': formState === STATES.LOADING,
             'w-10 px-0': formState === STATES.SUCCESS,
             'pointer-events-none': isStateLoadingOrSuccess,
           })}
@@ -214,26 +214,15 @@ const SubscribeForm = ({
         >
           <AnimatePresence>
             {(formState === STATES.DEFAULT || formState === STATES.ERROR) && (
-              <>
-                <m.span
-                  className="text-xs sm:sr-only"
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  variants={appearAndExitAnimationVariants}
-                >
-                  Subscribe
-                </m.span>
-                <m.span
-                  className="hidden sm:block"
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  variants={appearAndExitAnimationVariants}
-                >
-                  <SendIcon className="ml-1.5 h-6" aria-hidden />
-                </m.span>
-              </>
+              <m.span
+                className="text-xs"
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={appearAndExitAnimationVariants}
+              >
+                Subscribe
+              </m.span>
             )}
             {formState === STATES.LOADING && (
               <m.div

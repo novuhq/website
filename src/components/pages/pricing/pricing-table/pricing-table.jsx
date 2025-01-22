@@ -42,16 +42,15 @@ const PricingPlans = ({ activeTier }) => {
         >
           {TITLE}
         </Heading>
-        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1220px] lg:mt-3.5 md:-mx-7 md:mt-6 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-11 sm:px-4">
+        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1216px] lg:mt-3.5 md:-mx-7 md:mt-6 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
           <div className="grid min-w-[924px] grid-cols-[250px_300px_300px_300px] items-start lg:grid-cols-[292px_214px_214px_214px] md:grid-cols-[262px_214px_214px_214px]">
-            <div className="mt-[79px]">
+            <div className="mt-[79px] sm:mt-[69px]">
               {LABELS.map(({ title, items }, index) => (
                 <div
                   className="mt-[29px] border-b border-dashed border-gray-4 first:mt-0 first:border-transparent"
                   key={index}
                 >
-                  {/* headers of subsections in first column */}
-                  <span className="mb-[20px] block text-[20px] font-medium leading-normal tracking-snug">
+                  <span className="mb-5 block text-[20px] font-medium leading-normal tracking-snug">
                     {title}
                   </span>
                   <ul
@@ -67,10 +66,9 @@ const PricingPlans = ({ activeTier }) => {
                       return (
                         <li
                           className={clsx(
-                            // items of subsections in first column
                             'relative flex h-[49px] items-center text-[16px] font-book leading-snug tracking-snug text-gray-10',
                             {
-                              'bg-[#14141F] before:absolute before:inset-y-0 before:left-[-8px] before:rounded-l-[6px] before:border-l-[8px] before:border-[#14141F]':
+                              'bg-[#14141F] before:absolute before:inset-y-0 before:-left-2 before:rounded-l-[6px] before:border-l-[8px] before:border-[#14141F]':
                                 isActive,
                             }
                           )}

@@ -136,31 +136,28 @@ const Card = ({ plan }) => {
           aria-hidden
         />
       </div>
-
-      {isBusiness && (
-        <Dots
-          className="pointer-events-none absolute -top-1/2 left-[29px] z-10 h-[206px] w-[482px] translate-y-1/2"
-          aria-hidden
-        />
-      )}
       {isEnterprise && (
         <span
-          className="bg-shine pointer-events-none absolute -top-[47px] left-[7px] z-0 h-[277px] w-[391px] rounded-full bg-[radial-gradient(130.45%_66.34%_at_74.29%_61.64%,_#B7C9FF_27.2%,_#96B0FF_80.5%,_#4775FF_100%)] opacity-10 blur-3xl"
+          className="bg-shine pointer-events-none absolute -top-[47px] left-[7px] z-0 h-[277px] w-[391px] rounded-full bg-[radial-gradient(130.45%_66.34%_at_74.29%_61.64%,_#B7C9FF_27.2%,_#96B0FF_80.5%,_#4775FF_100%)] opacity-10 blur-3xl md:hidden"
           aria-hidden
         />
       )}
       {isBusiness && (
         <>
-          <span
-            className="bg-shine pointer-events-none absolute -top-[49px] left-[70px] z-0 h-[171px] w-[308px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#663179_0%,_rgba(90,_49,_121,_0)_100%)] blur-[16px]"
+          <Dots
+            className="pointer-events-none absolute -top-1/2 left-[29px] z-10 h-[206px] w-[482px] translate-y-1/2 md:left-[96px] sm:left-[32px]"
             aria-hidden
           />
           <span
-            className="bg-shine pointer-events-none absolute -top-[142px] left-[90px] z-0 h-[355px] w-[280px] rotate-[-84deg] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#5E1C59_0%,_rgba(35,_18,_59,_0)_100%)] opacity-40"
+            className="bg-shine pointer-events-none absolute -top-[49px] left-[70px] z-0 h-[171px] w-[308px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#663179_0%,_rgba(90,_49,_121,_0)_100%)] blur-[16px] md:-top-[34px] md:left-[132px] sm:left-[84px]"
             aria-hidden
           />
           <span
-            className="bg-shine pointer-events-none absolute -top-[151px] left-[20px] z-0 h-[458px] w-[370px] rotate-[-45deg] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#3B1230_16.51%,_rgba(59,_18,_56,_0)_100%)]"
+            className="bg-shine pointer-events-none absolute -top-[142px] left-[90px] z-0 h-[355px] w-[280px] rotate-[-84deg] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#5E1C59_0%,_rgba(35,_18,_59,_0)_100%)] opacity-40 md:-top-[128px] md:left-[154px] sm:left-[110px]"
+            aria-hidden
+          />
+          <span
+            className="bg-shine pointer-events-none absolute -top-[151px] left-[20px] z-0 h-[458px] w-[370px] rotate-[-45deg] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#3B1230_16.51%,_rgba(59,_18,_56,_0)_100%)] md:left-[90px] sm:left-[46px]"
             aria-hidden
           />
         </>

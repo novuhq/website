@@ -24,14 +24,13 @@ const PlanCard = ({
   return (
     <div
       className={clsx(
-        'relative flex flex-col rounded-lg after:absolute after:inset-0 after:left-1/2 after:w-[208px] after:-translate-x-1/2 after:rounded-lg after:bg-[#14141FBF] after:opacity-0 after:transition-all after:duration-500 after:ease-in-out',
-        isActive && 'after:opacity-100',
+        'relative flex flex-col rounded-lg after:absolute after:inset-0 after:left-1/2 after:w-[208px] after:-translate-x-1/2 after:rounded-lg after:bg-[#14141FBF]',
         className
       )}
     >
       <div className={clsx('z-10 flex flex-col rounded-lg py-5')}>
-        <div className="flex flex-col space-y-3 px-[70px] lg:px-[27px] md:px-8">
-          <h3 className="text-[24px] tracking-snug">{title}</h3>
+        <div className="flex flex-col space-y-3 px-[70px] lg:px-[27px] md:px-8 sm:space-y-3.5">
+          <h3 className="text-[24px] tracking-snug sm:text-[16px]">{title}</h3>
           {linkText && linkUrl && (
             <Button
               theme={isActive ? 'white-filled' : 'gray-outline'}
