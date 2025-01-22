@@ -24,7 +24,8 @@ const PlanCard = ({
   return (
     <div
       className={clsx(
-        'relative flex flex-col rounded-lg after:absolute after:inset-0 after:left-1/2 after:w-[208px] after:-translate-x-1/2 after:rounded-lg after:bg-[#14141FBF]',
+        'relative flex flex-col rounded-lg after:absolute after:inset-0 after:left-1/2 after:w-[208px] after:-translate-x-1/2 after:rounded-lg after:bg-[#14141FBF] after:opacity-0',
+        isActive && 'after:opacity-100',
         className
       )}
     >
