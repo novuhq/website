@@ -30,8 +30,8 @@ const PlanCard = ({
       )}
     >
       <div className={clsx('z-10 flex flex-col rounded-lg py-5')}>
-        <div className="flex flex-col space-y-3 px-[70px] lg:px-[27px] md:px-8 sm:space-y-3.5">
-          <h3 className="text-[24px] tracking-snug sm:text-[16px]">{title}</h3>
+        <div className="flex flex-col space-y-3 px-[70px] lg:px-[27px] md:space-y-3.5 md:px-8">
+          <h3 className="text-[24px] tracking-snug md:text-[16px]">{title}</h3>
           {linkText && linkUrl && (
             <Button
               theme={isActive ? 'white-filled' : 'gray-outline'}

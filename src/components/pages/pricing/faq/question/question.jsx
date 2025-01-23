@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 import ChevronIcon from 'icons/faq-arrow.inline.svg';
@@ -38,17 +38,22 @@ const Question = ({ question, answer }) => {
           )}
         />
       </button>
-      <motion.div
-        className="overflow-hidden"
-        initial="hidden"
-        animate={isOpen ? 'visible' : 'hidden'}
-        variants={variantsAnimation}
-        transition={{ duration: ANIMATION_DURATION }}
-      >
-        <div className="max-w-[752px] pb-7 pt-0 text-[18px] font-book leading-normal tracking-snug text-gray-8 md:mr-14 sm:mr-7 sm:pb-[22px] sm:text-[16px]">
-          {answer}
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="overflow-hidden"
+            initial="hidden"
+            animate={isOpen ? 'visible' : 'hidden'}
+            variants={variantsAnimation}
+            exit="hidden"
+            transition={{ duration: ANIMATION_DURATION }}
+          >
+            <div className="max-w-[752px] pb-7 pt-0 text-[18px] font-book leading-normal tracking-snug text-gray-8 md:mr-14 sm:mr-7 sm:pb-[22px] sm:text-[16px]">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </li>
   );
 };

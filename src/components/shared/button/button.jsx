@@ -5,7 +5,7 @@ import React from 'react';
 import Link from 'components/shared/link';
 
 const styles = {
-  base: 'inline-flex items-center justify-center text-center whitespace-nowrap rounded outline-none transition-[colors, opacity] duration-200 uppercase font-medium !leading-none',
+  base: 'inline-flex items-center justify-center text-center whitespace-nowrap rounded transition-[colors, opacity] duration-200 uppercase font-medium !leading-none',
   size: {
     sm: 'h-12 px-6 text-sm rounded-md',
     xs: 'h-10 px-5 text-xs',

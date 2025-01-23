@@ -30,7 +30,7 @@ const SubscribeNew = ({ className, title, description }) => (
         <CtaWithSubscribeForm className="mt-[30px] h-12 max-w-[392px] bg-black md:mt-[27px] sm:mt-6" />
       </div>
       <img
-        className="pointer-events-none absolute bottom-[-435px] left-[-357px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
+        className="pointer-events-none absolute -bottom-[435px] -left-[357px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
         src={background}
         width={1523}
         height={1012}

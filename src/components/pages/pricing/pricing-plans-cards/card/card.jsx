@@ -61,7 +61,7 @@ const Card = ({ plan }) => {
             {description}
           </p>
           <span
-            className="mb-[19px] mt-[16px] block h-px w-full border-t border-dashed border-gray-5"
+            className="mb-[19px] mt-4 block h-px w-full border-t border-dashed border-gray-5"
             aria-hidden
           />
           <ul className="mt-3.5 flex flex-col gap-y-3 md:mt-[15px] md:gap-y-2.5 sm:mt-3.5">

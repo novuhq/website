@@ -11,7 +11,6 @@ import CheckIcon from 'images/check.inline.svg';
 
 import codeDots from './images/code-dots.svg';
 import LoadingIcon from './images/loading.inline.svg';
-// import SendIcon from './images/send.inline.svg';
 
 const STATES = {
   DEFAULT: 'default',
@@ -171,7 +170,7 @@ const SubscribeForm = ({
           aria-hidden
         />
         <img
-          className="pointer-events-none absolute bottom-[-105px] left-[-69px] z-0 max-w-none"
+          className="pointer-events-none absolute -bottom-[105px] -left-[69px] z-0 max-w-none"
           src={codeDots}
           width={482}
           height={206}

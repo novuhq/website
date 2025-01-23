@@ -32,7 +32,7 @@ const PricingPlans = ({ activeTier }) => {
   }, []);
 
   return (
-    <section className="safe-paddings pt-[112px] md:pb-5 md:pt-[98px] sm:pt-[74px]">
+    <section className="safe-paddings pt-28 md:pb-5 md:pt-[98px] sm:pt-[74px]">
       <div className="container lg:px-8 sm:px-5">
         <Heading
           className="text-center tracking-snug lg:text-[40px] md:text-[32px] sm:text-[28px]"
@@ -42,9 +42,9 @@ const PricingPlans = ({ activeTier }) => {
         >
           {TITLE}
         </Heading>
-        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1216px] lg:mt-3.5 md:-mx-7 md:mt-6 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
-          <div className="grid min-w-[924px] grid-cols-[250px_300px_300px_300px] items-start lg:grid-cols-[292px_214px_214px_214px] md:grid-cols-[262px_214px_214px_214px]">
-            <div className="mt-[79px] sm:mt-[69px]">
+        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1216px] lg:mt-3.5 md:-mx-7 md:mt-3.5 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
+          <div className="grid min-w-[924px] grid-cols-[250px_300px_300px_300px] items-start lg:grid-cols-[292px_214px_214px_214px] md:grid-cols-[256px_214px_214px_214px]">
+            <div className="mt-[79px] md:mt-[69px]">
               {LABELS.map(({ title, items }, index) => (
                 <div
                   className="mt-[29px] border-b border-dashed border-gray-4 first:mt-0 first:border-transparent"
