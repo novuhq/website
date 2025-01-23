@@ -122,8 +122,12 @@ const Card = ({ plan }) => {
             height={778}
           />
         )}
-        {isBusiness && <PinkShine className="pointer-events-none absolute inset-0" aria-hidden />}
-        {isEnterprise && <BlueShine className="pointer-events-none absolute inset-0" aria-hidden />}
+        {isBusiness && (
+          <PinkShine className="pointer-events-none absolute inset-0 w-full" aria-hidden />
+        )}
+        {isEnterprise && (
+          <BlueShine className="pointer-events-none absolute inset-0 w-full" aria-hidden />
+        )}
         {hasAdditionalLabel && additionalLabelText && <Label text={additionalLabelText} />}
         <GradientBorder
           className={clsx('', {
