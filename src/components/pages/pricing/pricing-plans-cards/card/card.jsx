@@ -123,14 +123,14 @@ const Card = ({ plan }) => {
           />
         )}
         {isBusiness && (
-          <PinkShine className="pointer-events-none absolute inset-0 w-full" aria-hidden />
+          <PinkShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
         )}
         {isEnterprise && (
-          <BlueShine className="pointer-events-none absolute inset-0 w-full" aria-hidden />
+          <BlueShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
         )}
         {hasAdditionalLabel && additionalLabelText && <Label text={additionalLabelText} />}
         <GradientBorder
-          className={clsx('', {
+          className={clsx({
             'border-image-pink-gradient-border': isBusiness,
             'border-image-[linear-gradient(246.73deg,rgba(51,51,71,0.6)_15.63%,rgba(43,43,59,0.4)_84.63%)]':
               isFree,
