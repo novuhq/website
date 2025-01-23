@@ -25,7 +25,7 @@ const FeatureList = ({ features, currentRow }) => (
       return (
         <span
           className={clsx(
-            'relative flex h-[49px] w-full items-center px-[70px] text-sm font-book leading-snug text-gray-9 lg:px-[27px] md:px-8',
+            'relative flex h-[54px] w-full items-center px-[70px] text-sm font-book leading-snug text-gray-9 lg:px-[27px] md:px-8',
             {
               'bg-[#14141F] before:absolute before:inset-y-0 before:-right-2 before:rounded-r-[6px] before:border-r-[8px] before:border-[#14141F]':
                 isActive,

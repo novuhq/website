@@ -66,7 +66,7 @@ const PricingPlans = ({ activeTier }) => {
                       return (
                         <li
                           className={clsx(
-                            'relative flex h-[49px] items-center text-[16px] font-book leading-snug tracking-snug text-gray-10',
+                            'relative flex h-[54px] items-center text-[16px] font-book leading-snug tracking-snug text-gray-10',
                             {
                               'bg-[#14141F] before:absolute before:inset-y-0 before:-left-2 before:rounded-l-[6px] before:border-l-[8px] before:border-[#14141F]':
                                 isActive,
