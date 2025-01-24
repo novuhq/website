@@ -1,11 +1,9 @@
-import LINKS from 'constants/links';
-
 const PLANS = {
   // FREE TIER
   free: {
     title: 'Free',
-    linkText: 'Get started',
-    linkUrl: LINKS.getStartedPricingFree.to,
+    linkText: 'Try Novu',
+    linkUrl: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free',
     common: {},
     platform: {
       events: '30k',
@@ -55,8 +53,8 @@ const PLANS = {
   // BUSINESS TIER
   business: {
     title: 'Business',
-    linkText: 'Get Started',
-    linkUrl: LINKS.getStartedPricingBus.to,
+    linkText: 'Try Novu',
+    linkUrl: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_business',
     common: {},
     platform: {
       events: '250k',
@@ -107,7 +105,7 @@ const PLANS = {
   enterprise: {
     title: 'Enterprise',
     linkText: 'Contact Us',
-    linkUrl: LINKS.getStartedPricingEnt.to,
+    linkUrl: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise',
     common: {},
     platform: {
       events: '5 million',
