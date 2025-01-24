@@ -254,11 +254,11 @@ const HomePage = () => (
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_home_cta_bottom',
       }}
       rightItem={{
         text: 'Contact us',
-        link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
+        link: 'https://novu.co/contact-us/?utm_campaign=ws_home_cta_bottom',
       }}
     />
     <Separator className="h-px w-full max-w-none" backgroundColor="black" />
