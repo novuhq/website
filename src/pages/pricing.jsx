@@ -18,7 +18,8 @@ const PRICING_PLANS = [
     button: {
       text: 'Free Forever',
       theme: 'gray-outline',
-      link: { to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing' },
+      link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
+      target: '_blank',
     },
     description: 'A generous free tier for testing and evaluation, or smaller requirements.',
     advantages: ['30K events/month included'],
@@ -31,7 +32,8 @@ const PRICING_PLANS = [
     button: {
       text: 'Free for 30 days',
       theme: 'white-filled',
-      link: { to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing' },
+      link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
+      target: '_blank',
     },
     description: 'Best fit for most businesses. Best fit for most businesses.',
     advantages: ['250K events/month included', '$1.20 per 1,000 additional events'],
@@ -44,7 +46,8 @@ const PRICING_PLANS = [
     button: {
       text: 'Contact us',
       theme: 'gray-outline',
-      link: { to: 'https://novu.co/contact-us/?utm_campaign=ws_pricing' },
+      link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
+      target: '_self',
     },
     description: 'For businesses with the most demanding notification requirements.',
     advantages: ['5M events/month included'],

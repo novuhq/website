@@ -54,7 +54,8 @@ const Card = ({ plan }) => {
             className="z-20 mt-[22px] w-full"
             size="sm"
             theme={button.theme}
-            href={button.link}
+            to={button.link}
+            target={button.target}
           >
             {button.text}
           </Button>

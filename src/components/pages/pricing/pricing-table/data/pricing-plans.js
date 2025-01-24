@@ -4,6 +4,7 @@ const PLANS = {
     title: 'Free',
     linkText: 'Try Novu',
     linkUrl: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free',
+    linkTarget: '_blank',
     common: {},
     platform: {
       events: '30k',
@@ -55,6 +56,7 @@ const PLANS = {
     title: 'Business',
     linkText: 'Try Novu',
     linkUrl: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_business',
+    linkTarget: '_blank',
     common: {},
     platform: {
       events: '250k',
@@ -106,6 +108,7 @@ const PLANS = {
     title: 'Enterprise',
     linkText: 'Contact Us',
     linkUrl: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise',
+    linkTarget: '_self',
     common: {},
     platform: {
       events: '5 million',
