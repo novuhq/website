@@ -55,6 +55,7 @@ const Card = ({ plan }) => {
             size="sm"
             theme={button.theme}
             to={button.link}
+            rel={button.rel}
             target={button.target}
           >
             {button.text}
@@ -179,21 +180,20 @@ const Card = ({ plan }) => {
 export default Card;
 
 Card.propTypes = {
-  type: PropTypes.string.isRequired,
-  cardData: PropTypes.shape({
+  plan: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     advantages: PropTypes.arrayOf(PropTypes.string).isRequired,
     hasAdditionalLabel: PropTypes.bool.isRequired,
     additionalLabelText: PropTypes.string,
-    features: PropTypes.arrayOf(PropTypes.string).isRequired,
-    pricingLabel: PropTypes.string,
     price: PropTypes.string.isRequired,
     paymentPeriod: PropTypes.string,
     button: PropTypes.shape({
       text: PropTypes.string.isRequired,
       style: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
+      target: PropTypes.string,
+      rel: PropTypes.string,
     }).isRequired,
   }).isRequired,
 };

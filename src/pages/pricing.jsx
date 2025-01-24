@@ -47,7 +47,6 @@ const PRICING_PLANS = [
       text: 'Contact us',
       theme: 'gray-outline',
       link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
-      target: '_self',
     },
     description: 'For businesses with the most demanding notification requirements.',
     advantages: ['5M events/month included'],

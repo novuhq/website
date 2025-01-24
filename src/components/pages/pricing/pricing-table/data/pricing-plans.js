@@ -108,7 +108,6 @@ const PLANS = {
     title: 'Enterprise',
     linkText: 'Contact Us',
     linkUrl: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise',
-    linkTarget: '_self',
     common: {},
     platform: {
       events: '5 million',

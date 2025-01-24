@@ -10,6 +10,7 @@ const PlanCard = ({
   linkText,
   linkUrl,
   linkTarget,
+  linkRel,
   common,
   platform,
   framework,
@@ -38,7 +39,8 @@ const PlanCard = ({
               theme={isActive ? 'white-filled' : 'gray-outline'}
               size="xs"
               to={linkUrl}
-              target={linkTarget || '_self'}
+              target={linkTarget}
+              rel={linkRel}
               onClick={() =>
                 window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
                   packageType: title,
