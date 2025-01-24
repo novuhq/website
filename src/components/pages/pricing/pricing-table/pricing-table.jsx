@@ -32,26 +32,44 @@ const PricingPlans = ({ activeTier }) => {
   }, []);
 
   return (
-    <section className="safe-paddings py-32 xl:py-28 lg:py-24 md:py-20">
-      <div className="container">
-        <Heading className="text-center md:text-4xl" tag="h2" size="xl" theme="white">
+    <section className="safe-paddings pt-28 md:pb-5 md:pt-[98px] sm:pt-[74px]">
+      <div className="container lg:px-8 sm:px-5">
+        <Heading
+          className="text-center tracking-snug lg:text-[40px] md:text-[32px] sm:text-[28px]"
+          tag="h2"
+          size="44"
+          theme="white"
+        >
           {TITLE}
         </Heading>
-        <div className="md:scrollbar-hidden mx-auto mt-16 max-w-[1220px] md:-mx-7 md:mt-14 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-11 sm:px-4">
-          <div className="grid min-w-[924px] grid-cols-8 items-start">
-            <div className="col-span-2 mt-[120px]">
+        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1216px] lg:mt-3.5 md:-mx-7 md:mt-3.5 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
+          <div className="grid min-w-[924px] grid-cols-[250px_300px_300px_300px] items-start justify-center lg:grid-cols-[292px_214px_214px_214px] md:grid-cols-[256px_214px_214px_214px] md:justify-start">
+            <div className="mt-[79px] md:mt-[69px]">
               {LABELS.map(({ title, items }, index) => (
-                <div className="mt-8 border-b border-gray-2 first:mt-0" key={index}>
-                  <span className="text-lg font-medium leading-normal lg:text-base">{title}</span>
-                  <ul className="mt-[5px] flex flex-col divide-y divide-gray-2">
+                <div
+                  className="mt-[29px] border-b border-dashed border-gray-4 first:mt-0 first:border-transparent"
+                  key={index}
+                >
+                  <span className="mb-5 block text-[20px] font-medium leading-normal tracking-snug">
+                    {title}
+                  </span>
+                  <ul
+                    className={clsx(
+                      'mt-1 flex flex-col divide-y divide-dashed divide-gray-4 border-t border-dashed border-gray-4',
+                      {
+                        'border-none': index === 0,
+                      }
+                    )}
+                  >
                     {Object.keys(items).map((item, index) => {
                       const isActive = `${item}-${index}` === currentRow;
                       return (
                         <li
                           className={clsx(
-                            'flex h-10 items-center text-sm font-book leading-snug text-gray-10',
+                            'relative flex h-[54px] items-center text-[16px] font-book leading-snug tracking-snug text-gray-10',
                             {
-                              'bg-[#101010]': isActive,
+                              'bg-[#14141F] before:absolute before:inset-y-0 before:-left-2 before:rounded-l-[6px] before:border-l-[8px] before:border-[#14141F]':
+                                isActive,
                             }
                           )}
                           data-row-id={`${item}-${index}`}
@@ -67,7 +85,6 @@ const PricingPlans = ({ activeTier }) => {
             </div>
             {Object.keys(PLANS).map((plan, index) => (
               <PlanCard
-                className="col-span-2"
                 activeTier={activeTier}
                 currentRow={currentRow}
                 key={index}

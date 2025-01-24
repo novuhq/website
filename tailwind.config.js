@@ -67,6 +67,7 @@ module.exports = {
       purple: {
         DEFAULT: '#9092FF',
         2: '#E18CF2',
+        3: '#C25CD6',
       },
       red: {
         DEFAULT: '#E51A5E',
@@ -157,6 +158,8 @@ module.exports = {
         'radial-gradient(78.44% 46.25% at 27.61% 0%, rgba(194, 229, 255, 0.08) 0%, rgba(194, 240, 255, 0.00) 76.65%), linear-gradient(168deg, rgba(38, 45, 60, 0.45) 6.29%, rgba(38, 40, 60, 0.18) 91.42%)',
       'green-code-border':
         'radial-gradient(203.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.18) 74%, rgba(212, 250, 255, 0.05) 100%)',
+      'pink-gradient-border':
+        'radial-gradient(114.29% 113.4% at 94% -13.4%, #ECD1FA 10.74%, rgba(95, 82, 122, 0.3) 49.79%, rgba(168, 148, 209, 0.1) 100%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {

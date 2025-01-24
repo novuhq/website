@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
-import ChevronIcon from 'icons/chevron.inline.svg';
+import ChevronIcon from 'icons/faq-arrow.inline.svg';
 import { buttonClick } from 'utils/use-landing-simple-tracking';
 
 const ANIMATION_DURATION = 0.3;
@@ -24,31 +24,36 @@ const Question = ({ question, answer }) => {
   return (
     <li>
       <button
-        className="inline-flex w-full items-center justify-between pb-4 pt-5 sm:space-x-10"
+        className="inline-flex w-full items-center justify-between pb-4 pt-5 sm:gap-x-6 sm:pt-[18px]"
         type="button"
         onClick={handleButtonClick}
       >
-        <span className="text-left text-2xl leading-denser md:text-[22px] sm:text-lg sm:leading-tight">
+        <span className="text-start text-[20px] font-medium leading-snug tracking-snug sm:text-[18px]">
           {question}
         </span>
         <ChevronIcon
           className={clsx(
-            'h-auto w-4 shrink-0 transition-transform duration-200 md:w-3 2xs:w-2.5',
+            'mr-1.5 h-auto w-4 shrink-0 transition-transform duration-200 md:mr-3 sm:mr-[5px]',
             isOpen && '-rotate-180'
           )}
         />
       </button>
-      <motion.div
-        className="overflow-hidden"
-        initial="hidden"
-        animate={isOpen ? 'visible' : 'hidden'}
-        variants={variantsAnimation}
-        transition={{ duration: ANIMATION_DURATION }}
-      >
-        <div className="pb-5 pt-3 text-left text-lg font-book text-gray-10 md:mr-14 sm:mr-7 sm:text-base">
-          {answer}
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="overflow-hidden"
+            initial="hidden"
+            animate={isOpen ? 'visible' : 'hidden'}
+            variants={variantsAnimation}
+            exit="hidden"
+            transition={{ duration: ANIMATION_DURATION }}
+          >
+            <div className="max-w-[752px] pb-7 pt-0 text-[18px] font-book leading-normal tracking-snug text-gray-8 md:mr-14 sm:mr-7 sm:pb-[22px] sm:text-[16px]">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </li>
   );
 };

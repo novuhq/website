@@ -51,8 +51,8 @@ const getPricingData = (rangeValue) => [
     items: ['30K events/month included'],
     buttons: {
       default: {
-        text: 'Get started for free',
-        url: LINKS.getStartedPricingFree.to,
+        text: 'Try Novu for Free',
+        url: { to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free' },
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
@@ -91,8 +91,10 @@ const getPricingData = (rangeValue) => [
     ],
     buttons: {
       default: {
-        text: 'Get started for free',
-        url: LINKS.getStartedPricingBus.to,
+        text: 'Try Novu For Free',
+        url: {
+          to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_business',
+        },
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Business',
@@ -122,7 +124,7 @@ const getPricingData = (rangeValue) => [
     buttons: {
       default: {
         text: 'Contact us',
-        url: LINKS.pricingContactUs.to,
+        url: { to: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise' },
         onClick: () => {
           buttonClick('contact_us_pricing_ent', { type: 'enterprise_contact' });
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {

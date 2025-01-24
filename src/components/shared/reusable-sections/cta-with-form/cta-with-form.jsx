@@ -87,7 +87,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
                   aria-hidden
                 />
                 <img
-                  className="pointer-events-none absolute bottom-[-105px] left-[-69px] z-0 max-w-none"
+                  className="pointer-events-none absolute -bottom-[105px] -left-[69px] z-0 max-w-none"
                   src={codeDots}
                   width={482}
                   height={206}
@@ -110,21 +110,23 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
                   {leftItem.text}
                 </Button>
               )}
-              <Button
-                className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
-                theme="gray-outline"
-                size="sm"
-                to={rightItem.link}
-                rel={rightItem.rel}
-                target={rightItem.target}
-              >
-                {rightItem.text}
-              </Button>
+              {rightItem && rightItem.text && (
+                <Button
+                  className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
+                  theme="gray-outline"
+                  size="sm"
+                  to={rightItem.link}
+                  rel={rightItem.rel}
+                  target={rightItem.target}
+                >
+                  {rightItem.text}
+                </Button>
+              )}
             </div>
           </div>
         </div>
         <img
-          className="pointer-events-none absolute bottom-[-435px] left-[-357px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
+          className="pointer-events-none absolute -bottom-[435px] -left-[357px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
           src={background}
           width={1523}
           height={1012}
