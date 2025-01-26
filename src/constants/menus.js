@@ -12,7 +12,6 @@ import EmailIcon from 'images/header/email-icon.svg';
 import FeaturesIcon from 'images/header/features-icon.svg';
 import FrameworkIcon from 'images/header/framework-icon.svg';
 import GettingStartedIcon from 'images/header/getting-started-icon.svg';
-import GuideIcon from 'images/header/guide-icon.svg';
 import InAppIcon from 'images/header/in-app-icon.svg';
 import JoinUsIcon from 'images/header/join-us-icon.svg';
 import LibraryIcon from 'images/header/library-icon.svg';
@@ -157,11 +156,6 @@ const MENUS = {
                 to: 'https://docs.novu.co/sdks/overview?utm_campaign=ws_nav',
               },
               { title: "What's new", icon: NewsIcon, to: 'https://roadmap.novu.co/changelog' },
-              {
-                title: 'How to guides',
-                icon: GuideIcon,
-                to: 'hhttps://docs.novu.co/recipes/workflows/introduction?utm_campaign=ws_nav',
-              },
               {
                 title: 'Components',
                 icon: ComponentIcon,
