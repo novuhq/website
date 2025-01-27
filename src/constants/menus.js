@@ -55,7 +55,7 @@ const MENUS = {
               {
                 title: 'User preferences',
                 icon: UserIcon,
-                to: '/inbox/react/components/preferences?utm_campaign=ws_nav',
+                to: 'https://docs.novu.co/inbox/react/components/preferences?utm_campaign=ws_nav',
               },
               { title: 'Digest', icon: WorkflowDigestIcon, to: '/digest/?utm_campaign=ws_nav' },
               {
