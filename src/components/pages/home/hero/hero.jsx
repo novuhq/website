@@ -10,7 +10,7 @@ import Animation from './animation';
 const TITLE = 'Robust and flexible notification building blocks';
 
 const DESCRIPTION =
-  'The open-source notification infrastructure for in-app, email, push, chat, and push.';
+  'The open-source notification infrastructure for in-app, email, sms, chat, and push.';
 
 const Hero = () => (
   <section className="hero relative mb-20 pt-[80px] lg:pt-[196px] md:pt-[98px] sm:mb-10">
