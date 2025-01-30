@@ -18,3 +18,45 @@
 #   to = "https://inbox.novu.co/inbox/playground/api/trigger"
 #   status = 200
 #   force = true
+
+[[redirects]]
+    from = "/inbox/playground"
+    to = "https://inbox.novu.co/"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+  
+[[redirects]]
+    from = "/images/*"
+    to = "https://inbox.novu.co/images/:splat"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/_next/*"
+    to = "https://inbox.novu.co/_next/:splat"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/novuLogo.svg"
+    to = "https://inbox.novu.co/novuLogo.svg"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/api/trigger"
+    to = "https://inbox.novu.co/api/trigger"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
+
+[[redirects]]
+    from = "/api/novu"
+    to = "https://inbox.novu.co/api/novu"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
