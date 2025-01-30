@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types, jsx-a11y/html-has-lang */
+import { Analytics as DubAnalytics } from '@dub/analytics/react';
 import React from 'react';
 
 const fontsBasePath = '/fonts';
@@ -42,6 +43,7 @@ const HTML = ({
       <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
       {postBodyComponents}
     </body>
+    <DubAnalytics />
   </html>
 );
 

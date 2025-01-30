@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@dub/analytics": "^0.0.25",
     "@gsap/react": "^2.1.1",
     "@inkeep/widgets": "^0.2.289",
     "@netlify/functions": "^2.8.2",
