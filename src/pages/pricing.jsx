@@ -30,7 +30,7 @@ const PRICING_PLANS = [
     price: '$250',
     paymentPeriod: 'month',
     button: {
-      text: 'Free for 30 days',
+      text: 'Free for 14 days',
       theme: 'white-filled',
       link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
