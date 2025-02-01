@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-// import Button from 'components/shared/button';
-// import LINKS from 'constants/links';
-// import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
+import Button from 'components/shared/button';
+import LINKS from 'constants/links';
+import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
 
 import Animation from './animation';
 
@@ -22,26 +22,26 @@ const Hero = () => (
         <p className="mt-5 max-w-xl text-center text-lg leading-normal tracking-snug text-gray-8">
           {DESCRIPTION}
         </p>
-        {/* <div className="justify-left relative z-10 mt-11 flex items-center gap-x-7 gap-y-5 sm:mt-7 sm:justify-center sm:gap-x-4 2xs:flex-wrap">
+        <div className="justify-left relative z-10 mt-11 flex items-center gap-x-7 gap-y-5 sm:mt-7 sm:justify-center sm:gap-x-4 2xs:flex-wrap">
           <Button
-            className="w-[208px] sm:text-xs sm-xs:w-full"
-            size="sm"
+            className="sm:text-xs sm-xs:w-full"
+            size="xs"
             theme="white-filled"
             {...LINKS.getStarted}
             onClick={useLandingSimpleTracking('get_started', { type: 'homepage' })}
           >
-            Create Free Account
+            Start for free
           </Button>
           <Button
-            className="w-[208px] sm:text-xs sm-xs:w-full"
-            size="sm"
+            className="sm:text-xs sm-xs:w-full"
+            size="xs"
             theme="gray-outline"
-            {...LINKS.contactUsCTA}
+            {...LINKS.documentation}
             onClick={useLandingSimpleTracking('contact_us', { type: 'homepage' })}
           >
-            Contact Us
+            Visit Docs
           </Button>
-        </div> */}
+        </div>
       </div>
     </div>
     <div className="pointer-events-none absolute left-0 top-0 z-0 hidden h-full w-full md:relative md:mx-auto md:block md:aspect-[1.2] md:h-auto md:w-[702px] sm:aspect-[0.65] sm:w-80">
