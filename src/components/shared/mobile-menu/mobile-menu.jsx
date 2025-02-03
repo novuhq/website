@@ -44,7 +44,8 @@ const MobileMenu = ({ isOpen }) => {
 
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
-    if (topBanner) {
+    const linkBanner = document.querySelector('.link-banner');
+    if (topBanner || linkBanner) {
       setIsBanner(true);
     }
   }, []);
