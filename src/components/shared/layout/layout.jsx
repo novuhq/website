@@ -10,6 +10,7 @@ import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
 import MobileMenu from 'components/shared/mobile-menu';
 import UtmParams from 'components/shared/utm-params';
+import useHubspotBanner from 'hooks/use-hubspot-banner';
 // import Banner from '../banner/banner';
 
 const Layout = ({ className, mainClassName, children, headerTheme = 'default' }) => {
@@ -17,6 +18,8 @@ const Layout = ({ className, mainClassName, children, headerTheme = 'default' })
   const [isCookieBannerVisible, setIsCookieBannerVisible] = useState(false);
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  useHubspotBanner();
 
   return (
     <>
