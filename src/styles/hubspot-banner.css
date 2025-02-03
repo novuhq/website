@@ -1,4 +1,4 @@
-@layer components {
+#hs-web-interactives-top-anchor {
   div[id^='hs-overlay-cta'] {
     @apply !h-9;
   }
@@ -11,7 +11,7 @@
     }
 
     a.interactive-button {
-      @apply after:bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='10' viewBox='0 0 6 10' fill='none'%3E%3Cpath d='M1 9L4.85746 5.2025C4.93618 5.12501 4.93716 4.99836 4.85966 4.91965L1 1' stroke='%23999999' stroke-width='1.4' stroke-miterlimit='10' stroke-linecap='round'/%3E%3C/svg%3E")] flex items-center justify-center gap-3 bg-[#0B0C0F] bg-[url('/images/bg-banner.jpg')] !p-[9px] !font-sans !text-sm !font-medium text-white duration-200 after:relative after:mt-[3px] after:block after:h-2.5 after:w-1.5 hover:!gap-6 hover:!text-primary-1 focus-visible:!gap-6 focus-visible:!text-primary-1;
+      @apply flex items-center justify-center gap-3 bg-[#0B0C0F] bg-[url('/images/bg-banner.jpg')] !p-[9px] !font-sans !text-sm !font-medium text-white duration-200 after:relative after:mt-[3px] after:block after:h-2.5 after:w-1.5 after:bg-banner-arrow hover:!gap-6 hover:!text-primary-1 focus-visible:!gap-6 focus-visible:!text-primary-1 xs:gap-1 hover:xs:gap-2 focus-visible:xs:gap-2;
     }
   }
 }

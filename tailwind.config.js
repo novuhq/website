@@ -77,6 +77,8 @@ module.exports = {
       },
     }),
     backgroundImage: {
+      'banner-arrow':
+        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='10' viewBox='0 0 6 10' fill='none'%3E%3Cpath d='M1 9L4.85746 5.2025C4.93618 5.12501 4.93716 4.99836 4.85966 4.91965L1 1' stroke='%23999999' stroke-width='1.4' stroke-miterlimit='10' stroke-linecap='round'/%3E%3C/svg%3E\")",
       'join-us': 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.7) 100%);',
       'input-gradient':
         'linear-gradient(268deg, #FFBB33 14.72%, #FFFFFF 51.94%, #E300BD 82.34%, #FF006A 94.81%)',
