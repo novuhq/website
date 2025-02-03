@@ -1,8 +1,6 @@
-import LINKS from 'constants/links';
-
 const bannerData = {
-  text: 'See the results of our State of Product survey',
-  url: LINKS.home.to,
+  text: 'Winter Season Launch Week is happening this week, Read More',
+  url: 'https://go.novu.co/gFfjEj4',
   isActive: true,
 };
 
