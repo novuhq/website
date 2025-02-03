@@ -8,9 +8,9 @@ import CookieBanner from 'components/shared/cookie-banner';
 import FloatingButton from 'components/shared/floating-button';
 import Footer from 'components/shared/footer';
 import Header from 'components/shared/header';
+import LinkBanner from 'components/shared/link-banner';
 import MobileMenu from 'components/shared/mobile-menu';
 import UtmParams from 'components/shared/utm-params';
-import useHubspotBanner from 'hooks/use-hubspot-banner';
 // import Banner from '../banner/banner';
 
 const Layout = ({ className, mainClassName, children, headerTheme = 'default' }) => {
@@ -19,13 +19,12 @@ const Layout = ({ className, mainClassName, children, headerTheme = 'default' })
 
   const handleHeaderBurgerClick = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  useHubspotBanner();
-
   return (
     <>
       <ConversionInitiator />
       <UtmParams />
       {/* <Banner /> */}
+      <LinkBanner />
       <div className={clsx('relative flex min-h-screen flex-col', className)}>
         <Header
           theme={headerTheme}
