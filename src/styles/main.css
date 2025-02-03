@@ -14,6 +14,7 @@
 @import './content.css';
 @import '../components/shared/input-range/input-range.css';
 @import '../components/pages/timeline/timeline/timeline.css';
+@import './hubspot-banner.css';
 
 /* Utilities */
 @import './border-gradient.css';
