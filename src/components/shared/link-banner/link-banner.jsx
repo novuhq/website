@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'components/shared/link';
 import bannerData from 'data/link-banner';
 
-import bgImage from './images/banner-bg.svg';
+import bgImage from './images/banner-bg.jpg';
 
 const LinkBanner = () => {
   const { text, url, isActive } = bannerData;
@@ -25,6 +25,7 @@ const LinkBanner = () => {
         className="absolute inset-y-0 left-1/2 h-auto min-w-[1920px] -translate-x-1/2 xs:-translate-x-[45%] sm-xs:-translate-x-[40%]"
         src={bgImage}
         alt=""
+        loading="eager"
         aria-hidden
       />
     </section>
