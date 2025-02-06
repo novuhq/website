@@ -191,7 +191,7 @@ const Container = ({ theme, categories, messages }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="relative z-30 w-[608px] overflow-hidden rounded-[20px] px-5 pb-[22px] lg:w-[531px]">
+      <div className="relative z-30 w-[608px] overflow-hidden rounded-[20px] px-5 lg:w-[531px]">
         <header className="relative z-40 flex h-[46px] items-center">
           <LogoIcon className={clsx('size-[18px] shrink-0', currentTheme.header.logo)} />
           {currentTheme.header.logoText && (

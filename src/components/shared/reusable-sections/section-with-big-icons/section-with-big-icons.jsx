@@ -21,7 +21,12 @@ const SectionWithBigIcons = ({ className, title, items, isCentered }) => (
       >
         {title}
       </Heading>
-      <ul className="grid-rows-auto mt-14 grid grid-cols-3 gap-x-16 gap-y-12 lg:mt-12 lg:max-w-none lg:gap-x-9 lg:px-9 md:mt-10 md:gap-x-7 md:gap-y-8 md:px-0 sm:mt-8 sm:grid-cols-2 sm:gap-7 sm-xs:grid-cols-1">
+      <ul
+        className={clsx(
+          'grid-rows-auto mt-14 grid grid-cols-3 gap-x-16 gap-y-12 lg:mt-12 lg:max-w-none lg:gap-x-9 lg:px-9 md:mt-10 md:gap-x-7 md:gap-y-8 md:px-0 sm:mt-8 sm:gap-7 sm-xs:grid-cols-1',
+          isCentered ? 'sm:grid-cols-1' : 'sm:grid-cols-2'
+        )}
+      >
         {items.map(({ icon, title, description, linkUrl, linkText }, index) => (
           <li key={index} className={clsx('flex flex-col', isCentered && 'items-center')}>
             <img
@@ -35,7 +40,12 @@ const SectionWithBigIcons = ({ className, title, items, isCentered }) => (
             <h3 className="mt-5 text-xl leading-denser tracking-snug lg:mt-4 md:text-xl sm:mt-3.5 sm:text-lg">
               {title}
             </h3>
-            <p className="mt-2 text-[15px] font-light leading-snug tracking-snug text-gray-8">
+            <p
+              className={clsx(
+                'mt-2 text-[15px] font-light leading-snug tracking-snug text-gray-8',
+                isCentered && 'text-center sm:max-w-[280px]'
+              )}
+            >
               {description}
             </p>
             <Link

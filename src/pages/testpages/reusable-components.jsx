@@ -4,15 +4,13 @@ import React from 'react';
 
 import Layout from 'components/shared/layout';
 import BlogPosts from 'components/shared/reusable-sections/blog-posts';
-import CodeSection from 'components/shared/reusable-sections/code-section';
+import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CTA from 'components/shared/reusable-sections/cta/cta';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import Events from 'components/shared/reusable-sections/events';
 import EventsWithImages from 'components/shared/reusable-sections/events-with-images';
-import GetInvolved from 'components/shared/reusable-sections/get-involved';
 import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
-import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
@@ -21,9 +19,6 @@ import Testimonials from 'components/shared/reusable-sections/testimonials';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import SEO from 'components/shared/seo';
 import LINKS from 'constants/links';
-import discordIcon from 'icons/discord.svg';
-import githubIcon from 'icons/github.svg';
-import novuIcon from 'icons/novu-gradient-logo.svg';
 import bugIcon from 'images/icons/bug.svg';
 import cloudDataIcon from 'images/icons/cloud-data.svg';
 import consoleIcon from 'images/icons/console.svg';
@@ -123,6 +118,26 @@ const SECTION_WITH_BIG_ICONS = [
     linkUrl: 'https://docs.novu.co/community/get-involved#create-content',
   },
 ];
+const SECTION_WITH_BIG_ICONS_3 = [
+  {
+    icon: paintIcon,
+    title: 'Create content',
+    description: 'Help others discover Novu with videos and blog articles.',
+    linkUrl: 'https://docs.novu.co/community/get-involved#create-content',
+  },
+  {
+    icon: microphoneIcon,
+    title: 'Present at meetups',
+    description: 'Share your experience and represent Novu in public meetups.',
+    linkUrl: 'https://docs.novu.co/community/get-involved#create-content',
+  },
+  {
+    icon: bugIcon,
+    title: 'Report bugs',
+    description: 'Find and fix bugs in the code, then submit pull requests to resolve them.',
+    linkUrl: 'https://roadmap.novu.co/roadmap',
+  },
+];
 
 const TESTIMONIALS = [
   {
@@ -148,7 +163,7 @@ const TESTIMONIALS = [
   },
 ];
 
-const SECTION_WITH_LOGOS = [
+const SECTION_WITH_LOGOS_MD = [
   {
     title: 'MJML',
     src: mjmlLogo,
@@ -191,75 +206,54 @@ const SECTION_WITH_LOGOS = [
   },
 ];
 
-const SECTION_WITH_CARDS = [
+const SECTION_WITH_LOGOS_LG = [
   {
-    image: (
-      <StaticImage
-        className="size-full object-cover"
-        src="../../images/placeholder-image.jpg"
-        alt="Placeholder image"
-        loading="lazy"
-        width={384}
-        height={214}
-      />
-    ),
-    title: 'Missed Updates',
-    description:
-      'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
+    title: 'MJML',
+    src: mjmlLogo,
   },
   {
-    image: (
-      <StaticImage
-        className="size-full object-cover"
-        src="../../images/placeholder-image.jpg"
-        alt="Placeholder image"
-        loading="lazy"
-        width={384}
-        height={214}
-      />
-    ),
-    title: 'Irrelevant Notifications',
-    description:
-      'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
+    title: 'NestJS',
+    src: nestJsLogo,
   },
   {
-    image: (
-      <StaticImage
-        className="size-full object-cover"
-        src="../../images/placeholder-image.jpg"
-        alt="Placeholder image"
-        loading="lazy"
-        width={384}
-        height={214}
-      />
-    ),
-    title: 'Negative Brand Perception',
-    description:
-      'Poorly managed notifications can reflect negatively on the brand, portraying it as intrusive, unorganized, or unresponsive to user needs and preferences.',
-  },
-];
-
-const GET_INVOLVED = [
-  {
-    icon: novuIcon,
-    title: 'Novu Cloud',
-    description: 'Embark on your journey by creating your personalized account',
-    linkText: 'Get started',
-    linkUrl: 'https://dashboard-v2.novu.co/?utm_campaign=community_page',
+    title: 'Remix',
+    src: remixLogo,
   },
   {
-    icon: discordIcon,
-    title: 'Join Discord',
-    description: 'Immerse yourself in the community by joining our dedicated server',
-    linkText: 'Join discord',
-    linkUrl: 'https://discord.novu.co/',
+    title: 'Astro',
+    src: astroLogo,
   },
   {
-    icon: githubIcon,
-    title: 'Fork and Work',
-    description: 'Discover an issue within our project and make a valuable contribution',
-    linkText: 'Find an issue',
-    linkUrl: 'https://github.com/novuhq/novu/issues',
+    title: 'Hono',
+    src: honoLogo,
+  },
+  {
+    title: 'Twilio Segment',
+    src: twilioLogo,
+  },
+  {
+    title: 'React Email',
+    src: reactEmailLogo,
+  },
+  {
+    title: 'LaunchDarkly',
+    src: launchDarklyLogo,
+  },
+  {
+    title: 'Express',
+    src: expressLogo,
+  },
+  {
+    title: 'Koa',
+    src: koaLogo,
+  },
+  {
+    title: 'Express',
+    src: expressLogo,
+  },
+  {
+    title: 'Koa',
+    src: koaLogo,
   },
 ];
 
@@ -576,15 +570,29 @@ const ReusableComponents = (props) => {
         theme="imageFullWidth"
       />
       <SectionWithSmallIcons title="SectionWithSmallIcons" items={SECTION_WITH_SMALL_ICONS} />
+      <SectionWithSmallIcons
+        title="SectionWithSmallIcons"
+        items={SECTION_WITH_SMALL_ICONS}
+        hasOutroText
+      />
       <SectionWithBigIcons title="SectionWithBigIcons" items={SECTION_WITH_BIG_ICONS} />
+      <SectionWithBigIcons
+        title="SectionWithBigIcons"
+        items={SECTION_WITH_BIG_ICONS_3}
+        isCentered
+      />
       <Testimonials title="Testimonials" testimonials={TESTIMONIALS} />
       <SectionWithLogos
         title="SectionWithLogos"
         description="Built from scratch to integrate your existing tooling and content with the Novu Platform."
-        logos={SECTION_WITH_LOGOS}
+        logos={SECTION_WITH_LOGOS_MD}
       />
-      <GetInvolved title="GetInvolved" items={GET_INVOLVED} />
-      <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} />
+      <SectionWithLogos
+        title="SectionWithLogos"
+        description="Built from scratch to integrate your existing tooling and content with the Novu Platform."
+        logos={SECTION_WITH_LOGOS_LG}
+        containerSize="lg"
+      />
       <Events
         title="Events"
         description="Let’s say you’ve been tasked to build an application to help consumers find agencies
@@ -701,29 +709,85 @@ const ReusableComponents = (props) => {
           'Since live webinars only happen once, planning for promotion of your webinar event is crucial to maximize the value for your business. On average, 85% of registrations occur in the last 2 weeks leading up to the webinar, with 29% registering on the same day.',
         ]}
       />
-      <CodeSection
+      <CodeSectionNew
         code={CODE_SECTION}
-        title="CodeSection"
+        title="CodeSectionNew"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{ label: 'Learn more', link: '/' }}
       />
-      <CodeSection
+      <CodeSectionNew
         code={CODE_SECTION}
-        title="CodeSection"
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{ label: 'Learn more', link: '/', theme: 'white-filled' }}
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
       />
-      <CodeSection
+      <CodeSectionNew
         code={CODE_SECTION}
-        title="CodeSection"
+        title="CodeSectionNew"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
         button={{ label: 'Learn more', link: '/' }}
-        codePosition="right"
+        codeBlockSize="lg"
       />
-      <CodeSection
+      <CodeSectionNew
         code={CODE_SECTION}
-        title="CodeSection"
+        title="CodeSectionNew"
         description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
-        codePosition="right"
+        button={{ label: 'Learn more', link: '/', theme: 'white-filled' }}
+        codeBlockSize="lg"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        codeBlockSize="lg"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{ label: 'Learn more', link: '/' }}
+        codeBlockPosition="right"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{ label: 'Learn more', link: '/', theme: 'white-filled' }}
+        codeBlockPosition="right"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        codeBlockPosition="right"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{ label: 'Learn more', link: '/' }}
+        codeBlockSize="lg"
+        codeBlockPosition="right"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{ label: 'Learn more', link: '/', theme: 'white-filled' }}
+        codeBlockSize="lg"
+        codeBlockPosition="right"
+      />
+      <CodeSectionNew
+        code={CODE_SECTION}
+        title="CodeSectionNew"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        codeBlockSize="lg"
+        codeBlockPosition="right"
       />
       <Inbox
         title="Inbox"
@@ -733,6 +797,17 @@ const ReusableComponents = (props) => {
           link: 'https://docs.novu.co/getting-started/introduction',
         }}
       />
+      <Inbox
+        title="Inbox"
+        description="Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users."
+        button={{
+          label: 'Learn more',
+          link: 'https://docs.novu.co/getting-started/introduction',
+        }}
+        inboxPosition="right"
+        initialThemeIndex={3}
+      />
+
       <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />
       <SectionWithForm {...SECTION_WITH_FORM_LEFT} />
     </Layout>

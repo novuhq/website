@@ -34,7 +34,7 @@ const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) =
         </p>
         <ul
           className={clsx(
-            'mt-9 grid px-1 lg:mt-8 md:mt-7 sm:mt-6 sm:grid-cols-2',
+            'mt-11 grid lg:mt-10 md:mt-8 sm:mt-7 sm:grid-cols-2',
             `grid-cols-${gridCols}`
           )}
         >

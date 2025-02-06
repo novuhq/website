@@ -1,9 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import CodeSection from 'components/pages/framework/code-section';
 import Bento from 'components/shared/bento';
 import Layout from 'components/shared/layout';
+import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
@@ -20,17 +20,7 @@ import reactEmailLogo from 'images/reusable-sections/section-with-logos/react-em
 import remixLogo from 'images/reusable-sections/section-with-logos/remix.svg';
 import twilioLogo from 'images/reusable-sections/section-with-logos/twilio.svg';
 
-const CODE_SECTION = {
-  className: 'mt-[134px] mb-[222px] lg:mb-[134px] md:mt-[100px] md:mb-[145px] sm:mt-20',
-  title: 'Code-backed workflows can accomplish anything',
-  description:
-    'Optionally extend your Novu workflows with a locally-run Novu Framework engine. Define workflows in code, tie into local data, apply advanced logic, and solve for any notifications requirement imaginable.',
-  containerClassName: 'max-w-[1470px] gap-x-[121px] lg:gap-x-16',
-  textContentClassName: 'max-w-[417px] lg:max-w-lg',
-  codeClassName: 'max-w-[806px] xl:max-w-[672px]',
-  isPriorityImageLoading: true,
-  btnStyle: 'white-filled',
-  code: `import { workflow, CronExpression } from '@novu/framework';
+const CODE_SECTION = `import { workflow, CronExpression } from '@novu/framework';
 import { z } from 'zod';
 import { render } from '@react-email/components';
 
@@ -60,12 +50,7 @@ const weeklyComments = workflow('weekly-comments', async (event) => {
 await weeklyComments.trigger({
   payload: { userName: 'John Doe', comment: 'Are you free to give me a call?' },
   to: 'jane@acme.com'
-});`,
-  button: {
-    label: 'Try Novu',
-    link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_framework',
-  },
-};
+});`;
 
 const SECTION_WITH_CARDS = {
   title: 'Made for developers',
@@ -281,7 +266,19 @@ const SECTION_BENTO = {
 const FrameworkPage = () => (
   <Layout mainClassName="overflow-hidden pt-16 sm:pt-14 bg-[#05050B]">
     <h1 className="sr-only">Framework</h1>
-    <CodeSection {...CODE_SECTION} />
+    <CodeSectionNew
+      code={CODE_SECTION}
+      className="mb-[222px] mt-[134px] lg:mb-[134px] md:mb-[145px] md:mt-[100px] sm:mt-20"
+      title="Code-backed workflows can accomplish anything"
+      description="Optionally extend your Novu workflows with a locally-run Novu Framework engine. Define workflows in code, tie into local data, apply advanced logic, and solve for any notifications requirement imaginable."
+      codeBlockSize="lg"
+      button={{
+        label: 'Try Novu',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_framework',
+        theme: 'white-filled',
+      }}
+      isPriorityImageLoading
+    />
     <SectionWithCards {...SECTION_WITH_CARDS} />
     <Bento {...SECTION_BENTO} />
     <CtaWithForm

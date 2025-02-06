@@ -11,35 +11,35 @@ import dots from './images/dots.svg';
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 
-const CodeSection = ({
+const CodeSectionNew = ({
   className,
   title,
   description,
   button,
-  containerClassName,
-  textContentClassName,
   code,
-  codePosition,
-  codeClassName,
+  codeBlockPosition,
+  codeBlockSize,
   isPriorityImageLoading,
-  btnStyle,
 }) => (
   <section
     className={clsx(
-      'code-section safe-paddings mt-[300px] lg:mt-30 md:mt-[100px] sm:mt-20',
+      'code-section-new safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20',
       className
     )}
   >
     <div
       className={clsx(
-        'container flex max-w-[1348px] items-center gap-x-[140px] md:flex-col',
-        containerClassName
+        'flex items-center md:flex-col',
+        codeBlockSize === 'lg' && 'container max-w-[1470px] gap-x-[122px] lg:gap-x-16',
+        codeBlockSize === 'md' && 'container-lg gap-x-[64px]',
+        codeBlockPosition === 'right' && 'justify-end'
       )}
     >
       <div
         className={clsx(
-          'relative w-full max-w-[629px] rounded-[20px] bg-[#05050B] bg-code-underlay-border p-px lg:max-w-[532px] md:mt-12 md:w-full md:max-w-[672px] sm:max-w-[520px]',
-          codeClassName
+          'relative w-full rounded-[20px] bg-[#05050B] bg-code-underlay-border p-px lg:max-w-[532px] md:mt-12 md:w-full md:max-w-[672px] sm:max-w-[520px]',
+          codeBlockSize === 'md' && 'max-w-[672px]',
+          codeBlockSize === 'lg' && 'max-w-[806px] xl:max-w-[672px]'
         )}
       >
         <div className="code-block-bg relative z-10 h-full w-full overflow-hidden rounded-[20px] p-5 [transform:translateZ(0)] sm:p-4">
@@ -135,9 +135,10 @@ const CodeSection = ({
       </div>
       <div
         className={clsx(
-          'mt-[76px] max-w-[474px] md:order-first md:max-w-lg md:text-center',
-          codePosition === 'right' && 'order-first',
-          textContentClassName
+          'lg:max-w-none md:order-first md:max-w-lg md:text-center',
+          codeBlockPosition === 'right' && 'order-first xl:max-w-none',
+          codeBlockSize === 'lg' && 'max-w-[416px]',
+          codeBlockSize === 'md' && 'max-w-[480px]'
         )}
       >
         <Heading
@@ -153,7 +154,7 @@ const CodeSection = ({
         {button && (
           <Button
             className="mt-8"
-            theme={btnStyle}
+            theme={button.theme || 'gray-outline'}
             size="sm"
             to={button.link}
             rel={button.rel}
@@ -167,34 +168,31 @@ const CodeSection = ({
   </section>
 );
 
-CodeSection.propTypes = {
+CodeSectionNew.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   className: PropTypes.string,
   containerClassName: PropTypes.string,
-  textContentClassName: PropTypes.string,
-  codeClassName: PropTypes.string,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     rel: PropTypes.string,
     target: PropTypes.string,
+    theme: PropTypes.oneOf(['gray-outline', 'white-filled']),
   }),
   code: PropTypes.string.isRequired,
-  codePosition: PropTypes.oneOf(['left', 'right']),
+  codeBlockPosition: PropTypes.oneOf(['left', 'right']),
   isPriorityImageLoading: PropTypes.bool,
-  btnStyle: PropTypes.oneOf(['gray-outline', 'white-filled']),
+  codeBlockSize: PropTypes.oneOf(['lg', 'md']),
 };
 
-CodeSection.defaultProps = {
+CodeSectionNew.defaultProps = {
   className: '',
   containerClassName: '',
-  textContentClassName: '',
-  codeClassName: '',
   button: null,
-  codePosition: 'left',
+  codeBlockPosition: 'left',
   isPriorityImageLoading: false,
-  btnStyle: 'gray-outline',
+  codeBlockSize: 'md',
 };
 
-export default CodeSection;
+export default CodeSectionNew;

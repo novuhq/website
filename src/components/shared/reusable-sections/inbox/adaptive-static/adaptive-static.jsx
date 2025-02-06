@@ -75,10 +75,7 @@ const AdaptiveStatic = ({ theme, className }) => {
 
   return (
     <m.div
-      className={clsx(
-        className,
-        'absolute left-0 top-0 h-full w-full shrink-0 sm:order-last sm:mt-6'
-      )}
+      className={clsx(className, 'absolute left-0 top-0 h-full w-full shrink-0 sm:order-last')}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.3 } }}
       exit={{ opacity: 0 }}

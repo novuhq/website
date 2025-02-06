@@ -4,39 +4,39 @@ import InboxWithImage from 'components/shared/inbox-with-image';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import CodeSection from 'components/pages/inbox/code-section';
-import Inbox from 'components/pages/inbox/inbox';
 import Layout from 'components/shared/layout';
+import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
-import GetInvolved from 'components/shared/reusable-sections/get-involved';
+import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SEO from 'components/shared/seo';
 import changeIcon from 'images/icons/change.svg';
 import cubeIcon from 'images/icons/cube.svg';
+import doublePlusIcon from 'images/icons/double-plus.svg';
+import flashIcon from 'images/icons/flash.svg';
 import guardIcon from 'images/icons/guard.svg';
 import preferencesIcon from 'images/icons/preferences.svg';
 import rhombGridIcon from 'images/icons/rhomb-grid.svg';
+import speedIcon from 'images/icons/speed.svg';
 import userIcon from 'images/icons/user.svg';
-import javaScriptLogo from 'images/reusable-sections/section-with-logos/javascript-icon.svg';
-import reactLogo from 'images/reusable-sections/section-with-logos/react-icon.svg';
 
 const GET_INVOLVED = [
   {
-    icon: reactLogo,
+    icon: doublePlusIcon,
     title: 'Ready',
     description: 'Create a Novu account, and pick your framework of choice.',
     linkText: 'Overview',
     linkUrl: '/',
   },
   {
-    icon: reactLogo,
+    icon: speedIcon,
     title: 'Set',
     description: 'Add the Novu Inbox import to your code.',
     linkText: 'React Quickstart',
     linkUrl: '/',
   },
   {
-    icon: javaScriptLogo,
+    icon: flashIcon,
     title: 'Go',
     description: 'Trigger and deliver notification to the end user.',
     linkText: 'Trigger a Notification',
@@ -240,8 +240,10 @@ const InboxPage = () => (
         target: '_blank',
       }}
       sectionOffsets="mt-[286px]"
+      initialThemeIndex={3}
+      inboxPosition="right"
     />
-    <CodeSection
+    <CodeSectionNew
       code={CODE_SECTION}
       title="Fast, composable, and simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
@@ -249,12 +251,14 @@ const InboxPage = () => (
         label: 'Learn more',
         link: '/',
       }}
+      codeBlockPosition="right"
+      codeBlockSize="lg"
     />
     <BentoFiveBlocks {...SECTION_BENTO} />
-    <GetInvolved
+    <SectionWithBigIcons
       title="For the best Inbox, Ready. Set. Go."
-      bottomMargin="mt-[196px] md:mt-[120px]"
       items={GET_INVOLVED}
+      isCentered
     />
     <CtaWithForm
       className="mb-[207px] mt-[342px] md:mt-[140px]"

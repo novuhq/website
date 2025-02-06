@@ -148,8 +148,6 @@ module.exports = {
         'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.08) 74%, rgba(212, 250, 255, 0.05) 100%)',
       'gray-btn':
         'linear-gradient(258deg, rgba(176, 166, 191, 0.06) -8.62%, rgba(176, 166, 191, 0.03) 113.79%)',
-      'white-gray-gradient':
-        'radial-gradient(66.82% 361.31% at 50.23% -67.39%, #ffffff 0%, #666666 100%)',
       'code-underlay-border':
         'radial-gradient(83.26% 102.85% at 61.61% -2.85%, rgba(135, 188, 195, 0.15) 0%, #1E2438 49%, #05050b 100%)',
       'code-underlay-green':

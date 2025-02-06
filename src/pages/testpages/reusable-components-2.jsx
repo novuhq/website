@@ -114,6 +114,8 @@ const SECTION_WITH_CARDS = [
     title: 'Missed Updates',
     description:
       'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
+    linkText: 'Learn more',
+    linkUrl: '/',
   },
   {
     image: (
@@ -128,6 +130,8 @@ const SECTION_WITH_CARDS = [
     title: 'Irrelevant Notifications',
     description:
       'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
+    linkText: 'Learn more',
+    linkUrl: '/',
   },
   {
     image: (
@@ -142,6 +146,8 @@ const SECTION_WITH_CARDS = [
     title: 'Negative Brand Perception',
     description:
       'Poorly managed notifications can reflect negatively on the brand, portraying it as intrusive, unorganized, or unresponsive to user needs and preferences.',
+    linkText: 'Learn more',
+    linkUrl: '/',
   },
 ];
 
@@ -151,16 +157,17 @@ const ReusableComponents2 = () => (
       title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
       cards={FEATURE_CARDS}
+      columns={3}
     />
     <FeatureCards
       title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
       cards={FEATURE_CARDS_2}
-      columns={2}
     />
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} withBlur />
     <SectionWithForm {...SECTION_WITH_FORM_LEFT} withBlur />
     <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} />
+    <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} withLinks />
   </Layout>
 );
 

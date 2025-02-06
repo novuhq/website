@@ -6,7 +6,7 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const FeatureCards = ({ className, title, titleSize = '44', description, cards, columns = 3 }) => (
+const FeatureCards = ({ className, title, description, cards, columns = 2 }) => (
   <section
     className={clsx(
       'feature-cards safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20',
@@ -24,7 +24,7 @@ const FeatureCards = ({ className, title, titleSize = '44', description, cards, 
       <Heading
         className="mx-auto max-w-[700px] text-center font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
-        size={titleSize}
+        size="44"
         theme="white"
       >
         {title}
@@ -39,28 +39,22 @@ const FeatureCards = ({ className, title, titleSize = '44', description, cards, 
         })}
       >
         {cards.map(({ title, description, linkTitle, linkUrl }, index) => (
-          <li className="rounded-xl bg-common-card-border" key={index}>
+          <li className="min-h-[239px] rounded-xl bg-common-card-border" key={index}>
             <Link
-              className={clsx(
-                'group m-px flex h-[calc(100%-2px)] w-[calc(100%-2px)] flex-col items-start rounded-xl bg-[#0F0F15] lg:p-6',
-                {
-                  'p-[26px]': columns === 3,
-                  'p-8': columns === 2,
-                }
-              )}
+              className="group m-px flex h-[calc(100%-2px)] w-[calc(100%-2px)] flex-col items-start rounded-xl bg-[#0F0F15] p-7 lg:p-6"
               to={linkUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Heading
-                className="leading-denser tracking-snug lg:text-xl"
+                className="font-medium leading-denser tracking-snug lg:text-xl"
                 size="sm"
                 tag="h3"
                 theme="white"
               >
                 {title}
               </Heading>
-              <p className="mb-8 mt-2.5 font-light leading-snug tracking-snug text-gray-8 md:mt-2">
+              <p className="mt-2.5 font-light leading-snug tracking-snug text-gray-8 md:mt-2">
                 {description}
               </p>
               <Link

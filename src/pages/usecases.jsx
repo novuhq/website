@@ -59,7 +59,6 @@ const UseCasesPage = () => (
     />
     <FeatureCards
       title="What do you want to achieve?"
-      titleSize="40"
       description="Define your goals and explore tailored solutions to help you reach them effectively."
       cards={FEATURE_CARDS}
     />

@@ -14,10 +14,17 @@ import arrowNext from './images/arrow-next.svg';
 const LABEL_WIDTH = 115;
 const OFFSET_WIDTH = 4;
 
-const Inbox = ({ sectionOffsets, title, description, button }) => {
-  const [activeTheme, setActiveTheme] = useState(0);
+const Inbox = ({
+  sectionOffsets,
+  title,
+  description,
+  button,
+  inboxPosition,
+  initialThemeIndex,
+}) => {
+  const [activeTheme, setActiveTheme] = useState(initialThemeIndex);
 
-  const labelsOffset = useMotionValue((LABEL_WIDTH + OFFSET_WIDTH) * activeTheme);
+  const labelsOffset = useMotionValue((LABEL_WIDTH + OFFSET_WIDTH) * -activeTheme);
 
   const handlePreviousTheme = () => {
     setActiveTheme((prev) => {
@@ -44,13 +51,20 @@ const Inbox = ({ sectionOffsets, title, description, button }) => {
   return (
     <section
       className={clsx(
-        'inbox safe-paddings mt-40 pb-8 text-white lg:mt-36 md:mt-[104px] md:pb-0 sm:mt-14',
+        'inbox safe-paddings mt-40 pb-[52px] text-white lg:mt-36 md:mt-[104px] sm:mt-14',
         sectionOffsets
       )}
     >
       <div className="container-lg">
-        <div className="flex items-center justify-center pl-8 md:pl-0 sm:flex-col">
-          <div className="relative h-[639px] w-[608px] shrink-0 lg:h-[558px] lg:w-[531px] md:h-[398px] md:w-[380px] sm:order-last sm:aspect-[380/398] sm:h-auto sm:w-full sm:max-w-[380px]">
+        <div
+          className={clsx(
+            'flex items-center gap-x-24 md:gap-x-18 sm:flex-col sm:gap-y-12',
+            inboxPosition === 'right'
+              ? 'flex-row-reverse justify-end md:justify-center'
+              : 'flex-row justify-start'
+          )}
+        >
+          <div className="relative h-[619px] w-[608px] shrink-0 lg:h-[546px] lg:w-[531px] md:h-[387px] md:w-[380px] sm:order-last sm:aspect-[380/387] sm:h-auto sm:w-full sm:max-w-[380px]">
             <LazyMotion features={domAnimation}>
               {inboxData.map((data, index) => (
                 <AnimatePresence mode="wait">
@@ -67,7 +81,7 @@ const Inbox = ({ sectionOffsets, title, description, button }) => {
                 </AnimatePresence>
               ))}
             </LazyMotion>
-            <div className="absolute -bottom-8 left-0 right-0 flex items-center justify-center sm:-bottom-14">
+            <div className="absolute -bottom-[51px] left-0 right-0 flex items-center justify-center">
               <button
                 className="px-2.5 opacity-90 transition-opacity duration-300 hover:opacity-100 disabled:opacity-30"
                 type="button"
@@ -103,7 +117,12 @@ const Inbox = ({ sectionOffsets, title, description, button }) => {
               </button>
             </div>
           </div>
-          <div className="relative z-10 mb-[18px] pl-24 pr-3 xl:pl-20 xl:pr-0 md:pl-18 sm:mb-6 sm:max-w-lg sm:pl-0 sm:text-center">
+          <div
+            className={clsx(
+              'relative z-10 sm:max-w-lg sm:text-center',
+              inboxPosition === 'right' && 'max-w-[480px] xl:max-w-full md:max-w-[380px]'
+            )}
+          >
             <Heading
               className="font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
               tag="h2"
@@ -143,11 +162,15 @@ Inbox.propTypes = {
     rel: PropTypes.string,
     target: PropTypes.string,
   }),
+  inboxPosition: PropTypes.oneOf(['right', 'left']),
+  initialThemeIndex: PropTypes.number,
 };
 
 Inbox.defaultProps = {
+  inboxPosition: 'left',
   sectionOffsets: '',
   button: null,
+  initialThemeIndex: 0,
 };
 
 export default Inbox;
