@@ -572,6 +572,11 @@ const ReusableComponents = (props) => {
       <SectionWithSmallIcons title="SectionWithSmallIcons" items={SECTION_WITH_SMALL_ICONS} />
       <SectionWithSmallIcons
         title="SectionWithSmallIcons"
+        description="True omnichannel notifications are just a few clicks away."
+        items={SECTION_WITH_SMALL_ICONS}
+      />
+      <SectionWithSmallIcons
+        title="SectionWithSmallIcons"
         items={SECTION_WITH_SMALL_ICONS}
         hasOutroText
       />
