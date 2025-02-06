@@ -7,7 +7,7 @@ import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javasc
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import dots from './images/dots.svg';
+import dots from './images/dots.png';
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 
@@ -117,7 +117,7 @@ const CodeSectionNew = ({
           aria-hidden
         />
         <img
-          className="absolute left-0 top-[-102px] max-w-none sm:-left-1/2 sm:translate-x-1/2"
+          className="absolute left-0 top-[-102px] max-w-none"
           src={dots}
           alt=""
           width={482}
@@ -125,11 +125,11 @@ const CodeSectionNew = ({
           loading={isPriorityImageLoading ? 'eager' : 'lazy'}
         />
         <div
-          className="pointer-events-none absolute right-[-250px] top-[-102px] h-[712px] w-[733px] rounded-full bg-[#4474F2] opacity-[0.11] blur-[100px] lg:scale-90 sm:hidden"
+          className="pointer-events-none absolute right-[-250px] top-[-102px] h-[712px] w-[733px] rounded-full bg-[#4474F2] opacity-[0.11] blur-[100px] lg:scale-90"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute left-[-125px] top-[-52px] h-[348px] w-[490px] rounded-full bg-[radial-gradient(92.52%_89.86%_at_62.86%_11.06%,#3BDCFF_27.2%,#69B7FF_80.5%,#4759FF_100%)] opacity-[0.25] blur-[100px] lg:scale-90 sm:hidden"
+          className="pointer-events-none absolute left-[-125px] top-[-52px] h-[348px] w-[490px] rounded-full bg-[radial-gradient(92.52%_89.86%_at_62.86%_11.06%,#3BDCFF_27.2%,#69B7FF_80.5%,#4759FF_100%)] opacity-[0.25] blur-[100px] lg:scale-90"
           aria-hidden
         />
       </div>

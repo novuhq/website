@@ -3,7 +3,7 @@ import { m } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 
-import dots from '../images/dots.svg';
+import dots from '../images/dots.png';
 import MessageList from '../message-list';
 
 import LinearIcon from './images/linear.inline.svg';
@@ -321,7 +321,7 @@ const Container = ({ theme, categories, messages }) => {
         ))}
         {currentTheme.background.image && (
           <img
-            className="pointer-events-none absolute -left-16 -top-[102px]"
+            className="pointer-events-none absolute -left-16 -top-[102px] z-10"
             src={currentTheme.background.image}
             alt=""
             width="482"

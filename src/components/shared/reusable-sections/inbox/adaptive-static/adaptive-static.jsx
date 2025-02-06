@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import dots from '../images/dots.svg';
+import dots from '../images/dots.png';
 
 const INBOX_IMAGE_CLASSNAMES = 'z-10 lg:w-[500px] lg:h-auto sm:w-full';
 
