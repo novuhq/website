@@ -78,9 +78,10 @@ FeatureCards.propTypes = {
   title: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
+      linkTitle: PropTypes.string.isRequired,
+      linkUrl: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

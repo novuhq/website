@@ -2,10 +2,57 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
+import ComplianceSection from 'components/shared/reusable-sections/complience-section';
 import FeatureCards from 'components/shared/reusable-sections/feature-cards';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
 import SEO from 'components/shared/seo';
+import gdprWhiteIcon from 'images/reusable-sections/compliance-section/gdpr-white.svg';
+import gdprIcon from 'images/reusable-sections/compliance-section/gdpr.svg';
+import hipaaWhiteIcon from 'images/reusable-sections/compliance-section/hipaa-white.svg';
+import hipaaIcon from 'images/reusable-sections/compliance-section/hipaa.svg';
+import isoWhiteIcon from 'images/reusable-sections/compliance-section/iso-white.svg';
+import isoIcon from 'images/reusable-sections/compliance-section/iso.svg';
+import soc2WhiteIcon from 'images/reusable-sections/compliance-section/soc-2-white.svg';
+import soc2Icon from 'images/reusable-sections/compliance-section/soc-2.svg';
+
+const COMPLIANCE_SECTION = [
+  {
+    title: 'SOC2 Type II',
+    image: soc2Icon,
+  },
+  {
+    title: 'HIPAA',
+    image: hipaaIcon,
+  },
+  {
+    title: 'ISO 27001:2013',
+    image: isoIcon,
+  },
+  {
+    title: 'GDPR',
+    image: gdprIcon,
+  },
+];
+
+const COMPLIANCE_SECTION_WHITE = [
+  {
+    title: 'SOC2 Type II',
+    image: soc2WhiteIcon,
+  },
+  {
+    title: 'HIPAA',
+    image: hipaaWhiteIcon,
+  },
+  {
+    title: 'ISO 27001:2013',
+    image: isoWhiteIcon,
+  },
+  {
+    title: 'GDPR',
+    image: gdprWhiteIcon,
+  },
+];
 
 const FEATURE_CARDS = [
   {
@@ -168,6 +215,20 @@ const ReusableComponents2 = () => (
     <SectionWithForm {...SECTION_WITH_FORM_LEFT} withBlur />
     <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} />
     <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} withLinks />
+    <ComplianceSection items={COMPLIANCE_SECTION} title="ComplianceSection" theme="colored" />
+    <ComplianceSection items={COMPLIANCE_SECTION_WHITE} title="ComplianceSection" theme="white" />
+    <ComplianceSection
+      items={COMPLIANCE_SECTION.slice(0, 3)}
+      title="ComplianceSection"
+      theme="colored"
+      columns={3}
+    />
+    <ComplianceSection
+      items={COMPLIANCE_SECTION_WHITE.slice(0, 3)}
+      title="ComplianceSection"
+      theme="white"
+      columns={3}
+    />
   </Layout>
 );
 
