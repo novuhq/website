@@ -5,13 +5,7 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import OutroText from 'components/shared/outro-text';
 
-const SectionWithSmallIcons = ({
-  title,
-  description,
-  descriptionClassName,
-  items,
-  hasOutroText,
-}) => (
+const SectionWithSmallIcons = ({ title, description, descriptionClassName, items, outroText }) => (
   <section className="section-with-small-icons safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
     <div className="container-md px-8 sm:w-full sm:px-5">
       <Heading
@@ -51,7 +45,7 @@ const SectionWithSmallIcons = ({
           </li>
         ))}
       </ul>
-      {hasOutroText && <OutroText />}
+      {outroText && <OutroText text={outroText} />}
     </div>
   </section>
 );
@@ -65,13 +59,13 @@ SectionWithSmallIcons.propTypes = {
       image: PropTypes.string.isRequired,
     })
   ).isRequired,
-  hasOutroText: PropTypes.bool,
+  outroText: PropTypes.string,
   description: PropTypes.string,
   descriptionClassName: PropTypes.string,
 };
 
 SectionWithSmallIcons.defaultProps = {
-  hasOutroText: false,
+  outroText: null,
   description: null,
   descriptionClassName: null,
 };

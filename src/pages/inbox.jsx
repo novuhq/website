@@ -20,7 +20,7 @@ import rhombGridIcon from 'images/icons/rhomb-grid.svg';
 import speedIcon from 'images/icons/speed.svg';
 import userIcon from 'images/icons/user.svg';
 
-const GET_INVOLVED = [
+const SECTION_WITH_BIG_ICONS_3 = [
   {
     icon: doublePlusIcon,
     title: 'Ready',
@@ -251,13 +251,11 @@ const InboxPage = () => (
         label: 'Learn more',
         link: '/',
       }}
-      codeBlockPosition="right"
-      codeBlockSize="lg"
     />
     <BentoFiveBlocks {...SECTION_BENTO} />
     <SectionWithBigIcons
       title="For the best Inbox, Ready. Set. Go."
-      items={GET_INVOLVED}
+      items={SECTION_WITH_BIG_ICONS_3}
       isCentered
     />
     <CtaWithForm

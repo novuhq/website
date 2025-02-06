@@ -152,17 +152,17 @@ const SECTION_WITH_CARDS = [
 ];
 
 const ReusableComponents2 = () => (
-  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B] reusable-components">
+  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B] reusable-components pb-[118px] lg:pb-[104px] md:pb-[100px]">
     <FeatureCards
       title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
       cards={FEATURE_CARDS}
-      columns={3}
     />
     <FeatureCards
       title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
       cards={FEATURE_CARDS_2}
+      columns={2}
     />
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} withBlur />
     <SectionWithForm {...SECTION_WITH_FORM_LEFT} withBlur />

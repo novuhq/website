@@ -6,7 +6,7 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const FeatureCards = ({ className, title, description, cards, columns = 2 }) => (
+const FeatureCards = ({ className, title, description, cards, columns = 3 }) => (
   <section
     className={clsx(
       'feature-cards safe-paddings relative mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20',

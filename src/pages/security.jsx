@@ -164,13 +164,13 @@ const Security = () => (
           linkTitle: 'Learn more',
           linkUrl: 'https://docs.novu.co/framework/overview?utm_campaign=ws_security',
         },
-        // {
-        //   title: 'Self-hosted project',
-        //   description: 'Completely run your own Novu Project in your own environment.',
-        //   linkTitle: 'Learn more',
-        //   linkUrl:
-        //     'https://docs.novu.co/community/self-hosting-novu/overview?utm_campaign=ws_security',
-        // },
+        {
+          title: 'Self-hosted project',
+          description: 'Completely run your own Novu Project in your own environment.',
+          linkTitle: 'Learn more',
+          linkUrl:
+            'https://docs.novu.co/community/self-hosting-novu/overview?utm_campaign=ws_security',
+        },
       ]}
     />
     <CTA
