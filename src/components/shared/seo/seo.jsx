@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useStaticQuery, graphql, Script } from 'gatsby';
+import { useLocation } from '@reach/router';
+import { graphql, Script, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 const SEO = ({
@@ -12,6 +13,7 @@ const SEO = ({
   ogImage,
   children,
 }) => {
+  const location = useLocation();
   const {
     site: {
       siteMetadata: { siteTitle, siteDescription, siteUrl, siteImage },
@@ -31,7 +33,7 @@ const SEO = ({
 
   const currentTitle = title ?? siteTitle;
   const currentDescription = description ?? siteDescription;
-  const currentUrl = slug ? siteUrl + slug : siteUrl;
+  const currentUrl = slug ? siteUrl + slug : siteUrl + location.pathname;
   const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
   const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 
