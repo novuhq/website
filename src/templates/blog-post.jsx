@@ -13,9 +13,9 @@ import TableOfContents from 'components/pages/blog-post/table-of-contents';
 import Content from 'components/shared/content';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
+import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-import Subscribe from 'components/shared/subscribe';
 import ArrowIcon from 'images/arrow.inline.svg';
 import getReactContentWithLazyBlocks from 'utils/get-react-content-with-lazy-blocks';
 
@@ -107,15 +107,15 @@ const BlogPost = (props) => {
           >
             <ArrowIcon className="h-2" />
           </Link>
-          <Hero className="max-w-[704px] md:max-w-[800px] md:mx-auto" {...hero} />
+          <Hero className="max-w-[704px] md:mx-auto md:max-w-[800px]" {...hero} />
           <div className="flex gap-x-16 md:flex-col">
-            <div className="max-w-[704px] md:max-w-[800px] md:mx-auto sm:max-w-full">
+            <div className="max-w-[704px] md:mx-auto md:max-w-[800px] sm:max-w-full">
               <Content content={contentWithLazyBlocks} />
               <Separator className="mt-14 px-0" backgroundColor="black" />
               <SocialShare className="hidden md:flex" {...socialShare} />
             </div>
-            <aside className="mt-10 md:mt-8 max-w-[256px] w-full md:hidden">
-              <div className="sticky top-10 flex flex-col gap-y-12 overflow-y-auto max-h-[calc(100vh-40px)] scrollbar-hidden">
+            <aside className="mt-10 w-full max-w-[256px] md:mt-8 md:hidden">
+              <div className="scrollbar-hidden sticky top-10 flex max-h-[calc(100vh-40px)] flex-col gap-y-12 overflow-y-auto">
                 {showTableOfContents && <TableOfContents headings={headings} />}
                 <Author author={author} />
                 <SocialShare {...socialShare} />
@@ -125,7 +125,15 @@ const BlogPost = (props) => {
         </div>
       </article>
       {relatedArticlesProps.items.length >= 3 && <RelatedArticles {...relatedArticlesProps} />}
-      <Subscribe />
+      <CtaWithForm
+        className="mb-[192px] mt-[238px] text-center"
+        title="Novu is an open-source notification platform"
+        description="Add a fully customizable Inbox component and email notifications to your app in minutes. No credit card required."
+        leftItem={{
+          text: 'Learn More',
+          link: 'https://go.novu.co?utm_campaign=blog_cta',
+        }}
+      />
       <Separator backgroundColor="black" />
     </Layout>
   );

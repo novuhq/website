@@ -9,9 +9,9 @@ import Hero from 'components/pages/blog/hero';
 import Pagination from 'components/pages/blog/pagination';
 import PostList from 'components/pages/blog/post-list';
 import Layout from 'components/shared/layout';
+import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-import Subscribe from 'components/shared/subscribe';
 
 const BlogPage = (props) => {
   const {
@@ -101,7 +101,19 @@ const BlogPage = (props) => {
       {postsList.items.length === 7 && pageContext.pageCount <= 1 && (
         <Separator backgroundColor="black" />
       )}
-      <Subscribe />
+      <CtaWithForm
+        className="mb-[192px] mt-[238px] text-center"
+        title="You're five minutes away from your first Novu-powered notification"
+        description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
+        leftItem={{
+          text: 'Get started',
+          link: 'https://dashboard-v2.novu.co/?utm_campaign=blog_cta',
+        }}
+        rightItem={{
+          text: 'Contact us',
+          link: 'https://novu.co/contact-us/?utm_campaign=blog_cta',
+        }}
+      />
       <Separator backgroundColor="black" />
     </Layout>
   );
