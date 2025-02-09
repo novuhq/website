@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useLocation } from '@reach/router';
 import { graphql, Script, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { useLocation } from 'react-use';
 
 const SEO = ({
   title,
