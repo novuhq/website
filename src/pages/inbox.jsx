@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import BentoFiveBlocks from 'components/pages/inbox/bento-five-blocks';
-import InboxWithImage from 'components/shared/inbox-with-image';
+import Hero from 'components/pages/inbox/hero';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
@@ -218,9 +218,9 @@ const SECTION_BENTO = {
 };
 
 const InboxPage = () => (
-  <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B]">
     <h1 className="sr-only">Inbox</h1>
-    <InboxWithImage
+    <Hero
       title="Add In-App Notifications with the most customizable <Inbox/>"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
