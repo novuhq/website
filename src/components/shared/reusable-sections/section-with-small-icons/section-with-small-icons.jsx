@@ -6,7 +6,7 @@ import Heading from 'components/shared/heading';
 import OutroText from 'components/shared/outro-text';
 
 const SectionWithSmallIcons = ({ title, description, descriptionClassName, items, outroText }) => (
-  <section className="section-with-small-icons safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+  <section className="section-with-small-icons safe-paddings mt-40 lg:mt-30 md:mt-[100px] sm:mt-20">
     <div className="container-md px-8 sm:w-full sm:px-5">
       <Heading
         className="mx-auto max-w-3xl text-center font-medium leading-denser tracking-snug lg:max-w-2xl lg:text-[32px] md:text-3xl"

@@ -52,44 +52,41 @@ await weeklyComments.trigger({
   to: 'jane@acme.com'
 });`;
 
-const SECTION_WITH_CARDS = {
-  title: 'Made for developers',
-  cards: [
-    {
-      title: 'Superior DX',
-      description:
-        'In-code customization, local IDE support, and native GitOps integrations streamline workflow management, debugging, and process alignment.',
-      image: (
-        <StaticImage
-          className="size-full object-cover"
-          src="../images/reusable-sections/section-with-cards/dx.png"
-        />
-      ),
-    },
-    {
-      title: 'Complete flexibility',
-      description:
-        'Build complex notification workflows that run in your environment boundary, safely access local data, and model literally any business requirement.',
-      image: (
-        <StaticImage
-          className="size-full object-cover"
-          src="../images/reusable-sections/section-with-cards/flexibility.png"
-        />
-      ),
-    },
-    {
-      title: 'Integration ready',
-      description:
-        'Integrates with popular application development frameworks, content templating engines, CRMs, and delivery providers.',
-      image: (
-        <StaticImage
-          className="size-full object-cover"
-          src="../images/reusable-sections/section-with-cards/integration.png"
-        />
-      ),
-    },
-  ],
-};
+const SECTION_WITH_CARDS = [
+  {
+    title: 'Superior DX',
+    description:
+      'In-code customization, local IDE support, and native GitOps integrations streamline workflow management, debugging, and process alignment.',
+    image: (
+      <StaticImage
+        className="size-full object-cover"
+        src="../images/reusable-sections/section-with-cards/dx.png"
+      />
+    ),
+  },
+  {
+    title: 'Complete flexibility',
+    description:
+      'Build complex notification workflows that run in your environment boundary, safely access local data, and model literally any business requirement.',
+    image: (
+      <StaticImage
+        className="size-full object-cover"
+        src="../images/reusable-sections/section-with-cards/flexibility.png"
+      />
+    ),
+  },
+  {
+    title: 'Integration ready',
+    description:
+      'Integrates with popular application development frameworks, content templating engines, CRMs, and delivery providers.',
+    image: (
+      <StaticImage
+        className="size-full object-cover"
+        src="../images/reusable-sections/section-with-cards/integration.png"
+      />
+    ),
+  },
+];
 
 const SECTION_WITH_LOGOS = [
   {
@@ -279,7 +276,7 @@ const FrameworkPage = () => (
       }}
       isPriorityImageLoading
     />
-    <SectionWithCards {...SECTION_WITH_CARDS} />
+    <SectionWithCards title="Made for developers" cards={SECTION_WITH_CARDS} />
     <Bento {...SECTION_BENTO} />
     <CtaWithForm
       className="mb-[250px] mt-[235px] text-center lg:mb-[204px] md:mb-[124px]"

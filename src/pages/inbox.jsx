@@ -219,6 +219,7 @@ const SECTION_BENTO = {
 
 const InboxPage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+    <h1 className="sr-only">Inbox</h1>
     <InboxWithImage
       title="Add In-App Notifications with the most customizable <Inbox/>"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."

@@ -39,7 +39,7 @@ const FeatureCards = ({ className, title, description, cards, columns = 3 }) => 
         })}
       >
         {cards.map(({ title, description, linkTitle, linkUrl }, index) => (
-          <li className="min-h-[239px] rounded-xl bg-common-card-border" key={index}>
+          <li className="min-h-60 rounded-xl bg-common-card-border" key={index}>
             <Link
               className="group m-px flex h-[calc(100%-2px)] w-[calc(100%-2px)] flex-col items-start rounded-xl bg-[#0F0F15] p-7 lg:p-6"
               to={linkUrl}

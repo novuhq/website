@@ -86,6 +86,7 @@ const USE_CASE_EXAMPLES = [
 
 const Digests = () => (
   <Layout mainClassName="overflow-hidden pb-52 lg:pb-32 md:pb-28">
+    <h1 className="sr-only">Digest</h1>
     <TextWithPicture
       className="sm:pt-14"
       title="Digest notifications and stop over-notifying"
@@ -112,7 +113,6 @@ const Digests = () => (
       items={NOTIFICATION_BATCHING}
     />
     <TextWithPicture
-      className=""
       title="Multiple digest strategies that work"
       description="Batch notifications in a set window, or look back to the last received notification and make a game time decision. It's all configurable for set-it and forget-it notification digests."
       image={
