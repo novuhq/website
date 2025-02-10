@@ -169,10 +169,9 @@ const CodeSectionNew = ({
 );
 
 CodeSectionNew.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  containerClassName: PropTypes.string,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
@@ -182,13 +181,12 @@ CodeSectionNew.propTypes = {
   }),
   code: PropTypes.string.isRequired,
   codeBlockPosition: PropTypes.oneOf(['left', 'right']),
-  isPriorityImageLoading: PropTypes.bool,
   codeBlockSize: PropTypes.oneOf(['lg', 'md']),
+  isPriorityImageLoading: PropTypes.bool,
 };
 
 CodeSectionNew.defaultProps = {
   className: '',
-  containerClassName: '',
   button: null,
   codeBlockPosition: 'left',
   isPriorityImageLoading: false,
