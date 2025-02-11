@@ -7,7 +7,7 @@ import Heading from 'components/shared/heading';
 const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) => {
   const gridCols = Math.round(logos.length / 2);
   return (
-    <section className="section-with-logos safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20">
+    <section className="section-with-logos safe-paddings mt-40 lg:mt-30 md:mt-[100px] sm:mt-20">
       <div
         className={clsx('flex flex-col items-center text-center md:px-8 sm:w-full sm:px-5', {
           'container-md': containerSize === 'md',
@@ -34,7 +34,7 @@ const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) =
         </p>
         <ul
           className={clsx(
-            'mt-9 grid px-1 lg:mt-8 md:mt-7 sm:mt-6 sm:grid-cols-2',
+            'mt-11 grid lg:mt-10 md:mt-8 sm:mt-7 sm:grid-cols-2',
             `grid-cols-${gridCols}`
           )}
         >

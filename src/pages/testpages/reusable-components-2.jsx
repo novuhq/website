@@ -2,10 +2,57 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 import Layout from 'components/shared/layout';
+import ComplianceSection from 'components/shared/reusable-sections/complience-section';
 import FeatureCards from 'components/shared/reusable-sections/feature-cards';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithForm from 'components/shared/reusable-sections/section-with-form';
 import SEO from 'components/shared/seo';
+import gdprWhiteIcon from 'images/reusable-sections/compliance-section/gdpr-white.svg';
+import gdprIcon from 'images/reusable-sections/compliance-section/gdpr.svg';
+import hipaaWhiteIcon from 'images/reusable-sections/compliance-section/hipaa-white.svg';
+import hipaaIcon from 'images/reusable-sections/compliance-section/hipaa.svg';
+import isoWhiteIcon from 'images/reusable-sections/compliance-section/iso-white.svg';
+import isoIcon from 'images/reusable-sections/compliance-section/iso.svg';
+import soc2WhiteIcon from 'images/reusable-sections/compliance-section/soc-2-white.svg';
+import soc2Icon from 'images/reusable-sections/compliance-section/soc-2.svg';
+
+const COMPLIANCE_SECTION = [
+  {
+    title: 'SOC2 Type II',
+    image: soc2Icon,
+  },
+  {
+    title: 'HIPAA',
+    image: hipaaIcon,
+  },
+  {
+    title: 'ISO 27001:2013',
+    image: isoIcon,
+  },
+  {
+    title: 'GDPR',
+    image: gdprIcon,
+  },
+];
+
+const COMPLIANCE_SECTION_WHITE = [
+  {
+    title: 'SOC2 Type II',
+    image: soc2WhiteIcon,
+  },
+  {
+    title: 'HIPAA',
+    image: hipaaWhiteIcon,
+  },
+  {
+    title: 'ISO 27001:2013',
+    image: isoWhiteIcon,
+  },
+  {
+    title: 'GDPR',
+    image: gdprWhiteIcon,
+  },
+];
 
 const FEATURE_CARDS = [
   {
@@ -114,6 +161,8 @@ const SECTION_WITH_CARDS = [
     title: 'Missed Updates',
     description:
       'Without timely notifications, users may miss critical updates or events related to their interests or activities, which may lead to frustration.',
+    linkText: 'Learn more',
+    linkUrl: '/',
   },
   {
     image: (
@@ -128,6 +177,8 @@ const SECTION_WITH_CARDS = [
     title: 'Irrelevant Notifications',
     description:
       'Poorly targeted or excessive notifications can overwhelm users, causing annoyance and distraction from their intended tasks or activities.',
+    linkText: 'Learn more',
+    linkUrl: '/',
   },
   {
     image: (
@@ -142,11 +193,13 @@ const SECTION_WITH_CARDS = [
     title: 'Negative Brand Perception',
     description:
       'Poorly managed notifications can reflect negatively on the brand, portraying it as intrusive, unorganized, or unresponsive to user needs and preferences.',
+    linkText: 'Learn more',
+    linkUrl: '/',
   },
 ];
 
 const ReusableComponents2 = () => (
-  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B] reusable-components">
+  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B] reusable-components pb-[118px] lg:pb-[104px] md:pb-[100px]">
     <FeatureCards
       title="FeatureCards"
       description="Explore tweets from engineers worldwide and see why they're fans of our company's innovations."
@@ -161,6 +214,21 @@ const ReusableComponents2 = () => (
     <SectionWithForm {...SECTION_WITH_FORM_RIGHT} withBlur />
     <SectionWithForm {...SECTION_WITH_FORM_LEFT} withBlur />
     <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} />
+    <SectionWithCards title="SectionWithCards" cards={SECTION_WITH_CARDS} withLinks />
+    <ComplianceSection items={COMPLIANCE_SECTION} title="ComplianceSection" theme="colored" />
+    <ComplianceSection items={COMPLIANCE_SECTION_WHITE} title="ComplianceSection" theme="white" />
+    <ComplianceSection
+      items={COMPLIANCE_SECTION.slice(0, 3)}
+      title="ComplianceSection"
+      theme="colored"
+      columns={3}
+    />
+    <ComplianceSection
+      items={COMPLIANCE_SECTION_WHITE.slice(0, 3)}
+      title="ComplianceSection"
+      theme="white"
+      columns={3}
+    />
   </Layout>
 );
 

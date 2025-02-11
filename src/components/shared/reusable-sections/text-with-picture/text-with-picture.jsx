@@ -7,10 +7,10 @@ import Heading from 'components/shared/heading';
 
 const TextWithPicture = ({
   className,
-  imageClassName,
   title,
   description,
   image,
+  imageClassName,
   button,
   theme,
 }) => (

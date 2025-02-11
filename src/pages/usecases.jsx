@@ -34,6 +34,7 @@ const FEATURE_CARDS = [
 
 const UseCasesPage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
+    <h1 className="sr-only">Use Cases</h1>
     <TextWithPicture
       className="pb-[100px] pt-[76px] md:pb-16 md:pt-0"
       title="Elevate Engagement with Robust Notifications"
@@ -59,7 +60,6 @@ const UseCasesPage = () => (
     />
     <FeatureCards
       title="What do you want to achieve?"
-      titleSize="40"
       description="Define your goals and explore tailored solutions to help you reach them effectively."
       cards={FEATURE_CARDS}
     />

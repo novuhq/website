@@ -2,7 +2,7 @@ import discordIcon from 'icons/discord.svg';
 import githubIcon from 'icons/github.svg';
 import novuIcon from 'icons/novu-gradient-logo.svg';
 
-const GET_INVOLVED = {
+const SECTION_WITH_BIG_ICONS = {
   title: 'Get involved: start, engage, contribute',
   items: [
     {
@@ -29,4 +29,4 @@ const GET_INVOLVED = {
   ],
 };
 
-export default GET_INVOLVED;
+export default SECTION_WITH_BIG_ICONS;

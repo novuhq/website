@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import dots from '../images/dots.svg';
+import dots from '../images/dots.png';
 
 const INBOX_IMAGE_CLASSNAMES = 'z-10 lg:w-[500px] lg:h-auto sm:w-full';
 
@@ -75,10 +75,7 @@ const AdaptiveStatic = ({ theme, className }) => {
 
   return (
     <m.div
-      className={clsx(
-        className,
-        'absolute left-0 top-0 h-full w-full shrink-0 sm:order-last sm:mt-6'
-      )}
+      className={clsx(className, 'absolute left-0 top-0 h-full w-full shrink-0 sm:order-last')}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.3 } }}
       exit={{ opacity: 0 }}
