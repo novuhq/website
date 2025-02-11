@@ -22,16 +22,16 @@ import userIcon from 'images/icons/user.svg';
 
 const SECTION_WITH_BIG_ICONS_3 = [
   {
-    icon: speedIcon,
-    title: 'Set',
-    description: 'Add the Novu Inbox import to your code.',
-  },
-  {
     icon: doublePlusIcon,
     title: 'Ready',
     description: 'Create a Novu account, and pick your framework of choice.',
     linkText: 'Create Account',
     linkUrl: 'http://go.novu.co/dashboard',
+  },
+  {
+    icon: speedIcon,
+    title: 'Set',
+    description: 'Add the Novu Inbox import to your code.',
   },
   {
     icon: flashIcon,
