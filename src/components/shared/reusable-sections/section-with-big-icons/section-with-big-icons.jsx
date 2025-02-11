@@ -2,17 +2,18 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
 
-const SectionWithBigIcons = ({ className, title, items, isCentered }) => (
+const SectionWithBigIcons = ({ className, title, items, isCentered, button }) => (
   <section
     className={clsx(
       'section-with-big-icons safe-paddings mt-40 lg:mt-[120px] md:mt-[100px] sm:mt-20',
       className
     )}
   >
-    <div className="container-md px-8 sm:w-full sm:px-5">
+    <div className="container-md flex flex-col items-center px-8 sm:w-full sm:px-5">
       <Heading
         className="text-center font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
         tag="h2"
@@ -42,29 +43,43 @@ const SectionWithBigIcons = ({ className, title, items, isCentered }) => (
             </h3>
             <p
               className={clsx(
-                'mt-2 text-[15px] font-light leading-snug tracking-snug text-gray-8',
+                'mt-2 text-pretty text-[15px] font-light leading-snug tracking-snug text-gray-8',
                 isCentered && 'text-center sm:max-w-[280px]'
               )}
             >
               {description}
             </p>
-            <Link
-              className="mt-2.5 w-fit text-[15px] font-book leading-snug !tracking-normal"
-              theme="primary"
-              to={linkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              withArrow
-            >
-              {linkText || (
-                <>
-                  <span className="sr-only">{title} - </span>Learn more
-                </>
-              )}
-            </Link>
+            {linkUrl && (
+              <Link
+                className="mt-2.5 w-fit text-[15px] font-book leading-snug !tracking-normal"
+                theme="primary"
+                to={linkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                withArrow
+              >
+                {linkText || (
+                  <>
+                    <span className="sr-only">{title} - </span>Learn more
+                  </>
+                )}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
+      {button && (
+        <Button
+          className="mt-11"
+          theme="gray-outline"
+          size="sm"
+          to={button.link}
+          rel={button.rel}
+          target={button.target}
+        >
+          {button.label}
+        </Button>
+      )}
     </div>
   </section>
 );
@@ -82,11 +97,18 @@ SectionWithBigIcons.propTypes = {
     })
   ).isRequired,
   isCentered: PropTypes.bool,
+  button: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    rel: PropTypes.string,
+    target: PropTypes.string,
+  }),
 };
 
 SectionWithBigIcons.defaultProps = {
   className: '',
   isCentered: false,
+  button: null,
 };
 
 export default SectionWithBigIcons;

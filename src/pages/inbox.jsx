@@ -22,25 +22,21 @@ import userIcon from 'images/icons/user.svg';
 
 const SECTION_WITH_BIG_ICONS_3 = [
   {
-    icon: doublePlusIcon,
-    title: 'Ready',
-    description: 'Create a Novu account, and pick your framework of choice.',
-    linkText: 'Overview',
-    linkUrl: '/',
-  },
-  {
     icon: speedIcon,
     title: 'Set',
     description: 'Add the Novu Inbox import to your code.',
-    linkText: 'React Quickstart',
-    linkUrl: '/',
+  },
+  {
+    icon: doublePlusIcon,
+    title: 'Ready',
+    description: 'Create a Novu account, and pick your framework of choice.',
+    linkText: 'Create Account',
+    linkUrl: 'http://go.novu.co/dashboard',
   },
   {
     icon: flashIcon,
     title: 'Go',
     description: 'Trigger and deliver notification to the end user.',
-    linkText: 'Trigger a Notification',
-    linkUrl: '/',
   },
 ];
 
@@ -77,37 +73,37 @@ const SECTION_WITH_BIG_ICONS = [
     title: 'Versatile components',
     description:
       '<Inbox/>, <Bell/>, <Notification/>, and user <Preferences/> provide the ultimate experience.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/components/overview',
   },
   {
     icon: changeIcon,
     title: 'Built-in preferences',
     description: 'Your app users access and set their Preferences with ease.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/components/preferences',
   },
   {
     icon: userIcon,
     title: 'Popular frameworks',
     description: 'React, React-native, vanilla JavaScript, headless, and more.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/overview',
   },
   {
     icon: preferencesIcon,
     title: 'HMAC encryption',
     description: 'Component to Novu service communication and user identifiers are fully secured.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/production#hmac-encryption',
   },
   {
     icon: guardIcon,
     title: 'Customizable',
     description: 'Seamlessly match your existing brand, styling, and customer-specified language.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/styling',
   },
   {
     icon: rhombGridIcon,
     title: 'Unified',
     description: 'Add channels like email, SMS, and WhatsApp, mirroring Inbox across touchpoints.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
   },
 ];
 
@@ -123,7 +119,7 @@ const SECTION_BENTO = {
     'Configure layouts like bell-triggered popovers, side menus, full-page displays, or any other layout imaginable, with customizable styles and UI elements.',
   button: {
     label: 'Learn more',
-    link: '/',
+    link: 'https://docs.novu.co/inbox/react/components/overview',
   },
   cards: [
     {
@@ -225,7 +221,7 @@ const InboxPage = () => (
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
         label: 'See it live',
-        link: '/',
+        link: 'https://inbox.novu.co?utm_source=website_inbox_page',
       }}
     />
     <SectionWithBigIcons
@@ -236,8 +232,8 @@ const InboxPage = () => (
       title="Fits perfectly into your app"
       description="Deliver a rich in-app notification experience that completely mirrors your existing UX, not an afterthought or a bolt-on."
       button={{
-        label: 'Learn more',
-        link: 'https://inbox.novu.co?utm_campaign=fp-inbox-view-playground-hero',
+        label: 'Get started',
+        link: 'http://go.novu.co/dashboard',
         target: '_blank',
       }}
       sectionOffsets="mt-[286px]"
@@ -250,7 +246,7 @@ const InboxPage = () => (
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
       button={{
         label: 'Learn more',
-        link: '/',
+        link: 'https://docs.novu.co/inbox/react/components/overview',
       }}
     />
     <BentoFiveBlocks {...SECTION_BENTO} />
