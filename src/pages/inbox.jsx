@@ -25,8 +25,6 @@ const SECTION_WITH_BIG_ICONS_3 = [
     icon: doublePlusIcon,
     title: 'Ready',
     description: 'Create a Novu account, and pick your framework of choice.',
-    linkText: 'Create Account',
-    linkUrl: 'http://go.novu.co/dashboard',
   },
   {
     icon: speedIcon,
@@ -253,10 +251,14 @@ const InboxPage = () => (
     <SectionWithBigIcons
       title="For the best Inbox, Ready. Set. Go."
       items={SECTION_WITH_BIG_ICONS_3}
+      button={{
+        label: 'Create account',
+        link: 'http://go.novu.co/dashboard',
+      }}
       isCentered
     />
     <CtaWithForm
-      className="mb-[207px] mt-[342px] md:mt-[140px]"
+      className="mb-[207px] mt-[220px] md:mt-[140px]"
       title="We're ready for your requirements..."
       description="Whatever your use case, Novu is ready. Start for free, no credit card required."
       leftItem={{

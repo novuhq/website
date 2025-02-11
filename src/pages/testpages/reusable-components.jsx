@@ -139,6 +139,24 @@ const SECTION_WITH_BIG_ICONS_3 = [
   },
 ];
 
+const SECTION_WITH_BIG_ICONS_3_NO_LINKS = [
+  {
+    icon: paintIcon,
+    title: 'Create content',
+    description: 'Help others discover Novu with videos and blog articles.',
+  },
+  {
+    icon: microphoneIcon,
+    title: 'Present at meetups',
+    description: 'Share your experience and represent Novu in public meetups.',
+  },
+  {
+    icon: bugIcon,
+    title: 'Report bugs',
+    description: 'Find and fix bugs in the code, then submit pull requests to resolve them.',
+  },
+];
+
 const TESTIMONIALS = [
   {
     content:
@@ -584,6 +602,15 @@ const ReusableComponents = (props) => {
       <SectionWithBigIcons
         title="SectionWithBigIcons"
         items={SECTION_WITH_BIG_ICONS_3}
+        isCentered
+      />
+      <SectionWithBigIcons
+        title="SectionWithBigIcons"
+        items={SECTION_WITH_BIG_ICONS_3_NO_LINKS}
+        button={{
+          label: 'Create account',
+          link: 'http://go.novu.co/dashboard',
+        }}
         isCentered
       />
       <Testimonials title="Testimonials" testimonials={TESTIMONIALS} />
