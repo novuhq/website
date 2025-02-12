@@ -8,7 +8,7 @@ import Layout from 'components/shared/layout';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import SEO from 'components/shared/seo';
 
-const activeTier = 'business';
+const activeTier = 'pro';
 
 const PRICING_PLANS = [
   {
@@ -21,12 +21,28 @@ const PRICING_PLANS = [
       link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },
-    description: 'A generous free tier for testing and evaluation, or smaller requirements.',
-    advantages: ['30K events/month included'],
+    description: 'For testing and small-scale projects.',
+    advantages: ['10K events/month included'],
     hasAdditionalLabel: false,
   },
   {
-    title: 'Business',
+    title: 'Pro',
+    price: '$30',
+    paymentPeriod: 'month',
+    button: {
+      text: 'Free for 14 days',
+      theme: 'white-filled',
+      link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
+      target: '_blank',
+    },
+    description:
+      'Perfect for startups and indie hackers looking to add <Inbox /> and connect to Email and digest engine.',
+    advantages: ['30K events/month included', '$1.20 per 1,000 additional events'],
+    hasAdditionalLabel: true,
+    additionalLabelText: false,
+  },
+  {
+    title: 'Team',
     price: '$250',
     paymentPeriod: 'month',
     button: {
@@ -35,7 +51,8 @@ const PRICING_PLANS = [
       link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },
-    description: 'Best fit for most businesses. Best fit for most businesses.',
+    description:
+      'Ideal for teams looking to add <Inbox/> in minutes, and manage system notification experiance from one system.',
     advantages: ['250K events/month included', '$1.20 per 1,000 additional events'],
     hasAdditionalLabel: true,
     additionalLabelText: 'Popular',
@@ -48,7 +65,8 @@ const PRICING_PLANS = [
       theme: 'gray-outline',
       link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
     },
-    description: 'For businesses with the most demanding notification requirements.',
+    description:
+      'For organizations with privacy, and compliance demands. Looking to add the best OS notification technology, while maintaining flexibility.',
     advantages: ['5M events/month included'],
     hasAdditionalLabel: false,
   },

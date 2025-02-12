@@ -27,7 +27,8 @@ const Card = ({ plan }) => {
   } = plan;
 
   const isFree = title.toLowerCase() === 'free';
-  const isBusiness = title.toLowerCase() === 'business';
+  const isPro = title.toLowerCase() === 'pro';
+  const isTeam = title.toLowerCase() === 'team';
   const isEnterprise = title.toLowerCase() === 'enterprise';
 
   return (
@@ -35,9 +36,11 @@ const Card = ({ plan }) => {
       <div
         className={clsx('relative z-20 h-full overflow-hidden rounded-xl p-6 pb-[30px]', {
           'bg-[#111018] bg-[radial-gradient(87.74%_83.27%_at_81.56%_3.42%,_rgba(102,_122,_152,_0.22)_0%,_rgba(102,_122,_152,_0)_88.97%)]':
-            isFree,
+            isTeam,
+          'bg-[#0D0F1D] bg-[radial-gradient(87.74%_83.27%_at_81.56%_3.42%,_rgba(89,_73,_139,_0.22)_0%,_rgba(89,_73,_139,_0)_88.97%)]':
+            isPro,
           'bg-[#00000033] bg-[linear-gradient(152deg,#0B1122_0.45%,#10101E_98.47%)]': isEnterprise,
-          'bg-[linear-gradient(152deg,#1F1122_0.45%,#1B1529_98.47%)]': isBusiness,
+          'bg-[linear-gradient(152deg,#1F1122_0.45%,#1B1529_98.47%)]': isFree,
         })}
       >
         <div className="relative z-20">
@@ -75,7 +78,7 @@ const Card = ({ plan }) => {
               >
                 <CheckIcon
                   className={clsx('relative left-0.5 top-1 w-3.5 shrink-0 text-gray-8 sm:top-0.5', {
-                    'text-purple-3': isBusiness,
+                    'text-purple-3': isTeam,
                   })}
                 />
                 {item}
@@ -83,14 +86,15 @@ const Card = ({ plan }) => {
             ))}
           </ul>
         </div>
-        {(isBusiness || isEnterprise) && (
+        {(isTeam || isEnterprise || isPro) && (
           <>
             <span
               className={clsx(
                 'pointer-events-none absolute -right-[66px] -top-[101px] h-[240px] w-[280px] rounded-full mix-blend-overlay blur-[32px]',
                 {
-                  'bg-[#DABCCB]': isBusiness,
+                  'bg-[#DABCCB]': isTeam,
                   'bg-[#BCC3DA] opacity-80': isEnterprise,
+                  'bg-[#9F8FE9] opacity-60': isPro,
                 }
               )}
               aria-hidden
@@ -99,15 +103,16 @@ const Card = ({ plan }) => {
               className={clsx(
                 'pointer-events-none absolute -right-[202px] -top-[102px] h-[340px] w-[562px] rounded-full mix-blend-overlay blur-[52px]',
                 {
-                  'bg-[#DABCD0]': isBusiness,
+                  'bg-[#DABCD0]': isTeam,
                   'bg-[#BCC3DA] opacity-60': isEnterprise,
+                  'bg-[#7B6AD6] opacity-40': isPro,
                 }
               )}
               aria-hidden
             />
           </>
         )}
-        {isBusiness && (
+        {isTeam && (
           <>
             <PinkShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
             <img
@@ -131,14 +136,30 @@ const Card = ({ plan }) => {
             <BlueShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
           </>
         )}
+        {isPro && (
+          <>
+            <span
+              className="pointer-events-none absolute -right-[66px] -top-[101px] h-[240px] w-[280px] rounded-full bg-[#9F8FE9] opacity-60 mix-blend-overlay blur-[32px]"
+              aria-hidden
+            />
+            <span
+              className="pointer-events-none absolute -right-[202px] -top-[102px] h-[340px] w-[562px] rounded-full bg-[#7B6AD6] opacity-40 mix-blend-overlay blur-[52px]"
+              aria-hidden
+            />
+            <span
+              className="pointer-events-none absolute -top-[49px] left-[70px] z-0 h-[171px] w-[308px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#4A3979_0%,_rgba(74,_57,_121,_0)_100%)] blur-[16px]"
+              aria-hidden
+            />
+          </>
+        )}
         {hasAdditionalLabel && additionalLabelText && <Label text={additionalLabelText} />}
         <GradientBorder
           className={clsx({
-            'border-image-pink-gradient-border': isBusiness,
-            'border-image-[linear-gradient(246.73deg,rgba(51,51,71,0.6)_15.63%,rgba(43,43,59,0.4)_84.63%)]':
-              isFree,
+            'border-image-pink-gradient-border': isTeam,
+            'border-image-purple-gradient-border': isPro,
             'border-image-[radial-gradient(114.29%_113.4%_at_18.33%_-13.4%,_rgba(209,_213,_250,_0.1)_10.74%,_rgba(82,_83,_122,_0.3)_41.53%,_rgba(168,_148,_209,_0.1)_100%)]':
               isEnterprise,
+            'border-image-blue-gradient-border': isFree,
           })}
           aria-hidden
         />
@@ -149,7 +170,7 @@ const Card = ({ plan }) => {
           aria-hidden
         />
       )}
-      {isBusiness && (
+      {isTeam && (
         <>
           <Shine
             className="pointer-events-none absolute -right-3 -top-2.5 z-30 h-[98px] w-[209px]"

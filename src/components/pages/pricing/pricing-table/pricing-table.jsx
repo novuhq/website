@@ -42,8 +42,8 @@ const PricingPlans = ({ activeTier }) => {
         >
           {TITLE}
         </Heading>
-        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1216px] lg:mt-3.5 md:-mx-7 md:mt-3.5 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
-          <div className="grid min-w-[924px] grid-cols-[250px_300px_300px_300px] items-start justify-center lg:grid-cols-[292px_214px_214px_214px] md:grid-cols-[256px_214px_214px_214px] md:justify-start">
+        <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1516px] lg:mt-3.5 md:-mx-7 md:mt-3.5 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
+          <div className="grid min-w-[1224px] grid-cols-[250px_300px_300px_300px_300px] items-start justify-center lg:grid-cols-[292px_214px_214px_214px_214px] md:grid-cols-[256px_214px_214px_214px_214px] md:justify-start">
             <div className="mt-[79px] md:mt-[69px]">
               {LABELS.map(({ title, items }, index) => (
                 <div
