@@ -37,10 +37,8 @@ const Card = ({ plan }) => {
         className={clsx('relative z-20 h-full overflow-hidden rounded-xl p-6 pb-[30px]', {
           'bg-[#111018] bg-[radial-gradient(87.74%_83.27%_at_81.56%_3.42%,_rgba(102,_122,_152,_0.22)_0%,_rgba(102,_122,_152,_0)_88.97%)]':
             isTeam,
-          'bg-[#0D0F1D] bg-[radial-gradient(87.74%_83.27%_at_81.56%_3.42%,_rgba(89,_73,_139,_0.22)_0%,_rgba(89,_73,_139,_0)_88.97%)]':
-            isPro,
-          'bg-[#00000033] bg-[linear-gradient(152deg,#0B1122_0.45%,#10101E_98.47%)]': isEnterprise,
-          'bg-[linear-gradient(152deg,#1F1122_0.45%,#1B1529_98.47%)]': isFree,
+          'bg-[#00000033] bg-[linear-gradient(152deg,#0B1122_0.45%,#10101E_98.47%)]':
+            isPro || isEnterprise || isFree,
         })}
       >
         <div className="relative z-20">
@@ -86,30 +84,16 @@ const Card = ({ plan }) => {
             ))}
           </ul>
         </div>
-        {(isTeam || isEnterprise || isPro) && (
+        {(isEnterprise || isPro || isFree) && (
           <>
-            <span
-              className={clsx(
-                'pointer-events-none absolute -right-[66px] -top-[101px] h-[240px] w-[280px] rounded-full mix-blend-overlay blur-[32px]',
-                {
-                  'bg-[#DABCCB]': isTeam,
-                  'bg-[#BCC3DA] opacity-80': isEnterprise,
-                  'bg-[#9F8FE9] opacity-60': isPro,
-                }
-              )}
-              aria-hidden
+            <img
+              className="pointer-events-none absolute inset-0 z-10 h-full w-full object-cover object-center"
+              src={patternBlue}
+              alt=""
+              width={656}
+              height={778}
             />
-            <span
-              className={clsx(
-                'pointer-events-none absolute -right-[202px] -top-[102px] h-[340px] w-[562px] rounded-full mix-blend-overlay blur-[52px]',
-                {
-                  'bg-[#DABCD0]': isTeam,
-                  'bg-[#BCC3DA] opacity-60': isEnterprise,
-                  'bg-[#7B6AD6] opacity-40': isPro,
-                }
-              )}
-              aria-hidden
-            />
+            <BlueShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
           </>
         )}
         {isTeam && (
@@ -124,47 +108,17 @@ const Card = ({ plan }) => {
             />
           </>
         )}
-        {isEnterprise && (
-          <>
-            <img
-              className="pointer-events-none absolute inset-0 z-10 h-full w-full object-cover object-center"
-              src={patternBlue}
-              alt=""
-              width={656}
-              height={778}
-            />
-            <BlueShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
-          </>
-        )}
-        {isPro && (
-          <>
-            <span
-              className="pointer-events-none absolute -right-[66px] -top-[101px] h-[240px] w-[280px] rounded-full bg-[#9F8FE9] opacity-60 mix-blend-overlay blur-[32px]"
-              aria-hidden
-            />
-            <span
-              className="pointer-events-none absolute -right-[202px] -top-[102px] h-[340px] w-[562px] rounded-full bg-[#7B6AD6] opacity-40 mix-blend-overlay blur-[52px]"
-              aria-hidden
-            />
-            <span
-              className="pointer-events-none absolute -top-[49px] left-[70px] z-0 h-[171px] w-[308px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#4A3979_0%,_rgba(74,_57,_121,_0)_100%)] blur-[16px]"
-              aria-hidden
-            />
-          </>
-        )}
         {hasAdditionalLabel && additionalLabelText && <Label text={additionalLabelText} />}
         <GradientBorder
           className={clsx({
             'border-image-pink-gradient-border': isTeam,
-            'border-image-purple-gradient-border': isPro,
             'border-image-[radial-gradient(114.29%_113.4%_at_18.33%_-13.4%,_rgba(209,_213,_250,_0.1)_10.74%,_rgba(82,_83,_122,_0.3)_41.53%,_rgba(168,_148,_209,_0.1)_100%)]':
-              isEnterprise,
-            'border-image-blue-gradient-border': isFree,
+              isEnterprise || isPro || isFree,
           })}
           aria-hidden
         />
       </div>
-      {isEnterprise && (
+      {(isEnterprise || isPro || isFree) && (
         <span
           className="bg-shine pointer-events-none absolute -top-[47px] left-[7px] z-0 h-[277px] w-[391px] rounded-full bg-[radial-gradient(130.45%_66.34%_at_74.29%_61.64%,_#B7C9FF_27.2%,_#96B0FF_80.5%,_#4775FF_100%)] opacity-10 blur-3xl md:hidden"
           aria-hidden
