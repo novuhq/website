@@ -63,7 +63,7 @@ const SubMenu = ({ currentMenu, handleOpenMenu, isBanner }) => {
             <Button
               className={clsx(
                 'fixed inset-x-0 z-10 flex h-16 w-full items-center !justify-start gap-x-1 !rounded-none border-b border-b-gray-2 !bg-black px-5 text-sm font-normal !normal-case',
-                isBanner ? 'top-11' : 'top-0'
+                isBanner ? 'top-9' : 'top-0'
               )}
               type="button"
               onClick={handleCloseButton}
