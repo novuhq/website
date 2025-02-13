@@ -28,7 +28,6 @@ const PRICING_PLANS = [
       'Unlimited Subscribers',
       'Up to 20 Workflows',
       '2 Environments',
-      'Unlimited Provider Integrations',
       'Activity Feed Retention: 24 hours',
       'Up to 3 Team Members',
     ],
@@ -74,7 +73,7 @@ const PRICING_PLANS = [
       'Unlimited Team Members',
     ],
     hasAdditionalLabel: true,
-    additionalLabelText: 'Best Offer',
+    additionalLabelText: false,
   },
   {
     title: 'Enterprise',

@@ -205,8 +205,8 @@ const LABELS = [
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
       environments: 'Environments',
-      maxRPS: 'Max API Requests (RPS) (Trigger events/Configuration/Global)',
-      channels: 'Channels supported: email, in-app, SMS, chat, push, and custom',
+      maxRPS: 'Max API Requests (RPS)', // (Trigger events/Configuration/Global)
+      channels: 'Multiple delivery channels',
       subscribers: 'Notification Subscribers',
       guiWorkflow: 'GUI-based workflows',
       codeWorkflow: 'Code-based workflows',
