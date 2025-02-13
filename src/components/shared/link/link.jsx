@@ -114,7 +114,7 @@ const Link = ({
   );
 
   const arrow = (
-    <span className="relative mt-0.5 w-1.5 overflow-hidden transition-[width] duration-200 group-hover:w-3">
+    <span className="relative mt-0.5 w-1.5 shrink-0 overflow-hidden transition-[width] duration-200 group-hover:w-3">
       <ArrowIcon className="ml-auto w-1.5" />
       <span className="absolute right-px top-1/2 h-px w-full -translate-y-1/2 bg-primary-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
     </span>
