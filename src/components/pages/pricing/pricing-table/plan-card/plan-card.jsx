@@ -13,7 +13,7 @@ const PlanCard = ({
   linkRel,
   common,
   platform,
-  framework,
+  // framework,
   inbox,
   account,
   compliance,
@@ -54,7 +54,7 @@ const PlanCard = ({
         </div>
         <FeatureList features={common} currentRow={currentRow} />
         <FeatureList features={platform} currentRow={currentRow} />
-        <FeatureList features={framework} currentRow={currentRow} />
+        {/* <FeatureList features={framework} currentRow={currentRow} /> */}
         <FeatureList features={inbox} currentRow={currentRow} />
         <FeatureList features={account} currentRow={currentRow} />
         <FeatureList features={compliance} currentRow={currentRow} />
