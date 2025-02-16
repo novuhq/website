@@ -130,7 +130,7 @@ const SECTION_WITH_CARDS = [
       />
     ),
     linkText: 'Learn more',
-    linkUrl: 'https://github.com/novuhq/novu',
+    linkUrl: 'https://git.new/novu?utm_campaign=website',
   },
 ];
 

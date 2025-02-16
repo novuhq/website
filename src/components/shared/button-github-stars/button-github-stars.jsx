@@ -10,7 +10,7 @@ import buttonClick from 'utils/use-landing-simple-tracking';
 
 const ButtonGithubStars = ({ className, size }) => {
   const {
-    github: { url, count },
+    github: { count },
   } = useStaticQuery(graphql`
     query githubQuery {
       github {
@@ -25,7 +25,7 @@ const ButtonGithubStars = ({ className, size }) => {
       className={clsx('group', size === 'small' && 'border-0 !px-0', className)}
       size="xs"
       theme="gray-outline"
-      to={url}
+      to="https://git.new/novu?utm_campaign=website"
       target="_blank"
       rel="noopener noreferrer"
       onClick={buttonClick('github_star', { type: 'menu' })}
