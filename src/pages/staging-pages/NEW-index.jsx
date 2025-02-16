@@ -1,7 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import SectionWithSmallIcons from 'components/pages/home/channels/section-with-small-icons';
 import Code from 'components/pages/home/code';
 import Hero from 'components/pages/home/hero';
 import Reviews from 'components/pages/home/reviews';
@@ -11,6 +10,7 @@ import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
+import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
@@ -226,7 +226,7 @@ const HomePage = () => (
       description="Ensuring seamless notifications from business to users, with zero hassle."
       logos={SECTION_WITH_LOGOS_2}
     />
-    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} withLinks />
+    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} />
     <SectionWithBigIcons
       title="Notification building blocks provide unlimited capability"
       items={SECTION_WITH_BIG_ICONS}

@@ -4,11 +4,11 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import dots from 'components/shared/inbox-with-image/images/dots.png';
+import dots from 'components/pages/inbox/hero/images/dots.png';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
-const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
+const Hero = ({ sectionOffsets, title, description, button }) => {
   return (
     <section
       className={clsx(
@@ -17,7 +17,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
       )}
     >
       <div className="container-lg flex items-center gap-x-[85px] sm:flex-col">
-        <div className="flex items-center justify-center pl-[24px] md:pl-0 sm:order-last">
+        <div className="flex items-center justify-center pl-6 md:pl-0 sm:order-last">
           <div className="relative w-full max-w-[628px] shrink-0 lg:w-[531px] md:max-w-[380px] sm:w-full sm:max-w-[440px]">
             <div className={clsx('relative h-full w-full sm:left-1/2 sm:-translate-x-1/2')}>
               <StaticImage
@@ -80,7 +80,7 @@ const InboxWithImage = ({ sectionOffsets, title, description, button }) => {
   );
 };
 
-InboxWithImage.propTypes = {
+Hero.propTypes = {
   sectionOffsets: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
@@ -92,9 +92,9 @@ InboxWithImage.propTypes = {
   }),
 };
 
-InboxWithImage.defaultProps = {
+Hero.defaultProps = {
   sectionOffsets: '',
   button: null,
 };
 
-export default InboxWithImage;
+export default Hero;

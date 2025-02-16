@@ -1,7 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import SectionWithSmallIcons from 'components/pages/home/channels/section-with-small-icons';
 import Code from 'components/pages/home/code';
 import Hero from 'components/pages/home/hero';
 import Reviews from 'components/pages/home/reviews';
@@ -11,6 +10,7 @@ import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
+import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
@@ -100,24 +100,24 @@ const SECTION_WITH_CARDS = [
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../images/reusable-sections/section-with-cards/premier-dx-redesigned.jpg"
+        src="../images/reusable-sections/section-with-cards/dx.png"
       />
     ),
-    //    linkText: 'Learn more',
-    //    linkUrl: 'https://docs.novu.co/getting-started/introduction',
+    //  linkText: 'Learn more',
+    //  linkUrl: 'https://docs.novu.co/getting-started/introduction',
   },
   {
     title: '100% flexible',
     description:
-      'Build workflows in the Ul, extend with code, and embed customizable ‹Inbox /> components.',
+      'Build workflows in the Ul, extend with code, and embed customizable <Inbox /> components.',
     image: (
       <StaticImage
         className="size-full object-cover"
-        src="../images/reusable-sections/section-with-cards/flexible-redesigned.jpg"
+        src="../images/reusable-sections/section-with-cards/flexibility.png"
       />
     ),
-    //    linkText: 'Learn more',
-    //    linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
+    //  linkText: 'Learn more',
+    //  linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
   },
   {
     title: 'Open source backed',
@@ -129,8 +129,8 @@ const SECTION_WITH_CARDS = [
         src="../images/reusable-sections/section-with-cards/opensource-redesigned.jpg"
       />
     ),
-    //    linkText: 'Learn more',
-    //    linkUrl: 'https://github.com/novuhq/novu',
+    //  linkText: 'Learn more',
+    //  linkUrl: 'https://github.com/novuhq/novu',
   },
 ];
 
@@ -226,18 +226,20 @@ const HomePage = () => (
       description="Ensuring seamless notifications from business to users, with zero hassle."
       logos={SECTION_WITH_LOGOS_2}
     />
-    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} withLinks />
+    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} />
     <SectionWithBigIcons
       title="Notification building blocks provide unlimited capability"
       items={SECTION_WITH_BIG_ICONS}
     />
     <SectionWithSmallIcons
       title="All your channels in one platform"
+      description="True omnichannel notifications are just a few clicks away"
       items={SECTION_WITH_SMALL_ICONS}
+      hasOutroText
     />
     <Inbox
       sectionOffsets="mt-[250px] sm:mt-20"
-      title="Add In-App Notifications with the most customizable <Inbox/>"
+      title="Some header that includes up to three lines of engaging text"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
         label: 'Learn more',

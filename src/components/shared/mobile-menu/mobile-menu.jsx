@@ -57,7 +57,7 @@ const MobileMenu = ({ isOpen }) => {
           <m.div
             className={clsx(
               'safe-paddings pointer-events-none fixed inset-0 hidden w-full flex-col justify-between overflow-x-hidden overflow-y-scroll pt-16 md:flex',
-              isBanner ? 'pt-[108px]' : 'pt-16'
+              isBanner ? 'pt-[100px]' : 'pt-16'
             )}
             initial="hidden"
             animate="visible"

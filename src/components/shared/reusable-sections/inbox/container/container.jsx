@@ -3,7 +3,7 @@ import { m } from 'framer-motion';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 
-import dots from '../images/dots.svg';
+import dots from '../images/dots.png';
 import MessageList from '../message-list';
 
 import LinearIcon from './images/linear.inline.svg';
@@ -191,7 +191,7 @@ const Container = ({ theme, categories, messages }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="relative z-30 w-[608px] overflow-hidden rounded-[20px] px-5 pb-[22px] lg:w-[531px]">
+      <div className="relative z-30 w-[608px] overflow-hidden rounded-[20px] px-5 lg:w-[531px]">
         <header className="relative z-40 flex h-[46px] items-center">
           <LogoIcon className={clsx('size-[18px] shrink-0', currentTheme.header.logo)} />
           {currentTheme.header.logoText && (
@@ -321,7 +321,7 @@ const Container = ({ theme, categories, messages }) => {
         ))}
         {currentTheme.background.image && (
           <img
-            className="pointer-events-none absolute -left-16 -top-[102px]"
+            className="pointer-events-none absolute -left-16 -top-[102px] z-10"
             src={currentTheme.background.image}
             alt=""
             width="482"

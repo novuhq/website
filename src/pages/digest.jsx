@@ -21,13 +21,11 @@ const NOTIFICATION_BATCHING = [
     icon: consolidationIcon,
     title: 'Event consolidation',
     description: 'Combine multiple events into a single notification.',
-    linkUrl: '/',
   },
   {
     icon: customizationIcon,
     title: 'Custom grouping',
     description: 'Customize event grouping by type or frequency.',
-    linkUrl: '/',
   },
   {
     icon: intervalIcon,
@@ -39,25 +37,21 @@ const NOTIFICATION_BATCHING = [
         delivery.
       </>
     ),
-    linkUrl: '/',
   },
   {
     icon: flexibilityIcon,
     title: 'Flexible strategy',
     description: 'Choose between time-based and event-based aggregation.',
-    linkUrl: '/',
   },
   {
     icon: contextIcon,
     title: 'Context preservation',
     description: 'Ensure relevant context accompanies digested notifications.',
-    linkUrl: '/',
   },
   {
     icon: settingsIcon,
     title: 'User control',
     description: 'Reduce fatigue while ensuring key updates reach users.',
-    linkUrl: '/',
   },
 ];
 
@@ -66,26 +60,22 @@ const USE_CASE_EXAMPLES = [
     icon: digestIcon,
     title: 'Workflow digest',
     description: 'Summary workflow for digesting multiple notifications',
-    linkUrl: '/',
-    linkText: 'Show me how',
   },
   {
     icon: calendarIcon,
     title: 'Define digest step',
     description: 'Add a simple timed digest step to your workflow.',
-    linkUrl: '/',
-    linkText: 'Show me how',
   },
   {
     icon: selectionIcon,
     title: 'Select a digest strategy',
     description: 'Learn about the regular, look-back, and scheduled digest steps.',
-    linkUrl: '/',
   },
 ];
 
 const Digests = () => (
   <Layout mainClassName="overflow-hidden pb-52 lg:pb-32 md:pb-28">
+    <h1 className="sr-only">Digest</h1>
     <TextWithPicture
       className="sm:pt-14"
       title="Digest notifications and stop over-notifying"
@@ -107,12 +97,15 @@ const Digests = () => (
       imageClassName="relative w-full h-[655px] !overflow-visible lg:h-[500px] md:h-[400px] sm:w-full sm-xs:h-96"
     />
     <SectionWithBigIcons
-      className="relative z-10 mt-44 [&_h2]:mb-[62px]"
+      className="relative z-10 mt-44"
       title="Everything you need to quickly batch notifications"
       items={NOTIFICATION_BATCHING}
+      button={{
+        label: 'Learn more',
+        link: 'https://docs.novu.co/workflow/digest',
+      }}
     />
     <TextWithPicture
-      className=""
       title="Multiple digest strategies that work"
       description="Batch notifications in a set window, or look back to the last received notification and make a game time decision. It's all configurable for set-it and forget-it notification digests."
       image={
@@ -132,7 +125,7 @@ const Digests = () => (
       button={{
         label: 'Learn more',
         hiddenLabel: 'about multiple digest strategies',
-        link: '/',
+        link: 'https://docs.novu.co/workflow/digest',
       }}
       theme="imageRight"
     />
@@ -156,21 +149,25 @@ const Digests = () => (
       button={{
         label: 'Learn more',
         hiddenLabel: 'how to eliminate notification fatigue',
-        link: '/',
+        link: 'https://docs.novu.co/workflow/digest',
       }}
     />
     <SectionWithBigIcons
-      className="mt-52 text-center [&_h2]:mb-[61px] [&_h3]:text-2xl"
+      className="mt-52 text-center sm:mt-40 sm-xs:mt-20 [&_h3]:text-2xl sm:[&_h3]:text-[22px]"
       title="Digest use case examples"
       items={USE_CASE_EXAMPLES}
+      button={{
+        label: 'Create Your First workflow',
+        link: 'https://go.novu.co/dashboard',
+      }}
       isCentered
     />
     <CtaWithForm
       className="mt-[234px] text-center [&_h2]:px-2.5 [&_p]:mb-1 [&_p]:mt-4 [&_p]:max-w-[720px]"
       title="You&#8217;re five minutes away from your first Novu-backed notification"
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
-      leftItem={{ text: 'Get started', link: '/' }}
-      rightItem={{ text: 'Contact us', link: '/' }}
+      leftItem={{ text: 'Get started', link: 'https://go.novu.co/dashboard' }}
+      rightItem={{ text: 'Contact us', link: 'https://novu.co/contact-us' }}
     />
   </Layout>
 );

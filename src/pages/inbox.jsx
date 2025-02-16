@@ -1,46 +1,40 @@
 import clsx from 'clsx';
 import BentoFiveBlocks from 'components/pages/inbox/bento-five-blocks';
-import InboxWithImage from 'components/shared/inbox-with-image';
+import Hero from 'components/pages/inbox/hero';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import CodeSection from 'components/pages/inbox/code-section';
-import Inbox from 'components/pages/inbox/inbox';
 import Layout from 'components/shared/layout';
+import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
-import GetInvolved from 'components/shared/reusable-sections/get-involved';
+import Inbox from 'components/shared/reusable-sections/inbox';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SEO from 'components/shared/seo';
 import changeIcon from 'images/icons/change.svg';
 import cubeIcon from 'images/icons/cube.svg';
+import doublePlusIcon from 'images/icons/double-plus.svg';
+import flashIcon from 'images/icons/flash.svg';
 import guardIcon from 'images/icons/guard.svg';
 import preferencesIcon from 'images/icons/preferences.svg';
 import rhombGridIcon from 'images/icons/rhomb-grid.svg';
+import speedIcon from 'images/icons/speed.svg';
 import userIcon from 'images/icons/user.svg';
-import javaScriptLogo from 'images/reusable-sections/section-with-logos/javascript-icon.svg';
-import reactLogo from 'images/reusable-sections/section-with-logos/react-icon.svg';
 
-const GET_INVOLVED = [
+const SECTION_WITH_BIG_ICONS_3 = [
   {
-    icon: reactLogo,
+    icon: doublePlusIcon,
     title: 'Ready',
     description: 'Create a Novu account, and pick your framework of choice.',
-    linkText: 'Overview',
-    linkUrl: '/',
   },
   {
-    icon: reactLogo,
+    icon: speedIcon,
     title: 'Set',
     description: 'Add the Novu Inbox import to your code.',
-    linkText: 'React Quickstart',
-    linkUrl: '/',
   },
   {
-    icon: javaScriptLogo,
+    icon: flashIcon,
     title: 'Go',
     description: 'Trigger and deliver notification to the end user.',
-    linkText: 'Trigger a Notification',
-    linkUrl: '/',
   },
 ];
 
@@ -77,37 +71,37 @@ const SECTION_WITH_BIG_ICONS = [
     title: 'Versatile components',
     description:
       '<Inbox/>, <Bell/>, <Notification/>, and user <Preferences/> provide the ultimate experience.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/components/overview',
   },
   {
     icon: changeIcon,
     title: 'Built-in preferences',
     description: 'Your app users access and set their Preferences with ease.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/components/preferences',
   },
   {
     icon: userIcon,
     title: 'Popular frameworks',
     description: 'React, React-native, vanilla JavaScript, headless, and more.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/overview',
   },
   {
     icon: preferencesIcon,
     title: 'HMAC encryption',
     description: 'Component to Novu service communication and user identifiers are fully secured.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/production#hmac-encryption',
   },
   {
     icon: guardIcon,
     title: 'Customizable',
     description: 'Seamlessly match your existing brand, styling, and customer-specified language.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/inbox/react/styling',
   },
   {
     icon: rhombGridIcon,
     title: 'Unified',
     description: 'Add channels like email, SMS, and WhatsApp, mirroring Inbox across touchpoints.',
-    linkUrl: '/',
+    linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
   },
 ];
 
@@ -123,7 +117,7 @@ const SECTION_BENTO = {
     'Configure layouts like bell-triggered popovers, side menus, full-page displays, or any other layout imaginable, with customizable styles and UI elements.',
   button: {
     label: 'Learn more',
-    link: '/',
+    link: 'https://docs.novu.co/inbox/react/components/overview',
   },
   cards: [
     {
@@ -218,13 +212,14 @@ const SECTION_BENTO = {
 };
 
 const InboxPage = () => (
-  <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
-    <InboxWithImage
+  <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B]">
+    <h1 className="sr-only">Inbox</h1>
+    <Hero
       title="Add In-App Notifications with the most customizable <Inbox/>"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
         label: 'See it live',
-        link: '/',
+        link: 'https://inbox.novu.co?utm_source=website_inbox_page',
       }}
     />
     <SectionWithBigIcons
@@ -235,29 +230,35 @@ const InboxPage = () => (
       title="Fits perfectly into your app"
       description="Deliver a rich in-app notification experience that completely mirrors your existing UX, not an afterthought or a bolt-on."
       button={{
-        label: 'Learn more',
-        link: 'https://inbox.novu.co?utm_campaign=fp-inbox-view-playground-hero',
+        label: 'Get started',
+        link: 'http://go.novu.co/dashboard',
         target: '_blank',
       }}
       sectionOffsets="mt-[286px]"
+      initialThemeIndex={3}
+      inboxPosition="right"
     />
-    <CodeSection
+    <CodeSectionNew
       code={CODE_SECTION}
       title="Fast, composable, and simple to implement"
       description="Built for developers, with drop-in integration that can be infinitely customized, no matter your application, or use case."
       button={{
         label: 'Learn more',
-        link: '/',
+        link: 'https://docs.novu.co/inbox/react/components/overview',
       }}
     />
     <BentoFiveBlocks {...SECTION_BENTO} />
-    <GetInvolved
+    <SectionWithBigIcons
       title="For the best Inbox, Ready. Set. Go."
-      bottomMargin="mt-[196px] md:mt-[120px]"
-      items={GET_INVOLVED}
+      items={SECTION_WITH_BIG_ICONS_3}
+      button={{
+        label: 'Create account',
+        link: 'http://go.novu.co/dashboard',
+      }}
+      isCentered
     />
     <CtaWithForm
-      className="mb-[207px] mt-[342px] md:mt-[140px]"
+      className="mb-[207px] mt-[220px] md:mt-[140px]"
       title="We're ready for your requirements..."
       description="Whatever your use case, Novu is ready. Start for free, no credit card required."
       leftItem={{
