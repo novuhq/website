@@ -1,12 +1,6 @@
 [functions]
   node_bundler = "esbuild"
 
-[[redirects]]
-  from = "/docs/*"
-  to = "https://docs-novu.netlify.app/docs/:splat"
-  status = 200
-  force = true
-
 # [[redirects]]
 #   from = "/inbox/playground"
 #   to = "https://inbox.novu.co/inbox/playground"
