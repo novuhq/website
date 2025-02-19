@@ -39,7 +39,7 @@ const PRICING_PLANS = [
     paymentPeriod: 'month',
     button: {
       text: 'Start Free Trial',
-      theme: 'gray-outline',
+      theme: 'white-filled',
       link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },
@@ -59,7 +59,7 @@ const PRICING_PLANS = [
     paymentPeriod: 'month',
     button: {
       text: 'Start Free Trial',
-      theme: 'white-filled',
+      theme: 'gray-outline',
       link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },

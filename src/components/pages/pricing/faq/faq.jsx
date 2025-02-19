@@ -163,7 +163,7 @@ const FAQ_DATA = [
   {
     question: 'Can I use Novu free of charge?',
     answer:
-      'Yes, you can. If you send less than 30K events per month, then Novu Cloud is entirely free. Another option is to deploy the Open-Source version of Novu onto your own infrastructure, but that does not give you the unique SLA and global redundancy we have in the Cloud version of Novu.',
+      'Yes, you can. If you send less than 10K events per month, then Novu Cloud is entirely free. Another option is to deploy the Open-Source version of Novu onto your own infrastructure, but that does not give you the unique SLA and global redundancy we have in the Cloud version of Novu.',
   },
 ];
 

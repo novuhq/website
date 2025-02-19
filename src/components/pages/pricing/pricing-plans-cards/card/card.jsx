@@ -36,9 +36,9 @@ const Card = ({ plan }) => {
       <div
         className={clsx('relative z-20 h-full overflow-hidden rounded-xl p-6 pb-[30px]', {
           'bg-[#111018] bg-[radial-gradient(87.74%_83.27%_at_81.56%_3.42%,_rgba(102,_122,_152,_0.22)_0%,_rgba(102,_122,_152,_0)_88.97%)]':
-            isTeam,
+            isPro,
           'bg-[#00000033] bg-[linear-gradient(152deg,#0B1122_0.45%,#10101E_98.47%)]':
-            isPro || isEnterprise || isFree,
+            isTeam || isEnterprise || isFree,
         })}
       >
         <div className="relative z-20">
@@ -76,7 +76,7 @@ const Card = ({ plan }) => {
               >
                 <CheckIcon
                   className={clsx('relative left-0.5 top-1 w-3.5 shrink-0 text-gray-8 sm:top-0.5', {
-                    'text-purple-3': isTeam,
+                    'text-purple-3': isPro,
                   })}
                 />
                 {item}
@@ -84,7 +84,7 @@ const Card = ({ plan }) => {
             ))}
           </ul>
         </div>
-        {(isEnterprise || isPro || isFree) && (
+        {(isEnterprise || isTeam || isFree) && (
           <>
             <img
               className="pointer-events-none absolute inset-0 z-10 h-full w-full object-cover object-center"
@@ -96,7 +96,7 @@ const Card = ({ plan }) => {
             <BlueShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
           </>
         )}
-        {isTeam && (
+        {isPro && (
           <>
             <PinkShine className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden />
             <img
@@ -111,9 +111,9 @@ const Card = ({ plan }) => {
         {hasAdditionalLabel && additionalLabelText && <Label text={additionalLabelText} />}
         <GradientBorder
           className={clsx({
-            'border-image-pink-gradient-border': isTeam,
+            'border-image-pink-gradient-border': isPro,
             'border-image-[radial-gradient(114.29%_113.4%_at_18.33%_-13.4%,_rgba(209,_213,_250,_0.1)_10.74%,_rgba(82,_83,_122,_0.3)_41.53%,_rgba(168,_148,_209,_0.1)_100%)]':
-              isEnterprise || isPro || isFree,
+              isEnterprise || isTeam || isFree,
           })}
           aria-hidden
         />
@@ -124,7 +124,7 @@ const Card = ({ plan }) => {
           aria-hidden
         />
       )}
-      {isTeam && (
+      {isPro && (
         <>
           <Shine
             className="pointer-events-none absolute -right-3 -top-2.5 z-30 h-[98px] w-[209px]"
