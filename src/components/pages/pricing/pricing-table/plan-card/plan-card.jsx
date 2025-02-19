@@ -13,7 +13,7 @@ const PlanCard = ({
   linkRel,
   common,
   platform,
-  framework,
+  // framework,
   inbox,
   account,
   compliance,
@@ -32,7 +32,7 @@ const PlanCard = ({
       )}
     >
       <div className={clsx('z-10 flex flex-col rounded-lg py-5')}>
-        <div className="flex flex-col space-y-3 px-[70px] lg:px-[27px] md:space-y-3.5 md:px-8">
+        <div className="flex flex-col space-y-3 px-[40px] lg:px-[20px] md:space-y-3.5 md:px-6">
           <h3 className="text-[24px] tracking-snug md:text-[16px]">{title}</h3>
           {linkText && linkUrl && (
             <Button
@@ -54,7 +54,7 @@ const PlanCard = ({
         </div>
         <FeatureList features={common} currentRow={currentRow} />
         <FeatureList features={platform} currentRow={currentRow} />
-        <FeatureList features={framework} currentRow={currentRow} />
+        {/* <FeatureList features={framework} currentRow={currentRow} /> */}
         <FeatureList features={inbox} currentRow={currentRow} />
         <FeatureList features={account} currentRow={currentRow} />
         <FeatureList features={compliance} currentRow={currentRow} />
