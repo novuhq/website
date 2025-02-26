@@ -19,7 +19,7 @@ const renderFeature = (feature) => {
 };
 
 const FeatureList = ({ features, currentRow }) => (
-  <div className="mt-24 flex flex-col divide-y divide-dashed divide-gray-4 border-b border-t border-dashed border-gray-4 text-left lg:mt-[61px] [&:nth-child(1)]:border-none [&:nth-child(2)]:mt-0 [&:nth-child(2)]:border-none lg:[&:nth-child(2)]:mt-0 [&:nth-child(3)]:mt-[71px] [&:nth-child(6)]:!mt-[109px] lg:[&:nth-child(6)]:!mt-[79px] [&:nth-child(n+4)]:mt-[79px]">
+  <div className="mt-24 flex flex-col divide-y divide-dashed divide-gray-4 border-b border-t border-dashed border-gray-4 text-left lg:mt-[61px] [&:nth-child(1)]:border-none [&:nth-child(2)]:mt-0 [&:nth-child(2)]:border-none [&:nth-child(3)]:mt-[71px] [&:nth-child(4)]:mt-[79px] [&:nth-child(5)]:mt-[79px] [&:nth-child(6)]:mt-[79px] [&:nth-child(n+7)]:mt-[79px]">
     {Object.keys(features).map((item, index) => {
       const isActive = `${item}-${index}` === currentRow;
       return (
