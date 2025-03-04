@@ -239,7 +239,7 @@ const HomePage = () => (
     />
     <Inbox
       sectionOffsets="mt-[250px] sm:mt-20"
-      title="Some header that includes up to three lines of engaging text"
+      title="<Inbox /> Component"
       description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
       button={{
         label: 'Learn more',
