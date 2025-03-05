@@ -31,7 +31,6 @@ const PRICING_PLANS = [
       'Activity Feed Retention: 24 hours',
       'Up to 3 Team Members',
     ],
-    hasAdditionalLabel: false,
   },
   {
     title: 'Pro',
@@ -44,14 +43,13 @@ const PRICING_PLANS = [
       target: '_blank',
     },
     description: 'Go pro. More scale, better retention, no branding.',
+    advantagesHeading: 'Everything in Free, plus...',
     advantages: [
-      'All in Free, plus...',
       '30K events/month included',
       'Activity Feed Retention: 7 days',
       'Remove Novu Branding',
     ],
-    hasAdditionalLabel: true,
-    additionalLabelText: false,
+    additionalLabelText: 'New',
   },
   {
     title: 'Team',
@@ -64,16 +62,14 @@ const PRICING_PLANS = [
       target: '_blank',
     },
     description: 'For growing teams. Higher limits, full control.',
+    advantagesHeading: 'Everything in Pro, plus...',
     advantages: [
-      'All in Pro, plus...',
       '250K events/month included',
       'Up to 10 Environments',
       'Activity Feed Retention: 90 days',
       'Unlimited Workflows',
       'Unlimited Team Members',
     ],
-    hasAdditionalLabel: true,
-    additionalLabelText: false,
   },
   {
     title: 'Enterprise',
@@ -83,16 +79,16 @@ const PRICING_PLANS = [
       theme: 'gray-outline',
       link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
     },
-    description: 'Unlimited power. Built for scale.',
+    description: 'Unlimited power.<br />Built for scale.',
+    advantagesHeading: 'Everything in Team, plus...',
     advantages: [
-      'All in Team, plus...',
       '5M events/month included',
       'Unlimited Environments',
       'Unlimited Activity Feed Retention',
     ],
-    hasAdditionalLabel: false,
   },
 ];
+
 const PricingPage = () => (
   <Layout mainClassName="overflow-hidden pt-16 sm:pt-14 bg-[#05050B]">
     <HeroNew />

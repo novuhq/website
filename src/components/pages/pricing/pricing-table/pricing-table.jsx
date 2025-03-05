@@ -32,7 +32,7 @@ const PricingPlans = ({ activeTier }) => {
   }, []);
 
   return (
-    <section className="safe-paddings pt-28 md:pb-5 md:pt-[98px] sm:pt-[74px]">
+    <section className="safe-paddings pt-[92px] md:pb-5 md:pt-[98px] sm:pt-[74px]">
       <div className="container lg:px-8 sm:px-5">
         <Heading
           className="text-center tracking-snug lg:text-[40px] md:text-[32px] sm:text-[28px]"
