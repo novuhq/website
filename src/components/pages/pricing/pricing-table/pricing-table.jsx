@@ -32,7 +32,7 @@ const PricingPlans = ({ activeTier }) => {
   }, []);
 
   return (
-    <section className="safe-paddings pt-28 md:pb-5 md:pt-[98px] sm:pt-[74px]">
+    <section className="safe-paddings pt-[92px] md:pb-5 md:pt-[98px] sm:pt-[74px]">
       <div className="container lg:px-8 sm:px-5">
         <Heading
           className="text-center tracking-snug lg:text-[40px] md:text-[32px] sm:text-[28px]"
@@ -43,7 +43,7 @@ const PricingPlans = ({ activeTier }) => {
           {TITLE}
         </Heading>
         <div className="md:scrollbar-hidden mx-auto mt-[18px] max-w-[1216px] lg:mt-3.5 md:-mx-7 md:mt-3.5 md:overflow-x-auto md:px-7 sm:-mx-4 sm:mt-3 sm:px-4">
-          <div className="grid min-w-[1144px] grid-cols-[250px_240px_240px_240px_240px] items-start justify-center lg:grid-cols-[250px_210px_210px_210px_210px] md:grid-cols-[220px_200px_200px_200px_200px] md:justify-start">
+          <div className="grid min-w-[1144px] grid-cols-[250px_240px_240px_240px_240px] items-start justify-center lg:grid-cols-[250px_210px_210px_210px_210px] md:grid-cols-[222px_200px_200px_200px_200px] md:justify-start">
             <div className="mt-[79px] md:mt-[69px]">
               {LABELS.map(({ title, items }, index) => (
                 <div
