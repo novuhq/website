@@ -6,7 +6,7 @@ import Button from 'components/shared/button';
 import GradientBorder from 'components/shared/gradient-border';
 import CheckIcon from 'images/check.inline.svg';
 import BorderShine from 'images/pages/pricing/border-shine.inline.svg';
-import PinkDotsPattern from 'images/pages/pricing/pink-dots.inline.svg';
+import dotsPattern from 'images/pages/pricing/dots-pattern.png';
 import PinkShineInsideCard from 'images/pages/pricing/pink-shine-inside.inline.svg';
 import stars from 'images/pages/pricing/stars.png';
 
@@ -92,7 +92,15 @@ const Card = ({ plan }) => {
               className="pointer-events-none absolute inset-0 w-full"
               aria-hidden
             />
-            <PinkDotsPattern className="pointer-events-none absolute inset-0 w-full" aria-hidden />
+            <img
+              className="pointer-events-none absolute inset-0 w-full"
+              src={dotsPattern}
+              width={617}
+              height={1142}
+              alt=""
+              loading="eager"
+              aria-hidden
+            />
           </>
         )}
         {additionalLabelText && <Label text={additionalLabelText} />}
