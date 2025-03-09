@@ -206,6 +206,7 @@ const MENUS = {
     },
     { text: 'Pricing', to: '/pricing?utm_campaign=ws_nav' },
     { text: 'Docs', to: 'https://docs.novu.co/?utm_campaign=ws_nav' },
+    { text: 'Contact', to: '/contact-us?utm_campaign=ws_nav' },
   ],
   footer: [
     [
@@ -221,7 +222,7 @@ const MENUS = {
       { text: 'Roadmap', to: 'https://roadmap.novu.co/roadmap' },
       { text: 'Changelog', to: 'https://roadmap.novu.co/changelog' },
       { text: 'Handbook', ...LINKS.handbook },
-      { text: 'Contact Us', to: 'https://novu.co/contact-us/?utm_campaign=ws_nav_bottom' },
+      { text: 'Contact Us', to: '/contact-us?utm_campaign=ws_nav_bottom' },
     ],
     [
       { text: 'Discord', ...LINKS.discord },

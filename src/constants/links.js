@@ -137,12 +137,12 @@ export default {
     target: '_blank',
   },
   contactUs: {
-    to: '/contact-us?utm_campaign=website',
-    target: '_blank',
+    to: '/contact-us',
+    target: '_self',
   },
   contactUsCTA: {
     to: '/contact-us?utm_campaign=homeCTA',
-    target: '_blank',
+    target: '_self',
   },
   getStarted: {
     to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website',

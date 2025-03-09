@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.2",
     "@dub/analytics": "^0.0.25",
     "@gsap/react": "^2.1.1",
     "@inkeep/widgets": "^0.2.289",
