@@ -1,0 +1,42 @@
+.inbox-component {
+  & .slick-list {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 1) 40%,
+      rgba(255, 255, 255, 1) 60%,
+      transparent 100%
+    );
+  }
+
+  & .slick-slide {
+    @apply cursor-pointer px-3 first:pl-0 last:pr-0;
+  }
+
+  & .slick-slide > div {
+    @apply h-full;
+  }
+
+  & .slick-active > div > div {
+    @apply !text-gray-10;
+  }
+
+  & .slick-dots {
+    @apply -bottom-6 !flex items-center justify-center gap-2.5 sm:-bottom-[20px];
+
+    li {
+      @apply m-0 h-[3px] w-[60px] rounded-full hover:scale-y-[1.4] sm:w-[56px];
+
+      button {
+        @apply relative flex h-full w-full justify-center rounded-full bg-[#A3A8C333] p-0 opacity-100 transition-colors duration-300;
+        @apply before:absolute before:left-1/2 before:top-1/2 before:h-[12px] before:w-[70px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded;
+      }
+
+      &.slick-active {
+        button {
+          @apply bg-white;
+        }
+      }
+    }
+  }
+}

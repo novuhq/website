@@ -150,6 +150,13 @@ module.exports = {
         'radial-gradient(203.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.18) 74%, rgba(212, 250, 255, 0.05) 100%)',
       'pink-gradient-border':
         'radial-gradient(114.29% 113.4% at 94% -13.4%, #ECD1FA 10.74%, rgba(95, 82, 122, 0.3) 49.79%, rgba(168, 148, 209, 0.1) 100%)',
+      'purple-home-bento':
+        'linear-gradient(180deg, #0F0915 33.42%, #08070E 100%), radial-gradient(73.08% 83.48% at 32.64% 25.65%, #1F1127 0%, #06080E 77.35%)',
+      'blue-home-bento':
+        'radial-gradient(71.42% 59.96% at 73.69% 28.52%, rgba(41, 56, 102, 0.50) 0%, rgba(41, 56, 102, 0.00) 67.88%)',
+      'green-home-bento':
+        'radial-gradient(170.56% 92.36% at 44.98% 24.35%, rgba(27, 37, 55, 0.60) 0%, rgba(27, 37, 55, 0.00) 67.88%)',
+      'home-code-block': 'linear-gradient(168.3deg, #1D233A 6.29%, #131725 91.42%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {
