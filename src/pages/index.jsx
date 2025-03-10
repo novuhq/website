@@ -30,9 +30,9 @@ import allstarLogo from 'images/reusable-sections/section-with-logos/allstar.svg
 import axiosHqLogo from 'images/reusable-sections/section-with-logos/axios-hq.svg';
 import baskLogo from 'images/reusable-sections/section-with-logos/bask.svg';
 import capgeminiLogo from 'images/reusable-sections/section-with-logos/capgemini.svg';
-import middayLogo from 'images/reusable-sections/section-with-logos/midday.svg';
 import mongoDbLogo from 'images/reusable-sections/section-with-logos/mongodb.svg';
 import mothershipLogo from 'images/reusable-sections/section-with-logos/mothership.svg';
+import rocheLogo from 'images/reusable-sections/section-with-logos/roche.svg';
 import runnLogo from 'images/reusable-sections/section-with-logos/runn.svg';
 import saladLogo from 'images/reusable-sections/section-with-logos/salad.svg';
 import siemensLogo from 'images/reusable-sections/section-with-logos/siemens.svg';
@@ -63,8 +63,8 @@ const SECTION_WITH_LOGOS_2 = [
     src: baskLogo,
   },
   {
-    title: 'Midday',
-    src: middayLogo,
+    title: 'Roche',
+    src: rocheLogo,
   },
   {
     title: 'Unity',
@@ -281,7 +281,7 @@ export const Head = () => {
       <RiveWasm />
       <link
         rel="preload"
-        href="/animations/pages/home/hero/new_hero.riv"
+        href="/animations/pages/home/hero/hero.riv"
         as="fetch"
         crossOrigin="anonymous"
       />

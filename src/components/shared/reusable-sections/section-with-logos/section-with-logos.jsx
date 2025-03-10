@@ -22,13 +22,10 @@ const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) =
           {title}
         </Heading>
         <p
-          className={clsx(
-            'mx-auto mt-3 text-lg font-book tracking-snug text-gray-8 lg:max-w-md md:text-base',
-            {
-              'max-w-lg': containerSize === 'md',
-              'max-w-xl': containerSize === 'lg',
-            }
-          )}
+          className={clsx('mx-auto mt-3 text-lg font-book tracking-snug text-gray-8 md:text-base', {
+            'max-w-lg': containerSize === 'md',
+            'max-w-[580px]': containerSize === 'lg',
+          })}
         >
           {description}
         </p>
