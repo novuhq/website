@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Slider from 'react-slick';
@@ -209,7 +210,7 @@ const PrevArrow = (props) => {
   );
 };
 
-const Reviews = () => {
+const Reviews = ({ className = 'mt-[308px] md:mt-36 sm:mt-[140px]' }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -236,7 +237,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className="reviews safe-paddings mt-[308px] md:mt-36 sm:mt-[140px]">
+    <section className={clsx('reviews safe-paddings', className)}>
       <div className="container-lg xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
         <Heading
           className="text-center font-medium leading-denser tracking-snug md:text-[40px] sm:text-[32px] xs:text-[29px]"
@@ -291,3 +292,7 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+Reviews.defaultProps = {
+  className: 'mt-[308px] md:mt-36 sm:mt-[140px]',
+};
