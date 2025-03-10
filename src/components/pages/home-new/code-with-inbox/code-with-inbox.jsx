@@ -16,11 +16,11 @@ const CodeWithInbox = ({ className, title, description, button, tabs, isMainPage
   return (
     <section
       className={clsx(
-        'code-section safe-paddings mt-60 flex flex-col items-center lg:mt-[120px] md:mt-[100px] sm:mt-20',
+        'code-section safe-paddings mt-[190px] flex flex-col items-center lg:mt-[120px] md:mt-[100px] sm:mt-20',
         className
       )}
     >
-      <div className="container flex flex-col items-center">
+      <div className="container flex -translate-x-4 flex-col items-center">
         <h2
           className="text-center text-[48px] font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
           dangerouslySetInnerHTML={{ __html: title }}
@@ -50,10 +50,10 @@ const CodeWithInbox = ({ className, title, description, button, tabs, isMainPage
       >
         <div
           className={clsx(
-            'relative z-10 w-full max-w-[672px] rounded-xl bg-[linear-gradient(180deg,#303755_-2.71%,#1A1E2E_45.57%)] p-px backdrop-blur-[32px] lg:max-w-[434px] md:w-full md:max-w-full sm:max-w-[398px]'
+            'relative z-10 w-full max-w-[672px] rounded-xl bg-[linear-gradient(180deg,#303755_-2.71%,#1A1E2E_45.57%)] p-px lg:max-w-[434px] md:w-full md:max-w-full sm:max-w-[398px]'
           )}
         >
-          <div className="relative z-10 h-full w-full overflow-hidden rounded-xl bg-home-code-block px-[22px] pb-[20px] pt-0 sm:px-[16px] sm:pb-[16px]">
+          <div className="relative isolate z-10 h-full w-full overflow-hidden rounded-xl bg-home-code-block px-[22px] pb-[20px] pt-0 [-webkit-mask-image:-webkit-radial-gradient(white,black)] sm:px-[16px] sm:pb-[16px]">
             <div className="flex gap-4 md:-ml-3 md:gap-5">
               {tabs.map((tab, index) => (
                 <button

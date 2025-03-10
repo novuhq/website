@@ -1,31 +1,29 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import Code from 'components/pages/home/code';
+// TODO: replace Reviews to new directory before merge
 import Hero from 'components/pages/home/hero';
 import Reviews from 'components/pages/home/reviews';
+import Bento from 'components/pages/home-new/bento';
+import CodeWithInbox from 'components/pages/home-new/code-with-inbox/code-with-inbox';
+import Community from 'components/pages/home-new/community';
 import Layout from 'components/shared/layout';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
-import Inbox from 'components/shared/reusable-sections/inbox';
-import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
-import SectionWithCards from 'components/shared/reusable-sections/section-with-cards';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
+import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-import apifirstIcon from 'images/icons/api-first.svg';
 import bellOutlineIcon from 'images/icons/bell-outline.svg';
 import chatOutlineIcon from 'images/icons/chat-outline.svg';
-import componentsIcon from 'images/icons/components.svg';
 import emailOutlineIcon from 'images/icons/email-outline.svg';
 import gearOutlineIcon from 'images/icons/gear-outline.svg';
 import inappOutlineIcon from 'images/icons/in-app-outline.svg';
-import integration2Icon from 'images/icons/integration2.svg';
-import observabilityIcon from 'images/icons/observability.svg';
 import planeOutlineIcon from 'images/icons/plane-outline.svg';
-import preferencesIcon from 'images/icons/preferences.svg';
-import workflowsIcon from 'images/icons/workflows.svg';
+import nextjsIcon from 'images/pages/home-new/inbox/nextjs.svg';
+import reactIcon from 'images/pages/home-new/inbox/react.svg';
+import remixIcon from 'images/pages/home-new/inbox/remix.svg';
 import allstarLogo from 'images/reusable-sections/section-with-logos/allstar.svg';
 import axiosHqLogo from 'images/reusable-sections/section-with-logos/axios-hq.svg';
 import baskLogo from 'images/reusable-sections/section-with-logos/bask.svg';
@@ -92,92 +90,6 @@ const SECTION_WITH_LOGOS_2 = [
   },
 ];
 
-const SECTION_WITH_CARDS = [
-  {
-    title: 'Premier DX',
-    description:
-      'Simple integrations with real-time data access and protections power critical notifications.',
-    image: (
-      <StaticImage
-        className="size-full object-cover"
-        src="../images/reusable-sections/section-with-cards/dx.png"
-      />
-    ),
-    //  linkText: 'Learn more',
-    //  linkUrl: 'https://docs.novu.co/getting-started/introduction',
-  },
-  {
-    title: '100% flexible',
-    description:
-      'Build workflows in the Ul, extend with code, and embed customizable <Inbox /> components.',
-    image: (
-      <StaticImage
-        className="size-full object-cover"
-        src="../images/reusable-sections/section-with-cards/flexibility.png"
-      />
-    ),
-    //  linkText: 'Learn more',
-    //  linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
-  },
-  {
-    title: 'Open source backed',
-    description:
-      'Community driven and commercially-backed notifications innovation that never locks you in.',
-    image: (
-      <StaticImage
-        className="size-full object-cover"
-        src="../images/reusable-sections/section-with-cards/opensource-redesigned.jpg"
-      />
-    ),
-    //  linkText: 'Learn more',
-    //  linkUrl: 'https://github.com/novuhq/novu',
-  },
-];
-
-const SECTION_WITH_BIG_ICONS = [
-  {
-    icon: componentsIcon,
-    title: '<Inbox /> components',
-    description:
-      'Drop-in and fully configurable, the Novu <Inbox /> is the fastest way to add InApp notifications to your app.',
-    linkUrl: 'https://docs.novu.co/inbox/overview',
-  },
-  {
-    icon: integration2Icon,
-    title: 'Integrations',
-    description:
-      'Use ReactEmail, MJML, LaunchDarkly (and more!), and fetch content and values from anywhere.',
-    linkUrl: 'https://docs.novu.co/concepts/integrations',
-  },
-  {
-    icon: preferencesIcon,
-    title: 'Preferences',
-    description:
-      'End users directly set their own communication preferences like channels, timezone, and language.',
-    linkUrl: 'https://docs.novu.co/inbox',
-  },
-  {
-    icon: workflowsIcon,
-    title: 'Powerful workflows',
-    description:
-      'Start with a Ul workflow and achieve unlimited power and flexibility through code.',
-    linkUrl: 'https://docs.novu.co/concepts/workflows',
-  },
-  {
-    icon: observabilityIcon,
-    title: 'Observability',
-    description:
-      'Rapidly identify and solve previously complicated content hydratin and notification routing issues.',
-    linkUrl: 'https://docs.novu.co/api-reference/execution-details/get-execution-details',
-  },
-  {
-    icon: apifirstIcon,
-    title: 'API-first, and open source backed',
-    description: "Native developer experience that's backed by a huge community.",
-    linkUrl: 'https://docs.novu.co/api-reference/overview',
-  },
-];
-
 const SECTION_WITH_SMALL_ICONS = [
   {
     title: 'InApp/Inbox',
@@ -217,6 +129,70 @@ const SECTION_WITH_SMALL_ICONS = [
   },
 ];
 
+const CODE_NEXTJS = `'use client';
+
+import React from 'react';
+import { Inbox } from '@novu/nextjs';
+ 
+export function NotificationInbox() {
+  return (
+    <Inbox
+      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
+      subscriberId="YOUR_SUBSCRIBER_ID"
+    />
+  );
+}`;
+
+const CODE_REMIX = `import React from 'react';
+import { Inbox } from '@novu/react';
+import { useNavigate } from '@remix-run/react';
+ 
+export function NotificationCenter() {
+  const navigate = useNavigate();
+  
+  return (
+    <Inbox
+      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
+      subscriberId="YOUR_SUBSCRIBER_ID"
+      routerPush={(path: string) => navigate(path)}
+    />
+  );
+}`;
+
+const CODE_REACT = `import React from 'react';
+import { Inbox } from '@novu/react';
+import { useNavigate } from 'react-router';
+ 
+export function NotificationCenter() {
+  const navigate = useNavigate();
+  
+  return (
+    <Inbox
+      applicationIdentifier="YOUR_APPLICATION_IDENOUR_APPLICATION_IDENTIFIER"
+      subscriberId="YOUR_SUBSCRIBER_ID"
+      routerPush={(path: string) => navigate(path)}
+    />
+  );
+}`;
+
+const CODE_ITEMS = [
+  {
+    title: 'Next.js',
+    code: CODE_NEXTJS,
+    icon: nextjsIcon,
+  },
+  {
+    title: 'Remix',
+    code: CODE_REMIX,
+    icon: remixIcon,
+  },
+  {
+    title: 'React',
+    code: CODE_REACT,
+    icon: reactIcon,
+  },
+];
+
 const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <Hero />
@@ -226,41 +202,60 @@ const HomePage = () => (
       description="Ensuring seamless notifications from business to users, with zero hassle."
       logos={SECTION_WITH_LOGOS_2}
     />
-    <SectionWithCards title="The Novu difference" cards={SECTION_WITH_CARDS} />
-    <SectionWithBigIcons
-      title="Notification building blocks provide unlimited capability"
-      items={SECTION_WITH_BIG_ICONS}
+    <CodeWithInbox
+      title="Just copy and ship"
+      description="Add a powerful notification inbox to your app with 6 lines of code. It's that simple."
+      button={{
+        label: 'Test in Playground',
+        link: 'https://inbox.novu.co',
+        theme: 'gray-outline',
+        target: '_blank',
+      }}
+      tabs={CODE_ITEMS}
+      isMainPage
+    />
+    <Bento
+      title="<Inbox /> batteries included"
+      description="Start with a component, scale with a platform. Everything you need to build a world-class notification system."
     />
     <SectionWithSmallIcons
       title="All your channels in one platform"
       description="True omnichannel notifications are just a few clicks away"
+      className="mt-[204px] lg:mt-[148px] md:mt-[116px] sm:mt-[106px]"
       items={SECTION_WITH_SMALL_ICONS}
-      hasOutroText
     />
-    <Inbox
-      sectionOffsets="mt-[250px] sm:mt-20"
-      title="<Inbox /> Component"
-      description="Enable in-app notifications in your app or website with a pre-built and customizable components, available in popular frameworks."
-      button={{
-        label: 'Learn more',
-        link: '/inbox?utm_campaign=ws-inbox-hero',
-      }}
+    <TextWithPicture
+      className="py-20 pl-[64px] lg:pl-[32px] md:py-10 sm:mb-0 sm:pb-20 sm:pt-0 xs:pb-[110px] sm-xs:pb-[70px]"
+      title="Part of your Stack"
+      description="Native integrations with the tools you love. From frameworks to providers, connect once and deploy with confidence."
+      imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
+      image={
+        <div className="absolute left-1/2 top-1/2 w-[1185px] max-w-none -translate-x-[calc(50%+28px)] -translate-y-1/2 lg:w-[1042px] lg:-translate-x-[calc(50%+22px)] md:w-[704px] sm:w-[130%] sm:-translate-x-[calc(50%+2px)] xs:w-[150%] sm-xs:w-[204%]">
+          <StaticImage
+            className="size-full object-cover"
+            src="../images/pages/home-new/stack.png"
+            alt=""
+            loading="lazy"
+            width={1185}
+            height={1180}
+          />
+        </div>
+      }
+      theme="imageRight"
     />
-    <div id="codefirst">
-      <Code />
-    </div>
-    <Reviews />
+    <Community />
+    <Reviews className="mt-[220px] lg:mt-[184px] md:mt-[134px] sm:mt-[106px] [&_h3]:md:text-[32px] [&_h3]:sm:text-[28px]" />
     <CtaWithForm
-      className="mb-[192px] mt-[238px] text-center"
-      title="You're five minutes away from your first Novu-powered notification"
-      description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
+      className="mb-[200px] mt-[200px] text-center lg:mb-[182px] lg:mt-[182px] md:mb-[144px] md:mt-[144px] sm:mb-[128px] sm:mt-[165px] [&_h2]:lg:text-[44px] [&_h2]:md:text-[36px] [&_h2]:sm:text-[32px]"
+      title="Free to start, ready to scale"
+      description="<span class='font-medium text-gray-10'>10K events/month free forever.</span> From weekend projects to enterprise scale, we've got you covered."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_home_cta_bottom',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
-        text: 'Contact us',
-        link: 'https://novu.co/contact-us/?utm_campaign=ws_home_cta_bottom',
+        text: 'See our plans',
+        link: '/pricing',
       }}
     />
     <Separator className="h-px w-full max-w-none" backgroundColor="black" />

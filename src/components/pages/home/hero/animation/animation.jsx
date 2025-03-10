@@ -37,7 +37,7 @@ const Animation = () => {
       <StaticImage
         src="./images/illustration-mobile.png"
         alt=""
-        className="relative left-1/2 w-[109%] -translate-x-1/2 sm:w-[122%] sm:[mask-image:radial-gradient(50%_50%_at_50%_50%,#D9D9D9_73.96%,rgba(115,115,115,0)_100%)]"
+        className="relative left-1/2 !hidden w-[109%] -translate-x-1/2 md:!inline-block sm:w-[122%] sm:[mask-image:radial-gradient(50%_50%_at_50%_50%,#D9D9D9_73.96%,rgba(115,115,115,0)_100%)]"
         width={768}
         height={459}
         loading="eager"
