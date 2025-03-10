@@ -23,6 +23,18 @@ const THEMES = {
         height={659}
       />
     ),
+    mainPageInboxImage: (
+      <StaticImage
+        className={clsx(
+          INBOX_IMAGE_CLASSNAMES,
+          'md:left-[-8px] md:w-[528px] sm:left-0 sm:mt-[8px] sm:scale-[1.03]'
+        )}
+        src="./images/inbox.png"
+        alt=""
+        width={628}
+        height={659}
+      />
+    ),
   },
   notionDark: {
     inboxImage: (
@@ -34,11 +46,29 @@ const THEMES = {
         height={619}
       />
     ),
+    mainPageInboxImage: (
+      <StaticImage
+        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px]')}
+        src="./images/notion-light.png"
+        alt=""
+        width={608}
+        height={619}
+      />
+    ),
   },
   notionLight: {
     inboxImage: (
       <StaticImage
         className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        src="./images/notion-light.png"
+        alt=""
+        width={608}
+        height={619}
+      />
+    ),
+    mainPageInboxImage: (
+      <StaticImage
+        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px] sm:max-w-[608px]')}
         src="./images/notion-light.png"
         alt=""
         width={608}
@@ -56,6 +86,15 @@ const THEMES = {
         height={619}
       />
     ),
+    mainPageInboxImage: (
+      <StaticImage
+        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px] sm:max-w-[608px]')}
+        src="./images/linear-dark.png"
+        alt=""
+        width={608}
+        height={619}
+      />
+    ),
   },
   linearLight: {
     inboxImage: (
@@ -67,11 +106,20 @@ const THEMES = {
         height={619}
       />
     ),
+    mainPageInboxImage: (
+      <StaticImage
+        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px] sm:max-w-[608px]')}
+        src="./images/linear-light.png"
+        alt=""
+        width={608}
+        height={619}
+      />
+    ),
   },
 };
 
-const AdaptiveStatic = ({ theme, className }) => {
-  const { backgroundImage, inboxImage } = THEMES[theme];
+const AdaptiveStatic = ({ theme, className, isMainPage }) => {
+  const { backgroundImage, inboxImage, mainPageInboxImage } = THEMES[theme];
 
   return (
     <m.div
@@ -81,7 +129,7 @@ const AdaptiveStatic = ({ theme, className }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      {inboxImage}
+      {isMainPage ? mainPageInboxImage : inboxImage}
       {backgroundImage && (
         <img
           className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"
