@@ -20,25 +20,25 @@ const Community = () => (
       >
         <li className="relative flex flex-col items-center gap-y-3 sm:pt-[102px]">
           <img
-            className="absolute -bottom-14 -right-7 w-[400px] max-w-none sm:left-1/2 sm:right-[initial] sm:w-[354px] sm:-translate-x-[calc(50%+24px)]"
+            className="pointer-events-none absolute -bottom-14 -right-7 w-[400px] max-w-none sm:left-1/2 sm:right-[initial] sm:w-[354px] sm:-translate-x-[calc(50%+24px)]"
             src={stars}
             alt=""
             width={478}
             height={346}
             loading="lazy"
           />
-          <p className="">36k GitHub stars</p>
+          <p className="z-10">36k GitHub stars</p>
         </li>
         <li className="flex flex-col items-center gap-y-3 sm:pt-[188px]">
           <img
-            className="absolute -bottom-[76px] -right-[101px] w-[480px] max-w-none sm:-bottom-16 sm:left-1/2 sm:right-[initial] sm:w-[414px] sm:-translate-x-[calc(50%-4px)]"
+            className="pointer-events-none absolute -bottom-[76px] -right-[101px] w-[480px] max-w-none sm:-bottom-16 sm:left-1/2 sm:right-[initial] sm:w-[414px] sm:-translate-x-[calc(50%-4px)]"
             src={contributors}
             alt=""
             width={395}
             height={346}
             loading="lazy"
           />
-          <p className="">400+ contributors</p>
+          <p className="z-10">400+ contributors</p>
         </li>
       </ul>
     </div>
