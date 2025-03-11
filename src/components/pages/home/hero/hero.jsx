@@ -36,9 +36,9 @@ const Hero = () => (
             size="sm"
             theme="gray-outline"
             {...LINKS.documentation}
-            onClick={useLandingSimpleTracking('contact_us', { type: 'homepage' })}
+            onClick={useLandingSimpleTracking('visit_docs', { type: 'homepage' })}
           >
-            Watch Demo
+            Visit Docs
           </Button>
         </div>
         <Animation />

@@ -20,7 +20,7 @@ const CodeWithInbox = ({ className, title, description, button, tabs, isMainPage
         className
       )}
     >
-      <div className="container flex -translate-x-4 flex-col items-center">
+      <div className="container mb-[80px] flex -translate-x-4 flex-col items-center">
         <h2
           className="text-center text-[48px] font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
           dangerouslySetInnerHTML={{ __html: title }}

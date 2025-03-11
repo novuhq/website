@@ -205,12 +205,6 @@ const HomePage = () => (
     <CodeWithInbox
       title="Just copy and ship"
       description="Add a powerful notification inbox to your app with 6 lines of code. It's that simple."
-      button={{
-        label: 'Test in Playground',
-        link: 'https://inbox.novu.co',
-        theme: 'gray-outline',
-        target: '_blank',
-      }}
       tabs={CODE_ITEMS}
       isMainPage
     />
@@ -225,6 +219,10 @@ const HomePage = () => (
       items={SECTION_WITH_SMALL_ICONS}
     />
     <TextWithPicture
+      button={{
+        label: 'Get started',
+        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
+      }}
       className="py-20 pl-[64px] lg:pl-[32px] md:py-10 sm:mb-0 sm:pb-20 sm:pt-0 xs:pb-[110px] sm-xs:pb-[70px]"
       title="Part of your Stack"
       description="Native integrations with the tools you love. From frameworks to providers, connect once and deploy with confidence."
@@ -254,7 +252,7 @@ const HomePage = () => (
         link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
-        text: 'See our plans',
+        text: 'Pricing',
         link: '/pricing',
       }}
     />
