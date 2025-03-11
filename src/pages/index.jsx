@@ -117,7 +117,7 @@ const SECTION_WITH_LOGOS_2 = [
 
 const SECTION_WITH_SMALL_ICONS = [
   {
-    title: 'InApp/Inbox',
+    title: 'In-App',
     description:
       'Display real-time, contextual notifications within your app using customizable components.',
     image: inappOutlineIcon,
