@@ -113,7 +113,7 @@ export default {
     target: '_blank',
   },
   documentation: {
-    to: 'https://docs.novu.co/overview/introduction?utm_campaign=website',
+    to: 'https://docs.novu.co/?utm_campaign=website',
     target: '_blank',
   },
   careers: {

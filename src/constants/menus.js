@@ -206,7 +206,6 @@ const MENUS = {
     },
     { text: 'Pricing', to: '/pricing?utm_campaign=ws_nav' },
     { text: 'Docs', to: 'https://docs.novu.co/?utm_campaign=ws_nav' },
-    { text: 'Contact', to: '/contact-us?utm_campaign=ws_nav' },
   ],
   footer: [
     [
