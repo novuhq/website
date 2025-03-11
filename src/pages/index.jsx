@@ -8,6 +8,7 @@ import Bento from 'components/pages/home-new/bento';
 import CodeWithInbox from 'components/pages/home-new/code-with-inbox/code-with-inbox';
 import Community from 'components/pages/home-new/community';
 import Layout from 'components/shared/layout';
+import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
@@ -36,6 +37,30 @@ import saladLogo from 'images/reusable-sections/section-with-logos/salad.svg';
 import siemensLogo from 'images/reusable-sections/section-with-logos/siemens.svg';
 import teocoLogo from 'images/reusable-sections/section-with-logos/teoco.svg';
 import unityLogo from 'images/reusable-sections/section-with-logos/unity.svg';
+
+const CODE_SECTION = `import { workflow } from '@novu/framework';
+import { z } from 'zod';
+import { render } from '@react-email/components';
+
+workflow('weekly-comments', async ({ step }) => {
+  const digest = await step.digest('collect-events', () => ({
+    cron: 'weekly'
+  }));
+
+  await step.email('email', async () => {
+    const { data } = await supabase.from('posts').select('*');
+
+    return {
+      subject: 'React based email',
+      body: render(<WeeklyDigestEmail comments={digest.events} posts={data} />)
+    }
+  ), {
+    skip: () => !digest.events.length,
+  });
+}, { 
+  payloadSchema: z.object({ userName: z.string() }),
+});
+`;
 
 // import LINKS from 'constants/links';
 
@@ -241,6 +266,17 @@ const HomePage = () => (
         </div>
       }
       theme="imageRight"
+    />
+    <CodeSectionNew
+      code={CODE_SECTION}
+      className="mb-[222px] mt-[134px] lg:mb-[134px] md:mb-[145px] md:mt-[100px] sm:mt-20"
+      title="Start Simple, Scale to Code"
+      description="Begin with our intuitive UI, break into code when you need run-time control, react email or local data access. You choose when to level up, the ultimate escape hatch."
+      button={{
+        label: 'Learn More',
+        link: '/framework',
+      }}
+      isPriorityImageLoading
     />
     <Community />
     <Reviews className="relative z-10 mt-[220px] lg:mt-[184px] md:mt-[134px] sm:mt-[106px] [&_h3]:md:text-[32px] [&_h3]:sm:text-[28px]" />
