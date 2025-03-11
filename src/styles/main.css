@@ -12,6 +12,7 @@
 /* Components */
 @import './container.css';
 @import './content.css';
+@import './maily.css';
 @import '../components/shared/input-range/input-range.css';
 @import '../components/pages/timeline/timeline/timeline.css';
 

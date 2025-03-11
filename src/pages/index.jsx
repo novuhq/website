@@ -2,6 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 // TODO: replace Reviews to new directory before merge
+import EmailEditor from 'components/pages/home/email-editor';
 import Hero from 'components/pages/home/hero';
 import Reviews from 'components/pages/home/reviews';
 import Bento from 'components/pages/home-new/bento';
@@ -243,7 +244,9 @@ const HomePage = () => (
       className="mt-[204px] lg:mt-[148px] md:mt-[116px] sm:mt-[106px]"
       items={SECTION_WITH_SMALL_ICONS}
     />
+    <EmailEditor />
     <TextWithPicture
+      sectionClassName="mt-[308px] lg:mt-[228px] md:mt-[168px] sm:mt-[104px]"
       button={{
         label: 'Get started',
         link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',

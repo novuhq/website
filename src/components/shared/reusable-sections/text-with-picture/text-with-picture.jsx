@@ -11,10 +11,11 @@ const TextWithPicture = ({
   description,
   image,
   imageClassName,
+  sectionClassName,
   button,
   theme,
 }) => (
-  <section className="text-with-picture safe-paddings mt-40 lg:mt-36 md:mt-[104px] sm:mt-14">
+  <section className={clsx('text-with-picture safe-paddings', sectionClassName)}>
     <div className="container-lg px-8 md:px-7 sm:px-4">
       <div
         className={clsx(
@@ -84,6 +85,7 @@ const TextWithPicture = ({
 TextWithPicture.propTypes = {
   className: PropTypes.string,
   imageClassName: PropTypes.string,
+  sectionClassName: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.node.isRequired,
@@ -101,6 +103,7 @@ TextWithPicture.defaultProps = {
   theme: 'imageLeft',
   className: '',
   imageClassName: '',
+  sectionClassName: 'mt-40 lg:mt-36 md:mt-[104px] sm:mt-14',
 };
 
 export default TextWithPicture;
