@@ -269,7 +269,7 @@ const HomePage = () => (
     />
     <CodeSectionNew
       code={CODE_SECTION}
-      className="mb-[222px] mt-[134px] lg:mb-[134px] md:mb-[145px] md:mt-[100px] sm:mt-20"
+      className="mb-[222px] mt-[134px] lg:mb-[134px] md:mb-[145px] md:mt-[100px] sm:mt-[160px]"
       title="Start Simple, Scale to Code"
       description="Begin with our intuitive UI, break into code when you need run-time control, react email or local data access. You choose when to level up, the ultimate escape hatch."
       button={{
