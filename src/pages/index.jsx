@@ -250,7 +250,7 @@ const HomePage = () => (
       }}
       className="py-20 pl-[64px] lg:pl-[32px] md:py-10 sm:mb-0 sm:pb-20 sm:pt-0 xs:pb-[110px] sm-xs:pb-[70px]"
       title="Part of your Stack"
-      description="Native integrations with the tools you love. From frameworks to providers, connect once and deploy with confidence."
+      description="Integrate with the tools you love. From frameworks to delivery providers, like Twilio, Resend, React Email, Clerk, Stripe and more."
       imageClassName="relative w-full h-full sm:h-[300px] xs:h-[200px]"
       image={
         <div className="absolute left-1/2 top-1/2 w-[1185px] max-w-none -translate-x-[calc(50%+28px)] -translate-y-1/2 lg:w-[1042px] lg:-translate-x-[calc(50%+22px)] md:w-[704px] sm:w-[130%] sm:-translate-x-[calc(50%+2px)] xs:w-[150%] sm-xs:w-[204%]">
