@@ -25,13 +25,13 @@ const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
         )}
       >
         <div className="relative z-10 max-w-[672px] py-5 lg:max-w-[434px] md:max-w-full sm:max-w-[398px]">
-          <div className="mb-12 sm:mb-11">
+          <div className="mb-[52px] lg:mb-12 sm:mb-11">
             <h2
-              className="text-center text-[48px] font-medium leading-denser tracking-snug lg:text-5xl md:text-[32px] sm:text-3xl"
+              className="text-[48px] font-medium leading-denser tracking-snug lg:text-5xl md:text-center md:text-[32px] sm:text-3xl"
               dangerouslySetInnerHTML={{ __html: title }}
             />
             {description && (
-              <p className="mt-3 max-w-[746px] text-center text-lg leading-normal tracking-snug text-gray-8 md:text-[16px] sm:mt-3 sm:max-w-none">
+              <p className="mt-3 max-w-[746px] text-balance text-lg leading-normal tracking-snug text-gray-8 md:text-center md:text-[16px] sm:mt-3 sm:max-w-none">
                 {description}
               </p>
             )}

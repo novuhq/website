@@ -73,7 +73,7 @@ const Bento = ({ title, description }) => (
           description="Allow users to customize their preferences using the built-in <Preferences /> component."
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(180deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-bottom xs:[&_img]:!object-cover"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(180deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-bottom xs:[&_img]:!object-cover xs:[&_img]:object-top"
               src="./images/card-1.png"
               alt=""
               width={384}
@@ -130,7 +130,7 @@ const Bento = ({ title, description }) => (
           borderGradient="border-image-[radial-gradient(171.34%_72.8%_at_50%_0%,_#1E2334_0%,_#1E2334_22.52%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(180deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-bottom xs:[&_img]:!object-cover"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(180deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-bottom xs:[&_img]:!object-cover xs:[&_img]:object-top"
               src="./images/card-5.png"
               alt=""
               width={384}
@@ -150,7 +150,7 @@ const Bento = ({ title, description }) => (
           borderGradient="border-image-[radial-gradient(77.03%_100%_at_6.77%_0%,_#326167_14.12%,_#1E2334_38.93%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(0deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-top xs:[&_img]:!object-cover"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(0deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-top xs:[&_img]:!object-cover xs:[&_img]:object-bottom"
               src="./images/card-3.png"
               alt=""
               width={384}
