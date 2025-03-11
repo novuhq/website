@@ -86,7 +86,7 @@ const Bento = ({ title, description }) => (
         <Card
           size="small"
           title="Snooze"
-          description="Let users Snooze a message to when they will need it most."
+          description="Let users Snooze a message to when they will need it most. (Coming soon)"
           className="bg-[#08070E] bg-blue-home-bento sm:[background-image:none]"
           borderGradient="border-image-[radial-gradient(67.76%_87.87%_at_97.19%_-1.15%,_#344E8D_14.12%,_#1E2334_38.93%)]"
           image={
