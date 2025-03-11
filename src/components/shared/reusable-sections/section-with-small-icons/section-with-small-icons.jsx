@@ -21,7 +21,7 @@ const SectionWithSmallIcons = ({
   >
     <div className="container-md px-8 sm:w-full sm:px-5">
       <Heading
-        className="mx-auto max-w-3xl text-center font-medium leading-denser tracking-snug lg:max-w-2xl lg:text-[32px] md:text-3xl"
+        className="mx-auto max-w-3xl text-balance text-center font-medium leading-denser tracking-snug lg:max-w-2xl lg:text-[32px] md:text-3xl"
         size="lg"
         tag="h2"
       >
@@ -30,7 +30,7 @@ const SectionWithSmallIcons = ({
       {description && (
         <p
           className={clsx(
-            'mt-5 text-center text-[18px] font-light leading-snug tracking-snug text-gray-8 md:text-sm',
+            'mt-5 text-balance text-center text-[18px] font-light leading-snug tracking-snug text-gray-8 md:text-sm',
             descriptionClassName
           )}
         >
