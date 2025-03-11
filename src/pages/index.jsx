@@ -236,13 +236,14 @@ const HomePage = () => (
             loading="lazy"
             width={1185}
             height={1180}
+            quality={100}
           />
         </div>
       }
       theme="imageRight"
     />
     <Community />
-    <Reviews className="mt-[220px] lg:mt-[184px] md:mt-[134px] sm:mt-[106px] [&_h3]:md:text-[32px] [&_h3]:sm:text-[28px]" />
+    <Reviews className="relative z-10 mt-[220px] lg:mt-[184px] md:mt-[134px] sm:mt-[106px] [&_h3]:md:text-[32px] [&_h3]:sm:text-[28px]" />
     <CtaWithForm
       className="mb-[200px] mt-[200px] text-center lg:mb-[182px] lg:mt-[182px] md:mb-[144px] md:mt-[144px] sm:mb-[128px] sm:mt-[165px] [&_h2]:lg:text-[44px] [&_h2]:md:text-[36px] [&_h2]:sm:text-[32px]"
       title="Free to start, ready to scale"

@@ -130,12 +130,6 @@ const HomePage = () => (
     <CodeWithInbox
       title="Just copy and ship"
       description="Add a powerful notification inbox to your app with 6 lines of code. It's that simple."
-      button={{
-        label: 'Test in Playground',
-        link: 'https://inbox.novu.co',
-        theme: 'gray-outline',
-        target: '_blank',
-      }}
       tabs={CODE_ITEMS}
       isMainPage
     />

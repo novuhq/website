@@ -73,7 +73,7 @@ const Bento = ({ title, description }) => (
           description="Allow users to customize their preferences using the built-in <Preferences /> component."
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-xl [&_img]:object-cover [&_img]:object-center"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(180deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-bottom xs:[&_img]:!object-cover"
               src="./images/card-1.png"
               alt=""
               width={384}
@@ -87,11 +87,11 @@ const Bento = ({ title, description }) => (
           size="small"
           title="Snooze"
           description="Let users Snooze a message to when they will need it most."
-          className="bg-[#08070E] bg-blue-home-bento"
+          className="bg-[#08070E] bg-blue-home-bento sm:[background-image:none]"
           borderGradient="border-image-[radial-gradient(67.76%_87.87%_at_97.19%_-1.15%,_#344E8D_14.12%,_#1E2334_38.93%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-xl [&_img]:object-cover [&_img]:object-center"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(0deg,transparent_35%,white_45%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-top xs:[&_img]:!object-cover"
               src="./images/card-4.png"
               alt=""
               width={384}
@@ -111,7 +111,7 @@ const Bento = ({ title, description }) => (
           borderGradient="border-image-[radial-gradient(68.42%_54.05%_at_0%_35.69%,_#243349_9.84%,_#1E2334_22.52%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-xl [&_img]:object-cover [&_img]:object-center"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(0deg,transparent_30%,white_50%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-top xs:[&_img]:!object-cover"
               src="./images/card-2.png"
               alt=""
               width={384}
@@ -130,7 +130,7 @@ const Bento = ({ title, description }) => (
           borderGradient="border-image-[radial-gradient(171.34%_72.8%_at_50%_0%,_#1E2334_0%,_#1E2334_22.52%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-xl [&_img]:object-cover [&_img]:object-center"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(180deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-bottom xs:[&_img]:!object-cover"
               src="./images/card-5.png"
               alt=""
               width={384}
@@ -150,7 +150,7 @@ const Bento = ({ title, description }) => (
           borderGradient="border-image-[radial-gradient(77.03%_100%_at_6.77%_0%,_#326167_14.12%,_#1E2334_38.93%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-xl [&_img]:object-cover [&_img]:object-center"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(0deg,transparent_20%,white_30%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-top xs:[&_img]:!object-cover"
               src="./images/card-3.png"
               alt=""
               width={384}
@@ -168,7 +168,7 @@ const Bento = ({ title, description }) => (
           borderGradient="border-image-[radial-gradient(34.62%_102.89%_at_21.26%_-2.89%,_#352131_0%,_#27222F_37.85%)]"
           image={
             <StaticImage
-              className="!absolute inset-0 z-10 rounded-xl [&_img]:object-cover [&_img]:object-center"
+              className="!absolute inset-0 z-10 rounded-[13px] xl:rounded-[10px] xl:[mask-image:linear-gradient(0deg,transparent_35%,white_45%)] md:rounded-lg xs:[mask-image:none] [&_img]:!object-contain [&_img]:object-top xs:[&_img]:!object-cover"
               src="./images/card-6.png"
               alt=""
               width={384}
