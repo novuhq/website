@@ -224,7 +224,7 @@ const HomePage = () => (
     <SectionWithLogos
       containerSize="lg"
       title="Notifications brands count on"
-      description="Ensuring seamless notifications from business to users, with zero hassle."
+      description="Used and loved by developers and product teams around the world."
       logos={SECTION_WITH_LOGOS_2}
     />
     <CodeWithInbox
