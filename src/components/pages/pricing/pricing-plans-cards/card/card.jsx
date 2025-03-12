@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import BorderShine from 'images/pages/pricing/border-shine2.inline.svg';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import GradientBorder from 'components/shared/gradient-border';
 import CheckIcon from 'images/check.inline.svg';
+import BorderShine from 'images/pages/pricing/border-shine.inline.svg';
 import dotsPattern from 'images/pages/pricing/dots-pattern.png';
 import PinkShineInsideCard from 'images/pages/pricing/pink-shine-inside.inline.svg';
 import stars from 'images/pages/pricing/stars.png';
