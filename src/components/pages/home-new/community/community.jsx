@@ -7,7 +7,7 @@ import stars from './images/stars.png';
 const TITLE = 'The power of open source community';
 
 const Community = () => (
-  <section className="community safe-paddings relative z-30 mt-[244px] lg:mt-[224px] md:mt-[120px] sm:mt-[160px]">
+  <section className="community safe-paddings relative z-30 mt-[164px] lg:mt-[144px] md:mt-[120px] sm:mt-[160px]">
     <div className="container-md relative flex flex-col items-center text-center md:px-8 sm:w-full sm:px-5">
       <h3 className="relative z-20 w-fit max-w-4xl text-[20px] leading-snug text-white [mask-image:radial-gradient(34%_361.31%_at_50.23%_-67.39%,#FFFFFF_50%,rgba(255,255,255,0.5)_150%)] md:text-[18px] sm-xs:max-w-[216px]">
         {TITLE}
