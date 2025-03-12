@@ -11,7 +11,21 @@
     margin-bottom: 0 !important;
   }
 
+  h1,
+  h2,
+  h3 {
+    color: #999999;
+  }
+
+  h1 {
+    font-size: 32px !important;
+  }
+
   h2 {
+    font-size: 24px !important;
+  }
+
+  h3 {
     font-size: 20px !important;
   }
   [data-type='section'] {

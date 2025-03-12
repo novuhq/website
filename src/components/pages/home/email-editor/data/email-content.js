@@ -5,14 +5,11 @@ export const emailContents = [
     content: [
       {
         type: 'heading',
-        attrs: { textAlign: 'left', level: 2 },
+        attrs: { textAlign: 'left', level: 3 },
         content: [
           {
             type: 'text',
-            marks: [
-              { type: 'bold' },
-              { type: 'textStyle', attrs: { color: '#ffffff', fontSize: 20 } },
-            ],
+            marks: [{ type: 'bold' }, { type: 'textStyle', attrs: { color: '#ffffff' } }],
             text: 'Review a recent login from a new device',
           },
         ],
@@ -169,14 +166,11 @@ export const emailContents = [
     content: [
       {
         type: 'heading',
-        attrs: { textAlign: 'left', level: 2 },
+        attrs: { textAlign: 'left', level: 3 },
         content: [
           {
             type: 'text',
-            marks: [
-              { type: 'bold' },
-              { type: 'textStyle', attrs: { color: '#ffffff', fontSize: 20 } },
-            ],
+            marks: [{ type: 'bold' }, { type: 'textStyle', attrs: { color: '#ffffff' } }],
             text: 'Review a recent login from a new device',
           },
         ],
@@ -333,14 +327,11 @@ export const emailContents = [
     content: [
       {
         type: 'heading',
-        attrs: { textAlign: 'left', level: 2 },
+        attrs: { textAlign: 'left', level: 3 },
         content: [
           {
             type: 'text',
-            marks: [
-              { type: 'bold' },
-              { type: 'textStyle', attrs: { color: '#ffffff', fontSize: 20 } },
-            ],
+            marks: [{ type: 'bold' }, { type: 'textStyle', attrs: { color: '#ffffff' } }],
             text: 'Review a recent login from a new device',
           },
         ],
