@@ -8,7 +8,7 @@ import Heading from 'components/shared/heading';
 import CheckIcon from 'icons/check.inline.svg';
 import CopyIcon from 'icons/copy.inline.svg';
 
-import background from './images/bg.png';
+import background from './images/bg.svg';
 import codeDots from './images/code-dots.svg';
 
 const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => {
@@ -126,10 +126,10 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
           </div>
         </div>
         <img
-          className="pointer-events-none absolute -bottom-[435px] -left-[357px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
+          className="pointer-events-none absolute bottom-[-607px] left-[-561px] z-0 max-w-none md:left-1/2 md:-translate-x-1/2"
           src={background}
-          width={1523}
-          height={1012}
+          width={1722}
+          height={1193}
           alt=""
           loading="lazy"
           aria-hidden

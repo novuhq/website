@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Slider from 'react-slick';
@@ -23,8 +24,8 @@ import rauchg from './images/rauchg.jpg';
 // import merlindru from './images/merlindru.jpg';
 // import vishucodes from './images/vishucodes.jpg';
 
-import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import './reviews.css';
 
 const TITLE = "Don't just take our word for it...";
@@ -50,12 +51,12 @@ const ITEMS = [
     ),
   },
   {
-    text: 'Novu is so dope!',
-    linkUrl: 'https://x.com/levlaz/status/1810734219330736300',
+    text: 'So excited about the rise of the notifications infrastructure space (+ open source 🔥)',
+    linkUrl: 'https://twitter.com/rauchg/status/1557048605042565120',
     author: {
-      name: 'Lev Lazinskiy',
-      username: '@levlaz',
-      avatar: levlaz,
+      name: 'Guillermo Rauch',
+      username: '@rauchg',
+      avatar: rauchg,
     },
   },
   {
@@ -104,6 +105,15 @@ const ITEMS = [
     },
   },
   {
+    text: 'Novu is so dope!',
+    linkUrl: 'https://x.com/levlaz/status/1810734219330736300',
+    author: {
+      name: 'Lev Lazinskiy',
+      username: '@levlaz',
+      avatar: levlaz,
+    },
+  },
+  {
     text: 'Thanks to a great tool called <span>@novuhq</span>, we can easily implement notifications into our upcoming v0.5.0 release.',
     linkUrl: 'https://twitter.com/doinfinehq/status/1671123804049874947',
     author: {
@@ -120,15 +130,7 @@ const ITEMS = [
       />
     ),
   },
-  {
-    text: 'So excited about the rise of the notifications infrastructure space (+ open source 🔥)',
-    linkUrl: 'https://twitter.com/rauchg/status/1557048605042565120',
-    author: {
-      name: 'Guillermo Rauch',
-      username: '@rauchg',
-      avatar: rauchg,
-    },
-  },
+
   /*
   {
     text: 'Hey Developers👋<br/>What are you doing today?<br/>Me:-<br/>Implementing <span>@novuhq</span> notifications in spring boot',
@@ -209,7 +211,7 @@ const PrevArrow = (props) => {
   );
 };
 
-const Reviews = () => {
+const Reviews = ({ className = 'mt-[308px] md:mt-36 sm:mt-[140px]' }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -236,7 +238,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className="reviews safe-paddings mt-[308px] md:mt-36 sm:mt-[140px]">
+    <section className={clsx('reviews safe-paddings', className)}>
       <div className="container-lg xl:px-0 lg:w-full lg:max-w-5xl lg:px-8 md:max-w-3xl sm:px-5">
         <Heading
           className="text-center font-medium leading-denser tracking-snug md:text-[40px] sm:text-[32px] xs:text-[29px]"
@@ -291,3 +293,7 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+Reviews.defaultProps = {
+  className: 'mt-[308px] md:mt-36 sm:mt-[140px]',
+};

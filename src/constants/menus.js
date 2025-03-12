@@ -221,7 +221,7 @@ const MENUS = {
       { text: 'Roadmap', to: 'https://roadmap.novu.co/roadmap' },
       { text: 'Changelog', to: 'https://roadmap.novu.co/changelog' },
       { text: 'Handbook', ...LINKS.handbook },
-      { text: 'Contact Us', to: 'https://novu.co/contact-us/?utm_campaign=ws_nav_bottom' },
+      { text: 'Contact Us', to: '/contact-us?utm_campaign=ws_nav_bottom' },
     ],
     [
       { text: 'Discord', ...LINKS.discord },

@@ -279,7 +279,7 @@ export const Head = () => {
       <RiveWasm />
       <link
         rel="preload"
-        href="/animations/pages/home/hero/new_hero.riv"
+        href="/animations/pages/home/hero/new-hero.riv"
         as="fetch"
         crossOrigin="anonymous"
       />
