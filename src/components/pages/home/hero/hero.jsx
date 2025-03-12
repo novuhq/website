@@ -29,7 +29,7 @@ const Hero = () => (
             {...LINKS.getStarted}
             onClick={useLandingSimpleTracking('get_started', { type: 'homepage' })}
           >
-            Start Building
+            START FOR FREE
           </Button>
           <Button
             className="w-[157px] sm:h-10 sm:w-[125px] sm:px-5 sm:text-xs sm-xs:w-full"
