@@ -25,7 +25,7 @@ const TITLE = 'Beautiful Emails, not HTML Tables';
 const DESCRIPTION =
   'Create dynamic emails with our block based content editor powered by React Email.';
 
-const TABS = ['Collaboration', 'Authentication', 'Alerts'];
+const TABS = ['One-Time Password', 'Magic Link', 'Review', 'Security Alert'];
 
 const EmailEditor = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -128,11 +128,15 @@ const EmailEditor = () => {
                           ]}
                           onCreate={(e) => {
                             setEditor(e);
-                            setJson(e?.getJSON() || {});
+                            const json = e?.getJSON() || {};
+                            setJson(json);
+                            console.log('Editor created with content:', json);
                           }}
                           onUpdate={(e) => {
                             setEditor(e);
-                            setJson(e?.getJSON() || {});
+                            const json = e?.getJSON() || {};
+                            setJson(json);
+                            console.log('Editor content updated:', json);
                           }}
                         />
                       </div>
