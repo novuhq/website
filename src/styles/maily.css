@@ -44,6 +44,9 @@
     &:after {
       background: none !important;
     }
+    .mly-bg-rose-500 {
+      background-color: transparent !important;
+    }
     .mly-bg-soft-gray {
       background-color: #1f2233;
 
