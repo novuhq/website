@@ -21,12 +21,7 @@ const CodeSectionNew = ({
   codeBlockSize,
   isPriorityImageLoading,
 }) => (
-  <section
-    className={clsx(
-      'code-section-new safe-paddings mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20',
-      className
-    )}
-  >
+  <section className={clsx('code-section-new safe-paddings', className)}>
     <div
       className={clsx(
         'flex items-center md:flex-col',
@@ -186,7 +181,7 @@ CodeSectionNew.propTypes = {
 };
 
 CodeSectionNew.defaultProps = {
-  className: '',
+  className: 'mt-60 lg:mt-[120px] md:mt-[100px] sm:mt-20',
   button: null,
   codeBlockPosition: 'left',
   isPriorityImageLoading: false,

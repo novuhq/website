@@ -211,6 +211,7 @@
       }
       &:hover {
         background-color: #202436;
+        color: #ffffff !important;
       }
 
       &.mly-text-rose-800 {
@@ -227,6 +228,19 @@
         color: #ffffff !important;
         border-color: #282d43;
         box-shadow: none !important;
+      }
+
+      &.mly-bg-red-100 {
+        background-color: transparent !important;
+        color: #f55a76 !important;
+
+        svg {
+          color: #f55a76 !important;
+        }
+
+        &:hover {
+          background-color: #2e0d18 !important;
+        }
       }
     }
 

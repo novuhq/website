@@ -4,10 +4,10 @@ import React from 'react';
 
 import Heading from 'components/shared/heading';
 
-const SectionWithLogos = ({ title, description, logos, containerSize = 'md' }) => {
+const SectionWithLogos = ({ className, title, description, logos, containerSize = 'md' }) => {
   const gridCols = Math.round(logos.length / 2);
   return (
-    <section className="section-with-logos safe-paddings mt-40 lg:mt-30 md:mt-[100px] sm:mt-20">
+    <section className={clsx('section-with-logos safe-paddings', className)}>
       <div
         className={clsx('flex flex-col items-center text-center md:px-8 sm:w-full sm:px-5', {
           'container-md': containerSize === 'md',
@@ -74,6 +74,11 @@ SectionWithLogos.propTypes = {
       src: PropTypes.string.isRequired,
     })
   ).isRequired,
+  className: PropTypes.string,
+};
+
+SectionWithLogos.defaultProps = {
+  className: 'mt-40 lg:mt-30 md:mt-[100px] sm:mt-20',
 };
 
 export default SectionWithLogos;

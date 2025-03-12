@@ -10,7 +10,9 @@ import Logo from 'images/logo.inline.svg';
 
 import certificateAicpa from './images/certificate-aicpa.svg';
 import certificateGDPR from './images/certificate-gdpr.svg';
+import certificateHIPAA from './images/certificate-hipaa.svg';
 import certificateISO from './images/certificate-iso.svg';
+import certificateOSS from './images/certificate-oss.svg';
 
 const COPYRIGHT = 'Novu';
 
@@ -33,6 +35,18 @@ const CERTIFICATES = [
     width: 34,
     height: 48,
   },
+  {
+    src: certificateHIPAA,
+    alt: 'Certificate HIPAA',
+    width: 82,
+    height: 48,
+  },
+  {
+    src: certificateOSS,
+    alt: 'Certificate OSS',
+    width: 77,
+    height: 33,
+  },
 ];
 
 const Footer = () => {
@@ -48,12 +62,12 @@ const Footer = () => {
           }
         )}
       >
-        <div className="col-span-2 flex flex-col items-start">
+        <div className="col-span-3 flex flex-col items-start gap-y-10">
           <Link {...LINKS.home}>
             <span className="sr-only">Novu</span>
             <Logo className="h-8" aria-hidden />
           </Link>
-          <ul className="mt-10 flex gap-x-5 lg:hidden">
+          <ul className="flex flex-wrap gap-x-5 gap-y-6 lg:hidden">
             {CERTIFICATES.map(({ src, alt, width, height }, index) => (
               <li key={index}>
                 <Link {...LINKS.trustPage}>
@@ -68,7 +82,7 @@ const Footer = () => {
         </div>
 
         <div className="col-span-9 col-start-4 flex justify-between xl:col-span-10 lg:mt-8 lg:grid lg:grid-cols-12 lg:justify-between lg:gap-x-7 lg:space-x-0 sm:mt-9 sm:block">
-          <nav className="flex justify-between space-x-30 pt-1.5 lg:col-span-9 lg:w-full lg:justify-start lg:space-x-22 md:grid md:grid-cols-2 md:gap-y-5 md:space-x-0">
+          <nav className="flex justify-between space-x-30 pt-1.5 lg:col-span-9 lg:w-full lg:justify-start lg:space-x-22 md:col-span-6 md:grid md:grid-cols-2 md:gap-y-5 md:space-x-0">
             {MENUS.footer.map((links, index) => (
               <ul className="space-y-2.5 lg:space-y-2 sm:space-y-1" key={index}>
                 {links.map(({ to, text, target }, index) => (
@@ -82,12 +96,18 @@ const Footer = () => {
             ))}
           </nav>
 
-          <div className="flex flex-col items-end lg:col-span-3 sm:mt-9 sm:items-start">
+          <div className="flex flex-col items-end lg:col-span-3 md:col-span-5 md:col-start-8 sm:mt-9 sm:items-start">
             <ButtonGithubStars className="pl-3" />
-            <ul className="mt-8 hidden w-full max-w-[170px] justify-between lg:flex sm:gap-x-5">
+            <ul className="mt-8 hidden w-full justify-end gap-x-3 gap-y-4 lg:flex lg:flex-wrap md:gap-x-5 md:gap-y-6 sm:justify-start">
               {CERTIFICATES.map(({ src, alt, width, height }, index) => (
                 <li key={index}>
-                  <img className="h-12 w-auto" src={src} alt={alt} width={width} height={height} />
+                  <img
+                    className="h-10 w-auto md:h-11"
+                    src={src}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                  />
                 </li>
               ))}
             </ul>

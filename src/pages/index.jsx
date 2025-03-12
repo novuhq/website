@@ -223,6 +223,7 @@ const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <Hero />
     <SectionWithLogos
+      className="mt-32 lg:mt-24 md:mt-[100px] sm:mt-20"
       containerSize="lg"
       title="Notifications brands count on"
       description="Used and loved by developers and product teams around the world."
@@ -246,7 +247,7 @@ const HomePage = () => (
     />
     <EmailEditor />
     <TextWithPicture
-      sectionClassName="mt-[308px] lg:mt-[228px] md:mt-[168px] sm:mt-[104px]"
+      sectionClassName="mt-[308px] lg:mt-[228px] md:mt-[128px] sm:mt-[104px]"
       button={{
         label: 'Get started',
         link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
@@ -272,7 +273,7 @@ const HomePage = () => (
     />
     <CodeSectionNew
       code={CODE_SECTION}
-      className="mb-[222px] mt-[134px] lg:mb-[134px] md:mb-[145px] md:mt-[100px] sm:mt-[160px]"
+      className="mt-[264px] md:mt-[140px] sm:mt-[160px]"
       title="Start Simple, Scale to Code"
       description="Begin with our intuitive UI, break into code when you need run-time control, react email or local data access. You choose when to level up, the ultimate escape hatch."
       button={{
@@ -282,7 +283,7 @@ const HomePage = () => (
       isPriorityImageLoading
     />
     <Community />
-    <Reviews className="relative z-10 mt-[220px] lg:mt-[184px] md:mt-[134px] sm:mt-[106px] [&_h3]:md:text-[32px] [&_h3]:sm:text-[28px]" />
+    <Reviews className="relative z-10 mt-[164px] lg:mt-[144px] md:mt-[120px] sm:mt-[106px] [&_h3]:md:text-[32px] [&_h3]:sm:text-[28px]" />
     <CtaWithForm
       className="mb-[200px] mt-[200px] text-center lg:mb-[182px] lg:mt-[182px] md:mb-[144px] md:mt-[144px] sm:mb-[128px] sm:mt-[165px] [&_h2]:lg:text-[44px] [&_h2]:md:text-[36px] [&_h2]:sm:text-[32px]"
       title="Free to start, ready to scale"
