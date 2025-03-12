@@ -1,11 +1,11 @@
 import clsx from 'clsx';
+import BorderShine from 'images/pages/pricing/border-shine2.inline.svg';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import GradientBorder from 'components/shared/gradient-border';
 import CheckIcon from 'images/check.inline.svg';
-import BorderShine from 'images/pages/pricing/border-shine.inline.svg';
 import dotsPattern from 'images/pages/pricing/dots-pattern.png';
 import PinkShineInsideCard from 'images/pages/pricing/pink-shine-inside.inline.svg';
 import stars from 'images/pages/pricing/stars.png';
@@ -66,14 +66,22 @@ const Card = ({ plan }) => {
           />
           {advantagesHeading && (
             <h4
-              className="mt-[18px] text-[15px] font-book leading-snug tracking-snug text-gray-10"
+              className={clsx(
+                'mt-[18px] text-[15px] font-book leading-snug tracking-snug',
+                isPro ? 'text-white' : 'text-gray-10'
+              )}
               dangerouslySetInnerHTML={{ __html: advantagesHeading }}
             />
           )}
-          <ul className="mt-3.5 flex flex-col gap-y-3 md:mt-[15px] md:gap-y-2.5 sm:mt-3.5">
+          <ul
+            className={clsx(
+              'mt-3.5 flex flex-col gap-y-3 md:mt-[15px] md:gap-y-2.5 sm:mt-3.5',
+              isPro ? 'text-white' : 'text-gray-10'
+            )}
+          >
             {advantages.map((item, index) => (
               <li
-                className="md:text-14 flex items-start gap-x-2 text-[15px] font-book leading-snug tracking-snug text-gray-10 lg:gap-x-2"
+                className="md:text-14 flex items-start gap-x-2 text-[15px] font-book leading-snug tracking-snug"
                 key={index}
               >
                 <CheckIcon
@@ -143,7 +151,7 @@ const Card = ({ plan }) => {
             aria-hidden
           />
           <span
-            className="pointer-events-none absolute -top-[151px] left-[20px] z-0 h-[458px] w-[370px] -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#3B1230_16.51%,_rgba(59,_18,_56,_0)_100%)] md:left-[90px] sm:left-[46px]"
+            className="pointer-events-none absolute -top-[151px] left-5 z-0 h-[458px] w-[370px] -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_#3B1230_16.51%,_rgba(59,_18,_56,_0)_100%)] md:left-[90px] sm:left-[46px]"
             aria-hidden
           />
         </>

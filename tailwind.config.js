@@ -149,7 +149,7 @@ module.exports = {
       'green-code-border':
         'radial-gradient(203.26% 102.85% at 61.61% -2.85%, rgba(212, 250, 255, 0.5) 8%, rgba(212, 250, 255, 0.22) 42%, rgba(212, 250, 255, 0.18) 74%, rgba(212, 250, 255, 0.05) 100%)',
       'pink-gradient-border':
-        'radial-gradient(114.29% 113.4% at 94% -13.4%, #ECD1FA 10.74%, rgba(95, 82, 122, 0.3) 49.79%, rgba(168, 148, 209, 0.1) 100%)',
+        'radial-gradient(114.29% 113.4% at 74% -13.4%, #f1ddfa 10.74%, rgba(95, 82, 122, 0.3) 49.79%, rgba(168, 148, 209, 0.1) 100%)',
       'grey-pricing-card':
         'radial-gradient(87.74% 83.27% at 81.56% 3.42%, rgba(102, 122, 152, 0.22) 0%, rgba(102, 122, 152, 0) 88.97%)',
       ...defaultTheme.backgroundImage,
@@ -157,7 +157,7 @@ module.exports = {
     boxShadow: {
       output: '0px 10px 20px #000000',
       'pricing-card-label':
-        '1px -1px 1px 0px rgba(57, 5, 81, 0.15) inset, 0px 1px 1px 0px rgba(0, 0, 0, 0.05), -2px 2px 5px 0px rgba(0, 0, 0, 0.08), -1px 2px 20px 0px rgba(0, 0, 0, 0.17)',
+        '1px -1px 1px 0px rgba(57, 5, 81, 0.15) inset, 0px 1px 1px 0px rgba(0, 0, 0, 0.05), -2px 2px 5px 0px rgba(0, 0, 0, 0.08), -1px 2px 20px 0px rgba(0, 0, 0, 0.37)',
     },
     screens: {
       '2xl': { max: '1919px' },
