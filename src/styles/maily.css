@@ -11,7 +11,21 @@
     margin-bottom: 0 !important;
   }
 
+  h1,
+  h2,
+  h3 {
+    color: #999999;
+  }
+
+  h1 {
+    font-size: 32px !important;
+  }
+
   h2 {
+    font-size: 24px !important;
+  }
+
+  h3 {
     font-size: 20px !important;
   }
   [data-type='section'] {
@@ -211,6 +225,7 @@
       }
       &:hover {
         background-color: #202436;
+        color: #ffffff !important;
       }
 
       &.mly-text-rose-800 {
@@ -227,6 +242,19 @@
         color: #ffffff !important;
         border-color: #282d43;
         box-shadow: none !important;
+      }
+
+      &.mly-bg-red-100 {
+        background-color: transparent !important;
+        color: #f55a76 !important;
+
+        svg {
+          color: #f55a76 !important;
+        }
+
+        &:hover {
+          background-color: #2e0d18 !important;
+        }
       }
     }
 

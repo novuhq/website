@@ -12,7 +12,7 @@ const DESCRIPTION =
   'The notification platform that turns complex multi-channel delivery into a single <Inbox /> component. Built for developers, designed for growth, powered by open source.';
 
 const Hero = () => (
-  <section className="hero relative mb-20 pt-[88px] lg:pt-16 md:pt-11 sm:mb-[104px] sm:pt-9">
+  <section className="hero relative pt-[88px] lg:pt-16 md:pt-11 sm:pt-9">
     <div className="container-xl xl:px-10 lg:max-w-none lg:px-8 md:max-w-3xl sm:max-w-lg sm:px-5">
       <div className="flex flex-col items-center">
         <h1 className="relative z-10 max-w-[690px] text-center text-[52px] font-medium leading-denser tracking-snug lg:max-w-[674px] lg:text-6xl md:max-w-[612px] md:text-[44px] sm:text-3xl">

@@ -15,7 +15,7 @@ const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
   return (
     <section
       className={clsx(
-        'code-section safe-paddings mt-[190px] flex flex-col items-center lg:mt-[120px] md:mt-[100px] sm:mt-20',
+        'code-section safe-paddings mt-[190px] flex flex-col items-center lg:mt-[140px] md:mt-[100px] sm:mt-20',
         className
       )}
     >
@@ -38,7 +38,7 @@ const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
           </div>
           <div
             className={clsx(
-              'h-[367px] w-full rounded-xl bg-[linear-gradient(180deg,#303755_-2.71%,#1A1E2E_45.57%)] p-px lg:h-[344px] md:h-auto'
+              'h-[367px] w-full rounded-xl bg-[linear-gradient(145.25deg,#5F6EAA_1.1%,#1A1E2E_56.43%)] p-px lg:h-[344px] md:h-auto'
             )}
           >
             <div className="relative z-10 h-full w-full overflow-hidden rounded-xl bg-home-code-block px-[22px] pb-[20px] pt-0 [-webkit-mask-image:-webkit-radial-gradient(white,black)] sm:px-[16px] sm:pb-[16px]">
@@ -86,14 +86,6 @@ const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
                   </m.div>
                 </AnimatePresence>
               </LazyMotion>
-              <div
-                className="pointer-events-none absolute -left-[142px] -top-[208px] h-[437px] w-[470px] rounded-[50%] bg-[#B8C9FF] opacity-70 mix-blend-soft-light blur-3xl md:-bottom-[156px] md:-left-[138px] md:top-[initial]"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute right-[-40px] top-[-140px] h-[622px] w-[776px] rotate-[21deg] rounded-[50%] bg-[#BBCBFB] opacity-30 mix-blend-soft-light blur-3xl md:-bottom-[170px] md:left-[-260px] md:top-[initial] md:-rotate-[21deg]"
-                aria-hidden
-              />
             </div>
           </div>
         </div>

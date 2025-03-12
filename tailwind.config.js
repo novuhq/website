@@ -156,7 +156,8 @@ module.exports = {
         'radial-gradient(71.42% 59.96% at 73.69% 28.52%, rgba(41, 56, 102, 0.50) 0%, rgba(41, 56, 102, 0.00) 67.88%)',
       'green-home-bento':
         'radial-gradient(170.56% 92.36% at 44.98% 24.35%, rgba(27, 37, 55, 0.60) 0%, rgba(27, 37, 55, 0.00) 67.88%)',
-      'home-code-block': 'linear-gradient(168.3deg, #1D233A 6.29%, #131725 91.42%)',
+      'home-code-block':
+        'radial-gradient(88.88% 86.43% at 0% 0.03%, #28356C 0%, rgba(35, 45, 89, 0) 100%),radial-gradient(51.34% 49.92% at 0% 0.03%, #2F3E7F 0%, rgba(35, 45, 89, 0) 100%),linear-gradient(168.3deg, #1D233A 6.29%, #131725 91.42%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {
