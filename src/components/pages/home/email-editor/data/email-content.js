@@ -1,8 +1,19 @@
+import airbnbMobile from '../images/airbnb-mobile.jpg';
+import airbnbTablet from '../images/airbnb-tablet.jpg';
+import awsMobile from '../images/aws-mobile.jpg';
+import awsTablet from '../images/aws-tablet.jpg';
+import launchdarklyMobile from '../images/launchdarkly-mobile.jpg';
+import launchdarklyTablet from '../images/launchdarkly-tablet.jpg';
+import linearMobile from '../images/linear-mobile.jpg';
+import linearTablet from '../images/linear-tablet.jpg';
+
 // eslint-disable-next-line import/prefer-default-export
 export const emailContents = [
   // One-Time Password
   {
     subject: 'Verify Your Email to Finish Signup',
+    tabletImage: awsTablet,
+    mobileImage: awsMobile,
     content: {
       type: 'doc',
       content: [
@@ -227,6 +238,8 @@ export const emailContents = [
   // Magic Link Login
   {
     subject: 'Secure Login Link – Sign In',
+    tabletImage: linearTablet,
+    mobileImage: linearMobile,
     content: {
       type: 'doc',
       content: [
@@ -238,7 +251,7 @@ export const emailContents = [
             title: null,
             width: 170,
             height: 42.28426395939086,
-            alignment: 'left',
+            alignment: 'center',
             externalLink: null,
             isExternalLinkVariable: false,
             isSrcVariable: false,
@@ -373,7 +386,7 @@ export const emailContents = [
           type: 'section',
           attrs: {
             borderRadius: 6,
-            backgroundColor: '#1d1d1d',
+            backgroundColor: '#1F2233',
             align: 'left',
             borderWidth: 0,
             borderColor: '#e2e2e2',
@@ -485,6 +498,8 @@ export const emailContents = [
   // Review
   {
     subject: 'Alex Reviewed You on Airbnb!',
+    tabletImage: airbnbTablet,
+    mobileImage: airbnbMobile,
     content: {
       type: 'doc',
       content: [
@@ -496,7 +511,7 @@ export const emailContents = [
             title: null,
             width: 130,
             height: 65,
-            alignment: 'left',
+            alignment: 'center',
             externalLink: null,
             isExternalLinkVariable: false,
             isSrcVariable: false,
@@ -509,8 +524,8 @@ export const emailContents = [
             src: `${process.env.GATSBY_DEFAULT_SITE_URL}/images/person.svg`,
             alt: null,
             title: null,
-            width: 101,
-            height: 101,
+            width: 63,
+            height: 63,
             alignment: 'center',
             externalLink: null,
             isExternalLinkVariable: false,
@@ -554,7 +569,7 @@ export const emailContents = [
           type: 'section',
           attrs: {
             borderRadius: 6,
-            backgroundColor: '#1d1d1d',
+            backgroundColor: '#1F2233',
             align: 'left',
             borderWidth: 0,
             borderColor: '#e2e2e2',
@@ -823,6 +838,8 @@ export const emailContents = [
   // Review a recent login from a new device
   {
     subject: 'Was This You? Recent Login',
+    tabletImage: launchdarklyTablet,
+    mobileImage: launchdarklyMobile,
     content: {
       type: 'doc',
       content: [
@@ -834,7 +851,7 @@ export const emailContents = [
             title: null,
             width: 215,
             height: 32.89179104477612,
-            alignment: 'left',
+            alignment: 'center',
             externalLink: null,
             isExternalLinkVariable: false,
             isSrcVariable: false,
@@ -890,7 +907,7 @@ export const emailContents = [
           type: 'section',
           attrs: {
             borderRadius: 8,
-            backgroundColor: '#202020',
+            backgroundColor: '#1F2233',
             align: 'left',
             borderWidth: 0,
             borderColor: '#e2e2e2',
