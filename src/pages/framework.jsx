@@ -284,7 +284,7 @@ const FrameworkPage = () => (
       description="Create complex workflows, access local data, and reuse existing content templates with Novu Framework."
       leftItem={{
         text: 'Try Novu',
-        link: 'https://dashboard.novu.co/?utm_campaign=ws_framework',
+        link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_framework',
       }}
       rightItem={{
         text: 'Contact us',
@@ -393,7 +393,7 @@ const FrameworkPage = () => (
       description="No credit card required. <br/>You're just five minutes from your first Novu notification."
       leftItem={{
         text: 'Try Now',
-        link: 'https://dashboard.novu.co/?utm_campaign=ws_framework',
+        link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_framework',
       }}
       rightItem={{
         text: 'Contact us',
