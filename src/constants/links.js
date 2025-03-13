@@ -145,7 +145,7 @@ export default {
     target: '_self',
   },
   getStarted: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website',
+    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedPricingFree: {
