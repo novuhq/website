@@ -1,8 +1,19 @@
+import airbnbMobile from '../images/airbnb-mobile.jpg';
+import airbnbTablet from '../images/airbnb-tablet.jpg';
+import awsMobile from '../images/aws-mobile.jpg';
+import awsTablet from '../images/aws-tablet.jpg';
+import launchdarklyMobile from '../images/launchdarkly-mobile.jpg';
+import launchdarklyTablet from '../images/launchdarkly-tablet.jpg';
+import linearMobile from '../images/linear-mobile.jpg';
+import linearTablet from '../images/linear-tablet.jpg';
+
 // eslint-disable-next-line import/prefer-default-export
 export const emailContents = [
   // One-Time Password
   {
     subject: 'Verify Your Email to Finish Signup',
+    tabletImage: awsTablet,
+    mobileImage: awsMobile,
     content: {
       type: 'doc',
       content: [
@@ -227,6 +238,8 @@ export const emailContents = [
   // Magic Link Login
   {
     subject: 'Secure Login Link – Sign In',
+    tabletImage: linearTablet,
+    mobileImage: linearMobile,
     content: {
       type: 'doc',
       content: [
@@ -485,6 +498,8 @@ export const emailContents = [
   // Review
   {
     subject: 'Alex Reviewed You on Airbnb!',
+    tabletImage: airbnbTablet,
+    mobileImage: airbnbMobile,
     content: {
       type: 'doc',
       content: [
@@ -823,6 +838,8 @@ export const emailContents = [
   // Review a recent login from a new device
   {
     subject: 'Was This You? Recent Login',
+    tabletImage: launchdarklyTablet,
+    mobileImage: launchdarklyMobile,
     content: {
       type: 'doc',
       content: [

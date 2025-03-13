@@ -42,13 +42,13 @@ const EmailEditor = () => {
           {DESCRIPTION}
         </p>
         <div className="scrollbar-hidden relative z-20 mt-11 md:mt-10 sm:mt-9 sm:w-[calc(100%+32px)] sm:-translate-x-4 sm:overflow-x-auto">
-          <div className="flex items-center justify-center gap-x-0.5 sm:block sm:gap-y-1 sm:whitespace-nowrap sm:px-4">
+          <div className="flex items-center justify-center gap-x-0.5 sm-xs:block sm-xs:gap-y-1 sm-xs:whitespace-nowrap sm-xs:px-4">
             {TABS.map((tab, index) => (
               <button
                 type="button"
                 key={index}
                 className={clsx(
-                  'relative flex h-[30px] items-center gap-x-1.5 px-3 text-sm leading-none transition-colors duration-300 sm:inline-block last:sm:mr-4',
+                  'relative flex h-[30px] items-center gap-x-1.5 px-3 text-sm leading-none transition-colors duration-300 sm-xs:inline-block last:sm-xs:mr-4',
                   index === activeIndex ? 'text-[#E3E4E9]' : 'text-[#CAE9FF99]'
                 )}
                 onClick={() => setActiveIndex(index)}
@@ -67,7 +67,7 @@ const EmailEditor = () => {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto mt-6 h-[678px] max-w-[960px] md:mt-5 sm:h-[628px]">
+        <div className="relative mx-auto mt-6 h-[678px] max-w-[960px] md:mt-5 md:h-[614px] sm:h-[628px] sm:max-w-80">
           <div className="relative z-20 flex items-center justify-between px-5 py-3.5 sm:px-4 sm:text-sm">
             <span className="flex items-center gap-x-1.5 leading-none text-gray-10">
               <img src={configureIcon} alt="" loading="lazy" width={18} height={18} />
@@ -83,10 +83,10 @@ const EmailEditor = () => {
           <LazyMotion features={domAnimation}>
             <AnimatePresence>
               {emailContents.map(
-                ({ subject, content }, index) =>
+                ({ subject, tabletImage, mobileImage, content }, index) =>
                   index === activeIndex && (
                     <m.div
-                      className="absolute inset-x-0 bottom-0 z-20 mx-auto w-[606px] sm:w-full"
+                      className="absolute inset-x-0 bottom-0 z-20 mx-auto w-[606px] md:w-[514px] sm:relative sm:w-full"
                       key={index}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1, transition: { delay: 0.3 } }}
@@ -100,11 +100,27 @@ const EmailEditor = () => {
                           <div className="absolute left-[-83px] top-[-124px] z-0 h-[169px] w-[236px] rounded-[50%] bg-[#476E8245] blur-3xl sm:hidden" />
                         </div>
                       </div>
-                      <div className="relative h-[538px] rounded-b-[10px] bg-[linear-gradient(215.33deg,rgba(51,51,71,0.6)_20.1%,rgba(43,43,59,0.4)_75.75%),linear-gradient(139.28deg,#3f6073_0.64%,#171d2d_17.89%)] p-px after:absolute after:inset-px after:z-0 after:rounded-b-[10px] after:bg-[#08070e]">
+                      <div className="relative h-[538px] rounded-b-[10px] bg-[linear-gradient(215.33deg,rgba(51,51,71,0.6)_20.1%,rgba(43,43,59,0.4)_75.75%),linear-gradient(139.28deg,#3f6073_0.64%,#171d2d_17.89%)] p-px after:absolute after:inset-px after:z-0 after:rounded-b-[10px] after:bg-[#08070e] md:h-auto">
+                        <img
+                          className="relative z-10 hidden h-auto w-full rounded-b-[10px] md:block sm:hidden"
+                          src={tabletImage}
+                          alt=""
+                          loading="lazy"
+                          width={512}
+                          height={452}
+                        />
+                        <img
+                          className="relative z-10 hidden h-auto w-full rounded-b-[10px] sm:block"
+                          src={mobileImage}
+                          alt=""
+                          loading="lazy"
+                          width={320}
+                          height={552}
+                        />
                         <Editor
                           config={{
                             hasMenuBar: false,
-                            wrapClassName: 'editor-wrapper z-10 relative',
+                            wrapClassName: 'editor-wrapper z-10 relative md:hidden',
                             bodyClassName: 'editor-body !mt-0 !border-0 !py-6 !px-12',
                             contentClassName: 'editor-content !text-gray-8',
                             toolbarClassName: 'editor-toolbar flex-wrap !items-start',
