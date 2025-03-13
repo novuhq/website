@@ -829,7 +829,7 @@ export const emailContents = [
         {
           type: 'image',
           attrs: {
-            src: 'http://localhost:8000/images/launchDarkly-logo.svg',
+            src: `${process.env.GATSBY_DEFAULT_SITE_URL}/images/launchDarkly-logo.svg`,
             alt: null,
             title: null,
             width: 215,
