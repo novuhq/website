@@ -100,7 +100,7 @@ export function NotificationCenter() {
   
   return (
     <Inbox
-      applicationIdentifier="YOUR_APPLICATION_IDENOUR_APPLICATION_IDENTIFIER"
+      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
       subscriberId="YOUR_SUBSCRIBER_ID"
       routerPush={(path: string) => navigate(path)}
     />
