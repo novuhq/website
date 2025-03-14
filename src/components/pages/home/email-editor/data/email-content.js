@@ -49,9 +49,6 @@ export const emailContents = [
                     color: '#ffffff',
                   },
                 },
-                {
-                  type: 'bold',
-                },
               ],
               text: 'Verify your email address',
             },
@@ -86,9 +83,6 @@ export const emailContents = [
                   attrs: {
                     color: '#ffffff',
                   },
-                },
-                {
-                  type: 'bold',
                 },
               ],
               text: '596853',
@@ -274,9 +268,6 @@ export const emailContents = [
                   attrs: {
                     color: 'rgb(255, 255, 255)',
                   },
-                },
-                {
-                  type: 'bold',
                 },
               ],
               text: 'Log in to your account',
@@ -549,9 +540,6 @@ export const emailContents = [
                   attrs: {
                     color: 'rgb(255, 255, 255)',
                   },
-                },
-                {
-                  type: 'bold',
                 },
               ],
               text: "Here's what Alex wrote",
@@ -874,9 +862,6 @@ export const emailContents = [
                   attrs: {
                     color: '#ffffff',
                   },
-                },
-                {
-                  type: 'bold',
                 },
               ],
               text: 'Review a recent login from a new device',
