@@ -67,8 +67,8 @@ const PRICING_PLANS = [
       '250K events/month included',
       'Up to 10 Environments',
       'Activity Feed Retention: 90 days',
-      'Unlimited Workflows',
       'Unlimited Team Members',
+      'Unlimited Workflows',
     ],
   },
   {
@@ -84,7 +84,9 @@ const PRICING_PLANS = [
     advantages: [
       '5M events/month included',
       'Unlimited Environments',
-      'Unlimited Activity Feed Retention',
+      'Custom Activity Feed Retention',
+      'Custom Delay duration',
+      'Custom Digest duration',
     ],
   },
 ];
