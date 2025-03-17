@@ -128,7 +128,7 @@ const PLANS = {
       preferencesComponent: true,
     },
     account: {
-      teamMembers: '50',
+      teamMembers: 'Custom',
       rbac: 'Q2 2025',
       standardSAML: true,
       customSAML: false,
