@@ -155,8 +155,7 @@ const SECTION_WITH_SMALL_ICONS = [
   },
 ];
 
-const CODE_NEXTJS = `'use client';
-
+const CODE_NEXTJS = `
 import React from 'react';
 import { Inbox } from '@novu/nextjs';
  
