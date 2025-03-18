@@ -1,7 +1,7 @@
 const bannerData = {
-  text: 'Winter Season Launch Week is happening this week',
-  url: 'https://go.novu.co/gFfjEj4?utm_source=web-top-banner',
-  isActive: false,
+  text: 'Novu is Live on ProductHunt, click to support us today!',
+  url: 'https://go.novu.co/hunt?utm_source=web-top-banner',
+  isActive: true,
   isReadMoreText: true,
 };
 
