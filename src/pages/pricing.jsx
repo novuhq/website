@@ -79,7 +79,7 @@ const PRICING_PLANS = [
       theme: 'gray-outline',
       link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
     },
-    description: 'Unlimited power.<br />Built for scale.',
+    description: 'Unlimited power. Built for scale.',
     advantagesHeading: 'Everything in Team, plus...',
     advantages: [
       '5M events/month included',
