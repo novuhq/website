@@ -6,120 +6,72 @@ import React from 'react';
 
 import dots from '../images/dots.png';
 
-const INBOX_IMAGE_CLASSNAMES = 'z-10 lg:w-[500px] lg:h-auto sm:w-full';
+const INBOX_IMAGE_CLASSNAMES = 'z-10 sm:w-full';
 
 const THEMES = {
   novuDefault: {
+    image: (
+      <StaticImage
+        className={clsx(
+          INBOX_IMAGE_CLASSNAMES,
+          '-left-2 -top-2 w-[528px] sm:-left-1 sm:-top-1 sm:w-[103%]'
+        )}
+        src="./images/inbox.png"
+        alt=""
+        width={528}
+        height={554}
+      />
+    ),
     backgroundImage: dots,
-    inboxImage: (
-      <StaticImage
-        className={clsx(
-          INBOX_IMAGE_CLASSNAMES,
-          'left-[-5px] md:w-[390px] sm:left-0 sm:max-w-[628px]'
-        )}
-        src="./images/inbox.png"
-        alt=""
-        width={628}
-        height={659}
-      />
-    ),
-    mainPageInboxImage: (
-      <StaticImage
-        className={clsx(
-          INBOX_IMAGE_CLASSNAMES,
-          'md:left-[-8px] md:w-[528px] sm:left-0 sm:mt-[8px] sm:scale-[1.03]'
-        )}
-        src="./images/inbox.png"
-        alt=""
-        width={628}
-        height={659}
-      />
-    ),
   },
   notionDark: {
-    inboxImage: (
+    image: (
       <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        className={INBOX_IMAGE_CLASSNAMES}
         src="./images/notion-dark.png"
         alt=""
-        width={608}
-        height={619}
-      />
-    ),
-    mainPageInboxImage: (
-      <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px]')}
-        src="./images/notion-light.png"
-        alt=""
-        width={608}
-        height={619}
+        width={512}
+        height={521}
       />
     ),
   },
   notionLight: {
-    inboxImage: (
+    image: (
       <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        className={INBOX_IMAGE_CLASSNAMES}
         src="./images/notion-light.png"
         alt=""
-        width={608}
-        height={619}
-      />
-    ),
-    mainPageInboxImage: (
-      <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px] sm:max-w-[608px]')}
-        src="./images/notion-light.png"
-        alt=""
-        width={608}
-        height={619}
+        width={512}
+        height={521}
       />
     ),
   },
   linearDark: {
-    inboxImage: (
+    image: (
       <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        className={INBOX_IMAGE_CLASSNAMES}
         src="./images/linear-dark.png"
         alt=""
-        width={608}
-        height={619}
-      />
-    ),
-    mainPageInboxImage: (
-      <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px] sm:max-w-[608px]')}
-        src="./images/linear-dark.png"
-        alt=""
-        width={608}
-        height={619}
+        width={512}
+        height={521}
       />
     ),
   },
   linearLight: {
-    inboxImage: (
+    image: (
       <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'md:w-[380px] sm:max-w-[608px]')}
+        className={INBOX_IMAGE_CLASSNAMES}
         src="./images/linear-light.png"
         alt=""
-        width={608}
-        height={619}
-      />
-    ),
-    mainPageInboxImage: (
-      <StaticImage
-        className={clsx(INBOX_IMAGE_CLASSNAMES, 'mt-[8px] md:w-[512px] sm:max-w-[608px]')}
-        src="./images/linear-light.png"
-        alt=""
-        width={608}
-        height={619}
+        width={512}
+        height={521}
       />
     ),
   },
 };
 
-const AdaptiveStatic = ({ theme, className, isMainPage }) => {
-  const { backgroundImage, inboxImage, mainPageInboxImage } = THEMES[theme];
+const AdaptiveStatic = ({ theme, className }) => {
+  const { image, backgroundImage } = THEMES[theme];
 
   return (
     <m.div
@@ -129,7 +81,7 @@ const AdaptiveStatic = ({ theme, className, isMainPage }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      {isMainPage ? mainPageInboxImage : inboxImage}
+      {image}
       {backgroundImage && (
         <img
           className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"

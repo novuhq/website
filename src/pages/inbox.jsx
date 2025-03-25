@@ -235,7 +235,6 @@ const InboxPage = () => (
         target: '_blank',
       }}
       sectionOffsets="mt-[286px]"
-      initialThemeIndex={3}
       inboxPosition="right"
     />
     <CodeSectionNew

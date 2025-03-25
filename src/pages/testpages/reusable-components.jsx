@@ -837,7 +837,6 @@ const ReusableComponents = (props) => {
           link: 'https://docs.novu.co/getting-started/introduction',
         }}
         inboxPosition="right"
-        initialThemeIndex={3}
       />
 
       <SectionWithForm {...SECTION_WITH_FORM_RIGHT} />

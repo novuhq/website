@@ -232,7 +232,6 @@ const HomePage = () => (
       title="Just copy and ship"
       description="Add a powerful notification inbox to your app with 6 lines of code. It's that simple."
       tabs={CODE_ITEMS}
-      isMainPage
     />
     <Bento
       title="<Inbox /> batteries included"
