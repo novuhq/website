@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
+import GITHUB from 'constants/github';
 import GitHubIcon from 'icons/github.inline.svg';
 // eslint-disable-next-line import/no-named-as-default
 import buttonClick from 'utils/use-landing-simple-tracking';
 
 const ButtonGithubStars = ({ className, size }) => {
   const {
-    github: { count },
+    github: { count = GITHUB.count },
   } = useStaticQuery(graphql`
     query githubQuery {
       github {
-        url
         count
       }
     }
