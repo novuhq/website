@@ -12,13 +12,14 @@ import OpenIssues from 'components/pages/community/open-issues';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
+import GITHUB from 'constants/github';
 import LINKS from 'constants/links';
 
 const CommunityPage = (props) => {
   const {
     data: {
       allWpPost: { nodes: articles },
-      github: githubData,
+      github: githubData = GITHUB,
     },
     pageContext,
   } = props;

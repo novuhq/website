@@ -4,8 +4,8 @@ import React from 'react';
 
 import Features from 'components/pages/landing/features';
 import Hero from 'components/pages/landing/hero';
-import Languages from 'components/pages/old-homepage/languages';
 import GetStarted from 'components/shared/get-started';
+import Languages from 'components/shared/languages';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
