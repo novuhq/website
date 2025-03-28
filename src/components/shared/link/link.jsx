@@ -25,6 +25,8 @@ const styles = {
     white: 'text-white hover:text-primary-1 focus-visible:text-primary-1',
     gray: 'text-gray-8 hover:text-primary-1 focus-visible:text-primary-1',
     'gray-9': 'text-gray-9 hover:text-primary-1 focus-visible:text-primary-1',
+    'gray-to-white':
+      'text-gray-9 hover:text-white hover:bg-[#17171f]/85 focus-visible:text-white focus-visible:bg-[#17171f]/85',
   },
   withArrow: 'group inline-flex items-center gap-1.5',
 };

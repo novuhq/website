@@ -1,4 +1,3 @@
-export const WEB_APP_URL = 'https://dashboard-v2.novu.co';
 export const applyQueryParams = (link, queryParams = []) => ({
   ...link,
   to: `${link.to}?${queryParams.join('&')}`,
@@ -12,14 +11,8 @@ export default {
   blog: {
     to: '/blog',
   },
-  community: {
-    to: '/community',
-  },
   contributors: {
     to: '/contributors',
-  },
-  podcast: {
-    to: '/podcast',
   },
   termsOfUse: {
     to: '/terms',
@@ -30,163 +23,77 @@ export default {
   dataProcessingAgreement: {
     to: '/dpa',
   },
-  hacktoberfest: {
-    to: '/hacktoberfest',
-  },
   pricing: {
     to: '/pricing',
   },
-  timeline: {
-    to: '/timeline',
+  community: {
+    to: '/community',
   },
-  ossFriends: {
-    to: '/oss-friends',
+  security: {
+    to: '/security',
   },
-  chat: {
-    to: '/chat',
+  useCases: {
+    to: '/usecases',
   },
-
-  // Header submenus
-  // Use cases
-  multichannelNotifications: { to: '/usecases/multi-channel-notifications/' },
-  notifications: { to: '/usecases/add-notifications/' },
-  communication: { to: '/usecases/improve-communication-experience/' },
-  notificationPlatform: { to: '/usecases/unified-platform/' },
-  notificationContentManagement: { to: '/usecases/content-management/' },
-
-  // Features
-  workflow: { to: 'https://docs.novu.co/workflows/notification-workflows' },
-  contentManagment: { to: 'https://docs.novu.co/workflow/content' },
-  // translation: { to: '/' }, -> We need to add this page
-  embedComponent: { to: '/inbox' },
-  endUserPreferences: { to: 'https://docs.novu.co/concepts/preferences' },
-  // observability: { to: '/' }, -> We need to add this page
-  userPreferences: { to: '/inbox/react/components/preferences?' },
-  framework: { to: 'https://docs.novu.co/framework/overview' },
-
-  // Providers
-  sendgrid: { to: 'https://docs.novu.co/integrations/providers/email/sendgrid' },
-  fcm: { to: 'https://docs.novu.co/integrations/providers/push/fcm' },
-  ses: { to: 'https://docs.novu.co/integrations/providers/email/amazon-ses' },
-  twilio: { to: 'https://docs.novu.co/integrations/providers/sms/twilio' },
-  nodemailer: { to: 'https://docs.novu.co/integrations/providers/email/custom-smtp' },
-  slack: { to: 'https://docs.novu.co/integrations/providers/chat/slack' },
-  mailgun: { to: 'https://docs.novu.co/integrations/providers/email/mailgun' },
-  postmark: { to: 'https://docs.novu.co/integrations/providers/email/postmark' },
-  // discord: { to: 'https://docs.novu.co/integrations/providers/chat/discord' }, // same name as social link
-  sendinblue: { to: 'https://docs.novu.co/integrations/providers/email/sendinblue' },
-
-  // Channels
-  inAppChannel: { to: 'https://docs.novu.co/inbox/introduction' },
-  pushChannel: { to: 'https://docs.novu.co/integrations/providers/push/overview' },
-  emailChannel: { to: 'https://docs.novu.co/integrations/providers/email/overview' },
-  smsChannel: { to: 'https://docs.novu.co/integrations/providers/sms/overview' },
-  chatChannel: { to: 'https://docs.novu.co/integrations/providers/chat/overview' },
-  // mobileChannel: { to: 'https://roadmap.novu.co/roadmap/b359fa16-0fd4-4de1-9199-c71a177df4a3' }, -> We need to add this page
-
-  // Frameworks
-  remix: { to: 'https://docs.novu.co/quickstart/remix' },
-  nextjs: { to: 'https://docs.novu.co/quickstart/nextjs' },
-  nuxt: { to: 'https://docs.novu.co/quickstart/nuxt' },
-  svelte: { to: 'https://docs.novu.co/quickstart/svelte' },
-  express: { to: 'https://docs.novu.co/quickstart/express' },
-  h3: { to: 'https://docs.novu.co/quickstart/h3' },
-  // hono: { to: 'https://docs.novu.co/' }, -> We need to add this page
-  // nestjs: { to: 'https://docs.novu.co/' }, -> We need to add this page
-
-  // Getting started
-  howToGuides: { to: 'https://docs.novu.co/guides/workflows/introduction' },
-  librariesAndSdks: { to: 'https://docs.novu.co/sdks/framework/typescript/overview' },
-  integrations: { to: 'https://docs.novu.co/integrations/providers/introduction' },
-
-  // Code First Examples
-  preBuiltWorkflows: { to: 'https://github.com/novuhq/examples' },
-
-  // Last part of the dropdown links
-  apiReference: { to: 'https://docs.novu.co/api-reference/overview' },
-  changelog: { to: 'https://novustatus.com?utm_campaign=website' },
-  systemStatus: { to: 'https://novustatus.com/' },
-
-  // Other pages
-  pricingContactUs: {
-    to: '/contact-us?utm_campaign=pricing-enterprise-cu',
-    target: '_blank',
+  inbox: {
+    to: '/inbox',
   },
-  documentation: {
-    to: 'https://docs.novu.co/?utm_campaign=website',
-    target: '_blank',
-  },
-  careers: {
-    to: 'https://careers.novu.co',
-    target: '_blank',
-  },
-  inAppDocs: {
-    to: 'https://docs.novu.co/inbox/introduction',
-    target: '_blank',
-  },
-  docker: {
-    to: 'https://docs.novu.co/self-hosting-novu/deploy-with-docker?utm_campaign=website',
-    target: '_blank',
-  },
-  faq: {
-    to: 'https://docs.novu.co/faqs/questions?utm_campaign=website',
-    target: '_blank',
-  },
-  sdk: {
-    to: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
-    target: '_blank',
+  digest: {
+    to: '/digest',
   },
   contactUs: {
     to: '/contact-us',
-    target: '_self',
   },
   contactUsCTA: {
     to: '/contact-us?utm_campaign=homeCTA',
     target: '_self',
   },
-  getStarted: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=gs_website',
-    target: '_blank',
-  },
-  getStartedPricingFree: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_free',
-    target: '_blank',
-  },
-  getStartedPricingBus: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_bus',
-    target: '_blank',
-  },
-  getStartedPricingEnt: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_ent',
-    target: '_blank',
-  },
-  getStartedTopBar: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_top_bar',
-    target: '_blank',
-  },
-  loginTopBar: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-in?utm_campaign=ws_top_bar',
-  },
-  getStartedCommunity: {
-    to: `https://dashboard-v2.novu.co?utm_campaign=community_page`,
-    target: '_blank',
-  },
-  getStartedBase: {
+
+  // Dashboard
+  dashboard: {
     to: 'https://dashboard-v2.novu.co',
     target: '_blank',
   },
-  quickStart: {
-    to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
+  dashboardSignUp: {
+    to: 'https://dashboard-v2.novu.co/auth/sign-up',
     target: '_blank',
   },
-  providers: {
-    to: 'https://docs.novu.co/channels-and-providers/introduction?utm_campaign=website',
+  dashboardSignIn: {
+    to: 'https://dashboard-v2.novu.co/auth/sign-in',
+    target: '_blank',
+  },
+
+  // Other pages
+  roadmapPage: {
+    to: 'https://roadmap.novu.co',
+    target: '_blank',
+  },
+  changeLog: {
+    to: 'https://roadmap.novu.co/changelog',
     target: '_blank',
   },
   handbook: {
     to: 'https://handbook.novu.co',
     target: '_blank',
   },
+  statusPage: {
+    to: 'https://novustatus.com',
+    target: '_blank',
+  },
+  careers: {
+    to: 'https://careers.novu.co',
+    target: '_blank',
+  },
+  trustPage: {
+    to: 'https://trust.novu.co',
+    target: '_blank',
+  },
+  bookMeeting: {
+    to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr',
+    target: '_blank',
+  },
+
+  // Social
   applePodcasts: {
     to: 'https://podcasts.apple.com/il/podcast/sourcelife/id1632801980',
     target: '_blank',
@@ -195,53 +102,6 @@ export default {
     to: 'https://open.spotify.com/show/2OyQJkn07lnJPNdxFWft96',
     target: '_blank',
   },
-  statusPage: {
-    to: 'https://novustatus.com',
-    target: '_blank',
-  },
-  changeLog: {
-    to: 'https://roadmap.novu.co/changelog',
-    target: '_blank',
-  },
-  roadmapPage: {
-    to: 'https://roadmap.novu.co',
-    target: '_blank',
-  },
-  trustPage: {
-    to: 'https://trust.novu.co?utm_campaign=website',
-    target: '_blank',
-  },
-  pressKit: {
-    to: 'https://handbook.novu.co/830bf2b7e920431bb52d36c9b503d3ca',
-    target: '_blank',
-  },
-  libraries: {
-    to: 'https://docs.novu.co/sdks/introduction?utm_campaign=website',
-    target: '_blank',
-  },
-  // It still says calendly, but we're pointing it to Hubspot Meetings now
-  // old link: https://calendly.com/novuhq/novu-meeting?utm_campaign=main-page&utm_campaign=website
-  calendly: {
-    to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website',
-    target: '_blank',
-  },
-  previousBAM: {
-    to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr',
-    target: '_blank',
-  },
-  BAM: {
-    to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website',
-    target: '_blank',
-  },
-  bamCTA: {
-    to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-cta-bottom',
-    target: '_blank',
-  },
-  hpCodeSection: {
-    to: '#codefirst',
-  },
-
-  // Social
   discord: {
     to: 'https://discord.gg/novu?utm_campaign=website',
     target: '_blank',
@@ -258,18 +118,48 @@ export default {
     to: 'https://pixelpoint.io/',
     target: '_blank',
   },
-  polishing: {
-    to: '/polishing',
-  },
-  notificationDirectory: {
-    to: 'https://notifications.directory?utm_campaign=website',
-  },
 
-  // Blog posts
-  howToNotificationsReact: {
-    to: '/blog/how-to-add-real-time-notifications-to-a-react-app',
+  // Docs
+  docs: {
+    to: 'https://docs.novu.co/',
+    target: '_blank',
   },
-  futureOfNovu: {
-    to: '/blog/the-future-of-novu/',
+  docsFramework: { to: 'https://docs.novu.co/framework/overview', target: '_blank' },
+  docsWorkflow: { to: 'https://docs.novu.co/workflows/notification-workflows', target: '_blank' },
+  docsInApp: {
+    to: 'https://docs.novu.co/inbox/introduction',
+    target: '_blank',
+  },
+  docsOverview: {
+    to: 'https://docs.novu.co/platform/overview',
+    target: '_blank',
+  },
+  docsSdks: {
+    to: 'https://docs.novu.co/sdks/overview',
+    target: '_blank',
+  },
+  docsApis: {
+    to: 'https://docs.novu.co/api-reference/overview',
+    target: '_blank',
+  },
+  docsGuides: {
+    to: 'https://docs.novu.co/guides/overview',
+    target: '_blank',
+  },
+  docsUserPreferences: {
+    to: 'https://docs.novu.co/inbox/react/components/preferences',
+    target: '_blank',
+  },
+  docsContentManagement: {
+    to: 'https://docs.novu.co/workflow/template-editor',
+    target: '_blank',
+  },
+  docsProviders: {
+    to: 'https://docs.novu.co/channels-and-providers/introduction?utm_campaign=website',
+    target: '_blank',
+  },
+  docsQuickStart: {
+    to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
+    target: '_blank',
   },
 };
