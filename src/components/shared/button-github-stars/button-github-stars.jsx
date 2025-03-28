@@ -24,21 +24,18 @@ const ButtonGithubStars = ({ className, size }) => {
     <Button
       className={clsx(
         'group',
-        size === 'small' && 'border-0 !px-0 hover:text-gray-9 hover:after:opacity-0',
+        size === 'small' && '!px-0 hover:text-gray-9 focus-visible:text-gray-9',
         className
       )}
       size="xs"
-      theme="gray-outline"
+      theme={size === 'large' && 'gray-outline'}
       to="https://git.new/novu?utm_campaign=website"
       target="_blank"
       rel="noopener noreferrer"
       onClick={buttonClick('github_star', { type: 'menu' })}
     >
       <GitHubIcon
-        className={clsx(
-          'mr-2 h-[26px] w-[26px] [&_path]:transition-colors',
-          size === 'small' && '[&_path]:duration-200 group-hover:[&_path]:fill-gray-9'
-        )}
+        className={clsx('mr-2 size-[26px]', size === 'small' && '[&_path]:fill-current')}
       />
       {size === 'large' && <span className="lg:hidden">Star us</span>}
       <span

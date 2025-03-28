@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
 import LottieAnimation from 'components/shared/lottie-animation';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
 
 import animationData from './data/component-based-lottie-data.json';
 
@@ -41,7 +41,12 @@ const ComponentBased = () => {
           <p className="mt-5 text-lg font-book leading-snug text-gray-9 xl:max-w-[464px] lg:mt-3 lg:max-w-[296px] lg:text-base md:max-w-full">
             {DESCRIPTION}
           </p>
-          <Button className="mt-7 md:mt-6" size="sm" theme="primary" {...LINKS.getStarted}>
+          <Button
+            className="mt-7 md:mt-6"
+            size="sm"
+            theme="primary"
+            {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=gs_website'])}
+          >
             {BUTTON_TEXT}
           </Button>
         </div>

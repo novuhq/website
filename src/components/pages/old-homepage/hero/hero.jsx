@@ -50,7 +50,7 @@ const Hero = () => {
             className="w-[152px] sm-xs:w-full"
             size="sm"
             theme="white-filled"
-            {...applyQueryParams(LINKS.getStartedBase, ['utm_campaign=gs_inline_home'])}
+            {...applyQueryParams(LINKS.dashboard, ['utm_campaign=gs_inline_home'])}
             onClick={getstarted}
           >
             Get Started
@@ -59,7 +59,7 @@ const Hero = () => {
             className="w-[152px] sm-xs:w-full"
             size="sm"
             theme="white-outline"
-            {...LINKS.calendly}
+            {...applyQueryParams(LINKS.bookMeeting, ['utm_campaign=website'])}
             onClick={bookacall}
           >
             Book a demo

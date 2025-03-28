@@ -5,13 +5,13 @@ import React, { useState, useEffect } from 'react';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
 import MENUS from 'constants/menus';
+import useHeaderData from 'hooks/use-header-data';
 import useScrollStatus from 'hooks/use-scroll-status';
 import ChevronIcon from 'icons/chevron-small.inline.svg';
 
-import SubMenu from './sub-menu';
-import TabletMenu from './tablet-menu';
+import InnerMenu from './inner-menu';
 
 const ANIMATION_DURATION = 0.2;
 
@@ -33,14 +33,19 @@ const variants = {
   },
 };
 
+const defaultMenuContent = {
+  label: '',
+  content: null,
+};
+
 const MobileMenu = ({ isOpen }) => {
-  const [openMenu, setOpenMenu] = useState(null);
+  const [openMenu, setOpenMenu] = useState(defaultMenuContent);
   const [isBanner, setIsBanner] = useState(false);
   const { isScrolledToBottom, hasScroll, handleScroll } = useScrollStatus();
+  const { changelog, post } = useHeaderData();
 
-  const handleOpenMenu = (items) => {
-    setOpenMenu((current) => (current?.label === items?.label ? null : items));
-  };
+  const handleOpenMenu = (label, content) =>
+    setOpenMenu((current) => (current?.label === label ? defaultMenuContent : { label, content }));
 
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
@@ -74,45 +79,48 @@ const MobileMenu = ({ isOpen }) => {
               onScroll={handleScroll}
             >
               <ul className="relative flex h-full w-full flex-col border-t border-t-[#1F1F1F] px-8 sm:px-5">
-                {MENUS.header.map(({ text, to, target, menuItems }, index) => (
+                {MENUS.header.map(({ text, content, to }, index) => (
                   <li className="border-b border-b-[#1F1F1F] last:border-b-0" key={index}>
                     <Link
                       className={clsx(
-                        'flex h-[53px] w-full items-center justify-between text-left text-lg leading-none sm:h-[45px] sm:text-base'
+                        'flex h-[54px] w-full items-center justify-between text-left text-lg leading-none sm:h-[45px] sm:text-base'
                       )}
                       tag={to ? null : 'button'}
                       to={to}
                       theme="white"
-                      target={target}
-                      onClick={to ? null : () => handleOpenMenu(menuItems)}
+                      onClick={to ? null : () => handleOpenMenu(text, content)}
                     >
                       {text}
-                      {menuItems && (
+                      {content && (
                         <ChevronIcon
                           className={clsx(
                             'size-3.5 -rotate-90 transition-transform duration-200',
-                            openMenu?.label === menuItems?.label ? 'rotate-0' : ''
+                            openMenu?.label === text ? 'rotate-0' : ''
                           )}
                         />
                       )}
                     </Link>
-                    <TabletMenu openMenu={openMenu} label={menuItems?.label} />
+                    <InnerMenu openMenu={openMenu} label={text} changelog={changelog} post={post} />
                   </li>
                 ))}
               </ul>
-              <SubMenu currentMenu={openMenu} handleOpenMenu={handleOpenMenu} isBanner={isBanner} />
             </nav>
 
             <div className="pointer-events-auto bg-black">
               <div className="container flex justify-between gap-x-4 gap-y-3.5 py-7 sm:px-5 sm:py-6 xs:flex-col">
-                <Button className="w-full" size="xs" theme="white-outline" {...LINKS.loginTopBar}>
+                <Button
+                  className="w-full"
+                  size="xs"
+                  theme="white-outline"
+                  {...applyQueryParams(LINKS.dashboardSignIn, ['utm_campaign=ws_top_bar'])}
+                >
                   Login
                 </Button>
                 <Button
                   className="w-full"
                   size="xs"
                   theme="white-filled"
-                  {...LINKS.getStartedTopBar}
+                  {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=ws_top_bar'])}
                 >
                   Get Started
                 </Button>

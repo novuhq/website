@@ -74,7 +74,7 @@ const HowItWorks = () => (
         className="mt-7 lg:mt-6 sm:mt-5 sm:text-xs"
         theme="primary-underline"
         size="sm"
-        {...LINKS.quickStart}
+        {...LINKS.docsQuickStart}
       >
         {LINK_NAME}
       </Link>

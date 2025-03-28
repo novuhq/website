@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
 
 import bgSm from './images/bg-sm.svg';
 import bg from './images/bg.svg';
@@ -21,12 +21,18 @@ const Hero = () => (
         Message received!
       </Heading>
       <p className="mt-3.5 max-w-[720px] text-center text-lg font-book leading-snug text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
-        You have been entered into our SWAG contest, and we'll be in touch shortly with the results.
+        You have been entered into our SWAG contest, and we&apos;ll be in touch shortly with the
+        results.
       </p>
       <p className="mt-3.5 max-w-[720px] text-center text-lg font-book leading-snug text-gray-9 lg:max-w-[782px] md:max-w-[590px] md:text-base sm:mt-3 sm:leading-snug">
         But while we have your attention... have you tried a code-first workflow yet?
       </p>
-      <Button className="mt-10 sm:mt-7" size="sm" theme="white-filled" to={LINKS.getStarted.to}>
+      <Button
+        className="mt-10 sm:mt-7"
+        size="sm"
+        theme="white-filled"
+        {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=gs_website'])}
+      >
         Try Code-first Now
       </Button>
     </div>
