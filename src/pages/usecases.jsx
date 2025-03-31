@@ -69,7 +69,7 @@ const UseCasesPage = () => (
       description="Create complex workflows, access local data, and reuse existing content templates with Novu Echo."
       leftItem={{
         text: 'Try Novu',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_usecases',
+        link: 'https://dashboard.novu.co/?utm_campaign=ws_usecases',
       }}
       rightItem={{
         text: 'Contact us',
@@ -173,7 +173,7 @@ const UseCasesPage = () => (
       description="Whatever your use case, Novu is ready. Start for free, no credit card required."
       leftItem={{
         text: 'Try Novu',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_usecases',
+        link: 'https://dashboard.novu.co/?utm_campaign=ws_usecases',
       }}
       rightItem={{
         text: 'Contact us',

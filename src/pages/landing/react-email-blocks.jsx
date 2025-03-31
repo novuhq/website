@@ -74,7 +74,7 @@ const GSLandingPage = () => (
         title: 'Create a free account',
         description: 'Create a free account, and get notifying.',
         buttonText: 'Create Account',
-        buttonLink: 'https://dashboard-v2.novu.com/?utm_campaign=lp-mez-gs',
+        buttonLink: 'https://dashboard.novu.com/?utm_campaign=lp-mez-gs',
       }}
       theme="purple"
     />

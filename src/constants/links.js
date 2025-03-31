@@ -1,4 +1,4 @@
-export const WEB_APP_URL = 'https://dashboard-v2.novu.co';
+export const WEB_APP_URL = 'https://dashboard.novu.co';
 export const applyQueryParams = (link, queryParams = []) => ({
   ...link,
   to: `${link.to}?${queryParams.join('&')}`,
@@ -145,34 +145,34 @@ export default {
     target: '_self',
   },
   getStarted: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=gs_website',
+    to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=gs_website',
     target: '_blank',
   },
   getStartedPricingFree: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_free',
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_free',
     target: '_blank',
   },
   getStartedPricingBus: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_bus',
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_bus',
     target: '_blank',
   },
   getStartedPricingEnt: {
-    to: 'https://dashboard-v2.novu.co?utm_campaign=gs_website_pricing_ent',
+    to: 'https://dashboard.novu.co?utm_campaign=gs_website_pricing_ent',
     target: '_blank',
   },
   getStartedTopBar: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_top_bar',
+    to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_top_bar',
     target: '_blank',
   },
   loginTopBar: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-in?utm_campaign=ws_top_bar',
+    to: 'https://dashboard.novu.co/auth/sign-in?utm_campaign=ws_top_bar',
   },
   getStartedCommunity: {
-    to: `https://dashboard-v2.novu.co?utm_campaign=community_page`,
+    to: `https://dashboard.novu.co?utm_campaign=community_page`,
     target: '_blank',
   },
   getStartedBase: {
-    to: 'https://dashboard-v2.novu.co',
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
   quickStart: {

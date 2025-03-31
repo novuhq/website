@@ -147,7 +147,7 @@ const Security = () => (
         description:
           'Try Novu for free today, and send your first notification while your coffee is still too hot to drink.',
         buttonText: 'Try Novu',
-        buttonLink: 'https://dashboard-v2.novu.co/?utm_campaign=ws_security',
+        buttonLink: 'https://dashboard.novu.co/?utm_campaign=ws_security',
       }}
       rightCard={{
         title: 'Book a Meeting',

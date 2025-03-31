@@ -248,7 +248,7 @@ const HomePage = () => (
       sectionClassName="mt-[308px] lg:mt-[228px] md:mt-[128px] sm:mt-[104px]"
       button={{
         label: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
       }}
       className="py-20 pl-[64px] lg:pl-[32px] md:py-10 sm:mb-0 sm:pb-20 sm:pt-0 xs:pb-[110px] sm-xs:pb-[70px]"
       title="Part of your Stack"
@@ -288,7 +288,7 @@ const HomePage = () => (
       description="<span class='font-medium text-gray-10'>10K events/month free forever.</span> From weekend projects to enterprise scale, we've got you covered."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'Pricing',
