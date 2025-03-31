@@ -33,10 +33,16 @@ const SectionWithLogos = ({ className, title, description, logos, containerSize 
           {description}
         </p>
         <ul
-          className={clsx(
-            'mt-11 grid lg:mt-10 md:mt-8 sm:mt-7 sm:grid-cols-2',
-            `grid-cols-${gridCols}`
-          )}
+          className={clsx('mt-11 grid lg:mt-10 md:mt-8 sm:mt-7 sm:grid-cols-2', {
+            'grid-cols-1': gridCols === 1,
+            'grid-cols-2': gridCols === 2,
+            'grid-cols-3': gridCols === 3,
+            'grid-cols-4': gridCols === 4,
+            'grid-cols-5': gridCols === 5,
+            'grid-cols-6': gridCols === 6,
+            'grid-cols-7': gridCols === 7,
+            'grid-cols-8': gridCols === 8,
+          })}
         >
           {logos.map(({ title, src }, index) => (
             <li
