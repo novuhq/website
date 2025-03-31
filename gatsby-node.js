@@ -466,158 +466,162 @@ exports.createPages = async (args) => {
   await createContributorsPage(params);
 };
 
-exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
-  const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
-    response.json()
-  );
-  const allContributorsPromise = await fetch(
-    `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
-  ).then((response) => response.json());
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest, reporter }) => {
+  try {
+    const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
+      response.json()
+    );
+    const allContributorsPromise = fetch(
+      `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
+    ).then((response) => response.json());
 
-  const dataPromises = Promise.all([
-    fetchCommitCount('novuhq', 'novu'),
-    fetchPullRequestCount('novuhq', 'novu', 'open'),
-    fetchPullRequestCount('novuhq', 'novu', 'closed'),
-    fetchClosedIssuesCount('novuhq', 'novu'),
-  ]);
+    const dataPromises = Promise.all([
+      fetchCommitCount('novuhq', 'novu'),
+      fetchPullRequestCount('novuhq', 'novu', 'open'),
+      fetchPullRequestCount('novuhq', 'novu', 'closed'),
+      fetchClosedIssuesCount('novuhq', 'novu'),
+    ]);
 
-  const [
-    githubData,
-    contributors,
-    [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
-  ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
+    const [
+      githubData,
+      contributors,
+      [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
+    ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
 
-  createNode({
-    // nameWithOwner and url are arbitrary fields from the data
-    nameWithOwner: githubData.full_name,
-    url: githubData.html_url,
-    count: githubData.stargazers_count,
-    forks: githubData.forks_count,
-    openIssues: githubData.open_issues,
-    closedIssues: closedIssuesCount,
-    pullRequests: openPullRequestsCount + closedPullRequestsCount,
-    contributors: contributors.list.length,
-    commits: commitsCount,
-    // required fields
-    id: `github-data`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `Github`,
-      contentDigest: createContentDigest(githubData),
-    },
-  });
-  // TODO: Please comment this part of the code after Hacktoberfest is over, as this part greatly affects the resources of the build, and come back to it when you need it again.
-  // const hacktoberfestIssuesData = await octokit.request(
-  //   'GET /orgs/novuhq/issues?filter=all&state=all&labels=hacktoberfest&per_page=100',
-  //   {
-  //     headers: {
-  //       'X-GitHub-Api-Version': '2022-11-28',
-  //     },
-  //   }
-  // );
+    createNode({
+      // nameWithOwner and url are arbitrary fields from the data
+      nameWithOwner: githubData.full_name,
+      url: githubData.html_url,
+      count: githubData.stargazers_count,
+      forks: githubData.forks_count,
+      openIssues: githubData.open_issues,
+      closedIssues: closedIssuesCount,
+      pullRequests: openPullRequestsCount + closedPullRequestsCount,
+      contributors: contributors.list.length,
+      commits: commitsCount,
+      // required fields
+      id: `github-data`,
+      parent: null,
+      children: [],
+      internal: {
+        type: `Github`,
+        contentDigest: createContentDigest(githubData),
+      },
+    });
+    // TODO: Please comment this part of the code after Hacktoberfest is over, as this part greatly affects the resources of the build, and come back to it when you need it again.
+    // const hacktoberfestIssuesData = await octokit.request(
+    //   'GET /orgs/novuhq/issues?filter=all&state=all&labels=hacktoberfest&per_page=100',
+    //   {
+    //     headers: {
+    //       'X-GitHub-Api-Version': '2022-11-28',
+    //     },
+    //   }
+    // );
 
-  // createNode({
-  //   data: hacktoberfestIssuesData.data,
-  //   id: `hacktoberfest-issues-data`,
-  //   parent: null,
-  //   children: [],
-  //   internal: {
-  //     type: `HacktoberfestIssues`,
-  //     contentDigest: createContentDigest(hacktoberfestIssuesData),
-  //   },
-  // });
+    // createNode({
+    //   data: hacktoberfestIssuesData.data,
+    //   id: `hacktoberfest-issues-data`,
+    //   parent: null,
+    //   children: [],
+    //   internal: {
+    //     type: `HacktoberfestIssues`,
+    //     contentDigest: createContentDigest(hacktoberfestIssuesData),
+    //   },
+    // });
 
-  // This part is used to get the data of contributors in Hacktoberfest and to calculate the scores
+    // This part is used to get the data of contributors in Hacktoberfest and to calculate the scores
 
-  // const repos = await octokit.request('GET /orgs/novuhq/repos?per_page=100');
-  // const repoNames = repos.data.map((repo) => repo.name);
+    // const repos = await octokit.request('GET /orgs/novuhq/repos?per_page=100');
+    // const repoNames = repos.data.map((repo) => repo.name);
 
-  // const hacktoberfestAuthorsMergedPRs = [];
+    // const hacktoberfestAuthorsMergedPRs = [];
 
-  // // Fetch pull requests in parallel
-  // const allPullRequests = await Promise.all(repoNames.map(fetchMergedPullRequestsFromRepo));
+    // // Fetch pull requests in parallel
+    // const allPullRequests = await Promise.all(repoNames.map(fetchMergedPullRequestsFromRepo));
 
-  // allPullRequests.flat().forEach((pr) => {
-  //   if (
-  //     pr.labels.some(
-  //       (label) => label.name === 'hacktoberfest' || label.name === 'hacktoberfest-accepted'
-  //     ) &&
-  //     pr.merged_at
-  //   ) {
-  //     const author = pr.user;
-  //     const prId = pr.id;
-  //     const prUrl = pr.html_url;
-  //     const prMergeDate = pr.merged_at;
-  //     const repo = pr.base.repo.name;
-  //     const score = 1;
-  //     const year = new Date(prMergeDate).getFullYear(); // Extracting the year from the merge date
+    // allPullRequests.flat().forEach((pr) => {
+    //   if (
+    //     pr.labels.some(
+    //       (label) => label.name === 'hacktoberfest' || label.name === 'hacktoberfest-accepted'
+    //     ) &&
+    //     pr.merged_at
+    //   ) {
+    //     const author = pr.user;
+    //     const prId = pr.id;
+    //     const prUrl = pr.html_url;
+    //     const prMergeDate = pr.merged_at;
+    //     const repo = pr.base.repo.name;
+    //     const score = 1;
+    //     const year = new Date(prMergeDate).getFullYear(); // Extracting the year from the merge date
 
-  //     const authorData = hacktoberfestAuthorsMergedPRs.find(
-  //       ({ author: authorPR }) => authorPR.login === author.login
-  //     );
+    //     const authorData = hacktoberfestAuthorsMergedPRs.find(
+    //       ({ author: authorPR }) => authorPR.login === author.login
+    //     );
 
-  //     if (!authorData) {
-  //       hacktoberfestAuthorsMergedPRs.push({
-  //         author,
-  //         prs: [
-  //           {
-  //             prId,
-  //             prUrl,
-  //             prMergeDate,
-  //             repo,
-  //             score,
-  //           },
-  //         ],
-  //         score,
-  //         scoreByYear: { [year]: score }, // Initializing scoreByYear with the first score
-  //       });
-  //     } else {
-  //       authorData.prs.push({
-  //         prId,
-  //         prUrl,
-  //         prMergeDate,
-  //         repo,
-  //         score,
-  //       });
-  //       authorData.score += score;
+    //     if (!authorData) {
+    //       hacktoberfestAuthorsMergedPRs.push({
+    //         author,
+    //         prs: [
+    //           {
+    //             prId,
+    //             prUrl,
+    //             prMergeDate,
+    //             repo,
+    //             score,
+    //           },
+    //         ],
+    //         score,
+    //         scoreByYear: { [year]: score }, // Initializing scoreByYear with the first score
+    //       });
+    //     } else {
+    //       authorData.prs.push({
+    //         prId,
+    //         prUrl,
+    //         prMergeDate,
+    //         repo,
+    //         score,
+    //       });
+    //       authorData.score += score;
 
-  //       // Update the scoreByYear
-  //       if (authorData.scoreByYear[year]) {
-  //         authorData.scoreByYear[year] += score;
-  //       } else {
-  //         authorData.scoreByYear[year] = score;
-  //       }
-  //     }
-  //   }
-  // });
+    //       // Update the scoreByYear
+    //       if (authorData.scoreByYear[year]) {
+    //         authorData.scoreByYear[year] += score;
+    //       } else {
+    //         authorData.scoreByYear[year] = score;
+    //       }
+    //     }
+    //   }
+    // });
 
-  // createNode({
-  //   data: hacktoberfestAuthorsMergedPRs,
-  //   id: `hacktoberfest-authors-prs`,
-  //   parent: null,
-  //   children: [],
-  //   internal: {
-  //     type: `HacktoberfestAuthorsMergedPRs`,
-  //     contentDigest: createContentDigest(hacktoberfestAuthorsMergedPRs),
-  //   },
-  // });
-  // End of Hacktoberfest part
+    // createNode({
+    //   data: hacktoberfestAuthorsMergedPRs,
+    //   id: `hacktoberfest-authors-prs`,
+    //   parent: null,
+    //   children: [],
+    //   internal: {
+    //     type: `HacktoberfestAuthorsMergedPRs`,
+    //     contentDigest: createContentDigest(hacktoberfestAuthorsMergedPRs),
+    //   },
+    // });
+    // End of Hacktoberfest part
 
-  const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-    (response) => response.json()
-  );
+    const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
+      (response) => response.json()
+    );
 
-  createNode({
-    data: issuesData.issues,
-    id: `issues-data`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `Issues`,
-      contentDigest: createContentDigest(issuesData),
-    },
-  });
+    createNode({
+      data: issuesData.issues,
+      id: `issues-data`,
+      parent: null,
+      children: [],
+      internal: {
+        type: `Issues`,
+        contentDigest: createContentDigest(issuesData),
+      },
+    });
+  } catch (error) {
+    reporter.panicOnBuild('Error sourcing nodes from GitHub API', error);
+  }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
