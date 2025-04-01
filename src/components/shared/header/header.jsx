@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
@@ -9,6 +9,7 @@ import Link from 'components/shared/link';
 import LINKS, { applyQueryParams } from 'constants/links';
 import MENUS from 'constants/menus';
 import useHeaderData from 'hooks/use-header-data';
+import useHeaderNavigation from 'hooks/use-header-navigation';
 import useScrollPosition from 'hooks/use-scroll-position';
 import ChevronIcon from 'icons/chevron-small.inline.svg';
 import Logo from 'images/logo.inline.svg';
@@ -22,13 +23,19 @@ const defaultDropdownMenuContent = {
 };
 
 const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [dropdownMenuContent, setDropdownMenuContent] = useState(defaultDropdownMenuContent);
-  const [lastFocusedLink, setLastFocusedLink] = useState(null);
   const [isBanner, setIsBanner] = useState(false);
   const click = useLandingSimpleTracking();
-  const { changelog, post } = useHeaderData();
   const isScrolled = useScrollPosition(0);
+  const { changelog, post } = useHeaderData();
+  const {
+    isDropdownOpen,
+    setDropdownOpen,
+    dropdownMenuContent,
+    handleFocus,
+    handleBlur,
+    handleMenuKeyDown,
+    handleDropdownKeyDown,
+  } = useHeaderNavigation(defaultDropdownMenuContent);
 
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
@@ -37,117 +44,6 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
       setIsBanner(true);
     }
   }, []);
-
-  const handleFocus = useCallback(
-    (label, content) => () => {
-      if (label && content) {
-        setDropdownOpen(true);
-        setDropdownMenuContent({ label, content });
-      }
-    },
-    []
-  );
-
-  const handleBlur = useCallback((event) => {
-    const dropdown = document.querySelector('[role="menu"]');
-    if (event?.relatedTarget instanceof Node && dropdown?.contains(event.relatedTarget)) {
-      return;
-    }
-    setDropdownOpen(false);
-    setDropdownMenuContent(defaultDropdownMenuContent);
-  }, []);
-
-  const handleClose = () => {
-    setDropdownOpen(false);
-    setDropdownMenuContent(defaultDropdownMenuContent);
-    setLastFocusedLink(null);
-  };
-
-  const handleMenuKeyDown = useCallback(
-    (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        document.activeElement.blur();
-        handleClose();
-      }
-      if (event.key === 'ArrowDown' && isDropdownOpen) {
-        event.preventDefault();
-        setLastFocusedLink(event.target);
-        const dropdown = document.querySelector('[role="menu"]');
-        const firstFocusable = dropdown?.querySelector('a, button, [tabindex="0"]');
-        firstFocusable?.focus();
-      }
-    },
-    [isDropdownOpen]
-  );
-
-  const handleDropdownKeyDown = useCallback(
-    (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        document.activeElement.blur();
-        handleClose();
-      }
-
-      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const dropdown = document.querySelector('[role="menu"]');
-        const focusableElements = Array.from(
-          dropdown?.querySelectorAll('a, button, [tabindex="0"]') || []
-        );
-        const currentIndex = focusableElements.indexOf(document.activeElement);
-
-        if (event.key === 'ArrowDown') {
-          const nextIndex = (currentIndex + 1) % focusableElements.length;
-          focusableElements[nextIndex]?.focus();
-        } else if (event.key === 'ArrowUp') {
-          const prevIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
-          focusableElements[prevIndex]?.focus();
-        }
-      }
-
-      if (event.key === 'Tab') {
-        event.preventDefault();
-        const dropdown = document.querySelector('[role="menu"]');
-        const focusableElements = Array.from(
-          dropdown?.querySelectorAll('a, button, [tabindex="0"]') || []
-        );
-        const currentIndex = focusableElements.indexOf(document.activeElement);
-
-        const headerFocusableElements = Array.from(
-          document.querySelectorAll(
-            'header a:not([style*="display: none"]), header button:not([style*="display: none"]), header [tabindex="0"]:not([style*="display: none"])'
-          )
-        );
-        const currentLinkIndex = headerFocusableElements.indexOf(lastFocusedLink);
-
-        handleClose();
-
-        if (currentIndex === focusableElements.length - 1 && !event.shiftKey) {
-          if (dropdownMenuContent?.label === 'Docs') {
-            const pricingLink = headerFocusableElements.find((el) => el.textContent === 'Pricing');
-            pricingLink?.focus();
-            return;
-          }
-          const nextIndex = (currentLinkIndex + 1) % headerFocusableElements.length;
-          headerFocusableElements[nextIndex]?.focus();
-          return;
-        }
-
-        if (event.shiftKey) {
-          const prevIndex =
-            currentLinkIndex <= 0 ? headerFocusableElements.length - 1 : currentLinkIndex - 1;
-          headerFocusableElements[prevIndex]?.focus();
-        } else {
-          const nextIndex = (currentLinkIndex + 1) % headerFocusableElements.length;
-          headerFocusableElements[nextIndex]?.focus();
-        }
-      }
-    },
-    [lastFocusedLink, dropdownMenuContent?.label]
-  );
 
   return (
     <header
@@ -213,9 +109,12 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
           />
         </nav>
         <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
-          <ButtonGithubStars className="!hidden lg:!flex lg:text-sm" size="small" />
+          <ButtonGithubStars
+            className="!hidden outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:!flex lg:text-sm"
+            size="small"
+          />
           <Button
-            className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
+            className="outline-none focus-visible:shadow-[0_0_0_1px_#05050B,0_0_0_3px_white]"
             size="xs"
             theme="gray-outline"
             {...applyQueryParams(LINKS.dashboardSignIn, ['utm_campaign=ws_top_bar'])}
