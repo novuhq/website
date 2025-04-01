@@ -31,7 +31,7 @@ const InnerContent = ({ title, description, url, image }) => (
     rel="noopener noreferrer"
   >
     <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50">
-      <img className="" src={image} alt="" />
+      <img className="" src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
     </div>
     <p className="mt-3 line-clamp-2 font-medium leading-tight text-white group-hover:text-primary-1 group-focus-visible:text-primary-1">
       {title}
