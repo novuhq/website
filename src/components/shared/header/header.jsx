@@ -161,14 +161,14 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
       <div className="container flex h-16 items-center justify-between lg:px-8 sm-xs:px-5">
         <div className="flex items-center gap-x-11">
           <Link
-            className="focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="rounded outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white]"
             {...LINKS.home}
           >
             <Logo className="h-8" aria-hidden />
             <span className="sr-only">Novu</span>
           </Link>
           <ButtonGithubStars
-            className="focus-visible:outline-offset-4 focus-visible:outline-white lg:hidden"
+            className="outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white] lg:hidden"
             size="small"
           />
         </div>
@@ -215,7 +215,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
         <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
           <ButtonGithubStars className="!hidden lg:!flex lg:text-sm" size="small" />
           <Button
-            className="focus-visible:outline-white"
+            className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
             size="xs"
             theme="gray-outline"
             {...applyQueryParams(LINKS.dashboardSignIn, ['utm_campaign=ws_top_bar'])}
@@ -224,7 +224,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
             Login
           </Button>
           <Button
-            className="focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
             size="xs"
             theme="white-filled"
             {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=ws_top_bar'])}

@@ -5,7 +5,12 @@ import React from 'react';
 import Link from 'components/shared/link';
 
 const InnerContent = ({ title, description, url, image }) => (
-  <Link className="group -mr-px block pt-0.5" to={url} target="_blank" rel="noopener noreferrer">
+  <Link
+    className="group -mr-px block rounded-sm pt-0.5 outline-none focus-visible:shadow-[0_0_0_5px_#05050B,0_0_0_6px_white]"
+    to={url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50 bg-[linear-gradient(294deg,rgba(0,0,0,0)_45.36%,rgba(0,0,0,0.7)_126.53%),linear-gradient(120deg,rgba(0,0,0,0)_54.73%,rgba(0,0,0,0.8)_112.66%),linear-gradient(73deg,rgba(0,0,0,0)_17.56%,rgba(27,64,79,0.2)_79.95%),linear-gradient(252deg,rgba(29,23,50,0)_-8.69%,rgba(46,37,83,0.2)_100%),linear-gradient(180deg,#111427_0%,#0F122D_43.27%,#0F1223_100%)]">
       <img src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
     </div>
@@ -79,7 +84,7 @@ const Dropdown = ({
                     {items.map(({ text, ...linkProps }, index) => (
                       <li key={index}>
                         <Link
-                          className="font-light leading-none"
+                          className="rounded-sm font-light leading-none outline-none focus-visible:shadow-[0_0_0_7px_#05050B,0_0_0_8px_white]"
                           size="base"
                           theme="white"
                           {...linkProps}
