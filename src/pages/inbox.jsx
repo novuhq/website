@@ -235,7 +235,6 @@ const InboxPage = () => (
         target: '_blank',
       }}
       sectionOffsets="mt-[286px]"
-      initialThemeIndex={3}
       inboxPosition="right"
     />
     <CodeSectionNew
@@ -263,7 +262,7 @@ const InboxPage = () => (
       description="Whatever your use case, Novu is ready. Start for free, no credit card required."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'Contact us',

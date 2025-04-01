@@ -7,14 +7,7 @@ import Heading from 'components/shared/heading';
 
 import InboxComponent from '../inbox-component';
 
-const InboxWrapper = ({
-  sectionOffsets,
-  title,
-  description,
-  button,
-  inboxPosition,
-  initialThemeIndex,
-}) => (
+const InboxWrapper = ({ sectionOffsets, title, description, button, inboxPosition }) => (
   <section
     className={clsx(
       'inbox safe-paddings mt-40 pb-[52px] text-white lg:mt-36 md:mt-[104px] sm:mt-14',
@@ -30,7 +23,7 @@ const InboxWrapper = ({
             : 'flex-row justify-start'
         )}
       >
-        <InboxComponent initialThemeIndex={initialThemeIndex} sectionOffsets={sectionOffsets} />
+        <InboxComponent sectionOffsets={sectionOffsets} />
         <div
           className={clsx(
             'relative z-10 sm:max-w-lg sm:text-center',
@@ -76,14 +69,12 @@ InboxWrapper.propTypes = {
     target: PropTypes.string,
   }),
   inboxPosition: PropTypes.oneOf(['right', 'left']),
-  initialThemeIndex: PropTypes.number,
 };
 
 InboxWrapper.defaultProps = {
   inboxPosition: 'left',
   sectionOffsets: '',
   button: null,
-  initialThemeIndex: 0,
 };
 
 export default InboxWrapper;

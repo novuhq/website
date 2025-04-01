@@ -18,7 +18,7 @@ const PRICING_PLANS = [
     button: {
       text: 'Start Building',
       theme: 'gray-outline',
-      link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
+      link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },
     description: 'Start for free. Essential features, no limits on subscribers.',
@@ -39,7 +39,7 @@ const PRICING_PLANS = [
     button: {
       text: 'Start Free Trial',
       theme: 'white-filled',
-      link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
+      link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },
     description: 'Go pro. More scale, better retention, no branding.',
@@ -58,7 +58,7 @@ const PRICING_PLANS = [
     button: {
       text: 'Start Free Trial',
       theme: 'gray-outline',
-      link: 'https://dashboard-v2.novu.co/auth/sign-up?utm_campaign=ws_pricing',
+      link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
     },
     description: 'For growing teams. Higher limits, full control.',
@@ -79,7 +79,7 @@ const PRICING_PLANS = [
       theme: 'gray-outline',
       link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
     },
-    description: 'Unlimited power.<br />Built for scale.',
+    description: 'Unlimited power. Built for scale.',
     advantagesHeading: 'Everything in Team, plus...',
     advantages: [
       '5M events/month included',
@@ -103,7 +103,7 @@ const PricingPage = () => (
       description="Create a free account, send your first notification, all before your coffee gets cold... no credit card required."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=ws_home_cta',
+        link: 'https://dashboard.novu.co/?utm_campaign=ws_home_cta',
       }}
       rightItem={{
         text: 'Contact us',

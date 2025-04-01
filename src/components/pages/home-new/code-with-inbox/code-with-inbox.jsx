@@ -9,21 +9,17 @@ import InboxComponent from 'components/shared/reusable-sections/inbox/inbox-comp
 
 SyntaxHighlighter.registerLanguage('javascript', javascript);
 
-const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
+const CodeWithInbox = ({ className, title, description, tabs }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section
       className={clsx(
-        'code-section safe-paddings mt-[190px] flex flex-col items-center lg:mt-[140px] md:mt-[100px] sm:mt-20',
+        'code-section safe-paddings mt-[190px] lg:mt-[140px] md:mt-[100px] sm:mt-20',
         className
       )}
     >
-      <div
-        className={clsx(
-          'container-lg grid max-w-[1248px] grid-cols-2 items-center gap-x-8 xl:px-8 lg:grid-cols-[404px_auto] md:max-w-[576px] md:grid-cols-[512px] md:gap-y-[16px] sm:grid-cols-1 sm:px-5'
-        )}
-      >
+      <div className="container-lg grid max-w-[1248px] grid-cols-[auto_auto] items-center gap-x-24 xl:px-8 lg:grid-cols-[404px_auto] lg:justify-center lg:gap-x-8 md:max-w-xl md:grid-cols-1 md:gap-y-4 sm:px-5">
         <div className="relative z-10 max-w-[672px] py-5 lg:max-w-[434px] md:max-w-full sm:max-w-[398px]">
           <div className="mb-[52px] lg:mb-12 sm:mb-11">
             <h2
@@ -89,7 +85,7 @@ const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
             </div>
           </div>
         </div>
-        <InboxComponent className="z-0" isMainPage={isMainPage} />
+        <InboxComponent className="z-0 shrink-0" />
       </div>
     </section>
   );
@@ -98,8 +94,13 @@ const CodeWithInbox = ({ className, title, description, tabs, isMainPage }) => {
 CodeWithInbox.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      code: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   className: PropTypes.string,
-  code: PropTypes.string.isRequired,
 };
 
 CodeWithInbox.defaultProps = {

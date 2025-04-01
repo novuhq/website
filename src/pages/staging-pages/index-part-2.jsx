@@ -171,7 +171,7 @@ const HomePage = () => (
       description="<span class='font-medium text-gray-10'>10K events/month free forever.</span> From weekend projects to enterprise scale, we've got you covered."
       leftItem={{
         text: 'Get started',
-        link: 'https://dashboard-v2.novu.co/?utm_campaign=gs-website-inbox',
+        link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
       }}
       rightItem={{
         text: 'See our plans',

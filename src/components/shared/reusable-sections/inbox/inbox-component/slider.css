@@ -39,4 +39,34 @@
       }
     }
   }
+
+  & .slick-arrow {
+    @apply absolute -top-[340px] !flex size-8 items-center justify-center rounded-full border border-solid border-[#A3A8C3]/20 bg-[#0D111C];
+    @apply transition-all duration-200 hover:border-[#A3A8C3]/30;
+    @apply lg:!hidden md:-top-[290px] md:!flex sm:-top-[240px] sm-xs:!hidden;
+
+    &::before {
+      @apply block h-3.5 w-2 bg-[url(/images/chevron-right.svg)] bg-center bg-no-repeat opacity-100 content-[''];
+    }
+
+    &.slick-prev {
+      @apply -left-14 lg:-left-12;
+
+      &:before {
+        @apply -ml-0.5 rotate-180;
+      }
+    }
+
+    &.slick-next {
+      @apply -right-14 lg:-right-12;
+
+      &:before {
+        @apply ml-0.5;
+      }
+    }
+
+    &.slick-disabled {
+      @apply pointer-events-none opacity-50;
+    }
+  }
 }
