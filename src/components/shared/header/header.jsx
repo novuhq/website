@@ -20,7 +20,7 @@ const defaultDropdownMenuContent = {
   content: null,
 };
 
-const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
+const Header = ({ isMobileMenuOpen, onBurgerClick = false }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownMenuContent, setDropdownMenuContent] = useState(defaultDropdownMenuContent);
   const [lastFocusedLink, setLastFocusedLink] = useState(null);
@@ -229,12 +229,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 };
 
 Header.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   isMobileMenuOpen: PropTypes.bool,
   onBurgerClick: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-  isMobileMenuOpen: false,
 };
 
 export default Header;

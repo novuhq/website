@@ -5,7 +5,7 @@ import React from 'react';
 
 const ANIMATION_DURATION = 0.2;
 
-const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
+const Burger = ({ className: additionalClassName = null, isToggled = false, onClick = null }) => (
   <LazyMotion features={domAnimation}>
     <m.button
       className={clsx('relative h-[19px] w-4', additionalClassName)}
@@ -90,15 +90,12 @@ const Burger = ({ className: additionalClassName, isToggled, onClick }) => (
 );
 
 Burger.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   className: PropTypes.string,
+  // eslint-disable-next-line react/require-default-props
   isToggled: PropTypes.bool,
+  // eslint-disable-next-line react/require-default-props
   onClick: PropTypes.func,
-};
-
-Burger.defaultProps = {
-  className: null,
-  isToggled: false,
-  onClick: null,
 };
 
 export default Burger;

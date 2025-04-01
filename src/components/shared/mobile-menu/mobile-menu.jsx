@@ -38,7 +38,7 @@ const defaultMenuContent = {
   content: null,
 };
 
-const MobileMenu = ({ isOpen }) => {
+const MobileMenu = ({ isOpen = false }) => {
   const [openMenu, setOpenMenu] = useState(defaultMenuContent);
   const [isBanner, setIsBanner] = useState(false);
   const { isScrolledToBottom, hasScroll, handleScroll } = useScrollStatus();
@@ -134,11 +134,8 @@ const MobileMenu = ({ isOpen }) => {
 };
 
 MobileMenu.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   isOpen: PropTypes.bool,
-};
-
-MobileMenu.defaultProps = {
-  isOpen: false,
 };
 
 export default MobileMenu;

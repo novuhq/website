@@ -9,7 +9,7 @@ import GitHubIcon from 'icons/github.inline.svg';
 // eslint-disable-next-line import/no-named-as-default
 import buttonClick from 'utils/use-landing-simple-tracking';
 
-const ButtonGithubStars = ({ className, size }) => {
+const ButtonGithubStars = ({ className = null, size = 'large' }) => {
   const {
     github: { count = GITHUB.count },
   } = useStaticQuery(graphql`
@@ -28,7 +28,7 @@ const ButtonGithubStars = ({ className, size }) => {
         className
       )}
       size="xs"
-      theme={size === 'large' && 'gray-outline'}
+      theme={size === 'large' ? 'gray-outline' : null}
       to="https://git.new/novu?utm_campaign=website"
       target="_blank"
       rel="noopener noreferrer"
@@ -53,13 +53,10 @@ const ButtonGithubStars = ({ className, size }) => {
 };
 
 ButtonGithubStars.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   className: PropTypes.string,
+  // eslint-disable-next-line react/require-default-props
   size: PropTypes.oneOf(['large', 'small']),
-};
-
-ButtonGithubStars.defaultProps = {
-  className: null,
-  size: 'large',
 };
 
 export default ButtonGithubStars;
