@@ -30,8 +30,8 @@ const InnerContent = ({ title, description, url, image }) => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50">
-      <img className="" src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
+    <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50 bg-[linear-gradient(294deg,rgba(0,0,0,0)_45.36%,rgba(0,0,0,0.7)_126.53%),linear-gradient(120deg,rgba(0,0,0,0)_54.73%,rgba(0,0,0,0.8)_112.66%),linear-gradient(73deg,rgba(0,0,0,0)_17.56%,rgba(27,64,79,0.2)_79.95%),linear-gradient(252deg,rgba(29,23,50,0)_-8.69%,rgba(46,37,83,0.2)_100%),linear-gradient(180deg,#111427_0%,#0F122D_43.27%,#0F1223_100%)]">
+      <img src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
     </div>
     <p className="mt-3 line-clamp-2 font-medium leading-tight text-white group-hover:text-primary-1 group-focus-visible:text-primary-1">
       {title}

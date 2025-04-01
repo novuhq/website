@@ -24,7 +24,7 @@ const ButtonGithubStars = ({ className = null, size = 'large' }) => {
     <Button
       className={clsx(
         'group',
-        size === 'small' && '!px-0 hover:text-gray-9 focus-visible:text-gray-9',
+        size === 'small' && '!h-auto !px-0 hover:text-gray-9 focus-visible:text-gray-9',
         className
       )}
       size="xs"

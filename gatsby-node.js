@@ -668,7 +668,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.createResolvers = ({ createResolvers }) => {
+exports.createResolvers = ({ createResolvers, reporter }) => {
   createResolvers({
     Query: {
       productlaneChangelog: {
@@ -678,14 +678,30 @@ exports.createResolvers = ({ createResolvers }) => {
             const response = await fetch(
               `https://productlane.com/api/v1/changelogs/${process.env.GATSBY_PRODUCTLANE_WORKSPACE_ID}`
             );
+
+            if (!response.ok) {
+              throw new Error(
+                `ProductLane API request failed with status ${response.status}: ${response.statusText}`
+              );
+            }
+
             const data = await response.json();
 
             if (!data || !data.length) {
-              return null;
+              throw new Error('ProductLane API returned an empty or invalid data array.');
             }
 
-            return data[0];
+            const latestPublished = data.find(
+              (item) => !item.isDeleted && item.published && !item.archived
+            );
+
+            if (!latestPublished) {
+              throw new Error('No published item found in ProductLane API response.');
+            }
+
+            return latestPublished;
           } catch (error) {
+            reporter.error('Failed to fetch data from ProductLane API:', error);
             return null;
           }
         },

@@ -4,20 +4,21 @@ import LINKS from 'constants/links';
 
 const DEFAULT_STATE = {
   changelog: {
-    title: 'Changelog',
-    description: 'Loading...',
+    title: 'Check out our latest updates',
+    description: 'Stay up to date with our latest changes and features',
     url: LINKS.changeLog.to,
     image: '/images/header/illustration-changelog.jpg',
   },
   post: {
-    title: 'Post',
-    description: 'Loading...',
+    title: 'Check out our latest blog posts',
+    description: 'Discover new blog posts covering product updates, stories, and more',
     url: LINKS.blog.to,
     image: '/images/header/illustration-post.jpg',
   },
 };
 
 const getChangelogContent = (data) => {
+  if (!data) return null;
   if (Array.isArray(data)) return getChangelogContent(data[0]);
   if (data?.text) return data.text;
   return getChangelogContent(data.content);

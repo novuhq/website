@@ -9,6 +9,7 @@ import Link from 'components/shared/link';
 import LINKS, { applyQueryParams } from 'constants/links';
 import MENUS from 'constants/menus';
 import useHeaderData from 'hooks/use-header-data';
+import useScrollPosition from 'hooks/use-scroll-position';
 import ChevronIcon from 'icons/chevron-small.inline.svg';
 import Logo from 'images/logo.inline.svg';
 import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
@@ -20,13 +21,14 @@ const defaultDropdownMenuContent = {
   content: null,
 };
 
-const Header = ({ isMobileMenuOpen, onBurgerClick = false }) => {
+const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownMenuContent, setDropdownMenuContent] = useState(defaultDropdownMenuContent);
   const [lastFocusedLink, setLastFocusedLink] = useState(null);
   const [isBanner, setIsBanner] = useState(false);
   const click = useLandingSimpleTracking();
   const { changelog, post } = useHeaderData();
+  const isScrolled = useScrollPosition(0);
 
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
@@ -150,18 +152,25 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = false }) => {
   return (
     <header
       className={clsx(
-        'safe-paddings sticky right-0 top-0 z-40 -mb-16 w-full bg-black',
-        isBanner ? 'top-9' : 'top-0'
+        'safe-paddings sticky right-0 top-0 z-40 -mb-16 w-full transition-colors duration-200',
+        isBanner ? 'top-9' : 'top-0',
+        isScrolled ? 'bg-[#05050B]' : 'bg-transparent'
       )}
       data-disable-document-scroll={isMobileMenuOpen}
     >
       <div className="container flex h-16 items-center justify-between lg:px-8 sm-xs:px-5">
         <div className="flex items-center gap-x-11">
-          <Link {...LINKS.home}>
+          <Link
+            className="focus-visible:outline-offset-4 focus-visible:outline-white"
+            {...LINKS.home}
+          >
             <Logo className="h-8" aria-hidden />
             <span className="sr-only">Novu</span>
           </Link>
-          <ButtonGithubStars className="lg:hidden" size="small" />
+          <ButtonGithubStars
+            className="focus-visible:outline-offset-4 focus-visible:outline-white lg:hidden"
+            size="small"
+          />
         </div>
         <nav className="absolute left-1/2 h-full -translate-x-1/2 lg:-translate-x-[73%]">
           <ul className="flex h-full items-center gap-x-3 pt-1 md:hidden">
@@ -204,8 +213,9 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = false }) => {
           />
         </nav>
         <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
-          <ButtonGithubStars className="hidden lg:flex lg:text-sm" size="small" />
+          <ButtonGithubStars className="!hidden lg:!flex lg:text-sm" size="small" />
           <Button
+            className="focus-visible:outline-white"
             size="xs"
             theme="gray-outline"
             {...applyQueryParams(LINKS.dashboardSignIn, ['utm_campaign=ws_top_bar'])}
@@ -214,6 +224,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = false }) => {
             Login
           </Button>
           <Button
+            className="focus-visible:outline-offset-4 focus-visible:outline-white"
             size="xs"
             theme="white-filled"
             {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=ws_top_bar'])}

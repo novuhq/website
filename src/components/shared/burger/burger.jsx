@@ -5,7 +5,11 @@ import React from 'react';
 
 const ANIMATION_DURATION = 0.2;
 
-const Burger = ({ className: additionalClassName = null, isToggled = false, onClick = null }) => (
+const Burger = ({
+  className: additionalClassName = null,
+  isToggled = false,
+  onClick = () => {},
+}) => (
   <LazyMotion features={domAnimation}>
     <m.button
       className={clsx('relative h-[19px] w-4', additionalClassName)}
