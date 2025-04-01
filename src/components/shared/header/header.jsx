@@ -48,7 +48,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
 
   const handleBlur = useCallback((event) => {
     const dropdown = document.querySelector('[role="menu"]');
-    if (event?.relatedTarget && dropdown?.contains(event.relatedTarget)) {
+    if (event?.relatedTarget instanceof Node && dropdown?.contains(event.relatedTarget)) {
       return;
     }
     setDropdownOpen(false);
