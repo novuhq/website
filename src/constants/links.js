@@ -175,6 +175,9 @@ export default {
     to: 'https://dashboard.novu.co',
     target: '_blank',
   },
+  dashboard: {
+    to: 'https://dashboard.novu.co',
+  },
   quickStart: {
     to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
     target: '_blank',

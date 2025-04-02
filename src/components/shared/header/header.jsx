@@ -1,3 +1,4 @@
+import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
@@ -88,13 +89,25 @@ const Header = ({ isMobileMenuOpen, onBurgerClick }) => {
           />
         </nav>
         <div className="flex gap-x-5 lg:gap-x-3 md:hidden">
-          <ButtonGithubStars className="pl-3" size="small" />
-          <Button size="xs" theme="gray-outline" {...LINKS.loginTopBar} onClick={click}>
-            Login
-          </Button>
-          <Button size="xs" theme="white-filled" {...LINKS.getStartedTopBar} onClick={click}>
-            Get Started
-          </Button>
+          <ClerkProvider
+            publishableKey={process.env.GATSBY_CLERK_PUBLISHABLE_KEY}
+            afterSignOutUrl="/"
+          >
+            <ButtonGithubStars className="pl-3" size="small" />
+            <SignedOut>
+              <Button size="xs" theme="gray-outline" {...LINKS.loginTopBar} onClick={click}>
+                Login
+              </Button>
+              <Button size="xs" theme="white-filled" {...LINKS.getStartedTopBar} onClick={click}>
+                Get Started
+              </Button>
+            </SignedOut>
+            <SignedIn>
+              <Button size="xs" theme="white-filled" {...LINKS.dashboard} onClick={click}>
+                Visit Dashboard
+              </Button>
+            </SignedIn>
+          </ClerkProvider>
         </div>
 
         <Burger className="hidden md:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
