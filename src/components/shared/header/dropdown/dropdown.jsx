@@ -23,28 +23,21 @@ const InnerContent = ({ title, description, url, image }) => (
   </Link>
 );
 
-const Dropdown = ({
-  isDropdownOpen,
-  dropdownMenuContent,
-  setDropdownOpen,
-  changelog,
-  post,
-  onKeyDown,
-}) => (
+const Dropdown = ({ isOpen, label, content, changelog, post, handleMenuOpen }) => (
   <LazyMotion features={domAnimation}>
     <AnimatePresence>
-      {isDropdownOpen && (
+      {isOpen && (
         <m.div
+          layoutId="navigation-dropdown"
           className={clsx(
-            'absolute left-1/2 top-16 rounded-[14px] border border-gray-2 bg-[#0F0F0F] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[transform,min-width] duration-[0.4s] ease-in-out will-change-transform lg:top-[72px]',
-            'before:absolute before:-top-1.5 before:left-[50px] before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F] lg:before:left-[60px]',
-            dropdownMenuContent?.label === 'Product' &&
-              'min-w-[515px] -translate-x-[41.2%] lg:-translate-x-[42.3%]',
-            dropdownMenuContent?.label === 'Resources' && 'min-w-[515px] -translate-x-[20.5%]',
-            dropdownMenuContent?.label === 'Docs' && 'min-w-[434px] translate-x-[3.7%]'
+            'absolute -left-5 top-[42px] rounded-[14px] border border-gray-2 bg-[#0F0F0F] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] duration-[0.4s] ease-in-out will-change-transform lg:top-[52px]',
+            'before:absolute before:-top-1.5 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
+            label === 'Product' &&
+              'min-w-[515px] before:left-[59px] lg:-left-[26px] lg:before:left-[60px]',
+            label === 'Resources' &&
+              'min-w-[515px] before:left-[53px] lg:-left-5 lg:before:left-[54px]',
+            label === 'Docs' && 'min-w-[434px] before:left-[50px]'
           )}
-          role="menu"
-          tabIndex={-1}
           initial={{
             opacity: 0,
           }}
@@ -55,14 +48,13 @@ const Dropdown = ({
             opacity: 0,
           }}
           transition={{
-            duration: 0.4,
+            duration: 0.2,
           }}
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
-          onKeyDown={onKeyDown}
+          onMouseEnter={() => handleMenuOpen(label)}
+          onMouseLeave={() => handleMenuOpen(label)}
         >
           <div className="relative z-10 flex gap-x-3.5 rounded-[14px] bg-[#0F0F0F] px-8 pb-7 pt-6">
-            {dropdownMenuContent?.content?.map(({ title, type, items, content }, index) => (
+            {content?.map(({ title, type, items, content }, index) => (
               <div
                 className={clsx(
                   'min-w-0',
@@ -74,7 +66,7 @@ const Dropdown = ({
                 <p
                   className={clsx(
                     'mb-4 text-sm leading-none -tracking-[0.01em] text-[#909090]',
-                    dropdownMenuContent?.label === 'Product' && 'mb-5'
+                    label === 'Product' && 'mb-5'
                   )}
                 >
                   {title}

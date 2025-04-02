@@ -9,7 +9,6 @@ import Link from 'components/shared/link';
 import LINKS, { applyQueryParams } from 'constants/links';
 import MENUS from 'constants/menus';
 import useHeaderData from 'hooks/use-header-data';
-import useHeaderNavigation from 'hooks/use-header-navigation';
 import useScrollPosition from 'hooks/use-scroll-position';
 import ChevronIcon from 'icons/chevron-small.inline.svg';
 import Logo from 'images/logo.inline.svg';
@@ -17,25 +16,17 @@ import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
 
 import Dropdown from './dropdown';
 
-const defaultDropdownMenuContent = {
-  label: '',
-  content: null,
-};
-
 const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
+  const [openMenu, setOpenMenu] = useState('');
   const [isBanner, setIsBanner] = useState(false);
   const click = useLandingSimpleTracking();
   const isScrolled = useScrollPosition(0);
   const { changelog, post } = useHeaderData();
-  const {
-    isDropdownOpen,
-    setDropdownOpen,
-    dropdownMenuContent,
-    handleFocus,
-    handleBlur,
-    handleMenuKeyDown,
-    handleDropdownKeyDown,
-  } = useHeaderNavigation(defaultDropdownMenuContent);
+
+  const handleMenuOpen = (label) => {
+    if (!label) return;
+    setOpenMenu((previous) => (previous === label ? null : label));
+  };
 
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
@@ -74,10 +65,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
               <li
                 className="relative"
                 key={index}
-                onMouseEnter={handleFocus(text, content)}
-                onMouseLeave={(event) => handleBlur(event)}
-                onFocus={handleFocus(text, content)}
-                onBlur={(event) => handleBlur(event)}
+                onMouseEnter={() => handleMenuOpen(text)}
+                onMouseLeave={() => handleMenuOpen(text)}
+                onFocus={() => handleMenuOpen(text)}
+                onBlur={() => handleMenuOpen(text)}
               >
                 <Link
                   className="flex min-h-7 items-center gap-x-1.5 rounded-full px-3 leading-none after:absolute after:-left-1.5 after:top-1 after:size-[calc(100%+12px)]"
@@ -85,28 +76,29 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                   theme="gray-to-white"
                   tag={to ? null : 'button'}
                   to={to}
-                  onKeyDown={content ? handleMenuKeyDown : undefined}
                 >
                   {text}
                   {content && (
                     <ChevronIcon
                       className={clsx('mt-0.5 size-2 transition-transform duration-200', {
-                        'rotate-180': dropdownMenuContent?.label === text,
+                        'rotate-180': openMenu === text,
                       })}
                     />
                   )}
                 </Link>
+                {content && (
+                  <Dropdown
+                    isOpen={openMenu === text}
+                    label={text}
+                    content={content}
+                    changelog={changelog}
+                    post={post}
+                    handleMenuOpen={handleMenuOpen}
+                  />
+                )}
               </li>
             ))}
           </ul>
-          <Dropdown
-            isDropdownOpen={isDropdownOpen}
-            dropdownMenuContent={dropdownMenuContent}
-            setDropdownOpen={setDropdownOpen}
-            changelog={changelog}
-            post={post}
-            onKeyDown={handleDropdownKeyDown}
-          />
         </nav>
         <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
           <ButtonGithubStars
