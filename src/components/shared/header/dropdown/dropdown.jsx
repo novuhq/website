@@ -30,7 +30,7 @@ const Dropdown = ({ isOpen, label, content, changelog, post }) => (
         <m.div
           layoutId="navigation-dropdown"
           className={clsx(
-            'absolute -left-5 top-[42px] rounded-[14px] border border-gray-2 bg-[#0F0F0F] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] duration-[0.4s] ease-in-out will-change-transform lg:top-[52px]',
+            'absolute -left-5 top-[42px] rounded-[14px] border border-gray-2 bg-[#0F0F0F] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] ease-in-out will-change-transform lg:top-[52px]',
             'before:absolute before:-top-1.5 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
             label === 'Product' &&
               'min-w-[515px] before:left-[59px] lg:-left-[26px] lg:before:left-[60px]',
@@ -38,17 +38,11 @@ const Dropdown = ({ isOpen, label, content, changelog, post }) => (
               'min-w-[515px] before:left-[53px] lg:-left-5 lg:before:left-[54px]',
             label === 'Docs' && 'min-w-[434px] before:left-[50px]'
           )}
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
+          exit={{
             opacity: 1,
           }}
-          exit={{
-            opacity: 0,
-          }}
           transition={{
-            duration: 0.2,
+            duration: 0.4,
           }}
         >
           <div className="relative z-10 flex gap-x-3.5 rounded-[14px] bg-[#0F0F0F] px-8 pb-7 pt-6">

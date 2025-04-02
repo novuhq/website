@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
@@ -23,10 +23,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
   const isScrolled = useScrollPosition(0);
   const { changelog, post } = useHeaderData();
 
-  const handleMenuOpen = (label) => {
-    if (!label) return;
-    setOpenMenu((previous) => (previous === label ? null : label));
-  };
+  const handleMenuOpen = useCallback((label) => () => setOpenMenu(label), []);
 
   useEffect(() => {
     const topBanner = document.querySelector('.top-banner');
@@ -65,10 +62,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
               <li
                 className="relative"
                 key={index}
-                onMouseEnter={() => handleMenuOpen(text)}
-                onMouseLeave={() => handleMenuOpen(text)}
-                onFocus={() => handleMenuOpen(text)}
-                onBlur={() => handleMenuOpen(text)}
+                onMouseEnter={handleMenuOpen(text)}
+                onMouseLeave={handleMenuOpen(null)}
+                onFocus={handleMenuOpen(text)}
+                onBlur={handleMenuOpen(null)}
               >
                 <Link
                   className="flex min-h-7 items-center gap-x-1.5 rounded-full px-3 leading-none after:absolute after:-left-1.5 after:top-1 after:size-[calc(100%+12px)]"
