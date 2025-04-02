@@ -177,7 +177,6 @@ export default {
   },
   dashboard: {
     to: 'https://dashboard.novu.co',
-    target: '_blank',
   },
   quickStart: {
     to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
