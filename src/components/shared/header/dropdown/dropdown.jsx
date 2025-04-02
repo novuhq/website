@@ -23,7 +23,7 @@ const InnerContent = ({ title, description, url, image }) => (
   </Link>
 );
 
-const Dropdown = ({ isOpen, label, content, changelog, post, handleMenuOpen }) => (
+const Dropdown = ({ isOpen, label, content, changelog, post }) => (
   <LazyMotion features={domAnimation}>
     <AnimatePresence>
       {isOpen && (
@@ -50,8 +50,6 @@ const Dropdown = ({ isOpen, label, content, changelog, post, handleMenuOpen }) =
           transition={{
             duration: 0.2,
           }}
-          onMouseEnter={() => handleMenuOpen(label)}
-          onMouseLeave={() => handleMenuOpen(label)}
         >
           <div className="relative z-10 flex gap-x-3.5 rounded-[14px] bg-[#0F0F0F] px-8 pb-7 pt-6">
             {content?.map(({ title, type, items, content }, index) => (

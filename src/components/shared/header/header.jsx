@@ -93,7 +93,6 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                     content={content}
                     changelog={changelog}
                     post={post}
-                    handleMenuOpen={handleMenuOpen}
                   />
                 )}
               </li>
