@@ -112,7 +112,7 @@ const MobileMenu = ({ isOpen = false }) => {
                   className="w-full"
                   size="xs"
                   theme="white-outline"
-                  {...applyQueryParams(LINKS.dashboardSignIn, ['utm_campaign=ws_top_bar'])}
+                  {...applyQueryParams(LINKS.dashboardV2SignIn, ['utm_campaign=ws_top_bar'])}
                 >
                   Login
                 </Button>
@@ -120,7 +120,7 @@ const MobileMenu = ({ isOpen = false }) => {
                   className="w-full"
                   size="xs"
                   theme="white-filled"
-                  {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=ws_top_bar'])}
+                  {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=ws_top_bar'])}
                 >
                   Get Started
                 </Button>

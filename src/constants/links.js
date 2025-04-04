@@ -51,14 +51,17 @@ export default {
 
   // Dashboard
   dashboard: {
+    to: 'https://dashboard.novu.co',
+  },
+  dashboardV2: {
     to: 'https://dashboard-v2.novu.co',
     target: '_blank',
   },
-  dashboardSignUp: {
+  dashboardV2SignUp: {
     to: 'https://dashboard-v2.novu.co/auth/sign-up',
     target: '_blank',
   },
-  dashboardSignIn: {
+  dashboardV2SignIn: {
     to: 'https://dashboard-v2.novu.co/auth/sign-in',
     target: '_blank',
   },

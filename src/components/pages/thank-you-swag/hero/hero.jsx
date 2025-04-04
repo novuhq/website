@@ -31,7 +31,7 @@ const Hero = () => (
         className="mt-10 sm:mt-7"
         size="sm"
         theme="white-filled"
-        {...applyQueryParams(LINKS.dashboardSignUp, ['utm_campaign=gs_website'])}
+        {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=gs_website'])}
       >
         Try Code-first Now
       </Button>

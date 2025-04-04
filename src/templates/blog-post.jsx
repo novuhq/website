@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { CtaCard } from 'components/shared/cta-card';
 import { graphql } from 'gatsby';
 import { getSrc } from 'gatsby-plugin-image';
 import React from 'react';
@@ -119,6 +120,7 @@ const BlogPost = (props) => {
                 {showTableOfContents && <TableOfContents headings={headings} />}
                 <Author author={author} />
                 <SocialShare {...socialShare} />
+                <CtaCard className="mt-4" />
               </div>
             </aside>
           </div>
