@@ -59,6 +59,7 @@
     "mixpanel-browser": "^2.55.1",
     "moment": "^2.30.1",
     "node-emojify": "0.0.15",
+    "node-fetch": "^2.6.9",
     "novu": "^2.6.5",
     "object-hash": "^3.0.0",
     "prop-types": "^15.8.1",

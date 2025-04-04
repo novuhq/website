@@ -8,6 +8,7 @@ import FeatureCards from 'components/shared/reusable-sections/feature-cards';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import SEO from 'components/shared/seo';
+import LINKS from 'constants/links';
 import assessmentIcon from 'images/icons/assessment.svg';
 import complianceIcon from 'images/icons/compliance.svg';
 import dataManagementIcon from 'images/icons/data-management.svg';
@@ -73,7 +74,7 @@ const Security = () => (
           icon: complianceIcon,
           title: 'Compliance certifications',
           description: 'Novu Cloud is compliant with GDPR, SOC 2 Type II, and ISO 27001 standards.',
-          linkUrl: 'https://trust.novu.co',
+          linkUrl: LINKS.trustPage.to,
         },
         {
           icon: residencyIcon,
@@ -94,7 +95,7 @@ const Security = () => (
           title: 'Security assessments',
           description:
             'Regular penetration tests and evidence collection ensure we stay proactive.',
-          linkUrl: 'https://trust.novu.co',
+          linkUrl: LINKS.trustPage.to,
         },
         {
           icon: dataManagementIcon,

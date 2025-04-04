@@ -1,6 +1,8 @@
 import Link from 'components/shared/link';
 import React from 'react';
 
+import LINKS, { applyQueryParams } from 'constants/links';
+
 type CtaCardProps = {
   className?: string;
 };
@@ -20,7 +22,7 @@ export function CtaCard({ className = '' }: CtaCardProps) {
       <div className="px-6 pb-6">
         <Link
           className="flex h-10 w-full items-center justify-center rounded-md bg-primary-1 text-sm font-medium text-white transition-colors hover:bg-primary-1/90"
-          to="https://novu.co?utm_campaign=blog_sidebar"
+          to={applyQueryParams(LINKS.home, ['utm_campaign=blog_sidebar']).to}
           theme="primary"
           size="base"
           tag="a"

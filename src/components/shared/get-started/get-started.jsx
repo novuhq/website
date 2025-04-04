@@ -4,7 +4,8 @@ import React from 'react';
 
 import Button from 'components/shared/button/button';
 import Heading from 'components/shared/heading/heading';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
+// eslint-disable-next-line import/no-named-as-default
 import buttonClick from 'utils/use-landing-simple-tracking';
 
 import bg from './images/bg.svg';
@@ -133,11 +134,11 @@ GetStarted.defaultProps = {
   title: TITLE,
   leftTitle: LEFT_TITLE,
   leftDescription: LEFT_DESCRIPTION,
-  leftButtonLink: LINKS.documentation,
+  leftButtonLink: applyQueryParams(LINKS.docs, ['utm_campaign=website']),
   leftButtonText: LEFT_BUTTON_TEXT,
   rightTitle: RIGHT_TITLE,
   rightDescription: RIGHT_DESCRIPTION,
-  rightButtonLink: LINKS.bamCTA,
+  rightButtonLink: applyQueryParams(LINKS.bookMeeting, ['utm_campaign=website-cta-bottom']),
   rightButtonText: RIGHT_BUTTON_TEXT,
   theme: 'pink',
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from 'components/shared/button';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
 import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
 
 import Animation from './animation';
@@ -26,7 +26,7 @@ const Hero = () => (
             className="w-[157px] sm:h-10 sm:w-[140px] sm:px-5 sm:text-xs sm-xs:w-full"
             size="sm"
             theme="white-filled"
-            {...LINKS.getStarted}
+            {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=gs_website'])}
             onClick={useLandingSimpleTracking('get_started', { type: 'homepage' })}
           >
             START FOR FREE
@@ -35,7 +35,7 @@ const Hero = () => (
             className="w-[157px] sm:h-10 sm:w-[125px] sm:px-5 sm:text-xs sm-xs:w-full"
             size="sm"
             theme="gray-outline"
-            {...LINKS.documentation}
+            {...applyQueryParams(LINKS.docs, ['utm_campaign=website'])}
             onClick={useLandingSimpleTracking('visit_docs', { type: 'homepage' })}
           >
             Visit Docs
