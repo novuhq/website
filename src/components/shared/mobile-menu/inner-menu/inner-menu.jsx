@@ -47,7 +47,7 @@ const InnerMenu = ({ openMenu, label, changelog, post }) => (
     <AnimatePresence>
       {openMenu?.label === label && (
         <m.div initial="hidden" animate="visible" exit="hidden" variants={variants}>
-          <ul className="relative z-20 -mt-1 pb-5 sm:mt-0">
+          <ul className="relative z-20 -mt-1 pb-5 sm:mt-1">
             {openMenu?.content.map(({ type, items, content }, index) => (
               <li key={index}>
                 {items && items.length > 0 && (
