@@ -18,10 +18,8 @@ const DEFAULT_STATE = {
 };
 
 const getChangelogContent = (data) => {
-  if (!data) return null;
-  if (Array.isArray(data)) return getChangelogContent(data[0]);
-  if (data?.text) return data.text;
-  return getChangelogContent(data.content);
+  if (!data || !data?.content[0]?.content) return null;
+  return data.content[0].content.map((item) => item.text).join('');
 };
 
 export default function useHeaderData() {
