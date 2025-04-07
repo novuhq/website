@@ -43,7 +43,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
       )}
       data-disable-document-scroll={isMobileMenuOpen}
     >
-      <div className="container flex h-16 items-center justify-between lg:px-8 sm-xs:px-5">
+      <div className="container flex h-16 items-center justify-between lg:px-8 sm:px-5">
         <Link
           className="rounded outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white]"
           {...LINKS.home}
