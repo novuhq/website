@@ -47,7 +47,7 @@ const InnerMenu = ({ openMenu, label, changelog, post }) => (
     <AnimatePresence>
       {openMenu?.label === label && (
         <m.div initial="hidden" animate="visible" exit="hidden" variants={variants}>
-          <ul className="relative z-20 -mt-1 pb-5 sm-xs:mt-1.5">
+          <ul className="relative z-20 -mt-1 pb-5 sm:mt-0">
             {openMenu?.content.map(({ type, items, content }, index) => (
               <li key={index}>
                 {items && items.length > 0 && (
@@ -55,9 +55,9 @@ const InnerMenu = ({ openMenu, label, changelog, post }) => (
                     {items.map(({ text, ...linkProps }, index) => (
                       <li key={index}>
                         <Link
-                          className="font-light leading-none"
+                          className="font-light leading-none opacity-90 hover:opacity-100 focus-visible:opacity-100"
                           size="base"
-                          theme="white"
+                          theme="gray-11"
                           {...linkProps}
                           tabIndex={0}
                         >

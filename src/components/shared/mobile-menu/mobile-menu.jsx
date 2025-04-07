@@ -83,7 +83,7 @@ const MobileMenu = ({ isOpen = false }) => {
                   <li className="border-b border-b-[#1F1F1F] last:border-b-0" key={index}>
                     <Link
                       className={clsx(
-                        'flex h-[54px] w-full items-center justify-between text-left text-lg leading-none sm:h-[45px] sm:text-base'
+                        'flex h-[54px] w-full items-center justify-between text-left !text-lg font-medium leading-none sm:h-[45px] sm:text-base'
                       )}
                       tag={to ? null : 'button'}
                       to={to}
