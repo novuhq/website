@@ -74,7 +74,7 @@ const MobileMenu = ({ isOpen = false }) => {
                 'pointer-events-auto relative flex h-full w-full overflow-x-hidden overflow-y-scroll bg-black',
                 hasScroll &&
                   !isScrolledToBottom &&
-                  'after:pointer-events-none after:fixed after:inset-x-4 after:bottom-24 after:top-16 after:z-50 after:bg-[linear-gradient(180deg,#05050B00_86.18%,#05050B_100%)] sm:after:bottom-[142px]'
+                  'after:pointer-events-none after:fixed after:inset-x-4 after:bottom-[88px] after:top-16 after:z-50 after:bg-[linear-gradient(180deg,#05050B00_86.18%,#05050B_100%)] xs:after:bottom-[142px]'
               )}
               onScroll={handleScroll}
             >
