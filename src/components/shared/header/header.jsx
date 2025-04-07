@@ -44,20 +44,14 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
       data-disable-document-scroll={isMobileMenuOpen}
     >
       <div className="container flex h-16 items-center justify-between lg:px-8 sm-xs:px-5">
-        <div className="flex items-center gap-x-11">
-          <Link
-            className="rounded outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white]"
-            {...LINKS.home}
-          >
-            <Logo className="h-8" aria-hidden />
-            <span className="sr-only">Novu</span>
-          </Link>
-          <ButtonGithubStars
-            className="outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white] lg:hidden"
-            size="small"
-          />
-        </div>
-        <nav className="absolute left-1/2 h-full -translate-x-1/2 lg:-translate-x-[73%]">
+        <Link
+          className="rounded outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white]"
+          {...LINKS.home}
+        >
+          <Logo className="h-8" aria-hidden />
+          <span className="sr-only">Novu</span>
+        </Link>
+        <nav className="absolute left-1/2 h-full -translate-x-1/2 lg:-translate-x-[68%]">
           <ul className="flex h-full items-center gap-x-3 pt-1 md:hidden">
             {MENUS.header.map(({ text, content, to }, index) => (
               <li
@@ -97,13 +91,13 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
             ))}
           </ul>
         </nav>
-        <div className="flex gap-x-5 lg:gap-x-3 md:hidden">
+        <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
           <ClerkProvider
             publishableKey={process.env.GATSBY_CLERK_PUBLISHABLE_KEY}
             afterSignOutUrl="/"
           >
             <ButtonGithubStars
-              className="!hidden outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:!flex lg:text-sm"
+              className="outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:!flex lg:text-sm"
               size="small"
             />
             <SignedOut>

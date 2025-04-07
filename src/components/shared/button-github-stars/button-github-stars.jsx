@@ -35,7 +35,9 @@ const ButtonGithubStars = ({ className = null, size = 'large' }) => {
       onClick={buttonClick('github_star', { type: 'menu' })}
     >
       <GitHubIcon
-        className={clsx('mr-2 size-[26px]', size === 'small' && '[&_path]:fill-current')}
+        className={
+          size === 'small' ? 'mr-3 size-6 lg:mr-2 [&_path]:fill-current' : 'mr-2 size-[26px]'
+        }
       />
       {size === 'large' && <span className="lg:hidden">Star us</span>}
       <span

@@ -64,6 +64,10 @@ const MENUS = {
         {
           title: 'Topics',
           items: [
+            {
+              text: 'Documentation',
+              ...applyQueryParams(LINKS.docs, ['utm_campaign=ws_nav']),
+            },
             { text: 'Guides', ...applyQueryParams(LINKS.docsGuides, ['utm_campaign=ws_nav']) },
             {
               text: 'Framework',
@@ -89,6 +93,7 @@ const MENUS = {
       ],
     },
     { text: 'Pricing', ...applyQueryParams(LINKS.pricing, ['utm_campaign=ws_nav']) },
+    { text: 'Contact Us', ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav']) },
   ],
   footer: [
     [
