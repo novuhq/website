@@ -3,157 +3,89 @@ import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 import React from 'react';
 
 import Link from 'components/shared/link';
-import LINKS from 'constants/links';
 
-const Dropdown = ({ isDropdownOpen, dropdownMenuContent, setDropdownOpen }) => (
+const InnerContent = ({ title, description, url, image }) => (
+  <Link
+    className="group -mr-px block rounded-sm pt-0.5 outline-none focus-visible:shadow-[0_0_0_5px_#05050B,0_0_0_6px_white]"
+    to={url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50 bg-[linear-gradient(294deg,rgba(0,0,0,0)_45.36%,rgba(0,0,0,0.7)_126.53%),linear-gradient(120deg,rgba(0,0,0,0)_54.73%,rgba(0,0,0,0.8)_112.66%),linear-gradient(73deg,rgba(0,0,0,0)_17.56%,rgba(27,64,79,0.2)_79.95%),linear-gradient(252deg,rgba(29,23,50,0)_-8.69%,rgba(46,37,83,0.2)_100%),linear-gradient(180deg,#111427_0%,#0F122D_43.27%,#0F1223_100%)]">
+      <img src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
+    </div>
+    <p className="mt-3 line-clamp-2 text-balance font-medium leading-tight text-white group-hover:text-primary-1 group-focus-visible:text-primary-1">
+      {title}
+    </p>
+    <p className="mt-1.5 line-clamp-3 text-pretty text-sm font-light leading-tight text-[#909090]">
+      {description}
+    </p>
+  </Link>
+);
+
+const Dropdown = ({ isOpen, label, content, changelog, post }) => (
   <LazyMotion features={domAnimation}>
     <AnimatePresence>
-      {isDropdownOpen && (
+      {isOpen && (
         <m.div
+          layoutId="navigation-dropdown"
           className={clsx(
-            'absolute -bottom-2 w-[680px] translate-y-full rounded-2xl border border-gray-2 bg-[#0F0F0F] p-2 shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] duration-[0.4s] ease-in-out will-change-transform lg:-left-3.5',
-            'before:absolute before:-top-1.5 before:left-1/2 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
-            {
-              '-left-[272px] before:-translate-x-6 lg:before:-translate-x-72':
-                dropdownMenuContent?.label === 'product',
-              '-left-40 before:-translate-x-[7px] lg:before:-translate-x-44':
-                dropdownMenuContent?.label === 'developers',
-              '-left-8 before:-translate-x-[5px] lg:before:-translate-x-16':
-                dropdownMenuContent?.label === 'resources',
-            }
+            'absolute -left-5 top-[42px] rounded-[14px] border border-gray-2 bg-[#0F0F0F] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] ease-in-out will-change-transform lg:top-[52px]',
+            'before:absolute before:-top-1.5 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
+            label === 'Product' &&
+              'min-w-[515px] before:left-[59px] lg:-left-[22px] lg:before:left-[60px]',
+            label === 'Resources' &&
+              'min-w-[515px] before:left-[53px] lg:-left-1.5 lg:before:left-[54px]',
+            label === 'Docs' && 'min-w-[434px] before:left-[50px]'
           )}
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
           exit={{
-            opacity: 0,
+            opacity: 1,
           }}
           transition={{
             duration: 0.4,
           }}
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
         >
-          <ul
-            className={clsx('relative z-20 gap-2', {
-              'grid grid-cols-2 grid-rows-[261px_186px_106px]':
-                dropdownMenuContent?.label === 'product',
-              'flex flex-col':
-                dropdownMenuContent?.label === 'developers' ||
-                dropdownMenuContent?.label === 'resources',
-            })}
-          >
-            {dropdownMenuContent?.items.map(
-              ({ title, description, icon, image, to, items }, index) => {
-                const itemTitle = (
-                  <>
-                    {image ? (
-                      <img
-                        className="rounded-md border border-[#333347]/20"
-                        src={image}
-                        alt=""
-                        width={294}
-                        height={164}
-                      />
-                    ) : (
-                      <img src={icon} alt="" width={44} height={44} />
-                    )}
-                    <span
-                      className={clsx(
-                        'flex flex-col items-start gap-y-2',
-                        image ? 'pr-9' : 'max-w-[calc(100%-48px)]'
-                      )}
-                    >
-                      <span
-                        className={clsx(
-                          'text-lg text-current',
-                          image ? 'leading-snug' : 'whitespace-nowrap leading-none'
-                        )}
-                      >
-                        {title}
-                      </span>
-                      <span
-                        className={clsx(
-                          'text-gray-8',
-                          image
-                            ? 'line-clamp-3 text-sm leading-normal'
-                            : 'max-w-full truncate whitespace-nowrap text-base leading-none'
-                        )}
-                      >
-                        {description}
-                      </span>
-                    </span>
-                  </>
-                );
-
-                return (
-                  <li
-                    className={clsx(
-                      'rounded-lg border border-[#333347]/30 bg-[#12121C]/50 p-6 pt-[22px]',
-                      {
-                        'col-span-full': index === 0,
-                        'row-span-2 row-start-2': index === 1,
-                        '!py-[30px]': index === 3,
-                      }
-                    )}
-                    key={index}
-                  >
-                    {to ? (
-                      <Link
-                        className={clsx('flex items-center', image ? 'gap-x-[19px]' : 'gap-x-3')}
-                        theme="white"
-                        to={to}
-                      >
-                        {itemTitle}
-                      </Link>
-                    ) : (
-                      <>
-                        <p className="flex items-center gap-x-3 text-white">{itemTitle}</p>
-                        <ul
-                          className={clsx('mt-8 grid gap-y-[18px]', {
-                            'grid-cols-2 gap-x-[50px]': index === 0,
-                          })}
+          <div className="relative z-10 flex gap-x-3.5 rounded-[14px] bg-[#0F0F0F] px-8 pb-7 pt-6">
+            {content?.map(({ title, type, items, content }, index) => (
+              <div
+                className={clsx(
+                  'min-w-0',
+                  index === 0 && '-ml-px grow',
+                  index === 1 && 'w-[220px]'
+                )}
+                key={index}
+              >
+                <p
+                  className={clsx(
+                    'mb-4 text-sm leading-none -tracking-[0.01em] text-[#909090]',
+                    label === 'Product' && 'mb-5'
+                  )}
+                >
+                  {title}
+                </p>
+                {items && items.length > 0 && (
+                  <ul className="mt-auto flex flex-col gap-y-3">
+                    {items.map(({ text, ...linkProps }, index) => (
+                      <li key={index}>
+                        <Link
+                          className="rounded-sm font-light leading-none outline-none focus-visible:shadow-[0_0_0_7px_#05050B,0_0_0_8px_white]"
+                          size="base"
+                          theme="white"
+                          {...linkProps}
+                          tabIndex={0}
                         >
-                          {items.map(({ title, icon, ...linkProps }, index) => (
-                            <li key={index}>
-                              <Link
-                                className="flex items-center gap-x-3 whitespace-nowrap font-light leading-none outline-none"
-                                size="base"
-                                theme="gray-9"
-                                {...linkProps}
-                              >
-                                <img
-                                  className="shrink-0"
-                                  src={icon}
-                                  alt=""
-                                  width={20}
-                                  height={20}
-                                />
-                                {title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                  </li>
-                );
-              }
-            )}
-          </ul>
-          {(dropdownMenuContent?.label === 'developers' ||
-            dropdownMenuContent?.label === 'resources') && (
-            <p className="flex items-center justify-between p-6 pb-3.5 pt-[22px] text-base font-light leading-none text-gray-9">
-              <span>Any questions? We&apos;re here to help</span>
-              <Link className="text-[15px]" theme="primary" withArrow {...LINKS.contactUsCTA}>
-                Contact us
-              </Link>
-            </p>
-          )}
-          <div className="absolute left-1/2 top-0 z-10 h-4 w-11/12 -translate-x-1/2 bg-[#0F0F0F]" />
+                          {text}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {type === 'changelog' && <InnerContent {...changelog} />}
+                {type === 'post' && <InnerContent {...post} />}
+                {type === 'link' && <InnerContent {...content} />}
+              </div>
+            ))}
+          </div>
         </m.div>
       )}
     </AnimatePresence>

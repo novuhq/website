@@ -29,7 +29,7 @@ const UseCasePage = ({ pageContext }) => (
           title={pageContext.title}
           description={pageContext.description}
           channels={pageContext.channels}
-          providers={pageContext.providers}
+          providers={pageContext.docsProviders}
         />
         <Workflow {...pageContext.templateWorkflowData} />
         <Content content={pageContext.body} templateId={pageContext.templateIndetifiers} />

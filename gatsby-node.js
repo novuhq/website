@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const fetch = require('node-fetch');
 const slash = require('slash');
 
 const redirects = require('./redirects.json');
@@ -634,6 +635,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     type FeedPodcastContent @infer{
       encoded: String
     }
+    type ProductlaneChangelog {
+      title: String
+      notes: JSON
+      id: String
+      imageUrl: String
+    }
   `;
 
   createTypes(typeDefs);
@@ -657,6 +664,48 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           },
         },
       ],
+    },
+  });
+};
+
+exports.createResolvers = ({ createResolvers, reporter }) => {
+  createResolvers({
+    Query: {
+      productlaneChangelog: {
+        type: 'ProductlaneChangelog',
+        resolve: async () => {
+          try {
+            const response = await fetch(
+              `https://productlane.com/api/v1/changelogs/${process.env.GATSBY_PRODUCTLANE_WORKSPACE_ID}`
+            );
+
+            if (!response.ok) {
+              throw new Error(
+                `ProductLane API request failed with status ${response.status}: ${response.statusText}`
+              );
+            }
+
+            const data = await response.json();
+
+            if (!data || !data.length) {
+              throw new Error('ProductLane API returned an empty or invalid data array.');
+            }
+
+            const latestPublished = data.find(
+              (item) => !item.isDeleted && item.published && !item.archived
+            );
+
+            if (!latestPublished) {
+              throw new Error('No published item found in ProductLane API response.');
+            }
+
+            return latestPublished;
+          } catch (error) {
+            reporter.error('Failed to fetch data from ProductLane API:', error);
+            return null;
+          }
+        },
+      },
     },
   });
 };

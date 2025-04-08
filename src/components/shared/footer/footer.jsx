@@ -3,7 +3,7 @@ import React from 'react';
 
 import ButtonGithubStars from 'components/shared/button-github-stars';
 import Link from 'components/shared/link';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
 import MENUS from 'constants/menus';
 import { useAudioPlayer } from 'context/audio-player';
 import Logo from 'images/logo.inline.svg';
@@ -70,7 +70,7 @@ const Footer = () => {
           <ul className="flex flex-wrap gap-x-5 gap-y-6 lg:hidden">
             {CERTIFICATES.map(({ src, alt, width, height }, index) => (
               <li key={index}>
-                <Link {...LINKS.trustPage}>
+                <Link {...applyQueryParams(LINKS.trustPage, ['utm_campaign=website'])}>
                   <img className="h-12 w-auto" src={src} alt={alt} width={width} height={height} />
                 </Link>
               </li>

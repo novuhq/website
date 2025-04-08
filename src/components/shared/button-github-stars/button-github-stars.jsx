@@ -9,7 +9,7 @@ import GitHubIcon from 'icons/github.inline.svg';
 // eslint-disable-next-line import/no-named-as-default
 import buttonClick from 'utils/use-landing-simple-tracking';
 
-const ButtonGithubStars = ({ className, size }) => {
+const ButtonGithubStars = ({ className = null, size = 'large' }) => {
   const {
     github: { count = GITHUB.count },
   } = useStaticQuery(graphql`
@@ -24,21 +24,20 @@ const ButtonGithubStars = ({ className, size }) => {
     <Button
       className={clsx(
         'group',
-        size === 'small' && 'border-0 !px-0 hover:text-gray-9 hover:after:opacity-0',
+        size === 'small' && '!h-auto !px-0 hover:text-gray-9 focus-visible:text-gray-9',
         className
       )}
       size="xs"
-      theme="gray-outline"
+      theme={size === 'large' ? 'gray-outline' : null}
       to="https://git.new/novu?utm_campaign=website"
       target="_blank"
       rel="noopener noreferrer"
       onClick={buttonClick('github_star', { type: 'menu' })}
     >
       <GitHubIcon
-        className={clsx(
-          'mr-2 h-[26px] w-[26px] [&_path]:transition-colors',
-          size === 'small' && '[&_path]:duration-200 group-hover:[&_path]:fill-gray-9'
-        )}
+        className={
+          size === 'small' ? 'mr-3 size-6 lg:mr-2 [&_path]:fill-current' : 'mr-2 size-[26px]'
+        }
       />
       {size === 'large' && <span className="lg:hidden">Star us</span>}
       <span
@@ -56,13 +55,10 @@ const ButtonGithubStars = ({ className, size }) => {
 };
 
 ButtonGithubStars.propTypes = {
+  // eslint-disable-next-line react/require-default-props
   className: PropTypes.string,
+  // eslint-disable-next-line react/require-default-props
   size: PropTypes.oneOf(['large', 'small']),
-};
-
-ButtonGithubStars.defaultProps = {
-  className: null,
-  size: 'large',
 };
 
 export default ButtonGithubStars;

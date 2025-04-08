@@ -3,7 +3,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import LINKS from 'constants/links';
+import LINKS, { applyQueryParams } from 'constants/links';
 
 const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pt-[303px] sm:pt-52">
@@ -20,12 +20,17 @@ const Hero = () => (
         We&apos;ve successfully received your meeting booking. Chat soon! Can&apos;t&nbsp;wait?
         Click below to send your first notification in minutes.
       </p>
-      <Button className="mt-10 sm:mt-7" size="sm" theme="white-filled" to={LINKS.getStarted.to}>
+      <Button
+        className="mt-10 sm:mt-7"
+        size="sm"
+        theme="white-filled"
+        {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=gs_website'])}
+      >
         Get Started Now
       </Button>
     </div>
     <StaticImage
-      className="!absolute w-[541px] left-1/2 -translate-x-1/2 -top-20 pointer-events-none sm:w-[448px] sm:-top-28"
+      className="pointer-events-none !absolute -top-20 left-1/2 w-[541px] -translate-x-1/2 sm:-top-28 sm:w-[448px]"
       src="./images/illustration.png"
       width={541}
       height={541}
