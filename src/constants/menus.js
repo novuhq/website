@@ -19,7 +19,7 @@ const MENUS = {
             },
             {
               text: 'Framework',
-              ...applyQueryParams(LINKS.docsFramework, ['utm_campaign=ws_nav']),
+              ...applyQueryParams(LINKS.framework, ['utm_campaign=ws_nav']),
             },
             { text: 'Digest', ...applyQueryParams(LINKS.digest, ['utm_campaign=ws_nav']) },
             {

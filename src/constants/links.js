@@ -41,6 +41,9 @@ export default {
   digest: {
     to: '/digest',
   },
+  framework: {
+    to: '/framework',
+  },
   contactUs: {
     to: '/contact-us',
   },
