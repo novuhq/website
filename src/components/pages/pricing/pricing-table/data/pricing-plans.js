@@ -45,6 +45,7 @@ const PLANS = {
       hipaa: false,
       customSOC: false,
       dpa: 'Standard',
+      dataResidency: true,
     },
   },
   // PRO TIER
@@ -93,6 +94,7 @@ const PLANS = {
       hipaa: false,
       customSOC: false,
       dpa: 'Standard',
+      dataResidency: true,
     },
   },
   // Team TIER
@@ -141,6 +143,7 @@ const PLANS = {
       hipaa: false,
       customSOC: false,
       dpa: 'Standard',
+      dataResidency: true,
     },
   },
   // ENTERPRISE TIER
@@ -189,6 +192,7 @@ const PLANS = {
       hipaa: true,
       customSOC: true,
       dpa: 'Custom',
+      dataResidency: true,
     },
   },
 };
@@ -248,6 +252,7 @@ const LABELS = [
       hipaa: 'HIPAA BAA',
       customSOC: 'Custom security reviews',
       dpa: 'Data Processing Agreements (DPA)',
+      dataResidency: 'EU or US Data-residency',
     },
   },
 ];
