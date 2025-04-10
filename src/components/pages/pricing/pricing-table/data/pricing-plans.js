@@ -30,6 +30,7 @@ const PLANS = {
     inbox: {
       inboxComponent: true,
       preferencesComponent: true,
+      inboxFeedRetention: '30 days',
     },
     account: {
       teamMembers: '3',
@@ -79,6 +80,7 @@ const PLANS = {
     inbox: {
       inboxComponent: true,
       preferencesComponent: true,
+      inboxFeedRetention: '90 days',
     },
     account: {
       teamMembers: '3',
@@ -128,6 +130,7 @@ const PLANS = {
     inbox: {
       inboxComponent: true,
       preferencesComponent: true,
+      inboxFeedRetention: '90 days',
     },
     account: {
       teamMembers: 'Unlimited',
@@ -177,6 +180,7 @@ const PLANS = {
     inbox: {
       inboxComponent: true,
       preferencesComponent: true,
+      inboxFeedRetention: 'Custom',
     },
     account: {
       teamMembers: 'Unlimited',
@@ -231,6 +235,7 @@ const LABELS = [
     items: {
       inboxComponent: 'Inbox component',
       preferencesComponent: 'User preferences component',
+      inboxFeedRetention: 'Inbox feed retention',
     },
   },
   {

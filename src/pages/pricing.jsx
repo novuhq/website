@@ -25,7 +25,7 @@ const PRICING_PLANS = [
     advantages: [
       '10K events/month included',
       'Multi-Channel Support: Email, In-app, SMS, Chat, Push',
-      'Unlimited Subscribers',
+      'EU or US Data-residency',
       'Up to 20 Workflows',
       '2 Environments',
       'Activity Feed Retention: 24 hours',
