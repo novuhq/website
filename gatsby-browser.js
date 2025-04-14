@@ -16,7 +16,7 @@ export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPo
     return true;
   }
 
-  // Fix for Gatsby 5 issue with scroll-behavior - [issue](https://github.com/gatsbyjs/gatsby/issues/38201)
+  // Fix for Gatsby 5 issue with scroll-behavior - https://github.com/gatsbyjs/gatsby/issues/38201
 
   window.history.scrollRestoration = 'manual';
 
