@@ -20,6 +20,7 @@ const PlanCard = ({
   activeTier,
   className,
   currentRow,
+  apiRateLimits,
 }) => {
   const isActive = activeTier === title.split(' ')[0].toLowerCase();
 
@@ -55,6 +56,7 @@ const PlanCard = ({
         <FeatureList features={common} currentRow={currentRow} />
         <FeatureList features={platform} currentRow={currentRow} />
         {/* <FeatureList features={framework} currentRow={currentRow} /> */}
+        <FeatureList features={apiRateLimits} currentRow={currentRow} />
         <FeatureList features={inbox} currentRow={currentRow} />
         <FeatureList features={account} currentRow={currentRow} />
         <FeatureList features={compliance} currentRow={currentRow} />

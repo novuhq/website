@@ -35,6 +35,7 @@ const PRICING_PLANS = [
   {
     title: 'Pro',
     price: '$30',
+    showFrom: true,
     paymentPeriod: 'month',
     button: {
       text: 'Start Free Trial',
@@ -54,6 +55,7 @@ const PRICING_PLANS = [
   {
     title: 'Team',
     price: '$250',
+    showFrom: true,
     paymentPeriod: 'month',
     button: {
       text: 'Start Free Trial',
