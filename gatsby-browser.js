@@ -16,18 +16,19 @@ export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPo
     return true;
   }
 
+  // Fix for Gatsby 5 issue with scroll-behavior - [issue](https://github.com/gatsbyjs/gatsby/issues/38201)
+
   window.history.scrollRestoration = 'manual';
 
   const currentPosition = getSavedScrollPosition(location, location.key);
   const top = currentPosition ? currentPosition[1] : 0;
-  const left = currentPosition ? currentPosition[0] : 0;
 
   window.setTimeout(() => {
     window.requestAnimationFrame(() => {
       try {
-        window.scrollTo({ top, left, behavior: 'instant' });
+        window.scrollTo({ top, behavior: 'instant' });
       } catch (e) {
-        window.scrollTo(left, top);
+        window.scrollTo(top);
       }
     });
   }, 0);
