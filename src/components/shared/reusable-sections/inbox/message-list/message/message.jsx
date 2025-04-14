@@ -1,173 +1,123 @@
 import clsx from 'clsx';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
-import Button from 'components/shared/button';
-
-import ArchiveIcon from './images/archive.inline.svg';
-import ReadIcon from './images/read.inline.svg';
-import UserPlaceholder from './images/user-placeholder.inline.svg';
-
-const ANIMATION_DURATION = 0.2;
-const MOTION_EASY = [0.25, 0.1, 0.25, 1];
-
-const messageVariants = {
-  from: {
-    height: '66px',
-    transition: { delay: ANIMATION_DURATION },
-  },
-  to: {
-    height: 'auto',
-    transition: { duration: ANIMATION_DURATION, ease: MOTION_EASY },
-  },
-  exit: {
-    height: '66px',
-    transition: { duration: ANIMATION_DURATION, ease: MOTION_EASY },
-  },
-};
+import NotificationIcon from './images/notification.inline.svg';
 
 const THEMES = {
   novuDefault: {
-    avatar: 'text-[#5C71BF] bg-[#35416C]',
-    dot: 'bg-[#4B73EC]',
-    border: 'border-white/5',
-    background:
-      'hover:bg-[linear-gradient(90deg,rgba(75,115,236,0.10)_0%,rgba(0,35,140,0.10)_100%)] has-[:focus-visible]:bg-[linear-gradient(90deg,rgba(75,115,236,0.10)_0%,rgba(0,35,140,0.10)_100%)]',
-    action: 'text-[#797F93] hover:text-[#CCD9FF] focus-visible:text-[#CCD9FF]',
+    avatar: 'text-[#D2D7E1] bg-[#464953]',
+    dot: 'bg-[#7D52F4]',
+    border: 'border-[#505462]/30',
+    background: 'hover:bg-[#18191D] has-[:focus-visible]:bg-[#18191D]',
+    secondaryButton: 'text-[#ABABBA]',
+    secondaryButtonBorder: 'border-[rgba(171,171,186,0.05)]',
+  },
+  novuLight: {
+    avatar: '',
+    dot: '',
+    border: '',
+    background: '',
+    secondaryButton:
+      'text-[#62656F] shadow-[0px_0px_0px_0.5px_#E1E4EA] bg-white focus-visible:shadow-[0px_0px_0px_0.5px_#E1E4EA,0px_0px_0px_4px_rgba(153,160,174,0.16)]',
+    secondaryButtonBorder:
+      'border-[#B0B0B0] [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.12),rgba(255,255,255,0.1))]',
   },
 };
 
-const Message = ({ theme, message, readMessage, deleteMessage }) => {
-  const [isActiveMessage, setIsActiveMessage] = useState(null);
-
-  const { index, title, text, date, isRead } = message;
+const Message = ({ theme, message, readMessage }) => {
+  const { index, title, mail, text, date, avatar, isRead } = message;
   const currentTheme = THEMES[theme];
 
   const handleActiveMessage = (index) => {
-    setIsActiveMessage((currentIndex) => (currentIndex === index ? null : index));
     readMessage(index, true);
   };
 
   return (
-    <div className={clsx(currentTheme.background, 'group relative px-6 font-light')}>
-      <LazyMotion features={domAnimation}>
-        <m.div
-          className={clsx(
-            currentTheme.border,
-            'relative grid grid-cols-1 border-b overflow-hidden'
-          )}
-          initial="from"
-          variants={messageVariants}
-          animate={isActiveMessage === index ? 'to' : 'exit'}
-        >
-          <div className="grid grid-cols-[32px_1fr_72px] gap-x-2.5 pl-4 pt-4">
-            <h4 className="col-start-2 row-start-1 text-sm leading-tight">
-              <button
+    <div className={clsx(currentTheme.background, 'group relative font-inter font-light')}>
+      <div
+        className={clsx(
+          currentTheme.border,
+          'relative grid grid-cols-1 overflow-hidden border-b p-5'
+        )}
+      >
+        <div className="flex items-start gap-x-4">
+          <div>
+            {avatar ? (
+              <img className="rounded-full" src={avatar} alt="" width={38} height={38} />
+            ) : (
+              <span
                 className={clsx(
-                  'max-w-[376px] text-start outline-none after:absolute after:inset-0 after:z-10',
-                  isActiveMessage !== index && 'truncate'
+                  currentTheme.avatar,
+                  'row-span-2 flex size-[38px] items-center justify-center rounded-full'
                 )}
+              >
+                <NotificationIcon className="size-4" />
+              </span>
+            )}
+          </div>
+          <div className="flex max-w-[400px] flex-col">
+            <h4 className="mt-0.5 text-lg font-medium leading-tight">
+              <button
+                className={clsx('text-start outline-none after:absolute after:inset-0 after:z-10')}
                 type="button"
                 onClick={() => handleActiveMessage(index)}
               >
                 {title}
               </button>
             </h4>
-            <p
-              className={clsx(
-                'relative col-start-2 row-start-2 pt-0.5 pb-2.5 text-[13px] opacity-50'
-              )}
-            >
-              <span className={clsx('block pt-px', isActiveMessage !== index && 'invisible')}>
-                {text}
-              </span>
-              <span
-                className={clsx(
-                  'absolute top-[3px] block max-w-[min(100%,376px)] truncate',
-                  isActiveMessage === index && 'hidden'
-                )}
-                aria-hidden
-              >
-                {text}
-              </span>
+            <p className={clsx('relative mt-1 text-md tracking-[-0.01em]')}>
+              {mail && <span className="font-medium">{mail}</span>} {text}
             </p>
-            <span
-              className={clsx(
-                'col-start-3 row-start-1 text-xs leading-none text-[#6F727B] translate-x-0.5 translate-y-1 group-hover:opacity-0',
-                isActiveMessage === index && '!opacity-0'
-              )}
-            >
+            {message.buttons && message.buttons.length > 0 && (
+              <div className="relative z-10 mt-3.5 flex gap-3">
+                {message.buttons[0] && (
+                  <button
+                    className="group/button relative h-[30px] rounded-md bg-[#7D52F4] px-[18px] text-sm font-medium normal-case shadow-[0px_0px_0px_0.5px_#7D52F4] outline-none focus-visible:shadow-[0px_0px_0px_0.5px_#7D52F4,0px_0px_0px_4px_rgba(153,160,174,0.16)]"
+                    type="button"
+                  >
+                    <span className="relative">{message.buttons[0]}</span>
+                    <span
+                      className="pointer-events-none absolute inset-0 rounded-md border border-white [mask-image:linear-gradient(to_bottom,rgba(255,255,255,0.12),rgba(255,255,255,0.1))]"
+                      aria-hidden
+                    />
+                    <span
+                      className="pointer-events-none absolute inset-0 rounded-md bg-gradient-to-b from-white to-transparent opacity-[0.16] transition-opacity duration-200 group-hover/button:opacity-0"
+                      aria-hidden
+                    />
+                  </button>
+                )}
+                {message.buttons[1] && (
+                  <button
+                    className={clsx(
+                      'group/button relative h-[30px] rounded-md px-[18px] text-sm font-medium normal-case outline-none',
+                      currentTheme.secondaryButton
+                    )}
+                    type="button"
+                  >
+                    <span className="relative">{message.buttons[1]}</span>
+                    <span
+                      className={clsx(
+                        'pointer-events-none absolute inset-0 rounded-md border',
+                        currentTheme.secondaryButtonBorder
+                      )}
+                      aria-hidden
+                    />
+                  </button>
+                )}
+              </div>
+            )}
+            <span className={clsx('mt-[18px] text-[13px] leading-none text-[#B9BCCF]')}>
               {date}
             </span>
-            <span
-              className={clsx(
-                currentTheme.avatar,
-                'row-span-2 flex items-center justify-center size-8 rounded-full'
-              )}
-            >
-              <UserPlaceholder className="size-4" />
-            </span>
-            <div
-              className={clsx(
-                'absolute top-3.5 -right-1 z-10 hidden group-hover:block',
-                isActiveMessage === index && '!block'
-              )}
-            >
-              <button
-                className={clsx(currentTheme.action, 'outline-none transition-all duration-200')}
-                type="button"
-                aria-label="Mark as read"
-                onClick={() => readMessage(index)}
-              >
-                <ReadIcon className="size-5" />
-              </button>
-              <button
-                className={clsx(currentTheme.action, 'outline-none transition-all duration-200')}
-                type="button"
-                aria-label="Archive"
-                onClick={() => deleteMessage(index)}
-              >
-                <ArchiveIcon className="size-5" />
-              </button>
-            </div>
           </div>
-          {message.buttons.length > 0 && (
-            <div className="relative z-10 flex gap-3 w-max ml-[58px] pt-1.5 pb-4">
-              {message.buttons[0] && (
-                <Button
-                  className="min-w-28 rounded-[20px] before:rounded-[20px]"
-                  size="xxs"
-                  theme="blue-gradient-white-outline"
-                  type="button"
-                  tabIndex={isActiveMessage === index ? 0 : -1}
-                >
-                  <span className="relative">{message.buttons[0]}</span>
-                </Button>
-              )}
-              {message.buttons[1] && (
-                <Button
-                  className="min-w-28 rounded-[20px]"
-                  size="xxs"
-                  theme="blue-outline"
-                  type="button"
-                  tabIndex={isActiveMessage === index ? 0 : -1}
-                >
-                  {message.buttons[1]}
-                </Button>
-              )}
-            </div>
-          )}
-          {!isRead && (
-            <span
-              className={clsx(
-                currentTheme.dot,
-                'absolute top-4 left-0 block size-1.5 rounded-full'
-              )}
-            />
-          )}
-        </m.div>
-      </LazyMotion>
+        </div>
+        {!isRead && (
+          <span
+            className={clsx(currentTheme.dot, 'absolute right-7 top-7 block size-2 rounded-full')}
+          />
+        )}
+      </div>
     </div>
   );
 };
