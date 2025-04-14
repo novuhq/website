@@ -11,18 +11,26 @@ export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPo
     return false;
   }
 
-  window.history.scrollRestoration = 'manual';
-  const currentPosition = getSavedScrollPosition(location, location.key);
-
-  if (!currentPosition) {
-    window.scrollTo(0, 0);
-  } else {
-    window.setTimeout(() => {
-      window.requestAnimationFrame(() => {
-        window.scrollTo(...currentPosition);
-      });
-    }, 0);
+  if (location.hash) {
+    window.history.scrollRestoration = 'auto';
+    return true;
   }
+
+  window.history.scrollRestoration = 'manual';
+
+  const currentPosition = getSavedScrollPosition(location, location.key);
+  const top = currentPosition ? currentPosition[1] : 0;
+  const left = currentPosition ? currentPosition[0] : 0;
+
+  window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      try {
+        window.scrollTo({ top, left, behavior: 'instant' });
+      } catch (e) {
+        window.scrollTo(left, top);
+      }
+    });
+  }, 0);
 
   return false;
 };
