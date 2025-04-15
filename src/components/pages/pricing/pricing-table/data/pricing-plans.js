@@ -12,7 +12,6 @@ const PLANS = {
       events: '10k',
       additionalEvents: false,
       environments: false,
-      maxRPS: '60/20/30 per second',
       channels: true,
       subscribers: 'Unlimited',
       guiWorkflow: true,
@@ -26,6 +25,11 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: false,
+    },
+    apiRateLimits: {
+      triggerEvents: '60',
+      configuration: '20',
+      global: '30',
     },
     inbox: {
       inboxComponent: true,
@@ -57,12 +61,11 @@ const PLANS = {
     linkTarget: '_blank',
     common: {},
     platform: {
-      monthlyCost: '$30',
-      annualCost: '$330',
+      monthlyCost: 'From $30',
+      annualCost: 'From $330',
       events: '30k',
       additionalEvents: '$1.20 per 1,000',
       environments: false,
-      maxRPS: '240/80/120 per second',
       channels: true,
       subscribers: 'Unlimited',
       guiWorkflow: true,
@@ -76,6 +79,11 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: true,
+    },
+    apiRateLimits: {
+      triggerEvents: '240',
+      configuration: '80',
+      global: '120',
     },
     inbox: {
       inboxComponent: true,
@@ -107,12 +115,11 @@ const PLANS = {
     linkTarget: '_blank',
     common: {},
     platform: {
-      monthlyCost: '$250',
-      annualCost: '$2,700',
+      monthlyCost: 'From $250',
+      annualCost: 'From $2,700',
       events: '250k',
       additionalEvents: '$1.20 per 1,000',
       environments: true,
-      maxRPS: '600/200/300 per second',
       channels: true,
       subscribers: 'Unlimited',
       guiWorkflow: true,
@@ -126,6 +133,11 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: true,
+    },
+    apiRateLimits: {
+      triggerEvents: '600',
+      configuration: '200',
+      global: '300',
     },
     inbox: {
       inboxComponent: true,
@@ -162,7 +174,6 @@ const PLANS = {
       events: '5 million',
       additionalEvents: 'Custom',
       environments: true,
-      maxRPS: '6k/2k/3k per second',
       channels: true,
       subscribers: 'Unlimited',
       guiWorkflow: true,
@@ -176,6 +187,11 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: true,
+    },
+    apiRateLimits: {
+      triggerEvents: '6k',
+      configuration: '2k',
+      global: '3k',
     },
     inbox: {
       inboxComponent: true,
@@ -214,7 +230,6 @@ const LABELS = [
       events: 'Included monthly events',
       additionalEvents: 'Additional events',
       environments: 'Custom Environments',
-      maxRPS: 'Max API Requests (RPS)', // (Trigger events/Configuration/Global)
       channels: 'Multiple delivery channels',
       subscribers: 'Notification Subscribers',
       guiWorkflow: 'GUI-based workflows',
@@ -228,6 +243,14 @@ const LABELS = [
       stepControl: 'Workflow Step Controls',
       blockEmailEditor: 'Block-based email editor',
       branding: 'Remove Novu branding',
+    },
+  },
+  {
+    title: 'API Rate Limits (RPS)',
+    items: {
+      triggerEvents: 'Trigger events',
+      configuration: 'Configuration',
+      global: 'Global',
     },
   },
   {

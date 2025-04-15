@@ -21,6 +21,7 @@ const Card = ({ plan }) => {
     additionalLabelText,
     price,
     paymentPeriod,
+    showFrom,
     button,
   } = plan;
 
@@ -39,13 +40,18 @@ const Card = ({ plan }) => {
       >
         <div className="relative z-20">
           <h3 className="text-[20px] font-medium leading-none tracking-snug">{title}</h3>
-          <div className="relative mt-[50px] flex items-end">
-            <p className="text-[40px] leading-denser tracking-snug">{price}</p>
-            {paymentPeriod && (
-              <p className="relative bottom-0.5 text-[15px] font-book leading-snug tracking-snug text-gray-8">
-                / {paymentPeriod}
-              </p>
-            )}
+          <div className="relative mt-[50px] flex flex-col">
+            <span className="hover:text-gray-200 mb-1 text-[15px] font-medium leading-snug tracking-snug text-white transition-all duration-300">
+              {showFrom ? 'Starting from' : '\u00A0'}
+            </span>
+            <div className="flex items-end">
+              <p className="text-[40px] font-medium leading-denser tracking-snug">{price}</p>
+              {paymentPeriod && (
+                <p className="relative bottom-0.5 ml-1 text-[15px] font-book leading-snug tracking-snug text-gray-8">
+                  / {paymentPeriod}
+                </p>
+              )}
+            </div>
           </div>
           <Button
             className="z-20 mt-[22px] h-[46px] w-full"
@@ -171,6 +177,7 @@ Card.propTypes = {
     additionalLabelText: PropTypes.string,
     price: PropTypes.string.isRequired,
     paymentPeriod: PropTypes.string,
+    showFrom: PropTypes.bool,
     button: PropTypes.shape({
       text: PropTypes.string.isRequired,
       theme: PropTypes.string.isRequired,
