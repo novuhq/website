@@ -238,7 +238,7 @@ const LABELS = [
       workflows: 'Maximum Workflows',
       providers: 'Provider integrations',
       feedRetention: 'Activity Feed retention',
-      delay: 'Maximum Delayed Window',
+      delay: 'Maximum Delay Window',
       digest: 'Maximum Digest Window',
       stepControl: 'Workflow Step Controls',
       blockEmailEditor: 'Block-based email editor',
