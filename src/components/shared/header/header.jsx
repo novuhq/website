@@ -1,4 +1,5 @@
-// import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect, useCallback } from 'react';
@@ -92,46 +93,46 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
           </ul>
         </nav>
         <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
-          {/* <ClerkProvider
+          <ClerkProvider
             publishableKey={process.env.GATSBY_CLERK_PUBLISHABLE_KEY}
             afterSignOutUrl="/"
-          > */}
-          <ButtonGithubStars
-            className="outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:!flex lg:text-sm"
-            size="small"
-          />
-          {/* <SignedOut> */}
-          <Button
-            className="outline-none focus-visible:shadow-[0_0_0_1px_#05050B,0_0_0_3px_white]"
-            size="xs"
-            theme="gray-outline"
-            {...applyQueryParams(LINKS.dashboardV2SignIn, ['utm_campaign=ws_top_bar'])}
-            onClick={click}
           >
-            Login
-          </Button>
-          <Button
-            className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
-            size="xs"
-            theme="white-filled"
-            {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=ws_top_bar'])}
-            onClick={click}
-          >
-            Get Started
-          </Button>
-          {/* </SignedOut> */}
-          {/* <SignedIn> */}
-          <Button
-            className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
-            size="xs"
-            theme="white-filled"
-            {...LINKS.dashboard}
-            onClick={click}
-          >
-            Visit Dashboard
-          </Button>
-          {/* </SignedIn> */}
-          {/* </ClerkProvider> */}
+            <ButtonGithubStars
+              className="outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:!flex lg:text-sm"
+              size="small"
+            />
+            <SignedOut>
+              <Button
+                className="outline-none focus-visible:shadow-[0_0_0_1px_#05050B,0_0_0_3px_white]"
+                size="xs"
+                theme="gray-outline"
+                {...applyQueryParams(LINKS.dashboardV2SignIn, ['utm_campaign=ws_top_bar'])}
+                onClick={click}
+              >
+                Login
+              </Button>
+              <Button
+                className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
+                size="xs"
+                theme="white-filled"
+                {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=ws_top_bar'])}
+                onClick={click}
+              >
+                Get Started
+              </Button>
+            </SignedOut>
+            <SignedIn>
+              <Button
+                className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
+                size="xs"
+                theme="white-filled"
+                {...LINKS.dashboard}
+                onClick={click}
+              >
+                Visit Dashboard
+              </Button>
+            </SignedIn>
+          </ClerkProvider>
         </div>
         <Burger className="hidden md:block" isToggled={isMobileMenuOpen} onClick={onBurgerClick} />
       </div>
