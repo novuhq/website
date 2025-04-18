@@ -253,9 +253,16 @@ const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessag
           toggleShowUnreadFirst={toggleShowUnreadFirst}
         />
       )}
-      {['novuDark', 'novuLight'].includes(theme) && filterIndex !== 2 && (
-        <NovuTabList theme={theme} tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-      )}
+      {['novuDark', 'novuLight'].includes(theme) &&
+        filterIndex !== 2 &&
+        filteredMessageList.length > 0 && (
+          <NovuTabList
+            theme={theme}
+            tabs={tabs}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+        )}
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
           <m.div
