@@ -156,7 +156,16 @@ const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessag
   const filteredMessageList = useMemo(() => {
     switch (theme) {
       case 'novuDark':
-      case 'novuLight':
+      case 'novuLight': {
+        const tabFilteredMessages = messages.filter((message) => {
+          if (activeTab === 'All') {
+            return true;
+          }
+
+          return message.category === activeTab;
+        });
+        return NOTION_FILTERS[filterIndex].filter(tabFilteredMessages);
+      }
       case 'notionDark':
       case 'notionLight':
         return NOTION_FILTERS[filterIndex].filter(messages);
@@ -169,7 +178,7 @@ const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessag
       default:
         return messages;
     }
-  }, [messages, theme, filterIndex, orderingPosition, showUnreadFirst, showRead]);
+  }, [theme, filterIndex, messages, orderingPosition, showRead, showUnreadFirst, activeTab]);
 
   const readMessage = (currentId, newState = false) => {
     setMessages(
