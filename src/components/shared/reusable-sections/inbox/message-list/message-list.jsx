@@ -80,7 +80,7 @@ const THEMES = {
   },
 };
 
-const NOTION_FILTERS = [
+const NOVU_NOTION_FILTERS = [
   {
     label: 'Unread & read',
     Icon: UnreadReadIcon,
@@ -98,7 +98,7 @@ const NOTION_FILTERS = [
   },
 ];
 
-const NOTION_ACTIONS = [
+const NOVU_NOTION_ACTIONS = [
   {
     label: 'Mark all as read',
     Icon: MarkReadIcon,
@@ -113,7 +113,7 @@ const NOTION_ACTIONS = [
     label: 'Archive read',
     Icon: ArchiveReadIcon,
     action: (messages) =>
-      messages.filter((message) => (message.isRead ? { ...message, isArchived: true } : message)),
+      messages.map((message) => (message.isRead ? { ...message, isArchived: true } : message)),
   },
 ];
 
@@ -164,11 +164,11 @@ const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessag
 
           return message.category === activeTab;
         });
-        return NOTION_FILTERS[filterIndex].filter(tabFilteredMessages);
+        return NOVU_NOTION_FILTERS[filterIndex].filter(tabFilteredMessages);
       }
       case 'notionDark':
       case 'notionLight':
-        return NOTION_FILTERS[filterIndex].filter(messages);
+        return NOVU_NOTION_FILTERS[filterIndex].filter(messages);
       case 'linearDark':
       case 'linearLight':
         // eslint-disable-next-line no-case-declarations
@@ -223,17 +223,18 @@ const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessag
       {['novuDark', 'novuLight'].includes(theme) && (
         <NovuHeader
           theme={theme}
-          filters={NOTION_FILTERS}
-          actions={NOTION_ACTIONS}
+          filters={NOVU_NOTION_FILTERS}
+          actions={NOVU_NOTION_ACTIONS}
           handleAction={handleAction}
           handleFilter={handleFilter}
+          filterIndex={filterIndex}
         />
       )}
       {['notionDark', 'notionLight'].includes(theme) && (
         <NotionHeader
           theme={theme}
-          filters={NOTION_FILTERS}
-          actions={NOTION_ACTIONS}
+          filters={NOVU_NOTION_FILTERS}
+          actions={NOVU_NOTION_ACTIONS}
           handleAction={handleAction}
           handleFilter={handleFilter}
         />
@@ -252,7 +253,7 @@ const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessag
           toggleShowUnreadFirst={toggleShowUnreadFirst}
         />
       )}
-      {['novuDark', 'novuLight'].includes(theme) && (
+      {['novuDark', 'novuLight'].includes(theme) && filterIndex !== 2 && (
         <NovuTabList theme={theme} tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
       <LazyMotion features={domAnimation}>

@@ -19,11 +19,15 @@ const THEMES = {
   },
 };
 
-const NovuHeader = ({ theme, filters, actions, handleAction, handleFilter }) => {
+const NovuHeader = ({ theme, filters, actions, handleAction, handleFilter, filterIndex }) => {
   const currentTheme = THEMES[theme];
 
   return (
-    <div className="relative z-20 mt-3.5 flex shrink-0 items-center justify-between px-[18px]">
+    <div
+      className={clsx('relative z-20 mt-3.5 flex shrink-0 items-center justify-between px-[18px]', {
+        'mb-3.5': filterIndex === 2,
+      })}
+    >
       <div className="flex items-center gap-x-3">
         <span
           className={clsx(currentTheme.titleColor, 'font-inter text-xl font-medium leading-none')}
