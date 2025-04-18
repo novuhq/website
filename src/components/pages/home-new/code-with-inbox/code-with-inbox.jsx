@@ -19,7 +19,7 @@ const CodeWithInbox = ({ className, title, description, tabs }) => {
         className
       )}
     >
-      <div className="container-lg grid max-w-[1248px] grid-cols-[auto_auto] items-center gap-x-24 xl:px-8 lg:grid-cols-[404px_auto] lg:justify-center lg:gap-x-8 md:max-w-xl md:grid-cols-1 md:gap-y-4 sm:px-5">
+      <div className="container-lg grid max-w-[1248px] grid-cols-[auto_auto] items-center gap-x-24 xl:gap-x-20 xl:px-8 lg:grid-cols-[404px_auto] lg:justify-center lg:gap-x-8 md:max-w-xl md:grid-cols-1 md:gap-y-4 sm:px-5">
         <div className="relative z-10 max-w-[672px] py-5 lg:max-w-[434px] md:max-w-full sm:max-w-[398px]">
           <div className="mb-[52px] lg:mb-12 sm:mb-11">
             <h2

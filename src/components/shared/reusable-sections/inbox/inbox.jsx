@@ -17,7 +17,7 @@ const Inbox = ({ sectionOffsets, title, description, button, inboxPosition }) =>
     <div className="container-lg md:max-w-xl sm:px-5">
       <div
         className={clsx(
-          'flex items-center gap-x-24 lg:gap-x-16 md:flex-col md:gap-x-18 md:gap-y-12',
+          'flex items-center gap-x-24 xl:gap-x-20 lg:gap-x-16 md:flex-col md:gap-x-18 md:gap-y-12',
           inboxPosition === 'right'
             ? 'flex-row-reverse justify-end md:justify-center'
             : 'flex-row justify-start'
