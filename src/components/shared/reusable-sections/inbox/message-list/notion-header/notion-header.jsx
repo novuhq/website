@@ -47,17 +47,19 @@ const NotionHeader = ({ theme, filters, actions, handleAction, handleFilter }) =
           >
             {actions.map(({ label, Icon, action }, index) => (
               <li key={index}>
-                <button
+                <div
                   className={clsx(
                     'flex h-[30px] w-full items-center gap-x-2.5 rounded-md pl-4 text-left',
                     currentTheme.menuItemStyles
                   )}
-                  type="button"
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && handleAction(action)()}
                   onClick={handleAction(action)}
                 >
                   <Icon className="size-[18px]" aria-hidden />
                   {label}
-                </button>
+                </div>
               </li>
             ))}
           </ul>
@@ -72,17 +74,19 @@ const NotionHeader = ({ theme, filters, actions, handleAction, handleFilter }) =
           >
             {filters.map(({ label, Icon }, index) => (
               <li key={index}>
-                <button
+                <div
                   className={clsx(
                     'flex h-[30px] w-full items-center gap-x-2.5 rounded-md pl-4 text-left',
                     currentTheme.menuItemStyles
                   )}
-                  type="button"
+                  tabIndex={0}
+                  role="button"
+                  onKeyDown={(e) => e.key === 'Enter' && handleFilter(index)()}
                   onClick={handleFilter(index)}
                 >
                   <Icon className="size-[18px]" aria-hidden />
                   {label}
-                </button>
+                </div>
               </li>
             ))}
           </ul>

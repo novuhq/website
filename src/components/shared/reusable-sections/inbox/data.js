@@ -31,7 +31,7 @@ const inboxData = [
         buttons: ['Verify now'],
       },
       {
-        category: 'Announcements',
+        category: 'Projects',
         title: 'Joe requested to view Q4 2024 report.',
         mail: 'joe@acme.co',
         text: 'requested view access to Q4 2024 report.',
@@ -48,7 +48,7 @@ const inboxData = [
         isRead: false,
       },
       {
-        category: 'Projects',
+        category: 'Announcements',
         title: 'Your account is pending verification.',
         mail: 'steve@acme.co',
         text: 'is pending verification, please verify your account to protect against fraud and abuse.',
@@ -67,7 +67,7 @@ const inboxData = [
         buttons: ['Verify now', 'Deny'],
       },
       {
-        category: 'Projects',
+        category: 'Announcements',
         title: '2 new comments from Radek and Dima.',
         text: 'You have 2 new comments on the Acme figma file.',
         date: 'Last Monday at 13:45 PM',

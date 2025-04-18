@@ -40,7 +40,16 @@ const NovuMessage = ({ theme, message, readMessage }) => {
   };
 
   return (
-    <div className={clsx(currentTheme.background, 'group relative font-inter font-light')}>
+    <div
+      className={clsx(
+        currentTheme.background,
+        'group relative cursor-pointer font-inter font-light'
+      )}
+      tabIndex={0}
+      role="button"
+      onKeyDown={(e) => e.key === 'Enter' && handleActiveMessage(index)}
+      onClick={() => handleActiveMessage(index)}
+    >
       <div
         className={clsx(
           currentTheme.border,
@@ -63,17 +72,13 @@ const NovuMessage = ({ theme, message, readMessage }) => {
             )}
           </div>
           <div className="flex max-w-[400px] flex-col">
-            <h4 className="mt-px text-lg font-medium leading-tight">
-              <button
-                className={clsx(
-                  'text-start outline-none after:absolute after:inset-0 after:z-10',
-                  currentTheme.titleStyles
-                )}
-                type="button"
-                onClick={() => handleActiveMessage(index)}
-              >
-                {title}
-              </button>
+            <h4
+              className={clsx(
+                'mt-px text-start text-lg font-medium leading-tight outline-none',
+                currentTheme.titleStyles
+              )}
+            >
+              {title}
             </h4>
             <p
               className={clsx(
