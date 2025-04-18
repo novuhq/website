@@ -8,8 +8,8 @@ const THEMES = {
   novuDark: {
     titleColor: 'text-[#FFFFFF]',
     mainIconsColor: 'text-[#9498B1]',
-    menuStyles: 'bg-[#292B32] shadow-[0px_4px_12px_0px_rgba(19,22,29,0.4)]',
-    menuItemStyles: 'text-[#FFFFFF] hover:bg-[#40434E]',
+    menuStyles: 'bg-[#24262C] shadow-[0px_4px_12px_0px_rgba(19,22,29,0.4)]',
+    menuItemStyles: 'text-[#FFFFFF] hover:bg-[#313339]',
   },
   novuLight: {
     titleColor: 'text-[#22242A]',
@@ -36,7 +36,7 @@ const NovuHeader = ({ theme, filters, actions, handleAction, handleFilter }) => 
           <MoreIcon className={clsx('size-[26px]', currentTheme.mainIconsColor)} />
           <ul
             className={clsx(
-              'invisible absolute right-0 top-[calc(100%+7px)] w-[219px] rounded-[10px] px-1 py-0.5 opacity-0 transition-[opacity,visibility] duration-300 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100',
+              'invisible absolute right-0 top-[calc(100%+7px)] w-[219px] rounded-[10px] p-1 opacity-0 transition-[opacity,visibility] duration-300 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100',
               currentTheme.menuStyles
             )}
           >

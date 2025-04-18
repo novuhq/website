@@ -11,8 +11,8 @@ const THEMES = {
     border: 'border-[#505462]/30',
     background: 'hover:bg-[#18191D] has-[:focus-visible]:bg-[#18191D]',
     secondaryButton:
-      'text-[#ABABBA] bg-[#131313] hover:bg-[#FFFFFF0A] focus-visible:shadow-[0px_0px_0px_1px_#545862,0px_0px_0px_4px_rgba(153,160,174,0.16)]',
-    secondaryButtonBorder: 'border-[#B0B0B01F] group/button:hover:border-[#40434C]',
+      'text-[#ABABBA] hover:bg-[#131313] bg-[#FFFFFF0A] focus-visible:shadow-[0px_0px_0px_1px_#545862,0px_0px_0px_4px_rgba(153,160,174,0.16)]',
+    secondaryButtonBorder: 'group/button:hover:border-[#B0B0B01F] border-[#40434C]',
     titleStyles: 'text-[#FFFFFF]',
     textStyles: 'text-[#9599AD]',
     dateStyles: 'text-[#B9BCCF]',
@@ -109,7 +109,7 @@ const NovuMessage = ({ theme, message, readMessage }) => {
                 {message.buttons[1] && (
                   <button
                     className={clsx(
-                      'group/button relative h-[30px] rounded-md px-[16px] text-sm font-medium normal-case outline-none',
+                      'group/button relative h-[30px] rounded-md px-4 text-sm font-medium normal-case outline-none',
                       currentTheme.secondaryButton
                     )}
                     type="button"
@@ -130,7 +130,7 @@ const NovuMessage = ({ theme, message, readMessage }) => {
               className={clsx(
                 'text-[13px] font-normal leading-none opacity-50',
                 currentTheme.dateStyles,
-                message.buttons ? 'mt-[18px]' : 'mt-[12px]'
+                message.buttons ? 'mt-[18px]' : 'mt-3'
               )}
             >
               {date}
