@@ -4,7 +4,6 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import dots from 'components/pages/inbox/hero/images/dots.png';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -22,18 +21,10 @@ const Hero = ({ sectionOffsets, title, description, button }) => {
             <div className={clsx('relative h-full w-full sm:left-1/2 sm:-translate-x-1/2')}>
               <StaticImage
                 className="z-10"
-                src="./images/default-inbox.png"
+                src="./images/dark-novu-inbox.png"
                 alt=""
-                width={628}
-                height={659}
-                loading="eager"
-              />
-              <img
-                className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"
-                src={dots}
-                alt=""
-                width="482"
-                height="206"
+                width={619}
+                height={648}
                 loading="eager"
               />
               <div
