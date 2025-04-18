@@ -10,7 +10,7 @@ import NotionIcon from './images/notion.inline.svg';
 import NovuIcon from './images/novu.inline.svg';
 
 const THEMES = {
-  novuDefault: {
+  novuDark: {
     mainBlock: {
       border: 'bg-[#242528]',
       background: 'bg-[#121316]',
@@ -20,12 +20,30 @@ const THEMES = {
       logoIcon: NovuIcon,
       logoText: 'Novu <Inbox />',
       logoTextClassName: 'font-book tracking-snug text-[#AFB1B6]',
-      icon: '#FFFFFF',
+      icon: 'text-[#AFB1B6]',
     },
     container: {
       shadow:
         'shadow-[10px_10px_20px_0px_#0F101587,-2px_-2px_10px_0px_#0F101545,0px_-6px_20px_0px_#0000002B]',
       background: 'bg-[#1E1F24]',
+    },
+  },
+  novuLight: {
+    mainBlock: {
+      border: 'bg-[#fff]',
+      background: 'bg-[#F4F4F1]',
+    },
+    header: {
+      logo: 'text-[#373530] ml-3 mr-2.5 size-[18px]',
+      logoIcon: NovuIcon,
+      logoText: 'Novu <Inbox />',
+      logoTextClassName: 'font-book tracking-snug text-[#373530]',
+      icon: 'text-[#373530]',
+    },
+    container: {
+      shadow:
+        'shadow-[0px_-6.007px_20.025px_0px_rgba(32,41,78,0.05),-2.002px_-2.002px_10.012px_0px_rgba(15,16,21,0.03),10.012px_10.012px_20.025px_0px_rgba(15,16,21,0.05)]',
+      background: 'bg-white',
     },
   },
   notionDark: {

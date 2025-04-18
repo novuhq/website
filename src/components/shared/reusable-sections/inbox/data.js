@@ -17,8 +17,67 @@ import yellowHalfCircleIcon from './images/yellow-half-circle.svg';
 
 const inboxData = [
   {
-    theme: 'novuDefault',
-    title: 'Default',
+    theme: 'novuDark',
+    title: 'Novu dark',
+    categories: ['All', 'Projects', 'Announcements'],
+    messages: [
+      {
+        category: 'Projects',
+        title: 'Your account is pending verification.',
+        mail: 'steve@acme.co',
+        text: 'is pending verification, please verify your account to protect against fraud and abuse.',
+        date: 'Today at 7:41 AM',
+        isRead: false,
+        buttons: ['Verify now'],
+      },
+      {
+        category: 'Announcements',
+        title: 'Joe requested to view Q4 2024 report.',
+        mail: 'joe@acme.co',
+        text: 'requested view access to Q4 2024 report.',
+        date: 'Last Friday at 8:40 PM',
+        isRead: false,
+        avatar: joeAvatar,
+        buttons: ['Verify now', 'Deny'],
+      },
+      {
+        category: 'Projects',
+        title: '2 new comments from Radek and Dima.',
+        text: 'You have 2 new comments on the Acme figma file.',
+        date: 'Last Monday at 13:45 PM',
+        isRead: false,
+      },
+      {
+        category: 'Projects',
+        title: 'Your account is pending verification.',
+        mail: 'steve@acme.co',
+        text: 'is pending verification, please verify your account to protect against fraud and abuse.',
+        date: 'Today at 7:41 AM',
+        isRead: false,
+        buttons: ['Verify now'],
+      },
+      {
+        category: 'Announcements',
+        title: 'Joe requested to view Q4 2024 report.',
+        mail: 'joe@acme.co',
+        text: 'requested view access to Q4 2024 report.',
+        date: 'Last Friday at 8:40 PM',
+        isRead: false,
+        avatar: joeAvatar,
+        buttons: ['Verify now', 'Deny'],
+      },
+      {
+        category: 'Projects',
+        title: '2 new comments from Radek and Dima.',
+        text: 'You have 2 new comments on the Acme figma file.',
+        date: 'Last Monday at 13:45 PM',
+        isRead: false,
+      },
+    ],
+  },
+  {
+    theme: 'novuLight',
+    title: 'Novu Light',
     categories: ['All', 'Projects', 'Announcements'],
     messages: [
       {

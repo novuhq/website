@@ -7,14 +7,23 @@ const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
 
 const THEMES = {
-  novuDefault: {
+  novuDark: {
     border: 'bg-[#313339]',
     borderActive: 'bg-[#8760F5]',
+    activeTabStyles: 'text-white',
+    tabStyles: 'text-[#8E96A5]',
+    badge: 'text-white bg-[#FB3748]',
+  },
+  novuLight: {
+    border: 'bg-[#E7E7E7]',
+    borderActive: 'bg-[#8760F5]',
+    activeTabStyles: 'text-black',
+    tabStyles: 'text-[#646464]',
     badge: 'text-white bg-[#FB3748]',
   },
 };
 
-const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
+const NovuTabList = ({ theme, tabs, activeTab, setActiveTab }) => {
   const [activeTabIndicator, setActiveTabIndicator] = useState({ left: 0, width: 0 });
   const tabRefs = useRef([]);
 
@@ -31,7 +40,7 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
   const currentTheme = THEMES[theme];
 
   return (
-    <div className="scrollbar-hidden relative z-10 mt-0.5 h-12 shrink-0 overflow-scroll font-inter">
+    <div className="tab-list scrollbar-hidden relative z-10 mt-0.5 h-12 shrink-0 overflow-scroll font-inter">
       <ul className="flex h-full items-center gap-x-[22px] px-[18px]">
         {tabs.map(({ label, count }, index) => (
           <li className="h-full" key={label}>
@@ -39,7 +48,10 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
               ref={(element) => {
                 tabRefs.current[index] = element;
               }}
-              className="flex h-full items-center justify-center gap-[5px] text-nowrap px-1 text-md font-medium capitalize"
+              className={clsx(
+                'flex h-full items-center justify-center gap-[5px] text-nowrap px-1 text-md font-medium capitalize',
+                activeTab === label ? currentTheme.activeTabStyles : currentTheme.tabStyles
+              )}
               type="button"
               onClick={() => setActiveTab(label)}
             >
@@ -81,7 +93,7 @@ const TabList = ({ theme, tabs, activeTab, setActiveTab }) => {
   );
 };
 
-TabList.propTypes = {
+NovuTabList.propTypes = {
   theme: PropTypes.oneOf(Object.keys(THEMES)).isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
@@ -93,4 +105,4 @@ TabList.propTypes = {
   setActiveTab: PropTypes.func.isRequired,
 };
 
-export default TabList;
+export default NovuTabList;

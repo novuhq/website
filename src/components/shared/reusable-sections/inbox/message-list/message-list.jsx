@@ -15,15 +15,16 @@ import LinearLightEmptyInboxIcon from './images/linear-light-empty-inbox.inline.
 import MarkReadLinearIcon from './images/linear-mark-read.inline.svg';
 import MarkReadIcon from './images/mark-read.inline.svg';
 import NotionEmptyInboxIcon from './images/notion-empty-inbox.inline.svg';
+import NovuEmptyInboxIcon from './images/novu-empty-inbox.inline.svg';
 import UnreadReadIcon from './images/unread-read.inline.svg';
 import UnreadIcon from './images/unread.inline.svg';
 import LinearHeader from './linear-header';
 import LinearMessage from './linear-message';
-import Message from './message';
 import NotionHeader from './notion-header';
 import NotionMessage from './notion-message';
 import NovuHeader from './novu-header';
-import TabList from './tab-list';
+import NovuMessage from './novu-message';
+import NovuTabList from './novu-tab-list';
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
@@ -41,10 +42,16 @@ const deleteVariants = {
 };
 
 const THEMES = {
-  novuDefault: {
-    text: 'text-[#83889B]',
+  novuDark: {
+    text: 'text-[#9498B1]',
     icons: {
-      emptyInboxIcon: <EmptyInboxIcon className="size-[34px] text-[#797F93]" />,
+      emptyInboxIcon: <NovuEmptyInboxIcon className="size-[34px] text-[#9498B1]" />,
+    },
+  },
+  novuLight: {
+    text: 'text-[#646464]',
+    icons: {
+      emptyInboxIcon: <EmptyInboxIcon className="size-[34px] text-[#646464]" />,
     },
   },
   notionDark: {
@@ -138,15 +145,7 @@ const LINEAR_FILTERS = {
   ],
 };
 
-const MessageList = ({
-  theme,
-  tabs,
-  setActiveTab,
-  activeTab,
-  defaultTab,
-  messages,
-  setMessages,
-}) => {
+const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessages }) => {
   const currentTheme = THEMES[theme];
 
   const [filterIndex, setFilterIndex] = useState(0);
@@ -156,13 +155,8 @@ const MessageList = ({
 
   const filteredMessageList = useMemo(() => {
     switch (theme) {
-      case 'novuDefault':
-        return activeTab !== defaultTab
-          ? messages.filter(
-              (message) =>
-                message.category.toLowerCase() === activeTab.toLowerCase() && !message.isArchived
-            )
-          : messages.filter((message) => !message.isArchived);
+      case 'novuDark':
+      case 'novuLight':
       case 'notionDark':
       case 'notionLight':
         return NOTION_FILTERS[filterIndex].filter(messages);
@@ -175,16 +169,7 @@ const MessageList = ({
       default:
         return messages;
     }
-  }, [
-    activeTab,
-    messages,
-    defaultTab,
-    theme,
-    filterIndex,
-    orderingPosition,
-    showUnreadFirst,
-    showRead,
-  ]);
+  }, [messages, theme, filterIndex, orderingPosition, showUnreadFirst, showRead]);
 
   const readMessage = (currentId, newState = false) => {
     setMessages(
@@ -226,7 +211,15 @@ const MessageList = ({
 
   return (
     <>
-      {theme === 'novuDefault' && <NovuHeader />}
+      {['novuDark', 'novuLight'].includes(theme) && (
+        <NovuHeader
+          theme={theme}
+          filters={NOTION_FILTERS}
+          actions={NOTION_ACTIONS}
+          handleAction={handleAction}
+          handleFilter={handleFilter}
+        />
+      )}
       {['notionDark', 'notionLight'].includes(theme) && (
         <NotionHeader
           theme={theme}
@@ -250,8 +243,8 @@ const MessageList = ({
           toggleShowUnreadFirst={toggleShowUnreadFirst}
         />
       )}
-      {theme === 'novuDefault' && (
-        <TabList theme={theme} tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+      {['novuDark', 'novuLight'].includes(theme) && (
+        <NovuTabList theme={theme} tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
@@ -284,8 +277,8 @@ const MessageList = ({
                       exit="exit"
                       layout
                     >
-                      {theme === 'novuDefault' && (
-                        <Message
+                      {['novuDark', 'novuLight'].includes(theme) && (
+                        <NovuMessage
                           theme={theme}
                           message={message}
                           readMessage={readMessage}
