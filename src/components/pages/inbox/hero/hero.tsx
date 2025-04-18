@@ -4,7 +4,6 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import dots from 'components/pages/inbox/hero/images/dots.png';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -19,34 +18,14 @@ const Hero = ({ sectionOffsets, title, description, button }) => {
       <div className="container-lg flex items-center gap-x-[85px] sm:flex-col">
         <div className="flex items-center justify-center pl-6 md:pl-0 sm:order-last">
           <div className="relative w-full max-w-[628px] shrink-0 lg:w-[531px] md:max-w-[380px] sm:w-full sm:max-w-[440px]">
-            <div className={clsx('relative h-full w-full sm:left-1/2 sm:-translate-x-1/2')}>
+            <div className="relative h-full w-full sm:left-1/2 sm:-translate-x-1/2">
               <StaticImage
                 className="z-10"
-                src="./images/default-inbox.png"
+                src="./images/dark-novu-inbox.png"
                 alt=""
-                width={628}
-                height={659}
+                width={619}
+                height={648}
                 loading="eager"
-              />
-              <img
-                className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"
-                src={dots}
-                alt=""
-                width="482"
-                height="206"
-                loading="eager"
-              />
-              <div
-                className="pointer-events-none absolute left-[13.3757%] top-[-23.3687%] z-0 h-[68.2852%] w-[39.8089%] rotate-90 bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)] blur-[22px]"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute left-[4.5523%] top-[-23.3687%] z-0 h-[91.9575%] w-[76.1146%] -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,#1C2D5E_0%,rgba(18,28,59,0)_100%)]"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute left-[-17.5159%] top-[-44.006%] z-0 h-[154.7799%] w-[131.8471%] -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,#121C3B_16.51%,rgba(18,28,59,0)_100%)]"
-                aria-hidden
               />
             </div>
           </div>

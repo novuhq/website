@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';

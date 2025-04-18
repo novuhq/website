@@ -15,15 +15,16 @@ import LinearLightEmptyInboxIcon from './images/linear-light-empty-inbox.inline.
 import MarkReadLinearIcon from './images/linear-mark-read.inline.svg';
 import MarkReadIcon from './images/mark-read.inline.svg';
 import NotionEmptyInboxIcon from './images/notion-empty-inbox.inline.svg';
+import NovuEmptyInboxIcon from './images/novu-empty-inbox.inline.svg';
 import UnreadReadIcon from './images/unread-read.inline.svg';
 import UnreadIcon from './images/unread.inline.svg';
 import LinearHeader from './linear-header';
 import LinearMessage from './linear-message';
-import Message from './message';
 import NotionHeader from './notion-header';
 import NotionMessage from './notion-message';
 import NovuHeader from './novu-header';
-import TabList from './tab-list';
+import NovuMessage from './novu-message';
+import NovuTabList from './novu-tab-list';
 
 const ANIMATION_DURATION = 0.2;
 const MOTION_EASY = [0.25, 0.1, 0.25, 1];
@@ -41,10 +42,16 @@ const deleteVariants = {
 };
 
 const THEMES = {
-  novuDefault: {
-    text: 'text-[#83889B]',
+  novuDark: {
+    text: 'text-[#9498B1]',
     icons: {
-      emptyInboxIcon: <EmptyInboxIcon className="size-[34px] text-[#797F93]" />,
+      emptyInboxIcon: <NovuEmptyInboxIcon className="size-[34px] text-[#9498B1]" />,
+    },
+  },
+  novuLight: {
+    text: 'text-[#646464]',
+    icons: {
+      emptyInboxIcon: <EmptyInboxIcon className="size-[34px] text-[#646464]" />,
     },
   },
   notionDark: {
@@ -73,7 +80,7 @@ const THEMES = {
   },
 };
 
-const NOTION_FILTERS = [
+const NOVU_NOTION_FILTERS = [
   {
     label: 'Unread & read',
     Icon: UnreadReadIcon,
@@ -91,7 +98,7 @@ const NOTION_FILTERS = [
   },
 ];
 
-const NOTION_ACTIONS = [
+const NOVU_NOTION_ACTIONS = [
   {
     label: 'Mark all as read',
     Icon: MarkReadIcon,
@@ -106,7 +113,7 @@ const NOTION_ACTIONS = [
     label: 'Archive read',
     Icon: ArchiveReadIcon,
     action: (messages) =>
-      messages.filter((message) => (message.isRead ? { ...message, isArchived: true } : message)),
+      messages.map((message) => (message.isRead ? { ...message, isArchived: true } : message)),
   },
 ];
 
@@ -138,15 +145,7 @@ const LINEAR_FILTERS = {
   ],
 };
 
-const MessageList = ({
-  theme,
-  tabs,
-  setActiveTab,
-  activeTab,
-  defaultTab,
-  messages,
-  setMessages,
-}) => {
+const MessageList = ({ theme, tabs, setActiveTab, activeTab, messages, setMessages }) => {
   const currentTheme = THEMES[theme];
 
   const [filterIndex, setFilterIndex] = useState(0);
@@ -156,16 +155,20 @@ const MessageList = ({
 
   const filteredMessageList = useMemo(() => {
     switch (theme) {
-      case 'novuDefault':
-        return activeTab !== defaultTab
-          ? messages.filter(
-              (message) =>
-                message.category.toLowerCase() === activeTab.toLowerCase() && !message.isArchived
-            )
-          : messages.filter((message) => !message.isArchived);
+      case 'novuDark':
+      case 'novuLight': {
+        const tabFilteredMessages = messages.filter((message) => {
+          if (activeTab === 'All') {
+            return true;
+          }
+
+          return message.category === activeTab;
+        });
+        return NOVU_NOTION_FILTERS[filterIndex].filter(tabFilteredMessages);
+      }
       case 'notionDark':
       case 'notionLight':
-        return NOTION_FILTERS[filterIndex].filter(messages);
+        return NOVU_NOTION_FILTERS[filterIndex].filter(messages);
       case 'linearDark':
       case 'linearLight':
         // eslint-disable-next-line no-case-declarations
@@ -175,16 +178,7 @@ const MessageList = ({
       default:
         return messages;
     }
-  }, [
-    activeTab,
-    messages,
-    defaultTab,
-    theme,
-    filterIndex,
-    orderingPosition,
-    showUnreadFirst,
-    showRead,
-  ]);
+  }, [theme, filterIndex, messages, orderingPosition, showRead, showUnreadFirst, activeTab]);
 
   const readMessage = (currentId, newState = false) => {
     setMessages(
@@ -226,12 +220,21 @@ const MessageList = ({
 
   return (
     <>
-      {theme === 'novuDefault' && <NovuHeader />}
+      {['novuDark', 'novuLight'].includes(theme) && (
+        <NovuHeader
+          theme={theme}
+          filters={NOVU_NOTION_FILTERS}
+          actions={NOVU_NOTION_ACTIONS}
+          handleAction={handleAction}
+          handleFilter={handleFilter}
+          filterIndex={filterIndex}
+        />
+      )}
       {['notionDark', 'notionLight'].includes(theme) && (
         <NotionHeader
           theme={theme}
-          filters={NOTION_FILTERS}
-          actions={NOTION_ACTIONS}
+          filters={NOVU_NOTION_FILTERS}
+          actions={NOVU_NOTION_ACTIONS}
           handleAction={handleAction}
           handleFilter={handleFilter}
         />
@@ -250,9 +253,16 @@ const MessageList = ({
           toggleShowUnreadFirst={toggleShowUnreadFirst}
         />
       )}
-      {theme === 'novuDefault' && (
-        <TabList theme={theme} tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
-      )}
+      {['novuDark', 'novuLight'].includes(theme) &&
+        filterIndex !== 2 &&
+        filteredMessageList.length > 0 && (
+          <NovuTabList
+            theme={theme}
+            tabs={tabs}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+        )}
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
           <m.div
@@ -284,8 +294,8 @@ const MessageList = ({
                       exit="exit"
                       layout
                     >
-                      {theme === 'novuDefault' && (
-                        <Message
+                      {['novuDark', 'novuLight'].includes(theme) && (
+                        <NovuMessage
                           theme={theme}
                           message={message}
                           readMessage={readMessage}

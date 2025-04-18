@@ -68,9 +68,9 @@ const InboxComponent = () => {
             >
               <img
                 src={clsx(
-                  data.theme === 'novuDefault' && defaultThemeIcon,
-                  (data.theme === 'linearLight' || data.theme === 'linearDark') && linearThemeIcon,
-                  (data.theme === 'notionDark' || data.theme === 'notionLight') && notionThemeIcon
+                  (data.theme === 'novuDark' || data.theme === 'novuLight') && defaultThemeIcon,
+                  (data.theme === 'notionDark' || data.theme === 'notionLight') && notionThemeIcon,
+                  (data.theme === 'linearLight' || data.theme === 'linearDark') && linearThemeIcon
                 )}
                 alt=""
                 width={16}

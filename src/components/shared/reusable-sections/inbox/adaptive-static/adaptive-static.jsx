@@ -4,25 +4,30 @@ import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import dots from '../images/dots.png';
-
 const INBOX_IMAGE_CLASSNAMES = 'z-10 sm:w-full';
 
 const THEMES = {
-  novuDefault: {
+  novuDark: {
     image: (
       <StaticImage
-        className={clsx(
-          INBOX_IMAGE_CLASSNAMES,
-          '-left-2 -top-2 w-[528px] sm:-left-1 sm:-top-1 sm:w-[103%]'
-        )}
-        src="./images/inbox.png"
+        className={INBOX_IMAGE_CLASSNAMES}
+        src="./images/novu-dark.png"
         alt=""
-        width={528}
-        height={554}
+        width={512}
+        height={521}
       />
     ),
-    backgroundImage: dots,
+  },
+  novuLight: {
+    image: (
+      <StaticImage
+        className={INBOX_IMAGE_CLASSNAMES}
+        src="./images/novu-light.png"
+        alt=""
+        width={512}
+        height={521}
+      />
+    ),
   },
   notionDark: {
     image: (
@@ -71,7 +76,7 @@ const THEMES = {
 };
 
 const AdaptiveStatic = ({ theme, className }) => {
-  const { image, backgroundImage } = THEMES[theme];
+  const { image } = THEMES[theme];
 
   return (
     <m.div
@@ -82,15 +87,6 @@ const AdaptiveStatic = ({ theme, className }) => {
       transition={{ duration: 0.3 }}
     >
       {image}
-      {backgroundImage && (
-        <img
-          className="absolute left-[-5.2548%] top-[-13.8088%] z-10 h-[31.4112%] w-[76.7516%]"
-          src={backgroundImage}
-          alt=""
-          width="482"
-          height="206"
-        />
-      )}
       <div
         className="pointer-events-none absolute left-[13.3757%] top-[-23.3687%] z-0 h-[68.2852%] w-[39.8089%] rotate-90 bg-[radial-gradient(50%_50%_at_50%_50%,#314479_0%,rgba(49,68,121,0)_100%)] blur-[22px]"
         aria-hidden
