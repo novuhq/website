@@ -63,8 +63,6 @@ workflow('weekly-comments', async ({ step }) => {
 });
 `;
 
-// import LINKS from 'constants/links';
-
 const SECTION_WITH_LOGOS_2 = [
   {
     title: 'Salad',
