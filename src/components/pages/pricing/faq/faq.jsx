@@ -11,9 +11,9 @@ const FAQ_DATA = [
     answer: (
       <>
         An event is a request (for instance, an API call to /v1/events/trigger) that starts off an
-        action in the Novu Workflow Engine. Events can make many different types of actions,
-        including digests, delays, and sending notifications to various channels, as well as filters
-        and user preference checks. For workflows triggered to a{' '}
+        action in the Novu Workflow Engine after basic validations. Events can make many different
+        types of actions, including digests, delays, and sending notifications to various channels,
+        as well as filters and user preference checks. For workflows triggered to a{' '}
         <Link
           to="https://docs.novu.co/concepts/topics"
           target="_blank"
@@ -22,8 +22,8 @@ const FAQ_DATA = [
         >
           topic,
         </Link>{' '}
-        Novu creates one event per topic subscriber, this means that a workflow trigger to a topic
-        with 100 subscribers creates 100 events.
+        Novu creates one event per topic subscriber after fan-out, this means that a workflow
+        trigger to a topic with 100 subscribers creates 100 events.
       </>
     ),
   },
