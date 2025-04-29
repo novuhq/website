@@ -276,7 +276,7 @@ const LABELS = [
     title: 'Compliance',
     items: {
       gdpr: 'GDPR',
-      soc2: 'SOC 2 / ISO 27001',
+      soc2: 'SOC 2 / ISO 27001 Report',
       hipaa: 'HIPAA BAA',
       customSOC: 'Custom security reviews',
       dpa: 'Data Processing Agreements (DPA)',
