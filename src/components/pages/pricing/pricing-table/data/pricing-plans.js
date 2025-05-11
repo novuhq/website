@@ -32,6 +32,7 @@ const PLANS = {
       global: '30',
     },
     inbox: {
+      snoozeMaxDuration: 'Up to 24 hours',
       inboxComponent: true,
       preferencesComponent: true,
       inboxFeedRetention: '30 days',
@@ -86,6 +87,7 @@ const PLANS = {
       global: '120',
     },
     inbox: {
+      snoozeMaxDuration: 'Up to 90 days',
       inboxComponent: true,
       preferencesComponent: true,
       inboxFeedRetention: '90 days',
@@ -140,6 +142,7 @@ const PLANS = {
       global: '300',
     },
     inbox: {
+      snoozeMaxDuration: 'Up to 90 days',
       inboxComponent: true,
       preferencesComponent: true,
       inboxFeedRetention: '90 days',
@@ -194,6 +197,7 @@ const PLANS = {
       global: '3k',
     },
     inbox: {
+      snoozeMaxDuration: 'Custom',
       inboxComponent: true,
       preferencesComponent: true,
       inboxFeedRetention: 'Custom',
@@ -256,6 +260,7 @@ const LABELS = [
   {
     title: 'Inbox',
     items: {
+      snoozeMaxDuration: 'Snooze max duration',
       inboxComponent: 'Inbox component',
       preferencesComponent: 'User preferences component',
       inboxFeedRetention: 'Inbox feed retention',
