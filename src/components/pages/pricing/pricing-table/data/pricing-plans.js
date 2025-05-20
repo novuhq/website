@@ -149,7 +149,7 @@ const PLANS = {
     },
     account: {
       teamMembers: 'Unlimited',
-      rbac: 'Q2 2025',
+      rbac: true,
       standardSAML: true,
       customSAML: false,
       local: true,
@@ -204,7 +204,7 @@ const PLANS = {
     },
     account: {
       teamMembers: 'Unlimited',
-      rbac: 'Q2 2025',
+      rbac: true,
       standardSAML: true,
       customSAML: true,
       local: true,
