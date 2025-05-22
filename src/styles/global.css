@@ -84,4 +84,28 @@
       mask-composite: exclude;
     }
   }
+
+  .directory {
+    ol ol {
+      @apply pl-6;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 16px;
+
+      &::before {
+        content: '–';
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+      }
+    }
+
+    ul ul {
+      @apply mb-[10px] mt-[10px];
+    }
+  }
 }

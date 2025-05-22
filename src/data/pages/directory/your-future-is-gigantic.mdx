@@ -1,0 +1,82 @@
+---
+title: Inbox with image
+description: A customizable Novu inbox component that supports image thumbnails alongside messages. Useful for media-rich notifications like product updates or social activity.
+authors:
+  - name: Alice
+    avatar: ./images/authors/bob.png
+  - name: Bob
+    avatar: ./images/authors/bob.png
+images:
+  - ./images/template-cover-3.png
+ghSourceLink: https://github.com/pixel-point/novu-gatsby/pull/36/files#diff-5cf74137e0f134d7d1e07f6abe431b70b7972ec892da02fd4f62b7900712760b
+demoLink: https://github.com/pixel-point/novu-gatsby/pull/36/files#diff-5cf74137e0f134d7d1e07f6abe431b70b7972ec892da02fd4f62b7900712760b
+updatedAt: '2024-05-20'
+---
+
+## Features
+
+rewwghjkertyui
+
+- Built-in routing
+- Global styles
+- Seamless API integration
+
+## How to Use Heading
+
+1. Clone the repo
+2. Run `npm install`
+3. Start with `npm run dev`
+
+<CodeTabs
+  codeBlocks={[
+    {
+      language: 'JavaScript',
+      code: `
+async function VideoComponent({ fileName }) {
+  const { blobs } = await list({
+    prefix: fileName,
+    limit: 2
+  });
+  const { url } = blobs[0];
+  const { url: captionsUrl } = blobs[1];
+
+return (
+
+<video controls preload="none" aria-label="Video player">
+<source src={url} type="video/mp4" />
+<track
+        src={captionsUrl}
+        kind="subtitles"
+        srcLang="en"
+        label="English"
+      />
+Your browser does not support the video tag.
+</video>
+);
+}
+`,
+    },
+    {
+      language: 'Python',
+      code: `import time
+start_time= time.time()
+def fun():
+a=2
+b=3
+c=a+b
+end_time= time.time()
+fun()
+timetaken = end_time - start_time
+print("Your program takes: ", timetaken) # 0.0345`,
+    },
+    {
+      language: 'php',
+      code: `<?php
+$color = "red";
+echo "My car is " . $color . "<br>";
+echo "My house is " . $COLOR . "<br>";
+echo "My boat is " . $coLOR . "<br>";
+?>`,
+}
+]}
+/>

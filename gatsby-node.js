@@ -17,7 +17,6 @@ const {
   fetchClosedIssuesCount,
   fetchPullRequestCount,
 } = require('./src/utils/github-utils');
-// const getSlugForPodcast = require('./src/utils/get-slug-for-podcast');
 
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
@@ -171,6 +170,62 @@ async function createPages({ graphql, actions, reporter }) {
     } else {
       reporter.error(`Template "${templateName}" was not found`);
     }
+  });
+}
+
+async function createDirectoryPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allMdx(filter: { internal: { contentFilePath: { regex: "/src/data/pages/directory/" } } }) {
+        nodes {
+          frontmatter {
+            title
+            description
+            updatedAt
+            images {
+              childImageSharp {
+                gatsbyImageData(width: 588, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              }
+            }
+          }
+          fields {
+            directorySlug
+          }
+          internal {
+            contentFilePath
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const posts = result.data.allMdx.nodes;
+  const postTemplate = path.resolve(`./src/templates/directory-post.jsx`);
+
+  createPage({
+    path: `/directory`,
+    component: path.resolve(`./src/templates/directory.jsx`),
+    context: {
+      posts,
+    },
+  });
+
+  posts.forEach((node) => {
+    const slug = node.fields.directorySlug;
+
+    createPage({
+      path: `/directory/${slug}`,
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: {
+        slug,
+      },
+    });
   });
 }
 
@@ -350,96 +405,6 @@ async function createPosts({ graphql, actions }) {
   });
 }
 
-// const createPodcastPage = async ({ graphql, actions, reporter }) => {
-//   const PODCASTS_PER_PAGE = 13;
-
-//   const { createPage } = actions;
-
-//   const result = await graphql(
-//     `
-//       {
-//         allFeedPodcast {
-//           nodes {
-//             id
-//           }
-//         }
-//       }
-//     `
-//   );
-
-//   if (result.errors) {
-//     reporter.panicOnBuild(result.errors);
-//     return;
-//   }
-
-//   const {
-//     allFeedPodcast: { nodes: podcasts },
-//   } = result.data;
-
-//   const podcastPageUrl = 'podcast';
-//   const template = path.resolve('./src/templates/podcast.jsx');
-
-//   createPage({
-//     path: podcastPageUrl,
-//     component: slash(template),
-//     context: {
-//       podcastPageUrl,
-//     },
-//   });
-
-//   const pageCount = Math.ceil(podcasts.length / PODCASTS_PER_PAGE);
-
-//   Array.from({ length: pageCount }).forEach((_, index) => {
-//     createPage({
-//       path: index === 0 ? `/${podcastPageUrl}` : `/${podcastPageUrl}/${index + 1}`,
-//       component: slash(template),
-//       context: {
-//         limit: PODCASTS_PER_PAGE,
-//         skip: index * PODCASTS_PER_PAGE,
-//         pageCount,
-//         currentPage: index,
-//         podcastPageUrl,
-//       },
-//     });
-//   });
-// };
-
-// async function createPodcastDetailPages({ graphql, actions }) {
-//   const { createPage } = actions;
-
-//   const result = await graphql(`
-//     {
-//       allFeedPodcast {
-//         nodes {
-//           id
-//           title
-//         }
-//       }
-//     }
-//   `);
-
-//   if (result.errors) {
-//     throw new Error(result.errors);
-//   }
-
-//   const {
-//     allFeedPodcast: { nodes: podcasts },
-//   } = result.data;
-
-//   podcasts.forEach(({ id, title }) => {
-//     const templatePath = path.resolve('./src/templates/podcast-detail.jsx');
-//     const slug = getSlugForPodcast(title);
-
-//     createPage({
-//       path: `/podcast/${slug}/`,
-//       component: slash(templatePath),
-//       context: {
-//         id,
-//       },
-//     });
-//   });
-// }
-
 exports.createPages = async (args) => {
   const { createRedirect } = args.actions;
 
@@ -460,12 +425,15 @@ exports.createPages = async (args) => {
   await createBlogPages(params);
   await createCommunityPage(params);
   await createPosts(params);
+  await createDirectoryPages(params);
 
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
   // await createPodcastPage(params);
   // await createPodcastDetailPages(params);
   await createContributorsPage(params);
 };
+
+exports.onCreateNode = require('./gatsby/on-create-node');
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest, reporter }) => {
   try {

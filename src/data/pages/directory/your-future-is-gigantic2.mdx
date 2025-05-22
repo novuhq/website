@@ -1,0 +1,110 @@
+---
+title: Inbox with slider
+description: A customizable Novu inbox component that supports image thumbnails alongside messages. Useful for media-rich notifications like product updates or social activity.
+authors:
+  - name: Alice
+    avatar: ./images/authors/bob.png
+  - name: Bob
+    avatar: ./images/authors/bob.png
+images:
+  - ./images/template-cover.png
+  - ./images/template-cover-2.png
+  - ./images/template-cover-3.png
+  - ./images/template-cover-4.png
+ghSourceLink: https://github.com/pixel-point/novu-gatsby/pull/36/files#diff-5cf74137e0f134d7d1e07f6abe431b70b7972ec892da02fd4f62b7900712760b
+demoLink: https://github.com/pixel-point/novu-gatsby/pull/36/files#diff-5cf74137e0f134d7d1e07f6abe431b70b7972ec892da02fd4f62b7900712760b
+updatedAt: '2024-05-20'
+---
+
+<Tabs>
+<Tab title='Overview'>
+
+import { StaticImage } from 'gatsby-plugin-image';
+
+## Subtitle (h2)
+
+### Subtitle Level 3 (h3)
+
+- Bullet list item 1
+- Bullet list item 2
+  - Nested bullet item
+- Bullet list item 3
+
+1. Log in to your Novu Dashboard.
+2. Navigate to the Settings section.
+3. Select API Keys from the sidebar
+4. Copy your `.applicationIdentifier` and `apiKey`
+5. Select API Keys from the sidebar
+6. Add the credentials to your `.env` file:
+7. Import `.dotenv` to load these variables:
+8. New
+9. Qwert
+10. Nhfgfg
+
+## New title
+
+1. Ordered list item 1
+2. Ordered list item 2
+
+</Tab>
+
+<Tab title='Data Model'>
+
+## New title
+
+1. Ordered list item 1
+2. Ordered list item 2
+   1. Nested ordered item
+3. One more item 3
+
+> This is a blockquote.  
+> It supports multiple lines.
+>
+> ```js
+> function helloWorld() {
+>   console.log('Hello, world!');
+> }
+> ```
+
+</Tab>
+
+<Tab title='Workflows'>
+
+<InfoBox title="Good to know">
+I'm extra component which allows to render blockquote with title. 
+Consistent styling enhances user trust and engagement in notification systems.
+
+```js
+const inter = Inter({ subsets: ['latin'] });
+```
+
+</InfoBox>
+
+Here is **bold text**, _italic text_, and **_bold italic_**.
+
+Inline code: `npm install my-package`
+
+Divider:
+
+---
+
+### Links and Images
+
+Here is a [link to Novu](https://novu.co)
+
+<img src="/images/gold-medal.png" alt="My alt" placeholder="blurred" />
+
+</Tab>
+
+<Tab title='Last one'>
+
+### Code block
+
+```javascript
+function helloWorld() {
+  console.log('Hello, world!');
+}
+```
+
+</Tab>
+</Tabs>
