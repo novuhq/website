@@ -9,6 +9,7 @@ const styles = {
   size: {
     sm: 'h-12 px-6 text-sm rounded-md',
     xs: 'h-10 px-5 text-xs',
+    'custom-xs': 'h-9 px-6 text-[12px] rounded-md',
     xxs: 'h-8 px-4 text-[11px]',
   },
   theme: {

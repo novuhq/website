@@ -160,6 +160,12 @@ module.exports = {
         'radial-gradient(170.56% 92.36% at 44.98% 24.35%, rgba(27, 37, 55, 0.60) 0%, rgba(27, 37, 55, 0.00) 67.88%)',
       'home-code-block':
         'radial-gradient(88.88% 86.43% at 0% 0.03%, #28356C 0%, rgba(35, 45, 89, 0) 100%),radial-gradient(51.34% 49.92% at 0% 0.03%, #2F3E7F 0%, rgba(35, 45, 89, 0) 100%),linear-gradient(168.3deg, #1D233A 6.29%, #131725 91.42%)',
+      'sliding-bar-tab':
+        'radial-gradient(70.44% 126% at 50% -26%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.00) 100%), rgba(255, 255, 255, 0.06)',
+      'directory-slider-gradient':
+        'linear-gradient(90deg, rgba(17, 16, 24, 0.00) 5%, #111018 30%, #111018 70%, rgba(17, 16, 24, 0.00) 95%)',
+      'directory-card-border-gradient':
+        'linear-gradient(246.73deg, rgba(60, 60, 83, 0.576) 15.63%, rgba(52, 52, 71, 0.432) 84.63%)',
       ...defaultTheme.backgroundImage,
     },
     boxShadow: {
