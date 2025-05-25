@@ -43,7 +43,9 @@ const HTML = ({
       <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
       {postBodyComponents}
     </body>
-    <DubAnalytics />
+    <DubAnalytics domainsConfig={{
+      outbound: ["app.cal.com"],
+    }} />
   </html>
 );
 
