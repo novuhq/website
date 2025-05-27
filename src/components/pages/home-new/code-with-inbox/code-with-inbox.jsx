@@ -34,7 +34,7 @@ const CodeWithInbox = ({ className, title, description, tabs }) => {
           </div>
           <div
             className={clsx(
-              'h-[367px] w-full rounded-xl bg-[linear-gradient(145.25deg,#5F6EAA_1.1%,#1A1E2E_56.43%)] p-px lg:h-[344px] md:h-auto'
+              'h-[335px] w-full rounded-xl bg-[linear-gradient(145.25deg,#5F6EAA_1.1%,#1A1E2E_56.43%)] p-px lg:h-[344px] md:h-auto'
             )}
           >
             <div className="relative z-10 h-full w-full overflow-hidden rounded-xl bg-home-code-block px-[22px] pb-[20px] pt-0 [-webkit-mask-image:-webkit-radial-gradient(white,black)] sm:px-[16px] sm:pb-[16px]">
