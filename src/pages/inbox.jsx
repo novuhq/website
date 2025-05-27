@@ -58,8 +58,6 @@ const tabs = [
 function Novu() {
   return (
     <Inbox
-      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
-      subscriberId="YOUR_SUBSCRIBER_ID"
       tabs={tabs}
     />
   );

@@ -153,48 +153,30 @@ const SECTION_WITH_SMALL_ICONS = [
   },
 ];
 
-const CODE_NEXTJS = `
-import React from 'react';
+const CODE_NEXTJS = `import React from 'react';
 import { Inbox } from '@novu/nextjs';
  
 export function NotificationInbox() {
   return (
-    <Inbox
-      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
-      subscriberId="YOUR_SUBSCRIBER_ID"
-    />
+    <Inbox />
   );
 }`;
 
 const CODE_REMIX = `import React from 'react';
 import { Inbox } from '@novu/react';
-import { useNavigate } from '@remix-run/react';
  
-export function NotificationCenter() {
-  const navigate = useNavigate();
-  
+export function NotificationInbox() {
   return (
-    <Inbox
-      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
-      subscriberId="YOUR_SUBSCRIBER_ID"
-      routerPush={(path: string) => navigate(path)}
-    />
+    <Inbox />
   );
 }`;
 
 const CODE_REACT = `import React from 'react';
 import { Inbox } from '@novu/react';
-import { useNavigate } from 'react-router';
  
-export function NotificationCenter() {
-  const navigate = useNavigate();
-  
+export function NotificationInbox() {
   return (
-    <Inbox
-      applicationIdentifier="YOUR_APPLICATION_IDENTIFIER"
-      subscriberId="YOUR_SUBSCRIBER_ID"
-      routerPush={(path: string) => navigate(path)}
-    />
+    <Inbox />
   );
 }`;
 
