@@ -10,6 +10,7 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import Breadcrumb from 'components/pages/directory/breadcrumb';
 import InfoBox from 'components/pages/directory/content/info-box';
 import Tabs, { Tab } from 'components/pages/directory/content/tabs';
+import CopyCodeBtn from 'components/pages/directory/copy-code-btn';
 import CtaWithForm from 'components/pages/directory/cta-with-form';
 import RelatedPosts from 'components/pages/directory/related-posts';
 import SliderWrapper from 'components/pages/directory/slider-wrapper';
@@ -68,13 +69,7 @@ const CodeTabs = ({ codeBlocks }) => {
             >
               {activeCode.code.trim()}
             </SyntaxHighlighter>
-            <button
-              className="hover:bg-gray-700 absolute right-2 top-2 z-50 rounded px-2 py-1 text-xs text-white"
-              type="button"
-              onClick={() => navigator.clipboard.writeText(activeCode.code)}
-            >
-              Copy
-            </button>
+            <CopyCodeBtn codeText={activeCode.code} />
           </m.div>
         </AnimatePresence>
       </LazyMotion>
@@ -125,15 +120,20 @@ const mdxComponents = {
     const className = codeProps.className || '';
     const match = className.match(/language-(\w+)/);
     const language = match?.[1] || 'bash';
+    const codeText = codeProps.children.trim?.() || '';
 
     return (
-      <SyntaxHighlighter
-        className="scrollbar-hidden relative z-10 my-[16px] overflow-y-scroll rounded-lg border border-gray-2 bg-[#000000] p-4 text-[14px] font-normal [&_code]:!block"
-        language={language}
-        useInlineStyles={false}
-      >
-        {children.props.children}
-      </SyntaxHighlighter>
+      <div className="relative my-4">
+        <SyntaxHighlighter
+          className="scrollbar-hidden relative z-10 overflow-y-scroll rounded-lg border border-gray-2 bg-[#000000] p-4 text-sm font-normal [&_code]:!block"
+          language={language}
+          useInlineStyles={false}
+          showLineNumbers
+        >
+          {codeText}
+        </SyntaxHighlighter>
+        <CopyCodeBtn codeText={codeText} />
+      </div>
     );
   },
   code: ({ children }) => (
