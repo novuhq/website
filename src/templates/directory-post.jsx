@@ -16,6 +16,7 @@ import SliderWrapper from 'components/pages/directory/slider-wrapper';
 import Button from 'components/shared/button';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
+import GitHubIcon from 'icons/github.inline.svg';
 import TimerIcon from 'icons/timer.inline.svg';
 import getTimeAgo from 'utils/get-time-ago';
 import registerLanguages from 'utils/register-syntax-highlighting';
@@ -48,7 +49,6 @@ const CodeTabs = ({ codeBlocks }) => {
           </button>
         ))}
       </div>
-
       <LazyMotion features={domAnimation}>
         <AnimatePresence mode="wait">
           <m.div
@@ -252,7 +252,8 @@ const DirectoryPostPage = ({ data, children }) => {
                     theme="gray-outline"
                     to={ghSourceLink}
                   >
-                    View Source
+                    <GitHubIcon className="mr-2.5 size-4 [&_path]:fill-current" />
+                    <span>View Source</span>
                   </Button>
                 </li>
                 <li>

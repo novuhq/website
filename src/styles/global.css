@@ -105,7 +105,7 @@
     }
 
     ul ul {
-      @apply mb-[10px] mt-[10px];
+      @apply mb-2.5 mt-2.5;
     }
   }
 }
