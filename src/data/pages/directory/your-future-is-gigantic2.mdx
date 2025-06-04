@@ -2,9 +2,9 @@
 title: Inbox with slider
 description: A customizable Novu inbox component that supports image thumbnails alongside messages. Useful for media-rich notifications like product updates or social activity.
 authors:
-  - name: Alice
+  - name: Mac Damaso
     avatar: ./images/authors/bob.png
-  - name: Bob
+  - name: John Doe
     avatar: ./images/authors/bob.png
 images:
   - ./images/template-cover.png
@@ -16,19 +16,30 @@ demoLink: https://github.com/pixel-point/novu-gatsby/pull/36/files#diff-5cf74137
 updatedAt: '2024-05-20'
 ---
 
+import coverImage from './images/template-cover.png';
+
 <Tabs>
 <Tab title='Overview'>
 
-import { StaticImage } from 'gatsby-plugin-image';
+## Extending the Inbox with Image Thumbnails
 
-## Subtitle (h2)
+The Inbox with Images template enhances Novu’s notification inbox by adding image thumbnails to messages, ideal for engaging notifications like product updates or social media interactions. This guide covers how to set up and customize the inbox component using Novu’s React SDK.
 
-### Subtitle Level 3 (h3)
+### Installation
 
-- Bullet list item 1
-- Bullet list item 2
-  - Nested bullet item
-- Bullet list item 3
+Follow this step-by-step guide to integrate the Inbox with Images template into your application using Novu’s In-App SDK. This template enables media-rich notifications with image thumbnails, ideal for product updates or social interactions.
+
+#### 1. Install the Novu In-App SDK
+
+The Novu In-App SDK provides tools to embed a customizable notification inbox in your frontend, supporting features like image thumbnails and responsive layouts. To add the SDK to your project.
+
+To begin using the SDK with Fastify, add it to your project:
+
+```js
+const inter = Inter({ subsets: ['latin'] });
+```
+
+#### 2. Set Your API Credentials
 
 1. Log in to your Novu Dashboard.
 2. Navigate to the Settings section.
@@ -37,42 +48,131 @@ import { StaticImage } from 'gatsby-plugin-image';
 5. Select API Keys from the sidebar
 6. Add the credentials to your `.env` file:
 7. Import `.dotenv` to load these variables:
-8. New
-9. Qwert
-10. Nhfgfg
 
-## New title
+#### 3. Configure the Inbox Component
 
-1. Ordered list item 1
-2. Ordered list item 2
+The [Inbox](https://novu.co/inbox) component is a React-based module that renders notifications with image thumbnails. Configure it to display notifications across your application. To initialize the component:
 
-</Tab>
+<CodeTabs
+  codeBlocks={[
+    {
+      language: 'JavaScript',
+      code: `
+async function VideoComponent({ fileName }) {
+  const {blobs} = await list({
+    prefix: fileName,
+    limit: 2
+  });
+  const { url } = blobs[0];
+  const { url: captionsUrl } = blobs[1];
 
-<Tab title='Data Model'>
+// The return value is _not_ serialized
+// You can return Date, Map, Set, etc.
 
-## New title
+return (
 
-1. Ordered list item 1
-2. Ordered list item 2
-   1. Nested ordered item
-3. One more item 3
+  <video controls preload="none" aria-label="Video player">
+  <source src={url} type="video/mp4" />
+  <track
+        src={captionsUrl}
+        kind="subtitles"
+        srcLang="en"
+        label="English">
+  Your browser does not support the video tag.
+  </video>
+);
+};
+`,
+    },
+    {
+      language: 'Python',
+      code: `import time
+start_time= time.time()
+def fun():
+a=2
+b=3
+c=a+b
+end_time= time.time()
+fun()
+timetaken = end_time - start_time
+print("Your program takes: ", timetaken) # 0.0345`,
+    },
+    {
+      language: 'php',
+      code: `<?php
+$color = "red";
+echo "My car is " . $color . "<br>";
+echo "My house is " . $COLOR . "<br>";
+echo "My boat is " . $coLOR . "<br>";
+?>`,
+}
+]}
+/>
 
-> This is a blockquote.  
-> It supports multiple lines.
->
-> ```js
-> function helloWorld() {
->   console.log('Hello, world!');
-> }
-> ```
+### Customizing the Inbox Experience
 
-</Tab>
+The Inbox with Images template provides a flexible foundation for displaying media-rich notifications. By customizing its appearance, behavior, and functionality, you can tailor the inbox to match your application’s branding and user needs. This section explores styling the inbox, handling user interactions, and ensuring a responsive design for all devices.
 
-<Tab title='Workflows'>
+#### Styling the Inbox Component
+
+You can fully style the inbox to match your app’s visual identity:
+
+- **Colors & Fonts**
+  <br />
+  Customize text, background, and border colors using your brand palette. Use consistent font styles
+  to match the rest of your UI.
+- **Image Thumbnails**
+  <br />
+  Adjust thumbnail sizes, aspect ratios, and placement (e.g., left-aligned, above text, or
+  full-width banners).
+- **Spacing & Layout**
+  <br />
+  Control padding, margin, and item spacing for a clean and readable layout.
+- **Custom CSS or Tailwind Classes**
+  <br />
+  If you're using a framework like React or Vue, you can override styles with custom classes or
+  scoped CSS.
+
+<Blockquote
+  quote="People don’t just ignore bad design — they disengage from it. A thoughtful, human-centered design invites interaction, builds trust, and creates lasting value."
+  role="Novu Design Team"
+  authors={[
+    { name: 'John Joe', photo: '/images/silver-medal.png' },
+    { name: 'Silver Johny', photo: '/images/silver-medal.png' },
+  ]}
+/>
+
+#### Handling User Interactions
+
+Make the inbox interactive and intuitive:
+
+- **Clickable Items**
+  <br />
+  Each notification can have a click handler that navigates users to relevant content (e.g., a product page or update detail).
+- **Action Buttons**
+  <br />
+  Add custom buttons (like "View", "Dismiss", or "Reply") with specific functionality per notification.
+- **Read/Unread States**
+  <br />
+  Visually differentiate read vs unread notifications. Use indicators (like bold text, a dot, or background color) to improve clarity.
+- **Hover & Focus States**
+  <br />
+   Improve accessibility and usability by providing visual feedback when users hover or tab through notifications.
+
+<Picture
+  src="/images/template-cover-4.png"
+  caption="With persistent actions enabled, edge requests are processed earlier in the lifecycle, bypassing both usage metrics and WAF evaluation entirely."
+/>
+
+#### Bonus Tips
+
+1. Dark Mode Support
+2. Animation and Transitions
+3. Empty States
+   1. Design what the inbox looks like when there are no notifications (e.g., an illustration with a message like “You’re all caught up!”).
 
 <InfoBox title="Good to know">
-I'm extra component which allows to render blockquote with title. 
-Consistent styling enhances user trust and engagement in notification systems.
+Consistent styling enhances user trust and engagement in notification systems.” — Novu Design Team
 
 ```js
 const inter = Inter({ subsets: ['latin'] });
@@ -80,31 +180,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 </InfoBox>
 
-Here is **bold text**, _italic text_, and **_bold italic_**.
+## Summary
 
-Inline code: `npm install my-package`
+Customizing the Inbox with Images template goes beyond just visual tweaks — it's about creating a seamless, intuitive, and delightful experience for your users. Whether you're adjusting styles to match your brand, enabling interactive behaviors, or ensuring mobile responsiveness, each enhancement contributes to higher engagement and better communication.
 
-Divider:
-
----
-
-### Links and Images
-
-Here is a [link to Novu](https://novu.co)
-
-<img src="/images/gold-medal.png" alt="My alt" placeholder="blurred" />
-
-</Tab>
-
-<Tab title='Last one'>
-
-### Code block
-
-```javascript
-function helloWorld() {
-  console.log('Hello, world!');
-}
-```
+By thoughtfully tailoring your in-app inbox, you turn simple notifications into a powerful UX tool — one that informs, guides, and connects with your users in a meaningful way.
 
 </Tab>
 </Tabs>

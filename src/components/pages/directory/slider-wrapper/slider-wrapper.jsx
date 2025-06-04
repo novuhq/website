@@ -11,11 +11,12 @@ import './slider.css';
 
 const SliderWrapper = ({ images }) => {
   const sliderRef = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isSliderInitialized, setIsSliderInitialized] = useState(false);
   const [popupIndex, setPopupIndex] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleModalOpen = (index) => {
+    sliderRef.current?.slickGoTo(index);
     setIsPopupOpen(true);
     setPopupIndex(index);
     document.body.style.overflow = 'hidden';
@@ -30,22 +31,17 @@ const SliderWrapper = ({ images }) => {
   const settings = {
     autoplay: false,
     dots: true,
-    speed: 150,
-    cssEase: 'linear',
+    speed: 300,
+    cssEase: 'ease-in-out',
     arrows: false,
     infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
-    draggable: false,
+    draggable: true,
     responsive: [{ breakpoint: 768, settings: { slidesToShow: 1 } }],
-    beforeChange: (_, newIndex) => {
-      if (!isInputFocused()) {
-        setCurrentSlide(newIndex);
-      }
-    },
-    afterChange: (current) => {
-      setCurrentSlide(current);
+    onInit: () => {
+      setIsSliderInitialized(true);
     },
   };
 
@@ -53,28 +49,18 @@ const SliderWrapper = ({ images }) => {
     initialSlide: popupIndex,
     slidesToScroll: 1,
     slidesToShow: 1,
-    centerPadding: '288px',
+    centerPadding: '560px',
     centerMode: true,
     dots: false,
     arrows: false,
     infinite: true,
     variableWidth: false,
-    draggable: true,
+    draggable: false,
     responsive: [
+      { breakpoint: 1920, settings: { centerPadding: '288px' } },
       { breakpoint: 1280, settings: { centerPadding: '64px' } },
       { breakpoint: 768, settings: { centerPadding: '16px' } },
     ],
-  };
-
-  const isInputFocused = () => {
-    const active = document.activeElement;
-    return active && active.type === 'range';
-  };
-
-  const handleScrollChange = (e) => {
-    const value = Math.round(parseFloat(e.target.value));
-    sliderRef.current.slickGoTo(value);
-    setCurrentSlide(value);
   };
 
   useEffect(() => {
@@ -90,14 +76,20 @@ const SliderWrapper = ({ images }) => {
 
   return (
     <>
-      <section className="main-slider relative mt-[54px] lg:mt-[46px] md:mt-[32px]">
-        <div className="wrapper relative z-10">
+      <section className="main-slider relative mt-[54px] min-h-[272px] lg:mt-[46px] md:mt-[32px]">
+        <div
+          className={clsx(
+            'wrapper relative z-10',
+            isSliderInitialized ? 'opacity-100' : 'opacity-0'
+          )}
+        >
           <Slider ref={sliderRef} className={clsx('custom-slick')} {...settings}>
             {images.map((img, i) => (
               <div
                 key={i}
                 tabIndex={0}
-                className="cursor-pointer"
+                className="cursor-pointer rounded-[10px] hover:outline hover:outline-1 hover:outline-gray-10"
+                aria-label={`Open popup with image ${i}`}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     handleModalOpen(i);
@@ -113,19 +105,9 @@ const SliderWrapper = ({ images }) => {
               </div>
             ))}
           </Slider>
-          <div className="slick-scrollbar">
-            <input
-              type="range"
-              min="0"
-              max={images.length - 1}
-              step="0.01"
-              value={currentSlide}
-              onChange={handleScrollChange}
-            />
-          </div>
         </div>
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-directory-slider-gradient"
+          className="pointer-events-none absolute inset-0 z-0 border border-[#1F1E2B] bg-directory-slider-gradient"
           aria-hidden
         />
         <div

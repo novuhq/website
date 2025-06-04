@@ -1,0 +1,5 @@
+@layer utilities {
+  [data-rmiz-modal-overlay='visible'] {
+    @apply !bg-[#00000080];
+  }
+}

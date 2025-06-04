@@ -7,7 +7,7 @@ import Link from 'components/shared/link';
 const IndexCard = ({ title, description, image, slug }) => (
   <li className="group/item relative flex justify-center overflow-hidden" key={title}>
     <Link to={`/directory/${slug}`} className="text-decoration-none z-10 m-px text-inherit">
-      <div className="flex flex-col gap-y-[14px] rounded-xl bg-[#111018] p-[6px] transition-colors duration-200 group-hover/item:bg-[#16151E] md:p-[4px]">
+      <div className="flex h-full flex-col gap-y-[14px] rounded-xl bg-[#111018] p-[6px] transition-colors duration-200 group-hover/item:bg-[#16151E] md:p-[4px]">
         <div className="aspect-[294/168] shrink-0 overflow-hidden rounded-[8px] bg-secondary-3/20 md:aspect-[332/186]">
           {image && <GatsbyImage image={getImage(image)} alt="" className="" />}
         </div>

@@ -3,12 +3,14 @@ import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
 import React, { useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 import Breadcrumb from 'components/pages/directory/breadcrumb';
+import Blockquote from 'components/pages/directory/content/blockquote';
+import ImageZoom from 'components/pages/directory/content/image-zoom';
 import InfoBox from 'components/pages/directory/content/info-box';
+import Picture from 'components/pages/directory/content/picture';
 import Tabs, { Tab } from 'components/pages/directory/content/tabs';
 import CopyCodeBtn from 'components/pages/directory/copy-code-btn';
 import CtaWithForm from 'components/pages/directory/cta-with-form';
@@ -78,33 +80,17 @@ const CodeTabs = ({ codeBlocks }) => {
 };
 
 const mdxComponents = {
-  img: (image) => {
-    const imageData = getGatsbyImageData(image.src, { width: 1408 });
-
-    return <GatsbyImage image={imageData} alt={image.alt} />;
-  },
   h2: (props) => (
-    <h2
-      className="mb-[16px] mt-[32px] text-[32px] font-medium leading-denser tracking-snug"
-      {...props}
-    />
+    <h2 className="mb-4 mt-14 text-[32px] font-medium leading-denser tracking-snug" {...props} />
   ),
   h3: (props) => (
-    <h3
-      className="mb-[16px] mt-[32px] text-[24px] font-medium leading-denser tracking-snug"
-      {...props}
-    />
+    <h3 className="mb-4 mt-14 text-[24px] font-medium leading-denser tracking-snug" {...props} />
   ),
   h4: (props) => (
-    <h4
-      className="mb-[16px] mt-[8px] text-[18px] font-medium leading-denser tracking-snug"
-      {...props}
-    />
+    <h4 className="mb-4 mt-8 text-[18px] font-medium leading-denser tracking-snug" {...props} />
   ),
   h5: (props) => <h5 className="text-[16px] font-medium leading-normal" {...props} />,
-  p: (props) => (
-    <p className="mb-[16px] mt-[16px] text-[16px] leading-normal text-gray-9" {...props} />
-  ),
+  p: (props) => <p className="mb-4 mt-4 text-[16px] leading-normal text-gray-9" {...props} />,
   blockquote: ({ children }) => (
     <blockquote className="sm:text-16 rounded-lg border border-gray-2 p-5 pt-4 text-[16px] not-italic leading-normal text-gray-9 sm:border-l-2 sm:pl-3">
       {children}
@@ -125,7 +111,7 @@ const mdxComponents = {
     return (
       <div className="relative my-4">
         <SyntaxHighlighter
-          className="scrollbar-hidden relative z-10 overflow-y-scroll rounded-lg border border-gray-2 bg-[#000000] p-4 text-sm font-normal [&_code]:!block"
+          className="scrollbar-hidden relative z-10 overflow-y-scroll rounded-lg border border-gray-2 bg-[#000000] px-4 py-5 text-sm font-normal [&_code]:!block"
           language={language}
           useInlineStyles={false}
           showLineNumbers
@@ -143,18 +129,17 @@ const mdxComponents = {
   ),
   ol: (props) => (
     <ol
-      className="mb-[10px] mt-[10px] list-inside list-decimal space-y-2.5 text-[16px] leading-normal text-gray-9"
+      className="mb-2.5 mt-4 list-inside list-decimal space-y-2.5 text-[16px] leading-normal text-gray-9"
       {...props}
     />
   ),
   ul: (props) => (
-    <ul
-      className="mb-[16px] mt-[16px] space-y-2.5 pl-[20px] text-[16px] leading-normal text-gray-9"
-      {...props}
-    />
+    <ul className="mb-4 mt-4 space-y-2.5 pl-5 text-[16px] leading-normal text-gray-9" {...props} />
   ),
   a: (props) => <Link size="base" theme="primary" {...props} />,
+  Picture,
   InfoBox,
+  Blockquote,
   CodeTabs,
   Tabs,
   Tab,
@@ -170,34 +155,36 @@ const DirectoryPostPage = ({ data, children }) => {
 
   return (
     <Layout mainClassName="bg-[#05050B]">
-      <section className="safe-paddings relative mt-[127px] overflow-hidden pb-[127px] lg:mt-[119px] md:mt-[110px] sm:mt-[103px]">
+      <section className="safe-paddings relative mt-[127px] overflow-hidden pb-[127px] lg:mt-[119px] md:mt-[110px] md:pb-[112px] sm:mt-[103px]">
         <header className="container-lg relative grid grid-cols-[1fr_704px_1fr] items-start gap-x-16 lg:grid-cols-[704px_1fr] lg:px-8 md:grid-cols-1 sm:px-5">
           <div className="col-start-2 lg:col-start-1">
             <Breadcrumb title={title} />
-            <h1 className="mt-[16px] text-[48px] font-medium leading-denser tracking-snug md:text-[44px] sm:text-[36px]">
+            <h1 className="mt-4 text-[48px] font-medium leading-denser tracking-snug md:text-[44px] sm:text-[36px]">
               {title}
             </h1>
-            <p className="mt-[16px] text-[18px] font-book leading-normal tracking-snug text-gray-8 sm:mt-[10px]">
+            <p className="mt-4 text-[18px] font-book leading-normal tracking-snug text-gray-8 sm:mt-[10px]">
               {description}
             </p>
           </div>
         </header>
         {isSlider && <SliderWrapper images={images} />}
-        <div className="container-lg relative mt-8 grid grid-cols-[1fr_704px_1fr] items-start gap-x-16 lg:grid-cols-[704px_1fr] lg:px-8 md:grid-cols-1 sm:px-5">
+        <div className="container-lg relative grid grid-cols-[1fr_704px_1fr] items-start gap-x-16 lg:grid-cols-[704px_1fr] lg:px-8 md:grid-cols-1 sm:px-5">
           {!isSlider && (
-            <div className="col-start-2 lg:col-start-1 md:col-span-full">
-              <GatsbyImage
-                image={getImage(images[0])}
-                alt=""
-                className="aspect-video h-full w-full rounded-[10px] object-cover object-center"
-              />
+            <div className="col-start-2 rounded-[10px] hover:outline hover:outline-1 hover:outline-gray-10 lg:col-start-1 md:col-span-full">
+              <ImageZoom image={images[0]}>
+                <GatsbyImage
+                  image={getImage(images[0])}
+                  alt=""
+                  className="aspect-video h-full w-full rounded-[10px] object-cover object-center"
+                />
+              </ImageZoom>
             </div>
           )}
-          <div className="directory col-start-2 mb-6 mt-[48px] lg:col-start-1 md:col-span-full sm:mt-[40px]">
+          <div className="directory col-start-2 mb-6 mt-12 lg:col-start-1 md:col-span-full sm:mt-10">
             <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
           <CtaWithForm
-            className="col-start-2 mt-[64px] lg:col-start-1 md:col-span-full sm:mb-[54px]"
+            className="col-start-2 mt-16 lg:col-start-1 md:col-span-full sm:mb-[54px]"
             title="Try the template"
             code="npx novu-labs@latest echo"
           />
@@ -205,12 +192,12 @@ const DirectoryPostPage = ({ data, children }) => {
             className={clsx(
               'sticky top-20 col-start-3 flex shrink-0 flex-col gap-6 lg:col-start-2 md:col-span-full md:gap-4 sm:gap-[22px]',
               isSlider
-                ? 'row-start-1 row-end-4 mt-[48px] md:flex-row sm:flex-col'
+                ? 'row-start-1 row-end-4 mt-12 md:flex-row sm:flex-col'
                 : 'row-start-1 row-end-4 md:static md:row-start-2 md:mt-12 md:flex-row sm:mt-[34px] sm:flex-col'
             )}
           >
             <div>
-              <h2 className="text-base font-medium leading-denser tracking-snug md:min-w-[160px]">
+              <h2 className="text-base font-medium leading-denser tracking-snug md:min-w-40">
                 Contributors
               </h2>
               <ul className="mt-4 flex flex-col gap-3.5">
@@ -236,7 +223,7 @@ const DirectoryPostPage = ({ data, children }) => {
               <h2 className="text-base font-medium leading-denser tracking-snug">Details</h2>
               <ul className="mt-4 flex flex-col gap-3">
                 <li className="flex items-start gap-2">
-                  <TimerIcon className="mt-px w-3.5" />
+                  <TimerIcon className="mt-px w-3.5 shrink-0" />
                   <span className="text-sm leading-snug tracking-snug text-gray-8">
                     Last updated {getTimeAgo(updatedAt)}
                   </span>

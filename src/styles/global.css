@@ -86,8 +86,12 @@
   }
 
   .directory {
+    ol {
+      @apply pl-5;
+    }
+
     ol ol {
-      @apply pl-6;
+      @apply mt-2.5 pl-6;
     }
 
     ul li {
@@ -106,6 +110,10 @@
 
     ul ul {
       @apply mb-2.5 mt-2.5;
+    }
+
+    .directory-content p:last-child {
+      @apply mb-0;
     }
   }
 }
