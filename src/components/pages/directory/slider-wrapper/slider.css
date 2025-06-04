@@ -21,13 +21,13 @@
   width: calc(100% - 80px);
 
   @media (max-width: 1023px) {
-    max-width: 960px;
-    width: 100%;
-    padding: 28px 32px;
+    padding: 28px 0px;
+    width: calc(100% - 64px);
   }
 
   @media (max-width: 767px) {
     padding: 20px 20px;
+    width: 100%;
   }
 }
 

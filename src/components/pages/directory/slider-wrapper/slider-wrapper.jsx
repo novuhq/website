@@ -55,7 +55,7 @@ const SliderWrapper = ({ images }) => {
     arrows: false,
     infinite: true,
     variableWidth: false,
-    draggable: false,
+    draggable: true,
     responsive: [
       { breakpoint: 1920, settings: { centerPadding: '288px' } },
       { breakpoint: 1280, settings: { centerPadding: '64px' } },

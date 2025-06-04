@@ -192,10 +192,8 @@ const DirectoryPostPage = ({ data, children }) => {
           />
           <aside
             className={clsx(
-              'sticky top-20 col-start-3 flex shrink-0 flex-col gap-[26px] lg:col-start-2 md:col-span-full md:gap-4 sm:gap-[22px]',
-              isSlider
-                ? 'row-start-1 row-end-4 mt-[126px] md:mt-12 md:flex-row sm:flex-col'
-                : 'row-start-1 row-end-4 mt-10 md:static md:row-start-2 md:mt-12 md:flex-row sm:mt-[34px] sm:flex-col'
+              'sticky top-20 col-start-3 row-start-1 row-end-4 flex shrink-0 flex-col gap-[26px] lg:col-start-2 md:col-span-full md:mt-12 md:flex-row md:gap-4 sm:mt-[34px] sm:flex-col sm:gap-[22px]',
+              isSlider ? 'mt-[126px]' : 'mt-10 md:static md:row-start-2'
             )}
           >
             <div>
