@@ -14,6 +14,7 @@ const SliderWrapper = ({ images }) => {
   const [isSliderInitialized, setIsSliderInitialized] = useState(false);
   const [popupIndex, setPopupIndex] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const popupContentRef = useRef(null);
 
   const handleModalOpen = (index) => {
     sliderRef.current?.slickGoTo(index);
@@ -117,8 +118,15 @@ const SliderWrapper = ({ images }) => {
       </section>
 
       {isPopupOpen && (
-        <div className="popup fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#00000080] backdrop-blur-sm">
-          <div className="max-w-full">
+        <div
+          className="popup fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#00000080] backdrop-blur-sm"
+          onClick={(e) => {
+            if (popupContentRef.current && !popupContentRef.current.contains(e.target)) {
+              handleModalClose();
+            }
+          }}
+        >
+          <div className="max-w-full" ref={popupContentRef}>
             <button
               className="absolute right-5 top-5 z-50 p-3"
               type="button"

@@ -16,16 +16,20 @@ const Blockquote = ({ quote, authors, role }) => {
   const names = authorsArray?.filter((author) => !!author).map((author) => author.name || '');
 
   return (
-    <figure className="mb-10 mt-8 border-l border-gray-3 pl-6">
+    <figure className="mb-10 mt-8 border-l border-gray-3 pl-6 sm:pl-4">
       <blockquote className="mt-3.5">
-        <p className="text-pretty text-[28px] font-medium leading-normal tracking-tight md:text-2xl md:leading-normal">
+        <p className="text-pretty text-[28px] font-medium leading-normal tracking-tight md:text-2xl md:leading-normal sm:text-[20px]">
           {quote}
         </p>
       </blockquote>
       {avatars && avatars.length > 0 && (
-        <div className="mt-[16px] flex items-center gap-2">
+        <div className="mt-4 flex items-center gap-2 sm:mt-5">
           {avatars.map((avatar) => (
-            <img src={avatar} alt={avatar} className="size-7 rounded-full border border-gray-8" />
+            <img
+              src={avatar}
+              alt={avatar}
+              className="size-7 rounded-full border-[2px] border-gray-8 sm:hidden"
+            />
           ))}
           {names?.length > 0 && (
             <span className="text-[13px] font-medium leading-tight tracking-tight">
@@ -35,7 +39,7 @@ const Blockquote = ({ quote, authors, role }) => {
           {((authorsArray && authorsArray.length > 0) || role) && (
             <figcaption className="line-clamp-1 text-sm text-gray-7">
               {role && (
-                <span className="inline leading-tight tracking-tight text-gray-7 md:line-clamp-1">
+                <span className="inline leading-normal text-gray-7 md:line-clamp-1">
                   {names?.length > 0 && <span className="mr-2">—</span>}
                   {role}
                 </span>

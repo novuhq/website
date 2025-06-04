@@ -20,6 +20,7 @@ import Button from 'components/shared/button';
 import Layout from 'components/shared/layout';
 import Link from 'components/shared/link';
 import GitHubIcon from 'icons/github.inline.svg';
+import ScaleIcon from 'icons/scale.inline.svg';
 import TimerIcon from 'icons/timer.inline.svg';
 import getTimeAgo from 'utils/get-time-ago';
 import registerLanguages from 'utils/register-syntax-highlighting';
@@ -78,6 +79,13 @@ const CodeTabs = ({ codeBlocks }) => {
     </div>
   );
 };
+
+const DetailItem = ({ icon: Icon, children }) => (
+  <li className="flex items-start gap-2">
+    <Icon className="mt-px w-3.5 shrink-0" />
+    <span className="text-sm leading-snug tracking-snug text-gray-8">{children}</span>
+  </li>
+);
 
 const mdxComponents = {
   h2: ({ children }) => (
@@ -149,7 +157,16 @@ const mdxComponents = {
 
 const DirectoryPostPage = ({ data, children }) => {
   const {
-    frontmatter: { title, description, authors, updatedAt, ghSourceLink, demoLink, images },
+    frontmatter: {
+      title,
+      description,
+      authors,
+      updatedAt,
+      license,
+      ghSourceLink,
+      demoLink,
+      images,
+    },
   } = data.mdx;
 
   const otherPosts = data.otherPosts.nodes;
@@ -172,7 +189,7 @@ const DirectoryPostPage = ({ data, children }) => {
         {isSlider && <SliderWrapper images={images} />}
         <div className="container-lg relative grid grid-cols-[1fr_704px_1fr] items-start gap-x-16 lg:grid-cols-[704px_1fr] lg:px-8 md:grid-cols-1 sm:px-5">
           {!isSlider && (
-            <div className="col-start-2 mt-8 rounded-[10px] hover:outline hover:outline-1 hover:outline-gray-10 lg:col-start-1 md:col-span-full">
+            <div className="col-start-2 mt-8 rounded-[10px] lg:col-start-1 md:col-span-full">
               <ImageZoom image={images[0]}>
                 <GatsbyImage
                   image={getImage(images[0])}
@@ -222,12 +239,8 @@ const DirectoryPostPage = ({ data, children }) => {
             <div>
               <h2 className="text-base font-medium leading-denser tracking-snug">Details</h2>
               <ul className="mt-4 flex flex-col gap-3">
-                <li className="flex items-start gap-2">
-                  <TimerIcon className="mt-px w-3.5 shrink-0" />
-                  <span className="text-sm leading-snug tracking-snug text-gray-8">
-                    Last updated {getTimeAgo(updatedAt)}
-                  </span>
-                </li>
+                <DetailItem icon={TimerIcon}>Last updated {getTimeAgo(updatedAt)}</DetailItem>
+                <DetailItem icon={ScaleIcon}>{license}</DetailItem>
               </ul>
             </div>
             <div className="md:ml-auto sm:ml-0 sm:mt-0.5">
@@ -281,6 +294,7 @@ export const query = graphql`
           }
         }
         updatedAt
+        license
         ghSourceLink
         demoLink
         images {
