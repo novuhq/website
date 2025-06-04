@@ -76,7 +76,7 @@ const SliderWrapper = ({ images }) => {
 
   return (
     <>
-      <section className="main-slider relative mt-[54px] min-h-[272px] lg:mt-[46px] md:mt-[32px]">
+      <section className="main-slider relative mt-[54px] min-h-[272px] lg:mt-[46px] md:mt-8 md:min-h-[256px] sm:min-h-[212px]">
         <div
           className={clsx(
             'wrapper relative z-10',
@@ -100,7 +100,7 @@ const SliderWrapper = ({ images }) => {
                 <GatsbyImage
                   image={getImage(img)}
                   alt=""
-                  className="aspect-video h-full w-full max-w-[384px] rounded-[10px] object-cover sm:max-w-[288px]"
+                  className="aspect-video h-full w-full max-w-[384px] rounded-[10px] object-cover md:max-w-[352px] sm:max-w-[288px]"
                 />
               </div>
             ))}
@@ -111,13 +111,13 @@ const SliderWrapper = ({ images }) => {
           aria-hidden
         />
         <div
-          className="gradient-mask-overlay pointer-events-none absolute inset-0 z-20 sm:hidden"
+          className="gradient-mask-overlay pointer-events-none absolute inset-0 z-20 md:hidden"
           aria-hidden
         />
       </section>
 
       {isPopupOpen && (
-        <div className="popup fixed inset-0 z-[90] flex items-center justify-center overflow-hidden bg-[#00000080] backdrop-blur-sm">
+        <div className="popup fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-[#00000080] backdrop-blur-sm">
           <div className="max-w-full">
             <button
               className="absolute right-5 top-5 z-50 p-3"
@@ -127,17 +127,19 @@ const SliderWrapper = ({ images }) => {
             >
               <CloseIcon className="size-9" />
             </button>
-            <Slider {...popupSliderSettings}>
-              {images.map((img, i) => (
-                <div className="px-16 lg:px-8" key={i}>
-                  <GatsbyImage
-                    image={getImage(img)}
-                    alt=""
-                    className="aspect-video h-full w-full rounded-[12px] object-cover object-center"
-                  />
-                </div>
-              ))}
-            </Slider>
+            <div className="block w-screen">
+              <Slider {...popupSliderSettings}>
+                {images.map((img, i) => (
+                  <div className="px-16 lg:px-8" key={i}>
+                    <GatsbyImage
+                      image={getImage(img)}
+                      alt=""
+                      className="aspect-video h-full w-full rounded-xl object-cover object-center"
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
       )}

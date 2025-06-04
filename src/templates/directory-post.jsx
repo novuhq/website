@@ -80,17 +80,19 @@ const CodeTabs = ({ codeBlocks }) => {
 };
 
 const mdxComponents = {
-  h2: (props) => (
-    <h2 className="mb-4 mt-14 text-[32px] font-medium leading-denser tracking-snug" {...props} />
+  h2: ({ children }) => (
+    <h2 className="mb-4 mt-14 text-[32px] font-medium leading-denser tracking-snug">{children}</h2>
   ),
-  h3: (props) => (
-    <h3 className="mb-4 mt-14 text-[24px] font-medium leading-denser tracking-snug" {...props} />
+  h3: ({ children }) => (
+    <h3 className="mb-4 mt-14 text-[24px] font-medium leading-denser tracking-snug">{children}</h3>
   ),
-  h4: (props) => (
-    <h4 className="mb-4 mt-8 text-[18px] font-medium leading-denser tracking-snug" {...props} />
+  h4: ({ children }) => (
+    <h4 className="mb-4 mt-8 text-[18px] font-medium leading-denser tracking-snug">{children}</h4>
   ),
-  h5: (props) => <h5 className="text-[16px] font-medium leading-normal" {...props} />,
-  p: (props) => <p className="mb-4 mt-4 text-[16px] leading-normal text-gray-9" {...props} />,
+  h5: ({ children }) => <h5 className="text-[16px] font-medium leading-normal">{children}</h5>,
+  p: ({ children }) => (
+    <p className="mb-4 mt-4 text-[16px] leading-normal text-gray-9">{children}</p>
+  ),
   blockquote: ({ children }) => (
     <blockquote className="sm:text-16 rounded-lg border border-gray-2 p-5 pt-4 text-[16px] not-italic leading-normal text-gray-9 sm:border-l-2 sm:pl-3">
       {children}
@@ -170,7 +172,7 @@ const DirectoryPostPage = ({ data, children }) => {
         {isSlider && <SliderWrapper images={images} />}
         <div className="container-lg relative grid grid-cols-[1fr_704px_1fr] items-start gap-x-16 lg:grid-cols-[704px_1fr] lg:px-8 md:grid-cols-1 sm:px-5">
           {!isSlider && (
-            <div className="col-start-2 rounded-[10px] hover:outline hover:outline-1 hover:outline-gray-10 lg:col-start-1 md:col-span-full">
+            <div className="col-start-2 mt-8 rounded-[10px] hover:outline hover:outline-1 hover:outline-gray-10 lg:col-start-1 md:col-span-full">
               <ImageZoom image={images[0]}>
                 <GatsbyImage
                   image={getImage(images[0])}
@@ -190,10 +192,10 @@ const DirectoryPostPage = ({ data, children }) => {
           />
           <aside
             className={clsx(
-              'sticky top-20 col-start-3 flex shrink-0 flex-col gap-6 lg:col-start-2 md:col-span-full md:gap-4 sm:gap-[22px]',
+              'sticky top-20 col-start-3 flex shrink-0 flex-col gap-[26px] lg:col-start-2 md:col-span-full md:gap-4 sm:gap-[22px]',
               isSlider
-                ? 'row-start-1 row-end-4 mt-12 md:flex-row sm:flex-col'
-                : 'row-start-1 row-end-4 md:static md:row-start-2 md:mt-12 md:flex-row sm:mt-[34px] sm:flex-col'
+                ? 'row-start-1 row-end-4 mt-[126px] md:mt-12 md:flex-row sm:flex-col'
+                : 'row-start-1 row-end-4 mt-10 md:static md:row-start-2 md:mt-12 md:flex-row sm:mt-[34px] sm:flex-col'
             )}
           >
             <div>

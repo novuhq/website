@@ -8,7 +8,7 @@ const ImageZoom = ({ image, children }) => {
   const imageUrl = getImage(image);
 
   return (
-    <Zoom classDialog="zoom-modal" zoomImg={{ src: imageUrl }} zoomMargin={164} wrapElement="span">
+    <Zoom classDialog="zoom-modal" zoomImg={{ src: imageUrl }} zoomMargin={16} wrapElement="span">
       {children}
     </Zoom>
   );
