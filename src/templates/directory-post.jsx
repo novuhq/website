@@ -29,7 +29,7 @@ registerLanguages();
 
 const CodeTabs = ({ codeBlocks }) => {
   const [activeTab, setActiveTab] = useState(codeBlocks[0]?.language || 'bash');
-  const activeCode = codeBlocks.find((block) => block.language === activeTab);
+  const activeCode = codeBlocks.find((block) => block.language === activeTab) || codeBlocks[0];
 
   return (
     <div className="my-[20px] overflow-hidden rounded-md border border-gray-2 bg-gray-1 text-white">
