@@ -10,7 +10,8 @@ const CopyCodeBtn = ({ codeText }) => {
 
   const handleCopy = () => {
     if (!isCopied && codeText) {
-      copyToClipboard(codeText, { onCopy: setIsCopied(true) });
+      copyToClipboard(codeText);
+      setIsCopied(true);
     }
   };
 

@@ -3,14 +3,11 @@ import React from 'react';
 import getFormattedAuthorsName from 'utils/get-formatted-author-name';
 
 const Blockquote = ({ quote, authors, role }) => {
-  const authorsArray = authors.length > 0 ? authors : [authors];
+  const authorsArray = Array.isArray(authors) && authors.length > 0 ? authors : [authors];
 
   const avatars = authorsArray
     ?.filter((author) => !!author)
-    .reduce((acc, author) => {
-      if (author.photo) acc.push(author.photo);
-      return acc;
-    }, [])
+    .map((author) => author.photo)
     .filter(Boolean);
 
   const names = authorsArray?.filter((author) => !!author).map((author) => author.name || '');
@@ -24,10 +21,11 @@ const Blockquote = ({ quote, authors, role }) => {
       </blockquote>
       {avatars && avatars.length > 0 && (
         <div className="mt-4 flex items-center gap-2 sm:mt-5">
-          {avatars.map((avatar) => (
+          {avatars.map((avatar, index) => (
             <img
+              key={index}
               src={avatar}
-              alt={avatar}
+              alt=""
               className="size-7 rounded-full border-[2px] border-gray-8 sm:hidden"
             />
           ))}

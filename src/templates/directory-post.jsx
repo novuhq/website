@@ -28,7 +28,7 @@ import registerLanguages from 'utils/register-syntax-highlighting';
 registerLanguages();
 
 const CodeTabs = ({ codeBlocks }) => {
-  const [activeTab, setActiveTab] = useState(codeBlocks[0].language);
+  const [activeTab, setActiveTab] = useState(codeBlocks[0]?.language || 'bash');
   const activeCode = codeBlocks.find((block) => block.language === activeTab);
 
   return (
@@ -170,7 +170,7 @@ const DirectoryPostPage = ({ data, children }) => {
   } = data.mdx;
 
   const otherPosts = data.otherPosts.nodes;
-  const isSlider = images.length > 1;
+  const isSlider = images?.length > 1;
 
   return (
     <Layout mainClassName="bg-[#05050B]">
@@ -188,7 +188,7 @@ const DirectoryPostPage = ({ data, children }) => {
         </header>
         {isSlider && <SliderWrapper images={images} />}
         <div className="container-lg relative grid grid-cols-[1fr_704px_1fr] items-start gap-x-16 lg:grid-cols-[704px_1fr] lg:px-8 md:grid-cols-1 sm:px-5">
-          {!isSlider && (
+          {!isSlider && images?.[0] && (
             <div className="col-start-2 mt-8 rounded-[10px] lg:col-start-1 md:col-span-full">
               <ImageZoom image={images[0]}>
                 <GatsbyImage

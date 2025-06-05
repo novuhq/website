@@ -1,7 +1,14 @@
 const getFormattedAuthorsName = (name) => {
-  const parts = name.split(' ');
+  if (!name || typeof name !== 'string') {
+    return '';
+  }
 
-  if (parts.length > 1) {
+  const parts = name
+    .trim()
+    .split(' ')
+    .filter((part) => part.length > 0);
+
+  if (parts.length > 1 && parts[1].length > 0) {
     parts[1] = `${parts[1][0]}.`;
   }
 

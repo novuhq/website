@@ -18,7 +18,7 @@ const PostsList = ({ posts, className = 'mt-12 lg:mt-[54px] md:mt-10' }) => (
           key={fields.directorySlug}
           title={title}
           description={description}
-          image={images[0]}
+          image={images?.[0]}
           slug={fields.directorySlug}
         />
       );

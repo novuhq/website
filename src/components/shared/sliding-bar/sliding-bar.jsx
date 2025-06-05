@@ -15,6 +15,7 @@ const SlidingBar = ({ allTabs, activeTabIndex, setActiveTabIndex, className }) =
         'relative flex h-9 w-fit items-center rounded-full border border-[#534B5D80] bg-[#100F16] px-1',
         className
       )}
+      role="tablist"
     >
       <div className="relative flex gap-x-[10px]">
         {allTabs.map((tab, index) => (
@@ -27,6 +28,9 @@ const SlidingBar = ({ allTabs, activeTabIndex, setActiveTabIndex, className }) =
                 : 'cursor-pointer text-gray-7 hover:text-white'
             )}
             type="button"
+            role="tab"
+            aria-selected={activeTabIndex === index}
+            aria-controls={`tabpanel-${index}`}
             onClick={() => handleClick(index)}
           >
             {tab.name}

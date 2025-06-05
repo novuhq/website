@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { getImage } from 'gatsby-plugin-image';
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
@@ -37,6 +38,11 @@ const ImageZoom = ({ image, children }) => {
       {children}
     </Zoom>
   );
+};
+
+ImageZoom.propTypes = {
+  image: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default ImageZoom;
