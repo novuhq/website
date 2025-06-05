@@ -1,0 +1,104 @@
+.gradient-mask-overlay {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #05050b 0%,
+    transparent 30%,
+    transparent 70%,
+    #05050b 100%
+  );
+  mask-image: linear-gradient(90deg, #05050b 0%, transparent 30%, transparent 70%, #05050b 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background: black;
+}
+
+.wrapper {
+  padding: 28px 0px;
+  margin: 0px auto;
+  max-width: 896px;
+  width: calc(100% - 80px);
+
+  @media (max-width: 1023px) {
+    padding: 28px 0px;
+    width: calc(100% - 64px);
+  }
+
+  @media (max-width: 767px) {
+    padding: 20px 20px;
+    width: 100%;
+  }
+}
+
+.main-slider {
+  .slick-scrollbar {
+    width: 100%;
+    margin: 12px auto;
+    height: 4px;
+  }
+
+  .slick-slide {
+    padding: 0 12px;
+    cursor: pointer;
+
+    @media (max-width: 767px) {
+      max-width: calc(100% - 40px);
+      padding: 0 10px;
+    }
+  }
+
+  .slick-slide:first-child {
+    padding-left: 0;
+  }
+
+  .slick-slide:last-child {
+    padding-right: 0;
+  }
+
+  .slick-slide img {
+    max-width: 100%;
+  }
+
+  .slick-list {
+    overflow: visible !important;
+  }
+
+  .slick-disabled {
+    cursor: default !important;
+  }
+
+  .slick-track {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slick-dots {
+    @apply -bottom-6 left-1/2 mx-auto !flex max-w-[240px] -translate-x-1/2 justify-center;
+
+    & li {
+      @apply mx-0 flex items-center justify-center;
+
+      & button {
+        @apply flex h-5 w-5 items-center justify-center bg-transparent before:absolute before:left-1/2 before:top-1/2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#534b5d99] before:text-[0px] before:opacity-100 before:focus-visible:outline before:focus-visible:outline-gray-10;
+      }
+
+      &.slick-active button::before {
+        @apply bg-[#ffffff] opacity-80;
+      }
+    }
+  }
+}
+
+.popup {
+  .slick-list {
+    overflow: visible !important;
+  }
+
+  .slick-slide {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slick-center {
+    transform: scale(1.1);
+  }
+}

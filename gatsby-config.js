@@ -22,6 +22,43 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `directory`,
+        path: `${__dirname}/src/data/pages/directory`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `directory-images`,
+        path: `${__dirname}/src/data/pages/directory/images`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              quality: 80,
+            },
+          },
+        ],
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [],
+        },
+        frontmatter: {
+          processImages: true,
+        },
+      },
+    },
+    `gatsby-transformer-remark`,
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     {
