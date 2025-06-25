@@ -1,0 +1,9 @@
+@layer utilities {
+  [data-rmiz-modal-overlay='visible'] {
+    @apply !bg-[#00000080] backdrop-blur-sm;
+  }
+
+  [data-main-image] {
+    @apply !cursor-pointer;
+  }
+}
