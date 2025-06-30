@@ -1,0 +1,135 @@
+---
+title: Project Management
+description: Issue-tracking and project management tool – and provide a blueprint for implementing a notification system that mirrors Linear's functionality.
+authors:
+  - name: Emil Pearce
+    avatar: ./images/authors/bob.png
+images:
+  - ./images/Linear-inbox-1.png
+  - ./images/Linear-inbox-2.png
+  - ./images/Linear-inbox-3.png
+  - ./images/Linear-inbox-4.png
+ghSourceLink: https://github.com/novuhq/directory/tree/main/apps/linear-inbox
+demoLink: https://inbox-directory.netlify.app/linear-inbox/
+updatedAt: '2024-06-20'
+license: 'MIT'
+---
+
+<Tabs>
+<Tab title='Overview'>
+
+Tools like **Linear** serve as central hubs for team collaboration and project tracking. 
+
+While staying updated on tasks, discussions, and progress is crucial, the firehose of notifications can quickly become overwhelming, leading to:
+
+- Information overload and missed critical updates
+- Constant distraction from important work
+- Difficulty distinguishing signal from noise
+
+A naive notification system might blast updates too broadly or lack the necessary granularity. 
+
+**The ideal system should ensure users get the co*rrect* information about their work, at the *right* time, without the noise.**
+
+
+
+## Linear Inbox Template
+
+A customizable Novu inbox component designed for Linear-like project management applications with categorized notifications for issues, teams, projects, and comments.
+
+Tools like **Linear** serve as central hubs for team collaboration and project tracking. 
+
+While staying updated on tasks, discussions, and progress is crucial, the firehose of notifications can quickly become overwhelming, leading to:
+
+- Information overload and missed critical updates
+- Constant distraction from important work
+- Difficulty distinguishing signal from noise
+
+A naive notification system might blast updates too broadly or lack the necessary granularity. 
+
+**The ideal system should ensure users get the correct information about their work, at the right time, without the noise.**
+
+### Directory Structure
+
+```
+apps/linear-inbox/
+├── app/preferences/
+│   ├── desktop/
+│   ├── email/
+│   ├── mobile/
+│   ├── slack/
+│   └── page.tsx
+└── components/notifications/
+    ├── preferences/
+    │   ├── notifications/
+    │   │   ├── NotificationCard.tsx
+    │   │   ├── NotificationChannelLink.tsx
+    │   │   ├── NotificationChannels.tsx
+    │   │   └── NotificationToggle.tsx
+    │   ├── ui/
+    │   │   ├── FormSelect.tsx
+    │   │   └── TimeRangeInput.tsx
+    │   ├── hooks/
+    │   │   └── updatePreferences.ts
+    │   └── layout/
+    │       └── PreferencesLayout.tsx
+    ├── hooks/
+    │   └── novuHooks.ts
+    ├── NovuInbox.tsx
+    ├── inboxHeader.tsx
+    ├── notificationItem.tsx
+    ├── actionIcons.tsx
+    ├── dropDownMenu.tsx
+    ├── statusIcons.tsx
+    └── timeFormater.tsx
+```
+
+</Tab>
+<Tab title='Implementation'>
+
+#### 1. Install the Novu In-App SDK
+
+```bash
+npm install @novu/nextjs
+```
+
+#### 2. Set Your API Credentials
+
+Add your Novu application identifier to your `.env` file. The subscriber ID should be dynamically fetched from your authentication system:
+
+```env
+NOVU_APPLICATION_IDENTIFIER=your_app_id
+```
+
+**Note**: The `subscriberId` should be dynamically retrieved from your authentication system to ensure consistency across your application's databases and services.
+
+#### 3. Configure the main Inbox Component
+
+```javascript
+import { Inbox, InboxContent } from '@novu/nextjs';
+
+export function NovuInbox() {
+  const subscriberId = getCurrentUserId();
+  const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
+  
+  if (!applicationIdentifier || !subscriberId) {
+    return <div>Notifications not configured</div>;
+  }
+
+  const tabs = [
+    { label: 'All', filter: {} },
+    { label: 'Issues', filter: { tags: ['Issues'] } },
+    { label: 'Comments', filter: { tags: ['Comments'] } },
+    { label: 'Teams', filter: { tags: ['Teams'] } },
+    { label: 'Projects', filter: { tags: ['Projects'] } },
+  ];
+
+  return (
+    <Inbox applicationIdentifier={applicationIdentifier} subscriberId={subscriberId}>
+      <InboxContent />
+    </Inbox>
+  );
+}
+```
+
+</Tab>
+</Tabs>
