@@ -1,0 +1,261 @@
+---
+title: Healthcare
+description: Notification system for a healthcare management platform inspired by Amazon's One Medical. A structured blueprint for building an effective notification system that balances urgency, relevance, and signal-to-noise ratio in a complex healthcare environment.
+authors:
+  - name: Emil Pearce
+    avatar: ./images/authors/bob.png
+images:
+  - ./images/Healthcare-app-inbox.png
+  - ./images/Healthcare-app-inbox-page.png
+
+ghSourceLink: https://github.com/novuhq/directory/tree/main/apps/healthcare
+demoLink: https://inbox-directory.netlify.app/healthcare/
+updatedAt: '2024-06-20'
+license: 'MIT'
+---
+
+<Tabs>
+<Tab title='Overview'>
+
+Healthcare platforms like **One Medical** are crucial hubs for communication between patients, doctors, nurses, and administrators.
+
+However, healthcare environments come with unique challenges:
+
+- Critical updates (e.g., emergencies, lab results) must reach the right provider immediately
+- Routine information (e.g., appointment reminders) needs to be delivered without creating alert fatigue
+- Team coordination across locations and departments must be seamless
+- Patient privacy (HIPAA compliance) must be maintained throughout all messaging
+
+A naive notification system risks:
+
+- Delaying urgent care due to slow or noisy alerts
+- Missing legal compliance requirements
+- Overwhelming medical staff with irrelevant updates
+
+**The ideal system should deliver *critical, contextual, and role-appropriate notifications* — in real time — while remaining unobtrusive for non-urgent information.**
+
+## Understanding the Healthcare Service Management Structure
+
+Platforms like **One Medical** organize users, operations, and services around multiple real-world groupings such as clinics, staff, patients, and departments.
+
+Accurately mapping these entities ensures that notifications remain **targeted**, **scalable**, and **reliable** across the platform.
+
+</Tab>
+
+<Tab title='Implementation'>
+
+### Installation
+
+#### 1. Install the Novu In-App SDK
+
+```bash
+npm install @novu/nextjs
+```
+
+#### 2. Set Your API Credentials
+
+Add your Novu application identifier to your `.env` file. The subscriber ID should be dynamically fetched from your authentication system:
+
+```env
+NOVU_APPLICATION_IDENTIFIER=your_app_id
+```
+
+**Note**: The `subscriberId` should be dynamically retrieved from your authentication system to ensure consistency across your application's databases and services.
+
+#### 3. Configure the Inbox Component
+
+<CodeTabs
+  codeBlocks={[
+    {
+      language: 'JavaScript',
+      code: `
+import { Inbox, InboxContent } from '@novu/nextjs';
+
+export function NovuInbox() {
+  // Get subscriber ID from your auth system
+  const subscriberId = getCurrentUserId(); // Replace with your auth logic
+  
+  // Don't render if environment variables are missing
+  if (!applicationIdentifier || !subscriberId) {
+    return (
+      <div className="p-4 text-center text-gray-500">
+        <p>Notifications not configured</p>
+        <p className="text-sm">Please set up Novu environment variables</p>
+      </div>
+    );
+  }
+
+  const tabs = [
+    {
+      label: 'All',
+      filter: {},
+    },
+    {
+      label: 'Messages',
+      filter: { tags: ['Messages'] },
+    },
+    {
+      label: 'Appointments',
+      filter: { tags: ['Appointments'] },
+    },
+    {
+      label: 'Medications',
+      filter: { tags: ['Medications'] },
+    },
+    {
+      label: 'Billing',
+      filter: { tags: ['Billing'] },
+    },
+  ];
+
+  const inboxConfig = {
+    applicationIdentifier,
+    subscriberId,
+    tabs,
+    appearance: {
+      elements: {
+        inboxHeader: {
+          display: 'none',
+        },
+        inbox__popoverTrigger: {
+          display: 'none',
+        },
+      },
+    },
+  };
+
+  return (
+    <>
+      <style jsx global>{\`
+        .nv-notification:has(.nv-notificationDot) {
+          background-color: rgb(240 249 255 / var(--tw-bg-opacity, 1)) !important;
+        }
+      \`}</style>
+      <Inbox {...inboxConfig}>
+        <InboxContent />
+      </Inbox>
+    </>
+  );
+}
+`,
+    }
+  ]}
+/>
+
+### Features
+
+- **Categorized Notifications**: Separate tabs for Messages, Appointments, Medications, and Billing
+- **Custom Styling**: Tailored appearance for healthcare applications
+- **Environment Validation**: Graceful handling of missing configuration
+- **Responsive Design**: Works across all device sizes
+- **Novu Hooks**: Built-in hooks for unread count and notification management
+
+### Novu Hooks Implementation
+
+The template includes custom hooks for managing notification state:
+
+<CodeTabs
+  codeBlocks={[
+    {
+      language: 'JavaScript',
+      code: `
+'use client';
+
+import { Novu } from '@novu/js';
+import React from 'react';
+
+const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
+const subscriberId = process.env.NEXT_PUBLIC_NOVU_SUBSCRIBER_ID;
+
+// Only initialize Novu if environment variables are available
+const novu = applicationIdentifier && subscriberId 
+  ? new Novu({
+      applicationIdentifier,
+      subscriberId,
+    })
+  : null;
+
+export function useUnreadCount() {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    // Don't run if Novu is not initialized
+    if (!novu) {
+      console.warn('Novu not initialized - missing environment variables');
+      return;
+    }
+
+    // Only run in browser environment
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    async function fetchUnreadCount() {
+      try {
+        const result = await novu?.notifications.count({
+          filters: [{ read: false }],
+        });
+        // Sum up all counts from the filters
+        const totalCount = result?.data?.counts?.reduce((sum, item) => sum + item.count, 0) || 0;
+        setCount(totalCount);
+      } catch (error) {
+        console.error('Failed to fetch unread count:', error);
+        setCount(0);
+      }
+    }
+
+    fetchUnreadCount();
+
+    // Set up a polling mechanism to check for updates
+    const intervalId = setInterval(fetchUnreadCount, 5000); // Check every 5 seconds
+
+    // Cleanup interval on unmount
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  return count;
+}
+
+export async function markAllAsRead() {
+  if (!novu) {
+    console.warn('Novu not initialized - cannot mark notifications as read');
+    return;
+  }
+  
+  // Only run in browser environment
+  if (typeof window === 'undefined') {
+    return;
+  }
+  
+  await novu.notifications.readAll({});
+}
+`,
+    }
+  ]}
+/>
+
+**Usage Example:**
+
+```javascript
+import { useUnreadCount, markAllAsRead } from './novu-hooks';
+
+function NotificationBadge() {
+  const unreadCount = useUnreadCount();
+  
+  return (
+    <div>
+      <span>Notifications ({unreadCount})</span>
+      {unreadCount > 0 && (
+        <button onClick={markAllAsRead}>
+          Mark all as read
+        </button>
+      )}
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>

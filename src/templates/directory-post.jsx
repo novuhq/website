@@ -13,7 +13,6 @@ import InfoBox from 'components/pages/directory/content/info-box';
 import Picture from 'components/pages/directory/content/picture';
 import Tabs, { Tab } from 'components/pages/directory/content/tabs';
 import CopyCodeBtn from 'components/pages/directory/copy-code-btn';
-import CtaWithForm from 'components/pages/directory/cta-with-form';
 import RelatedPosts from 'components/pages/directory/related-posts';
 import SliderWrapper from 'components/pages/directory/slider-wrapper';
 import Button from 'components/shared/button';
@@ -202,11 +201,6 @@ const DirectoryPostPage = ({ data, children }) => {
           <div className="directory col-start-2 mb-6 mt-12 lg:col-start-1 md:col-span-full sm:mt-10">
             <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
-          <CtaWithForm
-            className="col-start-2 mt-16 lg:col-start-1 md:col-span-full sm:mb-[54px]"
-            title="Try the template"
-            code="npx novu-labs@latest echo"
-          />
           <aside
             className={clsx(
               'sticky top-20 col-start-3 row-start-1 row-end-4 flex shrink-0 flex-col gap-[26px] lg:col-start-2 md:col-span-full md:mt-12 md:flex-row md:gap-4 sm:mt-[34px] sm:flex-col sm:gap-[22px]',
