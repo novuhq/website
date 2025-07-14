@@ -1,6 +1,6 @@
 ---
 title: Project Management
-description: Issue-tracking and project management tool – and provide a blueprint for implementing a notification system that mirrors Linear's functionality.
+description: Issue-tracking and project management tool - and provide a blueprint for implementing a notification system that mirrors Linear's functionality.
 authors:
   - name: Emil Pearce
     avatar: ./images/authors/bob.png
@@ -18,7 +18,7 @@ license: 'MIT'
 <Tabs>
 <Tab title='Overview'>
 
-Tools like **Linear** serve as central hubs for team collaboration and project tracking. 
+Tools like **Linear** serve as central hubs for team collaboration and project tracking.
 
 While staying updated on tasks, discussions, and progress is crucial, the firehose of notifications can quickly become overwhelming, leading to:
 
@@ -26,17 +26,15 @@ While staying updated on tasks, discussions, and progress is crucial, the fireho
 - Constant distraction from important work
 - Difficulty distinguishing signal from noise
 
-A naive notification system might blast updates too broadly or lack the necessary granularity. 
+A naive notification system might blast updates too broadly or lack the necessary granularity.
 
-**The ideal system should ensure users get the co*rrect* information about their work, at the *right* time, without the noise.**
-
-
+**The ideal system should ensure users get the _correct_ information about their work, at the _right_ time, without the noise.**
 
 ## Linear Inbox Template
 
 A customizable Novu inbox component designed for Linear-like project management applications with categorized notifications for issues, teams, projects, and comments.
 
-Tools like **Linear** serve as central hubs for team collaboration and project tracking. 
+Tools like **Linear** serve as central hubs for team collaboration and project tracking.
 
 While staying updated on tasks, discussions, and progress is crucial, the firehose of notifications can quickly become overwhelming, leading to:
 
@@ -44,7 +42,7 @@ While staying updated on tasks, discussions, and progress is crucial, the fireho
 - Constant distraction from important work
 - Difficulty distinguishing signal from noise
 
-A naive notification system might blast updates too broadly or lack the necessary granularity. 
+A naive notification system might blast updates too broadly or lack the necessary granularity.
 
 **The ideal system should ensure users get the correct information about their work, at the right time, without the noise.**
 
@@ -110,7 +108,7 @@ import { Inbox, InboxContent } from '@novu/nextjs';
 export function NovuInbox() {
   const subscriberId = getCurrentUserId();
   const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
-  
+
   if (!applicationIdentifier || !subscriberId) {
     return <div>Notifications not configured</div>;
   }
