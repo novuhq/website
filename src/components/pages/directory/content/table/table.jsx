@@ -2,8 +2,18 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const cellClassName =
-  'text-sm leading-snug bg-[#05050B] border-r border-b border-gray-2 [&_p]:text-sm [&_p]:my-2 [&_p:first-of-type]:mt-0 [&_ul]:!my-0 [&_ul]:!pl-0 [&_ul>*]:text-sm [&_ul>li]:!mt-1 [&_ul>li:first-of-type]:!mt-0 [&_ul>li]:!pl-4 [&_ul>li:before]:text-sm [&_code]:text-[13px] [&_code]:leading-loose first:sticky first:left-0 first:border-l';
+const cellClassName = clsx(
+  // Base styles
+  'text-sm leading-snug bg-[#05050B] border-r border-b border-gray-2',
+  // Paragraph styles
+  '[&_p]:text-sm [&_p]:my-2 [&_p:first-of-type]:mt-0',
+  // List styles
+  '[&_ul]:!my-0 [&_ul]:!pl-0 [&_ul>*]:text-sm [&_ul>li]:!mt-1 [&_ul>li:first-of-type]:!mt-0 [&_ul>li]:!pl-4 [&_ul>li:before]:text-sm',
+  // Code styles
+  '[&_code]:text-[13px] [&_code]:leading-loose',
+  // Sticky first column
+  'first:sticky first:left-0 first:border-l'
+);
 
 export const TableRow = ({ children }) => children;
 export const TableCell = ({ children }) => children;
@@ -18,9 +28,11 @@ export const TableCols = ({ cols }) => (
 const Table = ({ children }) => {
   const rows = React.Children.toArray(children)
     .filter((child) => child.type === TableRow)
-    .map((row) => React.Children.toArray(row.props.children));
+    .map((row) => React.Children.toArray(row.props?.children || []));
 
   const tableCols = React.Children.toArray(children).find((child) => child.type === TableCols);
+
+  if (rows.length === 0) return null;
 
   return (
     <div className="relative mt-8 max-h-[650px] overflow-auto rounded-lg">
@@ -28,7 +40,7 @@ const Table = ({ children }) => {
         {tableCols}
         <thead>
           <tr className="sticky top-0 z-10">
-            {rows[0].map((item, index) => (
+            {(rows[0] || []).map((item, index) => (
               <th
                 className={clsx(
                   'border-t bg-gray-1 px-4 py-3 text-left font-normal first:rounded-tl-lg last:rounded-tr-lg',
@@ -66,7 +78,7 @@ const Table = ({ children }) => {
 };
 
 Table.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 
 export default Table;
