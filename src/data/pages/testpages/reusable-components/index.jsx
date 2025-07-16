@@ -725,7 +725,6 @@ const CODE_SECTION_RIGHT_SMALL = {
   title: 'CodeSectionNew',
   description:
     'Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users.',
-  button: { label: 'Learn more', link: '/' },
   codeBlockPosition: 'right',
   code: CODE,
 };
@@ -734,6 +733,7 @@ const CODE_SECTION_RIGHT_SMALL_BUTTON = {
   title: 'CodeSectionNew',
   description:
     'Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users.',
+  button: { label: 'Learn more', link: '/' },
   codeBlockPosition: 'right',
   code: CODE,
 };
@@ -751,7 +751,6 @@ const CODE_SECTION_RIGHT_BIG = {
   title: 'CodeSectionNew',
   description:
     'Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users.',
-  button: { label: 'Learn more', link: '/' },
   codeBlockPosition: 'right',
   codeBlockSize: 'lg',
   code: CODE,
@@ -761,6 +760,7 @@ const CODE_SECTION_RIGHT_BIG_BUTTON = {
   title: 'CodeSectionNew',
   description:
     'Redesigned local experience to author configurable workflows tailored to optimize Developer Experience, with a matching interface for non-technical users.',
+  button: { label: 'Learn more', link: '/' },
   codeBlockPosition: 'right',
   codeBlockSize: 'lg',
   code: CODE,
