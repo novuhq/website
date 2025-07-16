@@ -120,7 +120,7 @@ const SECTION_WITH_CARDS = {
     {
       image: (
         <StaticImage
-          src="../../images/placeholder-image.jpg"
+          src="../../../../images/placeholder-image.jpg"
           alt="Placeholder image"
           loading="lazy"
           width={384}
@@ -136,7 +136,7 @@ const SECTION_WITH_CARDS = {
     {
       image: (
         <StaticImage
-          src="../../images/placeholder-image.jpg"
+          src="../../../../images/placeholder-image.jpg"
           alt="Placeholder image"
           loading="lazy"
           width={384}
@@ -152,7 +152,7 @@ const SECTION_WITH_CARDS = {
     {
       image: (
         <StaticImage
-          src="../../images/placeholder-image.jpg"
+          src="../../../../images/placeholder-image.jpg"
           alt="Placeholder image"
           loading="lazy"
           width={384}
