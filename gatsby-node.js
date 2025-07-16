@@ -616,7 +616,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.onPostBuild = require('./gatsby/on-post-build');
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
   actions.setWebpackConfig({
     module: {
       rules: [
@@ -633,6 +633,12 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         },
       ],
     },
+    externals:
+      stage === 'build-html'
+        ? {
+            '@inkeep/widgets': 'commonjs @inkeep/widgets',
+          }
+        : {},
   });
 };
 
