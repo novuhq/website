@@ -284,68 +284,67 @@ export function NovuInbox() {
   // Get subscriber ID from your auth system
   const subscriberId = getCurrentUserId(); // Replace with your auth logic
 
-// Don't render if environment variables are missing
-if (!applicationIdentifier || !subscriberId) {
-return (
+  // Don't render if environment variables are missing
+  if (!applicationIdentifier || !subscriberId) {
+    return (
+      <div className="text-gray-500 p-4 text-center">
+        <p>Notifications not configured</p>
+        <p className="text-sm">Please set up Novu environment variables</p>
+      </div>
+    );
+  }
 
-<div className="text-gray-500 p-4 text-center">
-  <p>Notifications not configured</p>
-  <p className="text-sm">Please set up Novu environment variables</p>
-</div>
-); }
+  const tabs = [
+    {
+      label: 'All',
+      filter: {},
+    },
+    {
+      label: 'Messages',
+      filter: { tags: ['Messages'] },
+    },
+    {
+      label: 'Appointments',
+      filter: { tags: ['Appointments'] },
+    },
+    {
+      label: 'Medications',
+      filter: { tags: ['Medications'] },
+    },
+    {
+      label: 'Billing',
+      filter: { tags: ['Billing'] },
+    },
+  ];
 
-const tabs = [
-{
-label: 'All',
-filter: {},
-},
-{
-label: 'Messages',
-filter: { tags: ['Messages'] },
-},
-{
-label: 'Appointments',
-filter: { tags: ['Appointments'] },
-},
-{
-label: 'Medications',
-filter: { tags: ['Medications'] },
-},
-{
-label: 'Billing',
-filter: { tags: ['Billing'] },
-},
-];
+  const inboxConfig = {
+    applicationIdentifier,
+    subscriberId,
+    tabs,
+    appearance: {
+      elements: {
+        inboxHeader: {
+          display: 'none',
+        },
+        inbox\_\_popoverTrigger: {
+          display: 'none',
+        },
+      },
+    },
+  };
 
-const inboxConfig = {
-applicationIdentifier,
-subscriberId,
-tabs,
-appearance: {
-elements: {
-inboxHeader: {
-display: 'none',
-},
-inbox\_\_popoverTrigger: {
-display: 'none',
-},
-},
-},
-};
-
-return (
-
-<>
-<style jsx global>{\`
-.nv-notification:has(.nv-notificationDot) {
-background-color: rgb(240 249 255 / var(--tw-bg-opacity, 1)) !important;
-}
-\`}</style>
-<Inbox {...inboxConfig}>
-<InboxContent />
-</Inbox>
-</>
-);
+  return (
+    <>
+      <style jsx global>
+        .nv-notification:has(.nv-notificationDot) {
+          background-color: rgb(240 249 255 / var(--tw-bg-opacity, 1)) !important;
+        }
+      </style>
+      <Inbox {...inboxConfig}>
+      <InboxContent />
+      </Inbox>
+    </>
+  );
 }
 `,
 }
@@ -379,21 +378,21 @@ const subscriberId = process.env.NEXT_PUBLIC_NOVU_SUBSCRIBER_ID;
 
 // Only initialize Novu if environment variables are available
 const novu = applicationIdentifier && subscriberId
-? new Novu({
-applicationIdentifier,
-subscriberId,
-})
-: null;
+  ? new Novu({
+      applicationIdentifier,
+      subscriberId,
+    })
+  : null;
 
 export function useUnreadCount() {
   const [count, setCount] = React.useState(0);
 
-React.useEffect(() => {
-// Don't run if Novu is not initialized
-if (!novu) {
-console.warn('Novu not initialized - missing environment variables');
-return;
-}
+  React.useEffect(() => {
+    // Don't run if Novu is not initialized
+    if (!novu) {
+      console.warn('Novu not initialized - missing environment variables');
+      return;
+    }
 
     // Only run in browser environment
     if (typeof window === 'undefined') {
@@ -424,9 +423,9 @@ return;
       clearInterval(intervalId);
     };
 
-}, []);
+  }, []);
 
-return count;
+  return count;
 }
 
 export async function markAllAsRead() {
@@ -435,12 +434,12 @@ export async function markAllAsRead() {
     return;
   }
 
-// Only run in browser environment
-if (typeof window === 'undefined') {
-return;
-}
+  // Only run in browser environment
+  if (typeof window === 'undefined') {
+    return;
+  }
 
-await novu.notifications.readAll({});
+  await novu.notifications.readAll({});
 }
 `,
 }
