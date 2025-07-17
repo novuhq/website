@@ -17,13 +17,17 @@ const cellClassName = clsx(
 
 export const TableRow = ({ children }) => children;
 export const TableCell = ({ children }) => children;
-export const TableCols = ({ cols }) => (
-  <colgroup>
-    {cols.map((width, index) => (
-      <col style={{ minWidth: `${width || 248}px` }} key={index} />
-    ))}
-  </colgroup>
-);
+export const TableCols = ({ cols }) => {
+  const filledCols = Array.from({ length: cols.length }, (_, index) => cols[index] ?? 240);
+
+  return (
+    <colgroup>
+      {filledCols.map((width, index) => (
+        <col style={{ minWidth: `${width}px` }} key={index} />
+      ))}
+    </colgroup>
+  );
+};
 
 const Table = ({ children }) => {
   const rows = React.Children.toArray(children)
