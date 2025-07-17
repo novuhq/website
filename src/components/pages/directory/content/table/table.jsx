@@ -39,7 +39,7 @@ const Table = ({ children }) => {
   if (rows.length === 0) return null;
 
   return (
-    <div className="relative mt-8 max-h-[650px] overflow-auto rounded-lg">
+    <div className="relative my-8 max-h-[650px] overflow-auto rounded-lg">
       <table className="border-separate border-spacing-0">
         {tableCols}
         <thead>
