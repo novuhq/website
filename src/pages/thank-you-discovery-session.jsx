@@ -6,22 +6,15 @@ import SectionWithBigIcons from 'components/shared/reusable-sections/section-wit
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SEO from 'components/shared/seo';
 import Separator from 'components/shared/separator';
-import SECTION_WITH_BIG_ICONS from 'data/pages/thank-you-discovery-session/section-with-big-icons';
-import SECTION_WITH_LOGOS from 'data/pages/thank-you-discovery-session/section-with-logos';
+import DATA from 'data/pages/thank-you';
 
 const ThankYouPage = () => (
   <Layout mainClassName="thank-you-discovery-session overflow-hidden pb-px">
     <Hero />
-    <SectionWithLogos
-      title={SECTION_WITH_LOGOS.title}
-      description={SECTION_WITH_LOGOS.description}
-      logos={SECTION_WITH_LOGOS.logos}
-    />
+    <SectionWithLogos {...DATA.companies} />
     <SectionWithBigIcons
-      title={SECTION_WITH_BIG_ICONS.title}
-      items={SECTION_WITH_BIG_ICONS.items}
+      {...DATA.getInvolved}
       className="mb-40 lg:mb-[120px] md:mb-[100px] sm:mb-20"
-      isCentered
     />
     <Separator backgroundColor="black" />
   </Layout>
