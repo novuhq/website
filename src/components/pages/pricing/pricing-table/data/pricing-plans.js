@@ -251,7 +251,7 @@ const LABELS = [
       stepControl: 'Workflow Step Controls',
       blockEmailEditor: 'Block-based email editor',
       branding: 'Remove Novu branding',
-      translations: 'Auto-translations',
+      translations: 'Translations',
     },
   },
   {
