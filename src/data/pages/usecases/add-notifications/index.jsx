@@ -1,6 +1,54 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import debugging from 'images/pages/usecases/add-notifications/pain-restatement/debugging.svg';
+import innovation from 'images/pages/usecases/add-notifications/pain-restatement/innovation.svg';
+import integration from 'images/pages/usecases/add-notifications/pain-restatement/integration.svg';
+
+const HERO = {
+  title: 'Test in minutes, go to prod before dinner',
+  description:
+    'Ship notifications in your app with production-ready infrastructure and out-of-the-box components.',
+  links: [
+    {
+      text: 'Create free account',
+      url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
+      target: '_blank',
+    },
+    {
+      text: 'Book Meeting',
+      url: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-usecase-addNotification',
+      target: '_blank',
+    },
+  ],
+};
+
+const PAIN_RESTATEMENT = {
+  title: 'DIY Notifications infrastructure is costly',
+  description:
+    'Building a notifications infrastructure to deliver messages gets exponentially more complex with every channel you add.',
+  cards: [
+    {
+      title: 'Challenging integrations',
+      description:
+        'Building notifications in-house requires near-constant effort to scope, build, and maintain... even to just make minor content updates.',
+      image: <img width={80} height={80} src={integration} alt="Create template" loading="lazy" />,
+    },
+    {
+      title: 'Impossible debugging',
+      description:
+        "Understanding why a user did or didn't get a notification is time consuming, and the more channels you must support, the harder debugging becomes",
+      image: <img width={80} height={80} src={debugging} alt="Connect providers" loading="lazy" />,
+    },
+    {
+      title: 'Decreased Innovation',
+      description:
+        "Innovation and velocity are intertwined, and When product teams need the development team's time to make even minor content changes, productivity decreases.",
+      image: <img width={80} height={80} src={innovation} alt="Add trigger" loading="lazy" />,
+    },
+  ],
+};
+
 const BENEFITS = {
   title: 'Never build notifications again',
   description:
@@ -74,4 +122,8 @@ const BENEFITS = {
   ],
 };
 
-export default BENEFITS;
+export default {
+  hero: HERO,
+  painRestatement: PAIN_RESTATEMENT,
+  benefits: BENEFITS,
+};
