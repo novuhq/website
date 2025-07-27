@@ -1,91 +1,816 @@
 ---
 title: Healthcare
-description: Notification system for a healthcare management platform inspired by Amazon's One Medical. A structured blueprint for building an effective notification system that balances urgency, relevance, and signal-to-noise ratio in a complex healthcare environment.
+description: Healthcare application inspired by One Health, catering to a wide range of users, including patients, doctors, and administrators.
+
 authors:
   - name: Emil Pearce
-    avatar: ./images/authors/bob.png
+    avatar: ./images/authors/emil_pearce.jpeg
 images:
-  - ./images/Healthcare-app-inbox.png
-  - ./images/Healthcare-app-inbox-page.png
+  - ./images/healthcare/Healthcare-cover.png
+  - ./images/healthcare/Dashboard-widget.png
+  - ./images/healthcare/notification-page.png
 
-ghSourceLink: https://github.com/novuhq/directory/tree/main/apps/healthcare
-demoLink: https://inbox-directory.netlify.app/healthcare/
-updatedAt: '2024-06-20'
+ghSourceLink: https://github.com/novuhq/directory/tree/main/healthcare
+demoLink: https://healthcare-app1.netlify.app/
+updatedAt: '2025-07-27'
 license: 'MIT'
 ---
 
 <Tabs>
 <Tab title='Overview'>
 
-Healthcare platforms like **One Medical** are crucial hubs for communication between patients, doctors, nurses, and administrators.
+The Healthcare application, inspired by the "One Health" concept, provides a centralized platform for patients, doctors, and administrators to manage healthcare interactions efficiently. 
+Its robust notification system, powered by Novu, ensures timely and relevant communication across all user groups.
 
-However, healthcare environments come with unique challenges:
+## Key Features
 
-- Critical updates (e.g., emergencies, lab results) must reach the right provider immediately
-- Routine information (e.g., appointment reminders) needs to be delivered without creating alert fatigue
-- Team coordination across locations and departments must be seamless
-- Patient privacy (HIPAA compliance) must be maintained throughout all messaging
-
-A naive notification system risks:
-
-- Delaying urgent care due to slow or noisy alerts
-- Missing legal compliance requirements
-- Overwhelming medical staff with irrelevant updates
-
-**The ideal system should deliver *critical, contextual, and role-appropriate notifications* — in real time — while remaining unobtrusive for non-urgent information.**
-
-## Understanding the Healthcare Service Management Structure
-
-Platforms like **One Medical** organize users, operations, and services around multiple real-world groupings such as clinics, staff, patients, and departments.
-
-Accurately mapping these entities ensures that notifications remain **targeted**, **scalable**, and **reliable** across the platform.
+- **Real-time In-App Notifications:** Implements a fully functional in-app inbox, ensuring users receive immediate updates within the platform, built with Shadcn UI components.
+- **Multi-channel Delivery:** Designed to support various notification channels, including in-app, email, and SMS/push notifications, ensuring users receive critical health-related updates via their preferred method.
+- **Flexible Data Modeling:** Utilizes a robust data model that maps healthcare entities (Patients, Doctors, Appointments, Departments, Healthcare Providers) to Novu's notification primitives (Subscribers, Topics), enabling highly contextual and targeted notifications.
+- **Advanced Inbox Functionality:** Showcases features like:
+	- **Filtering and Categorization:** Organize notifications by type (e.g., Messages, Appointments, Medications, Billing).
+	- **Read/Unread Status:** Clearly distinguish new notifications.
+	- **Customizable Inbox Appearance:** Tailored UI elements for a seamless user experience.
+- **Scalable Architecture:** Leverages Novu's topics and subscribers to create a scalable and flexible notification backbone suitable for growing healthcare platforms and varying organizational structures.
+- **Comprehensive Event Examples:** Provides detailed JSON structures for common healthcare events (e.g., appointment.booked, patient.testResultsReady, doctor.patientMessage), serving as a guide for triggering notifications.
+- **Modular and Maintainable Codebase:** Organized into clear components and utility functions, making it easy to understand, extend, and integrate into existing projects.
 
 </Tab>
 
+<Tab title='Data Model'>
+
+The primary entity for the data modeling in this platform would be a `user`.
+
+Each user represents an individual who interacts with the healthcare platform, whether they're providing care, receiving treatment, or managing administrative tasks. Users can perform various actions like scheduling appointments, sending messages, or updating medical records.
+
+In Novu, each user maps to a `subscriber`, and their preferences can drive delivery rules (channel, timing, frequency).
+
+---
+
+## **Subscriber**
+
+A **Subscriber** is an **individual entity** — usually representing a **single user** — that you send notifications to **directly**.
+
+Use a **Subscriber** when:
+
+- The notification is **personalized** to a single user (e.g., a specific doctor, patient, or admin).
+- The user has **individual settings** or **preferences** for receiving notifications.
+- You need to **track or audit** notifications at the **user level**.
+- The user’s relationship to the event is **permanent or uniquely scoped** (e.g., a patient’s own appointment reminder).
+
+**Examples of Subscriber usage:**
+
+- Sending a platform update to a specific doctor (`user_123`).
+- Notifying a patient that their test results are ready (`patient_user_123`).
+- Alerting a healthcare admin about an expiring staff license (`healthProvider_123_admin_userId`).
+
+---
+
+## **Topic**
+
+A **Topic** is a **dynamic grouping** — it represents a **collection of subscribers** based on shared attributes, relationships, or membership.
+
+Use a **Topic** when:
+
+- The notification should be sent to **multiple users at once**.
+- The group **membership can change dynamically** (users can join/leave the group).
+- You want to **decouple notification targeting** from individual user IDs.
+- The event is **relevant to a role, group, department, or interaction**, rather than just one user.
+
+**Examples of Topic usage:**
+
+- Sending a policy update to all staff members of a healthcare provider (`healthProvider_123_staff`).
+- Notifying all cardiology department doctors about new imaging protocols (`healthProvider_123_cardiology`).
+- Reminding all participants linked to an appointment thread (`healthProvider_123_cardiology_a1b2_user_123`).
+
+---
+
+
+<Tabs>
+
+<Tab title='User'>
+
+#### User → Subscriber
+
+Represents any user of the platform, including doctors, nurses, administrators, or patients.
+
+**Platform Representation:** `user_123`
+
+**Novu Concept:** Subscriber (`user_123`)
+
+**Notifiable Events:** 
+
+- Platform updates
+- System announcements.
+
+**Example Scenario:**
+
+A doctor receives a notification about a scheduled platform maintenance window that may affect access to patient records.
+
+</Tab>
+
+<Tab title='Patient'>
+
+#### Patient → Subscriber
+
+Represents the primary end users who receive healthcare services.
+
+**Platform Representation:** `patient_user_123`
+
+**Novu Concept:** Subscriber (`patient_user_123`)
+
+**Notifiable Events:** 
+
+- Appointments, checkups
+- Messages
+- Prescriptions
+- Billing notifications.
+
+**Example Scenario:**
+
+A patient gets a reminder about their upcoming annual checkup, with an option to confirm or reschedule.
+
+</Tab>
+
+<Tab title='Healthcare Provider'>
+
+#### Healthcare Provider → Subscriber
+
+It represents the organizational entity, such as a clinic or hospital, and groups staff under one structure.
+
+**Platform Representation:** `healthProvider_123`
+
+**Novu Concept:** Subscriber (`healthProvider_123_user_123`)
+
+**Notifiable Event Examples:** 
+
+- Organization-wide updates
+- Appointment schedules
+- Medical reports
+- Feedback requests
+
+**Example Scenario:**
+
+A clinic administrator is notified when a patient's diagnostic report is finalized and ready for review by the clinic.
+
+</Tab>
+
+<Tab title='Staff'>
+
+#### Healthcare Provider Staff Group → Topic /  Subsciber
+
+Groups all staff members belonging to a specific healthcare provider.
+
+**Platform Representation:** `healthProvider_123_staff`
+
+**Novu Concept:**
+
+- Topic (Dynamic): `healthProvider_123_staff`
+- Subscriber (Permanent): `healthProvider_123_staff_userId`
+
+**Notifiable Events:** 
+
+- Staff-wide announcements
+- Internal policy changes
+
+**Example Scenario:**
+
+All clinic staff members receive a policy update regarding new health record-keeping standards.
+
+</Tab>
+
+<Tab title='Role'>
+
+Group staff members by specific role within the healthcare provider (e.g., doctors, nurses, admins).
+
+**Platform Representation:** `healthProvider_123_{role}`
+
+**Novu Concept:**
+
+- Topic (Dynamic): `healthProvider_123_{role}`
+- Subscriber (Permanent): `healthProvider_123_{role}_userId`
+    
+    **Notifiable Events:** Role-specific updates, role-based assignments.
+    
+
+**Example Scenario:**
+
+All nurses are notified about a new patient triage process that needs to be implemented starting next week.
+
+</Tab>
+
+<Tab title='Appointment'>
+
+#### Appointment → Topic
+
+Represents a scheduled healthcare interaction between a patient and healthcare staff. Multiple participants (family doctor, specialist, department head) may subscribe to the same appointment thread.
+
+**Platform Representation Structure:** `{healthProviderId}_{department}_{appointmentId}_{userId}`
+
+**Example:** `healthProvider_123_cardiology_a1b2_user_123`
+
+**Novu Concept:** Topic (`healthProvider_123_cardiology_a1b2_user_123`)
+
+**Notifiable Events:** Appointment reminders, preparation instructions, post-appointment follow-up.
+
+**Example Scenario:**
+
+The patient, their primary doctor, and a cardiology specialist receive a reminder two days before the scheduled consultation.
+
+</Tab>
+
+<Tab title='Message'>
+
+#### Message → Topic
+
+Represents a conversation thread between multiple participants (staff-to-staff, staff-to-patient, or across healthcare providers).
+
+**Platform Representation Structure:** `{msgId}_{memberId1}_{memberId2}`
+
+**Example:** `msg_a1b2_patient_user_123_healthProvider_123_staff_userId`
+
+**Novu Concept:** Topic (`msg_a1b2_patient_user_123_healthProvider_123_staff_userId`)
+
+**Notifiable Events:** New message notifications, reply alerts, thread updates.
+
+**Example Scenario:**
+
+A patient sends a follow-up question to their doctor via the app’s messaging system, and the doctor receives a notification about the new message.
+
+</Tab>
+
+<Tab title='Department'>
+
+Represents an internal group of staff members within a specific specialty or department of the healthcare provider (e.g., cardiology, pediatrics).
+
+**Platform Representation:** `healthProvider_123_{department}`
+
+**Novu Concept:** Topic (`healthProvider_123_{department}`)
+
+**Notifiable Events:** Department updates, internal coordination messages.
+
+**Example Scenario:**
+
+The cardiology department receives an internal alert about a new imaging protocol that must be used for all cardiac assessments starting next month.
+
+</Tab>
+
+</Tabs>
+
+</Tab>
+
+<Tab title='Payload Structure'>
+
+A well-defined notification payload serves several key purposes:
+
+- Cross-channel Delivery: Enables the same payload to power notifications for in-app display, email, SMS, and even third-party integrations like secure messaging platforms or hospital information systems.
+- Template Flexibility: Ensures that templates for various notification channels can dynamically render rich and meaningful content.
+- User Experience: Guarantees that users receive contextual, actionable notifications that allow them to quickly understand and respond to healthcare events.
+
+### Core Payload Properties
+
+Every notification event in the Healthcare app should ideally include these four essential properties:
+
+#### `event` - Event Identifier
+
+	- Purpose: A stable, unique identifier used for grouping notification templates and routing logic.
+	- Best practices:
+		- Use kebab-case naming (e.g., appointment-booked, test-results-ready).
+		- Keep names descriptive but concise.
+		- Maintain consistency across your application.
+
+#### `recipientId` - Target Recipients
+
+	- Purpose: Specifies who should receive the notification.
+	- Formats supported:
+		- Individual user ID (e.g., a patient, doctor, or admin)
+		- Topic-based (e.g., all staff in a department, all participants in an appointment)
+		- Multiple recipients: Array of recipient objects.
+    
+#### `data` - Notification Context
+
+	- Purpose: Contains all the contextual information needed to render meaningful notifications across channels.
+	- Should include:
+		- Primary entity details (ID, type, status).
+		- Actor information (who performed the action, if applicable).
+		- Action metadata (what happened, when).
+		- Relevant relationships (e.g., associated patient, doctor, department, or facility).
+		- Additional context specific to the event (e.g., appointment time, test result summary, message content).
+    
+#### `cta` - Call-to-Action
+
+	- Purpose: Provides the deep-link action that users can take directly from the notification.
+
+### Complete Example
+
+Here's a comprehensive example of an appointment.reminder notification, demonstrating the ideal payload structure:
+
+```javascript
+
+	await novu.trigger("appointment.reminder", {
+	  to: [{ subscriberId: "patient_user_123" }], 
+	  payload: {
+	    // Primary entity information (Appointment)
+	    id: "appt_67890",
+	    type: "Annual Checkup",
+	    dateTime: "2025-08-01T10:00:00Z",
+	    location: "Main Clinic, Room 301",
+	
+	    // Action context
+	    action: "reminder",
+	    eventTime: "2025-07-30T10:00:00Z", 
+	
+	    // Associated parties
+	    patient: {
+	      id: "patient_user_123",
+	      name: "Alice Smith",
+	    },
+	    doctor: {
+	      id: "doctor_user_456",
+	      name: "Dr. Emily White",
+	      specialty: "General Practice",
+	    },
+	    department: {
+	      id: "healthProvider_123_general_med",
+	      name: "General Medicine",
+	    },
+	
+	    // Additional metadata
+	    reminderTime: "2 days before",
+	    status: "scheduled",
+	
+	    // User action
+	    cta: {
+	      label: "Confirm Appointment",
+	      url: "/app/appointments/appt_67890/confirm",
+	    },
+	  },
+	});
+```
+
+### Channel-Specific Considerations
+
+**In-App Notifications**
+
+- Leverage `patient.name`, `doctor.name`, `department.name` for personalized display.
+- Use `dateTime` and `eventTime` for clear temporal context.
+- Utilize `cta.url` for seamless navigation within the app.
+
+**Email Notifications**
+
+- `title`, `type`, and contextual data (e.g., `doctor.name`, `location`) for informative subject lines and email body.
+- `cta.url` for prominent clickable actions in the email.
+
+**SMS Notifications**
+
+- Focus on critical information due to character limits (e.g., `type`, `dateTime`, `location`, `cta.url`).
+- Prioritize `cta.url` for quick access to app features.
+
+**Push Notifications**
+
+- Concise title and body (e.g., 'Reminder: Your Annual Checkup is Tomorrow at 10 AM').
+- `cta.url` to directly open the relevant section of the app.
+
+### Common Patterns
+
+#### Patient-Specific Alerts
+
+```json
+	{
+	  "event": "patient.testResultsReady",
+	  "data": {
+	    "testType": "Blood Work",
+	    "resultSummary": "Results are available for review.",
+	    "performedBy": { "id": "lab_tech_789", "name": "LabCorp" },
+	    "patient": { "id": "patient_user_123", "name": "Alice Smith" },
+	    "cta": {
+	      "label": "View Results",
+	      "url": "/app/patient/patient_user_123/results/test_abc"
+	    }
+	  }
+	}
+```
+
+#### Staff-to-Staff or Internal Alerts
+
+```json
+	{
+	  "event": "internal.newPatientAdmission",
+	  "data": {
+	    "patientName": "Bob Johnson",
+	    "admissionTime": "2025-07-27T14:30:00Z",
+	    "ward": "Emergency",
+	    "admittingDoctor": { "id": "doctor_user_101", "name": "Dr. Sarah Lee" },
+	    "cta": {
+	      "label": "View Patient Details",
+	      "url": "/app/admin/patient/bob_johnson_admission"
+	    }
+	  }
+	}
+```
+
+#### General Announcements (e.g., Facility Updates)
+
+```json
+	{
+	  "event": "facility.maintenanceAlert",
+	  "data": {
+	    "title": "Scheduled System Maintenance",
+	    "description": "The patient portal will be unavailable from 2 AM to 4 AM GMT+3 on 2025-08-05 for routine maintenance.",
+	    "impactedServices": ["Patient Portal", "Online Scheduling"],
+	    "maintenanceWindow": { "start": "2025-08-05T02:00:00Z", "end": "2025-08-05T04:00:00Z" },
+	    "cta": {
+	      "label": "View Schedule",
+	      "url": "/app/admin/announcements/maintenance_aug5"
+	    }
+	  }
+	}
+```
+
+This structured approach ensures your healthcare notifications are informative, actionable, and consistently delivered across all channels, improving communication and user engagement within the platform.
+
+</Tab>
+
+<Tab title='Event Examples'>
+
+Here are common event examples for a healthcare application, demonstrating how they would be structured and triggered within Novu.
+Each example includes the event type, a `recipientId` (or `to` array for topics), `data` payload with relevant contextual information, and a `cta` (Call-to-Action) for direct interaction.
+
+---
+
+#### `patient.appointmentBooked`
+
+A new appointment has been successfully booked.
+Notifies: Patient, Doctor (if new appointment)
+
+```json
+	{
+	  "event": "patient.appointmentBooked",
+	  "recipientId": "patient_user_123",
+	  "payload": {
+	    "appointmentId": "appt_A1B2C3",
+	    "appointmentType": "Annual Checkup",
+	    "appointmentDateTime": "2025-08-15T10:00:00Z",
+	    "doctorName": "Dr. Sarah Lee",
+	    "clinicLocation": "Main Clinic, Room 301",
+	    "patientName": "Alice Smith",
+	    "cta": {
+	      "label": "View Appointment",
+	      "url": "/app/appointments/appt_A1B2C3"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `patient.appointmentReminder`
+
+A reminder for an upcoming appointment.
+Notifies: Patient, and possibly related staff via topic
+
+```json
+	{
+	  "event": "patient.appointmentReminder",
+	  "to": [{ "subscriberId": "patient_user_123" }],
+	  "payload": {
+	    "appointmentId": "appt_A1B2C3",
+	    "appointmentType": "Annual Checkup",
+	    "appointmentDateTime": "2025-08-15T10:00:00Z",
+	    "doctorName": "Dr. Sarah Lee",
+	    "clinicLocation": "Main Clinic, Room 301",
+	    "reminderTime": "24 hours before",
+	    "cta": {
+	      "label": "Reschedule or Confirm",
+	      "url": "/app/appointments/appt_A1B2C3/manage"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `patient.testResultsReady`
+
+Patient's lab or diagnostic test results are available.
+Notifies: Patient
+
+```json
+	{
+	  "event": "patient.testResultsReady",
+	  "recipientId": "patient_user_123",
+	  "payload": {
+	    "testId": "test_XYZ789",
+	    "testName": "Blood Panel",
+	    "resultDate": "2025-07-26T14:00:00Z",
+	    "summary": "Your blood test results are ready for review.",
+	    "cta": {
+	      "label": "View Results",
+	      "url": "/app/patient/results/test_XYZ789"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `patient.messageReceived`
+
+A new message has been received in the patient's inbox (from doctor/admin).
+Notifies: Patient
+
+```json
+	{
+	  "event": "patient.messageReceived",
+	  "recipientId": "patient_user_123",
+	  "payload": {
+	    "messageId": "msg_D4E5F6",
+	    "senderName": "Dr. Mark Johnson",
+	    "messageSnippet": "Your prescription for allergies is ready for pickup...",
+	    "cta": {
+	      "label": "View Message",
+	      "url": "/app/messages/msg_D4E5F6"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `doctor.newAppointment`
+
+A doctor has a new appointment scheduled with one of their patients.
+Notifies: Doctor
+
+```json
+	{
+	  "event": "doctor.newAppointment",
+	  "recipientId": "doctor_user_456",
+	  "payload": {
+	    "appointmentId": "appt_A1B2C3",
+	    "appointmentType": "Annual Checkup",
+	    "appointmentDateTime": "2025-08-15T10:00:00Z",
+	    "patientName": "Alice Smith",
+	    "patientId": "patient_user_123",
+	    "clinicLocation": "Main Clinic, Room 301",
+	    "cta": {
+	      "label": "View Patient Chart",
+	      "url": "/app/doctor/patient/patient_user_123/chart"
+	    }
+	  }
+	}
+``` 
+
+---
+
+#### `doctor.patientMessage`
+
+A patient has sent a new message to the doctor.
+Notifies: Doctor
+
+```json
+	{
+	  "event": "doctor.patientMessage",
+	  "recipientId": "doctor_user_456",
+	  "payload": {
+	    "messageId": "msg_G7H8I9",
+	    "patientName": "Bob Johnson",
+	    "patientId": "patient_user_789",
+	    "messageSnippet": "I'm experiencing some side effects from my new medication...",
+	    "cta": {
+	      "label": "Reply to Patient",
+	      "url": "/app/doctor/messages/msg_G7H8I9"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `admin.staffLicenseExpiring`
+
+An administrator needs to be notified about an expiring staff license.
+Notifies: Healthcare Admin
+
+```json
+	{
+	  "event": "admin.staffLicenseExpiring",
+	  "recipientId": "healthProvider_123_admin_userId",
+	  "payload": {
+	    "staffId": "staff_J1K2L3",
+	    "staffName": "Nurse Carol",
+	    "licenseType": "RN License",
+	    "expiryDate": "2025-09-30",
+	    "daysUntilExpiry": 60,
+	    "cta": {
+	      "label": "Manage Licenses",
+	      "url": "/app/admin/staff/licenses/staff_J1K2L3"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `staff.policyUpdate`
+
+An update to internal policy for all staff members of a healthcare provider.
+Notifies: Healthcare Provider Staff Group (Topic)
+
+```json
+	{
+	  "event": "staff.policyUpdate",
+	  "to": [{ "type": "Topic", "topicKey": "healthProvider_123_staff" }],
+	  "payload": {
+	    "policyTitle": "New Data Privacy Policy (HIPAA Compliance)",
+	    "policyId": "policy_M1N2O3",
+	    "updateDate": "2025-07-27",
+	    "cta": {
+	      "label": "Review Policy",
+	      "url": "/app/staff/policies/policy_M1N2O3"
+	    }
+	  }
+	}
+```
+
+---
+
+#### `department.newImagingProtocol`
+
+A new imaging protocol needs to be implemented by a specific department.
+Notifies: Department (Topic)
+
+```json   
+	{
+	  "event": "department.newImagingProtocol",
+	  "to": [{ "type": "Topic", "topicKey": "healthProvider_123_cardiology" }],
+	  "payload": {
+	    "protocolName": "Advanced Cardiac MRI Protocol",
+	    "protocolId": "protocol_P1Q2R3",
+	    "implementationDate": "2025-08-10",
+	    "responsibleDepartment": "Cardiology",
+	    "cta": {
+	      "label": "View Protocol Details",
+	      "url": "/app/department/cardiology/protocols/protocol_P1Q2R3"
+	    }
+	  }
+	}
+```
+
+</Tab>
+
+
 <Tab title='Implementation'>
 
-### Installation
+## 📁 Directory Structure
 
-#### 1. Install the Novu In-App SDK
-
-```bash
-npm install @novu/nextjs
+```
+healthcare/
+├── app/
+│   ├── appointments/page.tsx     # Appointments page
+│   ├── components/               # Page-specific components
+│   │   ├── AppointmentsCard.tsx
+│   │   ├── HealthMetricsCard.tsx
+│   │   ├── MedicationsCard.tsx
+│   │   ├── NotificationsCard.tsx
+│   │   ├── NovuInitializer.tsx
+│   │   ├── PreventiveCareCard.tsx
+│   │   ├── QuickActions.tsx
+│   │   ├── RecentMedicalRecordsCard.tsx
+│   │   └── WelcomeHeader.tsx
+│   ├── messages/                 # Messages functionality
+│   │   ├── page.tsx
+│   │   └── loading.tsx
+│   ├── notifications/            # Notification system
+│   │   ├── components/
+│   │   │   ├── NotificationHeader.tsx
+│   │   │   └── NovuInbox.tsx
+│   │   ├── hooks/
+│   │   │   ├── novuHooks.ts
+│   │   │   └── useNovuSubscriber.ts
+│   │   ├── preferences/
+│   │   │   ├── components/NovuPreferences.tsx
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   └── page.tsx
+│   ├── globals.css                  # Global styles
+│   ├── layout.tsx                   # Root layout
+│   ├── loading.tsx                  # Global loading UI
+│   └── page.tsx                     # Home page
+├── components/                   # Shared/reusable components
+│   ├── appointment-card.tsx
+│   ├── clinic-map.tsx
+│   ├── dashboard-content.tsx
+│   ├── dashboard-inbox.tsx
+│   ├── health-metrics-chart.tsx
+│   ├── message-preview.tsx
+│   ├── NovuInitializer.tsx
+│   ├── patient-dashboard-layout.tsx
+│   ├── patient-sidebar-navigation.tsx
+│   ├── theme-provider.tsx
+│   ├── shared/
+│   │   └── Breadcrumb.tsx
+│   └── ui/                          # UI component library
+│       ├── accordion.tsx
+│       ├── alert-dialog.tsx
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── input.tsx
+│       └── [20+ more UI components]
+├── hooks/                        # Custom React hooks
+│   ├── use-mobile.tsx
+│   └── use-toast.ts
+├── lib/                          # Utility libraries
+│   ├── novuUtils.ts                 # Novu-specific utilities
+│   ├── subscriberUtils.ts           # Subscriber management
+│   └── utils.ts                     # General utilities
+├── public/                       # Static assets
+│   ├── _redirects                   # Netlify redirects
+│   ├── placeholder-logo.png
+│   ├── placeholder-logo.svg
+│   ├── placeholder-user.jpg
+│   ├── placeholder.jpg
+│   └── placeholder.svg
+├── styles/                       # Stylesheets
+│   └── globals.css
+└── Configuration Files
+    ├── package.json                 # Dependencies & scripts
+    ├── next.config.mjs              # Next.js configuration
+    ├── tailwind.config.ts           # Tailwind CSS config
+    ├── tsconfig.json                # TypeScript config
+    ├── components.json              # shadcn/ui config
+    ├── netlify.toml                 # Deployment config
+    ├── DEPLOYMENT.md                # Deployment guide
+    ├── env.example                  # Environment variables template
+    └── README.md                    # Project documentation
 ```
 
-#### 2. Set Your API Credentials
+### Installation Dependencies
 
-Add your Novu application identifier to your `.env` file. The subscriber ID should be dynamically fetched from your authentication system:
+The required Novu packages are already included in `package.json`:
 
-```env
-NOVU_APPLICATION_IDENTIFIER=your_app_id
+```json
+{
+  "@novu/api": "^1.4.0",
+  "@novu/js": "^3.7.0",
+  "@novu/nextjs": "^3.7.0"
+}
 ```
 
-**Note**: The `subscriberId` should be dynamically retrieved from your authentication system to ensure consistency across your application's databases and services.
+### **NovuInbox** 
 
-#### 3. Configure the Inbox Component
+`/app/notifications/components/NovuInbox.tsx`
 
-<CodeTabs
-  codeBlocks={[
-    {
-      language: 'JavaScript',
-      code: `
+**Purpose**: Renders the main notification inbox interface.
+
+```javascript
+'use client';
+
 import { Inbox, InboxContent } from '@novu/nextjs';
+import { useNovuSubscriber } from '../hooks/useNovuSubscriber';
 
-export function NovuInbox() {
-  // Get subscriber ID from your auth system
-  const subscriberId = getCurrentUserId(); // Replace with your auth logic
-  
-  // Don't render if environment variables are missing
-  if (!applicationIdentifier || !subscriberId) {
+const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
+
+interface NovuInboxProps {
+  showTabs?: boolean;
+  width?: string;
+  height?: string;
+}
+
+export function NovuInbox({ showTabs = true, width = '100%', height = '100%' }: NovuInboxProps) {
+  const { subscriberId, isLoading, hasSubscriber } = useNovuSubscriber();
+
+  // Show loading state while subscriber ID is being determined
+  if (isLoading) {
     return (
       <div className="p-4 text-center text-gray-500">
-        <p>Notifications not configured</p>
-        <p className="text-sm">Please set up Novu environment variables</p>
+        <p>Loading notifications...</p>
       </div>
     );
   }
 
-  const tabs = [
+  // Show message if no subscriber ID is available
+  if (!hasSubscriber) {
+    return (
+      <div className="p-4 text-center text-gray-500">
+        <p>No subscriber ID available</p>
+        <p className="text-sm">Please refresh the page to initialize notifications</p>
+      </div>
+    );
+  }
+
+  // Show message if no application identifier is available
+  if (!applicationIdentifier) {
+    return (
+      <div className="p-4 text-center text-gray-500">
+        <p>Novu application not configured</p>
+        <p className="text-sm">Please check your environment variables</p>
+      </div>
+    );
+  }
+
+  const tabs = showTabs ? [
     {
       label: 'All',
       filter: {},
@@ -106,97 +831,272 @@ export function NovuInbox() {
       label: 'Billing',
       filter: { tags: ['Billing'] },
     },
-  ];
+  ] : undefined;
 
   const inboxConfig = {
     applicationIdentifier,
-    subscriberId,
-    tabs,
+    subscriberId: subscriberId!,
+    ...(tabs && { tabs }),
     appearance: {
       elements: {
+        inboxContent: {
+          width,
+          height,
+        },
         inboxHeader: {
           display: 'none',
         },
-        inbox__popoverTrigger: {
-          display: 'none',
+        notificationPrimaryAction__button: {
+          backgroundColor: '#000000',
+          color: '#ffffff',
+          padding: '8px 16px',
+          border: '1px solid #000000',
+          borderRadius: '6px',
+          fontWeight: '500',
+        },
+        notificationSecondaryAction__button: {
+          backgroundColor: '#ffffff',
+          color: '#000000',
+          padding: '8px 16px',
+          border: '1px solid #000000',
+          borderRadius: '6px',
+          fontWeight: '500',
         },
       },
     },
   };
 
   return (
-    <>
-      <style jsx global>{\`
-        .nv-notification:has(.nv-notificationDot) {
-          background-color: rgb(240 249 255 / var(--tw-bg-opacity, 1)) !important;
-        }
-      \`}</style>
-      <Inbox {...inboxConfig}>
-        <InboxContent />
-      </Inbox>
-    </>
+    <Inbox {...inboxConfig}>
+      <InboxContent />
+    </Inbox>
   );
 }
-`,
+```
+
+<Picture src="/images/healthcare/notification-page.png" alt="main notification page" />
+
+### **NotificationHeader** 
+
+`/app/notifications/components/NotificationHeader.tsx`
+
+**Purpose**: Renders the header for a notification.
+
+```javascript
+import Link from 'next/link';
+import { Settings, CheckCircle2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
+import { useState } from 'react';
+import { markAllAsRead } from '../hooks/novuHooks';
+type NotificationHeaderVariant = 'default' | 'preferences';
+
+interface NotificationHeaderProps {
+  variant?: NotificationHeaderVariant;
+  onMarkAllAsRead?: () => void;
+}
+
+export function NotificationsHeader({
+  variant = 'default',
+  onMarkAllAsRead,
+}: NotificationHeaderProps) {
+  const [isMarkingAsRead, setIsMarkingAsRead] = useState(false);
+
+  const handleMarkAllAsRead = async () => {
+    setIsMarkingAsRead(true);
+    try {
+      await markAllAsRead();
+      // TODO: Implement the actual API call to mark notifications as read
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulated API call
+      onMarkAllAsRead?.();
+    } finally {
+      setIsMarkingAsRead(false);
     }
-  ]}
-/>
+  };
 
-### Features
+  const getTitle = () => {
+    switch (variant) {
+      case 'preferences':
+        return 'Notification Preferences';
+      default:
+        return 'Notifications';
+    }
+  };
 
-- **Categorized Notifications**: Separate tabs for Messages, Appointments, Medications, and Billing
-- **Custom Styling**: Tailored appearance for healthcare applications
-- **Environment Validation**: Graceful handling of missing configuration
-- **Responsive Design**: Works across all device sizes
-- **Novu Hooks**: Built-in hooks for unread count and notification management
+  const getDescription = () => {
+    switch (variant) {
+      case 'preferences':
+        return 'Customize how and when you receive notifications';
+      default:
+        return 'View your notifications';
+    }
+  };
 
-### Novu Hooks Implementation
+  return (
+    <div className="flex flex-col md:flex-row justify-between items-start gap-4 w-full min-w-[60vw] mx-auto">
+      <div className="flex-1">
+        <h1 className="text-3xl font-bold tracking-tight">{getTitle()}</h1>
+        <p className="text-muted-foreground">{getDescription()}</p>
+      </div>
+      <div className="flex flex-wrap gap-4">
+        <TooltipProvider>
+          <div className="flex gap-4">
+            {variant === 'default' && (
+              <>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link href="/notifications/preferences">
+                      <Button
+                        variant="outline"
+                        aria-label="Notification preferences"
+                        className="px-4"
+                      >
+                        <Settings className="mr-2 h-4 w-4" />
+                        Preferences
+                      </Button>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Manage your notification preferences</p>
+                  </TooltipContent>
+                </Tooltip>
 
-The template includes custom hooks for managing notification state:
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button
+                      disabled={isMarkingAsRead}
+                      aria-label="Mark all notifications as read"
+                      className="px-4"
+                    >
+                      <CheckCircle2 className="mr-2 h-4 w-4" />
+                      {isMarkingAsRead ? 'Marking...' : 'Mark all as read'}
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Mark all notifications as read?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This will mark all your unread notifications as read. This action cannot be
+                        undone.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction onClick={handleMarkAllAsRead}>Confirm</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </>
+            )}
+          </div>
+        </TooltipProvider>
+      </div>
+    </div>
+  );
+}
+```
 
-<CodeTabs
-  codeBlocks={[
-    {
-      language: 'JavaScript',
-      code: `
+### NotificationCard 
+
+`/app/components/NotificationCard.tsx`
+
+```javascript
+'use client';
+
+import Link from 'next/link';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { ChevronRight } from 'lucide-react';
+import { NovuInbox } from '@/app/notifications/components/NovuInbox';
+
+export function NotificationsCard({ unreadCount }: { unreadCount: number }) {
+  return (
+    <Card className="ring-2 ring-sky-500 ring-offset-2 h-[480px]">
+      <CardHeader className="pb-3 flex flex-row items-center justify-between">
+        <div className="flex items-center gap-2">
+          <CardTitle className="text-lg font-semibold">Notifications</CardTitle>
+          {unreadCount > 0 && (
+            <Badge className="bg-red-100 text-red-700 hover:bg-red-200">{unreadCount} new</Badge>
+          )}
+        </div>
+        <Link href="/notifications">
+          <Button variant="ghost" size="sm" className="text-sky-600 h-8 px-2 -mr-2">
+            View all
+            <ChevronRight className="ml-1 h-4 w-4" />
+          </Button>
+        </Link>
+      </CardHeader>
+      <NovuInbox showTabs={false} height="410px" />
+    </Card>
+  );
+}
+```
+
+<Picture src="/images/healthcare/Dashboard-widget.png" alt="notification card" />
+
+
+## NovuHooks 
+
+`/app/hooks/novuHooks.ts`
+
+```javascript
 'use client';
 
 import { Novu } from '@novu/js';
 import React from 'react';
 
-const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
-const subscriberId = process.env.NEXT_PUBLIC_NOVU_SUBSCRIBER_ID;
+const getSubscriberIdFromStorage = (): string | null => {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem('healthcare-subscriber-id');
+};
 
-// Only initialize Novu if environment variables are available
-const novu = applicationIdentifier && subscriberId 
-  ? new Novu({
-      applicationIdentifier,
-      subscriberId,
-    })
-  : null;
+const createNovuInstance = (subscriberId?: string) => {
+  const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
+  const actualSubscriberId = subscriberId || getSubscriberIdFromStorage();
+
+  if (!actualSubscriberId || !applicationIdentifier) {
+    return null;
+  }
+
+  return new Novu({
+    subscriberId: actualSubscriberId,
+    applicationIdentifier: applicationIdentifier,
+  });
+};
 
 export function useUnreadCount() {
   const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
-    // Don't run if Novu is not initialized
-    if (!novu) {
-      console.warn('Novu not initialized - missing environment variables');
+    if (typeof window === 'undefined') {
       return;
     }
 
-    // Only run in browser environment
-    if (typeof window === 'undefined') {
+    const novuInstance = createNovuInstance();
+
+    if (!novuInstance) {
       return;
     }
 
     async function fetchUnreadCount() {
       try {
-        const result = await novu?.notifications.count({
+        if (!novuInstance) return;
+        const result = await novuInstance.notifications.count({
           filters: [{ read: false }],
         });
-        // Sum up all counts from the filters
-        const totalCount = result?.data?.counts?.reduce((sum, item) => sum + item.count, 0) || 0;
+        const totalCount = result?.data?.counts?.reduce((sum: number, item: { count: number }) => sum + item.count, 0) || 0;
         setCount(totalCount);
       } catch (error) {
         console.error('Failed to fetch unread count:', error);
@@ -206,10 +1106,8 @@ export function useUnreadCount() {
 
     fetchUnreadCount();
 
-    // Set up a polling mechanism to check for updates
-    const intervalId = setInterval(fetchUnreadCount, 5000); // Check every 5 seconds
+    const intervalId = setInterval(fetchUnreadCount, 5000);
 
-    // Cleanup interval on unmount
     return () => {
       clearInterval(intervalId);
     };
@@ -218,44 +1116,21 @@ export function useUnreadCount() {
   return count;
 }
 
-export async function markAllAsRead() {
-  if (!novu) {
-    console.warn('Novu not initialized - cannot mark notifications as read');
+export async function markAllAsRead(subscriberId?: string) {
+  const novuInstance = createNovuInstance(subscriberId);
+
+  if (!novuInstance) {
     return;
   }
-  
-  // Only run in browser environment
+
   if (typeof window === 'undefined') {
     return;
   }
-  
-  await novu.notifications.readAll({});
-}
-`,
-    }
-  ]}
-/>
 
-**Usage Example:**
-
-```javascript
-import { useUnreadCount, markAllAsRead } from './novu-hooks';
-
-function NotificationBadge() {
-  const unreadCount = useUnreadCount();
-  
-  return (
-    <div>
-      <span>Notifications ({unreadCount})</span>
-      {unreadCount > 0 && (
-        <button onClick={markAllAsRead}>
-          Mark all as read
-        </button>
-      )}
-    </div>
-  );
+  await novuInstance.notifications.readAll({});
 }
 ```
 
 </Tab>
 </Tabs>
+
