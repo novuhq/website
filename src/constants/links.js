@@ -14,6 +14,9 @@ export default {
   contributors: {
     to: '/contributors',
   },
+  directory: {
+    to: '/directory',
+  },
   termsOfUse: {
     to: '/terms',
   },
