@@ -92,16 +92,22 @@ Sent to topic subscribers or to assigned user
 Notify all participants when a comment is added or the status changes.
 
 ```jsx
-await novu.trigger('new-comment', {
-  to: [{ type: 'Topic', topicKey: 'issue-ENG-123' }],
+await novu.trigger(
+  'new-comment', {
+  to: [
+    { type: 'Topic', topicKey: 'issue-ENG-123' }
+    ],
   payload: {
-    issueId: 'ENG-123',
-    commentText: 'Just pushed a fix!',
-    commenterName: 'Alice Chen',
-    // Additional payload properties would go here
-  },
-  actor: {
-    subscriberId: 'workspace_A2B2C3_user_123'
+    id: 'ENG-123',
+    comment: 'Just pushed a fix!',
+    commenter: {
+      id: 'user_123',
+      name: 'Alice Chen',
+      avatar: 'https://cdn.myapp.com/avatars/alice.jpg'
+    },
+    actor: {
+      subscriberId: 'workspace_A2B2C3_user_123'
+    }
   }
 });
 ```
@@ -169,8 +175,19 @@ Can be used for a more stable `topicKey`: `team_b18ckas91` instead of relying on
 
 ```jsx
 await novu.trigger('team-cycle-started', {
-  to: [{ type: 'Topic', topicKey: 'team-engineering' }],
-  payload: { teamName: 'Engineering', cycleId: 'cycle-123' }
+  to: [
+    { type: 'Topic', topicKey: 'team-engineering' }
+    ],
+  payload: {
+    id: 'cycle-123',
+    title: 'Engineering Sprint 123',
+    dateTime: '2025-07-27T10:00:00Z',
+    team: {
+      id: 'team_b18ckas91',
+      name: 'Engineering',
+      avatar: 'https://cdn.myapp.com/avatars/engineering.jpg'
+    }
+  }
 });
 ```
 
@@ -447,39 +464,51 @@ Your notification payload serves multiple purposes:
 
 Every notification event should include these four essential properties:
 
-- `event` - Event Identifier
-**Purpose**: A stable, unique identifier used for grouping notification templates and routing logic.
+#### `name` - Workflow Name / Identifier (required)
+
+Usually corresponds to the event that is being triggered. It is a stable, unique identifier used for grouping notification templates and routing logic.
+
+```json
+"name": "workflow_identifier"
+```
 
 **Best practices**:
 - Use kebab-case naming (e.g., `issue-updated`, `user-mentioned`)
 - Keep names descriptive but concise
 - Maintain consistency across your application
 
-- `recipientId` - Target Recipients
-**Purpose**: Specifies who should receive the notification.
+---
+
+#### `to` - Target Recipients
+
+Specifies who should receive the notification.
 
 **Formats supported**:
 - Individual user ID: `{ subscriberId: "user-123" }`
 - Topic-based: `{ type: "Topic", topicKey: "issue-ENG-158" }`
 - Multiple recipients: Array of recipient objects
 
-- `data` - Notification Context
-**Purpose**: Contains all the contextual information needed to render meaningful notifications across channels.
+---
 
-**Should include**:
+#### `payload` - Notification Context (required)
+
+Contains all the contextual information needed to render meaningful notifications across channels.
+
+**Could include**:
 - Primary entity details (ID, title, description)
 - Actor information (who performed the action)
 - Action metadata (what happened, when)
 - Relevant relationships (team, project, etc.)
-
-- `cta` - Call-to-Action
-**Purpose**: Provides the deep-link action that users can take from the notification.
+- Call-to-Action (CTA)
 
 **Structure**:
-```js
-cta: {
-  label: "View issue",        // User-facing action text
-  url: "/path/to/resource"    // Deep-link to relevant page
+
+```json
+"payload": {
+  "cta": {
+    "label": "View issue",        // User-facing action text
+    "url": "/path/to/resource"    // Deep-link to relevant page
+  }
 }
 ```
 
@@ -488,97 +517,54 @@ cta: {
 Here's a comprehensive example of an issue update notification:
 
 ```js
-await novu.trigger("issue-updated", {
-  to: [{ type: "Topic", topicKey: "issue-ENG-158" }],
-  payload: {
-    // Primary entity information
-    id: "ef42a753-1234-5678-9abc-def123456789",
-    identifier: "ENG-158",
-    title: "Data inconsistency",
-    
-    // Action context
-    action: "assigned",
-    eventTime: "2025-02-14T06:25:02.806Z",
-    
-    // Actor details
-    performedBy: {
+await novu.trigger(
+  "issue-updated", // Workflow Name / Identifier
+  {
+    to: [
+      { type: "Topic", topicKey: "issue-ENG-158" } // Target Recipients
+      ],
+    payload: { // Notification Context
+      id: "ef42a753-1234-5678-9abc-def123456789",
+      identifier: "ENG-158",
+      title: "Data inconsistency",
+      action: "assigned",
+      eventTime: "2025-02-14T06:25:02.806Z",
+      performedBy: {
       id: "09fff126-1234-5678-9abc-def123456789",
       name: "Jane Developer",
       avatar: "https://cdn.myapp.com/avatars/jane.jpg"
-    },
-    
-    // Organizational context
-    team: {
-      key: "ENG",
-      name: "Engineering",
-      icon: "Gears",
-      color: "#5e6ad2"
-    },
-    
-    // Additional metadata
-    priority: 3,
-    
-    // User action
-    cta: {
+      team: {
+        key: "ENG",
+        name: "Engineering",
+        icon: "Gears",
+        color: "#5e6ad2"
+      },
+      priority: 3,
+      cta: {
       label: "View issue",
       url: "/demo/issue/ENG-158/data-inconsistency"
+      }
     }
   }
 });
 ```
 
-## Channel-Specific Considerations
+### Channel-Specific Considerations
 
-### In-App Notifications
+#### In-App Notifications
 - Use `performedBy.avatar` for user profile images
 - `team.color` and `team.icon` for visual branding
 - `eventTime` for timestamp display
 
-### Email Notifications
+#### Email Notifications
 - `performedBy.name` for personalized messaging
 - `title` and contextual data for email subject lines
 - `cta.url` for clickable actions
 
-### Slack/Teams Integration
+#### Slack/Teams Integration
 - `team.name` for channel routing
 - Rich context data for message formatting
 - `cta.label` and `cta.url` for action buttons
-
-## Common Patterns
-
-### User Actions
-```js
-// For actions like comments, assignments, mentions
-{
-  action: "commented",
-      performedBy: { id: "user-123", name: "Actor Name" },
-    target: { id: "target-123", name: "Target Name" },
-  eventTime: "2025-02-14T06:25:02.806Z"
-}
-```
-
-### System Events
-```js
-// For automated events like deadlines, status changes
-{
-  action: "deadline_approaching",
-  source: "system",
-  triggerCondition: "due_in_24_hours",
-  eventTime: "2025-02-14T06:25:02.806Z"
-}
-```
-
-### Status Changes
-```js
-// For workflow updates, state transitions
-{
-  action: "status_changed",
-  from: "in_progress",
-  to: "completed",
-      performedBy: { id: "user-123", name: "Actor Name" },
-  eventTime: "2025-02-14T06:25:02.806Z"
-}
-```
 
 This structured approach ensures your notifications are informative, actionable, and consistently delivered across all channels.
 
@@ -588,14 +574,17 @@ This structured approach ensures your notifications are informative, actionable,
 
 ### Event Examples
 
-#### issue.created
+#### issue-created
 A new issue was created (notifies assignee or subscribers)
 
 ```json
 {
-  "event": "issue.created",
-  "recipientId": "user-id",
-  "data": {
+  "name": "issue-created",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-225"
+  }],
+  "payload": {
     "id": "issue-id",
     "identifier": "ENG-225",
     "title": "Website assets need updating",
@@ -607,168 +596,222 @@ A new issue was created (notifies assignee or subscribers)
       "icon": "Gears"
     },
     "priority": 0,
-    "creatorId": "user-id",
-    "createdAt": "ISODate",
-    "path": "/demo/issue/ENG-225/website-assets-need-updating"
-  },
-  "cta": {
-    "action": "View issue",
-    "url": "/demo/issue/ENG-225/website-assets-need-updating"
+    "cta": {
+      "label": "View issue",
+      "url": "/demo/issue/ENG-225/website-assets-need-updating"
+    }
   }
 }
 ```
 
-#### issue.assigned
+#### issue-assigned
 You've been assigned a new issue
 
 ```json
 {
-  "event": "issue.assigned",
-  "recipientId": "new-assignee-id",
-  "data": {
+  "name": "issue-assigned",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-158"
+  }],
+  "payload": {
     "id": "issue-id",
     "identifier": "ENG-158",
     "title": "Data inconsistency",
-    "assignedBy": "creatorId",
+    "assignedBy": {
+      "id": "user-id",
+      "name": "John Doe",
+      "avatar": "https://cdn.myapp.com/avatars/john.jpg"
+    },
     "team": {
+      "id": "team-id",
       "key": "ENG",
-      "name": "Engineering"
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
     },
     "priority": 3,
-    "path": "/demo/issue/ENG-158/data-inconsistency"
-  },
-  "cta": {
-    "action": "Start working",
-    "url": "/demo/issue/ENG-158/data-inconsistency"
+    "cta": {
+      "label": "Start working",
+      "url": "/demo/issue/ENG-158/data-inconsistency"
+    }
   }
 }
 ```
 
-#### issue.statusChanged
+#### issue-status-changed
 An issue you're watching changed status (e.g., to "In Progress")
 
 ```json
 {
-  "event": "issue.statusChanged",
-  "recipientId": "subscriber-id-or-assignee-id",
-  "data": {
+  "name": "issue-status-changed",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-168"
+  }],
+  "payload": {
     "id": "issue-id",
     "identifier": "ENG-168",
     "title": "Can't export report from dashboard home",
     "oldStateId": "backlog-id",
     "newStateId": "in-progress-id",
     "stateLabel": "In Progress",
-    "path": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
-  },
-  "cta": {
-    "action": "See update",
-    "url": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "See update",
+      "url": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
+    }
   }
 }
 ```
 
-#### issue.commented
+#### issue-commented
 Someone left a comment on an issue you're involved in
 
 ```json
 {
-  "event": "issue.commented",
-  "recipientId": "subscriber-id-or-assignee-id",
-  "data": {
+  "name": "issue-commented",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-158"
+  }],
+  "payload": {
     "id": "issue-id",
     "identifier": "ENG-158",
     "title": "Data inconsistency",
-    "commentAuthorId": "user-id",
+    "commentAuthor": {
+      "id": "user-id",
+      "name": "John Doe",
+      "avatar": "https://cdn.myapp.com/avatars/john.jpg"
+    },
+    "priority": 0,
     "commentExcerpt": "Can you clarify what data set is inconsistent?",
-    "path": "/demo/issue/ENG-158/data-inconsistency"
-  },
-  "cta": {
-    "action": "Reply to comment",
-    "url": "/demo/issue/ENG-158/data-inconsistency#comments"
+    "cta": {
+      "label": "Reply to comment",
+      "url": "/demo/issue/ENG-158/data-inconsistency#comments"
+    }
   }
 }
 ```
-#### issue.labelAdded
+#### issue-label-added
 A label was added (e.g., "urgent", "bug")
 
 ```json
 {
-  "event": "issue.labelAdded",
-  "recipientId": "subscriber-id-or-assignee-id",
-  "data": {
+  "name": "issue-label-added",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-158"
+  }],
+  "payload": {
+    "id": "issue-id",
     "identifier": "ENG-158",
     "title": "Data inconsistency",
     "label": {
       "id": "8f0b3326-91da-4c9a-ba3b-160467a0141f",
       "name": "Urgent"
     },
-    "path": "/demo/issue/ENG-158/data-inconsistency"
-  },
-  "cta": {
-    "action": "View issue",
-    "url": "/demo/issue/ENG-158/data-inconsistency"
+    "cta": {
+      "label": "View issue",
+      "url": "/demo/issue/ENG-158/data-inconsistency"
+    }
   }
 }
 ```
 
-#### issue.closed
+#### issue-closed
 The issue was marked as complete or canceled
 
 ```json
 {
-  "event": "issue.closed",
-  "recipientId": "creatorId-or-subscriber",
-  "data": {
+  "name": "issue-closed",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-168"
+  }],
+  "payload": {
+    "id": "issue-id",
     "identifier": "ENG-168",
     "title": "Can't export report from dashboard home",
-    "closedBy": "assignee-id",
-    "closedAt": "ISODate",
-    "path": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
-  },
-  "cta": {
-    "action": "See final state",
-    "url": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
+    "priority": 0,
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "See final state",
+      "url": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
+    }
   }
 }
 ```
 
-#### issue.reopened
+#### issue-reopened
 Reopened from a closed state
 
 ```json
 {
-  "event": "issue.reopened",
-  "recipientId": "assigneeId",
-  "data": {
+  "name": "issue-reopened",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "issue-ENG-158"
+  }],
+  "payload": {
+    "id": "issue-id",
     "identifier": "ENG-158",
     "title": "Data inconsistency",
-    "reopenedBy": "user-id",
-    "path": "/demo/issue/ENG-158/data-inconsistency"
-  },
-  "cta": {
-    "action": "Resume work",
-    "url": "/demo/issue/ENG-158/data-inconsistency"
+    "reopenedBy": {
+      "id": "user-id",
+      "name": "John Doe",
+      "avatar": "https://cdn.myapp.com/avatars/john.jpg"
+    },
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "Resume work",
+      "url": "/demo/issue/ENG-158/data-inconsistency"
+    }
   }
 }
 ```
 
-#### project.updateReminder
+#### project-update-reminder
 Weekly project reminder sent to team
 
 ```json
 {
-  "event": "project.updateReminder",
-  "recipientId": "team-member-id",
-  "data": {
-    "projectId": "5d241600-202d-4e52-96e3-f8e3455f448c",
+  "name": "project-updateReminder",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "project-5d241600-202d-4e52-96e3-f8e3455f448c"
+  }],
+  "payload": {
+    "id": "5d241600-202d-4e52-96e3-f8e3455f448c",
     "projectName": "P2P App",
     "targetDate": "2025-06-30",
     "frequency": "weekly",
-    "path": "/demo/project/p2p-app-e830b278d2bf/overview"
-  },
-  "cta": {
-    "action": "Update status",
-    "url": "/demo/project/p2p-app-e830b278d2bf/overview"
+    "priority": 0,
+    "cta": {
+      "label": "Update status",
+      "url": "/demo/project/p2p-app-e830b278d2bf/overview"
+    }
   }
 }
 ```

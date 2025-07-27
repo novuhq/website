@@ -267,39 +267,66 @@ A well-defined notification payload serves several key purposes:
 - Template Flexibility: Ensures that templates for various notification channels can dynamically render rich and meaningful content.
 - User Experience: Guarantees that users receive contextual, actionable notifications that allow them to quickly understand and respond to healthcare events.
 
-### Core Payload Properties
+#### `name` - Workflow Name / Identifier (required)
 
-Every notification event in the Healthcare app should ideally include these four essential properties:
+Usually corresponds to the event that is being triggered. It is a stable, unique identifier used for grouping notification templates and routing logic.
 
-#### `event` - Event Identifier
+```json
+"name": "workflow_identifier"
+```
 
-	- Purpose: A stable, unique identifier used for grouping notification templates and routing logic.
-	- Best practices:
-		- Use kebab-case naming (e.g., appointment-booked, test-results-ready).
-		- Keep names descriptive but concise.
-		- Maintain consistency across your application.
+**Best practices**:
+- Use kebab-case naming (e.g., `issue-updated`, `user-mentioned`)
+- Keep names descriptive but concise
+- Maintain consistency across your application
 
-#### `recipientId` - Target Recipients
+---
 
-	- Purpose: Specifies who should receive the notification.
-	- Formats supported:
-		- Individual user ID (e.g., a patient, doctor, or admin)
-		- Topic-based (e.g., all staff in a department, all participants in an appointment)
-		- Multiple recipients: Array of recipient objects.
-    
-#### `data` - Notification Context
+#### `to` - Target Recipients
 
-	- Purpose: Contains all the contextual information needed to render meaningful notifications across channels.
-	- Should include:
-		- Primary entity details (ID, type, status).
-		- Actor information (who performed the action, if applicable).
-		- Action metadata (what happened, when).
-		- Relevant relationships (e.g., associated patient, doctor, department, or facility).
-		- Additional context specific to the event (e.g., appointment time, test result summary, message content).
-    
-#### `cta` - Call-to-Action
+Specifies who should receive the notification.
 
-	- Purpose: Provides the deep-link action that users can take directly from the notification.
+**Formats supported**:
+- Individual user ID: `{ subscriberId: "user-123" }`
+- Topic-based: `{ type: "Topic", topicKey: "issue-ENG-158" }`
+- Multiple recipients: Array of recipient objects
+
+---
+
+#### `payload` - Notification Context (required)
+
+Contains all the contextual information needed to render meaningful notifications across channels.
+
+**Could include**:
+- Primary entity details (ID, title, description)
+- Actor information (who performed the action)
+- Action metadata (what happened, when)
+- Relevant relationships (team, project, etc.)
+- Call-to-Action (CTA)
+
+**Structure**:
+
+```json
+"payload": {
+  "id": "appt_67890",
+  "type": "Annual Checkup",
+  "dateTime": "2025-08-01T10:00:00Z",
+  "location": "Main Clinic, Room 301",
+  "doctor": {
+    "id": "doctor_user_456",
+    "name": "Dr. Emily White",
+    "specialty": "General Practice",
+  },
+  "patient": {
+    "id": "patient_user_123",
+    "name": "Alice Smith",
+  },
+  "cta": {
+    "label": "View appointment",
+    "url": "/app/appointments/appt_67890"
+  }
+}
+```
 
 ### Complete Example
 
@@ -307,45 +334,39 @@ Here's a comprehensive example of an appointment.reminder notification, demonstr
 
 ```javascript
 
-	await novu.trigger("appointment.reminder", {
-	  to: [{ subscriberId: "patient_user_123" }], 
-	  payload: {
-	    // Primary entity information (Appointment)
-	    id: "appt_67890",
-	    type: "Annual Checkup",
-	    dateTime: "2025-08-01T10:00:00Z",
-	    location: "Main Clinic, Room 301",
-	
-	    // Action context
-	    action: "reminder",
-	    eventTime: "2025-07-30T10:00:00Z", 
-	
-	    // Associated parties
-	    patient: {
-	      id: "patient_user_123",
-	      name: "Alice Smith",
-	    },
-	    doctor: {
-	      id: "doctor_user_456",
-	      name: "Dr. Emily White",
-	      specialty: "General Practice",
-	    },
-	    department: {
-	      id: "healthProvider_123_general_med",
-	      name: "General Medicine",
-	    },
-	
-	    // Additional metadata
-	    reminderTime: "2 days before",
-	    status: "scheduled",
-	
-	    // User action
-	    cta: {
-	      label: "Confirm Appointment",
-	      url: "/app/appointments/appt_67890/confirm",
-	    },
-	  },
-	});
+	await novu.trigger("appointment-reminder", {
+  to: [{ 
+    type: "Topic",
+    topicKey: "appointment-appt_67890" 
+  }], 
+  payload: {
+    id: "appt_67890",
+    type: "Annual Checkup",
+    dateTime: "2025-08-01T10:00:00Z",
+    location: "Main Clinic, Room 301",
+    action: "reminder",
+    eventTime: "2025-07-30T10:00:00Z", 
+    patient: {
+      id: "patient_user_123",
+      name: "Alice Smith",
+    },
+    doctor: {
+      id: "doctor_user_456",
+      name: "Dr. Emily White",
+      specialty: "General Practice",
+    },
+    department: {
+      id: "healthProvider_123_general_med",
+      name: "General Medicine",
+    },
+    reminderTime: "2 days before",
+    status: "scheduled",
+    cta: {
+      label: "Confirm Appointment",
+      url: "/app/appointments/appt_67890/confirm",
+    },
+  },
+});
 ```
 
 ### Channel-Specific Considerations
@@ -373,16 +394,31 @@ Here's a comprehensive example of an appointment.reminder notification, demonstr
 
 ### Common Patterns
 
-#### Patient-Specific Alerts
+#### patient-test-results-ready
 
 ```json
 	{
-	  "event": "patient.testResultsReady",
-	  "data": {
-	    "testType": "Blood Work",
-	    "resultSummary": "Results are available for review.",
-	    "performedBy": { "id": "lab_tech_789", "name": "LabCorp" },
-	    "patient": { "id": "patient_user_123", "name": "Alice Smith" },
+	  "name": "patient-test-results-ready",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "patient-test-results-ready"
+	  }],
+	  "payload": {
+      "id": "test_XYZ789",
+	    "type": "Blood Panel",
+	    "dateTime": "2025-07-26T14:00:00Z",
+	    "summary": "Your blood test results are ready for review.",
+	    "performedBy": { 
+        "id": "doctor_user_456", 
+        "name": "Dr. Sarah Lee",
+        "specialty": "General Practice",
+        "avatar": "https://cdn.myapp.com/avatars/sarah.jpg"
+      },
+	    "patient": { 
+        "id": "patient_user_123", 
+        "name": "Alice Smith",
+        "avatar": "https://cdn.myapp.com/avatars/alice.jpg"
+      },
 	    "cta": {
 	      "label": "View Results",
 	      "url": "/app/patient/patient_user_123/results/test_abc"
@@ -395,15 +431,27 @@ Here's a comprehensive example of an appointment.reminder notification, demonstr
 
 ```json
 	{
-	  "event": "internal.newPatientAdmission",
-	  "data": {
-	    "patientName": "Bob Johnson",
+	  "name": "internal-new-patient-admission",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "internal-new-patient-admission"
+	  }],
+	  "payload": {
+	    "patient": {
+        "id": "patient_user_789",
+        "name": "Bob Johnson",
+        "avatar": "https://cdn.myapp.com/avatars/bob.jpg"
+      },
 	    "admissionTime": "2025-07-27T14:30:00Z",
 	    "ward": "Emergency",
-	    "admittingDoctor": { "id": "doctor_user_101", "name": "Dr. Sarah Lee" },
+	    "admittingDoctor": { 
+        "id": "doctor_user_101", 
+        "name": "Dr. Sarah Lee",
+        "avatar": "https://cdn.myapp.com/avatars/sarah.jpg"
+      },
 	    "cta": {
 	      "label": "View Patient Details",
-	      "url": "/app/admin/patient/bob_johnson_admission"
+	      "url": "/app/admin/patient/patient_user_789"
 	    }
 	  }
 	}
@@ -413,8 +461,12 @@ Here's a comprehensive example of an appointment.reminder notification, demonstr
 
 ```json
 	{
-	  "event": "facility.maintenanceAlert",
-	  "data": {
+	  "name": "facility-maintenance-alert",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "facility-maintenance-alert"
+	  }],
+	  "payload": {
 	    "title": "Scheduled System Maintenance",
 	    "description": "The patient portal will be unavailable from 2 AM to 4 AM GMT+3 on 2025-08-05 for routine maintenance.",
 	    "impactedServices": ["Patient Portal", "Online Scheduling"],
@@ -438,22 +490,34 @@ Each example includes the event type, a `recipientId` (or `to` array for topics)
 
 ---
 
-#### `patient.appointmentBooked`
+#### `patient-appointment-booked`
 
 A new appointment has been successfully booked.
 Notifies: Patient, Doctor (if new appointment)
 
 ```json
 	{
-	  "event": "patient.appointmentBooked",
-	  "recipientId": "patient_user_123",
+	  "name": "patient-appointment-booked",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "patient-appointment-booked"
+	  }],
 	  "payload": {
-	    "appointmentId": "appt_A1B2C3",
-	    "appointmentType": "Annual Checkup",
-	    "appointmentDateTime": "2025-08-15T10:00:00Z",
-	    "doctorName": "Dr. Sarah Lee",
-	    "clinicLocation": "Main Clinic, Room 301",
-	    "patientName": "Alice Smith",
+      "id": "appt_A1B2C3",
+	    "type": "Annual Checkup",
+	    "dateTime": "2025-08-15T10:00:00Z",
+	    "location": "Main Clinic, Room 301",
+	    "doctor": {
+        "id": "doctor_user_456",
+        "name": "Dr. Sarah Lee",
+        "specialty": "General Practice",
+        "avatar": "https://cdn.myapp.com/avatars/sarah.jpg"
+      },
+	    "patient": {
+        "id": "patient_user_123",
+        "name": "Alice Smith",
+        "avatar": "https://cdn.myapp.com/avatars/alice.jpg"
+      },
 	    "cta": {
 	      "label": "View Appointment",
 	      "url": "/app/appointments/appt_A1B2C3"
@@ -464,21 +528,30 @@ Notifies: Patient, Doctor (if new appointment)
 
 ---
 
-#### `patient.appointmentReminder`
+#### `patient-appointment-reminder`
 
 A reminder for an upcoming appointment.
 Notifies: Patient, and possibly related staff via topic
 
 ```json
 	{
-	  "event": "patient.appointmentReminder",
-	  "to": [{ "subscriberId": "patient_user_123" }],
+	  "name": "patient-appointment-reminder",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "patient-appointment-reminder"
+	  }],
 	  "payload": {
-	    "appointmentId": "appt_A1B2C3",
-	    "appointmentType": "Annual Checkup",
-	    "appointmentDateTime": "2025-08-15T10:00:00Z",
-	    "doctorName": "Dr. Sarah Lee",
-	    "clinicLocation": "Main Clinic, Room 301",
+      "id": "appt_A1B2C3",
+      "priority": 0,
+	    "type": "Annual Checkup",
+	    "dateTime": "2025-08-15T10:00:00Z",
+	    "location": "Main Clinic, Room 301",
+	    "doctor": {
+        "id": "doctor_user_456",
+        "name": "Dr. Sarah Lee",
+        "specialty": "General Practice",
+        "avatar": "https://cdn.myapp.com/avatars/sarah.jpg"
+      },
 	    "reminderTime": "24 hours before",
 	    "cta": {
 	      "label": "Reschedule or Confirm",
@@ -490,20 +563,28 @@ Notifies: Patient, and possibly related staff via topic
 
 ---
 
-#### `patient.testResultsReady`
+#### `patient-test-results-ready`
 
 Patient's lab or diagnostic test results are available.
 Notifies: Patient
 
 ```json
 	{
-	  "event": "patient.testResultsReady",
-	  "recipientId": "patient_user_123",
+	  "name": "patient-test-results-ready",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "patient-test-results-ready"
+	  }],
 	  "payload": {
-	    "testId": "test_XYZ789",
-	    "testName": "Blood Panel",
-	    "resultDate": "2025-07-26T14:00:00Z",
+	    "id": "test_XYZ789",
+	    "type": "Blood Panel",
+	    "dateTime": "2025-07-26T14:00:00Z",
 	    "summary": "Your blood test results are ready for review.",
+      "patient": {
+        "id": "patient_user_123",
+        "name": "Alice Smith",
+        "avatar": "https://cdn.myapp.com/avatars/alice.jpg"
+      },
 	    "cta": {
 	      "label": "View Results",
 	      "url": "/app/patient/results/test_XYZ789"
@@ -514,19 +595,31 @@ Notifies: Patient
 
 ---
 
-#### `patient.messageReceived`
+#### `patient-message-received`
 
 A new message has been received in the patient's inbox (from doctor/admin).
 Notifies: Patient
 
 ```json
 	{
-	  "event": "patient.messageReceived",
-	  "recipientId": "patient_user_123",
+	  "name": "patient-message-received",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "patient-message-received"
+	  }],
 	  "payload": {
-	    "messageId": "msg_D4E5F6",
-	    "senderName": "Dr. Mark Johnson",
+	    "id": "msg_D4E5F6",
+	    "sender": {
+        "id": "doctor_user_456",
+        "name": "Dr. Mark Johnson",
+        "avatar": "https://cdn.myapp.com/avatars/mark.jpg"
+      },
 	    "messageSnippet": "Your prescription for allergies is ready for pickup...",
+      "patient": {
+        "id": "patient_user_123",
+        "name": "Alice Smith",
+        "avatar": "https://cdn.myapp.com/avatars/alice.jpg"
+      },
 	    "cta": {
 	      "label": "View Message",
 	      "url": "/app/messages/msg_D4E5F6"
@@ -537,22 +630,28 @@ Notifies: Patient
 
 ---
 
-#### `doctor.newAppointment`
+#### `doctor-new-appointment`
 
 A doctor has a new appointment scheduled with one of their patients.
 Notifies: Doctor
 
 ```json
 	{
-	  "event": "doctor.newAppointment",
-	  "recipientId": "doctor_user_456",
+	  "name": "doctor-new-appointment",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "doctor-new-appointment"
+	  }],
 	  "payload": {
-	    "appointmentId": "appt_A1B2C3",
-	    "appointmentType": "Annual Checkup",
-	    "appointmentDateTime": "2025-08-15T10:00:00Z",
-	    "patientName": "Alice Smith",
-	    "patientId": "patient_user_123",
-	    "clinicLocation": "Main Clinic, Room 301",
+	    "id": "appt_A1B2C3",
+	    "type": "Annual Checkup",
+	    "dateTime": "2025-08-15T10:00:00Z",
+	    "patient": {
+        "id": "patient_user_123",
+        "name": "Alice Smith",
+        "avatar": "https://cdn.myapp.com/avatars/alice.jpg"
+      },
+	    "location": "Main Clinic, Room 301",
 	    "cta": {
 	      "label": "View Patient Chart",
 	      "url": "/app/doctor/patient/patient_user_123/chart"
@@ -563,19 +662,25 @@ Notifies: Doctor
 
 ---
 
-#### `doctor.patientMessage`
+#### `doctor-patient-message`
 
 A patient has sent a new message to the doctor.
 Notifies: Doctor
 
 ```json
 	{
-	  "event": "doctor.patientMessage",
-	  "recipientId": "doctor_user_456",
+	  "name": "doctor-patient-message",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "doctor-patient-message"
+	  }],
 	  "payload": {
-	    "messageId": "msg_G7H8I9",
-	    "patientName": "Bob Johnson",
-	    "patientId": "patient_user_789",
+	    "id": "msg_G7H8I9",
+	    "patient": {
+        "id": "patient_user_789",
+        "name": "Bob Johnson",
+        "avatar": "https://cdn.myapp.com/avatars/bob.jpg"
+      },
 	    "messageSnippet": "I'm experiencing some side effects from my new medication...",
 	    "cta": {
 	      "label": "Reply to Patient",
@@ -587,21 +692,28 @@ Notifies: Doctor
 
 ---
 
-#### `admin.staffLicenseExpiring`
+#### `admin-staff-license-expiring`
 
 An administrator needs to be notified about an expiring staff license.
 Notifies: Healthcare Admin
 
 ```json
 	{
-	  "event": "admin.staffLicenseExpiring",
-	  "recipientId": "healthProvider_123_admin_userId",
+	  "name": "admin-staff-license-expiring",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "admin-staff-license-expiring"
+	  }],
 	  "payload": {
-	    "staffId": "staff_J1K2L3",
-	    "staffName": "Nurse Carol",
-	    "licenseType": "RN License",
+	    "id": "staff_J1K2L3",
+	    "name": "Nurse Carol",
+	    "type": "RN License",
 	    "expiryDate": "2025-09-30",
-	    "daysUntilExpiry": 60,
+      "staff": {
+        "id": "staff_J1K2L3",
+        "name": "Nurse Carol",
+        "avatar": "https://cdn.myapp.com/avatars/carol.jpg"
+      },
 	    "cta": {
 	      "label": "Manage Licenses",
 	      "url": "/app/admin/staff/licenses/staff_J1K2L3"
@@ -612,19 +724,27 @@ Notifies: Healthcare Admin
 
 ---
 
-#### `staff.policyUpdate`
+#### `staff-policy-update`
 
 An update to internal policy for all staff members of a healthcare provider.
 Notifies: Healthcare Provider Staff Group (Topic)
 
 ```json
 	{
-	  "event": "staff.policyUpdate",
-	  "to": [{ "type": "Topic", "topicKey": "healthProvider_123_staff" }],
+	  "name": "staff-policy-update",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "healthProvider_123_staff"
+	  }],
 	  "payload": {
-	    "policyTitle": "New Data Privacy Policy (HIPAA Compliance)",
-	    "policyId": "policy_M1N2O3",
-	    "updateDate": "2025-07-27",
+	    "title": "New Data Privacy Policy (HIPAA Compliance)",
+	    "id": "policy_M1N2O3",
+	    "dateTime": "2025-07-27",
+      "staff": {
+        "id": "staff_J1K2L3",
+        "name": "Nurse Carol",
+        "avatar": "https://cdn.myapp.com/avatars/carol.jpg"
+      },
 	    "cta": {
 	      "label": "Review Policy",
 	      "url": "/app/staff/policies/policy_M1N2O3"
@@ -635,20 +755,28 @@ Notifies: Healthcare Provider Staff Group (Topic)
 
 ---
 
-#### `department.newImagingProtocol`
+#### `department-new-imaging-protocol`
 
 A new imaging protocol needs to be implemented by a specific department.
 Notifies: Department (Topic)
 
 ```json   
 	{
-	  "event": "department.newImagingProtocol",
-	  "to": [{ "type": "Topic", "topicKey": "healthProvider_123_cardiology" }],
+	  "name": "department-new-imaging-protocol",
+	  "to": [{
+	    "type": "Topic",
+	    "topicKey": "healthProvider_123_cardiology"
+	  }],
 	  "payload": {
-	    "protocolName": "Advanced Cardiac MRI Protocol",
-	    "protocolId": "protocol_P1Q2R3",
-	    "implementationDate": "2025-08-10",
-	    "responsibleDepartment": "Cardiology",
+	    "id": "protocol_P1Q2R3",
+	    "title": "Advanced Cardiac MRI Protocol",
+	    "dateTime": "2025-08-10",
+	    "department": "Cardiology",
+      "staff": {
+        "id": "staff_J1K2L3",
+        "name": "Nurse Carol",
+        "avatar": "https://cdn.myapp.com/avatars/carol.jpg"
+      },
 	    "cta": {
 	      "label": "View Protocol Details",
 	      "url": "/app/department/cardiology/protocols/protocol_P1Q2R3"
