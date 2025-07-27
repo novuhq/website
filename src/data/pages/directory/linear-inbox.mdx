@@ -95,7 +95,7 @@ Notify all participants when a comment is added or the status changes.
 await novu.trigger(
   'new-comment', {
   to: [
-    { type: 'Topic', topicKey: 'issue-ENG-123' }
+    { type: 'Topic', topicKey: 'workspace_A2B2C3_issue_ENG-123' }
     ],
   payload: {
     id: 'ENG-123',
@@ -176,7 +176,7 @@ Can be used for a more stable `topicKey`: `team_b18ckas91` instead of relying on
 ```jsx
 await novu.trigger('team-cycle-started', {
   to: [
-    { type: 'Topic', topicKey: 'team-engineering' }
+    { type: 'Topic', topicKey: 'workspace_A2B2C3_team_engineering' }
     ],
   payload: {
     id: 'cycle-123',
@@ -521,7 +521,7 @@ await novu.trigger(
   "issue-updated", // Workflow Name / Identifier
   {
     to: [
-      { type: "Topic", topicKey: "issue-ENG-158" } // Target Recipients
+      { type: "Topic", topicKey: "workspace_A2B2C3_issue_ENG-158" } // Target Recipients
       ],
     payload: { // Notification Context
       id: "ef42a753-1234-5678-9abc-def123456789",
@@ -582,7 +582,7 @@ A new issue was created (notifies assignee or subscribers)
   "name": "issue-created",
   "to": [{
     "type": "Topic",
-    "topicKey": "issue-ENG-225"
+    "topicKey": "workspace_A2B2C3_issue_ENG-225"
   }],
   "payload": {
     "id": "issue-id",
@@ -611,8 +611,7 @@ You've been assigned a new issue
 {
   "name": "issue-assigned",
   "to": [{
-    "type": "Topic",
-    "topicKey": "issue-ENG-158"
+    "subscriberId": "workspace_A2B2C3_user_123"
   }],
   "payload": {
     "id": "issue-id",
@@ -647,7 +646,7 @@ An issue you're watching changed status (e.g., to "In Progress")
   "name": "issue-status-changed",
   "to": [{
     "type": "Topic",
-    "topicKey": "issue-ENG-168"
+    "topicKey": "workspace_A2B2C3_issue_ENG-168"
   }],
   "payload": {
     "id": "issue-id",
@@ -680,7 +679,7 @@ Someone left a comment on an issue you're involved in
   "name": "issue-commented",
   "to": [{
     "type": "Topic",
-    "topicKey": "issue-ENG-158"
+    "topicKey": "workspace_A2B2C3_issue_ENG-158"
   }],
   "payload": {
     "id": "issue-id",
@@ -708,7 +707,7 @@ A label was added (e.g., "urgent", "bug")
   "name": "issue-label-added",
   "to": [{
     "type": "Topic",
-    "topicKey": "issue-ENG-158"
+    "topicKey": "workspace_A2B2C3_issue_ENG-158"
   }],
   "payload": {
     "id": "issue-id",
@@ -734,7 +733,7 @@ The issue was marked as complete or canceled
   "name": "issue-closed",
   "to": [{
     "type": "Topic",
-    "topicKey": "issue-ENG-168"
+    "topicKey": "workspace_A2B2C3_issue_ENG-168"
   }],
   "payload": {
     "id": "issue-id",
@@ -765,7 +764,7 @@ Reopened from a closed state
   "name": "issue-reopened",
   "to": [{
     "type": "Topic",
-    "topicKey": "issue-ENG-158"
+    "topicKey": "workspace_A2B2C3_issue_ENG-158"
   }],
   "payload": {
     "id": "issue-id",
@@ -800,7 +799,7 @@ Weekly project reminder sent to team
   "name": "project-updateReminder",
   "to": [{
     "type": "Topic",
-    "topicKey": "project-5d241600-202d-4e52-96e3-f8e3455f448c"
+    "topicKey": "workspace_A2B2C3_project_5d241600-202d-4e52-96e3-f8e3455f448c"
   }],
   "payload": {
     "id": "5d241600-202d-4e52-96e3-f8e3455f448c",

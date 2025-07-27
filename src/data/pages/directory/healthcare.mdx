@@ -500,7 +500,7 @@ Notifies: Patient, Doctor (if new appointment)
 	  "name": "patient-appointment-booked",
 	  "to": [{
 	    "type": "Topic",
-	    "topicKey": "patient-appointment-booked"
+	    "topicKey": "healthProvider_123_general_med_appt_A1B2C3_patient_user_123"
 	  }],
 	  "payload": {
       "id": "appt_A1B2C3",
@@ -538,7 +538,7 @@ Notifies: Patient, and possibly related staff via topic
 	  "name": "patient-appointment-reminder",
 	  "to": [{
 	    "type": "Topic",
-	    "topicKey": "patient-appointment-reminder"
+	    "topicKey": "healthProvider_123_general_med_appt_A1B2C3_patient_user_123"
 	  }],
 	  "payload": {
       "id": "appt_A1B2C3",
@@ -572,8 +572,7 @@ Notifies: Patient
 	{
 	  "name": "patient-test-results-ready",
 	  "to": [{
-	    "type": "Topic",
-	    "topicKey": "patient-test-results-ready"
+	    "subscriberId": "patient_user_123"
 	  }],
 	  "payload": {
 	    "id": "test_XYZ789",
@@ -605,7 +604,7 @@ Notifies: Patient
 	  "name": "patient-message-received",
 	  "to": [{
 	    "type": "Topic",
-	    "topicKey": "patient-message-received"
+	    "topicKey": "msg_D4E5F6_patient_user_123_doctor_user_456"
 	  }],
 	  "payload": {
 	    "id": "msg_D4E5F6",
@@ -640,7 +639,7 @@ Notifies: Doctor
 	  "name": "doctor-new-appointment",
 	  "to": [{
 	    "type": "Topic",
-	    "topicKey": "doctor-new-appointment"
+	    "topicKey": "healthProvider_123_general_med_appt_A1B2C3_doctor_user_456"
 	  }],
 	  "payload": {
 	    "id": "appt_A1B2C3",
@@ -672,7 +671,7 @@ Notifies: Doctor
 	  "name": "doctor-patient-message",
 	  "to": [{
 	    "type": "Topic",
-	    "topicKey": "doctor-patient-message"
+	    "topicKey": "msg_G7H8I9_patient_user_789_doctor_user_456"
 	  }],
 	  "payload": {
 	    "id": "msg_G7H8I9",
@@ -701,8 +700,7 @@ Notifies: Healthcare Admin
 	{
 	  "name": "admin-staff-license-expiring",
 	  "to": [{
-	    "type": "Topic",
-	    "topicKey": "admin-staff-license-expiring"
+	    "subscriberId": "healthProvider_123_admin_user_456"
 	  }],
 	  "payload": {
 	    "id": "staff_J1K2L3",
