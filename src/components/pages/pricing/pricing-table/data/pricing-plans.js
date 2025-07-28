@@ -26,6 +26,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: false,
       translations: false,
+      layouts: '1 layout',
     },
     apiRateLimits: {
       triggerEvents: '60',
@@ -82,6 +83,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: true,
       translations: false,
+      layouts: 'Unlimited',
     },
     apiRateLimits: {
       triggerEvents: '240',
@@ -138,6 +140,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: true,
       translations: true,
+      layouts: 'Unlimited',
     },
     apiRateLimits: {
       triggerEvents: '600',
@@ -194,6 +197,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: true,
       translations: true,
+      layouts: 'Unlimited',
     },
     apiRateLimits: {
       triggerEvents: '6k',
@@ -252,6 +256,7 @@ const LABELS = [
       blockEmailEditor: 'Block-based email editor',
       branding: 'Remove Novu branding',
       translations: 'Translations',
+      layouts: 'Custom Layouts',
     },
   },
   {
