@@ -83,7 +83,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: true,
       translations: false,
-      layouts: 'Unlimited',
+      layouts: true,
     },
     apiRateLimits: {
       triggerEvents: '240',
@@ -140,7 +140,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: true,
       translations: true,
-      layouts: 'Unlimited',
+      layouts: true,
     },
     apiRateLimits: {
       triggerEvents: '600',
@@ -197,7 +197,7 @@ const PLANS = {
       blockEmailEditor: true,
       branding: true,
       translations: true,
-      layouts: 'Unlimited',
+      layouts: true,
     },
     apiRateLimits: {
       triggerEvents: '6k',
