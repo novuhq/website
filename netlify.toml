@@ -28,6 +28,12 @@
   force = true
 
 [[redirects]]
+  from = "/studio"
+  to = "https://novu-next.vercel.app/studio"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/changelog"
   to = "https://novu-next.vercel.app/changelog"
   status = 200
