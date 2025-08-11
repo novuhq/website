@@ -19,7 +19,13 @@
 #   status = 200
 #   force = true
 
-# Changelog
+# New website
+
+[[redirects]]
+  from = "/_next/*"
+  to = "https://novu-next.vercel.app/_next/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/changelog"
