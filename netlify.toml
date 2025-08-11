@@ -28,19 +28,19 @@
   force = true
 
 [[redirects]]
-  from = "/studio"
-  to = "https://novu-next.vercel.app/studio"
+  from = "/images/*"
+  to = "https://novu-next.vercel.app/images/:splat"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/changelog"
-  to = "https://novu-next.vercel.app/changelog"
+  from = "/studio/:splat"
+  to = "https://novu-next.vercel.app/studio/:splat"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/changelog/*"
+  from = "/changelog/:splat"
   to = "https://novu-next.vercel.app/changelog/:splat"
   status = 200
   force = true
