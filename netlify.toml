@@ -18,3 +18,17 @@
 #   to = "https://inbox.novu.co/inbox/playground/api/trigger"
 #   status = 200
 #   force = true
+
+# Changelog
+
+[[redirects]]
+  from = "/changelog"
+  to = "https://novu-next.vercel.app/changelog"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/changelog/*"
+  to = "https://novu-next.vercel.app/changelog/:splat"
+  status = 200
+  force = true
