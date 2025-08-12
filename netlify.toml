@@ -28,6 +28,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/*"
+  to = "https://novu-next.vercel.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/studio"
   to = "https://novu-next.vercel.app/studio"
   status = 200
