@@ -23,42 +23,42 @@
 
 [[redirects]]
   from = "/_next/*"
-  to = "https://novu-next.vercel.app/_next/:splat"
+  to = "https://website-new-novuhq.vercel.app/_next/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/api/*"
-  to = "https://novu-next.vercel.app/api/:splat"
+  to = "https://website-new-novuhq.vercel.app/api/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/favicon/*"
-  to = "https://novu-next.vercel.app/favicon/:splat"
+  to = "https://website-new-novuhq.vercel.app/favicon/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/studio"
-  to = "https://novu-next.vercel.app/studio"
+  to = "https://website-new-novuhq.vercel.app/studio"
   status = 200
   force = true
 
 [[redirects]]
   from = "/studio/*"
-  to = "https://novu-next.vercel.app/studio/:splat"
+  to = "https://website-new-novuhq.vercel.app/studio/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/changelog"
-  to = "https://novu-next.vercel.app/changelog"
+  to = "https://website-new-novuhq.vercel.app/changelog"
   status = 200
   force = true
 
 [[redirects]]
   from = "/changelog/*"
-  to = "https://novu-next.vercel.app/changelog/:splat"
+  to = "https://website-new-novuhq.vercel.app/changelog/:splat"
   status = 200
   force = true
