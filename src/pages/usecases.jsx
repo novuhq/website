@@ -54,7 +54,7 @@ const UseCasesPage = () => (
       }
       button={{
         label: 'Learn more',
-        link: 'https://docs.novu.co/recipes/workflows/introduction?utm_campaign=ws_usecases',
+        link: 'https://docs.novu.co',
       }}
       theme="imageRight"
     />
