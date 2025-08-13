@@ -55,9 +55,10 @@ export default function useHeaderData() {
       description: changelog?.notes
         ? getChangelogContent(changelog.notes)
         : DEFAULT_STATE.changelog.description,
-      url: changelog?.id
-        ? `https://roadmap.novu.co/changelog/${changelog.id}`
-        : DEFAULT_STATE.changelog.url,
+      url:
+        // changelog?.id
+        // ? `${LINKS.changeLog.to}/${changelog.id}` :
+        DEFAULT_STATE.changelog.url,
       image: changelog?.imageUrl || DEFAULT_STATE.changelog.image,
     },
     post: {

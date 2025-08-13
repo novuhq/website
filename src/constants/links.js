@@ -55,6 +55,11 @@ export default {
     target: '_self',
   },
 
+  // New website
+  changeLog: {
+    to: '/changelog',
+  },
+
   // Dashboard
   dashboard: {
     to: 'https://dashboard.novu.co',
@@ -75,10 +80,6 @@ export default {
   // Other pages
   roadmapPage: {
     to: 'https://roadmap.novu.co',
-    target: '_blank',
-  },
-  changeLog: {
-    to: 'https://roadmap.novu.co/changelog',
     target: '_blank',
   },
   handbook: {
