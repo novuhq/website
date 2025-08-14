@@ -63,7 +63,7 @@ const TextWithPicture = ({
             </Button>
           )}
         </div>
-        <div className={imageClassName}>{image}</div>
+        <div className={clsx(imageClassName, 'pointer-events-none')}>{image}</div>
         {button && theme === 'imageFullWidth' && (
           <Button
             className="mt-9 md:mt-8 sm:mt-6"
