@@ -178,7 +178,7 @@ const FAQ_DATA = [
 //         question: 'Do you promise any Service Level Agreement (SLA)?',
 //         answer: (
 //             <>
-//                 We sure do! First of all we promise uptime SLA for our cloud system for 99.99%. We also
+//                 We sure do! First of all we promise uptime SLA for our cloud system for 99.9%. We also
 //                 offer an initial 2 days support SLA, but most enquiries on our Intercom or{' '}
 //                 <Link to="https://discord.novu.co" theme="primary">
 //                     Discord

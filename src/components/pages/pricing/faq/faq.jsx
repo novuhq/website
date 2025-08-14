@@ -150,7 +150,7 @@ const FAQ_DATA = [
     question: 'What is your Service Level Agreement (SLA)?',
     answer: (
       <>
-        Our cloud uptime SLA is 99.99%. We also offer a support ticket SLA for our Business and
+        Our cloud uptime SLA is 99.9%. We also offer a support ticket SLA for our Business and
         Enterprise tier plans, which includes a private Slack channel with our support team. Free
         tier and the Novu Project are supported via{' '}
         <Link to="https://discord.novu.co" theme="primary">
