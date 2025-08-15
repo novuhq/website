@@ -8,6 +8,7 @@ const PRICING_PLANS = [
       theme: 'gray-outline',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
+      rel: 'noopener',
     },
     description: 'Start for free. Essential features, no limits on subscribers.',
     advantages: [
@@ -30,6 +31,7 @@ const PRICING_PLANS = [
       theme: 'white-filled',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
+      rel: 'noopener',
     },
     description: 'Go pro. More scale, better retention, no branding.',
     advantagesHeading: 'Everything in Free, plus...',
@@ -50,6 +52,7 @@ const PRICING_PLANS = [
       theme: 'gray-outline',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
+      rel: 'noopener',
     },
     description: 'For growing teams. Higher limits, full control.',
     advantagesHeading: 'Everything in Pro, plus...',
