@@ -1,3 +1,6 @@
+import discordIcon from 'icons/discord.svg';
+import githubIcon from 'icons/github.svg';
+import novuIcon from 'icons/novu-gradient-logo.svg';
 import capgemini from 'images/pages/thank-you-discovery-session/section-with-logos/capgemini.svg';
 import feegow from 'images/pages/thank-you-discovery-session/section-with-logos/feegow.svg';
 import hemnet from 'images/pages/thank-you-discovery-session/section-with-logos/hemnet.svg';
@@ -11,7 +14,7 @@ import tenderd from 'images/pages/thank-you-discovery-session/section-with-logos
 import traace from 'images/pages/thank-you-discovery-session/section-with-logos/traace.svg';
 import unity from 'images/pages/thank-you-discovery-session/section-with-logos/unity.svg';
 
-const SECTION_WITH_LOGOS = {
+const COMPANIES = {
   title: 'Used by innovative companies worldwide',
   description:
     'Built from scratch to integrate your existing tooling and content with the Novu Platform.',
@@ -91,4 +94,35 @@ const SECTION_WITH_LOGOS = {
   ],
 };
 
-export default SECTION_WITH_LOGOS;
+const GET_INVOLVED = {
+  title: 'Get involved: start, engage, contribute',
+  isCentered: true,
+  items: [
+    {
+      icon: novuIcon,
+      title: 'Novu Cloud',
+      description: 'Embark on your journey by creating your personalized account',
+      linkText: 'Get started',
+      linkUrl: 'https://dashboard.novu.co/?utm_campaign=community_page',
+    },
+    {
+      icon: discordIcon,
+      title: 'Join Discord',
+      description: 'Immerse yourself in the community by joining our dedicated server',
+      linkText: 'Join discord',
+      linkUrl: 'https://discord.novu.co/',
+    },
+    {
+      icon: githubIcon,
+      title: 'Fork and Work',
+      description: 'Discover an issue within our project and make a valuable contribution',
+      linkText: 'Find an issue',
+      linkUrl: 'https://github.com/novuhq/novu/issues',
+    },
+  ],
+};
+
+export default {
+  companies: COMPANIES,
+  getInvolved: GET_INVOLVED,
+};
