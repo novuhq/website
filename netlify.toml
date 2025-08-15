@@ -18,3 +18,47 @@
 #   to = "https://inbox.novu.co/inbox/playground/api/trigger"
 #   status = 200
 #   force = true
+
+# New website
+
+[[redirects]]
+  from = "/_next/*"
+  to = "https://website-new-novuhq.vercel.app/_next/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://website-new-novuhq.vercel.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/favicon/*"
+  to = "https://website-new-novuhq.vercel.app/favicon/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/studio"
+  to = "https://website-new-novuhq.vercel.app/studio"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/studio/*"
+  to = "https://website-new-novuhq.vercel.app/studio/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/changelog"
+  to = "https://website-new-novuhq.vercel.app/changelog"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/changelog/*"
+  to = "https://website-new-novuhq.vercel.app/changelog/:splat"
+  status = 200
+  force = true
