@@ -1,5 +1,8 @@
+import clsx from 'clsx';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+
+const imageSharedClassName = 'absolute left-1/2 top-1/2 max-w-none';
 
 const HERO = {
   title: 'Elevate Engagement with Robust Notifications',
@@ -11,7 +14,12 @@ const HERO = {
   },
   theme: 'imageRight',
   image: (
-    <div className="absolute left-1/2 top-1/2 h-[791px] w-[1216px] max-w-none -translate-x-1/2 -translate-y-[calc(50%+94px)] lg:h-auto lg:w-[1000px] lg:-translate-x-[calc(50%+50px)] md:w-[700px] md:-translate-y-[calc(50%+76px)] sm:w-[130%] xs:w-[160%]">
+    <div
+      className={clsx(
+        imageSharedClassName,
+        'h-[791px] w-[1216px] -translate-x-1/2 -translate-y-[calc(50%+94px)] lg:h-auto lg:w-[1000px] lg:-translate-x-[calc(50%+50px)] md:w-[700px] md:-translate-y-[calc(50%+76px)] sm:w-[130%] xs:w-[160%]'
+      )}
+    >
       <StaticImage
         src="../images/pages/usecases/index/hero/illustration.jpg"
         alt="Placeholder image"
@@ -78,7 +86,12 @@ const MULTI_CHANNEL_NOTIFICATIONS = {
     link: 'https://docs.novu.co/workflow/channel-steps#available-channels',
   },
   image: (
-    <div className="absolute left-1/2 top-1/2 h-[1205px] w-[1354px] max-w-none -translate-x-[calc(50%+4px)] -translate-y-[calc(50%+42px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]">
+    <div
+      className={clsx(
+        imageSharedClassName,
+        'h-[1205px] w-[1354px] -translate-x-[calc(50%+4px)] -translate-y-[calc(50%+42px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]'
+      )}
+    >
       <StaticImage
         className="size-full object-cover"
         src="../../../images/pages/usecases/index/multi-channel/illustration.jpg"
@@ -100,7 +113,12 @@ const IN_APP_NOTIFICATIONS = {
     link: 'https://docs.novu.co/inbox/overview',
   },
   image: (
-    <div className="absolute left-1/2 top-1/2 h-[1007px] w-[1107px] max-w-none -translate-x-[calc(50%-73px)] -translate-y-[calc(50%+156px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]">
+    <div
+      className={clsx(
+        imageSharedClassName,
+        'h-[1007px] w-[1107px] -translate-x-[calc(50%-73px)] -translate-y-[calc(50%+156px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]'
+      )}
+    >
       <StaticImage
         className="size-full object-cover"
         src="../../../images/pages/usecases/index/application/illustration.png"
@@ -123,7 +141,12 @@ const NOTIFICATION_MANAGEMENT = {
     link: 'https://docs.novu.co/concepts/notifications?utm_campaign=ws_usecases',
   },
   image: (
-    <div className="absolute left-1/2 top-1/2 h-[915px] w-[919px] max-w-none -translate-x-[calc(50%+19px)] -translate-y-[calc(50%+111px)] md:h-auto md:w-[800px] md:-translate-x-[calc(50%+49px)] sm:w-[130%] xs:w-[150%]">
+    <div
+      className={clsx(
+        imageSharedClassName,
+        'h-[915px] w-[919px] -translate-x-[calc(50%+19px)] -translate-y-[calc(50%+111px)] md:h-auto md:w-[800px] md:-translate-x-[calc(50%+49px)] sm:w-[130%] xs:w-[150%]'
+      )}
+    >
       <StaticImage
         className="size-full object-cover"
         src="../../../images/pages/usecases/index/management/illustration.jpg"
@@ -145,7 +168,12 @@ const NOTIFICATION_CONTENT = {
     link: 'https://docs.novu.co/workflow/template-editor?utm_campaign=ws_usecases',
   },
   image: (
-    <div className="absolute left-1/2 top-1/2 h-[1054px] w-[1343px] max-w-none -translate-x-1/2 -translate-y-[calc(50%+56px)] xl:h-auto xl:w-[1000px] xl:-translate-x-[calc(50%-60px)] lg:w-[850px] lg:-translate-x-[calc(50%-55px)] md:w-[700px] sm:w-[130%] sm:-translate-y-[calc(50%-20px)] sm-xs:w-[150%]">
+    <div
+      className={clsx(
+        imageSharedClassName,
+        'h-[1054px] w-[1343px] -translate-x-1/2 -translate-y-[calc(50%+56px)] xl:h-auto xl:w-[1000px] xl:-translate-x-[calc(50%-60px)] lg:w-[850px] lg:-translate-x-[calc(50%-55px)] md:w-[700px] sm:w-[130%] sm:-translate-y-[calc(50%-20px)] sm-xs:w-[150%]'
+      )}
+    >
       <StaticImage
         className="size-full object-cover"
         src="../../../images/pages/usecases/index/content/illustration.png"
