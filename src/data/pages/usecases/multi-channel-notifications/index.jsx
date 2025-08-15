@@ -14,13 +14,13 @@ const HERO = {
       text: 'Create free account',
       url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
       target: '_blank',
-      rel: 'noopener',
+      rel: 'noopener noreferrer',
     },
     {
       text: 'Book Meeting',
       url: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-usecase-multiChannel',
       target: '_blank',
-      rel: 'noopener',
+      rel: 'noopener noreferrer',
     },
   ],
 };
