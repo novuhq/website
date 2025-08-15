@@ -162,7 +162,7 @@ const SECTION_WITH_BIG_ICONS = {
       icon: observabilityIcon,
       title: 'Observability',
       description:
-        'Rapidly identify and solve previously complicated content hydratin and notification routing issues.',
+        'Rapidly identify and solve previously complicated content hydrating and notification routing issues.',
       linkUrl: 'https://docs.novu.co/',
     },
     {

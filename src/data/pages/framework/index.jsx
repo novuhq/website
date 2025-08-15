@@ -305,7 +305,7 @@ const WORKFLOW_CONTROL = {
   ),
   button: {
     label: 'Complete Control',
-    link: 'https://docs.novu.co/framework/overview?utm_campaign?ws_framework',
+    link: 'https://docs.novu.co/framework/overview?utm_campaign=ws_framework',
   },
   theme: 'imageRight',
 };
@@ -328,7 +328,7 @@ const SELF_SERVICE = {
   ),
   button: {
     label: 'Do More With Controls',
-    link: 'https://docs.novu.co/framework/controls?utm_campaign?ws_framework',
+    link: 'https://docs.novu.co/framework/controls?utm_campaign=ws_framework',
   },
 };
 

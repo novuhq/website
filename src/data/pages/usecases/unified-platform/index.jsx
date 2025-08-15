@@ -14,6 +14,7 @@ const HERO = {
       text: 'Create free account',
       url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
       target: '_blank',
+      rel: 'noopener',
     },
     {
       text: 'Book Meeting',

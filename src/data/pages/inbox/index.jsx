@@ -76,6 +76,7 @@ const INBOX_EXAMPLE = {
     label: 'Get started',
     link: 'http://go.novu.co/dashboard',
     target: '_blank',
+    rel: 'noopener noreferrer',
   },
   inboxPosition: 'right',
 };
