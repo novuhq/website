@@ -7,13 +7,13 @@ const HERO = {
     'Deliver personalized, multi-channel notifications with ease using Novu’s unified platform—empowering teams to create seamless communication experiences that drive user satisfaction and retention.',
   button: {
     label: 'Learn more',
-    link: 'https://docs.novu.co/recipes/workflows/introduction?utm_campaign=ws_usecases',
+    link: 'https://docs.novu.co',
   },
   theme: 'imageRight',
   image: (
     <div className="absolute left-1/2 top-1/2 h-[791px] w-[1216px] max-w-none -translate-x-1/2 -translate-y-[calc(50%+94px)] lg:h-auto lg:w-[1000px] lg:-translate-x-[calc(50%+50px)] md:w-[700px] md:-translate-y-[calc(50%+76px)] sm:w-[130%] xs:w-[160%]">
       <StaticImage
-        src="../../../images/pages/usecases/index/hero/illustration.jpg"
+        src="../images/pages/usecases/index/hero/illustration.jpg"
         alt="Placeholder image"
         loading="eager"
         width={1216}
