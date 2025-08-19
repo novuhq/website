@@ -603,11 +603,29 @@ exports.createSchemaCustomization = ({ actions }) => {
     type FeedPodcastContent @infer{
       encoded: String
     }
-    type ProductlaneChangelog {
+    type Asset {
+      url: String
+      metadata: Metadata
+    }
+    type Metadata {
+      dimensions: Dimensions
+    }
+    type Dimensions {
+      width: Int
+      height: Int
+    }
+    type CoverContent {
+      asset: Asset
+    }
+    type SanityLatestChangelog {
+      _id: ID!
       title: String
-      notes: JSON
-      id: String
-      imageUrl: String
+      slug: String
+      cover: CoverContent
+      content: JSON
+    }
+    type Query {
+      sanityLatestChangelog: SanityLatestChangelog
     }
   `;
 
@@ -637,39 +655,53 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 };
 
 exports.createResolvers = ({ createResolvers, reporter }) => {
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  const { createClient } = require('@sanity/client');
+
+  const client = createClient({
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+    dataset: process.env.SANITY_STUDIO_DATASET,
+    token: process.env.SANITY_API_TOKEN,
+    apiVersion: '2025-01-01',
+    useCdn: false,
+    perspective: 'published',
+  });
+
   createResolvers({
     Query: {
-      productlaneChangelog: {
-        type: 'ProductlaneChangelog',
+      sanityLatestChangelog: {
+        type: 'SanityLatestChangelog',
         resolve: async () => {
+          const groq = `
+          *[_type == "changelogPost" && defined(publishedAt)]
+          | order(publishedAt desc)[0]{
+            _id,
+            title,
+            "slug": slug.current,
+            cover {
+              asset->{
+                url,
+                metadata {dimensions}
+              }
+            },
+            content
+          }
+        `;
+
           try {
-            const response = await fetch(
-              `https://productlane.com/api/v1/changelogs/${process.env.GATSBY_PRODUCTLANE_WORKSPACE_ID}`
-            );
+            const doc = await client.fetch(groq);
+            if (!doc) return null;
 
-            if (!response.ok) {
-              throw new Error(
-                `ProductLane API request failed with status ${response.status}: ${response.statusText}`
-              );
+            if (doc.cover?.asset?.url) {
+              doc.cover.asset.url = `${doc.cover.asset.url}?w=440`;
             }
 
-            const data = await response.json();
-
-            if (!data || !data.length) {
-              throw new Error('ProductLane API returned an empty or invalid data array.');
-            }
-
-            const latestPublished = data.find(
-              (item) => !item.isDeleted && item.published && !item.archived
-            );
-
-            if (!latestPublished) {
-              throw new Error('No published item found in ProductLane API response.');
-            }
-
-            return latestPublished;
+            return {
+              id: doc._id,
+              ...doc,
+            };
           } catch (error) {
-            reporter.error('Failed to fetch data from ProductLane API:', error);
+            reporter.error('Failed to fetch data from Sanity:', error);
             return null;
           }
         },
