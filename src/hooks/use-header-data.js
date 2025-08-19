@@ -48,6 +48,18 @@ export default function useHeaderData() {
         }
         content
       }
+      lastPost: allWpPost(limit: 1, sort: { date: DESC }) {
+        nodes {
+          title
+          uri
+          pageBlogPost {
+            description
+            image {
+              link
+            }
+          }
+        }
+      }
     }
   `);
 

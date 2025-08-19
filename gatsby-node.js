@@ -696,10 +696,7 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
               doc.cover.asset.url = `${doc.cover.asset.url}?w=440`;
             }
 
-            return {
-              id: doc._id,
-              ...doc,
-            };
+            return doc;
           } catch (error) {
             reporter.error('Failed to fetch data from Sanity:', error);
             return null;
