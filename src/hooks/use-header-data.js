@@ -20,10 +20,12 @@ const DEFAULT_STATE = {
 const ptToPlain = (blocks) => {
   if (!Array.isArray(blocks)) return null;
 
-  const text = blocks
-    .filter((b) => b?._type === 'block' && Array.isArray(b.children))
-    .map((b) => b.children.map((ch) => ch.text).join(''))
-    .join(' ')
+  const block = blocks.find((b) => b?._type === 'block' && Array.isArray(b.children));
+  if (!block) return null;
+
+  const text = block.children
+    .map((ch) => ch.text)
+    .join('')
     .trim();
 
   return text;
