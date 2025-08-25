@@ -17,19 +17,38 @@ const DEFAULT_STATE = {
   },
 };
 
-const getChangelogContent = (data) => {
-  if (!data || !data?.content[0]?.content) return null;
-  return data.content[0].content.map((item) => item.text).join('');
+const ptToPlain = (blocks) => {
+  if (!Array.isArray(blocks)) return null;
+
+  const block = blocks.find((b) => b?._type === 'block' && Array.isArray(b.children));
+  if (!block) return null;
+
+  const text = block.children
+    .map((ch) => ch.text)
+    .join('')
+    .trim();
+
+  return text;
 };
 
 export default function useHeaderData() {
   const data = useStaticQuery(graphql`
-    query {
-      productlaneChangelog {
+    query HeaderDataFromSanityGROQ {
+      sanityLatestChangelog {
         title
-        notes
-        id
-        imageUrl
+        slug
+        cover {
+          asset {
+            url
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
+        }
+        content
       }
       lastPost: allWpPost(limit: 1, sort: { date: DESC }) {
         nodes {
@@ -46,20 +65,20 @@ export default function useHeaderData() {
     }
   `);
 
-  const changelog = data.productlaneChangelog;
+  const changelog = data.sanityLatestChangelog;
+  const changelogContent = ptToPlain(changelog?.content);
   const lastPost = data.lastPost?.nodes?.[0];
+
+  const changelogPostSlug = changelog?.slug
+    ? `${LINKS.changeLog.to}/${changelog?.slug}`
+    : DEFAULT_STATE.changelog.url;
 
   return {
     changelog: {
       title: changelog?.title || DEFAULT_STATE.changelog.title,
-      description: changelog?.notes
-        ? getChangelogContent(changelog.notes)
-        : DEFAULT_STATE.changelog.description,
-      url:
-        // changelog?.id
-        // ? `${LINKS.changeLog.to}/${changelog.id}` :
-        DEFAULT_STATE.changelog.url,
-      image: changelog?.imageUrl || DEFAULT_STATE.changelog.image,
+      description: changelogContent || DEFAULT_STATE.changelog.description,
+      url: changelogPostSlug,
+      image: changelog?.cover?.asset?.url || DEFAULT_STATE.changelog.image,
     },
     post: {
       title: lastPost?.title || DEFAULT_STATE.post.title,
