@@ -1,14 +1,13 @@
 import clsx from 'clsx';
+import { StaticImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
 
-import { StaticImage } from 'gatsby-plugin-image';
 
-const Hero = ({ sectionOffsets, title, description, button }) => {
-  return (
+const Hero = ({ sectionOffsets, title, description, button }) => (
     <section
       className={clsx(
         'inbox safe-paddings mt-[140px] pb-3.5 text-white lg:mt-36 md:mt-[60px] sm:mt-14',
@@ -57,7 +56,6 @@ const Hero = ({ sectionOffsets, title, description, button }) => {
       </div>
     </section>
   );
-};
 
 Hero.propTypes = {
   sectionOffsets: PropTypes.string,

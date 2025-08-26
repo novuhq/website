@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+
 import Button from 'components/shared/button';
 
 const BentoFiveBlocks = ({ className, title, description, cards, button }) => (

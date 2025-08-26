@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import lottie from 'lottie-web';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -11,18 +10,30 @@ const LottieAnimation = ({ className, lottieOptions, events = {}, isInView, widt
   const [isAnimationReady, setIsAnimationReady] = useState(false);
   const [wrapperRef, isWrapperInView] = useInView({ triggerOnce: true, rootMargin: '200px' });
   const [animation, setAnimation] = useState(lottieOptions.autoplay);
+  const [lottie, setLottie] = useState(null);
 
   useEffect(() => {
-    if (!isWrapperInView) return;
-    const lottieAnimation =
-      isWrapperInView &&
-      lottie.loadAnimation({
-        renderer: 'svg',
-        container: animationRef.current,
-        autoplay: false,
-        loop: false,
-        ...lottieOptions,
-      });
+    if (typeof window === 'undefined') return;
+
+    const loadLottie = async () => {
+      const lottieModule = await import('lottie-web');
+      setLottie(lottieModule.default);
+    };
+
+    loadLottie();
+  }, []);
+
+  useEffect(() => {
+    if (!isWrapperInView || !lottie) return;
+
+    const lottieAnimation = lottie.loadAnimation({
+      renderer: 'svg',
+      container: animationRef.current,
+      autoplay: false,
+      loop: false,
+      ...lottieOptions,
+    });
+
     Object.entries({
       loaded_images() {
         setIsAnimationReady(true);
@@ -34,9 +45,14 @@ const LottieAnimation = ({ className, lottieOptions, events = {}, isInView, widt
 
     setAnimation(lottieAnimation);
 
-    return () => lottieAnimation.destroy();
+    // eslint-disable-next-line consistent-return
+    return () => {
+      if (lottieAnimation) {
+        lottieAnimation.destroy();
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isWrapperInView]);
+  }, [isWrapperInView, lottie]);
 
   useEffect(() => {
     if (animation && isAnimationReady) {

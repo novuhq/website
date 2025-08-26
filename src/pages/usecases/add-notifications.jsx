@@ -1,55 +1,20 @@
 import React from 'react';
 
-// Imprort page-specific components
 import Features from 'components/pages/add-notifications/features';
 import Benefits from 'components/pages/use-cases/benefits';
 import Hero from 'components/pages/use-cases/hero';
 import PainRestatement from 'components/pages/use-cases/pain-restatement';
-// import RelatedContent from 'components/pages/add-notifications/related-content/related-content';
-// Import shared (cross-page) components
 import GetStarted from 'components/shared/get-started';
 import Layout from 'components/shared/layout';
-// import SEO component
 import SEO from 'components/shared/seo';
-import BENEFITS from 'data/pages/usecases/add-notifications/benefits';
-import PAIN_RESTATEMENT from 'data/pages/usecases/add-notifications/pain-restatement';
+import DATA from 'data/pages/usecases/add-notifications';
 
 const addNotificationsPage = () => (
   <Layout>
-    {/* Section: Hero with CTA */}
-    <Hero
-      title="Test in minutes, go to prod before dinner"
-      description="Ship notifications in your app with production-ready infrastructure and out-of-the-box components."
-      links={[
-        {
-          text: 'Create free account',
-          url: 'https://dashboard.novu.co/?utm_campaign=usecase-CTA',
-          target: '_blank',
-        },
-        {
-          text: 'Book Meeting',
-          url: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-usecase-addNotification',
-          target: '_blank',
-        },
-      ]}
-    />
-    {/* Section: Supporting features */}
+    <Hero {...DATA.hero} />
     <Features />
-    {/* Section: Pain Restatement */}
-    <PainRestatement
-      title={PAIN_RESTATEMENT.title}
-      description={PAIN_RESTATEMENT.description}
-      cards={PAIN_RESTATEMENT.cards}
-    />
-    {/* Section: Benefits */}
-    <Benefits
-      title={BENEFITS.title}
-      description={BENEFITS.description}
-      sections={BENEFITS.sections}
-    />
-    {/* Section: Related Content */}
-    {/* <RelatedContent /> */}
-    {/* Section: Get Started */}
+    <PainRestatement {...DATA.painRestatement} />
+    <Benefits {...DATA.benefits} />
     <GetStarted />
   </Layout>
 );
