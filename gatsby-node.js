@@ -624,7 +624,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       cover: CoverContent
       content: JSON
     }
-    type Query {
+    extend type Query {
       sanityLatestChangelog: SanityLatestChangelog
     }
   `;
