@@ -1,0 +1,2437 @@
+---
+title: Project Management
+description: Project Management application inspired by Linear, catering to a wide range of users with collaboration features.
+
+authors:
+  - name: Emil Pearce
+    avatar: ./images/authors/emil_pearce.jpeg
+images:
+  - ./images/Linear-example/project-management-cover.png
+  - ./images/Linear-example/Inbox-main.png
+  - ./images/Linear-example/Notification-item.png
+  - ./images/Linear-example/Inbox-Header.png
+
+ghSourceLink: https://github.com/novuhq/directory/tree/main/linear-inbox
+demoLink: https://task-managment-example.netlify.app/
+updatedAt: '2025-07-27'
+license: 'MIT'
+---
+
+<Tabs>
+<Tab title='Overview'>
+
+## Key Features
+
+*   **Real-time In-App Notifications:** Implements a fully functional in-app inbox mirroring Linear's sleek UI/UX, built with **Shadcn UI** components.
+*   **Multi-channel Delivery:** Designed to support various notification channels, including in-app, email, and push, ensuring users receive timely updates where they prefer.
+*   **Flexible Data Modeling:** Outlines a robust data model that maps Linear's core entities (Issues, Teams, Users, Projects) to Novu's notification primitives (Subscribers, Topics), enabling highly contextual and targeted notifications.
+*   **Actionable Notifications:** Emphasizes a structured payload design with clear `cta` (Call-to-Action) properties, allowing users to directly interact with notifications.
+*   **Advanced Inbox Functionality:** Showcases features like:
+    *   **Filtering and Sorting:** Organize notifications by read/unread status.
+    *   **Bulk Actions:** Mark all as read or archive all notifications efficiently.
+    *   **Context Menus:** Provides right-click options for marking as read/unread, archiving, and snoozing.
+    *   **Snooze Functionality:** Allows users to temporarily hide notifications for later review.
+*   **User Preference Management:** Includes a UI-only (ready for backend integration) system for users to customize their notification preferences by channel and event type.
+*   **Scalable Architecture:** Leverages Novu's topics and subscribers to create a scalable and flexible notification backbone suitable for growing applications.
+*   **Comprehensive Event Examples:** Provides detailed JSON structures for common Linear-like events (e.g., `issue.created`, `issue.assigned`, `issue.commented`), serving as a guide for triggering notifications.
+*   **Modular and Maintainable Codebase:** Organized into clear components and utility functions, making it easy to understand, extend, and integrate into existing projects.
+
+## How it Works
+
+The system integrates Novu's `@novu/nextjs` and `@novu/js` SDKs to manage notification delivery. Key concepts include:
+
+*   **Subscribers:** Each user in the task management tool maps to a Novu subscriber, allowing for personalized notification delivery and preference management.
+*   **Topics:** Linear entities like Issues, Teams, and Projects are represented as Novu topics, enabling efficient broadcast of notifications to relevant groups of users (e.g., all followers of an issue, all members of a team).
+*   **Triggers:** Events within the task management application (e.g., an issue being assigned, a comment being added) trigger Novu workflows, which then process and send notifications to the appropriate subscribers and channels based on their preferences.
+*   **Payload Structure:** A standardized JSON payload ensures that all necessary contextual data is available for rendering rich, informative notifications across different channels (in-app, email, Slack, etc.).
+
+This project serves as an ideal starting point for developers looking to implement a robust and user-friendly notification system that enhances engagement and keeps users informed within their applications.
+
+</Tab>
+
+<Tab title='Data Model'>
+
+When building something like a task management tool like Linear, the data modeling is very crucial to understand and to outline what properties each entity has.
+
+In this particular inbox example, we focused mainly on what should be used inside an in-app notification and what properties should be passed when triggering a notification to Novu. 
+
+We also attempted to create a recommended structure of the payload schema that transactional event notifications in tools like Linear might require. 
+
+## Mapping Linear Concepts to Novu's Notification Model
+
+When implementing notifications with Novu, you can map these concepts directly to Novu's core primitives—**subscribers** and **topics**—to create a flexible and scalable notification system.
+
+<Picture src="/images/Linear-Usecase.jpg" alt="Linear use case diagram showing notification mapping (updated)" />
+
+---
+
+<Tabs>
+
+<Tab title='Issue'>
+
+
+`Issues` – The core unit of work in Linear.
+
+Each issue represents a task, bug, or feature request (e.g., `ENG-123`). This is where most activity happens—status updates, new comments, assignee changes—and is often the most granular level for sending notifications.
+
+---
+
+### Issues → Topics
+
+**Issue ID** (`ENG-123`) → Topic: `issue-ENG-123`  
+Used to notify all participants of an issue (assignee, followers)
+
+**Subscribers** (Users following an issue) → Subscribers in the topic  
+Auto-subscribe on comment, assignment, or manual follow
+
+**Event** (`[event]`) → Trigger: `[event]`  
+Sent to topic subscribers or to assigned user
+
+#### Example: Comment Notification
+
+Notify all participants when a comment is added or the status changes.
+
+```jsx
+await novu.trigger(
+  'new-comment', {
+  to: [
+    { type: 'Topic', topicKey: 'workspace_A2B2C3_issue_ENG-123' }
+    ],
+  payload: {
+    id: 'ENG-123',
+    comment: 'Just pushed a fix!',
+    commenter: {
+      id: 'user_123',
+      name: 'Alice Chen',
+      avatar: 'https://cdn.myapp.com/avatars/alice.jpg'
+    },
+    actor: {
+      subscriberId: 'workspace_A2B2C3_user_123'
+    }
+  }
+});
+```
+
+#### Data Model
+
+```json
+//  Issue Model
+{
+  "id": "string",                     // UUID of the issue
+  "identifier": "string",            // Human-readable identifier (e.g. "ENG-158")
+  "number": "number",                // Numeric issue ID (e.g. 158)
+  "title": "string",                 // Issue title
+  "description": "string",           // (Optional) issue description
+  "teamId": "string",                // Linked team ID
+  "creatorId": "string",             // Who created it
+  "assigneeId": "string",            // Current assignee (nullable)
+  "subscriberIds": ["string"],       // List of user IDs following the issue
+  "labelIds": ["string"],            // List of label UUIDs
+  "stateId": "string",               // Current workflow state ID
+  "priority": "number",              // Integer priority (e.g. 0 = none, 3 = high)
+  "sortOrder": "number",             // For custom sorting
+  "prioritySortOrder": "number",     // Sorting value when ordered by priority
+  "slaType": "string",               // SLA rule group (e.g. "all")
+  "slaHighRiskAt": "ISODate",        // Time when issue was flagged as high risk
+  "slaMediumRiskAt": "ISODate",      // Time when issue was flagged medium risk
+  "startedTriageAt": "ISODate",      // Triage start timestamp
+  "triagedAt": "ISODate",            // Triage complete timestamp
+  "canceledAt": "ISODate",           // Canceled timestamp
+  "autoClosedAt": "ISODate",         // Auto-closed timestamp
+  "lastAppliedTemplateId": "string", // (Optional) last used template ID
+  "reactionData": "string",          // JSON-encoded reactions array
+  "previousIdentifiers": ["string"], // Historical identifiers
+  "sourceMetadata": {
+    "type": "string"                 // e.g. "apiKey"
+  },
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate",
+  "modelName": "Issue"
+}
+```
+
+</Tab>
+
+<Tab title='Team'>
+
+`Teams` – Functional groups within a workspace.
+
+Teams like Engineering or Marketing own their own sets of issues and projects. They provide structure, permissions, and ownership boundaries.
+
+**Teams can also serve as logical segments for topic-based notifications in Novu (e.g., notifying all Engineering team members).**
+
+### Teams → Topics
+
+**Team Name** → Topic: `team-engineering`  
+Used to notify all members of a team (e.g., `Engineering` team becomes topic `team-engineering`)
+
+**Team Members** → Subscribers in the topic  
+Users in the team are automatically added as subscribers to the topic. Subscribe/unsubscribe users as teams change.
+
+**Team ID** → Optional for topic naming  
+Can be used for a more stable `topicKey`: `team_b18ckas91` instead of relying on team names that might change.
+
+**Use Case**: Notify all team members when a new issue is created or a sprint cycle starts.
+
+```jsx
+await novu.trigger('team-cycle-started', {
+  to: [
+    { type: 'Topic', topicKey: 'workspace_A2B2C3_team_engineering' }
+    ],
+  payload: {
+    id: 'cycle-123',
+    title: 'Engineering Sprint 123',
+    dateTime: '2025-07-27T10:00:00Z',
+    team: {
+      id: 'team_b18ckas91',
+      name: 'Engineering',
+      avatar: 'https://cdn.myapp.com/avatars/engineering.jpg'
+    }
+  }
+});
+```
+
+#### Data Model
+
+```json
+//  Team Model
+{
+  "id": "string",
+  "name": "string",
+  "icon": "string",
+  "color": "#hexcode",
+  "organizationId": "string",
+  "key": "string",                   // Team shorthand (e.g. "ENG")
+
+  // Cycle (sprint) settings
+  "cyclesEnabled": true,
+  "cycleStartDay": "number",         // 0=Sun to 6=Sat
+  "cycleDuration": "number",        // in weeks
+  "cycleCooldownTime": "number",
+  "cycleIssueAutoAssignStarted": true,
+  "cycleIssueAutoAssignCompleted": true,
+  "cycleLockToActive": true,
+
+  // Estimation
+  "inheritIssueEstimation": false,
+  "issueEstimationType": "tShirt",   // or "number"
+  "issueEstimationAllowZero": true,
+  "issueEstimationExtended": false,
+  "defaultIssueEstimate": "number",
+
+  // Triage and workflow
+  "triageEnabled": true,
+  "requirePriorityToLeaveTriage": true,
+  "triageIssueStateId": "string",
+  "autoCloseStateId": "string",
+  "markedAsDuplicateWorkflowStateId": "string",
+  "inheritWorkflowStatuses": true,
+  "setIssueSortOrderOnStateChange": "first",
+
+  // Misc
+  "timezone": "string",
+  "inviteHash": "string",
+  "private": false,
+  "scimManaged": false,
+  "groupIssueHistory": false,
+  "aiThreadSummariesEnabled": true,
+  "productIntelligenceScope": "workspace",
+  "inheritProductIntelligenceScope": true,
+  "autoClosePeriod": "number",
+  "autoArchivePeriod": "number",
+  "approximateIssueCount": "number",
+  "traits": "number",
+
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate",
+  "modelName": "Team"
+}
+```
+
+</Tab>
+
+<Tab title='Users'>
+
+`Users` – The individuals collaborating inside a workspace.
+
+Each user has a unique ID and role (e.g., Admin, Member). Users can take actions (comment, assign, update), belong to one or more teams, and have personalized notification preferences.
+**In Novu, each user maps to a** `subscriber`, and their preferences can drive delivery rules (channel, timing, frequency).
+
+### Users → Subscribers
+
+In **Linear**, a *user* is anyone collaborating within a workspace, whether they're commenting on issues, updating statuses, or managing projects.
+
+In **Novu**, these Linear users become *subscribers*: the recipients of notifications triggered by issue activity, status changes, assignments, etc.
+
+Each subscriber in Novu must have a unique `subscriberId`. 
+
+**The recommended approach is to derive this from your Linear user ID, ideally in a way that makes it easy to trace the source (e.g., using your workspace name or internal database prefix).**
+
+A consistent `subscriberId` pattern like `workspace_A2B2C3_user_123` makes debugging, tracing notification flows, and supporting multi-tenant setups easier.
+
+Mapping **Users to Subscribers** allows you to:
+
+- **Send personalized notifications** (e.g., when someone is assigned to an issue)
+- **Track delivery and read status** per user
+- **Manage preferences** and delivery channels (e.g., in-app vs email)
+- **Support multi-tenant applications**, where users exist in different workspaces
+
+---
+
+### Example `subscriberId` Formats
+
+**`workspace_A2B2C3_user_123`** : Standard multi-tenant setup
+
+**`user_123`** : For single-tenant or internal tools
+
+---
+
+Store additional workspace metadata (e.g., internal ID, role) inside the subscriber object as custom fields. This helps with targeting, debugging, and analytics later on.
+
+---
+
+**Subscriber creation options:**
+
+- **Just-in-time**: Inline when triggering a notification (ideal for quick, low-friction setup)
+- **Ahead of time**: Register and update subscribers in Novu using the API, especially useful for managing preferences and long-term subscriptions
+
+#### Data Model
+
+```json
+//  User Model
+{
+  "id": "string",
+  "name": "string",
+  "displayName": "string",
+  "email": "string",
+  "avatarUrl": "string",
+  "organizationId": "string",
+  "active": true,
+  "admin": false,
+  "guest": false,
+  "createdIssueCount": "number",
+  "disableReason": "string",         // Reason for account suspension
+  "lastSeen": "ISODate",
+  "timezone": "string",
+  "inviteHash": "string",
+  "description": "string",
+  "statusEmoji": "string",
+  "statusLabel": "string",
+  "statusUntilAt": "ISODate",
+  "calendarHash": "string",
+  "isMe": true,                      // Boolean indicating if this is the current user
+  "url": "string",                   // Profile URL
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate",
+  "archivedAt": "ISODate",
+  "modelName": "User"
+}
+```
+
+</Tab>
+
+<Tab title='Workspace'>
+
+`Workspace` – The company-wide container in Linear.
+
+It holds all teams, users, issues, and projects. While not always directly tied to individual notifications, the workspace context is essential for managing access, organization-wide preferences, and admin-level settings.
+This allows multi-tenant apps to keep each workspace's data and logic separated cleanly.
+
+
+```json
+//  Workspace (Organization) Model
+{
+  "id": "string",
+  "name": "string",
+  "urlKey": "string",                // Unique workspace identifier for URLs
+  "logoUrl": "string",
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate",
+  "archivedAt": "ISODate",
+  "deletionRequestedAt": "ISODate",
+  "userCount": "number",
+  "userCountRestriction": "number",
+  "allowedAuthServices": ["string"], // e.g. ["google", "github"]
+  "gitBranchFormat": "string",
+  "gitLinkbackMessagesEnabled": true,
+  "gitPublicLinkbackMessagesEnabled": false,
+  "periodUploadVolume": "number",
+  "previousUrlKeys": ["string"],
+  "samlEnabled": false,
+  "scimEnabled": false,
+  "subscription": {
+    "type": "string",                // e.g. "pro"
+    "seats": "number",
+    "canceledAt": "ISODate"
+  },
+  "roadmapEnabled": true,
+  "projectUpdatesReminderFrequency": "string", // e.g. "weekly"
+  "modelName": "Organization"
+}
+```
+
+</Tab>
+
+<Tab title='Projects'>
+
+`Projects` – Groupings of issues around a common goal or feature.
+
+Projects offer a higher-level view of progress and often span multiple teams. Notifications might be triggered by project updates (e.g., phase changes, new milestones) or used for digest summaries.
+
+### Projects → Topics
+
+**Project Name** → Topic: `project-website-redesign`  
+Used to notify everyone involved in a project (e.g., `Website Redesign` project becomes topic `project-website-redesign`)
+
+**Project Members** → Subscribers in the topic  
+Assigned collaborators are added as subscribers to the topic. Manage via project membership sync.
+
+**Project ID** → Optional for `topicKey`  
+For stable topic identifiers: `project_3gk58mndz` instead of relying on project names that might change.
+
+**Use Case**: Notify project collaborators when milestones are reached or tasks are completed.
+
+#### Data Model
+
+```json
+//  Project Model
+{
+  "id": "string",
+  "name": "string",
+  "description": "string",
+  "slugId": "string",                // Used in URL slugs
+  "icon": "string",                  // e.g. "Sign"
+  "color": "#hexcode",
+  "statusId": "string",
+  "creatorId": "string",
+  "leadId": "string",
+  "memberIds": ["string"],
+  "organizationId": "string",
+  "teamIds": ["string"],
+
+  "startDate": "YYYY-MM-DD",         // Planning start
+  "startedAt": "ISODate",            // Actual start
+  "targetDate": "YYYY-MM-DD",        // Planned deadline
+  "startDateResolution": "string",   // e.g. "month"
+  "targetDateResolution": "string",  // e.g. "halfYear"
+  "frequencyResolution": "string",   // e.g. "weekly"
+
+  "updateRemindersDay": "number",    // Day of week (0–6)
+  "updateRemindersHour": "number",   // 24h format
+
+  "priority": "number",
+  "sortOrder": "number",
+  "prioritySortOrder": "number",
+
+  "currentProgress": "{}",        // JSON string with scope + issue metrics
+  "issueCountHistory": ["number"],
+  "completedIssueCountHistory": ["number"],
+  "scopeHistory": ["number"],
+  "completedScopeHistory": ["number"],
+  "inProgressScopeHistory": ["number"],
+
+  "progressHistory": [
+    [
+      // custom structure, interpreted as snapshots of progress
+    ]
+  ],
+
+  "traits": "number",                // Unknown use; appears consistently
+  "createdAt": "ISODate",
+  "updatedAt": "ISODate",
+  "modelName": "Project"
+}
+```
+
+</Tab>
+
+</Tabs>
+
+</Tab>
+
+<Tab title='Payload Structure'>
+
+When building transactional notifications, the payload structure determines how effectively your messages reach users across different channels. Based on Linear's notification patterns, this guide outlines the essential properties needed for robust, multi-channel notifications.
+
+## Why Payload Structure Matters
+
+Your notification payload serves multiple purposes:
+- **Cross-channel delivery**: The same payload powers in-app notifications, emails, and third-party integrations like Slack
+- **Template flexibility**: Well-structured data enables dynamic content rendering across different notification types
+- **User experience**: Proper payload design ensures users receive contextual, actionable notifications
+
+## Core Payload Properties
+
+Every notification event should include these four essential properties:
+
+#### `name` - Workflow Name / Identifier (required)
+
+Usually corresponds to the event that is being triggered. It is a stable, unique identifier used for grouping notification templates and routing logic.
+
+```json
+"name": "workflow_identifier"
+```
+
+**Best practices**:
+- Use kebab-case naming (e.g., `issue-updated`, `user-mentioned`)
+- Keep names descriptive but concise
+- Maintain consistency across your application
+
+---
+
+#### `to` - Target Recipients
+
+Specifies who should receive the notification.
+
+**Formats supported**:
+- Individual user ID: `{ subscriberId: "user-123" }`
+- Topic-based: `{ type: "Topic", topicKey: "issue-ENG-158" }`
+- Multiple recipients: Array of recipient objects
+
+---
+
+#### `payload` - Notification Context (required)
+
+Contains all the contextual information needed to render meaningful notifications across channels.
+
+**Could include**:
+- Primary entity details (ID, title, description)
+- Actor information (who performed the action)
+- Action metadata (what happened, when)
+- Relevant relationships (team, project, etc.)
+- Call-to-Action (CTA)
+
+**Structure**:
+
+```json
+"payload": {
+  "cta": {
+    "label": "View issue",        // User-facing action text
+    "url": "/path/to/resource"    // Deep-link to relevant page
+  }
+}
+```
+
+## Complete Example
+
+Here's a comprehensive example of an issue update notification:
+
+```js
+await novu.trigger(
+  "issue-updated", // Workflow Name / Identifier
+  {
+    to: [
+      { type: "Topic", topicKey: "workspace_A2B2C3_issue_ENG-158" } // Target Recipients
+      ],
+    payload: { // Notification Context
+      id: "ef42a753-1234-5678-9abc-def123456789",
+      identifier: "ENG-158",
+      title: "Data inconsistency",
+      action: "assigned",
+      eventTime: "2025-02-14T06:25:02.806Z",
+      performedBy: {
+      id: "09fff126-1234-5678-9abc-def123456789",
+      name: "Jane Developer",
+      avatar: "https://cdn.myapp.com/avatars/jane.jpg"
+      team: {
+        key: "ENG",
+        name: "Engineering",
+        icon: "Gears",
+        color: "#5e6ad2"
+      },
+      priority: 3,
+      cta: {
+      label: "View issue",
+      url: "/demo/issue/ENG-158/data-inconsistency"
+      }
+    }
+  }
+});
+```
+
+### Channel-Specific Considerations
+
+#### In-App Notifications
+- Use `performedBy.avatar` for user profile images
+- `team.color` and `team.icon` for visual branding
+- `eventTime` for timestamp display
+
+#### Email Notifications
+- `performedBy.name` for personalized messaging
+- `title` and contextual data for email subject lines
+- `cta.url` for clickable actions
+
+#### Slack/Teams Integration
+- `team.name` for channel routing
+- Rich context data for message formatting
+- `cta.label` and `cta.url` for action buttons
+
+This structured approach ensures your notifications are informative, actionable, and consistently delivered across all channels.
+
+</Tab>
+
+<Tab title='Event Examples'>
+
+### Event Examples
+
+#### issue-created
+A new issue was created (notifies assignee or subscribers)
+
+```json
+{
+  "name": "issue-created",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_issue_ENG-225"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-225",
+    "title": "Website assets need updating",
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "View issue",
+      "url": "/demo/issue/ENG-225/website-assets-need-updating"
+    }
+  }
+}
+```
+
+#### issue-assigned
+You've been assigned a new issue
+
+```json
+{
+  "name": "issue-assigned",
+  "to": [{
+    "subscriberId": "workspace_A2B2C3_user_123"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-158",
+    "title": "Data inconsistency",
+    "assignedBy": {
+      "id": "user-id",
+      "name": "John Doe",
+      "avatar": "https://cdn.myapp.com/avatars/john.jpg"
+    },
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 3,
+    "cta": {
+      "label": "Start working",
+      "url": "/demo/issue/ENG-158/data-inconsistency"
+    }
+  }
+}
+```
+
+#### issue-status-changed
+An issue you're watching changed status (e.g., to "In Progress")
+
+```json
+{
+  "name": "issue-status-changed",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_issue_ENG-168"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-168",
+    "title": "Can't export report from dashboard home",
+    "oldStateId": "backlog-id",
+    "newStateId": "in-progress-id",
+    "stateLabel": "In Progress",
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "See update",
+      "url": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
+    }
+  }
+}
+```
+
+#### issue-commented
+Someone left a comment on an issue you're involved in
+
+```json
+{
+  "name": "issue-commented",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_issue_ENG-158"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-158",
+    "title": "Data inconsistency",
+    "commentAuthor": {
+      "id": "user-id",
+      "name": "John Doe",
+      "avatar": "https://cdn.myapp.com/avatars/john.jpg"
+    },
+    "priority": 0,
+    "commentExcerpt": "Can you clarify what data set is inconsistent?",
+    "cta": {
+      "label": "Reply to comment",
+      "url": "/demo/issue/ENG-158/data-inconsistency#comments"
+    }
+  }
+}
+```
+#### issue-label-added
+A label was added (e.g., "urgent", "bug")
+
+```json
+{
+  "name": "issue-label-added",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_issue_ENG-158"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-158",
+    "title": "Data inconsistency",
+    "label": {
+      "id": "8f0b3326-91da-4c9a-ba3b-160467a0141f",
+      "name": "Urgent"
+    },
+    "cta": {
+      "label": "View issue",
+      "url": "/demo/issue/ENG-158/data-inconsistency"
+    }
+  }
+}
+```
+
+#### issue-closed
+The issue was marked as complete or canceled
+
+```json
+{
+  "name": "issue-closed",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_issue_ENG-168"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-168",
+    "title": "Can't export report from dashboard home",
+    "priority": 0,
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "See final state",
+      "url": "/demo/issue/ENG-168/cant-export-report-from-dashboard-home"
+    }
+  }
+}
+```
+
+#### issue-reopened
+Reopened from a closed state
+
+```json
+{
+  "name": "issue-reopened",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_issue_ENG-158"
+  }],
+  "payload": {
+    "id": "issue-id",
+    "identifier": "ENG-158",
+    "title": "Data inconsistency",
+    "reopenedBy": {
+      "id": "user-id",
+      "name": "John Doe",
+      "avatar": "https://cdn.myapp.com/avatars/john.jpg"
+    },
+    "team": {
+      "id": "team-id",
+      "key": "ENG",
+      "name": "Engineering",
+      "color": "#5e6ad2",
+      "icon": "Gears"
+    },
+    "priority": 0,
+    "cta": {
+      "label": "Resume work",
+      "url": "/demo/issue/ENG-158/data-inconsistency"
+    }
+  }
+}
+```
+
+#### project-update-reminder
+Weekly project reminder sent to team
+
+```json
+{
+  "name": "project-updateReminder",
+  "to": [{
+    "type": "Topic",
+    "topicKey": "workspace_A2B2C3_project_5d241600-202d-4e52-96e3-f8e3455f448c"
+  }],
+  "payload": {
+    "id": "5d241600-202d-4e52-96e3-f8e3455f448c",
+    "projectName": "P2P App",
+    "targetDate": "2025-06-30",
+    "frequency": "weekly",
+    "priority": 0,
+    "cta": {
+      "label": "Update status",
+      "url": "/demo/project/p2p-app-e830b278d2bf/overview"
+    }
+  }
+}
+```
+
+There are, of course, a lot more events, but we will not go into all of them.
+
+</Tab>
+
+<Tab title='Implementation'>
+
+This directory contains all components that construct the notification experience for the Linear Inbox application. The system is built using **Shadcn UI components** and tailored specifically to work with **Novu's inbox component** and **Novu hooks**. It provides a comprehensive, customizable notification interface that integrates seamlessly with Novu's notification infrastructure.
+
+## 📁 Directory Structure
+
+```
+notifications/
+├── README.md                           # This documentation
+├── Inbox.tsx                           # Main inbox container component
+├── inboxHeader.tsx                     # Inbox header with actions and filters
+├── notificationItem.tsx                # Individual notification display component
+├── NotificationContextMenu.tsx         # Right-click context menu for notifications
+├── actionIcons.tsx                     # Icons for different notification actions
+├── statusIcons.tsx                     # Status indicators and icons
+├── dropDownMenu.tsx                    # Dropdown menu components
+├── timeFormater.tsx                    # Time formatting utilities
+├── hooks/                              # Custom React hooks
+│   └── novuHooks.ts                    # Novu API integration hooks
+└── preferences/                        # Notification preferences system
+    ├── DemoModal.tsx                   # Demo modal for preferences
+    ├── layout/
+    │   └── PreferencesLayout.tsx       # Layout wrapper for preferences
+    ├── hooks/
+    │   └── updatePreferences.ts        # Preference update logic
+    ├── notifications/                  # Preference-specific components
+    │   ├── NotificationCard.tsx        # Individual preference card
+    │   ├── NotificationChannels.tsx    # Channel selection component
+    │   ├── NotificationChannelLink.tsx # Channel link component
+    │   └── NotificationToggle.tsx      # Toggle switch component
+    └── ui/                             # Reusable UI components
+        ├── FormSelect.tsx              # Form select component
+        └── TimeRangeInput.tsx          # Time range input component
+```
+
+#### **Inbox.tsx** - Main Container
+- **Purpose**: Primary container that integrates Novu's Inbox component
+- **Responsibilities**:
+  - Manages subscriber identification
+  - Handles inbox refresh logic
+  - Configures Novu appearance settings
+  - Renders custom notification items
+- **Key Features**:
+  - Custom header integration
+  - Refresh mechanism for real-time updates
+  - Responsive layout management
+
+```jsx
+
+//Inbox.tsx
+  "use client";
+
+import { Inbox, InboxContent, Notification } from "@novu/nextjs";
+import { getSubscriberId } from "@/lib/subscriberUtils";
+import { InboxHeader } from "./inboxHeader";
+import { NotificationItem } from "./notificationItem";
+import { useState } from "react";
+
+export default function CustomInbox() {
+  const subscriberId = getSubscriberId();
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const renderNotification = (notification: Notification) => {
+    return (
+      <NotificationItem notification={notification} onRefresh={refreshInbox} />
+    );
+  };
+
+  const inboxConfig = {
+    applicationIdentifier:
+      process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER || "",
+    subscriberId: subscriberId,
+    appearance: {
+      elements: {
+        inboxHeader: {
+          display: "none",
+        },
+      },
+    },
+  };
+
+  // Function to trigger re-render
+  const refreshInbox = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
+
+  return (
+    <div className="flex flex-col h-full">
+      <InboxHeader onRefresh={refreshInbox} />
+
+      <div className="flex-1 overflow-hidden">
+        <Inbox {...inboxConfig} key={refreshKey}>
+          <InboxContent renderNotification={renderNotification} />
+        </Inbox>
+      </div>
+    </div>
+  );
+}
+```
+
+<Picture src="/images/Linear-example/Inbox-main.png" alt="Linear inbox main component screenshot (updated)" />
+
+
+#### **inboxHeader.tsx** - Header Interface
+- **Purpose**: Provides filtering, sorting, and bulk action capabilities
+- **Responsibilities**:
+  - Provide bulk action buttons (mark all read, archive all)
+  - Filter notifications
+
+```jsx
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import { cn } from "@/lib/utils";
+import { useState, useCallback, useEffect } from "react";
+import {
+  readAllNotifications,
+  archiveAllNotifications,
+} from "./hooks/novuHooks";
+import { useToast } from "@/components/ui/use-toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+
+interface InboxHeaderProps {
+  className?: string;
+  onRefresh?: () => void;
+  subscriberId?: string;
+  showRead?: boolean;
+  showUnread?: boolean;
+  onFiltersChange?: (filters: {
+    showRead: boolean;
+    showUnread: boolean;
+  }) => void;
+}
+
+// Local storage keys for filter persistence
+const FILTER_STORAGE_KEYS = {
+  SHOW_READ: "linear-inbox-show-read",
+  SHOW_UNREAD: "linear-inbox-show-unread",
+} as const;
+
+// Custom hook for managing localStorage filter state
+const useLocalStorageFilter = (
+  propValue: boolean | undefined,
+  localStorageKey: string,
+  defaultValue: boolean
+): [boolean, (value: boolean) => void] => {
+  const [state, setState] = useState(propValue ?? defaultValue);
+
+  // Load from localStorage on mount if prop is undefined
+  useEffect(() => {
+    if (propValue === undefined) {
+      try {
+        const stored = localStorage.getItem(localStorageKey);
+        if (stored !== null) {
+          setState(JSON.parse(stored));
+        }
+      } catch (error) {
+        console.error(`Failed to load ${localStorageKey} from localStorage:`, error);
+      }
+    }
+  }, [propValue, localStorageKey]);
+
+  // Update local state when prop changes
+  useEffect(() => {
+    if (propValue !== undefined) {
+      setState(propValue);
+    }
+  }, [propValue]);
+
+  const setValue = useCallback((value: boolean) => {
+    setState(value);
+    try {
+      localStorage.setItem(localStorageKey, JSON.stringify(value));
+    } catch (error) {
+      console.error(`Failed to save ${localStorageKey} to localStorage:`, error);
+    }
+  }, [localStorageKey]);
+
+  return [state, setValue];
+};
+
+// Reusable Toggle Switch Component
+interface ToggleSwitchProps {
+  id: string;
+  checked: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  label: string;
+}
+
+const ToggleSwitch = ({
+  id,
+  checked,
+  onCheckedChange,
+  label,
+}: ToggleSwitchProps) => (
+  <div className="flex items-center justify-between">
+    <label className="text-sm font-medium text-foreground">{label}</label>
+    <div className="relative">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onCheckedChange(e.target.checked)}
+        className="sr-only"
+        id={id}
+      />
+      <label
+        htmlFor={id}
+        className={cn(
+          "block w-9 h-5 rounded-full cursor-pointer transition-colors duration-200 ease-in-out relative",
+          checked ? "bg-blue-600" : "bg-gray-200 hover:bg-gray-300"
+        )}
+      >
+        <span
+          className={cn(
+            "absolute top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform duration-200 ease-in-out",
+            checked ? "translate-x-5" : "translate-x-0.5"
+          )}
+        />
+      </label>
+    </div>
+  </div>
+);
+
+// Icon components (keeping the same as original)
+const MoreIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    role="img"
+    focusable="false"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M3 6.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+  </svg>
+);
+
+const DisplayIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    role="img"
+    focusable="false"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M9.5 10.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-1A.5.5 0 0 1 8 14v-3a.5.5 0 0 1 .5-.5h1Zm-2.5 1V13H1.75a.75.75 0 0 1 0-1.5H7Zm7.25 0a.75.75 0 0 1 0 1.5H11v-1.5h3.25ZM5.5 6a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1ZM3 7.25v1.5H1.75a.75.75 0 0 1 0-1.5H3Zm11.25 0a.75.75 0 0 1 0 1.5H7v-1.5h7.25Zm-2.75-5.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5h1ZM9 3v1.5H1.75a.75.75 0 0 1 0-1.5H9Zm5.25 0a.75.75 0 0 1 0 1.5H13V3h1.25Z"
+    />
+  </svg>
+);
+
+const MarkAllReadIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M10.591 1a3 3 0 0 1 2.93 2.352l1.36 6.15c.08.355.119.717.119 1.08v1.936A2.482 2.482 0 0 1 12.518 15H3.482A2.482 2.482 0 0 1 1 12.518v-1.935a5 5 0 0 1 .118-1.08L2.48 3.351A3 3 0 0 1 5.41 1h5.182Zm0 1.5H5.41a1.5 1.5 0 0 0-1.465 1.176l-1.361 6.15-.035.184H5.01c.549 0 .993.445.993.993 0 .549.444.993.993.993h2.063a.993.993 0 0 0 .993-.993c0-.548.444-.992.993-.992h2.408a3.48 3.48 0 0 0-.036-.185l-1.361-6.15A1.5 1.5 0 0 0 10.591 2.5Zm-.64 1.988a.75.75 0 0 1 1.06-.036.736.736 0 0 1 .034 1.048L7.548 9.262a.75.75 0 0 1-1.116-.023l-1.5-1.741a.75.75 0 1 1 1.136-.979l.954 1.108 2.93-3.139Z"></path>
+  </svg>
+);
+
+const DeleteIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M10.5914 1C11.9984 1 13.2164 1.97789 13.5205 3.35169L14.8819 9.50233C14.9604 9.85714 15 10.2195 15 10.5829V12.5181C15 13.8888 13.8888 15 12.5181 15H3.48193C2.1112 15 1 13.8888 1 12.5181V10.5829C1 10.2195 1.03962 9.85714 1.11815 9.50233L2.47949 3.35169C2.78356 1.97789 4.00156 1 5.4086 1H10.5914ZM10.5914 2.5H5.4086C4.70508 2.5 4.09608 2.98894 3.94405 3.67584L2.5827 9.82649L2.548 10.01L5.01028 10.0108C5.55851 10.0108 6.00293 10.4552 6.00293 11.0034C6.00293 11.5517 6.44735 11.9961 6.99557 11.9961H9.05948C9.6077 11.9961 10.0521 11.5517 10.0521 11.0034C10.0521 10.4552 10.4965 10.0108 11.0448 10.0108L13.4528 10.0102C13.4426 9.94867 13.4308 9.88742 13.4173 9.82649L12.056 3.67584C11.9039 2.98894 11.2949 2.5 10.5914 2.5ZM6.44621 3.89705L6.53033 3.96967L8 5.439L9.46967 3.96967C9.76256 3.67678 10.2374 3.67678 10.5303 3.96967C10.8232 4.26256 10.8232 4.73744 10.5303 5.03033L9.061 6.5L10.5303 7.96967C10.8232 8.26256 10.8232 8.73744 10.5303 9.03033C10.2641 9.2966 9.8474 9.3208 9.55379 9.10295L9.46967 9.03033L8 7.561L6.53033 9.03033C6.23744 9.32322 5.76256 9.32322 5.46967 9.03033C5.17678 8.73744 5.17678 8.26256 5.46967 7.96967L6.939 6.5L5.46967 5.03033C5.17678 4.73744 5.17678 4.26256 5.46967 3.96967C5.73594 3.7034 6.1526 3.6792 6.44621 3.89705Z"></path>
+  </svg>
+);
+
+
+
+export function InboxHeader({
+  className,
+  onRefresh,
+  showRead: propShowRead,
+  showUnread: propShowUnread,
+  onFiltersChange,
+}: InboxHeaderProps) {
+  const { toast } = useToast();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMarkingAllAsRead, setIsMarkingAllAsRead] = useState(false);
+  const [isArchivingAll, setIsArchivingAll] = useState(false);
+  const [showArchiveConfirm, setShowArchiveConfirm] = useState(false);
+
+  // Filter states with localStorage persistence
+  const [showRead, setShowRead] = useLocalStorageFilter(propShowRead, FILTER_STORAGE_KEYS.SHOW_READ, true);
+  const [showUnread, setShowUnread] = useLocalStorageFilter(propShowUnread, FILTER_STORAGE_KEYS.SHOW_UNREAD, true);
+
+  // Filter change handlers with onFiltersChange callback
+  const handleShowReadChange = useCallback(
+    (show: boolean) => {
+      setShowRead(show);
+      onFiltersChange?.({ showRead: show, showUnread });
+    },
+    [setShowRead, showUnread, onFiltersChange]
+  );
+
+  const handleShowUnreadChange = useCallback(
+    (show: boolean) => {
+      setShowUnread(show);
+      onFiltersChange?.({ showRead, showUnread: show });
+    },
+    [setShowUnread, showRead, onFiltersChange]
+  );
+
+  const handleMarkAllAsRead = async () => {
+    setIsMarkingAllAsRead(true);
+    try {
+      const result = await readAllNotifications();
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "All notifications have been marked as read.",
+        });
+        onRefresh?.();
+      } else {
+        throw result.error || new Error("Failed to mark all as read");
+      }
+    } catch (error) {
+      console.error("Failed to mark all as read:", error);
+      toast({
+        title: "Error",
+        description: "Failed to mark all notifications as read.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsMarkingAllAsRead(false);
+    }
+  };
+
+  const handleArchiveAllNotifications = async () => {
+    setIsArchivingAll(true);
+    try {
+      const result = await archiveAllNotifications();
+      if (result.success) {
+        toast({
+          title: "Success",
+          description: "All notifications have been archived.",
+        });
+        onRefresh?.();
+      } else {
+        throw result.error || new Error("Failed to archive all notifications");
+      }
+    } catch (error) {
+      console.error("Failed to archive all notifications:", error);
+      toast({
+        title: "Error",
+        description: "Failed to archive all notifications.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsArchivingAll(false);
+      setShowArchiveConfirm(false);
+    }
+  };
+
+  return (
+    <>
+      <AlertDialog
+        open={showArchiveConfirm}
+        onOpenChange={setShowArchiveConfirm}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Archive all notifications</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently archive all
+              your notifications.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleArchiveAllNotifications}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Archive All
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <header
+        className={cn(
+          "flex items-center justify-between px-4 py-4 border-b",
+          className
+        )}
+      >
+        <div className="flex items-center gap-2">
+          <div className="flex items-center">
+            <h2 className="text-md font-medium text-muted-foreground">Inbox</h2>
+          </div>
+          <div className="flex items-center">
+            <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-7 w-7 hover:bg-transparent text-muted-foreground border-0 focus:border-0 focus:ring-0 focus-visible:ring-0 focus-visible:outline-none focus-visible:border-0 active:border-0 active:ring-0 focus:outline-none focus-visible:outline-none focus-within:outline-none focus-within:ring-0 focus-within:border-0"
+                  aria-label="Notification actions"
+                >
+                  <MoreIcon />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="start"
+                className="min-w-[302px] p-1.5"
+              >
+                <button
+                  className="flex items-center w-full px-2 py-2 rounded-md hover:bg-accent focus:bg-accent group text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => {
+                    setDropdownOpen(false);
+                    handleMarkAllAsRead();
+                  }}
+                  disabled={isMarkingAllAsRead}
+                >
+                  <MarkAllReadIcon />
+                  <span className="ml-3 flex-1 text-left">
+                    {isMarkingAllAsRead
+                      ? "Marking all as read..."
+                      : "Mark all as read"}
+                  </span>
+                  <span className="flex gap-0.5 text-xs text-muted-foreground">
+                    <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
+                      ⌥
+                    </kbd>
+                    <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">
+                      U
+                    </kbd>
+                  </span>
+                </button>
+                <div className="my-1 h-px bg-border" />
+                <button
+                  className="flex items-center w-full px-2 py-2 rounded-md hover:bg-accent focus:bg-accent group text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => {
+                    setDropdownOpen(false);
+                    setShowArchiveConfirm(true);
+                  }}
+                  disabled={isArchivingAll}
+                >
+                  <DeleteIcon />
+                  <span className="ml-3 flex-1 text-left">
+                    {isArchivingAll
+                      ? "Archiving all notifications..."
+                      : "Archive all notifications"}
+                  </span>
+                </button>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-7 w-7 hover:bg-transparent text-muted-foreground border-0 focus:border-0 focus:ring-0 focus-visible:ring-0 focus-visible:outline-none focus-visible:border-0 active:border-0 active:ring-0 focus:outline-none focus-visible:outline-none focus-within:outline-none focus-within:ring-0 focus-within:border-0"
+                aria-label="Display options"
+              >
+                <DisplayIcon />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64 p-3">
+              {/* Switch Toggles Section */}
+              <div className="mb-4 space-y-3">
+                <ToggleSwitch
+                  id="showRead"
+                  checked={showRead}
+                  onCheckedChange={handleShowReadChange}
+                  label="Show read"
+                />
+                <ToggleSwitch
+                  id="showUnread"
+                  checked={showUnread}
+                  onCheckedChange={handleShowUnreadChange}
+                  label="Show unread"
+                />
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </header>
+    </>
+  );
+}
+```
+
+<Picture src="/images/Linear-example/Inbox-Header.png" alt="Linear inbox header component screenshot (updated)" />
+
+
+#### **notificationItem.tsx** - Individual Notification
+- **Purpose**: Renders individual notification
+- **Responsibilities**:
+  - Display notification (issue) content (title, description, avatar, status, action and time)
+  - Handle read/unread states
+  - Show action icons and timestamps
+  - Manage click interactions
+
+```jsx
+import { Notification } from "@novu/nextjs";
+import { Circle } from "lucide-react";
+import { NotificationActionIcon } from "./actionIcons";
+import { NotificationTime } from "./timeFormater";
+import { NotificationContextMenu } from "./NotificationContextMenu";
+import Image from "next/image";
+import { getSubscriberId } from "@/lib/subscriberUtils";
+import { readNotification } from "./hooks/novuHooks";
+
+interface NotificationItemProps {
+  notification: Notification;
+  onRefresh?: () => void;
+}
+
+export const NotificationItem = ({
+  notification,
+  onRefresh,
+}: NotificationItemProps) => {
+  const isRead = Boolean(notification.isRead);
+  const avatarSrc = String(notification.avatar || '');
+  const identifier =
+    String(notification.data?.identifier || 
+    notification.subject || 
+    'Unknown');
+  const title = String(notification.data?.title || '');
+  const description = String(notification.body || '');
+  const eventTime = String(notification.createdAt || new Date().toISOString());
+  const action = String(notification.data?.action || '');
+  const actorName = String((notification.data?.performedBy as { name?: string })?.name || '');
+
+  const handleNotificationClick = async () => {
+    // Mark as read if notification is not already read
+    if (!isRead) {
+      try {
+        const result = await readNotification(notification);
+        if (result.success) {
+          // Trigger refresh to update the UI
+          onRefresh?.();
+        } else {
+          console.error("Failed to mark notification as read:", result.error);
+        }
+      } catch (error) {
+        console.error("Failed to mark notification as read:", error);
+      }
+    }
+  };
+
+  return (
+    <NotificationContextMenu
+      notification={notification}
+      isRead={isRead}
+      subscriberId={getSubscriberId()}
+      onRefresh={onRefresh}
+    >
+      <div
+        className={`py-3 px-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors border-b border-zinc-200 dark:border-zinc-800 ${!isRead ? "bg-blue-50 dark:bg-blue-900/10" : ""}`}
+        role="button"
+        aria-label={`Notification: ${identifier} - ${title}`}
+        onClick={handleNotificationClick}
+      >
+        <div className="flex items-center gap-3">
+          <div className="relative flex-shrink-0">
+            <div className="h-8 w-8 rounded-full bg-zinc-200 dark:bg-zinc-700 overflow-hidden flex items-center justify-center">
+              {avatarSrc ? (
+                <Image
+                  src={avatarSrc}
+                  alt={`${actorName}'s avatar`}
+                  width={32}
+                  height={32}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <div className="h-8 w-8 rounded-full bg-zinc-200 dark:bg-zinc-700 overflow-hidden flex items-center justify-center">
+                  <span className="text-sm font-medium">
+                    {actorName ? actorName.charAt(0).toUpperCase() : '?'}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div className="absolute -bottom-1 -right-1 rounded-full bg-white dark:bg-zinc-900 p-0.5 border border-zinc-200 dark:border-zinc-700">
+              <NotificationActionIcon action={action} />
+            </div>
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center w-full">
+              <div className="flex-1 min-w-0 overflow-hidden pr-3">
+                <div className="flex items-center gap-2">
+                  {!isRead && (
+                    <div className="h-2 w-2 rounded-full bg-blue-500 flex-shrink-0" />
+                  )}
+                  <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 truncate">
+                    {identifier && (
+                      <span className="text-zinc-500 dark:text-zinc-400 mr-2">
+                        {identifier}
+                      </span>
+                    )}
+                    {title}
+                  </h3>
+                </div>
+
+                {description && (
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 truncate">
+                    {description}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex flex-col items-center gap-1 flex-shrink-0">
+                <Circle
+                  className="w-3.5 h-3.5 text-gray-400"
+                  aria-label="Default state"
+                />
+                <NotificationTime timestamp={eventTime} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </NotificationContextMenu>
+  );
+};
+```
+
+<Picture src="/images/Linear-example/Notification-item.png" alt="Linear notification item component screenshot (updated)" />
+
+### Supporting Components
+
+#### **NotificationContextMenu.tsx** - Context Menu
+- **Purpose**: Provides right-click context menu for notifications
+- **Actions Available**:
+  - Mark as read/unread
+  - Archive notification
+  - Snooze options (1 hour, tomorrow, next week)
+
+```jsx
+import { useState, useCallback } from "react";
+import { Notification } from "@novu/nextjs";
+import {
+  ContextMenu,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+} from "@/components/ui/context-menu";
+import { Mail, Trash2, Clock } from "lucide-react";
+import {
+  readNotification,
+  unreadNotification,
+  archiveNotification,
+  snoozeNotificationWithOptions,
+  snoozeNotificationWithCustomDuration,
+} from "./hooks/novuHooks";
+
+interface NotificationContextMenuProps {
+  notification: Notification;
+  children: React.ReactNode;
+  isRead: boolean;
+  onStateChange?: (notification: Notification, isRead: boolean) => void;
+  onDelete?: (notification: Notification) => void;
+  onRefresh?: () => void;
+  subscriberId?: string;
+}
+
+export const NotificationContextMenu = ({
+  notification,
+  children,
+  isRead,
+  onStateChange,
+  onDelete,
+  onRefresh,
+  subscriberId,
+}: NotificationContextMenuProps) => {
+  const handleMarkAsRead = useCallback(async () => {
+    try {
+      const result = await readNotification(notification);
+      if (result.success) {
+        onStateChange?.(notification, true);
+        onRefresh?.();
+      } else {
+        console.error("Failed to mark as read:", result.error);
+      }
+    } catch (error) {
+      console.error("Failed to mark as read:", error);
+    }
+  }, [notification, onStateChange, onRefresh, subscriberId]);
+
+  const handleMarkAsUnread = useCallback(async () => {
+    try {
+      const result = await unreadNotification(notification);
+      if (result.success) {
+        onStateChange?.(notification, false);
+        onRefresh?.();
+      } else {
+        console.error("Failed to mark as unread:", result.error);
+      }
+    } catch (error) {
+      console.error("Failed to mark as unread:", error);
+    }
+  }, [notification, onStateChange, onRefresh, subscriberId]);
+
+  const handleArchive = useCallback(async () => {
+    try {
+      const result = await archiveNotification(notification);
+      if (result.success) {
+        onDelete?.(notification);
+        onRefresh?.();
+      } else {
+        console.error("Failed to archive:", result.error);
+      }
+    } catch (error) {
+      console.error("Failed to archive:", error);
+    }
+  }, [notification, onDelete, onRefresh, subscriberId]);
+
+  const handleSnooze = useCallback(
+    async (minutes: number) => {
+      try {
+        const result = await snoozeNotificationWithCustomDuration(
+          notification,
+          minutes
+        );
+        if (result.success) {
+          onDelete?.(notification);
+          onRefresh?.();
+        } else {
+          console.error("Failed to snooze notification:", result.error);
+        }
+      } catch (error) {
+        console.error("Failed to snooze notification:", error);
+      }
+    },
+    [notification, onDelete, onRefresh, subscriberId]
+  );
+
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>{children}</ContextMenuTrigger>
+
+      <ContextMenuContent className="w-64">
+        {isRead ? (
+          <ContextMenuItem className="gap-3" onClick={handleMarkAsUnread}>
+            <Mail className="h-4 w-4" />
+            Mark as unread
+          </ContextMenuItem>
+        ) : (
+          <ContextMenuItem className="gap-3" onClick={handleMarkAsRead}>
+            <div className="relative">
+              <Mail className="h-4 w-4" />
+              {!isRead && (
+                <div className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-blue-500 flex-shrink-0" />
+              )}
+            </div>
+            Mark as read
+          </ContextMenuItem>
+        )}
+
+        <ContextMenuItem className="gap-3" onClick={handleArchive}>
+          <Trash2 className="h-4 w-4" />
+          Delete notification
+        </ContextMenuItem>
+
+        <ContextMenuSub>
+          <ContextMenuSubTrigger className="gap-3">
+            <Clock className="h-4 w-4" />
+            Snooze
+          </ContextMenuSubTrigger>
+          <ContextMenuSubContent className="w-48">
+            <ContextMenuItem onClick={() => handleSnooze(15)}>
+              Snooze for 15 minutes
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleSnooze(30)}>
+              Snooze for 30 minutes
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleSnooze(60)}>
+              Snooze for 1 hour
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleSnooze(240)}>
+              Snooze for 4 hours
+            </ContextMenuItem>
+            <ContextMenuItem onClick={() => handleSnooze(1440)}>
+              Snooze for 1 day
+            </ContextMenuItem>
+          </ContextMenuSubContent>
+        </ContextMenuSub>
+      </ContextMenuContent>
+    </ContextMenu>
+  );
+};
+```
+
+<Picture src="/images/Linear-example/NotificationContextMenu.png" alt="NotificationContextMenu component screenshot (updated)" />
+
+#### **actionIcons.tsx** - Action Visual Indicators
+- **Purpose**: Provides visual indicator of the action that a notification was triggered by.
+
+```jsx
+import {
+  CheckCircle,
+  AtSign,
+  UserPlus,
+  Reply,
+  MessageSquare,
+  XCircle,
+  Circle,
+  Clock,
+  Plus,
+  GitBranch,
+  Tag,
+  Archive,
+} from "lucide-react";
+
+const ACTION_TYPES = {
+  COMPLETED: ["completed", "marked as completed"],
+  MENTIONED: ["mentioned"],
+  ASSIGNED: ["assigned"],
+  REPLIED: ["replied"],
+  COMMENTED: ["commented"],
+  CANCELED: ["canceled", "marked as canceled"],
+  OVERDUE: ["past due date", "past due"],
+  TRIAGED: ["triaged"],
+  CREATED: ["created"],
+  STATUS_CHANGED: ["statuschanged"],
+  CLOSED: ["closed"],
+};
+
+export const NotificationActionIcon  = ({ action }: { action: string }) => {
+  const actionLower = action.toLowerCase();
+
+    if (ACTION_TYPES.COMPLETED.includes(actionLower)) {
+      return (
+        <CheckCircle
+          className="w-3.5 h-3.5 text-green-500"
+          aria-label="Completed"
+        />
+      );
+    }
+    if (ACTION_TYPES.MENTIONED.includes(actionLower)) {
+      return (
+        <AtSign className="w-3.5 h-3.5 text-blue-500" aria-label="Mentioned" />
+      );
+    }
+    if (ACTION_TYPES.ASSIGNED.includes(actionLower)) {
+      return (
+        <UserPlus
+          className="w-3.5 h-3.5 text-purple-500"
+          aria-label="Assigned"
+        />
+      );
+    }
+    if (ACTION_TYPES.REPLIED.includes(actionLower)) {
+      return (
+        <Reply
+          className="w-3.5 h-3.5 text-cyan-500"
+          aria-label="Replied"
+        />
+      );
+    }
+    if (ACTION_TYPES.COMMENTED.includes(actionLower)) {
+      return (
+        <MessageSquare
+          className="w-3.5 h-3.5 text-blue-400"
+          aria-label="Commented"
+        />
+      );
+    }
+    if (ACTION_TYPES.CANCELED.includes(actionLower)) {
+      return (
+        <XCircle className="w-3.5 h-3.5 text-red-500" aria-label="Canceled" />
+      );
+    }
+    if (ACTION_TYPES.OVERDUE.includes(actionLower)) {
+      return <Clock className="w-3.5 h-3.5 text-red-500" aria-label="Overdue" />;
+    }
+    if (ACTION_TYPES.TRIAGED.includes(actionLower)) {
+      return (
+        <Tag
+          className="w-3.5 h-3.5 text-orange-500"
+          aria-label="Triaged"
+        />
+      );
+    }
+    if (ACTION_TYPES.CREATED.includes(actionLower)) {
+      return (
+        <Plus
+          className="w-3.5 h-3.5 text-green-600"
+          aria-label="Created"
+        />
+      );
+    }
+    if (ACTION_TYPES.STATUS_CHANGED.includes(actionLower)) {
+      return (
+        <GitBranch
+          className="w-3.5 h-3.5 text-indigo-500"
+          aria-label="Status Changed"
+        />
+      );
+    }
+    if (ACTION_TYPES.CLOSED.includes(actionLower)) {
+      return (
+        <Archive
+          className="w-3.5 h-3.5 text-gray-500"
+          aria-label="Closed"
+        />
+      );
+    }
+
+  return <Circle className="w-3.5 h-3.5 text-gray-400" aria-label="Default" />;
+};
+```
+
+<Picture src="/images/Linear-example/Action-Visual-Indicators.png" alt="Action-Visual-Indicators component screenshot (updated)" />
+
+#### **statusIcons.tsx** - Status Indicators
+- **Purpose**: Visual indicators of the issue status / state
+
+This element does not tie directly to the notification because it's supposed to be synced with the database. 
+
+```jsx
+import {
+  CheckCircle2,
+  XCircle,
+  AlertCircle,
+  Circle,
+  Inbox,
+  Play,
+  Archive,
+} from "lucide-react";
+
+import { Notification } from "@novu/nextjs";
+
+interface NotificationData {
+  stateId?: string;
+  stateLabel?: string;
+  [key: string]: unknown;
+}
+
+// Component for rendering state icons based on Linear issue states
+export const NotificationStateIcon = ({
+  notification,
+}: {
+  notification: Notification;
+}) => {
+  const data = notification.data as NotificationData;
+  const stateId = data?.stateId;
+  const stateLabel = data?.stateLabel;
+
+  // Map Linear state IDs to appropriate icons
+  switch (stateId) {
+    case "triage":
+      return (
+        <AlertCircle
+          className="w-3.5 h-3.5 text-orange-500"
+          aria-label="Triage state"
+        />
+      );
+    case "backlog":
+      return (
+        <Inbox
+          className="w-3.5 h-3.5 text-gray-500"
+          aria-label="Backlog state"
+        />
+      );
+    case "in-progress":
+    case "in_progress":
+      return (
+        <Play
+          className="w-3.5 h-3.5 text-blue-500"
+          aria-label="In progress state"
+        />
+      );
+    case "completed":
+    case "done":
+      return (
+        <CheckCircle2
+          className="w-3.5 h-3.5 text-green-500"
+          aria-label="Completed state"
+        />
+      );
+    case "canceled":
+    case "cancelled":
+      return (
+        <XCircle
+          className="w-3.5 h-3.5 text-red-500"
+          aria-label="Canceled state"
+        />
+      );
+    case "archived":
+      return (
+        <Archive
+          className="w-3.5 h-3.5 text-gray-400"
+          aria-label="Archived state"
+        />
+      );
+    default:
+      // Fallback to state label parsing if stateId is not available
+      const label = stateLabel?.toLowerCase() || "";
+
+      if (label.includes("triage")) {
+        return (
+          <AlertCircle
+            className="w-3.5 h-3.5 text-orange-500"
+            aria-label="Triage state"
+          />
+        );
+      }
+      if (label.includes("backlog")) {
+        return (
+          <Inbox
+            className="w-3.5 h-3.5 text-gray-500"
+            aria-label="Backlog state"
+          />
+        );
+      }
+      if (label.includes("progress") || label.includes("in progress")) {
+        return (
+          <Play
+            className="w-3.5 h-3.5 text-blue-500"
+            aria-label="In progress state"
+          />
+        );
+      }
+      if (label.includes("complete") || label.includes("done")) {
+        return (
+          <CheckCircle2
+            className="w-3.5 h-3.5 text-green-500"
+            aria-label="Completed state"
+          />
+        );
+      }
+      if (label.includes("cancel")) {
+        return (
+          <XCircle
+            className="w-3.5 h-3.5 text-red-500"
+            aria-label="Canceled state"
+          />
+        );
+      }
+      if (label.includes("archive")) {
+        return (
+          <Archive
+            className="w-3.5 h-3.5 text-gray-400"
+            aria-label="Archived state"
+          />
+        );
+      }
+
+      // Default fallback
+      return (
+        <Circle
+          className="w-3.5 h-3.5 text-gray-400"
+          aria-label="Default state"
+        />
+      );
+  }
+};
+```
+
+<Picture src="/images/Linear-example/Status-Indicators.png" alt="Status-Indicators component screenshot (updated)" />
+
+---
+
+### Utility Components
+
+#### **timeFormater.tsx** - Time Display
+- **Purpose**: Formats timestamps for human-readable display
+
+```jsx
+export const NotificationTime = ({
+  timestamp,
+}: {
+  timestamp: string | undefined;
+}) => {
+  if (!timestamp) return null;
+
+  try {
+    const now = new Date();
+    const date = new Date(timestamp);
+
+    if (isNaN(date.getTime())) {
+      return null;
+    }
+
+    const diffInMs = now.getTime() - date.getTime();
+    const diffInHours = diffInMs / (1000 * 60 * 60);
+    const diffInDays = diffInHours / 24;
+    const diffInWeeks = diffInDays / 7;
+
+    if (diffInHours < 1) {
+      const minutes = Math.floor(diffInMs / (1000 * 60));
+      return (
+        <span className="text-xs text-zinc-500 dark:text-zinc-400">{`${Math.max(1, minutes)}m`}</span>
+      );
+    }
+
+    if (diffInHours < 24) {
+      return (
+        <span className="text-xs text-zinc-500 dark:text-zinc-400">{`${Math.floor(diffInHours)}h`}</span>
+      );
+    }
+
+    if (diffInDays < 7) {
+      return (
+        <span className="text-xs text-zinc-500 dark:text-zinc-400">{`${Math.floor(diffInDays)}d`}</span>
+      );
+    }
+
+    if (diffInWeeks < 4) {
+      return (
+        <span className="text-xs text-zinc-500 dark:text-zinc-400">{`${Math.floor(diffInWeeks)}w`}</span>
+      );
+    }
+
+    return (
+      <span className="text-xs text-zinc-500 dark:text-zinc-400">
+        {date.toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+      </span>
+    );
+  } catch (error) {
+    console.error("Error formatting timestamp:", error);
+    return null;
+  }
+};
+```
+
+#### **dropDownMenu.tsx** - Dropdown Menus
+- **Purpose**: Reusable dropdown menu components
+
+```jsx
+import {
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+} from "@/components/ui/context-menu";
+
+import { Notification } from "@novu/nextjs";
+import {
+  unreadNotification,
+  readNotification,
+  archiveNotification,
+  snoozeNotificationWithOptions,
+} from "./hooks/novuHooks";
+
+import { useToast } from "@/components/ui/use-toast";
+import {
+  Mail,
+  Trash2,
+  Clock,
+  BellOff,
+  Star,
+  Copy,
+  ExternalLink,
+} from "lucide-react";
+
+interface NotificationContextMenuProps {
+  notification: Notification;
+  onMarkAsRead: () => void;
+  onMarkAsUnread: () => void;
+  onDelete: () => void;
+  onSnooze: () => void;
+  onUnsubscribe: () => void;
+  onFavorite: () => void;
+  onCopy: () => void;
+  onOpenInDesktop: () => void;
+  isReadOverride?: boolean;
+  subscriberId?: string;
+}
+
+// Component for notification context menu
+export const NotificationContextMenu = ({
+  notification,
+  isReadOverride,
+  onMarkAsRead,
+  onMarkAsUnread,
+  onDelete,
+  onSnooze,
+  onUnsubscribe,
+  onFavorite,
+  onCopy,
+  onOpenInDesktop,
+  subscriberId,
+}: NotificationContextMenuProps) => {
+  const { toast } = useToast();
+
+  const handleUnread = async () => {
+    await unreadNotification(notification);
+    onMarkAsUnread();
+    toast({
+      title: "Notification marked as unread",
+      description: "The notification has been successfully marked as unread.",
+    });
+  };
+
+  const handleRead = async () => {
+    await readNotification(notification);
+    onMarkAsRead();
+    toast({
+      title: "Notification marked as read",
+      description: "The notification has been successfully marked as read.",
+    });
+  };
+
+  const handleArchive = async () => {
+    try {
+      await archiveNotification(notification);
+      onDelete();
+      toast({
+        title: "Notification archived",
+        description: "The notification has been successfully archived.",
+      });
+    } catch (error) {
+      console.error("Failed to archive:", error);
+      toast({
+        title: "Error",
+        description: "Failed to archive the notification.",
+      });
+    }
+  };
+
+  const handleSnooze = async (
+    option: "anHourFromNow" | "tomorrow" | "nextWeek"
+  ) => {
+    await snoozeNotificationWithOptions(notification, option);
+    onSnooze();
+  };
+
+  return (
+    <ContextMenuContent className="w-64">
+      {!isReadOverride ? (
+        <ContextMenuItem className="gap-3" onClick={handleRead}>
+          <div className="relative">
+            <Mail className="h-4 w-4" />
+            {!isReadOverride && (
+              <div className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-blue-500 flex-shrink-0" />
+            )}
+          </div>
+          Mark as read
+          <ContextMenuShortcut>U</ContextMenuShortcut>
+        </ContextMenuItem>
+      ) : (
+        <ContextMenuItem className="gap-3" onClick={handleUnread}>
+          <Mail className="h-4 w-4" />
+          Mark as unread
+          <ContextMenuShortcut>U</ContextMenuShortcut>
+        </ContextMenuItem>
+      )}
+
+      <ContextMenuItem className="gap-3" onClick={handleArchive}>
+        <Trash2 className="h-4 w-4" />
+        Delete notification
+      </ContextMenuItem>
+
+      <ContextMenuItem
+        className="gap-3"
+        onClick={() => handleSnooze("anHourFromNow")}
+      >
+        <Clock className="h-4 w-4" />
+        Snooze
+        <ContextMenuShortcut>H</ContextMenuShortcut>
+      </ContextMenuItem>
+
+      <ContextMenuItem className="gap-3" onClick={onUnsubscribe} disabled>
+        <BellOff className="h-4 w-4" />
+        Unsubscribe
+        <ContextMenuShortcut>⇧S</ContextMenuShortcut>
+      </ContextMenuItem>
+
+      <ContextMenuItem className="gap-3" onClick={onFavorite} disabled>
+        <Star className="h-4 w-4" />
+        Favorite
+        <ContextMenuShortcut>F</ContextMenuShortcut>
+      </ContextMenuItem>
+
+      <ContextMenuSeparator />
+
+      <ContextMenuItem className="gap-3" onClick={onCopy} disabled>
+        <Copy className="h-4 w-4" />
+        Copy
+      </ContextMenuItem>
+
+      <ContextMenuItem className="gap-3" onClick={onOpenInDesktop} disabled>
+        <ExternalLink className="h-4 w-4" />
+        Open in desktop app
+        <ContextMenuShortcut>⌃⌘</ContextMenuShortcut>
+      </ContextMenuItem>
+    </ContextMenuContent>
+  );
+};
+```
+
+## 📦 Required Dependencies
+
+### Core Dependencies
+```json
+{
+  "@novu/nextjs": "^0.20.0",           // Novu React components for Next.js
+  "@novu/js": "^0.20.0",               // Novu JavaScript SDK
+  "lucide-react": "^0.263.1",          // Icon library
+  "next": "^14.0.0",                   // Next.js framework
+  "react": "^18.0.0",                  // React library
+  "react-dom": "^18.0.0"               // React DOM
+}
+```
+
+### Shadcn UI Components
+The notification system heavily utilizes Shadcn UI components for consistent design and functionality:
+
+```json
+{
+  "@radix-ui/react-accordion": "^1.1.2",
+  "@radix-ui/react-alert-dialog": "^1.0.5",
+  "@radix-ui/react-avatar": "^1.0.4",
+  "@radix-ui/react-button": "^1.0.3",
+  "@radix-ui/react-checkbox": "^1.0.4",
+  "@radix-ui/react-context-menu": "^2.1.5",
+  "@radix-ui/react-dialog": "^1.0.5",
+  "@radix-ui/react-dropdown-menu": "^2.0.6",
+  "@radix-ui/react-form": "^0.0.3",
+  "@radix-ui/react-label": "^2.0.2",
+  "@radix-ui/react-popover": "^1.0.7",
+  "@radix-ui/react-select": "^2.0.0",
+  "@radix-ui/react-separator": "^1.0.3",
+  "@radix-ui/react-slot": "^1.0.2",
+  "@radix-ui/react-switch": "^1.0.3",
+  "@radix-ui/react-tabs": "^1.0.4",
+  "@radix-ui/react-toast": "^1.1.5",
+  "@radix-ui/react-tooltip": "^1.0.7"
+}
+```
+
+### Styling Dependencies
+```json
+{
+  "tailwindcss": "^3.3.0",             // Utility-first CSS framework
+  "class-variance-authority": "^0.7.0", // Component variant management
+  "clsx": "^2.0.0",                    // Conditional className utility
+  "tailwind-merge": "^2.0.0"           // Tailwind class merging utility
+}
+```
+
+### Development Dependencies
+```json
+{
+  "@types/node": "^20.0.0",
+  "@types/react": "^18.0.0",
+  "@types/react-dom": "^18.0.0",
+  "typescript": "^5.0.0",
+  "eslint": "^8.0.0",
+  "prettier": "^3.0.0"
+}
+```
+
+## Hooks System
+
+### novuHooks.ts - API Integration
+Provides a clean interface to Novu's notification API using the `@novu/js` SDK:
+
+```jsx
+import { Novu, Notification } from "@novu/js";
+import { getSubscriberId } from "@/lib/subscriberUtils";
+
+// Validate required environment variable
+const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER;
+if (!applicationIdentifier) {
+  throw new Error(
+    'NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER environment variable is required but not defined. ' +
+    'Please ensure this variable is set in your environment configuration.'
+  );
+}
+
+const novu = new Novu({
+  subscriberId: getSubscriberId(),
+  applicationIdentifier,
+});
+
+interface NovuResponse {
+  success: boolean;
+  error?: string;
+  data?: any;
+}
+
+export const readNotification = async (notification: Notification): Promise<NovuResponse> => {
+  try {
+    await novu.notifications.read({ notificationId: notification.id });
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to read notification:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const unreadNotification = async (notification: Notification): Promise<NovuResponse> => {
+  try {
+    await novu.notifications.unread({ notificationId: notification.id });
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to unread notification:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const archiveNotification = async (notification: Notification): Promise<NovuResponse> => {
+  try {
+    await novu.notifications.archive({ notificationId: notification.id });
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to archive notification:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const readAllNotifications = async (): Promise<NovuResponse> => {
+  try {
+    await novu.notifications.readAll();
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to read all notifications:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const archiveAllNotifications = async (): Promise<NovuResponse> => {
+  try {
+    await novu.notifications.archiveAll();
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to archive all notifications:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const snoozeNotification = () => { 
+  const now = new Date();
+  
+  const anHourFromNow = new Date(now);
+  anHourFromNow.setHours(anHourFromNow.getHours() + 1);
+  
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(9, 0, 0, 0); // Set to 9 AM tomorrow
+  
+  const nextWeek = new Date(now);
+  nextWeek.setDate(nextWeek.getDate() + 7);
+  nextWeek.setHours(9, 0, 0, 0); // Set to 9 AM next week
+  
+  return {
+    anHourFromNow: anHourFromNow.toISOString(),
+    tomorrow: tomorrow.toISOString(),
+    nextWeek: nextWeek.toISOString(),
+  };
+};
+
+export const snoozeNotificationWithOptions = async (notification: Notification, option: 'anHourFromNow' | 'tomorrow' | 'nextWeek'): Promise<NovuResponse> => {
+  try {
+    const snoozeOptions = snoozeNotification();
+    const snoozeUntil = snoozeOptions[option as keyof typeof snoozeOptions];
+    
+    await novu.notifications.snooze({ notificationId: notification.id, snoozeUntil });
+    
+    return { success: true, data: snoozeUntil };
+  } catch (error) {
+    console.error('Failed to snooze notification:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const snoozeNotificationWithCustomDuration = async (notification: Notification, minutes: number): Promise<NovuResponse> => {
+  try {
+    const now = new Date();
+    const snoozeUntil = new Date(now.getTime() + minutes * 60 * 1000);
+    
+    await novu.notifications.snooze({ notificationId: notification.id, snoozeUntil: snoozeUntil.toISOString() });
+    
+    return { success: true, data: snoozeUntil.toISOString() };
+  } catch (error) {
+    console.error('Failed to snooze notification:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const getNotificationPreferences = async (): Promise<NovuResponse> => {
+  try {
+    // For now, return mock data since the client-side Novu API doesn't have direct preference methods
+    // In a real implementation, you would need to use the server-side API or implement this differently
+    const mockPreferences = [
+      {
+        type: "linear-updates",
+        channels: { email: true, inApp: true, push: false },
+      },
+      {
+        type: "invite-notifications", 
+        channels: { email: true, inApp: true, push: false },
+      },
+      {
+        type: "legal-updates",
+        channels: { email: true, inApp: false, push: false },
+      },
+    ];
+    return { success: true, data: mockPreferences };
+  } catch (error) {
+    console.error('Failed to get notification preferences:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+
+export const updateNotificationPreference = async (
+  workflowId: string, 
+  channelType: string, 
+  enabled: boolean
+): Promise<NovuResponse> => {
+  try {
+    // For now, just return success since the client-side Novu API doesn't have direct preference methods
+    // In a real implementation, you would need to use the server-side API or implement this differently
+    console.log(`Would update preference: ${workflowId} - ${channelType}: ${enabled}`);
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to update notification preference:', error);
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+  }
+};
+```
+
+---
+
+### User Preferences
+
+The preferences system provides a UI-only implementation for notification preferences. This system demonstrates the complete interface structure and user experience flow, but currently operates with mock data and requires backend integration for full functionality.
+
+#### Core Components
+
+- DemoModal.tsx - Interactive preference demonstration interface
+- PreferencesLayout.tsx - Consistent layout wrapper and styling
+- updatePreferences.ts - Mock preference update logic (placeholder for API calls)
+- Notification Components - Individual preference controls with stateless UI
+
+#### Available Features (UI Only)
+
+The interface includes comprehensive preference controls for:
+
+- Channel preferences - Email, in-app, and push notification toggles
+- Workflow-specific settings - Granular control over different notification types
+- Time-based preferences - Schedule and frequency management
+- Bulk operations - Mass preference updates and management
+
+#### Integration Requirements
+
+To activate full functionality, implement these backend components:
+
+1. Data Layer
+
+- User preference storage and retrieval system
+- Real-time preference synchronization
+- User authentication and authorization
+
+2. API Integration
+
+- RESTful endpoints for preference CRUD operations
+- Integration with Novu's preference management API
+- Error handling and validation
+
+3. State Management
+
+- Live preference updates across sessions
+- Optimistic UI updates with rollback capability
+- Cross-device preference synchronization
+
+---
+
+## 📚 Resources
+
+- [Novu Documentation](https://docs.novu.co/)
+- [Novu React Components](https://docs.novu.co/notification-center/react-components)
+- [Novu JavaScript SDK](https://docs.novu.co/notification-center/javascript-sdk)
+- [Shadcn UI Documentation](https://ui.shadcn.com/)
+- [Radix UI Documentation](https://www.radix-ui.com/)
+- [Linear Design System](https://linear.app/design)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Accessibility Guidelines](https://reactjs.org/docs/accessibility.html)
+
+---
+
+*This notification system provides a robust, scalable foundation for managing user notifications with a focus on user experience, accessibility, and maintainability. Built on Shadcn UI components and tailored specifically for Novu's notification infrastructure.* 
+
+
+</Tab>
+</Tabs>
+

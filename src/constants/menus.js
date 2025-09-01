@@ -44,6 +44,7 @@ const MENUS = {
             { text: 'Blog', ...applyQueryParams(LINKS.blog, ['utm_campaign=ws_nav']) },
             { text: 'Changelog', ...LINKS.changeLog },
             { text: 'Roadmap', ...LINKS.roadmapPage },
+            { text: 'Directory', ...applyQueryParams(LINKS.directory, ['utm_campaign=ws_nav']) },
             { text: 'Support', ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav']) },
             { text: 'Discord', ...LINKS.discord },
             {
@@ -117,6 +118,7 @@ const MENUS = {
       },
       { text: 'Roadmap', ...LINKS.roadmapPage },
       { text: 'Changelog', ...LINKS.changeLog },
+      { text: 'Directory', ...applyQueryParams(LINKS.directory, ['utm_campaign=ws_nav_bottom']) },
       { text: 'Handbook', ...LINKS.handbook },
       {
         text: 'Contact Us',

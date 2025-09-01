@@ -25,6 +25,8 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: false,
+      translations: false,
+      layouts: '1 layout',
     },
     apiRateLimits: {
       triggerEvents: '60',
@@ -80,6 +82,8 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: true,
+      translations: false,
+      layouts: true,
     },
     apiRateLimits: {
       triggerEvents: '240',
@@ -135,6 +139,8 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: true,
+      translations: true,
+      layouts: true,
     },
     apiRateLimits: {
       triggerEvents: '600',
@@ -190,6 +196,8 @@ const PLANS = {
       stepControl: true,
       blockEmailEditor: true,
       branding: true,
+      translations: true,
+      layouts: true,
     },
     apiRateLimits: {
       triggerEvents: '6k',
@@ -247,6 +255,8 @@ const LABELS = [
       stepControl: 'Workflow Step Controls',
       blockEmailEditor: 'Block-based email editor',
       branding: 'Remove Novu branding',
+      translations: 'Translations',
+      layouts: 'Custom Layouts',
     },
   },
   {
