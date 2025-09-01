@@ -17,19 +17,22 @@ const DEFAULT_STATE = {
   },
 };
 
-const ptToPlain = (blocks) => {
-  if (!Array.isArray(blocks)) return null;
-
-  const block = blocks.find((b) => b?._type === 'block' && Array.isArray(b.children));
-  if (!block) return null;
-
-  const text = block.children
-    .map((ch) => ch.text)
-    .join('')
-    .trim();
-
-  return text;
-};
+function getChangelogCaptionFromContent(content) {
+  if (!Array.isArray(content)) return '';
+  return content
+    .map((block) => {
+      if (block?._type === 'block' && Array.isArray(block.children)) {
+        return block.children
+          .filter((child) => typeof child.text === 'string')
+          .map((child) => child.text)
+          .join('');
+      }
+      return '';
+    })
+    .filter(Boolean)
+    .join('\n')
+    .slice(0, 300);
+}
 
 export default function useHeaderData() {
   const data = useStaticQuery(graphql`
@@ -49,6 +52,7 @@ export default function useHeaderData() {
           }
         }
         content
+        caption
       }
       lastPost: allWpPost(limit: 1, sort: { date: DESC }) {
         nodes {
@@ -66,7 +70,8 @@ export default function useHeaderData() {
   `);
 
   const changelog = data.sanityLatestChangelog;
-  const changelogContent = ptToPlain(changelog?.content);
+  const changelogDescription =
+    changelog?.caption || getChangelogCaptionFromContent(changelog.content);
   const lastPost = data.lastPost?.nodes?.[0];
 
   const changelogPostSlug = changelog?.slug
@@ -76,7 +81,7 @@ export default function useHeaderData() {
   return {
     changelog: {
       title: changelog?.title || DEFAULT_STATE.changelog.title,
-      description: changelogContent || DEFAULT_STATE.changelog.description,
+      description: changelogDescription || DEFAULT_STATE.changelog.description,
       url: changelogPostSlug,
       image: changelog?.cover?.asset?.url || DEFAULT_STATE.changelog.image,
     },

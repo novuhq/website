@@ -623,6 +623,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
       cover: CoverContent
       content: JSON
+      caption: String
     }
     extend type Query {
       sanityLatestChangelog: SanityLatestChangelog
@@ -684,7 +685,8 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
                 metadata {dimensions}
               }
             },
-            content
+            content,
+            caption
           }
         `;
 
