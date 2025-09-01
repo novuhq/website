@@ -661,7 +661,7 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
   const client = createClient({
     projectId: process.env.SANITY_STUDIO_PROJECT_ID,
     dataset: process.env.SANITY_STUDIO_DATASET,
-    token: process.env.SANITY_API_TOKEN,
+    token: process.env.SANITY_API_READ_TOKEN,
     apiVersion: '2025-01-01',
     useCdn: false,
     perspective: 'published',
