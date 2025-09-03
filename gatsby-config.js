@@ -251,5 +251,8 @@ module.exports = {
         }`,
       },
     },
+    {
+      resolve: '@sentry/gatsby',
+    },
   ],
 };
