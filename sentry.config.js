@@ -21,10 +21,6 @@ Sentry.init({
       instrumentHistory: true,
     }),
     Sentry.replayIntegration(),
-    Sentry.httpIntegration({
-      breadcrumbs: true,
-      instrumentOutgoingRequests: true,
-    }),
   ],
 
   // Enable logs to be sent to Sentry
