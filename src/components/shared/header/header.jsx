@@ -52,7 +52,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
           <Logo className="h-8" aria-hidden />
           <span className="sr-only">Novu</span>
         </Link>
-        <nav className="absolute left-1/2 h-full -translate-x-1/2 lg:-translate-x-[68%]">
+        <nav className="absolute left-1/2 h-full -translate-x-[55%] lg:-translate-x-[59%]">
           <ul className="flex h-full items-center gap-x-3 pt-1 md:hidden">
             {MENUS.header.map(({ text, content, to }, index) => (
               <li
@@ -64,7 +64,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                 onBlur={handleMenuOpen(null)}
               >
                 <Link
-                  className="flex min-h-7 items-center gap-x-1.5 rounded-full px-3 leading-none after:absolute after:-left-1.5 after:top-1 after:size-[calc(100%+12px)]"
+                  className="flex min-h-7 items-center gap-x-1.5 whitespace-nowrap rounded-full px-3 leading-none after:absolute after:-left-1.5 after:top-1 after:size-[calc(100%+12px)]"
                   size="md"
                   theme="gray-to-white"
                   tag={to ? null : 'button'}
@@ -98,7 +98,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
             afterSignOutUrl="/"
           >
             <ButtonGithubStars
-              className="outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:!flex lg:text-sm"
+              className="outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:hidden"
               size="small"
             />
             <SignedOut>

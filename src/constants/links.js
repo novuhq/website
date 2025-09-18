@@ -59,6 +59,9 @@ export default {
   changeLog: {
     to: '/changelog',
   },
+  customers: {
+    to: '/customers',
+  },
 
   // Dashboard
   dashboard: {
