@@ -93,6 +93,7 @@ const MENUS = {
         },
       ],
     },
+    { text: 'Customers', ...LINKS.customers },
     { text: 'Pricing', ...applyQueryParams(LINKS.pricing, ['utm_campaign=ws_nav']) },
     { text: 'Contact Us', ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav']) },
   ],

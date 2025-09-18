@@ -62,3 +62,15 @@
   to = "https://website-new-novuhq.vercel.app/changelog/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/customers"
+  to = "https://website-new-novuhq.vercel.app/customers"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/customers/*"
+  to = "https://website-new-novuhq.vercel.app/customers/:splat"
+  status = 200
+  force = true
