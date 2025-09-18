@@ -11,6 +11,7 @@ import Blockquote from 'components/pages/directory/content/blockquote';
 import ImageZoom from 'components/pages/directory/content/image-zoom';
 import InfoBox from 'components/pages/directory/content/info-box';
 import Picture from 'components/pages/directory/content/picture';
+import Table, { TableCols, TableRow, TableCell } from 'components/pages/directory/content/table';
 import Tabs, { Tab } from 'components/pages/directory/content/tabs';
 import CopyCodeBtn from 'components/pages/directory/copy-code-btn';
 import RelatedPosts from 'components/pages/directory/related-posts';
@@ -152,6 +153,10 @@ const mdxComponents = {
   CodeTabs,
   Tabs,
   Tab,
+  Table,
+  TableCols,
+  TableRow,
+  TableCell,
 };
 
 const DirectoryPostPage = ({ data, children }) => {
