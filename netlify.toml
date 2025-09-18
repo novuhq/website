@@ -64,13 +64,13 @@
   force = true
 
 [[redirects]]
-  from = "/changelog"
+  from = "/customers"
   to = "https://website-new-novuhq.vercel.app/customers"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/changelog/*"
+  from = "/customers/*"
   to = "https://website-new-novuhq.vercel.app/customers/:splat"
   status = 200
   force = true
