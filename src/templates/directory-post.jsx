@@ -1,6 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
 import clsx from 'clsx';
-import Table, { TableCols, TableRow, TableCell } from 'components/pages/directory/content/table';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -12,6 +11,7 @@ import Blockquote from 'components/pages/directory/content/blockquote';
 import ImageZoom from 'components/pages/directory/content/image-zoom';
 import InfoBox from 'components/pages/directory/content/info-box';
 import Picture from 'components/pages/directory/content/picture';
+import Table, { TableCols, TableRow, TableCell } from 'components/pages/directory/content/table';
 import Tabs, { Tab } from 'components/pages/directory/content/tabs';
 import CopyCodeBtn from 'components/pages/directory/copy-code-btn';
 import RelatedPosts from 'components/pages/directory/related-posts';
