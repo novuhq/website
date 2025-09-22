@@ -138,6 +138,7 @@ const MENUS = {
             isNew: false,
           },
           { label: 'Pricing', href: LINKS.pricing.to, isNew: false },
+          { label: 'Customers', href: LINKS.customers.to, isNew: false },
         ],
       },
       {
