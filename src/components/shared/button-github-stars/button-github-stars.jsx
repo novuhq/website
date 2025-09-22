@@ -44,7 +44,7 @@ const ButtonGithubStars = ({ className = null, size = 'large' }) => {
           size === 'large' &&
             'before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4 before:transition-colors before:duration-200 group-hover:before:bg-gray-5'
         )}
-        aria-label={`${count} stars on Github`}
+        aria-label={`${count} stars on GitHub`}
       >
         {`${(count / 1000).toFixed(1)}k`}
       </span>

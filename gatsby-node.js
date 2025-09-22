@@ -637,7 +637,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       down
     }
     type SystemsStatus {
-      name: String
+      name: String!
       status: SystemsStatusEnum
     }
   `;
@@ -718,7 +718,7 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
         },
       },
       systemsStatus: {
-        type: '[SystemsStatus]',
+        type: '[SystemsStatus]!',
         resolve: async () => {
           const monitorNames = [
             '[US] - API',

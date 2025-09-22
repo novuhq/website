@@ -10,8 +10,8 @@ const Navigation = () => (
         <li key={title}>
           <p className="text-lg -tracking-[0.02em]">{title}</p>
           <ul className="mt-[15px] flex flex-col gap-4 md:mt-4 sm:mt-3 sm:gap-3">
-            {items.map(({ label, href, isNew }, index) => (
-              <li className="flex items-center gap-[5px]" key={index}>
+            {items.map(({ label, href, isNew }) => (
+              <li className="flex items-center gap-[5px]" key={label}>
                 <Link className="text-base tracking-tight" to={href} theme="ghost">
                   {label}
                 </Link>

@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
 
 const STATUS_THEMES = {
   up: {
@@ -37,7 +38,7 @@ const SystemStatus = () => {
     }
   `);
 
-  const allStatuses = data.systemsStatus || [];
+  const allStatuses = data?.systemsStatus ?? [];
 
   let currentStatus = STATUS_THEMES.fetchFailed;
 
@@ -60,9 +61,8 @@ const SystemStatus = () => {
         'before:size-1.5 before:rounded-full',
         currentStatus.className
       )}
-      href="https://novustatus.com/"
-      target="_blank"
       rel="noopener noreferrer"
+      {...LINKS.statusPage}
     >
       {currentStatus.text}
     </Link>

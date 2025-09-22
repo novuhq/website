@@ -42,13 +42,13 @@ const Footer = () => (
         <div className="flex justify-between pb-[26px] md:pb-[21px] sm:flex-col sm:justify-normal sm:pb-4">
           <SystemStatus />
           <ul className="right-5 top-[45px] mr-[3px] mt-0.5 flex gap-8 xl:mr-0 sm:absolute">
-            {MENUS.footer.social.map(({ href, icon, label }, index) => (
+            {MENUS.footer.social.map(({ href, icon, label }) => (
               <Link
                 className="text-gray-7 transition-colors duration-300 hover:text-white focus-visible:text-white"
                 to={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={index}
+                key={icon}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
