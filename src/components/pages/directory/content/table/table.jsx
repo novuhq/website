@@ -18,6 +18,7 @@ const cellClassName = clsx(
 export const TableRow = ({ children }) => children;
 export const TableCell = ({ children }) => children;
 export const TableCols = ({ cols }) => {
+  if (!Array.isArray(cols) || cols.length === 0) return null;
   const filledCols = Array.from({ length: cols.length }, (_, index) => cols[index] ?? 240);
 
   return (
@@ -83,6 +84,10 @@ const Table = ({ children }) => {
 
 Table.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+};
+
+TableCols.propTypes = {
+  cols: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default Table;
