@@ -175,4 +175,8 @@ export default {
     to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
     target: '_blank',
   },
+  docsNotifications: {
+    to: 'https://docs.novu.co/platform/inbox/react/components/notifications',
+    target: '_blank',
+  },
 };

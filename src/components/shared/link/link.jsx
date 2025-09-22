@@ -28,6 +28,7 @@ const styles = {
     'gray-11': 'text-gray-11 hover:text-primary-1 focus-visible:text-primary-1',
     'gray-to-white':
       'text-gray-9 hover:text-white hover:bg-[#17171f]/85 focus-visible:text-white focus-visible:bg-[#17171f]/85 outline-none focus-visible:ring-2 focus-visible:ring-white',
+    ghost: 'text-white opacity-50 hover:opacity-100',
   },
   withArrow: 'group inline-flex items-center gap-1.5',
 };

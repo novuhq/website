@@ -7,7 +7,6 @@ import Content from 'components/shared/content/content';
 import Heading from 'components/shared/heading';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import Subscribe from 'components/shared/subscribe';
 
 const StaticPage = ({
@@ -31,7 +30,6 @@ const StaticPage = ({
     </section>
 
     <Subscribe />
-    <Separator backgroundColor="black" />
   </Layout>
 );
 
