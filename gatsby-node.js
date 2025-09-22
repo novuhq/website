@@ -717,13 +717,6 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
           }
         },
       },
-    },
-  });
-};
-
-exports.createResolvers = ({ createResolvers, reporter }) => {
-  createResolvers({
-    Query: {
       systemsStatus: {
         type: '[SystemsStatus]',
         resolve: async () => {
