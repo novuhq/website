@@ -1,5 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import clsx from 'clsx';
+import Table, { TableCols, TableRow, TableCell } from 'components/pages/directory/content/table';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -152,6 +153,10 @@ const mdxComponents = {
   CodeTabs,
   Tabs,
   Tab,
+  Table,
+  TableCols,
+  TableRow,
+  TableCell,
 };
 
 const DirectoryPostPage = ({ data, children }) => {
