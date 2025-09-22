@@ -176,7 +176,7 @@ export default {
     target: '_blank',
   },
   docsNotifications: {
-    to: 'https://docs.novu.co/platform/inbox/react/components/notifications',
+    to: 'https://docs.novu.co/platform/inbox/setup-inbox',
     target: '_blank',
   },
 };
