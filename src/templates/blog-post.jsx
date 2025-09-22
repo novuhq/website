@@ -136,7 +136,6 @@ const BlogPost = (props) => {
           link: 'https://go.novu.co?utm_campaign=blog_cta',
         }}
       />
-      <Separator backgroundColor="black" />
     </Layout>
   );
 };

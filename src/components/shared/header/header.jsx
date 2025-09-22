@@ -44,7 +44,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
       )}
       data-disable-document-scroll={isMobileMenuOpen}
     >
-      <div className="container flex h-16 items-center justify-between lg:px-8 sm:px-5">
+      <div className="container flex h-16 max-w-[1536px] items-center justify-between px-8 sm:px-5">
         <Link
           className="rounded outline-none focus-visible:shadow-[0_0_0_6px_#05050B,0_0_0_8px_white]"
           {...LINKS.home}
@@ -52,8 +52,8 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
           <Logo className="h-8" aria-hidden />
           <span className="sr-only">Novu</span>
         </Link>
-        <nav className="absolute left-1/2 h-full -translate-x-[55%] lg:-translate-x-[59%]">
-          <ul className="flex h-full items-center gap-x-3 pt-1 md:hidden">
+        <nav className="absolute left-1/2 h-full -translate-x-[53%] lg:-translate-x-[60%]">
+          <ul className="flex h-full items-center gap-x-3.5 pt-1 lg:gap-1 lg:pt-0 md:hidden">
             {MENUS.header.map(({ text, content, to }, index) => (
               <li
                 className="relative"
@@ -64,7 +64,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                 onBlur={handleMenuOpen(null)}
               >
                 <Link
-                  className="flex min-h-7 items-center gap-x-1.5 whitespace-nowrap rounded-full px-3 leading-none after:absolute after:-left-1.5 after:top-1 after:size-[calc(100%+12px)]"
+                  className="flex min-h-7 items-center gap-x-1.5 whitespace-nowrap rounded-full px-3 font-medium leading-none after:absolute after:-left-1.5 after:top-1 after:size-[calc(100%+12px)] lg:text-sm"
                   size="md"
                   theme="gray-to-white"
                   tag={to ? null : 'button'}
@@ -73,7 +73,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                   {text}
                   {content && (
                     <ChevronIcon
-                      className={clsx('mt-0.5 size-2 transition-transform duration-200', {
+                      className={clsx('size-2 translate-y-0.5 transition-transform duration-200', {
                         'rotate-180': openMenu === text,
                       })}
                     />
@@ -92,13 +92,13 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
             ))}
           </ul>
         </nav>
-        <div className="flex gap-x-5 lg:gap-x-4 md:hidden">
+        <div className="flex gap-x-5 lg:gap-x-5 md:hidden">
           <ClerkProvider
             publishableKey={process.env.GATSBY_CLERK_PUBLISHABLE_KEY}
             afterSignOutUrl="/"
           >
             <ButtonGithubStars
-              className="outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:hidden"
+              className="font-medium outline-none focus-visible:shadow-[0_0_0_4px_#05050B,0_0_0_6px_white] lg:hidden"
               size="small"
             />
             <SignedOut>

@@ -10,7 +10,6 @@ import Libraries from 'components/pages/echo/libraries';
 import Layout from 'components/shared/layout';
 import Testimonials from 'components/shared/reusable-sections/testimonials';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import DATA from 'data/pages/echo';
 
 const EchoPage = () => (
@@ -23,7 +22,6 @@ const EchoPage = () => (
     <Flexibility />
     <Testimonials {...DATA.testimonials} />
     <Cta />
-    <Separator className="w-full max-w-none" backgroundColor="echo-gradient" />
   </Layout>
 );
 

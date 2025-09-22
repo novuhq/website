@@ -114,7 +114,6 @@ const BlogPage = (props) => {
           link: 'https://novu.co/contact-us/?utm_campaign=blog_cta',
         }}
       />
-      <Separator backgroundColor="black" />
     </Layout>
   );
 };

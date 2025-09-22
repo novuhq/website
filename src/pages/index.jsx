@@ -14,7 +14,6 @@ import SectionWithSmallIcons from 'components/shared/reusable-sections/section-w
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import DATA from 'data/pages/index';
 
 const HomePage = () => (
@@ -41,7 +40,6 @@ const HomePage = () => (
       {...DATA.cta}
       className="mb-[200px] mt-[200px] text-center lg:mb-[182px] lg:mt-[182px] md:mb-[144px] md:mt-[144px] sm:mb-[128px] sm:mt-[165px] [&_h2]:lg:text-[44px] [&_h2]:md:text-[36px] [&_h2]:sm:text-[32px]"
     />
-    <Separator className="h-px w-full max-w-none" backgroundColor="black" />
   </Layout>
 );
 

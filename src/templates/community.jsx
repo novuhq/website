@@ -11,7 +11,6 @@ import MembersMap from 'components/pages/community/members-map';
 import OpenIssues from 'components/pages/community/open-issues';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import GITHUB from 'constants/github';
 import LINKS from 'constants/links';
 
@@ -59,7 +58,6 @@ const CommunityPage = (props) => {
       />
       <Contribute />
       <BlogPosts {...latestBlogPosts} />
-      <Separator backgroundColor="gray" />
     </Layout>
   );
 };
