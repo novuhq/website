@@ -5,7 +5,6 @@ import Layout from 'components/shared/layout';
 import SectionWithBigIcons from 'components/shared/reusable-sections/section-with-big-icons';
 import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import DATA from 'data/pages/thank-you';
 
 const ThankYouPage = () => (
@@ -13,7 +12,6 @@ const ThankYouPage = () => (
     <Hero />
     <SectionWithLogos {...DATA.companies} />
     <SectionWithBigIcons {...DATA.getInvolved} className="mb-40 lg:mb-30 md:mb-[100px] sm:mb-20" />
-    <Separator backgroundColor="black" />
   </Layout>
 );
 

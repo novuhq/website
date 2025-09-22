@@ -12,7 +12,6 @@ import SectionWithLogos from 'components/shared/reusable-sections/section-with-l
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import RiveWasm from 'components/shared/rive-wasm';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import DATA from 'data/pages/staging-pages/NEW-index';
 
 const HomePage = () => (
@@ -28,7 +27,6 @@ const HomePage = () => (
     </div>
     <Reviews />
     <CtaWithForm {...DATA.ctaWithForm} className="mb-[192px] mt-[238px] text-center" />
-    <Separator className="h-px w-full max-w-none" backgroundColor="black" />
   </Layout>
 );
 

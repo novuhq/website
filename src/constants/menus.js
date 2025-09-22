@@ -93,50 +93,87 @@ const MENUS = {
         },
       ],
     },
+    { text: 'Customers', ...LINKS.customers },
     { text: 'Pricing', ...applyQueryParams(LINKS.pricing, ['utm_campaign=ws_nav']) },
     { text: 'Contact Us', ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav']) },
   ],
-  footer: [
-    [
-      { text: 'Blog', ...applyQueryParams(LINKS.blog, ['utm_campaign=ws_nav_bottom']) },
-      { text: 'Pricing', ...applyQueryParams(LINKS.pricing, ['utm_campaign=ws_nav_bottom']) },
-      { text: 'Security', ...applyQueryParams(LINKS.security, ['utm_campaign=ws_nav_bottom']) },
+  footer: {
+    main: [
       {
-        text: 'Community',
-        ...applyQueryParams(LINKS.community, ['utm_campaign=ws_nav_bottom']),
+        title: 'Product',
+        items: [
+          { label: 'Inbox Component', href: LINKS.inbox.to, isNew: false },
+          {
+            label: 'User Preference',
+            href: LINKS.docsUserPreferences.to,
+            isNew: false,
+          },
+          { label: 'Workflows', href: LINKS.docsWorkflow.to, isNew: false },
+          { label: 'Framework', href: LINKS.framework.to, isNew: false },
+          { label: 'Digest', href: LINKS.digest.to, isNew: true },
+          {
+            label: 'Content Management',
+            href: LINKS.docsContentManagement.to,
+            isNew: false,
+          },
+          {
+            label: 'Notifications Directory',
+            href: LINKS.docsNotifications.to,
+            isNew: false,
+          },
+        ],
       },
       {
-        text: 'Contributors',
-        ...applyQueryParams(LINKS.contributors, ['utm_campaign=ws_nav_bottom']),
+        title: 'Resources',
+        items: [
+          { label: 'Documentation', href: LINKS.docs.to, isNew: true },
+          { label: 'Blog', href: LINKS.blog.to, isNew: false },
+          { label: 'Use Cases', href: LINKS.useCases.to, isNew: false },
+          { label: 'Changelog', href: LINKS.changeLog.to, isNew: false },
+          { label: 'Roadmap', href: LINKS.roadmapPage.to, isNew: false },
+          { label: 'Support', href: LINKS.contactUs.to, isNew: false },
+          {
+            label: 'Security & Compliance',
+            href: LINKS.security.to,
+            isNew: false,
+          },
+          { label: 'Pricing', href: LINKS.pricing.to, isNew: false },
+        ],
       },
-      { text: 'Careers', ...LINKS.careers },
-    ],
-    [
       {
-        text: 'Documentation',
-        ...applyQueryParams(LINKS.docs, ['utm_campaign=ws_nav_bottom']),
+        title: 'Company',
+        items: [
+          { label: 'Community', href: LINKS.community.to, isNew: false },
+          { label: 'Contributors', href: LINKS.contributors.to, isNew: false },
+          { label: 'Careers', href: LINKS.careers.to, isNew: false },
+          { label: 'Handbook', href: LINKS.handbook.to, isNew: false },
+          { label: 'Contact Us', href: LINKS.contactUs.to, isNew: false },
+        ],
       },
-      { text: 'Roadmap', ...LINKS.roadmapPage },
-      { text: 'Changelog', ...LINKS.changeLog },
-      { text: 'Directory', ...applyQueryParams(LINKS.directory, ['utm_campaign=ws_nav_bottom']) },
-      { text: 'Handbook', ...LINKS.handbook },
+    ],
+    legal: [
+      { label: 'Terms of Use', href: LINKS.termsOfUse.to },
+      { label: 'Privacy Policy', href: LINKS.privacyPolicy.to },
+      { label: 'DPA', href: LINKS.dataProcessingAgreement.to },
+    ],
+    social: [
       {
-        text: 'Contact Us',
-        ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav_bottom']),
+        label: 'Follow us on X',
+        href: LINKS.twitter.to,
+        icon: 'x',
+      },
+      {
+        label: 'Follow us on GitHub',
+        href: LINKS.github.to,
+        icon: 'github',
+      },
+      {
+        label: 'Join us on Discord',
+        href: LINKS.discord.to,
+        icon: 'discord',
       },
     ],
-    [
-      { text: 'Discord', ...LINKS.discord },
-      { text: 'Twitter', ...LINKS.twitter },
-      { text: 'GitHub', ...LINKS.github },
-    ],
-    [
-      { text: 'Terms of Use', ...LINKS.termsOfUse },
-      { text: 'Privacy Policy', ...LINKS.privacyPolicy },
-      { text: 'DPA', ...LINKS.dataProcessingAgreement },
-      { text: 'Status Page', ...LINKS.statusPage },
-    ],
-  ],
+  },
 };
 
 export default MENUS;

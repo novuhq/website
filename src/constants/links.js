@@ -59,6 +59,9 @@ export default {
   changeLog: {
     to: '/changelog',
   },
+  customers: {
+    to: '/customers',
+  },
 
   // Dashboard
   dashboard: {
@@ -170,6 +173,10 @@ export default {
   },
   docsQuickStart: {
     to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
+    target: '_blank',
+  },
+  docsNotifications: {
+    to: 'https://docs.novu.co/platform/inbox/setup-inbox',
     target: '_blank',
   },
 };

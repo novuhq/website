@@ -628,6 +628,18 @@ exports.createSchemaCustomization = ({ actions }) => {
     extend type Query {
       sanityLatestChangelog: SanityLatestChangelog
     }
+    enum SystemsStatusEnum {
+      paused
+      pending
+      maintenance
+      validating
+      up
+      down
+    }
+    type SystemsStatus {
+      name: String!
+      status: SystemsStatusEnum
+    }
   `;
 
   createTypes(typeDefs);
@@ -702,6 +714,47 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
           } catch (error) {
             reporter.error('Failed to fetch data from Sanity:', error);
             return null;
+          }
+        },
+      },
+      systemsStatus: {
+        type: '[SystemsStatus]!',
+        resolve: async () => {
+          const monitorNames = [
+            '[US] - API',
+            '[US] - WebSocket Service',
+            '[US] - Webhooks service',
+            '[EU] - API',
+            '[EU] - WebSocket Service',
+            '[EU] - Webhooks service',
+          ];
+
+          try {
+            const response = await fetch('https://uptime.betterstack.com/api/v2/monitors', {
+              headers: {
+                Authorization: `Bearer ${process.env.BETTERSTACK_API_KEY}`,
+              },
+            });
+
+            if (!response.ok) {
+              throw new Error('Failed to fetch systems status from Better Stack API');
+            }
+
+            const { data } = await response.json();
+
+            if (!data || !data.length) {
+              throw new Error('Better Stack API returned an invalid data');
+            }
+
+            return data
+              .map((monitor) => ({
+                name: monitor.attributes.pronounceable_name,
+                status: monitor.attributes.status,
+              }))
+              .filter((monitor) => monitorNames.includes(monitor.name));
+          } catch (error) {
+            reporter.error('Failed to fetch data from Better Stack:', error);
+            return [];
           }
         },
       },

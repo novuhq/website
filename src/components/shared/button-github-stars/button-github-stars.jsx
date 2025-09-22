@@ -24,7 +24,7 @@ const ButtonGithubStars = ({ className = null, size = 'large' }) => {
     <Button
       className={clsx(
         'group',
-        size === 'small' && '!h-auto !px-0 hover:text-gray-9 focus-visible:text-gray-9',
+        size === 'small' && '!h-auto !px-0 !text-sm hover:text-gray-9 focus-visible:text-gray-9',
         className
       )}
       size="xs"
@@ -35,9 +35,7 @@ const ButtonGithubStars = ({ className = null, size = 'large' }) => {
       onClick={buttonClick('github_star', { type: 'menu' })}
     >
       <GitHubIcon
-        className={
-          size === 'small' ? 'mr-3 size-6 lg:mr-2 [&_path]:fill-current' : 'mr-2 size-[26px]'
-        }
+        className={size === 'small' ? 'mr-2 size-6 [&_path]:fill-current' : 'mr-2 size-[26px]'}
       />
       {size === 'large' && <span className="lg:hidden">Star us</span>}
       <span
@@ -46,7 +44,7 @@ const ButtonGithubStars = ({ className = null, size = 'large' }) => {
           size === 'large' &&
             'before:mx-2.5 before:h-[18px] before:w-px before:bg-gray-4 before:transition-colors before:duration-200 group-hover:before:bg-gray-5'
         )}
-        aria-label={`${count} stars on Github`}
+        aria-label={`${count} stars on GitHub`}
       >
         {`${(count / 1000).toFixed(1)}k`}
       </span>

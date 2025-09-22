@@ -9,7 +9,6 @@ import GetStarted from 'components/shared/get-started';
 import Issues from 'components/shared/issues';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 
 const ContributorsPage = ({ pageContext }) => (
   <Layout>
@@ -18,7 +17,6 @@ const ContributorsPage = ({ pageContext }) => (
     <HowItWorks />
     <Issues className="py-40 lg:py-32 md:py-20 sm:py-16" />
     <GetStarted />
-    <Separator backgroundColor="black" />
   </Layout>
 );
 

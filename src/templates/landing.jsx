@@ -8,7 +8,6 @@ import GetStarted from 'components/shared/get-started';
 import Languages from 'components/shared/languages';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 import getReactContentWithLazyBlocks from 'utils/get-react-content-with-lazy-blocks';
 
 const LandingPage = ({
@@ -23,12 +22,7 @@ const LandingPage = ({
     landingcta: GetStarted,
   });
 
-  return (
-    <Layout>
-      {contentWithLazyBlocks}
-      <Separator backgroundColor="black" />
-    </Layout>
-  );
+  return <Layout>{contentWithLazyBlocks}</Layout>;
 };
 
 export const query = graphql`

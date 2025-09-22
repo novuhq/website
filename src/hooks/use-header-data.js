@@ -71,7 +71,7 @@ export default function useHeaderData() {
 
   const changelog = data.sanityLatestChangelog;
   const changelogDescription =
-    changelog?.caption || getChangelogCaptionFromContent(changelog.content);
+    changelog?.caption || getChangelogCaptionFromContent(changelog?.content);
   const lastPost = data.lastPost?.nodes?.[0];
 
   const changelogPostSlug = changelog?.slug

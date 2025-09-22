@@ -4,13 +4,11 @@ import Hero from 'components/pages/thank-you-early-access/hero';
 import JoinUs from 'components/shared/join-us';
 import Layout from 'components/shared/layout';
 import SEO from 'components/shared/seo';
-import Separator from 'components/shared/separator';
 
 const ThankYouPage = () => (
   <Layout>
     <Hero />
     <JoinUs />
-    <Separator backgroundColor="black" />
   </Layout>
 );
 

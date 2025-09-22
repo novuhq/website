@@ -30,7 +30,6 @@ const ContributorPage = ({
       </div>
     </div>
     <GetStarted />
-    <Separator backgroundColor="black" />
   </Layout>
 );
 
