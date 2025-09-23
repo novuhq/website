@@ -110,7 +110,7 @@ const MENUS = {
           },
           { label: 'Workflows', href: LINKS.docsWorkflow.to, isNew: false },
           { label: 'Framework', href: LINKS.framework.to, isNew: false },
-          { label: 'Digest', href: LINKS.digest.to, isNew: true },
+          { label: 'Digest', href: LINKS.digest.to, isNew: false },
           {
             label: 'Content Management',
             href: LINKS.docsContentManagement.to,
@@ -126,7 +126,7 @@ const MENUS = {
       {
         title: 'Resources',
         items: [
-          { label: 'Documentation', href: LINKS.docs.to, isNew: true },
+          { label: 'Documentation', href: LINKS.docs.to, isNew: false },
           { label: 'Blog', href: LINKS.blog.to, isNew: false },
           { label: 'Use Cases', href: LINKS.useCases.to, isNew: false },
           { label: 'Changelog', href: LINKS.changeLog.to, isNew: false },
