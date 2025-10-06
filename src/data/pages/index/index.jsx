@@ -291,7 +291,7 @@ const CUSTOMERS = {
       src: WhoppahLogo,
     },
   ],
-  rowAmount: 2,
+  rows: 2,
 };
 
 const COPY_AND_SHIP = {

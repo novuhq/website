@@ -30,8 +30,8 @@ const List = ({ items, ariaHidden = false }) => (
   </ul>
 );
 
-const SectionWithLogosAnimated = ({ className, title, description, items, rowAmount }) => {
-  const logosLists = splitIntoRows(items, rowAmount);
+const SectionWithLogosAnimated = ({ className, title, description, items, rows }) => {
+  const logosLists = splitIntoRows(items, rows);
 
   return (
     <section
@@ -80,13 +80,13 @@ SectionWithLogosAnimated.propTypes = {
       title: PropTypes.string.isRequired,
     })
   ).isRequired,
-  rowAmount: PropTypes.number,
+  rows: PropTypes.number,
 };
 
 SectionWithLogosAnimated.defaultProps = {
   className: '',
   description: '',
-  rowAmount: 1,
+  rows: 1,
 };
 
 export default SectionWithLogosAnimated;
