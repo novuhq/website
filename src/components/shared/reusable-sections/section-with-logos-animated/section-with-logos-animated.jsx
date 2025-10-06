@@ -5,6 +5,8 @@ import React from 'react';
 import Heading from 'components/shared/heading';
 
 function splitIntoRows(items, rows) {
+  if (!items.length || rows <= 0) return [];
+
   const result = Array.from({ length: rows }, () => []);
 
   items.forEach((item, index) => {
@@ -19,14 +21,18 @@ const List = ({ items, ariaHidden = false }) => (
     className="flex gap-9 group-odd:animate-logos-backward group-even:animate-logos-forward sm:gap-6"
     aria-hidden={ariaHidden}
   >
-    {items.map(({ src, title }, index) => (
-      <li
-        className="flex h-10 w-[180px] shrink-0 items-center justify-center md:h-8 md:w-[140px] sm:h-6 sm:w-[106px]"
-        key={index}
-      >
-        <img className="block h-auto w-max max-w-full" src={src} alt={title} loading="lazy" />
-      </li>
-    ))}
+    {items.map(({ src, title }, index) => {
+      if (!src || !title) return null;
+
+      return (
+        <li
+          className="flex h-10 w-[180px] shrink-0 items-center justify-center md:h-8 md:w-[140px] sm:h-6 sm:w-[106px]"
+          key={index}
+        >
+          <img className="block h-auto w-max max-w-full" src={src} alt={title} loading="lazy" />
+        </li>
+      );
+    })}
   </ul>
 );
 
