@@ -9,7 +9,7 @@ import Community from 'components/pages/home-new/community';
 import Layout from 'components/shared/layout';
 import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
-import SectionWithLogos from 'components/shared/reusable-sections/section-with-logos';
+import SectionWithLogosAnimated from 'components/shared/reusable-sections/section-with-logos-animated';
 import SectionWithSmallIcons from 'components/shared/reusable-sections/section-with-small-icons';
 import TextWithPicture from 'components/shared/reusable-sections/text-with-picture';
 import RiveWasm from 'components/shared/rive-wasm';
@@ -19,7 +19,7 @@ import DATA from 'data/pages/index';
 const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <Hero />
-    <SectionWithLogos {...DATA.brands} className="mt-32 lg:mt-24 md:mt-[100px] sm:mt-20" />
+    <SectionWithLogosAnimated {...DATA.customers} />
     <CodeWithInbox {...DATA.copyAndShip} />
     <Bento {...DATA.inboxBatteries} />
     <SectionWithSmallIcons

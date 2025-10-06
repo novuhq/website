@@ -1,6 +1,61 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
+import AlertDrivingLogo from 'images/customers/logo-alert-driving.svg';
+import BalanceLogo from 'images/customers/logo-balance.svg';
+import BitmexLogo from 'images/customers/logo-bitmex.svg';
+import BppLogo from 'images/customers/logo-bpp.svg';
+import CheckSammyLogo from 'images/customers/logo-check-sammy.svg';
+import CheckpointLogo from 'images/customers/logo-checkpoint.svg';
+import ClaritasRxLogo from 'images/customers/logo-claritas-rx.svg';
+import CloudSoftwareGroupLogo from 'images/customers/logo-cloud-software-group.svg';
+import CorrelaLogo from 'images/customers/logo-correla.svg';
+import DerivLogo from 'images/customers/logo-deriv.svg';
+import DocplannerGroupLogo from 'images/customers/logo-docplanner-group.svg';
+import EburyLogo from 'images/customers/logo-ebury.svg';
+import ElProffenLogo from 'images/customers/logo-el-proffen.svg';
+import EvergreenLogo from 'images/customers/logo-evergreen.svg';
+import GangverkLogo from 'images/customers/logo-gangverk.svg';
+import GuestyLogo from 'images/customers/logo-guesty.svg';
+import HemnetLogo from 'images/customers/logo-hemnet.svg';
+import HudlLogo from 'images/customers/logo-hudl.svg';
+import InfluencerLogo from 'images/customers/logo-influencer.svg';
+import JoyrideLogo from 'images/customers/logo-joyride.svg';
+import KantAkademiLogo from 'images/customers/logo-kant-akademi.svg';
+import KarmaCheckLogo from 'images/customers/logo-karma-check.svg';
+import KornFerryLogo from 'images/customers/logo-korn-ferry.svg';
+import LottieFilesLogo from 'images/customers/logo-lottie-files.svg';
+import MedPrevLogo from 'images/customers/logo-med-prev.svg';
+import MedVolLogo from 'images/customers/logo-med-vol.svg';
+import MoisesLogo from 'images/customers/logo-moises.svg';
+import MongodbCustomerLogo from 'images/customers/logo-mongodb.svg';
+import MothershipLogo from 'images/customers/logo-mothership.svg';
+import MottuLogo from 'images/customers/logo-mottu.svg';
+import NamirialLogo from 'images/customers/logo-namirial.svg';
+import NepLogo from 'images/customers/logo-nep.svg';
+import NormativeLogo from 'images/customers/logo-normative.svg';
+import NovacyLogo from 'images/customers/logo-novacy.svg';
+import PhocasLogo from 'images/customers/logo-phocas.svg';
+import PriceLabsLogo from 'images/customers/logo-price-labs.svg';
+import QuorumCyberLogo from 'images/customers/logo-quorum-cyber.svg';
+import Region4Logo from 'images/customers/logo-region4.svg';
+import RocheLogo from 'images/customers/logo-roche.svg';
+import SherwebLogo from 'images/customers/logo-sherweb.svg';
+import SinchLogo from 'images/customers/logo-sinch.svg';
+import SoftermiiLogo from 'images/customers/logo-softermii.svg';
+import TatilbudurLogo from 'images/customers/logo-tatilbudur.svg';
+import TeamcoreLogo from 'images/customers/logo-teamcore.svg';
+import TenderdLogo from 'images/customers/logo-tenderd.svg';
+import TerrascopeLogo from 'images/customers/logo-terrascope.svg';
+import TrustflightLogo from 'images/customers/logo-trustflight.svg';
+import UnifiedLogo from 'images/customers/logo-unified.svg';
+import UnityCustomerLogo from 'images/customers/logo-unity.svg';
+import UnopsLogo from 'images/customers/logo-unops.svg';
+import ValueLabsLogo from 'images/customers/logo-value-labs.svg';
+import VeridasLogo from 'images/customers/logo-veridas.svg';
+import VeritextLogo from 'images/customers/logo-veritext.svg';
+import WaltonEnterprisesLogo from 'images/customers/logo-walton-enterprises.svg';
+import WhoppahLogo from 'images/customers/logo-whoppah.svg';
 import bellOutlineIcon from 'images/icons/bell-outline.svg';
 import chatOutlineIcon from 'images/icons/chat-outline.svg';
 import emailOutlineIcon from 'images/icons/email-outline.svg';
@@ -10,73 +65,233 @@ import planeOutlineIcon from 'images/icons/plane-outline.svg';
 import nextjsIcon from 'images/pages/home-new/inbox/nextjs.svg';
 import reactIcon from 'images/pages/home-new/inbox/react.svg';
 import remixIcon from 'images/pages/home-new/inbox/remix.svg';
-import allstarLogo from 'images/reusable-sections/section-with-logos/allstar.svg';
-import axiosHqLogo from 'images/reusable-sections/section-with-logos/axios-hq.svg';
-import baskLogo from 'images/reusable-sections/section-with-logos/bask.svg';
-import capgeminiLogo from 'images/reusable-sections/section-with-logos/capgemini.svg';
-import datastaxLogo from 'images/reusable-sections/section-with-logos/datastax.svg';
-import middayLogo from 'images/reusable-sections/section-with-logos/midday.svg';
-import mongoDbLogo from 'images/reusable-sections/section-with-logos/mongodb.svg';
-import runnLogo from 'images/reusable-sections/section-with-logos/runn.svg';
-import saladLogo from 'images/reusable-sections/section-with-logos/salad.svg';
-import siemensLogo from 'images/reusable-sections/section-with-logos/siemens.svg';
-import teocoLogo from 'images/reusable-sections/section-with-logos/teoco.svg';
-import unityLogo from 'images/reusable-sections/section-with-logos/unity.svg';
 
-const BRANDS = {
+const CUSTOMERS = {
   title: 'Notifications brands count on',
-  description: 'Used and loved by developers and product teams around the world.',
-  containerSize: 'lg',
-  logos: [
+  description: 'Ensuring seamless notifications from business to users, with zero hassle.',
+  items: [
     {
-      title: 'Salad',
-      src: saladLogo,
+      title: 'AlertDriving',
+      src: AlertDrivingLogo,
+    },
+    {
+      title: 'Balance',
+      src: BalanceLogo,
+    },
+    {
+      title: 'Bitmex',
+      src: BitmexLogo,
+    },
+    {
+      title: 'BPP',
+      src: BppLogo,
+    },
+    {
+      title: 'Checkpoint',
+      src: CheckpointLogo,
+    },
+    {
+      title: 'CheckSammy',
+      src: CheckSammyLogo,
+    },
+    {
+      title: 'Claritas Rx',
+      src: ClaritasRxLogo,
+    },
+    {
+      title: 'Cloud Software Group',
+      src: CloudSoftwareGroupLogo,
+    },
+    {
+      title: 'Correla',
+      src: CorrelaLogo,
+    },
+    {
+      title: 'Deriv',
+      src: DerivLogo,
+    },
+    {
+      title: 'Docplanner Group',
+      src: DocplannerGroupLogo,
+    },
+    {
+      title: 'Ebury',
+      src: EburyLogo,
+    },
+    {
+      title: 'El Proffen',
+      src: ElProffenLogo,
+    },
+    {
+      title: 'Evergreen',
+      src: EvergreenLogo,
+    },
+    {
+      title: 'Gangverk',
+      src: GangverkLogo,
+    },
+    {
+      title: 'Guesty',
+      src: GuestyLogo,
+    },
+    {
+      title: 'Hemnet',
+      src: HemnetLogo,
+    },
+    {
+      title: 'Hudl',
+      src: HudlLogo,
+    },
+    {
+      title: 'Influencer',
+      src: InfluencerLogo,
+    },
+    {
+      title: 'Joyride',
+      src: JoyrideLogo,
+    },
+    {
+      title: 'Kant Akademi',
+      src: KantAkademiLogo,
+    },
+    {
+      title: 'KarmaCheck',
+      src: KarmaCheckLogo,
+    },
+    {
+      title: 'Korn Ferry',
+      src: KornFerryLogo,
+    },
+    {
+      title: 'LottieFiles',
+      src: LottieFilesLogo,
+    },
+    {
+      title: 'MedPrev',
+      src: MedPrevLogo,
+    },
+    {
+      title: 'MedVol',
+      src: MedVolLogo,
+    },
+    {
+      title: 'Moises',
+      src: MoisesLogo,
     },
     {
       title: 'MongoDB',
-      src: mongoDbLogo,
+      src: MongodbCustomerLogo,
     },
     {
-      title: 'Datastax',
-      src: datastaxLogo,
+      title: 'Mothership',
+      src: MothershipLogo,
     },
     {
-      title: 'Capgemini',
-      src: capgeminiLogo,
+      title: 'Mottu',
+      src: MottuLogo,
     },
     {
-      title: 'Bask',
-      src: baskLogo,
+      title: 'Namirial',
+      src: NamirialLogo,
     },
     {
-      title: 'Midday',
-      src: middayLogo,
+      title: 'NEP',
+      src: NepLogo,
+    },
+    {
+      title: 'Normative',
+      src: NormativeLogo,
+    },
+    {
+      title: 'Novacy',
+      src: NovacyLogo,
+    },
+    {
+      title: 'Phocas',
+      src: PhocasLogo,
+    },
+    {
+      title: 'PriceLabs',
+      src: PriceLabsLogo,
+    },
+    {
+      title: 'Quorum Cyber',
+      src: QuorumCyberLogo,
+    },
+    {
+      title: 'Region 4',
+      src: Region4Logo,
+    },
+    {
+      title: 'Roche',
+      src: RocheLogo,
+    },
+    {
+      title: 'Sherweb',
+      src: SherwebLogo,
+    },
+    {
+      title: 'Sinch',
+      src: SinchLogo,
+    },
+    {
+      title: 'Softermii',
+      src: SoftermiiLogo,
+    },
+    {
+      title: 'Tatilbudur',
+      src: TatilbudurLogo,
+    },
+    {
+      title: 'Teamcore',
+      src: TeamcoreLogo,
+    },
+    {
+      title: 'Tenderd',
+      src: TenderdLogo,
+    },
+    {
+      title: 'Terrascope',
+      src: TerrascopeLogo,
+    },
+    {
+      title: 'Trustflight',
+      src: TrustflightLogo,
+    },
+    {
+      title: 'Unified',
+      src: UnifiedLogo,
     },
     {
       title: 'Unity',
-      src: unityLogo,
+      src: UnityCustomerLogo,
     },
     {
-      title: 'Siemens',
-      src: siemensLogo,
+      title: 'UNOPS',
+      src: UnopsLogo,
     },
     {
-      title: 'Teoco',
-      src: teocoLogo,
+      title: 'Value Labs',
+      src: ValueLabsLogo,
     },
     {
-      title: 'Axio HQ',
-      src: axiosHqLogo,
+      title: 'Veridas',
+      src: VeridasLogo,
     },
     {
-      title: 'Runn',
-      src: runnLogo,
+      title: 'Veritext',
+      src: VeritextLogo,
     },
     {
-      title: 'Allstar',
-      src: allstarLogo,
+      title: 'Walton Enterprises',
+      src: WaltonEnterprisesLogo,
+    },
+    {
+      title: 'Whoppah',
+      src: WhoppahLogo,
     },
   ],
+  rows: 2,
 };
 
 const COPY_AND_SHIP = {
@@ -245,7 +460,7 @@ const CTA = {
 };
 
 export default {
-  brands: BRANDS,
+  customers: CUSTOMERS,
   copyAndShip: COPY_AND_SHIP,
   inboxBatteries: INBOX_BATTERIES,
   channels: CHANNELS,
