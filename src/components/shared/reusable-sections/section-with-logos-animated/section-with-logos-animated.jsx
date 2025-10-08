@@ -1,24 +1,39 @@
 import clsx from 'clsx';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Heading from 'components/shared/heading';
 
 function splitIntoRows(items, rows) {
   if (!items.length || rows <= 0) return [];
 
+  const sortedItems = [...items].sort((a, b) => {
+    const priorityA = a.priority ?? 0;
+    const priorityB = b.priority ?? 0;
+
+    return priorityB - priorityA;
+  });
+
   const result = Array.from({ length: rows }, () => []);
 
-  items.forEach((item, index) => {
-    result[index % rows].push(item);
+  sortedItems.forEach((item, index) => {
+    const targetRow = item.rowIndex !== undefined ? item.rowIndex : index % rows;
+
+    if (targetRow >= 0 && targetRow < rows) {
+      result[targetRow].push(item);
+    }
   });
 
   return result;
 }
 
-const List = ({ items, ariaHidden = false }) => (
+const List = ({ items, ariaHidden = false, isVisible = false }) => (
   <ul
-    className="flex gap-9 group-odd:animate-logos-backward group-even:animate-logos-forward sm:gap-6"
+    className={clsx(
+      'flex gap-9 sm:gap-6',
+      isVisible && 'group-odd:animate-logos-backward group-even:animate-logos-forward'
+    )}
     aria-hidden={ariaHidden}
   >
     {items.map(({ src, title }, index) => {
@@ -37,10 +52,35 @@ const List = ({ items, ariaHidden = false }) => (
 );
 
 const SectionWithLogosAnimated = ({ className, title, description, items, rows }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const logosLists = splitIntoRows(items, rows);
+
+  useEffect(() => {
+    const currentSection = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (currentSection) {
+      observer.observe(currentSection);
+    }
+
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
+    };
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       className={clsx(
         'section-with-logos-animated safe-paddings mb-[200px] mt-[152px] px-8 lg:mb-36 lg:mt-28 md:my-24 sm:mb-[84px] sm:mt-[104px]',
         className
@@ -59,18 +99,20 @@ const SectionWithLogosAnimated = ({ className, title, description, items, rows }
             {description}
           </p>
         )}
-        {logosLists.map((list, index) => (
-          <div
-            className={clsx(
-              'group flex w-full items-center gap-9 overflow-hidden [mask-image:linear-gradient(90deg,transparent_3%,rgba(0,0,0,.5)_20%,#000_30%,#000_70%,rgba(0,0,0,.5)_80%,transparent_97%)] sm:gap-6',
-              index === 0 ? 'mt-16 lg:mt-14 md:mt-11 sm:mt-8' : 'mt-11 lg:mt-10 md:mt-8 sm:mt-7'
-            )}
-            key={index}
-          >
-            <List items={list} />
-            <List items={list} ariaHidden />
-          </div>
-        ))}
+        <Link to="/customers" className="w-full cursor-pointer">
+          {logosLists.map((list, index) => (
+            <div
+              className={clsx(
+                'group flex w-full items-center gap-9 overflow-hidden [mask-image:linear-gradient(90deg,transparent_3%,rgba(0,0,0,.5)_20%,#000_30%,#000_70%,rgba(0,0,0,.5)_80%,transparent_97%)] sm:gap-6',
+                index === 0 ? 'mt-16 lg:mt-14 md:mt-11 sm:mt-8' : 'mt-11 lg:mt-10 md:mt-8 sm:mt-7'
+              )}
+              key={index}
+            >
+              <List items={list} isVisible={isVisible} />
+              <List items={list} isVisible={isVisible} ariaHidden />
+            </div>
+          ))}
+        </Link>
       </div>
     </section>
   );
@@ -84,6 +126,8 @@ SectionWithLogosAnimated.propTypes = {
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      priority: PropTypes.number,
+      rowIndex: PropTypes.number,
     })
   ).isRequired,
   rows: PropTypes.number,

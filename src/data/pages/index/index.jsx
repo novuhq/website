@@ -15,7 +15,6 @@ import DocplannerGroupLogo from 'images/customers/logo-docplanner-group.svg';
 import EburyLogo from 'images/customers/logo-ebury.svg';
 import ElProffenLogo from 'images/customers/logo-el-proffen.svg';
 import EvergreenLogo from 'images/customers/logo-evergreen.svg';
-import GangverkLogo from 'images/customers/logo-gangverk.svg';
 import GuestyLogo from 'images/customers/logo-guesty.svg';
 import HemnetLogo from 'images/customers/logo-hemnet.svg';
 import HudlLogo from 'images/customers/logo-hudl.svg';
@@ -71,12 +70,22 @@ const CUSTOMERS = {
   description: 'Ensuring seamless notifications from business to users, with zero hassle.',
   items: [
     {
-      title: 'AlertDriving',
-      src: AlertDrivingLogo,
+      title: 'Guesty',
+      src: GuestyLogo,
+      priority: 10, // High priority - appears first
+      rowIndex: 0,
     },
     {
-      title: 'Balance',
-      src: BalanceLogo,
+      title: 'Sinch',
+      src: SinchLogo,
+      priority: 10, // High priority - appears first
+      rowIndex: 0,
+    },
+    {
+      title: 'MongoDB',
+      src: MongodbCustomerLogo,
+      priority: 10, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'Bitmex',
@@ -89,22 +98,12 @@ const CUSTOMERS = {
     {
       title: 'Checkpoint',
       src: CheckpointLogo,
-    },
-    {
-      title: 'CheckSammy',
-      src: CheckSammyLogo,
-    },
-    {
-      title: 'Claritas Rx',
-      src: ClaritasRxLogo,
+      priority: 9, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'Cloud Software Group',
       src: CloudSoftwareGroupLogo,
-    },
-    {
-      title: 'Correla',
-      src: CorrelaLogo,
     },
     {
       title: 'Deriv',
@@ -123,24 +122,8 @@ const CUSTOMERS = {
       src: ElProffenLogo,
     },
     {
-      title: 'Evergreen',
-      src: EvergreenLogo,
-    },
-    {
-      title: 'Gangverk',
-      src: GangverkLogo,
-    },
-    {
-      title: 'Guesty',
-      src: GuestyLogo,
-    },
-    {
       title: 'Hemnet',
       src: HemnetLogo,
-    },
-    {
-      title: 'Hudl',
-      src: HudlLogo,
     },
     {
       title: 'Influencer',
@@ -161,14 +144,12 @@ const CUSTOMERS = {
     {
       title: 'Korn Ferry',
       src: KornFerryLogo,
+      priority: 3, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'LottieFiles',
       src: LottieFilesLogo,
-    },
-    {
-      title: 'MedPrev',
-      src: MedPrevLogo,
     },
     {
       title: 'MedVol',
@@ -177,18 +158,6 @@ const CUSTOMERS = {
     {
       title: 'Moises',
       src: MoisesLogo,
-    },
-    {
-      title: 'MongoDB',
-      src: MongodbCustomerLogo,
-    },
-    {
-      title: 'Mothership',
-      src: MothershipLogo,
-    },
-    {
-      title: 'Mottu',
-      src: MottuLogo,
     },
     {
       title: 'Namirial',
@@ -207,52 +176,26 @@ const CUSTOMERS = {
       src: NovacyLogo,
     },
     {
-      title: 'Phocas',
-      src: PhocasLogo,
-    },
-    {
-      title: 'PriceLabs',
-      src: PriceLabsLogo,
-    },
-    {
       title: 'Quorum Cyber',
       src: QuorumCyberLogo,
     },
     {
-      title: 'Region 4',
-      src: Region4Logo,
-    },
-    {
       title: 'Roche',
       src: RocheLogo,
+      priority: 7, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'Sherweb',
       src: SherwebLogo,
     },
     {
-      title: 'Sinch',
-      src: SinchLogo,
-    },
-    {
-      title: 'Softermii',
-      src: SoftermiiLogo,
-    },
-    {
       title: 'Tatilbudur',
       src: TatilbudurLogo,
     },
     {
-      title: 'Teamcore',
-      src: TeamcoreLogo,
-    },
-    {
       title: 'Tenderd',
       src: TenderdLogo,
-    },
-    {
-      title: 'Terrascope',
-      src: TerrascopeLogo,
     },
     {
       title: 'Trustflight',
@@ -265,22 +208,14 @@ const CUSTOMERS = {
     {
       title: 'Unity',
       src: UnityCustomerLogo,
+      priority: 7, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'UNOPS',
       src: UnopsLogo,
-    },
-    {
-      title: 'Value Labs',
-      src: ValueLabsLogo,
-    },
-    {
-      title: 'Veridas',
-      src: VeridasLogo,
-    },
-    {
-      title: 'Veritext',
-      src: VeritextLogo,
+      priority: 7, // High priority - appears first
+      rowIndex: 0,
     },
     {
       title: 'Walton Enterprises',

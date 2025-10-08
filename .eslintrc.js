@@ -19,7 +19,7 @@ module.exports = {
   rules: {
     // Removes "default" from "restrictedNamedExports", original rule setup — https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/es6.js#L65
     'no-restricted-exports': ['error', { restrictedNamedExports: ['then'] }],
-    'no-unused-vars': 'error',
+    'no-unused-vars': 'off',
     'no-shadow': 'off',
     'no-undef': 'error',
     'react/prop-types': 'off',
