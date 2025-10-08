@@ -15,7 +15,6 @@ import DocplannerGroupLogo from 'images/customers/logo-docplanner-group.svg';
 import EburyLogo from 'images/customers/logo-ebury.svg';
 import ElProffenLogo from 'images/customers/logo-el-proffen.svg';
 import EvergreenLogo from 'images/customers/logo-evergreen.svg';
-import GangverkLogo from 'images/customers/logo-gangverk.svg';
 import GuestyLogo from 'images/customers/logo-guesty.svg';
 import HemnetLogo from 'images/customers/logo-hemnet.svg';
 import HudlLogo from 'images/customers/logo-hudl.svg';
@@ -71,8 +70,12 @@ const CUSTOMERS = {
   description: 'Ensuring seamless notifications from business to users, with zero hassle.',
   items: [
     {
-      title: 'AlertDriving',
-      src: AlertDrivingLogo,
+      title: 'Guesty',
+      src: GuestyLogo,
+    },
+    {
+      title: 'Sinch',
+      src: SinchLogo,
     },
     {
       title: 'Balance',
@@ -91,20 +94,12 @@ const CUSTOMERS = {
       src: CheckpointLogo,
     },
     {
-      title: 'CheckSammy',
-      src: CheckSammyLogo,
-    },
-    {
       title: 'Claritas Rx',
       src: ClaritasRxLogo,
     },
     {
       title: 'Cloud Software Group',
       src: CloudSoftwareGroupLogo,
-    },
-    {
-      title: 'Correla',
-      src: CorrelaLogo,
     },
     {
       title: 'Deriv',
@@ -126,21 +121,10 @@ const CUSTOMERS = {
       title: 'Evergreen',
       src: EvergreenLogo,
     },
-    {
-      title: 'Gangverk',
-      src: GangverkLogo,
-    },
-    {
-      title: 'Guesty',
-      src: GuestyLogo,
-    },
+
     {
       title: 'Hemnet',
       src: HemnetLogo,
-    },
-    {
-      title: 'Hudl',
-      src: HudlLogo,
     },
     {
       title: 'Influencer',
@@ -183,10 +167,6 @@ const CUSTOMERS = {
       src: MongodbCustomerLogo,
     },
     {
-      title: 'Mothership',
-      src: MothershipLogo,
-    },
-    {
       title: 'Mottu',
       src: MottuLogo,
     },
@@ -207,20 +187,12 @@ const CUSTOMERS = {
       src: NovacyLogo,
     },
     {
-      title: 'Phocas',
-      src: PhocasLogo,
-    },
-    {
       title: 'PriceLabs',
       src: PriceLabsLogo,
     },
     {
       title: 'Quorum Cyber',
       src: QuorumCyberLogo,
-    },
-    {
-      title: 'Region 4',
-      src: Region4Logo,
     },
     {
       title: 'Roche',
@@ -230,14 +202,7 @@ const CUSTOMERS = {
       title: 'Sherweb',
       src: SherwebLogo,
     },
-    {
-      title: 'Sinch',
-      src: SinchLogo,
-    },
-    {
-      title: 'Softermii',
-      src: SoftermiiLogo,
-    },
+
     {
       title: 'Tatilbudur',
       src: TatilbudurLogo,
@@ -269,18 +234,6 @@ const CUSTOMERS = {
     {
       title: 'UNOPS',
       src: UnopsLogo,
-    },
-    {
-      title: 'Value Labs',
-      src: ValueLabsLogo,
-    },
-    {
-      title: 'Veridas',
-      src: VeridasLogo,
-    },
-    {
-      title: 'Veritext',
-      src: VeritextLogo,
     },
     {
       title: 'Walton Enterprises',
