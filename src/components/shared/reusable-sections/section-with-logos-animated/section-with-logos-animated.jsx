@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Heading from 'components/shared/heading';
 
@@ -28,9 +28,12 @@ function splitIntoRows(items, rows) {
   return result;
 }
 
-const List = ({ items, ariaHidden = false }) => (
+const List = ({ items, ariaHidden = false, isVisible = false }) => (
   <ul
-    className="flex gap-9 group-odd:animate-logos-backward group-even:animate-logos-forward sm:gap-6"
+    className={clsx(
+      'flex gap-9 sm:gap-6',
+      isVisible && 'group-odd:animate-logos-backward group-even:animate-logos-forward'
+    )}
     aria-hidden={ariaHidden}
   >
     {items.map(({ src, title }, index) => {
@@ -49,10 +52,35 @@ const List = ({ items, ariaHidden = false }) => (
 );
 
 const SectionWithLogosAnimated = ({ className, title, description, items, rows }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
   const logosLists = splitIntoRows(items, rows);
+
+  useEffect(() => {
+    const currentSection = sectionRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (currentSection) {
+      observer.observe(currentSection);
+    }
+
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
+    };
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       className={clsx(
         'section-with-logos-animated safe-paddings mb-[200px] mt-[152px] px-8 lg:mb-36 lg:mt-28 md:my-24 sm:mb-[84px] sm:mt-[104px]',
         className
@@ -80,8 +108,8 @@ const SectionWithLogosAnimated = ({ className, title, description, items, rows }
               )}
               key={index}
             >
-              <List items={list} />
-              <List items={list} ariaHidden />
+              <List items={list} isVisible={isVisible} />
+              <List items={list} isVisible={isVisible} ariaHidden />
             </div>
           ))}
         </Link>
