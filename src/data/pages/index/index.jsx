@@ -72,14 +72,20 @@ const CUSTOMERS = {
     {
       title: 'Guesty',
       src: GuestyLogo,
+      priority: 10, // High priority - appears first
+      rowIndex: 0,
     },
     {
       title: 'Sinch',
       src: SinchLogo,
+      priority: 10, // High priority - appears first
+      rowIndex: 0,
     },
     {
-      title: 'Balance',
-      src: BalanceLogo,
+      title: 'MongoDB',
+      src: MongodbCustomerLogo,
+      priority: 10, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'Bitmex',
@@ -92,6 +98,8 @@ const CUSTOMERS = {
     {
       title: 'Checkpoint',
       src: CheckpointLogo,
+      priority: 9, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'Cloud Software Group',
@@ -136,6 +144,8 @@ const CUSTOMERS = {
     {
       title: 'Korn Ferry',
       src: KornFerryLogo,
+      priority: 3, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'LottieFiles',
@@ -148,10 +158,6 @@ const CUSTOMERS = {
     {
       title: 'Moises',
       src: MoisesLogo,
-    },
-    {
-      title: 'MongoDB',
-      src: MongodbCustomerLogo,
     },
     {
       title: 'Namirial',
@@ -176,6 +182,8 @@ const CUSTOMERS = {
     {
       title: 'Roche',
       src: RocheLogo,
+      priority: 7, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'Sherweb',
@@ -200,10 +208,14 @@ const CUSTOMERS = {
     {
       title: 'Unity',
       src: UnityCustomerLogo,
+      priority: 7, // High priority - appears first
+      rowIndex: 1,
     },
     {
       title: 'UNOPS',
       src: UnopsLogo,
+      priority: 7, // High priority - appears first
+      rowIndex: 0,
     },
     {
       title: 'Walton Enterprises',

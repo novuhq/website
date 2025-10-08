@@ -8,10 +8,21 @@ import Heading from 'components/shared/heading';
 function splitIntoRows(items, rows) {
   if (!items.length || rows <= 0) return [];
 
+  const sortedItems = [...items].sort((a, b) => {
+    const priorityA = a.priority ?? 0;
+    const priorityB = b.priority ?? 0;
+
+    return priorityB - priorityA;
+  });
+
   const result = Array.from({ length: rows }, () => []);
 
-  items.forEach((item, index) => {
-    result[index % rows].push(item);
+  sortedItems.forEach((item, index) => {
+    const targetRow = item.rowIndex !== undefined ? item.rowIndex : index % rows;
+
+    if (targetRow >= 0 && targetRow < rows) {
+      result[targetRow].push(item);
+    }
   });
 
   return result;
@@ -87,6 +98,8 @@ SectionWithLogosAnimated.propTypes = {
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      priority: PropTypes.number,
+      rowIndex: PropTypes.number,
     })
   ).isRequired,
   rows: PropTypes.number,
