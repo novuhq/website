@@ -94,10 +94,6 @@ const CUSTOMERS = {
       src: CheckpointLogo,
     },
     {
-      title: 'Claritas Rx',
-      src: ClaritasRxLogo,
-    },
-    {
       title: 'Cloud Software Group',
       src: CloudSoftwareGroupLogo,
     },
@@ -117,11 +113,6 @@ const CUSTOMERS = {
       title: 'El Proffen',
       src: ElProffenLogo,
     },
-    {
-      title: 'Evergreen',
-      src: EvergreenLogo,
-    },
-
     {
       title: 'Hemnet',
       src: HemnetLogo,
@@ -151,10 +142,6 @@ const CUSTOMERS = {
       src: LottieFilesLogo,
     },
     {
-      title: 'MedPrev',
-      src: MedPrevLogo,
-    },
-    {
       title: 'MedVol',
       src: MedVolLogo,
     },
@@ -165,10 +152,6 @@ const CUSTOMERS = {
     {
       title: 'MongoDB',
       src: MongodbCustomerLogo,
-    },
-    {
-      title: 'Mottu',
-      src: MottuLogo,
     },
     {
       title: 'Namirial',
@@ -187,10 +170,6 @@ const CUSTOMERS = {
       src: NovacyLogo,
     },
     {
-      title: 'PriceLabs',
-      src: PriceLabsLogo,
-    },
-    {
       title: 'Quorum Cyber',
       src: QuorumCyberLogo,
     },
@@ -202,22 +181,13 @@ const CUSTOMERS = {
       title: 'Sherweb',
       src: SherwebLogo,
     },
-
     {
       title: 'Tatilbudur',
       src: TatilbudurLogo,
     },
     {
-      title: 'Teamcore',
-      src: TeamcoreLogo,
-    },
-    {
       title: 'Tenderd',
       src: TenderdLogo,
-    },
-    {
-      title: 'Terrascope',
-      src: TerrascopeLogo,
     },
     {
       title: 'Trustflight',

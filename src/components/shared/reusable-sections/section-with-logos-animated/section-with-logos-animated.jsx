@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -59,18 +60,20 @@ const SectionWithLogosAnimated = ({ className, title, description, items, rows }
             {description}
           </p>
         )}
-        {logosLists.map((list, index) => (
-          <div
-            className={clsx(
-              'group flex w-full items-center gap-9 overflow-hidden [mask-image:linear-gradient(90deg,transparent_3%,rgba(0,0,0,.5)_20%,#000_30%,#000_70%,rgba(0,0,0,.5)_80%,transparent_97%)] sm:gap-6',
-              index === 0 ? 'mt-16 lg:mt-14 md:mt-11 sm:mt-8' : 'mt-11 lg:mt-10 md:mt-8 sm:mt-7'
-            )}
-            key={index}
-          >
-            <List items={list} />
-            <List items={list} ariaHidden />
-          </div>
-        ))}
+        <Link to="/customers" className="w-full cursor-pointer">
+          {logosLists.map((list, index) => (
+            <div
+              className={clsx(
+                'group flex w-full items-center gap-9 overflow-hidden [mask-image:linear-gradient(90deg,transparent_3%,rgba(0,0,0,.5)_20%,#000_30%,#000_70%,rgba(0,0,0,.5)_80%,transparent_97%)] sm:gap-6',
+                index === 0 ? 'mt-16 lg:mt-14 md:mt-11 sm:mt-8' : 'mt-11 lg:mt-10 md:mt-8 sm:mt-7'
+              )}
+              key={index}
+            >
+              <List items={list} />
+              <List items={list} ariaHidden />
+            </div>
+          ))}
+        </Link>
       </div>
     </section>
   );
