@@ -40,6 +40,18 @@
   force = true
 
 [[redirects]]
+  from = "/og-images/*"
+  to = "https://website-new-novuhq.vercel.app/og-images/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/social-previews/*"
+  to = "https://website-new-novuhq.vercel.app/social-previews/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/studio"
   to = "https://website-new-novuhq.vercel.app/studio"
   status = 200
