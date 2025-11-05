@@ -3,6 +3,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
+import { trackEvent } from 'utils/analytics';
 
 import BacklogIcon from './images/backlog.inline.svg';
 import CompletedIcon from './images/completed.inline.svg';
@@ -80,9 +81,7 @@ const Content = ({ issues }) => {
               size="sm"
               theme="pink-to-yellow-gradient"
               onClick={() => {
-                window?.analytics?.track(
-                  'Polishing Event: Click the CTA Button on the page to create issue'
-                );
+                trackEvent('Polishing Event: Click the CTA Button on the page to create issue');
               }}
             >
               Submit an issue

@@ -11,6 +11,7 @@ import {
   COOKIE_VALUE_NON_PRODUCT_ANALYTICS,
   COOKIE_VALUE_FALSE,
 } from 'constants/cookie';
+import { trackEvent } from 'utils/analytics';
 
 import Settings from './settings';
 
@@ -44,9 +45,9 @@ const CookieBanner = ({ isCookieBannerVisible, setIsCookieBannerVisible }) => {
     if (!cookieValue) {
       setIsCookieBannerVisible(true);
     } else if (cookieValue === COOKIE_VALUE_TRUE) {
-      window?.analytics?.track('Cookie Banner', { disableClientPersistence: false });
+      trackEvent('Cookie Banner', { disableClientPersistence: false });
     } else {
-      window?.analytics?.track('Cookie Banner', { disableClientPersistence: true });
+      trackEvent('Cookie Banner', { disableClientPersistence: true });
     }
   }, [cookieValue, setIsCookieBannerVisible]);
 

@@ -4,6 +4,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import CheckIcon from 'images/check.inline.svg';
+import { trackEvent } from 'utils/analytics';
 import { buttonClick } from 'utils/use-landing-simple-tracking';
 
 const thumbWidth = 28; // in pixels
@@ -50,7 +51,7 @@ const getPricingData = (rangeValue) => [
         text: 'Try Novu for Free',
         url: { to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free' },
         onClick: () =>
-          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
+          trackEvent('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
             sliderValue: RANGES[rangeValue],
           }),
@@ -92,7 +93,7 @@ const getPricingData = (rangeValue) => [
           to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_business',
         },
         onClick: () =>
-          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
+          trackEvent('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Business',
             sliderValue: RANGES[rangeValue],
           }),
@@ -123,7 +124,7 @@ const getPricingData = (rangeValue) => [
         url: { to: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise' },
         onClick: () => {
           buttonClick('contact_us_pricing_ent', { type: 'enterprise_contact' });
-          window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
+          trackEvent('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
             sliderValue: RANGES[rangeValue],
           });

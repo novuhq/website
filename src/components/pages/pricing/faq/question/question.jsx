@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 import ChevronIcon from 'icons/faq-arrow.inline.svg';
+import { trackEvent } from 'utils/analytics';
 import { buttonClick } from 'utils/use-landing-simple-tracking';
 
 const ANIMATION_DURATION = 0.3;
@@ -17,7 +18,7 @@ const Question = ({ question, answer }) => {
   const handleButtonClick = () => {
     setIsOpen((currentState) => !currentState);
     buttonClick('faq_read', { type: 'faq_read' });
-    window?.analytics?.track('Pricing Event: Click on an item in the FAQ section', {
+    trackEvent('Pricing Event: Click on an item in the FAQ section', {
       item: question,
     });
   };

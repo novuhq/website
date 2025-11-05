@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import Button from 'components/shared/button';
+import { trackEvent } from 'utils/analytics';
 
 import FeatureList from './feature-list';
 
@@ -43,7 +44,7 @@ const PlanCard = ({
               target={linkTarget}
               rel={linkRel}
               onClick={() =>
-                window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
+                trackEvent('Pricing Event: Click the CTA Button in the table', {
                   packageType: title,
                   sliderValue: activeTier.rangeValue,
                 })

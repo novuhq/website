@@ -205,12 +205,6 @@ module.exports = {
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
-    {
-      resolve: `gatsby-plugin-segment-js`,
-      options: {
-        prodKey: process.env.GATSBY_SEGMENT_WRITE_KEY,
-      },
-    },
     // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
     // {
     //   resolve: `gatsby-source-rss-feed`,
