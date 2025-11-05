@@ -205,6 +205,15 @@ module.exports = {
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: process.env.GATSBY_MIXPANEL_TOKEN,
+        enableOnDevMode: true,
+        pageViews: 'all',
+        trackPageViewsAs: 'Market Page Visit',
+      },
+    },
     // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
     // {
     //   resolve: `gatsby-source-rss-feed`,

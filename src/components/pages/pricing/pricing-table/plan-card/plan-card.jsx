@@ -1,8 +1,8 @@
 import clsx from 'clsx';
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import React from 'react';
 
 import Button from 'components/shared/button';
-import { trackEvent } from 'utils/analytics';
 
 import FeatureList from './feature-list';
 
@@ -23,6 +23,7 @@ const PlanCard = ({
   currentRow,
   apiRateLimits,
 }) => {
+  const mixpanel = useMixpanel();
   const isActive = activeTier === title.split(' ')[0].toLowerCase();
 
   return (
@@ -44,7 +45,7 @@ const PlanCard = ({
               target={linkTarget}
               rel={linkRel}
               onClick={() =>
-                trackEvent('Pricing Event: Click the CTA Button in the table', {
+                mixpanel.track('Pricing Event: Click the CTA Button in the table', {
                   packageType: title,
                   sliderValue: activeTier.rangeValue,
                 })

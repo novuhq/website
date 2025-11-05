@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import React, { useState } from 'react';
 
 import ChevronIcon from 'icons/faq-arrow.inline.svg';
-import { trackEvent } from 'utils/analytics';
 import { buttonClick } from 'utils/use-landing-simple-tracking';
 
 const ANIMATION_DURATION = 0.3;
@@ -14,11 +14,12 @@ const variantsAnimation = {
 };
 
 const Question = ({ question, answer }) => {
+  const mixpanel = useMixpanel();
   const [isOpen, setIsOpen] = useState(false);
   const handleButtonClick = () => {
     setIsOpen((currentState) => !currentState);
     buttonClick('faq_read', { type: 'faq_read' });
-    trackEvent('Pricing Event: Click on an item in the FAQ section', {
+    mixpanel.track('Pricing Event: Click on an item in the FAQ section', {
       item: question,
     });
   };

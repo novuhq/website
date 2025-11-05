@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import clsx from 'clsx';
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import CheckIcon from 'images/check.inline.svg';
-import { trackEvent } from 'utils/analytics';
 import { buttonClick } from 'utils/use-landing-simple-tracking';
 
 const thumbWidth = 28; // in pixels
@@ -35,7 +35,7 @@ const getEventsMonthValue = (rangeValue) => {
   return '';
 };
 
-const getPricingData = (rangeValue) => [
+const getPricingData = (rangeValue, mixpanel) => [
   {
     titles: {
       default: 'Free',
@@ -51,7 +51,7 @@ const getPricingData = (rangeValue) => [
         text: 'Try Novu for Free',
         url: { to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free' },
         onClick: () =>
-          trackEvent('Pricing Event: Click the CTA Button on the card', {
+          mixpanel.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
             sliderValue: RANGES[rangeValue],
           }),
@@ -93,7 +93,7 @@ const getPricingData = (rangeValue) => [
           to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_business',
         },
         onClick: () =>
-          trackEvent('Pricing Event: Click the CTA Button on the card', {
+          mixpanel.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Business',
             sliderValue: RANGES[rangeValue],
           }),
@@ -124,7 +124,7 @@ const getPricingData = (rangeValue) => [
         url: { to: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise' },
         onClick: () => {
           buttonClick('contact_us_pricing_ent', { type: 'enterprise_contact' });
-          trackEvent('Pricing Event: Click the CTA Button on the card', {
+          mixpanel.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Enterprise',
             sliderValue: RANGES[rangeValue],
           });
@@ -137,6 +137,7 @@ const getPricingData = (rangeValue) => [
 ];
 
 const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRangeValue }) => {
+  const mixpanel = useMixpanel();
   const maxValue = 70;
 
   const eventsFormatter = Intl.NumberFormat('en-US');
@@ -205,7 +206,7 @@ const Cloud = ({ activeTier, setActiveTier, findActiveTier, rangeValue, setRange
         </div>
       </div> */}
       <ul className="mx-auto mt-14 grid max-w-[1096px] auto-rows-max grid-cols-3 items-stretch justify-between gap-10 text-center xl:gap-6 md:mt-12 md:max-w-[700px] md:grid-cols-1 md:gap-7">
-        {getPricingData(rangeValue).map(
+        {getPricingData(rangeValue, mixpanel).map(
           (
             { titles, name, description, prices, extraOvercharge, items, buttons, isOpenBeta },
             index

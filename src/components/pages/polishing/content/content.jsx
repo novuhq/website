@@ -1,9 +1,9 @@
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import { trackEvent } from 'utils/analytics';
 
 import BacklogIcon from './images/backlog.inline.svg';
 import CompletedIcon from './images/completed.inline.svg';
@@ -28,6 +28,7 @@ const getCleanedTitle = (value) => {
 };
 
 const Content = ({ issues }) => {
+  const mixpanel = useMixpanel();
   const backlogIssues = issues.filter(
     (issue) => issue.state === 'OPEN' && issue.assignees.nodes.length === 0
   );
@@ -81,7 +82,7 @@ const Content = ({ issues }) => {
               size="sm"
               theme="pink-to-yellow-gradient"
               onClick={() => {
-                trackEvent('Polishing Event: Click the CTA Button on the page to create issue');
+                mixpanel.track('Polishing Event: Click the CTA Button on the page to create issue');
               }}
             >
               Submit an issue

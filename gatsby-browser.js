@@ -1,16 +1,9 @@
 import './src/styles/main.css';
-import { initializeAnalytics, trackPageView } from './src/utils/analytics';
-
-export const onClientEntry = () => {
-  initializeAnalytics();
-};
 
 export const onRouteUpdate = () => {
   if (process.env.NODE_ENV === 'production' && typeof window.plausible !== 'undefined') {
     window.plausible('pageview');
   }
-
-  trackPageView();
 };
 
 export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPosition }) => {

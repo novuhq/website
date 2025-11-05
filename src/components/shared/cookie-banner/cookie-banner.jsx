@@ -1,4 +1,5 @@
 import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 import React, { useState, useEffect } from 'react';
 import useCookie from 'react-use/lib/useCookie';
 
@@ -11,13 +12,13 @@ import {
   COOKIE_VALUE_NON_PRODUCT_ANALYTICS,
   COOKIE_VALUE_FALSE,
 } from 'constants/cookie';
-import { trackEvent } from 'utils/analytics';
 
 import Settings from './settings';
 
 const TEXT = 'This site uses cookies to measure and improve your experience.';
 
 const CookieBanner = ({ isCookieBannerVisible, setIsCookieBannerVisible }) => {
+  const mixpanel = useMixpanel();
   const [cookieValue, updateCookie] = useCookie(COOKIE_KEY);
   const [productAnalyticsValue, setProductAnalyticsValue] = useState(true);
 
@@ -45,11 +46,11 @@ const CookieBanner = ({ isCookieBannerVisible, setIsCookieBannerVisible }) => {
     if (!cookieValue) {
       setIsCookieBannerVisible(true);
     } else if (cookieValue === COOKIE_VALUE_TRUE) {
-      trackEvent('Cookie Banner', { disableClientPersistence: false });
+      mixpanel.track('Cookie Banner', { disableClientPersistence: false });
     } else {
-      trackEvent('Cookie Banner', { disableClientPersistence: true });
+      mixpanel.track('Cookie Banner', { disableClientPersistence: true });
     }
-  }, [cookieValue, setIsCookieBannerVisible]);
+  }, [cookieValue, setIsCookieBannerVisible, mixpanel]);
 
   return (
     <LazyMotion features={domAnimation}>
