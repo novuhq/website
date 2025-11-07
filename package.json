@@ -49,6 +49,7 @@
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-mdx": "^5.14.1",
+    "gatsby-plugin-mixpanel": "^4.1.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-segment-js": "^5.0.0",
     "gatsby-remark-copy-linked-files": "^6.14.0",
