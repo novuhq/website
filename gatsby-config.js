@@ -16,6 +16,14 @@ module.exports = {
   trailingSlash: 'always',
   plugins: [
     {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: process.env.GATSBY_MIXPANEL_TOKEN,
+        pageViews: 'all',
+        trackPageViewsAs: 'Market Page Visit',
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
