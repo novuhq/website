@@ -39,11 +39,11 @@ const PLANS = {
     },
     account: {
       teamMembers: '3',
-      rbac: false,
-      standardSSO: true,
-      customSSO: false,
-      auditLogs: 'Basic',
       mfa: true,
+      standardSSO: true,
+      auditLogs: 'Basic',
+      rbac: false,
+      customSSO: false,
     },
     compliance: {
       gdpr: true,
@@ -108,11 +108,11 @@ const PLANS = {
     },
     account: {
       teamMembers: '3',
-      rbac: false,
-      standardSSO: true,
-      customSSO: false,
-      auditLogs: 'Basic',
       mfa: true,
+      standardSSO: true,
+      auditLogs: 'Basic',
+      rbac: false,
+      customSSO: false,
     },
     compliance: {
       gdpr: true,
@@ -177,11 +177,11 @@ const PLANS = {
     },
     account: {
       teamMembers: 'Unlimited',
-      rbac: true,
-      standardSSO: true,
-      customSSO: false,
-      auditLogs: 'Enhanced',
       mfa: true,
+      standardSSO: true,
+      auditLogs: 'Enhanced',
+      rbac: true,
+      customSSO: false,
     },
     compliance: {
       gdpr: true,
@@ -247,11 +247,11 @@ const PLANS = {
     },
     account: {
       teamMembers: 'Unlimited',
-      rbac: true,
-      standardSSO: true,
-      customSSO: true,
-      auditLogs: 'Full',
       mfa: true,
+      standardSSO: true,
+      auditLogs: 'Full',
+      rbac: true,
+      customSSO: true,
     },
     compliance: {
       gdpr: true,
@@ -506,11 +506,12 @@ const LABELS = [
         ),
       },
       headlessComponents: {
-        label: 'Headless / "bring your own" components',
+        label: 'Headless components',
         tooltip: (
           <>
-            <strong>Custom render props and hooks</strong> that let you replace default UI elements
-            with your own React components while Novu handles the notification logic.
+            <strong>"Bring your own" UI components</strong> using custom render props and hooks that
+            let you replace default UI elements with your own React components while Novu handles
+            the notification logic.
             <br />
             <br />
             Includes <strong>custom render props</strong> (renderNotification, renderAvatar,
@@ -593,6 +594,9 @@ const LABELS = [
     title: 'Administration & Security',
     items: {
       teamMembers: 'Team members',
+      mfa: 'MFA',
+      standardSSO: 'Standard SSO (Google/GitHub)',
+      auditLogs: 'Audit logs',
       rbac: {
         label: 'RBAC',
         tooltip: (
@@ -607,7 +611,6 @@ const LABELS = [
           </>
         ),
       },
-      standardSSO: 'Standard SSO (Google/GitHub)',
       customSSO: {
         label: 'Custom SSO / OIDC',
         tooltip: (
@@ -623,8 +626,6 @@ const LABELS = [
           </>
         ),
       },
-      auditLogs: 'Audit logs',
-      mfa: 'MFA',
     },
   },
   {
@@ -676,12 +677,12 @@ const LABELS = [
       },
       customSOC: 'Custom security reviews',
       dpa: {
-        label: 'Data Processing Agreements (DPA)',
+        label: 'DPA',
         tooltip: (
           <>
-            <strong>Legally binding contract</strong> between data controller and processor that
-            defines how personal data will be handled, protected, and processed. Required under GDPR
-            and privacy regulations.
+            <strong>Data Processing Agreement (DPA)</strong> - Legally binding contract between data
+            controller and processor that defines how personal data will be handled, protected, and
+            processed. Required under GDPR and privacy regulations.
             <br />
             <br />
             Specifies security measures, breach notification procedures, data deletion/return terms,
@@ -740,34 +741,37 @@ const LABELS = [
         ),
       },
       selfHostedEnterpriseHelm: {
-        label: 'Self-hosted Enterprise Helm chart',
+        label: 'Self-hosted (Enterprise)',
         tooltip: (
           <>
-            <strong>Kubernetes deployment</strong> for Enterprise self-hosted using Helm package
-            manager. Combines self-hosting control with Enterprise features like auto-translations,
-            unlimited service level, and advanced Redis architecture.
+            <strong>Enterprise-grade self-hosted solution</strong> that combines full infrastructure
+            control with premium features. Includes <strong>auto-translations</strong>,{' '}
+            <strong>unlimited service levels</strong>, <strong>advanced Redis architecture</strong>,
+            and all Enterprise capabilities from Novu Cloud.
             <br />
             <br />
-            Optimized for K8s with <strong>single-process mode</strong> for horizontal scaling.
             Ideal for large enterprises requiring both infrastructure control and premium features,
-            with compliance certifications and professional services.
+            with compliance certifications and professional services. Deployable via Kubernetes/Helm
+            with horizontal scaling support.
           </>
         ),
       },
       managedVPC: {
-        label: 'Managed VPC hosting',
+        label: 'Managed On-Prem',
         tooltip: (
           <>
-            <strong>Dedicated Virtual Private Cloud</strong> deployment where Novu hosts your
-            infrastructure in an isolated VPC environment, managed by Novu. Combines isolation
-            benefits of self-hosting with operational simplicity of managed services.
+            <strong>Fully managed on-premises deployment</strong> where Novu operates and maintains
+            the infrastructure within your own environment or dedicated infrastructure. Combines the
+            control and compliance benefits of on-premises hosting with the operational simplicity
+            of a managed service.
             <br />
             <br />
             Provides <strong>
               enhanced security, compliance guarantees, and performance SLAs
             </strong>{' '}
-            compared to multi-tenant cloud. Includes multi-region support for data residency
-            requirements. Ideal for enterprises needing isolation without managing infrastructure.
+            with complete data isolation. Includes multi-region support for data residency
+            requirements. Ideal for enterprises with strict regulatory requirements or data
+            sovereignty needs without the operational burden.
           </>
         ),
       },

@@ -33,7 +33,7 @@ const PRICING_PLANS = [
     paymentPeriod: 'month',
     button: {
       text: 'GET STARTED',
-      type: 'trial',
+      type: 'link',
       theme: 'white-filled',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
@@ -44,7 +44,7 @@ const PRICING_PLANS = [
     advantages: [
       '30,000+ workflow runs / month',
       '7-day activity feed retention',
-      'Remove Novu branding in In-App components',
+      'Remove Novu branding',
       'Advanced email editor (blocks, layouts)',
       'Higher rate limits & faster processing',
     ],
@@ -57,7 +57,7 @@ const PRICING_PLANS = [
     paymentPeriod: 'month',
     button: {
       text: 'GET STARTED',
-      type: 'trial',
+      type: 'link',
       theme: 'gray-outline',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
