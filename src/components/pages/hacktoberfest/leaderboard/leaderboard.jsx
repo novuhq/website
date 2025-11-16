@@ -12,7 +12,7 @@ const HEADER = ['Place', 'Name', 'Score'];
 const Leaderboard = () => {
   const [isShownMore, setIsShownMore] = useState(false);
 
-  const participants = [];
+  const participants = useMemo(() => [], []);
   // FIXME: If necessary - To get this data it is necessary to uncomment a part of the code that fetches and organizes this data at the gatsby-node file level.
   // const {
   //   participants: { data: participants },

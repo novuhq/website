@@ -256,6 +256,7 @@ const CTA = {
   rightItem: {
     text: 'Contact us',
     link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
+    isContactButton: true,
   },
 };
 
