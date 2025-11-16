@@ -19,7 +19,9 @@ const PricingPage = () => {
 
   const openSchedulingModal = (source) => {
     setUtmSource(source);
-    setIsSchedulingModalOpen(true);
+    // Force toggle to ensure the modal opens even if state was already true
+    setIsSchedulingModalOpen(false);
+    setTimeout(() => setIsSchedulingModalOpen(true), 0);
   };
 
   const closeSchedulingModal = () => {

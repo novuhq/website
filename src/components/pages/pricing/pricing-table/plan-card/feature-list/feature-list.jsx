@@ -16,7 +16,8 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
       return feature ? presentFeature : missingFeature;
     }
 
-    if (typeof feature === 'string' && feature.toLowerCase().includes('contact us')) {
+    // Handle structured contact CTA objects
+    if (typeof feature === 'object' && feature !== null && feature.isContactCta) {
       return (
         <button
           type="button"
@@ -26,7 +27,7 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
             onContactUsClick?.(contactSource || 'pricing_table');
           }}
         >
-          {feature}
+          {feature.text}
         </button>
       );
     }

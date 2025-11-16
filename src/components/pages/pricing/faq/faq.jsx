@@ -204,14 +204,15 @@ const FAQ_DATA = [
 
 const FAQ = ({ onOpenScheduling }) => {
   const handleOpenScheduling = useCallback(
-    (e, source) => {
+    (e, source, faqQuestion) => {
       e.preventDefault();
-      // Track FAQ schedule link click analytics
+      // Track FAQ schedule link click analytics with granular question identifier
       window?.analytics?.track('Pricing Event: Click Schedule a Call in FAQ', {
         source,
+        question: faqQuestion,
       });
       if (onOpenScheduling) {
-        onOpenScheduling(source);
+        onOpenScheduling(source, faqQuestion);
       }
     },
     [onOpenScheduling]
@@ -219,7 +220,7 @@ const FAQ = ({ onOpenScheduling }) => {
 
   // Process FAQ data to make Contact Us links clickable
   const processAnswer = useCallback(
-    (answer) => {
+    (answer, question) => {
       if (!answer || typeof answer !== 'object') return answer;
 
       const processChildren = (children) =>
@@ -233,11 +234,14 @@ const FAQ = ({ onOpenScheduling }) => {
             const dataAction = child.props['data-action'];
 
             // Handle links with data-action="schedule" or "contact"
-            if ((dataAction === 'schedule' || dataAction === 'contact') && onOpenScheduling) {
+            if (dataAction === 'schedule' || dataAction === 'contact') {
+              const existingOnClick = child.props.onClick;
               return React.cloneElement(child, {
                 onClick: (e) => {
+                  // Call existing onClick handler if present
+                  existingOnClick?.(e);
                   e.preventDefault();
-                  handleOpenScheduling(e, 'pricing_faq');
+                  handleOpenScheduling(e, 'pricing_faq', question);
                 },
                 to: '#',
                 className: `${child.props.className || ''} cursor-pointer`.trim(),
@@ -263,14 +267,14 @@ const FAQ = ({ onOpenScheduling }) => {
 
       return answer;
     },
-    [onOpenScheduling, handleOpenScheduling]
+    [handleOpenScheduling]
   );
 
   const faqDataWithHandlers = useMemo(
     () =>
       FAQ_DATA.map((item) => ({
         ...item,
-        answer: processAnswer(item.answer),
+        answer: processAnswer(item.answer, item.question),
       })),
     [processAnswer]
   );

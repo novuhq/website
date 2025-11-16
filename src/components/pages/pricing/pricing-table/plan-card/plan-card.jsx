@@ -11,6 +11,7 @@ const PlanCard = ({
   linkUrl,
   linkTarget,
   linkRel,
+  isContactCta = false,
   common,
   platform,
   // framework,
@@ -28,10 +29,9 @@ const PlanCard = ({
 }) => {
   const isActive = activeTier === title.split(' ')[0].toLowerCase();
   const sanitizedTitle = title.trim().toLowerCase().replace(/\s+/g, '_');
-  const isContactLink = linkText?.toLowerCase().includes('contact');
 
   const handleButtonClick = (e) => {
-    if (isContactLink) {
+    if (isContactCta) {
       e.preventDefault();
       // Track contact button click analytics
       window?.analytics?.track('Pricing Event: Click Contact Us in the table', {
@@ -61,12 +61,12 @@ const PlanCard = ({
             <Button
               theme={isActive ? 'white-filled' : 'gray-outline'}
               size="xs"
-              to={isContactLink ? null : linkUrl}
+              to={isContactCta ? null : linkUrl}
               target={linkTarget}
               rel={linkRel}
               onClick={(e) => {
                 handleButtonClick(e);
-                if (!isContactLink) {
+                if (!isContactCta) {
                   window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
                     packageType: title,
                     sliderValue: activeTier.rangeValue,

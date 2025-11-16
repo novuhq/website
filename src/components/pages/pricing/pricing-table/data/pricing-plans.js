@@ -214,6 +214,7 @@ const PLANS = {
     linkText: 'Contact Us',
     linkUrl: 'https://novu.co/contact-us/?utm_campaign=ws_pricing_table_enterprise',
     linkTarget: '_blank',
+    isContactCta: true,
     common: {},
     platform: {
       monthlyCost: 'Custom',
@@ -268,7 +269,7 @@ const PLANS = {
       australia: true,
       japan: true,
       southKorea: true,
-      contactForOther: 'Contact Us',
+      contactForOther: { text: 'Contact Us', isContactCta: true },
     },
     hostingModels: {
       novuCloud: true,

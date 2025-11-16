@@ -4,9 +4,19 @@ import React, { useEffect, useMemo, useRef } from 'react';
 
 const NAMESPACE = 'novu-meeting';
 
-const SchedulingModal = ({ isOpen, utmSource = null, onClose }) => {
+const SchedulingModal = ({ isOpen, utmSource = null, onClose = () => {}, onOpen = null }) => {
   const buttonRef = useRef(null);
   const initializedRef = useRef(false);
+  const calApiRef = useRef(null);
+  const isCalModalOpenRef = useRef(false);
+  const onCloseCallbackRef = useRef(onClose);
+  const onOpenCallbackRef = useRef(onOpen);
+
+  // Keep callback refs up to date
+  useEffect(() => {
+    onCloseCallbackRef.current = onClose;
+    onOpenCallbackRef.current = onOpen;
+  }, [onClose, onOpen]);
 
   const calLink = useMemo(() => {
     const utmParams = utmSource
@@ -15,53 +25,89 @@ const SchedulingModal = ({ isOpen, utmSource = null, onClose }) => {
     return `team/novu/intro${utmParams}`;
   }, [utmSource]);
 
+  // Preload Cal.com API and set up event listeners once on mount
   useEffect(() => {
     let isCancelled = false;
 
-    const initAndOpen = async () => {
+    const initCalApi = async () => {
       try {
         const cal = await getCalApi({ namespace: NAMESPACE });
         if (isCancelled) return;
 
-        if (!initializedRef.current) {
-          cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
-          initializedRef.current = true;
-        }
+        calApiRef.current = cal;
 
-        // Ensure the button is ready before clicking
-        // Use requestAnimationFrame to wait for the next paint cycle
-        requestAnimationFrame(() => {
-          if (isCancelled || !buttonRef.current) return;
+        // Configure UI once
+        cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+        initializedRef.current = true;
 
-          buttonRef.current.click();
+        // Set up event listeners once - they persist across open/close cycles
+        cal('on', {
+          action: '__windowClose',
+          callback: () => {
+            isCalModalOpenRef.current = false;
+            // Use the latest callback ref
+            if (onCloseCallbackRef.current) {
+              onCloseCallbackRef.current();
+            }
+          },
+        });
 
-          // Reset the modal state after opening to allow subsequent clicks
-          if (onClose) {
-            // Small delay to ensure the Cal.com modal opens before resetting state
-            setTimeout(() => {
-              if (!isCancelled) {
-                onClose();
-              }
-            }, 100);
-          }
+        cal('on', {
+          action: 'bookingSuccessful',
+          callback: () => {
+            isCalModalOpenRef.current = false;
+            // Use the latest callback ref
+            if (onCloseCallbackRef.current) {
+              onCloseCallbackRef.current();
+            }
+          },
         });
       } catch (e) {
-        console.error('Scheduling modal failed to open:', e);
-        // Also close on error to allow retrying
-        if (onClose) {
-          onClose();
-        }
+        console.error('Failed to initialize Cal.com API:', e);
       }
     };
 
-    if (isOpen) {
-      initAndOpen();
-    }
+    initCalApi();
 
     return () => {
       isCancelled = true;
     };
-  }, [isOpen, utmSource, onClose]);
+  }, []);
+
+  // Handle opening/closing the modal when isOpen changes
+  useEffect(() => {
+    if (!isOpen || !calApiRef.current) return;
+
+    const openModal = () => {
+      // Mark as opening; the close listeners will reset this
+      isCalModalOpenRef.current = true;
+      // Use the hidden button click which the Cal.com embed binds to reliably
+      // Ensure the DOM has the latest calLink attribute, then click
+      requestAnimationFrame(() => {
+        if (!buttonRef.current) return;
+        buttonRef.current.click();
+        if (onOpenCallbackRef.current) {
+          onOpenCallbackRef.current();
+        }
+      });
+    };
+
+    // Open immediately if Cal API is ready, otherwise wait briefly
+    if (calApiRef.current && initializedRef.current) {
+      openModal();
+    } else {
+      // Fallback: wait for initialization (should rarely happen with preloading)
+      const checkInterval = setInterval(() => {
+        if (calApiRef.current && initializedRef.current) {
+          clearInterval(checkInterval);
+          openModal();
+        }
+      }, 50);
+
+      // Cleanup
+      return () => clearInterval(checkInterval);
+    }
+  }, [isOpen, calLink]);
 
   return (
     <button
@@ -90,10 +136,7 @@ SchedulingModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   utmSource: PropTypes.string,
   onClose: PropTypes.func,
-};
-
-SchedulingModal.defaultProps = {
-  onClose: null,
+  onOpen: PropTypes.func,
 };
 
 export default SchedulingModal;

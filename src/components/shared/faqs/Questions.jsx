@@ -202,7 +202,7 @@ const FAQS = () => (
         Frequently Asked Questions
       </Heading>
       <p className="mt-7 text-lg font-book text-gray-9 lg:mt-5 sm:mt-4 sm:text-base">
-        Looking for answers? Here are some common questions we've been asked.
+        Looking for answers? Here are some common questions we&apos;ve been asked.
       </p>
       <ul className="mt-16 divide-y divide-gray-3 border-y border-gray-3 xl:mt-10">
         {FAQ_DATA.map((questionItem, index) => (

@@ -214,7 +214,21 @@ Card.propTypes = {
       text: PropTypes.string.isRequired,
       type: PropTypes.oneOf(['contact', 'link', 'trial']).isRequired,
       theme: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
+      link: (props, propName, componentName) => {
+        // Link is only required when type is not 'contact'
+        if (props.type !== 'contact' && !props[propName]) {
+          return new Error(
+            `Invalid prop \`${propName}\` supplied to \`${componentName}\`. ` +
+              `The prop \`${propName}\` is required when \`type\` is not 'contact'.`
+          );
+        }
+        if (props[propName] && typeof props[propName] !== 'string') {
+          return new Error(
+            `Invalid prop \`${propName}\` of type \`${typeof props[propName]}\` supplied to \`${componentName}\`, expected \`string\`.`
+          );
+        }
+        return null;
+      },
       target: PropTypes.string,
       rel: PropTypes.string,
     }).isRequired,
