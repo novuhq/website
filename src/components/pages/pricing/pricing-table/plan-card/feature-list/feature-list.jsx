@@ -18,13 +18,30 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
 
     // Handle structured contact CTA objects
     if (typeof feature === 'object' && feature !== null && feature.isContactCta) {
+      const hasHandler = typeof onContactUsClick === 'function';
+
+      // Warn developers if contact CTA is rendered without a handler
+      if (!hasHandler && process.env.NODE_ENV === 'development') {
+        console.warn(
+          'FeatureList: Contact CTA feature rendered without onContactUsClick handler. ' +
+            'Button will be disabled.'
+        );
+      }
+
       return (
         <button
           type="button"
-          className="cursor-pointer text-primary-1 hover:text-primary-2"
+          className={clsx(
+            'text-primary-1',
+            hasHandler ? 'cursor-pointer hover:text-primary-2' : 'cursor-not-allowed opacity-50'
+          )}
+          disabled={!hasHandler}
+          aria-disabled={!hasHandler}
           onClick={(e) => {
             e.preventDefault();
-            onContactUsClick?.(contactSource || 'pricing_table');
+            if (hasHandler) {
+              onContactUsClick(contactSource || 'pricing_table');
+            }
           }}
         >
           {feature.text}
@@ -62,9 +79,19 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
 
 FeatureList.propTypes = {
   features: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.node])
+    PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
+      PropTypes.node,
+      PropTypes.shape({
+        isContactCta: PropTypes.bool,
+        text: PropTypes.string,
+      }),
+    ])
   ).isRequired,
   currentRow: PropTypes.string,
+  // Required when features contain contact CTA objects ({ isContactCta: true, text: '...' })
+  // If not provided, contact buttons will be rendered in a disabled state
   onContactUsClick: PropTypes.func,
   contactSource: PropTypes.string,
   groupId: PropTypes.string,

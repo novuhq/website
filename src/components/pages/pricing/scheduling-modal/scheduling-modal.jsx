@@ -76,7 +76,7 @@ const SchedulingModal = ({ isOpen, utmSource = null, onClose = () => {}, onOpen 
 
   // Handle opening/closing the modal when isOpen changes
   useEffect(() => {
-    if (!isOpen || !calApiRef.current) return;
+    if (!isOpen) return;
 
     let rafId = null;
 
@@ -98,7 +98,7 @@ const SchedulingModal = ({ isOpen, utmSource = null, onClose = () => {}, onOpen 
     if (calApiRef.current && initializedRef.current) {
       openModal();
     } else {
-      // Fallback: wait for initialization (should rarely happen with preloading)
+      // Fallback: wait for initialization (handles case where isOpen=true before Cal API loads)
       const checkInterval = setInterval(() => {
         if (calApiRef.current && initializedRef.current) {
           clearInterval(checkInterval);
