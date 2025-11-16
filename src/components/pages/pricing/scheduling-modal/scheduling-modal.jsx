@@ -78,12 +78,14 @@ const SchedulingModal = ({ isOpen, utmSource = null, onClose = () => {}, onOpen 
   useEffect(() => {
     if (!isOpen || !calApiRef.current) return;
 
+    let rafId = null;
+
     const openModal = () => {
       // Mark as opening; the close listeners will reset this
       isCalModalOpenRef.current = true;
       // Use the hidden button click which the Cal.com embed binds to reliably
       // Ensure the DOM has the latest calLink attribute, then click
-      requestAnimationFrame(() => {
+      rafId = requestAnimationFrame(() => {
         if (!buttonRef.current) return;
         buttonRef.current.click();
         if (onOpenCallbackRef.current) {
@@ -105,8 +107,20 @@ const SchedulingModal = ({ isOpen, utmSource = null, onClose = () => {}, onOpen 
       }, 50);
 
       // Cleanup
-      return () => clearInterval(checkInterval);
+      return () => {
+        clearInterval(checkInterval);
+        if (rafId !== null) {
+          cancelAnimationFrame(rafId);
+        }
+      };
     }
+
+    // Cleanup for the immediate openModal path
+    return () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [isOpen, calLink]);
 
   return (
