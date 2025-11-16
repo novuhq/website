@@ -12,7 +12,7 @@ import stars from 'images/pages/pricing/stars.png';
 
 import Label from '../label';
 
-const Card = ({ plan }) => {
+const Card = ({ plan, onContactUsClick }) => {
   const {
     title,
     description,
@@ -23,7 +23,17 @@ const Card = ({ plan }) => {
     paymentPeriod,
     showFrom,
     button,
+    footer,
   } = plan;
+
+  const handleButtonClick = (e) => {
+    if (button.text.toLowerCase().includes('contact')) {
+      e.preventDefault();
+      if (onContactUsClick) {
+        onContactUsClick(`pricing_card_${title.toLowerCase()}`);
+      }
+    }
+  };
 
   const isPro = title.toLowerCase() === 'pro';
   const isTeam = title.toLowerCase() === 'team';
@@ -57,13 +67,19 @@ const Card = ({ plan }) => {
             className="z-20 mt-[22px] h-[46px] w-full"
             size="sm"
             theme={button.theme}
-            to={button.link}
+            to={button.text.toLowerCase().includes('contact') ? null : button.link}
             rel={button.rel}
             target={button.target}
+            onClick={handleButtonClick}
           >
             {button.text}
           </Button>
-          <p className="mt-5 text-[16px] font-book leading-snug tracking-snug text-gray-9">
+          <p className="mt-2 text-center text-[13px] font-book leading-snug tracking-snug text-gray-9">
+            {button.text.toLowerCase().includes('free trial')
+              ? 'No credit card required'
+              : '\u00A0'}
+          </p>
+          <p className="mt-5 min-h-[68px] text-[16px] font-book leading-snug tracking-snug text-gray-9 md:min-h-[88px] sm:min-h-[48px]">
             {description}
           </p>
           <span
@@ -99,6 +115,17 @@ const Card = ({ plan }) => {
               </li>
             ))}
           </ul>
+          {footer && (
+            <>
+              <span
+                className="mb-4 mt-5 block h-px w-full border-t border-dashed border-gray-5"
+                aria-hidden
+              />
+              <p className="text-[14px] font-book italic leading-snug tracking-snug text-gray-9">
+                {footer}
+              </p>
+            </>
+          )}
         </div>
         {isPro && (
           <>
@@ -185,5 +212,11 @@ Card.propTypes = {
       target: PropTypes.string,
       rel: PropTypes.string,
     }).isRequired,
+    footer: PropTypes.string,
   }).isRequired,
+  onContactUsClick: PropTypes.func,
+};
+
+Card.defaultProps = {
+  onContactUsClick: null,
 };

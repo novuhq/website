@@ -11,7 +11,15 @@ import CopyIcon from 'icons/copy.inline.svg';
 import background from './images/bg.svg';
 import codeDots from './images/code-dots.svg';
 
-const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => {
+const CtaWithForm = ({ className, title, description, leftItem, rightItem, onContactUsClick }) => {
+  const handleRightItemClick = (e) => {
+    if (rightItem && rightItem.text && rightItem.text.toLowerCase().includes('contact')) {
+      e.preventDefault();
+      if (onContactUsClick) {
+        onContactUsClick('pricing_cta');
+      }
+    }
+  };
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
@@ -115,9 +123,14 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem }) => 
                   className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
                   theme="gray-outline"
                   size="sm"
-                  to={rightItem.link}
+                  to={
+                    rightItem.text.toLowerCase().includes('contact') && onContactUsClick
+                      ? null
+                      : rightItem.link
+                  }
                   rel={rightItem.rel}
                   target={rightItem.target}
+                  onClick={handleRightItemClick}
                 >
                   {rightItem.text}
                 </Button>
@@ -156,10 +169,12 @@ CtaWithForm.propTypes = {
     rel: PropTypes.string,
     target: PropTypes.string,
   }).isRequired,
+  onContactUsClick: PropTypes.func,
 };
 
 CtaWithForm.defaultProps = {
   className: '',
+  onContactUsClick: null,
 };
 
 export default CtaWithForm;

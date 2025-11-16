@@ -17,12 +17,27 @@ const PlanCard = ({
   inbox,
   account,
   compliance,
+  dataResidency,
+  hostingModels,
   activeTier,
   className,
   currentRow,
   apiRateLimits,
+  onContactUsClick,
+  groupIds,
 }) => {
   const isActive = activeTier === title.split(' ')[0].toLowerCase();
+
+  const handleButtonClick = (e) => {
+    if (linkText && linkText.toLowerCase().includes('contact')) {
+      e.preventDefault();
+      if (onContactUsClick) {
+        onContactUsClick(`pricing_table_${title.toLowerCase()}`);
+      }
+    }
+  };
+
+  const contactSource = `pricing_table_${title.toLowerCase()}`;
 
   return (
     <div
@@ -39,27 +54,80 @@ const PlanCard = ({
             <Button
               theme={isActive ? 'white-filled' : 'gray-outline'}
               size="xs"
-              to={linkUrl}
+              to={linkText.toLowerCase().includes('contact') ? null : linkUrl}
               target={linkTarget}
               rel={linkRel}
-              onClick={() =>
-                window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
-                  packageType: title,
-                  sliderValue: activeTier.rangeValue,
-                })
-              }
+              onClick={(e) => {
+                handleButtonClick(e);
+                if (!linkText.toLowerCase().includes('contact')) {
+                  window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
+                    packageType: title,
+                    sliderValue: activeTier.rangeValue,
+                  });
+                }
+              }}
             >
               {linkText}
             </Button>
           )}
         </div>
-        <FeatureList features={common} currentRow={currentRow} />
-        <FeatureList features={platform} currentRow={currentRow} />
+        <FeatureList
+          groupId={groupIds?.common}
+          features={common}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
+        <FeatureList
+          groupId={groupIds?.platform}
+          features={platform}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
         {/* <FeatureList features={framework} currentRow={currentRow} /> */}
-        <FeatureList features={apiRateLimits} currentRow={currentRow} />
-        <FeatureList features={inbox} currentRow={currentRow} />
-        <FeatureList features={account} currentRow={currentRow} />
-        <FeatureList features={compliance} currentRow={currentRow} />
+        <FeatureList
+          groupId={groupIds?.apiRateLimits}
+          features={apiRateLimits}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
+        <FeatureList
+          groupId={groupIds?.inbox}
+          features={inbox}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
+        <FeatureList
+          groupId={groupIds?.account}
+          features={account}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
+        <FeatureList
+          groupId={groupIds?.compliance}
+          features={compliance}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
+        <FeatureList
+          groupId={groupIds?.dataResidency}
+          features={dataResidency}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
+        <FeatureList
+          groupId={groupIds?.hostingModels}
+          features={hostingModels}
+          currentRow={currentRow}
+          contactSource={contactSource}
+          onContactUsClick={onContactUsClick}
+        />
       </div>
     </div>
   );
