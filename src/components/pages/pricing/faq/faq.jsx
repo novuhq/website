@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -40,7 +40,7 @@ const FAQ_DATA = [
       <>
         We never stop or throttle your notifications. Usage above your plan rolls into on‑demand
         pricing or, for Enterprise, your contract rate.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -71,7 +71,7 @@ const FAQ_DATA = [
       <>
         Yes. We offer reduced annual pricing and volume‑based tiers. Enterprise customers receive
         custom bundle pricing.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -84,7 +84,7 @@ const FAQ_DATA = [
       <>
         All plans support US and EU regions. Enterprise can use additional regions (Singapore, UK,
         Australia, Japan, South Korea) or request custom regions/VPC hosting.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -96,7 +96,7 @@ const FAQ_DATA = [
     answer: (
       <>
         Yes. Our Enterprise plan supports HIPAA compliance and BAAs.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -110,7 +110,7 @@ const FAQ_DATA = [
         We store only the data needed to deliver and display notifications (subscriber identifiers,
         channel addresses, metadata). Enterprise can request custom logging, deletion workflows, or
         bring‑your‑own database.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -135,7 +135,7 @@ const FAQ_DATA = [
     answer: (
       <>
         Yes. Enterprise adds SLAs, advanced compliance and controls, and deployment options.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -153,7 +153,7 @@ const FAQ_DATA = [
         is the open‑source core you can run yourself. Novu Cloud is our managed, scalable service
         with SLAs and business features. Enterprise Self‑Hosted adds SSO, RBAC, audit logs, branding
         removal, Helm/Kubernetes tooling, and priority support.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>{' '}
         to discuss which option fits your needs.
@@ -175,7 +175,7 @@ const FAQ_DATA = [
       <>
         Most teams migrate in stages: simple events → advanced workflows → preferences and Inbox. We
         can guide architecture reviews and transition planning.{' '}
-        <Link to="#" theme="primary">
+        <Link to="#" theme="primary" data-action="schedule">
           Schedule a call
         </Link>
         .
@@ -202,124 +202,78 @@ const FAQ_DATA = [
   },
 ];
 
-const FAQ = ({ onContactUsClick, onScheduleCallClick }) => {
-  const handleContactUsClick = (e, source) => {
-    e.preventDefault();
-    if (onContactUsClick) {
-      onContactUsClick(source);
-    }
-  };
-  const handleScheduleCallClick = (e, source) => {
-    e.preventDefault();
-    if (onScheduleCallClick) {
-      onScheduleCallClick(source);
-    }
-  };
+const FAQ = ({ onOpenScheduling }) => {
+  const handleOpenScheduling = useCallback(
+    (e, source) => {
+      e.preventDefault();
+      // Track FAQ schedule link click analytics
+      window?.analytics?.track('Pricing Event: Click Schedule a Call in FAQ', {
+        source,
+      });
+      if (onOpenScheduling) {
+        onOpenScheduling(source);
+      }
+    },
+    [onOpenScheduling]
+  );
 
   // Process FAQ data to make Contact Us links clickable
-  const processAnswer = (answer) => {
-    if (!answer || typeof answer !== 'object') return answer;
+  const processAnswer = useCallback(
+    (answer) => {
+      if (!answer || typeof answer !== 'object') return answer;
 
-    const processChildren = (children) =>
-      React.Children.map(children, (child) => {
-        if (!React.isValidElement(child)) {
-          // Handle string children that might contain "contact us"
-          if (
-            typeof child === 'string' &&
-            child.toLowerCase().includes('contact us') &&
-            onContactUsClick
-          ) {
-            return (
-              <button
-                type="button"
-                className="text-primary-1 underline hover:text-primary-2"
-                onClick={(e) => handleContactUsClick(e, 'pricing_faq')}
-              >
-                {child}
-              </button>
-            );
+      const processChildren = (children) =>
+        React.Children.map(children, (child) => {
+          if (!React.isValidElement(child)) {
+            return child;
           }
-          // Handle string children that might contain "schedule a call"
-          if (
-            typeof child === 'string' &&
-            child.toLowerCase().includes('schedule a call') &&
-            onScheduleCallClick
-          ) {
-            return (
-              <button
-                type="button"
-                className="text-primary-1 underline hover:text-primary-2"
-                onClick={(e) => handleScheduleCallClick(e, 'pricing_faq')}
-              >
-                {child}
-              </button>
-            );
+
+          // Check if it's a Link component using stable detection
+          if (child.type === Link) {
+            const dataAction = child.props['data-action'];
+
+            // Handle links with data-action="schedule" or "contact"
+            if ((dataAction === 'schedule' || dataAction === 'contact') && onOpenScheduling) {
+              return React.cloneElement(child, {
+                onClick: (e) => {
+                  e.preventDefault();
+                  handleOpenScheduling(e, 'pricing_faq');
+                },
+                to: '#',
+                className: `${child.props.className || ''} cursor-pointer`.trim(),
+              });
+            }
           }
+
+          // Recursively process nested children
+          if (child.props && child.props.children) {
+            return React.cloneElement(child, {
+              children: processChildren(child.props.children),
+            });
+          }
+
           return child;
-        }
+        });
 
-        // Check if it's a Link component with "contact" text
-        if (child.type && (child.type.displayName === 'Link' || child.type.name === 'Link')) {
-          const linkText = child.props.children;
-          // Extract text from nested structures
-          let textContent = '';
-          if (typeof linkText === 'string') {
-            textContent = linkText;
-          } else if (React.isValidElement(linkText)) {
-            textContent = linkText.props?.children || '';
-          } else if (Array.isArray(linkText)) {
-            textContent = linkText
-              .map((item) => (typeof item === 'string' ? item : item?.props?.children || ''))
-              .join('');
-          } else {
-            textContent = String(linkText);
-          }
+      if (answer.props && answer.props.children) {
+        return React.cloneElement(answer, {
+          children: processChildren(answer.props.children),
+        });
+      }
 
-          if (textContent.toLowerCase().includes('contact') && onContactUsClick) {
-            return React.cloneElement(child, {
-              onClick: (e) => {
-                e.preventDefault();
-                handleContactUsClick(e, 'pricing_faq');
-              },
-              to: '#',
-              className: `${child.props.className || ''} cursor-pointer`.trim(),
-            });
-          }
-          if (textContent.toLowerCase().includes('schedule') && onScheduleCallClick) {
-            return React.cloneElement(child, {
-              onClick: (e) => {
-                e.preventDefault();
-                handleScheduleCallClick(e, 'pricing_faq');
-              },
-              to: '#',
-              className: `${child.props.className || ''} cursor-pointer`.trim(),
-            });
-          }
-        }
+      return answer;
+    },
+    [onOpenScheduling, handleOpenScheduling]
+  );
 
-        // Recursively process nested children
-        if (child.props && child.props.children) {
-          return React.cloneElement(child, {
-            children: processChildren(child.props.children),
-          });
-        }
-
-        return child;
-      });
-
-    if (answer.props && answer.props.children) {
-      return React.cloneElement(answer, {
-        children: processChildren(answer.props.children),
-      });
-    }
-
-    return answer;
-  };
-
-  const faqDataWithHandlers = FAQ_DATA.map((item) => ({
-    ...item,
-    answer: processAnswer(item.answer),
-  }));
+  const faqDataWithHandlers = useMemo(
+    () =>
+      FAQ_DATA.map((item) => ({
+        ...item,
+        answer: processAnswer(item.answer),
+      })),
+    [processAnswer]
+  );
 
   return (
     <section className="safe-paddings pb-20 pt-[60px] lg:pb-16 md:pb-5 md:pt-[50px] sm:pb-10">
@@ -333,8 +287,8 @@ const FAQ = ({ onContactUsClick, onScheduleCallClick }) => {
           Frequently asked questions
         </Heading>
         <ul className="mt-8 divide-y divide-gray-3 border-b border-gray-3 sm:mt-6">
-          {faqDataWithHandlers.map((questionItem, index) => (
-            <Question {...questionItem} key={index} />
+          {faqDataWithHandlers.map((questionItem) => (
+            <Question {...questionItem} key={questionItem.question} />
           ))}
         </ul>
       </div>
@@ -343,13 +297,11 @@ const FAQ = ({ onContactUsClick, onScheduleCallClick }) => {
 };
 
 FAQ.propTypes = {
-  onContactUsClick: PropTypes.func,
-  onScheduleCallClick: PropTypes.func,
+  onOpenScheduling: PropTypes.func,
 };
 
 FAQ.defaultProps = {
-  onContactUsClick: null,
-  onScheduleCallClick: null,
+  onOpenScheduling: null,
 };
 
 export default FAQ;

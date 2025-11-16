@@ -227,7 +227,7 @@ const INBOX = {
 };
 
 const CTA_WITH_FORM = {
-  title: "You're five minutes away from your first Novu-powered notification",
+  title: "You're five minutes away from your first Novu-powered notification",
   description:
     'Create a free account, send your first notification, all before your coffee gets cold... no credit card required.',
   leftItem: {
@@ -237,6 +237,7 @@ const CTA_WITH_FORM = {
   rightItem: {
     text: 'Contact us',
     link: 'https://novu.co/contact-us/?utm_campaign=contact-inbox',
+    isContactButton: true,
   },
 };
 

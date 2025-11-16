@@ -157,7 +157,7 @@ const CTA = {
   description:
     'Create a free account, send your first notification, all before your coffee gets cold... no credit card required.',
   leftItem: { text: 'Get started', link: 'https://go.novu.co/dashboard' },
-  rightItem: { text: 'Contact us', link: 'https://novu.co/contact-us' },
+  rightItem: { text: 'Contact us', link: 'https://novu.co/contact-us', isContactButton: true },
 };
 
 export default {

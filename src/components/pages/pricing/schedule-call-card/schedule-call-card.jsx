@@ -6,9 +6,11 @@ import GradientBorder from 'components/shared/gradient-border';
 
 const ScheduleCallCard = ({ onScheduleClick }) => {
   const handleClick = () => {
-    if (onScheduleClick) {
-      onScheduleClick('pricing_table_schedule_card');
-    }
+    // Track schedule call button click analytics
+    window?.analytics?.track('Pricing Event: Click Schedule a Call card', {
+      source: 'pricing_table_schedule_card',
+    });
+    onScheduleClick('pricing_table_schedule_card');
   };
 
   return (
@@ -56,7 +58,7 @@ ScheduleCallCard.propTypes = {
 };
 
 ScheduleCallCard.defaultProps = {
-  onScheduleClick: null,
+  onScheduleClick: () => {},
 };
 
 export default ScheduleCallCard;

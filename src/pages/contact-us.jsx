@@ -31,10 +31,17 @@ const ContactUsPage = () => {
           <div className="mx-auto mt-24 max-w-3xl">
             <div className="flex justify-center">
               <button
+                type="button"
                 className="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-base font-medium text-gray-1 transition-colors duration-200 hover:bg-gray-9 focus:outline-none focus:ring-2 focus:ring-primary-1 focus:ring-offset-2 focus:ring-offset-gray-2"
                 data-cal-namespace="novu-meeting"
                 data-cal-link="team/novu/novu-meeting"
                 data-cal-config='{"layout":"month_view"}'
+                onClick={() => {
+                  // Track schedule call button click analytics
+                  window?.analytics?.track('Contact Us Event: Click Schedule a Call button', {
+                    source: 'contact_us_page',
+                  });
+                }}
               >
                 Schedule a Call
               </button>
@@ -49,13 +56,13 @@ const ContactUsPage = () => {
                     Need technical support?
                   </Heading>
                   <p className="mt-2 text-base font-book text-gray-8">
-                    Submit a ticket and our support team will help you as soon as possible.
+                    Email our support team and we will help you as soon as possible.
                   </p>
                   <a
                     href="mailto:support@novu.co"
                     className="mt-4 inline-flex h-10 items-center justify-center rounded-md border border-gray-6 bg-transparent px-5 text-sm font-medium text-white transition-colors duration-200 hover:bg-gray-1 focus:outline-none focus:ring-2 focus:ring-primary-1 focus:ring-offset-2 focus:ring-offset-gray-2"
                   >
-                    Contact Support
+                    Email Support
                   </a>
                 </div>
 

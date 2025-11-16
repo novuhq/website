@@ -11,13 +11,23 @@ import CopyIcon from 'icons/copy.inline.svg';
 import background from './images/bg.svg';
 import codeDots from './images/code-dots.svg';
 
-const CtaWithForm = ({ className, title, description, leftItem, rightItem, onContactUsClick }) => {
+const CtaWithForm = ({
+  className,
+  title,
+  description,
+  leftItem,
+  rightItem,
+  onContactUsClick,
+  contactSource = 'pricing_cta',
+}) => {
   const handleRightItemClick = (e) => {
-    if (rightItem && rightItem.text && rightItem.text.toLowerCase().includes('contact')) {
+    if (rightItem?.isContactButton && onContactUsClick) {
       e.preventDefault();
-      if (onContactUsClick) {
-        onContactUsClick('pricing_cta');
-      }
+      // Track CTA contact button click analytics
+      window?.analytics?.track('Pricing Event: Click Contact Us in CTA section', {
+        source: contactSource,
+      });
+      onContactUsClick(contactSource);
     }
   };
   const [isCopied, setIsCopied] = useState(false);
@@ -123,11 +133,7 @@ const CtaWithForm = ({ className, title, description, leftItem, rightItem, onCon
                   className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
                   theme="gray-outline"
                   size="sm"
-                  to={
-                    rightItem.text.toLowerCase().includes('contact') && onContactUsClick
-                      ? null
-                      : rightItem.link
-                  }
+                  to={rightItem.isContactButton && onContactUsClick ? null : rightItem.link}
                   rel={rightItem.rel}
                   target={rightItem.target}
                   onClick={handleRightItemClick}
@@ -168,13 +174,16 @@ CtaWithForm.propTypes = {
     link: PropTypes.string.isRequired,
     rel: PropTypes.string,
     target: PropTypes.string,
+    isContactButton: PropTypes.bool,
   }).isRequired,
   onContactUsClick: PropTypes.func,
+  contactSource: PropTypes.string,
 };
 
 CtaWithForm.defaultProps = {
   className: '',
   onContactUsClick: null,
+  contactSource: 'pricing_cta',
 };
 
 export default CtaWithForm;

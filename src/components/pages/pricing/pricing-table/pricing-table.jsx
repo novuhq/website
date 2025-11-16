@@ -20,22 +20,19 @@ const toGroupId = (title, index) =>
 const PricingPlans = ({ activeTier, onContactUsClick }) => {
   const [currentRow, setCurrentRow] = useState('');
 
-  const handleMouseMove = useCallback(
-    (e) => {
-      const cell = e.target.closest('[data-row-id]');
-      if (cell) {
-        const rowId = cell.getAttribute('data-row-id');
-        if (rowId !== currentRow) setCurrentRow(rowId);
-      } else if (currentRow) {
-        setCurrentRow('');
-      }
-    },
-    [currentRow]
-  );
+  const handleMouseMove = useCallback((e) => {
+    const cell = e.target.closest('[data-row-id]');
+    if (cell) {
+      const rowId = cell.getAttribute('data-row-id');
+      setCurrentRow((prev) => (prev === rowId ? prev : rowId));
+    } else {
+      setCurrentRow((prev) => (prev ? '' : prev));
+    }
+  }, []);
 
   const handleMouseLeave = useCallback(() => {
-    if (currentRow) setCurrentRow('');
-  }, [currentRow]);
+    setCurrentRow('');
+  }, []);
 
   return (
     <section className="safe-paddings pt-[92px] md:pb-5 md:pt-[98px] sm:pt-[74px]">
@@ -96,9 +93,18 @@ const PricingPlans = ({ activeTier, onContactUsClick }) => {
                             <span className="flex items-center gap-2">
                               {label}
                               {hasTooltip && (
-                                <span className="relative inline-flex">
-                                  <QuestionIcon className="h-4 w-4 cursor-help text-gray-6 transition-colors hover:text-gray-9" />
-                                  <span className="shadow-lg pointer-events-none invisible absolute bottom-full left-1/2 z-50 mb-3 w-80 -translate-x-1/2 rounded-lg border border-gray-4 bg-gray-2 px-4 py-3.5 text-[15px] font-light leading-relaxed text-gray-9 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100">
+                                <span className="group/tooltip relative inline-flex">
+                                  <QuestionIcon
+                                    className="h-4 w-4 cursor-help text-gray-6 transition-colors hover:text-gray-9"
+                                    tabIndex={0}
+                                    aria-describedby={`tooltip-${rowId}`}
+                                  />
+                                  <span
+                                    id={`tooltip-${rowId}`}
+                                    role="tooltip"
+                                    aria-hidden="true"
+                                    className="shadow-lg pointer-events-none invisible absolute bottom-full left-1/2 z-50 mb-3 w-80 -translate-x-1/2 rounded-lg border border-gray-4 bg-gray-2 px-4 py-3.5 text-[15px] font-light leading-relaxed text-gray-9 opacity-0 transition-all duration-200 group-hover/tooltip:pointer-events-auto group-hover/tooltip:visible group-hover/tooltip:opacity-100 group-focus/tooltip:pointer-events-auto group-focus/tooltip:visible group-focus/tooltip:opacity-100"
+                                  >
                                     {tooltip}
                                     <span className="absolute left-1/2 top-full -translate-x-1/2 border-[6px] border-transparent border-t-gray-2" />
                                   </span>

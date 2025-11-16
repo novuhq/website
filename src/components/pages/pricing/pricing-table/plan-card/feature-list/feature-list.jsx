@@ -13,8 +13,7 @@ const missingFeature = <XIcon className="my-[5.5px] w-3.5" aria-label="Missing F
 const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, groupId }) => {
   const renderFeature = (feature) => {
     if (typeof feature === 'boolean') {
-      if (feature) return presentFeature;
-      if (!feature) return missingFeature;
+      return feature ? presentFeature : missingFeature;
     }
 
     if (typeof feature === 'string' && feature.toLowerCase().includes('contact us')) {
@@ -37,8 +36,8 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
 
   return (
     <div className="mt-24 flex flex-col divide-y divide-dashed divide-gray-4 border-b border-t border-dashed border-gray-4 text-left lg:mt-[61px] [&:nth-child(1)]:border-none [&:nth-child(2)]:mt-0 [&:nth-child(2)]:border-none [&:nth-child(3)]:mt-[71px] [&:nth-child(4)]:mt-[79px] [&:nth-child(5)]:mt-[79px] md:[&:nth-child(5)]:mt-[109px] [&:nth-child(6)]:mt-[79px] [&:nth-child(n+7)]:mt-[79px]">
-      {Object.keys(features).map((item, index) => {
-        const rowId = `${groupId || 'group'}-${item}`;
+      {Object.keys(features).map((item) => {
+        const rowId = `${groupId}-${item}`;
         const isActive = rowId === currentRow;
         return (
           <span
@@ -50,7 +49,7 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
               }
             )}
             data-row-id={rowId}
-            key={index}
+            key={rowId}
           >
             {renderFeature(features[item])}
           </span>
@@ -61,7 +60,9 @@ const FeatureList = ({ features, currentRow, onContactUsClick, contactSource, gr
 };
 
 FeatureList.propTypes = {
-  features: PropTypes.shape({}).isRequired,
+  features: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.node])
+  ).isRequired,
   currentRow: PropTypes.string,
   onContactUsClick: PropTypes.func,
   contactSource: PropTypes.string,

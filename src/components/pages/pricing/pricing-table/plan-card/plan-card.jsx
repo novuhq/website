@@ -27,17 +27,24 @@ const PlanCard = ({
   groupIds,
 }) => {
   const isActive = activeTier === title.split(' ')[0].toLowerCase();
+  const sanitizedTitle = title.trim().toLowerCase().replace(/\s+/g, '_');
+  const isContactLink = linkText?.toLowerCase().includes('contact');
 
   const handleButtonClick = (e) => {
-    if (linkText && linkText.toLowerCase().includes('contact')) {
+    if (isContactLink) {
       e.preventDefault();
+      // Track contact button click analytics
+      window?.analytics?.track('Pricing Event: Click Contact Us in the table', {
+        packageType: title,
+        source: `pricing_table_${sanitizedTitle}`,
+      });
       if (onContactUsClick) {
-        onContactUsClick(`pricing_table_${title.toLowerCase()}`);
+        onContactUsClick(`pricing_table_${sanitizedTitle}`);
       }
     }
   };
 
-  const contactSource = `pricing_table_${title.toLowerCase()}`;
+  const contactSource = `pricing_table_${sanitizedTitle}`;
 
   return (
     <div
@@ -54,12 +61,12 @@ const PlanCard = ({
             <Button
               theme={isActive ? 'white-filled' : 'gray-outline'}
               size="xs"
-              to={linkText.toLowerCase().includes('contact') ? null : linkUrl}
+              to={isContactLink ? null : linkUrl}
               target={linkTarget}
               rel={linkRel}
               onClick={(e) => {
                 handleButtonClick(e);
-                if (!linkText.toLowerCase().includes('contact')) {
+                if (!isContactLink) {
                   window?.analytics?.track('Pricing Event: Click the CTA Button in the table', {
                     packageType: title,
                     sliderValue: activeTier.rangeValue,

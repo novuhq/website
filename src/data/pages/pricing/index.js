@@ -1,10 +1,12 @@
 const PRICING_PLANS = [
   {
+    id: 'free',
     title: 'Free',
     price: '$0',
     paymentPeriod: 'month',
     button: {
       text: 'GET STARTED',
+      type: 'trial',
       theme: 'gray-outline',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
@@ -24,18 +26,20 @@ const PRICING_PLANS = [
     ],
   },
   {
+    id: 'pro',
     title: 'Pro',
     price: '$30',
     showFrom: true,
     paymentPeriod: 'month',
     button: {
       text: 'GET STARTED',
+      type: 'trial',
       theme: 'white-filled',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
       rel: 'noopener noreferrer',
     },
-    description: 'More scale and flexibility — ideal for teams moving beyond experimentation.',
+    description: 'More scale and flexibility - ideal for teams moving beyond experimentation.',
     advantagesHeading: 'Everything in Free, plus:',
     advantages: [
       '30,000+ workflow runs / month',
@@ -46,12 +50,14 @@ const PRICING_PLANS = [
     ],
   },
   {
+    id: 'team',
     title: 'Team',
     price: '$250',
     showFrom: true,
     paymentPeriod: 'month',
     button: {
       text: 'GET STARTED',
+      type: 'trial',
       theme: 'gray-outline',
       link: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing',
       target: '_blank',
@@ -70,10 +76,12 @@ const PRICING_PLANS = [
     ],
   },
   {
+    id: 'enterprise',
     title: 'Enterprise',
     price: 'Custom',
     button: {
       text: 'Contact us',
+      type: 'contact',
       theme: 'gray-outline',
       link: 'https://novu.co/contact-us/?utm_campaign=ws_pricing',
     },
@@ -106,6 +114,7 @@ const CTA = {
   rightItem: {
     text: 'Contact us',
     link: 'https://novu.co/contact-us/?utm_campaign=ws_home_cta',
+    isContactButton: true,
   },
 };
 

@@ -19,10 +19,11 @@ const PricingPage = () => {
 
   const openSchedulingModal = (source) => {
     setUtmSource(source);
+    setIsSchedulingModalOpen(true);
+  };
+
+  const closeSchedulingModal = () => {
     setIsSchedulingModalOpen(false);
-    setTimeout(() => {
-      setIsSchedulingModalOpen(true);
-    }, 0);
   };
 
   return (
@@ -35,13 +36,18 @@ const PricingPage = () => {
       />
       <PricingTable activeTier={DATA.activeTier} onContactUsClick={openSchedulingModal} />
       <ScheduleCallCard onScheduleClick={openSchedulingModal} />
-      <FAQ onContactUsClick={openSchedulingModal} onScheduleCallClick={openSchedulingModal} />
+      <FAQ onOpenScheduling={openSchedulingModal} />
       <CtaWithForm
         {...DATA.cta}
         className="mb-[192px] mt-[238px] text-center"
         onContactUsClick={openSchedulingModal}
       />
-      <SchedulingModal isOpen={isSchedulingModalOpen} utmSource={utmSource} />
+      <SchedulingModal
+        key={utmSource}
+        isOpen={isSchedulingModalOpen}
+        utmSource={utmSource}
+        onClose={closeSchedulingModal}
+      />
     </Layout>
   );
 };
