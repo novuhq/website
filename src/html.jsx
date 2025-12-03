@@ -2,13 +2,11 @@
 import { Analytics as DubAnalytics } from '@dub/analytics/react';
 import React from 'react';
 
+import Fonts from 'components/shared/fonts';
+
 const fontsBasePath = '/fonts';
 
-const fontsPaths = [
-  '/brother-1816/brother-1816-regular.woff2',
-  '/brother-1816/brother-1816-book.woff2',
-  '/ibm-plex-mono/ibm-plex-mono-regular.woff2',
-];
+const fontsPaths = ['/ibm-plex-mono/ibm-plex-mono-regular.woff2'];
 
 const HTML = ({
   htmlAttributes,
@@ -36,6 +34,7 @@ const HTML = ({
           key={index}
         />
       ))}
+      <Fonts />
       {headComponents}
     </head>
     <body {...bodyAttributes}>
@@ -43,9 +42,11 @@ const HTML = ({
       <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
       {postBodyComponents}
     </body>
-    <DubAnalytics domainsConfig={{
-      outbound: ["app.cal.com"],
-    }} />
+    <DubAnalytics
+      domainsConfig={{
+        outbound: ['app.cal.com'],
+      }}
+    />
   </html>
 );
 
