@@ -47,7 +47,7 @@ const PLANS = {
     },
     compliance: {
       gdpr: true,
-      soc2: false,
+      soc2: true,
       hipaa: false,
       customSOC: false,
       dpa: 'Standard',
@@ -116,7 +116,7 @@ const PLANS = {
     },
     compliance: {
       gdpr: true,
-      soc2: false,
+      soc2: true,
       hipaa: false,
       customSOC: false,
       dpa: 'Standard',
