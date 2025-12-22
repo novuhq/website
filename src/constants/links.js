@@ -1,7 +1,11 @@
-export const applyQueryParams = (link, queryParams = []) => ({
-  ...link,
-  to: `${link.to}?${queryParams.join('&')}`,
-});
+export const applyQueryParams = (link, queryParams = []) => {
+  // Ensure trailing slash before query params (due to trailingSlash: 'always' in gatsby-config)
+  const path = link.to.endsWith('/') ? link.to : `${link.to}/`;
+  return {
+    ...link,
+    to: `${path}?${queryParams.join('&')}`,
+  };
+};
 
 export default {
   // Pages
