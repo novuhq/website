@@ -124,7 +124,25 @@ const Link = ({
     </span>
   );
 
-  if (to?.startsWith('/') && !tag) {
+  // Paths that are proxied to another site and should use regular <a> tags
+  // to ensure Netlify redirects work properly
+  const proxiedPaths = [
+    '/blog',
+    '/changelog',
+    '/customers',
+    '/pricing',
+    '/dpa',
+    '/privacy',
+    '/terms',
+  ];
+  const isProxiedPath =
+    to &&
+    proxiedPaths.some((path) => {
+      const pathWithoutQuery = to.split('?')[0];
+      return pathWithoutQuery === path || pathWithoutQuery.startsWith(`${path}/`);
+    });
+
+  if (to?.startsWith('/') && !tag && !isProxiedPath) {
     return (
       <GatsbyLink
         className={className}

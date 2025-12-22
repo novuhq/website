@@ -94,12 +94,6 @@
   force = true
 
 [[redirects]]
-  from = "/blog/"
-  to = "https://website-new-novuhq.vercel.app/blog"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/blog/*"
   to = "https://website-new-novuhq.vercel.app/blog/:splat"
   status = 200
