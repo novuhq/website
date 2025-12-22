@@ -70,12 +70,6 @@
   force = true
 
 [[redirects]]
-  from = "/changelog"
-  to = "https://website-new-novuhq.vercel.app/changelog/"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/changelog/*"
   to = "https://website-new-novuhq.vercel.app/changelog/:splat"
   status = 200
@@ -100,12 +94,6 @@
   force = true
 
 [[redirects]]
-  from = "/blog/"
-  to = "https://website-new-novuhq.vercel.app/blog"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/blog/*"
   to = "https://website-new-novuhq.vercel.app/blog/:splat"
   status = 200
@@ -118,19 +106,7 @@
   force = true
 
 [[redirects]]
-  from = "/dpa/"
-  to = "https://website-new-novuhq.vercel.app/dpa"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/privacy"
-  to = "https://website-new-novuhq.vercel.app/privacy"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/privacy/"
   to = "https://website-new-novuhq.vercel.app/privacy"
   status = 200
   force = true
@@ -142,19 +118,7 @@
   force = true
 
 [[redirects]]
-  from = "/terms/"
-  to = "https://website-new-novuhq.vercel.app/terms"
-  status = 200
-  force = true
-
-[[redirects]]
   from = "/pricing"
-  to = "https://website-new-novuhq.vercel.app/pricing"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/pricing/"
   to = "https://website-new-novuhq.vercel.app/pricing"
   status = 200
   force = true
