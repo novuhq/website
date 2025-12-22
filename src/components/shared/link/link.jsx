@@ -157,10 +157,20 @@ const Link = ({
     );
   }
 
+  // For proxied paths: use window.location to force full page reload
+  // This ensures Netlify redirects work even if a Gatsby page exists
+  const handleClick = (e) => {
+    if (isProxiedPath && to) {
+      e.preventDefault();
+      window.location.href = to;
+    }
+  };
+
   return (
     <Tag
       className={className}
       href={to}
+      onClick={handleClick}
       onMouseEnter={isUnderline ? handleHover : undefined}
       {...props}
     >
