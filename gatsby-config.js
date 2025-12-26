@@ -180,8 +180,7 @@ module.exports = {
           },
         },
         html: {
-          fallbackImageMaxWidth: 800, // max-width of the content area
-          imageQuality: 85,
+          useGatsbyImage: false,
         },
         develop: {
           nodeUpdateInterval: process.env.WP_NODE_UPDATE_INTERVAL || 5000,
@@ -190,11 +189,6 @@ module.exports = {
         },
         schema: {
           timeout: 60000,
-        },
-        // Skip errors when loading media files (404 and others)
-        verbose: true,
-        debug: {
-          throwRefetchErrors: false, // Don't fail on errors during refetch
         },
       },
     },

@@ -649,40 +649,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.onPostBuild = require('./gatsby/on-post-build');
 
-// Handle errors when loading WordPress media files (404 and others)
-// Intercept errors from gatsby-source-wordpress when loading media files
-const originalEmit = process.emit;
-process.emit = function (event, error, ...args) {
-  if (event === 'uncaughtException' || event === 'unhandledRejection') {
-    if (error && typeof error === 'object') {
-      const errorMessage = error.message || error.toString() || '';
-      const errorStatus = error.status || error.statusCode;
-      const errorCode = error.code;
-
-      // Check if this is a 404 error or network error when loading media file
-      const isMediaFileError =
-        errorStatus === 404 ||
-        errorCode === 'ENOTFOUND' ||
-        errorCode === 'ECONNREFUSED' ||
-        errorMessage.includes('404') ||
-        errorMessage.includes('ENOTFOUND') ||
-        errorMessage.includes('ECONNREFUSED') ||
-        errorMessage.includes('media') ||
-        errorMessage.includes('MediaItem') ||
-        errorMessage.includes('localFile');
-
-      if (isMediaFileError) {
-        // Log warning instead of error
-        console.warn(`[gatsby-source-wordpress] Skipping media file error: ${errorMessage}`);
-        // Don't propagate error further so build can continue
-        return false;
-      }
-    }
-  }
-  // For other errors, call original emit
-  return originalEmit.apply(process, arguments);
-};
-
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     module: {
