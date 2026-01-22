@@ -25,7 +25,7 @@ const PLANS = {
       stepControl: true,
       topics: true,
       multiTenancy: true,
-      throttle: true,
+      throttle: '1h',
     },
     inbox: {
       inboxComponent: true,
@@ -94,7 +94,7 @@ const PLANS = {
       stepControl: true,
       topics: true,
       multiTenancy: true,
-      throttle: true,
+      throttle: '24h',
     },
     inbox: {
       inboxComponent: true,
@@ -163,7 +163,7 @@ const PLANS = {
       stepControl: true,
       topics: true,
       multiTenancy: true,
-      throttle: true,
+      throttle: '7 days',
     },
     inbox: {
       inboxComponent: true,
@@ -233,7 +233,7 @@ const PLANS = {
       stepControl: true,
       topics: true,
       multiTenancy: true,
-      throttle: true,
+      throttle: 'Custom',
     },
     inbox: {
       inboxComponent: true,
