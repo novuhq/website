@@ -11,7 +11,7 @@ const outsideSettings = {
 };
 
 const LinkBanner = () => {
-  const { text, url, isActive, isReadMoreText } = bannerData;
+  const { text, url, isActive, linkText } = bannerData;
   const isExternal = !url.startsWith('/');
 
   if (!isActive) return null;
@@ -29,9 +29,9 @@ const LinkBanner = () => {
         <span className="truncate py-1 font-medium text-white group-hover:text-inherit group-focus-visible:text-inherit">
           {text}
         </span>
-        {isReadMoreText && (
+        {linkText && (
           <span className="flex gap-1.5 whitespace-nowrap text-white group-hover:text-inherit group-focus-visible:text-inherit sm-xs:hidden">
-            <span className="text-gray-6">|</span> Read More
+            <span className="text-gray-6">|</span> {linkText}
           </span>
         )}
       </Link>

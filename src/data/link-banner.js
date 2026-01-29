@@ -1,8 +1,8 @@
 const bannerData = {
-  text: 'Winter Season Launch Week is happening this week',
-  url: 'https://go.novu.co/gFfjEj4?utm_source=web-top-banner',
-  isActive: false,
-  isReadMoreText: true,
+  text: 'Novu is also available for EU Data residency',
+  url: 'https://go.novu.co/eu-dashboard',
+  isActive: true,
+  linkText: 'Sign Up',
 };
 
 export default bannerData;
