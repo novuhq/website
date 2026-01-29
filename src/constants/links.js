@@ -72,15 +72,15 @@ export default {
     to: 'https://dashboard.novu.co',
   },
   dashboardV2: {
-    to: 'https://dashboard-v2.novu.co',
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
   dashboardV2SignUp: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-up',
+    to: 'https://dashboard.novu.co/auth/sign-up',
     target: '_blank',
   },
   dashboardV2SignIn: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-in',
+    to: 'https://dashboard.novu.co/auth/sign-in',
     target: '_blank',
   },
 
