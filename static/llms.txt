@@ -85,7 +85,6 @@ Novu integrates with popular tools and services:
 Novu is an open-source company backed by leading investors. The platform processes millions of notifications for companies like MongoDB, Unity, Siemens, Roche, and UNOPS.
 
 - Founded: 2021
-- Headquarters: Tel Aviv, Israel
 - Open Source: MIT License
 - GitHub Stars: 35,000+
 
