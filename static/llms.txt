@@ -94,5 +94,5 @@ Novu is an open-source company backed by leading investors. The platform process
 - Documentation: https://docs.novu.co
 - GitHub: https://github.com/novuhq/novu
 - Discord: https://discord.gg/novu
-- Twitter: https://twitter.com/novaborq
+- Twitter: https://x.com/novuhq
 - Email: support@novu.co
