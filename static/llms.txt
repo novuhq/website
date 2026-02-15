@@ -1,0 +1,98 @@
+# Novu
+
+> Novu is the open-source notification infrastructure platform for developers. Build multi-channel notifications (in-app, email, SMS, push, chat) with a single API.
+
+Novu provides a unified platform for managing all notification channels, with features like notification workflows, digest engines, subscriber preferences, and a customizable inbox component. It's designed for both developers who want code-level control and product teams who need a no-code interface.
+
+## Products
+
+### Inbox
+- [Inbox Overview](https://novu.co/inbox/): Full-stack, customizable in-app notification inbox component
+- Add in-app notifications with minimal code using React, Next.js, or vanilla JavaScript
+- Features: real-time notifications, user preferences, HMAC encryption, customizable UI
+
+### Framework
+- [Framework Overview](https://novu.co/framework/): Code-backed notification workflows
+- Define workflows in TypeScript, access local data, apply advanced logic
+- Type-safe with JSON schema validation
+- Integrates with React Email, MJML, and popular frameworks (NestJS, Express, Remix)
+
+### Digest
+- [Digest Overview](https://novu.co/digest/): Batch and consolidate notifications to reduce overload
+- Configurable digest strategies (time-based, count-based, cron expressions)
+- Prevent notification fatigue while keeping users informed
+
+## Notification Channels
+- **In-App**: Real-time notifications within your application
+- **Email**: Transactional and marketing emails with visual editor
+- **SMS**: Text message notifications via providers like Twilio
+- **Push**: Mobile and web push notifications
+- **Chat**: Messaging platform integrations (Slack, Discord, etc.)
+
+## Key Pages
+
+- [Homepage](https://novu.co/): Overview of Novu's notification infrastructure
+- [Pricing](https://novu.co/pricing/): Plans from Free (10K events/month) to Enterprise
+- [Use Cases](https://novu.co/usecases/): Multi-channel notifications, content management, user engagement
+- [Security](https://novu.co/security/): SOC 2, encryption, compliance features
+- [Contact](https://novu.co/contact-us/): Get in touch with the Novu team
+
+## Use Cases
+
+- [Add Notifications](https://novu.co/usecases/add-notifications/): Quickly add notification capabilities to your app
+- [Multi-Channel Notifications](https://novu.co/usecases/multi-channel-notifications/): Unified delivery across all channels
+- [Unified Platform](https://novu.co/usecases/unified-platform/): Single platform for all notification needs
+- [Content Management](https://novu.co/usecases/content-management/): Manage notification templates and content
+- [Communication Experience](https://novu.co/usecases/improve-communication-experience/): Enhance user engagement
+
+## Documentation
+
+- [Documentation Home](https://docs.novu.co/): Complete guides and API reference
+- [Quick Start](https://docs.novu.co/quickstart): Get started in minutes
+- [Framework Docs](https://docs.novu.co/framework/overview): Code-based workflow documentation
+- [API Reference](https://docs.novu.co/api-reference): REST API documentation
+- [SDKs](https://docs.novu.co/sdks): Node.js, Python, Go, Ruby, and more
+
+## Developer Resources
+
+- [Dashboard](https://dashboard.novu.co/): Novu Cloud dashboard for managing notifications
+- [GitHub Repository](https://github.com/novuhq/novu): Open-source codebase (35K+ stars)
+- [NPM Packages](https://www.npmjs.com/org/novu): @novu/node, @novu/react, @novu/nextjs
+- [Blog](https://novu.co/blog/): Technical articles and product updates
+- [Discord Community](https://discord.gg/novu): Community support and discussions
+
+## Integrations
+
+Novu integrates with popular tools and services:
+- **Email Providers**: SendGrid, Mailgun, Postmark, Amazon SES, Resend
+- **SMS Providers**: Twilio, Vonage, Plivo, MessageBird
+- **Push Providers**: Firebase Cloud Messaging, Apple Push Notification Service
+- **Chat Providers**: Slack, Discord, Microsoft Teams
+- **Frameworks**: React, Next.js, Remix, NestJS, Express, Astro
+- **Content Tools**: React Email, MJML
+- **Auth**: Clerk, Auth0
+- **Feature Flags**: LaunchDarkly
+
+## Pricing Tiers
+
+- **Free**: $0/month - 10K workflow runs, all channels, 3 team members
+- **Pro**: From $30/month - 30K+ workflow runs, 7-day retention, remove branding
+- **Team**: From $250/month - 250K+ workflow runs, 10 environments, RBAC
+- **Enterprise**: Custom - 5M+ workflow runs, SOC 2, HIPAA, dedicated support
+
+## Company
+
+Novu is an open-source company backed by leading investors. The platform processes millions of notifications for companies like MongoDB, Unity, Siemens, Roche, and UNOPS.
+
+- Founded: 2021
+- Open Source: MIT License
+- GitHub Stars: 35,000+
+
+## Contact
+
+- Website: https://novu.co
+- Documentation: https://docs.novu.co
+- GitHub: https://github.com/novuhq/novu
+- Discord: https://discord.gg/novu
+- Twitter: https://x.com/novuhq
+- Email: support@novu.co
