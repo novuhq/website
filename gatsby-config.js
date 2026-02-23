@@ -189,8 +189,12 @@ module.exports = {
           hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
           hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },
+        production: {
+          allow404Images: true,
+          allow401Images: true,
+        },
         schema: {
-          timeout: 60000,
+          timeout: 300000,
         },
       },
     },
