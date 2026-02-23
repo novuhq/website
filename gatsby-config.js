@@ -194,7 +194,7 @@ module.exports = {
           allow401Images: true,
         },
         schema: {
-          timeout: 300000,
+          timeout: 3000000,
         },
       },
     },
