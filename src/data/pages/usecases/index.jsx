@@ -21,7 +21,7 @@ const HERO = {
       )}
     >
       <StaticImage
-        src="../images/pages/usecases/index/hero/illustration.jpg"
+        src="../../../images/pages/usecases/index/hero/illustration.jpg"
         alt="Placeholder image"
         loading="eager"
         width={1216}

@@ -1,4 +1,4 @@
-module.exports = ({ node, actions }) => {
+module.exports = async ({ node, actions }) => {
   const { createNodeField } = actions;
 
   if (

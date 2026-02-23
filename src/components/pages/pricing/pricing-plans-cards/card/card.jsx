@@ -12,8 +12,9 @@ import stars from 'images/pages/pricing/stars.png';
 
 import Label from '../label';
 
-const Card = ({ plan }) => {
+const Card = ({ plan, onContactUsClick }) => {
   const {
+    id,
     title,
     description,
     advantagesHeading,
@@ -23,7 +24,22 @@ const Card = ({ plan }) => {
     paymentPeriod,
     showFrom,
     button,
+    footer,
   } = plan;
+
+  const handleButtonClick = (e) => {
+    if (button.type === 'contact') {
+      e.preventDefault();
+      // Track contact button click analytics
+      window?.analytics?.track('Pricing Event: Click Contact Us on pricing card', {
+        packageType: title,
+        source: `pricing_card_${id}`,
+      });
+      if (onContactUsClick) {
+        onContactUsClick(`pricing_card_${id}`);
+      }
+    }
+  };
 
   const isPro = title.toLowerCase() === 'pro';
   const isTeam = title.toLowerCase() === 'team';
@@ -57,13 +73,17 @@ const Card = ({ plan }) => {
             className="z-20 mt-[22px] h-[46px] w-full"
             size="sm"
             theme={button.theme}
-            to={button.link}
+            to={button.type === 'contact' ? null : button.link}
             rel={button.rel}
             target={button.target}
+            onClick={handleButtonClick}
           >
             {button.text}
           </Button>
-          <p className="mt-5 text-[16px] font-book leading-snug tracking-snug text-gray-9">
+          <p className="mt-2 text-center text-[13px] font-book leading-snug tracking-snug text-gray-9">
+            {button?.type === 'trial' ? 'No credit card required' : '\u00A0'}
+          </p>
+          <p className="mt-5 min-h-[68px] text-[16px] font-book leading-snug tracking-snug text-gray-9 md:min-h-[88px] sm:min-h-[48px]">
             {description}
           </p>
           <span
@@ -99,6 +119,17 @@ const Card = ({ plan }) => {
               </li>
             ))}
           </ul>
+          {footer && (
+            <>
+              <span
+                className="mb-4 mt-5 block h-px w-full border-t border-dashed border-gray-5"
+                aria-hidden
+              />
+              <p className="text-[14px] font-book italic leading-snug tracking-snug text-gray-9">
+                {footer}
+              </p>
+            </>
+          )}
         </div>
         {isPro && (
           <>
@@ -170,6 +201,7 @@ export default Card;
 
 Card.propTypes = {
   plan: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     advantagesHeading: PropTypes.string,
@@ -180,10 +212,31 @@ Card.propTypes = {
     showFrom: PropTypes.bool,
     button: PropTypes.shape({
       text: PropTypes.string.isRequired,
+      type: PropTypes.oneOf(['contact', 'link', 'trial']).isRequired,
       theme: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
+      link: (props, propName, componentName) => {
+        // Link is only required when type is not 'contact'
+        if (props.type !== 'contact' && !props[propName]) {
+          return new Error(
+            `Invalid prop \`${propName}\` supplied to \`${componentName}\`. ` +
+              `The prop \`${propName}\` is required when \`type\` is not 'contact'.`
+          );
+        }
+        if (props[propName] && typeof props[propName] !== 'string') {
+          return new Error(
+            `Invalid prop \`${propName}\` of type \`${typeof props[propName]}\` supplied to \`${componentName}\`, expected \`string\`.`
+          );
+        }
+        return null;
+      },
       target: PropTypes.string,
       rel: PropTypes.string,
     }).isRequired,
+    footer: PropTypes.string,
   }).isRequired,
+  onContactUsClick: PropTypes.func,
+};
+
+Card.defaultProps = {
+  onContactUsClick: null,
 };

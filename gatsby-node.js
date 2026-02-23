@@ -422,10 +422,12 @@ exports.createPages = async (args) => {
   );
 
   await createPages(params);
-  await createBlogPages(params);
   await createCommunityPage(params);
-  await createPosts(params);
   await createDirectoryPages(params);
+
+  // Commented out because the blog pages are now on nextJS part of the website
+  // await createBlogPages(params);
+  // await createPosts(params);
 
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
   // await createPodcastPage(params);

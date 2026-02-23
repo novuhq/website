@@ -124,7 +124,25 @@ const Link = ({
     </span>
   );
 
-  if (to?.startsWith('/') && !tag) {
+  // Paths that are proxied to another site and should use regular <a> tags
+  // to ensure Netlify redirects work properly
+  const proxiedPaths = [
+    '/blog',
+    '/changelog',
+    '/customers',
+    '/pricing',
+    '/dpa',
+    '/privacy',
+    '/terms',
+  ];
+  const isProxiedPath =
+    to &&
+    proxiedPaths.some((path) => {
+      const pathWithoutQuery = to.split('?')[0].split('#')[0];
+      return pathWithoutQuery === path || pathWithoutQuery.startsWith(`${path}/`);
+    });
+
+  if (to?.startsWith('/') && !tag && !isProxiedPath) {
     return (
       <GatsbyLink
         className={className}
@@ -139,12 +157,29 @@ const Link = ({
     );
   }
 
+  // For proxied paths: use window.location to force full page reload
+  // This ensures Netlify redirects work even if a Gatsby page exists
+  const handleClick = (e) => {
+    // Call user's onClick if provided
+    if (props.onClick) {
+      props.onClick(e);
+    }
+    if (isProxiedPath && to) {
+      e.preventDefault();
+      window.location.href = to;
+    }
+  };
+
+  // Extract onClick from props to avoid override
+  const { onClick: _onClick, ...restProps } = props;
+
   return (
     <Tag
       className={className}
       href={to}
+      onClick={handleClick}
       onMouseEnter={isUnderline ? handleHover : undefined}
-      {...props}
+      {...restProps}
     >
       {children}
       {isUnderline && underline}

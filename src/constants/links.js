@@ -1,7 +1,11 @@
-export const applyQueryParams = (link, queryParams = []) => ({
-  ...link,
-  to: `${link.to}?${queryParams.join('&')}`,
-});
+export const applyQueryParams = (link, queryParams = []) => {
+  // Ensure trailing slash before query params (due to trailingSlash: 'always' in gatsby-config)
+  const path = link.to.endsWith('/') ? link.to : `${link.to}/`;
+  return {
+    ...link,
+    to: `${path}?${queryParams.join('&')}`,
+  };
+};
 
 export default {
   // Pages
@@ -68,15 +72,15 @@ export default {
     to: 'https://dashboard.novu.co',
   },
   dashboardV2: {
-    to: 'https://dashboard-v2.novu.co',
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
   dashboardV2SignUp: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-up',
+    to: 'https://dashboard.novu.co/auth/sign-up',
     target: '_blank',
   },
   dashboardV2SignIn: {
-    to: 'https://dashboard-v2.novu.co/auth/sign-in',
+    to: 'https://dashboard.novu.co/auth/sign-in',
     target: '_blank',
   },
 
@@ -138,7 +142,7 @@ export default {
     target: '_blank',
   },
   docsFramework: { to: 'https://docs.novu.co/framework/overview', target: '_blank' },
-  docsWorkflow: { to: 'https://docs.novu.co/workflows/notification-workflows', target: '_blank' },
+  docsWorkflow: { to: 'https://docs.novu.co/platform/workflow/overview', target: '_blank' },
   docsInApp: {
     to: 'https://docs.novu.co/inbox/introduction',
     target: '_blank',
