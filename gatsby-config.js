@@ -82,8 +82,10 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: process.env.GATSBY_DEFAULT_SITE_URL,
-        // specify the correct path to your sitemap
-        sitemap: `${process.env.GATSBY_DEFAULT_SITE_URL}/sitemap-index.xml`,
+        sitemap: [
+          `${process.env.GATSBY_DEFAULT_SITE_URL}/sitemap-index.xml`,
+          `${process.env.GATSBY_DEFAULT_SITE_URL}/next-sitemap.xml`,
+        ],
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
@@ -187,8 +189,12 @@ module.exports = {
           hardCacheMediaFiles: process.env.WP_HARD_CACHE_MEDIA === 'true',
           hardCacheData: process.env.WP_HARD_CACHE_DATA === 'true',
         },
+        production: {
+          allow404Images: true,
+          allow401Images: true,
+        },
         schema: {
-          timeout: 60000,
+          timeout: 3000000,
         },
       },
     },
@@ -211,7 +217,20 @@ module.exports = {
     },
     'gatsby-alias-imports',
     'gatsby-plugin-postcss',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        excludes: [
+          '/changelog',
+          '/changelog/*',
+          '/customers',
+          '/customers/*',
+          '/blog',
+          '/blog/*',
+          '/pricing',
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {
