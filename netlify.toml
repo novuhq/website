@@ -86,3 +86,27 @@
   to = "https://website-new-novuhq.vercel.app/customers/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/next-sitemap*"
+  to = "https://website-new-novuhq.vercel.app/next-sitemap:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "https://website-new-novuhq.vercel.app/blog"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
+  to = "https://website-new-novuhq.vercel.app/blog/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pricing"
+  to = "https://website-new-novuhq.vercel.app/pricing"
+  status = 200
+  force = true
