@@ -23,108 +23,108 @@
 
 [[redirects]]
   from = "/_next/*"
-  to = "https://website-new-novuhq.vercel.app/_next/:splat"
+  to = "https://website-new-murex.vercel.app/_next/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/api/*"
-  to = "https://website-new-novuhq.vercel.app/api/:splat"
+  to = "https://website-new-murex.vercel.app/api/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/favicon/*"
-  to = "https://website-new-novuhq.vercel.app/favicon/:splat"
+  to = "https://website-new-murex.vercel.app/favicon/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/og-images/*"
-  to = "https://website-new-novuhq.vercel.app/og-images/:splat"
+  to = "https://website-new-murex.vercel.app/og-images/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/social-previews/*"
-  to = "https://website-new-novuhq.vercel.app/social-previews/:splat"
+  to = "https://website-new-murex.vercel.app/social-previews/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/studio"
-  to = "https://website-new-novuhq.vercel.app/studio"
+  to = "https://website-new-murex.vercel.app/studio"
   status = 200
   force = true
 
 [[redirects]]
   from = "/studio/*"
-  to = "https://website-new-novuhq.vercel.app/studio/:splat"
+  to = "https://website-new-murex.vercel.app/studio/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/changelog"
-  to = "https://website-new-novuhq.vercel.app/changelog"
+  to = "https://website-new-murex.vercel.app/changelog"
   status = 200
   force = true
 
 [[redirects]]
   from = "/changelog/*"
-  to = "https://website-new-novuhq.vercel.app/changelog/:splat"
+  to = "https://website-new-murex.vercel.app/changelog/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/customers"
-  to = "https://website-new-novuhq.vercel.app/customers"
+  to = "https://website-new-murex.vercel.app/customers"
   status = 200
   force = true
 
 [[redirects]]
   from = "/customers/*"
-  to = "https://website-new-novuhq.vercel.app/customers/:splat"
+  to = "https://website-new-murex.vercel.app/customers/:splat"
   status = 200
   force = true
   
 [[redirects]]
   from = "/next-sitemap*"
-  to = "https://website-new-novuhq.vercel.app/next-sitemap:splat"
+  to = "https://website-new-murex.vercel.app/next-sitemap:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/blog"
-  to = "https://website-new-novuhq.vercel.app/blog"
+  to = "https://website-new-murex.vercel.app/blog"
   status = 200
   force = true
 
 [[redirects]]
   from = "/blog/*"
-  to = "https://website-new-novuhq.vercel.app/blog/:splat"
+  to = "https://website-new-murex.vercel.app/blog/:splat"
   status = 200
   force = true
 
 [[redirects]]
   from = "/dpa"
-  to = "https://website-new-novuhq.vercel.app/dpa"
+  to = "https://website-new-murex.vercel.app/dpa"
   status = 200
   force = true
 
 [[redirects]]
   from = "/privacy"
-  to = "https://website-new-novuhq.vercel.app/privacy"
+  to = "https://website-new-murex.vercel.app/privacy"
   status = 200
   force = true
 
 [[redirects]]
   from = "/terms"
-  to = "https://website-new-novuhq.vercel.app/terms"
+  to = "https://website-new-murex.vercel.app/terms"
   status = 200
   force = true
 
 [[redirects]]
   from = "/pricing"
-  to = "https://website-new-novuhq.vercel.app/pricing"
+  to = "https://website-new-murex.vercel.app/pricing"
   status = 200
   force = true
