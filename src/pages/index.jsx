@@ -47,6 +47,7 @@ export default HomePage;
 
 export const Head = () => {
   const pageMetadata = {
+    slug: '/',
     title: 'Novu - Open-source notifications infrastructure for devs and product teams',
     description:
       'Novu is an open-source notification platform that empowers developers to create robust, multi-channel notifications for web and mobile apps. With powerful workflows, seamless integrations, and a flexible API-first approach, Novu enables product teams to manage notifications without breaking production.',

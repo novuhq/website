@@ -57,7 +57,7 @@ const createContributorsPage = async ({ actions, reporter }) => {
         const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
 
         createPage({
-          path: `/contributors/${contributor.github}/`,
+          path: `/contributors/${contributor.github.toLowerCase()}/`,
           component: slash(templateDetailPage),
           context: {
             userName: contributor.github,
