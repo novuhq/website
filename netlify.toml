@@ -1,8 +1,6 @@
 [functions]
   node_bundler = "esbuild"
 
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
 
 # [[redirects]]
 #   from = "/inbox/playground"

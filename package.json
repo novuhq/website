@@ -117,7 +117,6 @@
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "markdownlint-cli": "^0.42.0",
-    "netlify-plugin-gatsby-cache": "^0.3.2",
     "postcss": "^8.4.47",
     "postcss-import": "^16.1.0",
     "prettier": "^3.3.3",
