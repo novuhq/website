@@ -205,13 +205,8 @@ module.exports = {
         ...(!isProductionBuild && {
           type: {
             Post: { exclude: true },
-            Category: { exclude: true },
-            Tag: { exclude: true },
-            User: { exclude: true },
-            Comment: { exclude: true },
             Menu: { exclude: true },
             MenuItem: { exclude: true },
-            PostFormat: { exclude: true },
           },
         }),
       },
