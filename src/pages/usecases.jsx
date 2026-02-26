@@ -45,6 +45,7 @@ export default UseCasesPage;
 
 export const Head = () => {
   const pageMetadata = {
+    slug: '/usecases/',
     title: 'Novu Use Cases: Enhance Engagement with Multi-Channel Notifications',
     description:
       "Discover how Novu's unified platform enables teams to deliver personalized, multi-channel notifications, boosting user satisfaction and retention. Learn more about accelerating development, enhancing collaboration, and driving engagement.",

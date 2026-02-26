@@ -33,7 +33,8 @@ const SEO = ({
 
   const currentTitle = title ?? siteTitle;
   const currentDescription = description ?? siteDescription;
-  const currentUrl = slug ? siteUrl + slug : siteUrl + location.pathname;
+  const pathname = slug || location.pathname || '/';
+  const currentUrl = siteUrl + pathname;
   const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
   const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 

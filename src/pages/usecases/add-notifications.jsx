@@ -23,7 +23,7 @@ export default addNotificationsPage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/add-notifications/',
+    slug: '/usecases/add-notifications/',
     title: 'Add Notifications to Your App | Novu Notifications Infrastructure',
     description:
       "Easily add notifications to your app with Novu's robust infrastructure and ready-to-use components. Streamline notification delivery across multiple channels with broad framework support, type-safe workflows, and a no-code editor. Ensure reliability and scalability, integrate popular providers, and maintain full visibility and compliance. Simplify debugging and enhance innovation with a developer-friendly environment.",

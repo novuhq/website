@@ -53,7 +53,7 @@
 
 [[redirects]]
   from = "/studio"
-  to = "https://website-new-murex.vercel.app/studio"
+  to = "https://website-new-murex.vercel.app/studio/"
   status = 200
   force = true
 
@@ -65,7 +65,7 @@
 
 [[redirects]]
   from = "/changelog"
-  to = "https://website-new-murex.vercel.app/changelog"
+  to = "https://website-new-murex.vercel.app/changelog/"
   status = 200
   force = true
 
@@ -77,7 +77,7 @@
 
 [[redirects]]
   from = "/customers"
-  to = "https://website-new-murex.vercel.app/customers"
+  to = "https://website-new-murex.vercel.app/customers/"
   status = 200
   force = true
 
@@ -95,7 +95,7 @@
 
 [[redirects]]
   from = "/blog"
-  to = "https://website-new-murex.vercel.app/blog"
+  to = "https://website-new-murex.vercel.app/blog/"
   status = 200
   force = true
 
@@ -107,24 +107,24 @@
 
 [[redirects]]
   from = "/dpa"
-  to = "https://website-new-murex.vercel.app/dpa"
+  to = "https://website-new-murex.vercel.app/dpa/"
   status = 200
   force = true
 
 [[redirects]]
   from = "/privacy"
-  to = "https://website-new-murex.vercel.app/privacy"
+  to = "https://website-new-murex.vercel.app/privacy/"
   status = 200
   force = true
 
 [[redirects]]
   from = "/terms"
-  to = "https://website-new-murex.vercel.app/terms"
+  to = "https://website-new-murex.vercel.app/terms/"
   status = 200
   force = true
 
 [[redirects]]
   from = "/pricing"
-  to = "https://website-new-murex.vercel.app/pricing"
+  to = "https://website-new-murex.vercel.app/pricing/"
   status = 200
   force = true
