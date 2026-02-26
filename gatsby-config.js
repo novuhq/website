@@ -2,6 +2,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config();
 
+const isProductionBuild = process.env.CONTEXT === 'production';
+
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
@@ -195,7 +197,23 @@ module.exports = {
         },
         schema: {
           timeout: 3000000,
+          ...(!isProductionBuild && {
+            requestConcurrency: 50,
+            perPage: 50,
+          }),
         },
+        ...(!isProductionBuild && {
+          type: {
+            Post: { exclude: true },
+            Category: { exclude: true },
+            Tag: { exclude: true },
+            User: { exclude: true },
+            Comment: { exclude: true },
+            Menu: { exclude: true },
+            MenuItem: { exclude: true },
+            PostFormat: { exclude: true },
+          },
+        }),
       },
     },
     {
