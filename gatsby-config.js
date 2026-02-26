@@ -149,22 +149,28 @@ module.exports = {
         },
         schema: {
           timeout: 3000000,
+          // Non-production only: parallelise and smaller batches for faster WP fetch (plan: 3–5 min)
           ...(!isProductionBuild && {
             requestConcurrency: 50,
             perPage: 50,
           }),
         },
-        ...(!isProductionBuild && {
-          type: {
-            Post: { limit: 3 },
-            Tag: { limit: 0 },
-            Comment: { limit: 0 },
-            Menu: { limit: 0 },
-            MenuItem: { limit: 0 },
-            User: { limit: 0 },
-            PostFormat: { limit: 0 },
-          },
-        }),
+        type: {
+          // Types not used in createPages (only WpPage is) — skip fetching
+          Tag: { limit: 0 },
+          Comment: { limit: 0 },
+          Menu: { limit: 0 },
+          MenuItem: { limit: 0 },
+          User: { limit: 0 },
+          UserRole: { limit: 0 },
+          PostFormat: { limit: 0 },
+          FeatureUseCase: { limit: 0 },
+          TechicalUseCase: { limit: 0 },
+          Provider: { limit: 0 },
+          UserAchievement: { limit: 0 },
+          ContentType: { limit: 0 },
+          ...(!isProductionBuild && { Post: { limit: 3 } }),
+        },
       },
     },
     {
