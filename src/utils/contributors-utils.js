@@ -18,7 +18,7 @@ const generateTableMarkup = (tableData) => {
 
     const nameWithEscapedPipe = name.replace(/\|/g, '\\|');
 
-    tableMarkup += `| <img style="border-radius:100%" src="${photo}" width="${IMAGE_SIZE}" height="${IMAGE_SIZE}" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github}" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
+    tableMarkup += `| <img style="border-radius:100%" src="${photo}" width="${IMAGE_SIZE}" height="${IMAGE_SIZE}" alt="${github}" /> | <strong>${nameWithEscapedPipe}</strong> | <a href="https://novu.co/contributors/${github.toLowerCase()}/" target="_blank" rel="noopener noreferrer">${github}</a> | <div>${medals}</div> |\n`;
   }
 
   return tableMarkup;

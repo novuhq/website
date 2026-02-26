@@ -46,7 +46,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
                   ? 'bg-gradient-to-b from-gray-2 to-[rgba(26,26,26,0.7)]'
                   : 'bg-black'
               )}
-              to={`/contributors/${url}`}
+              to={`/contributors/${url.toLowerCase()}/`}
               key={index}
             >
               <img
