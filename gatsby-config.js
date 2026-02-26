@@ -161,7 +161,6 @@ module.exports = {
             Comment: { limit: 0 },
             Menu: { limit: 0 },
             MenuItem: { limit: 0 },
-            Category: { limit: 0 },
             User: { limit: 0 },
             PostFormat: { limit: 0 },
           },
