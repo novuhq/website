@@ -202,13 +202,6 @@ module.exports = {
             perPage: 50,
           }),
         },
-        ...(!isProductionBuild && {
-          type: {
-            Post: { exclude: true },
-            Menu: { exclude: true },
-            MenuItem: { exclude: true },
-          },
-        }),
       },
     },
     {
