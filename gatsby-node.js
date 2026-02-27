@@ -273,6 +273,10 @@ exports.createPages = async (args) => {
   await createPages(params);
   await createCommunityPage(params);
   await createDirectoryPages(params);
+
+  // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
+  // await createPodcastPage(params);
+  // await createPodcastDetailPages(params);
   await createContributorsPage(params);
 };
 
