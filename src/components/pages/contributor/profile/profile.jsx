@@ -1,4 +1,3 @@
-import DOMPurify from 'dompurify';
 import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
 
@@ -13,17 +12,29 @@ import LocationIcon from './images/location.inline.svg';
 import './profile.css';
 
 const Profile = ({ contributor }) => {
+  const sanitizeHtml = (html) => html;
   const [isClient, setIsClient] = useState(false);
-  const [sanitizedBioHtml, setSanitizedBioHtml] = useState(
-    DOMPurify.sanitize(contributor.bio || '')
-  );
+  const [sanitizedBioHtml, setSanitizedBioHtml] = useState(sanitizeHtml(contributor.bio || ''));
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   useEffect(() => {
-    setSanitizedBioHtml(DOMPurify.sanitize(contributor.bio || ''));
+    if (typeof window === 'undefined') {
+      setSanitizedBioHtml(sanitizeHtml(contributor.bio || ''));
+      return;
+    }
+
+    // eslint-disable-next-line global-require
+    const domPurifyModule = require('dompurify');
+    const domPurifyFactoryOrInstance = domPurifyModule?.default ?? domPurifyModule;
+    const domPurify =
+      typeof domPurifyFactoryOrInstance?.sanitize === 'function'
+        ? domPurifyFactoryOrInstance
+        : domPurifyFactoryOrInstance(window);
+
+    setSanitizedBioHtml(domPurify.sanitize(contributor.bio || ''));
   }, [contributor.bio]);
 
   const emoji = useMemo(() => {
@@ -37,7 +48,20 @@ const Profile = ({ contributor }) => {
 
   useEffect(() => {
     if (!emoji) return;
-    setSanitizedBioHtml(DOMPurify.sanitize(emoji.replace_colons(contributor.bio || '')));
+    if (typeof window === 'undefined') {
+      setSanitizedBioHtml(sanitizeHtml(emoji.replace_colons(contributor.bio || '')));
+      return;
+    }
+
+    // eslint-disable-next-line global-require
+    const domPurifyModule = require('dompurify');
+    const domPurifyFactoryOrInstance = domPurifyModule?.default ?? domPurifyModule;
+    const domPurify =
+      typeof domPurifyFactoryOrInstance?.sanitize === 'function'
+        ? domPurifyFactoryOrInstance
+        : domPurifyFactoryOrInstance(window);
+
+    setSanitizedBioHtml(domPurify.sanitize(emoji.replace_colons(contributor.bio || '')));
   }, [emoji, contributor.bio]);
 
   return (
