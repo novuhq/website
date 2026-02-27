@@ -25,21 +25,6 @@ const Profile = ({ contributor }) => {
 
   const emoji = useMemo(() => {
     if (!isClient) return null;
-    // #region agent log
-    fetch('http://127.0.0.1:7863/ingest/fc391284-9a8f-4be0-b948-31e05e12b75b', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'a1dd89' },
-      body: JSON.stringify({
-        sessionId: 'a1dd89',
-        runId: 'pre-fix-emoji-1',
-        hypothesisId: 'H_SSR_EMOJI',
-        location: 'profile.jsx:useMemo',
-        message: 'Creating EmojiConvertor on client only',
-        data: {},
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
 
     // eslint-disable-next-line global-require
     const EmojiConvertor = require('emoji-js');
