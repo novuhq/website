@@ -149,28 +149,38 @@ module.exports = {
         },
         schema: {
           timeout: 3000000,
-          // Non-production only: parallelise and smaller batches for faster WP fetch (plan: 3–5 min)
+          // Non-production only: parallelise and smaller batches for faster WP fetch
           ...(!isProductionBuild && {
             requestConcurrency: 50,
             perPage: 50,
           }),
         },
-        type: {
-          // Types not used in createPages (only WpPage is) — skip fetching
-          Tag: { limit: 0 },
-          Comment: { limit: 0 },
-          Menu: { limit: 0 },
-          MenuItem: { limit: 0 },
-          User: { limit: 0 },
-          UserRole: { limit: 0 },
-          PostFormat: { limit: 0 },
-          FeatureUseCase: { limit: 0 },
-          TechicalUseCase: { limit: 0 },
-          Provider: { limit: 0 },
-          UserAchievement: { limit: 0 },
-          ContentType: { limit: 0 },
-          ...(!isProductionBuild && { Post: { limit: 3 } }),
-        },
+        // Keep production sourcing unchanged; apply type limits only in non-production
+        ...(!isProductionBuild && {
+          type: {
+            // Types not used by our non-production build (we primarily need WpPage and categories for test pages)
+            Post: { limit: 3 },
+            Tag: { limit: 0 },
+            Comment: { limit: 0 },
+            Menu: { limit: 0 },
+            MenuItem: { limit: 0 },
+            User: { limit: 0 },
+            UserRole: { limit: 0 },
+            PostFormat: { limit: 0 },
+
+            // Custom/derived types observed as slow in build logs — skip in non-production
+            Taxonomy: { limit: 0 },
+            Achievement: { limit: 0 },
+            PostAuthors: { limit: 0 },
+
+            // Other unused custom types previously excluded
+            FeatureUseCase: { limit: 0 },
+            TechicalUseCase: { limit: 0 },
+            Provider: { limit: 0 },
+            UserAchievement: { limit: 0 },
+            ContentType: { limit: 0 },
+          },
+        }),
       },
     },
     {

@@ -18,6 +18,8 @@ const {
   fetchPullRequestCount,
 } = require('./src/utils/github-utils');
 
+const isProductionBuild = process.env.CONTEXT === 'production';
+
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
@@ -41,9 +43,9 @@ const createContributorsPage = async ({ actions, reporter }) => {
       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
     );
 
-    await Promise.all(
-      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
-      // so we have to make an additional request to extract this data
+    // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+    // so we have to make an additional request to extract this data
+    const enrichedResults = await Promise.allSettled(
       contributors.map(async (contributor) => {
         const { pulls } = await fetch(
           `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
@@ -51,29 +53,51 @@ const createContributorsPage = async ({ actions, reporter }) => {
 
         return { ...contributor, pulls };
       })
-    ).then((contributors) => {
-      contributors.forEach((contributor) => {
-        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
-        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+    );
 
-        createPage({
-          path: `/contributors/${contributor.github.toLowerCase()}/`,
-          component: slash(templateDetailPage),
-          context: {
-            userName: contributor.github,
-            contributor: {
-              ...contributor,
-              images: {
-                ogImage,
-                embedImage,
-              },
+    const failedDetails = enrichedResults
+      .map((r, idx) => (r.status === 'rejected' ? contributors[idx]?.github : null))
+      .filter(Boolean);
+
+    if (failedDetails.length > 0) {
+      const msg = `Failed to fetch detailed contributor data for ${failedDetails.length} contributor(s). Example: "${failedDetails[0]}".`;
+      if (isProductionBuild) {
+        reporter.panicOnBuild(msg);
+      } else {
+        reporter.warn(`${msg} Continuing with empty pulls for those profiles.`);
+      }
+    }
+
+    const enrichedContributors = enrichedResults.map((r, idx) =>
+      r.status === 'fulfilled' ? r.value : { ...contributors[idx], pulls: [] }
+    );
+
+    enrichedContributors.forEach((contributor) => {
+      const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+      const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+
+      createPage({
+        path: `/contributors/${contributor.github.toLowerCase()}/`,
+        component: slash(templateDetailPage),
+        context: {
+          userName: contributor.github,
+          contributor: {
+            ...contributor,
+            images: {
+              ogImage,
+              embedImage,
             },
           },
-        });
+        },
       });
     });
   } catch (err) {
-    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+    const msg = `There was an error when loading the main Contributors list. Reason: ${err.message}`;
+    if (isProductionBuild) {
+      reporter.panicOnBuild(msg, err);
+    } else {
+      reporter.warn(`${msg} Skipping contributor pages for this build.`);
+    }
   }
 };
 
@@ -82,6 +106,7 @@ const createCommunityPage = async ({ actions, reporter }) => {
 
   try {
     const repositories = await fetchRepositories();
+
     const requiredLabels = ['help wanted', 'good first issue'];
     const issuesWithLabels = await Promise.all(
       repositories.map((repo) => fetchIssuesWithLabels(repo, requiredLabels))
