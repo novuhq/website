@@ -18,6 +18,8 @@ const {
   fetchPullRequestCount,
 } = require('./src/utils/github-utils');
 
+const isProductionBuild = process.env.CONTEXT === 'production';
+
 const createContributorsPage = async ({ actions, reporter }) => {
   const { createPage } = actions;
 
@@ -41,39 +43,69 @@ const createContributorsPage = async ({ actions, reporter }) => {
       ({ totalPulls, teammate }) => totalPulls > 0 && !teammate
     );
 
-    await Promise.all(
-      // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
-      // so we have to make an additional request to extract this data
+    // we need to get the full information on pulls, which is missing from the /contributors/ endpoint,
+    // so we have to make an additional request to extract this data
+    const enrichedResults = await Promise.allSettled(
       contributors.map(async (contributor) => {
-        const { pulls } = await fetch(
+        const response = await fetch(
           `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
-        ).then((response) => response.json());
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch contributor details for "${contributor.github}": ${response.status} ${response.statusText}`
+          );
+        }
+
+        const { pulls } = await response.json();
 
         return { ...contributor, pulls };
       })
-    ).then((contributors) => {
-      contributors.forEach((contributor) => {
-        const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
-        const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+    );
 
-        createPage({
-          path: `/contributors/${contributor.github.toLowerCase()}/`,
-          component: slash(templateDetailPage),
-          context: {
-            userName: contributor.github,
-            contributor: {
-              ...contributor,
-              images: {
-                ogImage,
-                embedImage,
-              },
+    const failedDetails = enrichedResults
+      .map((r, idx) => (r.status === 'rejected' ? contributors[idx]?.github : null))
+      .filter(Boolean);
+
+    if (failedDetails.length > 0) {
+      const msg = `Failed to fetch detailed contributor data for ${failedDetails.length} contributor(s). Example: "${failedDetails[0]}".`;
+      if (isProductionBuild) {
+        reporter.panicOnBuild(msg);
+      } else {
+        reporter.warn(`${msg} Continuing with empty pulls for those profiles.`);
+      }
+    }
+
+    const enrichedContributors = enrichedResults.map((r, idx) =>
+      r.status === 'fulfilled' ? r.value : { ...contributors[idx], pulls: [] }
+    );
+
+    enrichedContributors.forEach((contributor) => {
+      const ogImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}.jpg`;
+      const embedImage = `${process.env.GATSBY_CONTRIBUTORS_API_URL}/profiles/${contributor.github}-small.jpg`;
+
+      createPage({
+        path: `/contributors/${contributor.github.toLowerCase()}/`,
+        component: slash(templateDetailPage),
+        context: {
+          userName: contributor.github,
+          contributor: {
+            ...contributor,
+            images: {
+              ogImage,
+              embedImage,
             },
           },
-        });
+        },
       });
     });
   } catch (err) {
-    reporter.panicOnBuild('There was an error when loading Contributors.', err);
+    const msg = `There was an error when loading the main Contributors list. Reason: ${err.message}`;
+    if (isProductionBuild) {
+      reporter.panicOnBuild(msg, err);
+    } else {
+      reporter.warn(`${msg} Skipping contributor pages for this build.`);
+    }
   }
 };
 
@@ -82,6 +114,7 @@ const createCommunityPage = async ({ actions, reporter }) => {
 
   try {
     const repositories = await fetchRepositories();
+
     const requiredLabels = ['help wanted', 'good first issue'];
     const issuesWithLabels = await Promise.all(
       repositories.map((repo) => fetchIssuesWithLabels(repo, requiredLabels))
@@ -229,182 +262,6 @@ async function createDirectoryPages({ graphql, actions }) {
   });
 }
 
-async function createBlogPages({ graphql, actions }) {
-  const POSTS_PER_PAGE = 13;
-
-  const { createPage } = actions;
-
-  const result = await graphql(`
-    {
-      wpPage(template: { templateName: { eq: "Blog" } }) {
-        id
-        uri
-      }
-      allWpPost(sort: { date: DESC }) {
-        nodes {
-          id
-          categories {
-            nodes {
-              id
-            }
-          }
-        }
-      }
-      featuredPost: allWpPost(limit: 1, sort: { date: DESC }) {
-        nodes {
-          id
-        }
-      }
-      allWpCategory(
-        filter: {
-          name: { nin: ["Uncategorized"] }
-          posts: { nodes: { elemMatch: { id: { ne: null } } } }
-        }
-        sort: { name: ASC }
-      ) {
-        nodes {
-          id
-          slug
-          seo {
-            title
-            metaDesc
-            metaRobotsNoindex
-            opengraphUrl
-            opengraphImage {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(formats: JPG, width: 1200, height: 630)
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
-
-  const {
-    data: {
-      wpPage: page,
-      allWpPost: { nodes: posts },
-      featuredPost: {
-        nodes: { 0: featuredPost },
-      },
-      allWpCategory: { nodes: categories },
-    },
-  } = result;
-
-  const postsWithoutPostsInHeroSection = posts.filter((post) => post.id !== featuredPost.id);
-
-  const template = path.resolve('./src/templates/blog.jsx');
-
-  const context = {
-    id: page.id,
-    featuredPostId: featuredPost.id,
-    blogPageURL: page.uri,
-  };
-
-  // Creating non category pages
-  const pageCount = Math.ceil(postsWithoutPostsInHeroSection.length / POSTS_PER_PAGE);
-  Array.from({ length: pageCount }).forEach((_, index) => {
-    createPage({
-      path: index === 0 ? page.uri : `${page.uri}${index + 1}/`,
-      component: slash(template),
-      context: {
-        ...context,
-        limit: POSTS_PER_PAGE,
-        skip: index * POSTS_PER_PAGE,
-        pageCount,
-        currentPage: index,
-      },
-    });
-  });
-
-  // Creating pages for each category
-  categories.forEach((category) => {
-    const postsForCategory = postsWithoutPostsInHeroSection.filter((post) => {
-      const postCategoryId = post.categories.nodes[0].id;
-      return postCategoryId === category.id;
-    });
-
-    const pageCount = Math.ceil(postsForCategory.length / POSTS_PER_PAGE);
-    Array.from({ length: pageCount }).forEach((_, index) => {
-      createPage({
-        path:
-          index === 0
-            ? `${page.uri}${category.slug}/`
-            : `${page.uri}${category.slug}/${index + 1}/`,
-        component: slash(template),
-        context: {
-          ...context,
-          limit: POSTS_PER_PAGE,
-          skip: index * POSTS_PER_PAGE,
-          pageCount,
-          currentPage: index,
-          categoryId: category.id,
-          categoryPath: `${category.slug}/`,
-          seo: category.seo,
-        },
-      });
-    });
-  });
-}
-
-async function createPosts({ graphql, actions }) {
-  const { createPage } = actions;
-
-  const result = await graphql(`
-    {
-      allWpPost {
-        nodes {
-          id
-          uri
-          categories {
-            nodes {
-              slug
-            }
-          }
-        }
-      }
-
-      wpPage(template: { templateName: { eq: "Blog" } }) {
-        uri
-      }
-    }
-  `);
-
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
-
-  const {
-    data: {
-      wpPage: { uri: blogPageURL },
-      allWpPost: { nodes: posts },
-    },
-  } = result;
-
-  const template = path.resolve('./src/templates/blog-post.jsx');
-
-  posts.forEach(({ id, uri, categories }) => {
-    const context = {
-      id,
-      categorySlug: categories.nodes[0].slug,
-      blogPageURL,
-    };
-
-    createPage({
-      path: uri,
-      component: slash(template),
-      context,
-    });
-  });
-}
-
 exports.createPages = async (args) => {
   const { createRedirect } = args.actions;
 
@@ -424,10 +281,6 @@ exports.createPages = async (args) => {
   await createPages(params);
   await createCommunityPage(params);
   await createDirectoryPages(params);
-
-  // Commented out because the blog pages are now on nextJS part of the website
-  // await createBlogPages(params);
-  // await createPosts(params);
 
   // TODO: to uncomment the creation of podcast pages after this link works - https://feeds.transistor.fm/sourcelife
   // await createPodcastPage(params);
