@@ -47,9 +47,17 @@ const createContributorsPage = async ({ actions, reporter }) => {
     // so we have to make an additional request to extract this data
     const enrichedResults = await Promise.allSettled(
       contributors.map(async (contributor) => {
-        const { pulls } = await fetch(
+        const response = await fetch(
           `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributor/${contributor.github}`
-        ).then((response) => response.json());
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch contributor details for "${contributor.github}": ${response.status} ${response.statusText}`
+          );
+        }
+
+        const { pulls } = await response.json();
 
         return { ...contributor, pulls };
       })

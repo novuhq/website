@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import PropTypes from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
 
@@ -13,14 +14,16 @@ import './profile.css';
 
 const Profile = ({ contributor }) => {
   const [isClient, setIsClient] = useState(false);
-  const [bioHtml, setBioHtml] = useState(contributor.bio || '');
+  const [sanitizedBioHtml, setSanitizedBioHtml] = useState(
+    DOMPurify.sanitize(contributor.bio || '')
+  );
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   useEffect(() => {
-    setBioHtml(contributor.bio || '');
+    setSanitizedBioHtml(DOMPurify.sanitize(contributor.bio || ''));
   }, [contributor.bio]);
 
   const emoji = useMemo(() => {
@@ -34,7 +37,7 @@ const Profile = ({ contributor }) => {
 
   useEffect(() => {
     if (!emoji) return;
-    setBioHtml(emoji.replace_colons(contributor.bio || ''));
+    setSanitizedBioHtml(DOMPurify.sanitize(emoji.replace_colons(contributor.bio || '')));
   }, [emoji, contributor.bio]);
 
   return (
@@ -64,7 +67,7 @@ const Profile = ({ contributor }) => {
 
         <p
           className="mt-4 text-base font-light sm:text-center"
-          dangerouslySetInnerHTML={{ __html: bioHtml }}
+          dangerouslySetInnerHTML={{ __html: sanitizedBioHtml }}
         />
 
         <div className="mt-3 space-y-1.5 md:flex md:gap-x-5 md:gap-y-1.5 md:space-y-0 sm:flex-wrap sm:justify-center">
