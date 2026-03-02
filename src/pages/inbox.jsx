@@ -27,6 +27,7 @@ export default InboxPage;
 
 export const Head = () => {
   const pageMetadata = {
+    slug: '/inbox/',
     title: 'Novu - Full-stack Inbox for In-app notifications',
     description:
       "Novu's Inbox is the easiest way to add a highly customizable notifications Inbox to your application or website.",

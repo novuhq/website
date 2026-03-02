@@ -1,6 +1,5 @@
-import EmojiConvertor from 'emoji-js';
 import moment from 'moment';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import Heading from 'components/shared/heading';
 import Link from 'components/shared/link';
@@ -19,9 +18,19 @@ const activityIcons = {
   commit: commitIcon,
   pullRequest: pullRequestIcon,
 };
-const emoji = new EmojiConvertor();
-
 const Activity = ({ contributor }) => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const emoji = useMemo(() => {
+    if (!isClient) return null;
+    // eslint-disable-next-line global-require
+    const EmojiConvertor = require('emoji-js');
+    const EmojiCtor = EmojiConvertor?.default ?? EmojiConvertor;
+    return new EmojiCtor();
+  }, [isClient]);
   const [isShownMore, setIsShownMore] = useState(false);
 
   const pulls = useMemo(
@@ -53,7 +62,7 @@ const Activity = ({ contributor }) => {
                 <div className="mt-4 rounded-md border border-gray-3 px-4 py-3.5">
                   <p className="text-lg sm:text-base">
                     <a href={html_url} target="_blank" rel="noreferrer">
-                      {emoji.replace_colons(title || '')}
+                      {emoji ? emoji.replace_colons(title || '') : title || ''}
                     </a>
                   </p>
                 </div>

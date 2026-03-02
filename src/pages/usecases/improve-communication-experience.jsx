@@ -23,7 +23,7 @@ export default improveCommunicationExperiencePage;
 
 export const Head = () => {
   const pageMetadata = {
-    slug: '/improve-user-communication-experience/',
+    slug: '/usecases/improve-communication-experience/',
     title: 'Improve User Communication Experience',
     description:
       "Enhance user communication with Novu's optimized notification experiences. Tailor interactions based on user preferences, timezones, and languages. Aggregate events into timely notifications, utilize multi-channel delivery, and centralize content management for seamless collaboration. Improve engagement, reduce notification fatigue, and maintain consistent branding. Ensure your notifications are relevant, personalized, and accessible across preferred channels.",

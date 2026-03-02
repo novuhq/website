@@ -31,6 +31,7 @@ export default Security;
 
 export const Head = () => {
   const pageMetadata = {
+    slug: '/security/',
     title: 'Comprehensive Security Features for Novu: Protecting Your Data and Systems',
     description:
       "Explore Novu's robust security features designed to safeguard your data and ensure seamless, secure notifications. Learn about our encryption protocols, access controls, and compliance with industry standards to protect your systems and maintain privacy.",

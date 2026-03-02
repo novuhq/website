@@ -2,6 +2,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config();
 
+const isProductionBuild = process.env.CONTEXT === 'production';
+
 module.exports = {
   flags: { DEV_SSR: process.env.GATSBY_DEV_SSR || false },
   siteMetadata: {
@@ -100,54 +102,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allWpPost } }) =>
-              allWpPost.edges.map((edge) => ({
-                title: edge.node.title,
-                description: edge.node.pageBlogPost.description,
-                url: site.siteMetadata.siteUrl + edge.node.uri,
-                guid: site.siteMetadata.siteUrl + edge.node.uri,
-                relDir: edge.relativeDirectory,
-                custom_elements: [{ 'content:encoded': edge.node.content }],
-              })),
-            query: `
-              {
-                allWpPost(sort: {date: DESC}) {
-                  edges {
-                    node {
-                      content
-                      title
-                      uri
-                      pageBlogPost {
-                        description
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/blog/rss.xml',
-            title: 'Novu Blog',
-          },
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-svgr-svgo',
       options: {
         inlineSvgOptions: [
@@ -195,7 +149,38 @@ module.exports = {
         },
         schema: {
           timeout: 3000000,
+          // Non-production only: parallelise and smaller batches for faster WP fetch
+          ...(!isProductionBuild && {
+            requestConcurrency: 50,
+            perPage: 50,
+          }),
         },
+        // Keep production sourcing unchanged; apply type limits only in non-production
+        ...(!isProductionBuild && {
+          type: {
+            // Types not used by our non-production build (we primarily need WpPage and categories for test pages)
+            Post: { limit: 3 },
+            Tag: { limit: 0 },
+            Comment: { limit: 0 },
+            Menu: { limit: 0 },
+            MenuItem: { limit: 0 },
+            User: { limit: 0 },
+            UserRole: { limit: 0 },
+            PostFormat: { limit: 0 },
+
+            // Custom/derived types observed as slow in build logs — skip in non-production
+            Taxonomy: { limit: 0 },
+            Achievement: { limit: 0 },
+            PostAuthors: { limit: 0 },
+
+            // Other unused custom types previously excluded
+            FeatureUseCase: { limit: 0 },
+            TechicalUseCase: { limit: 0 },
+            Provider: { limit: 0 },
+            UserAchievement: { limit: 0 },
+            ContentType: { limit: 0 },
+          },
+        }),
       },
     },
     {

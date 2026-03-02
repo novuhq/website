@@ -67,7 +67,7 @@ export const Head = ({ pageContext: { contributor } }) => {
   const pageMetadata = {
     title: `Novu - ${contributor.github || contributor.name}`,
     description: `Come and meet our awesome contributor ${contributor.github || contributor.name}`,
-    slug: `/contributors/${contributor.github}/`,
+    slug: `/contributors/${contributor.github?.toLowerCase()}/`,
     ogImage: `https://avatars.githubusercontent.com/${contributor.github}?v=3`,
   };
   return <SEO {...pageMetadata} />;
