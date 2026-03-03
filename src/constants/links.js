@@ -142,7 +142,7 @@ export default {
     target: '_blank',
   },
   docsFramework: { to: 'https://docs.novu.co/framework/overview', target: '_blank' },
-  docsWorkflow: { to: 'https://docs.novu.co/platform/workflow/overview', target: '_blank' },
+  docsWorkflow: { to: 'https://docs.novu.co/platform/workflow', target: '_blank' },
   docsInApp: {
     to: 'https://docs.novu.co/inbox/introduction',
     target: '_blank',
