@@ -16,6 +16,10 @@ exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
             script.onload = function(){
               Plain.init({
                 appId: 'liveChatApp_01KJAVQQ5YRKY7NNZDEZV6KHED',
+                hideBranding: true,
+                threadDetails: {
+                  tierIdentifier: { externalId: "marketing_page" },
+                },
               });
             };
             script.src = 'https://chat.cdn-plain.com/index.js';
@@ -44,7 +48,7 @@ exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
             window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) };
           `,
         }}
-      />,
+      />
     );
   }
 
