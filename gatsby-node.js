@@ -21,6 +21,11 @@ const {
 const isProductionBuild = process.env.CONTEXT === 'production';
 
 const createContributorsPage = async ({ actions, reporter }) => {
+  if (!isProductionBuild) {
+    reporter.info('Skipping contributors page creation in non-production build');
+    return;
+  }
+
   const { createPage } = actions;
 
   try {
@@ -110,6 +115,11 @@ const createContributorsPage = async ({ actions, reporter }) => {
 };
 
 const createCommunityPage = async ({ actions, reporter }) => {
+  if (!isProductionBuild) {
+    reporter.info('Skipping community page creation in non-production build');
+    return;
+  }
+
   const { createPage } = actions;
 
   try {
@@ -292,28 +302,50 @@ exports.onCreateNode = require('./gatsby/on-create-node');
 
 exports.sourceNodes = async ({ actions: { createNode }, createContentDigest, reporter }) => {
   try {
-    const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
-      response.json()
-    );
-    const allContributorsPromise = fetch(
-      `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
-    ).then((response) => response.json());
+    let githubData;
+    let contributors;
+    let commitsCount;
+    let openPullRequestsCount;
+    let closedPullRequestsCount;
+    let closedIssuesCount;
 
-    const dataPromises = Promise.all([
-      fetchCommitCount('novuhq', 'novu'),
-      fetchPullRequestCount('novuhq', 'novu', 'open'),
-      fetchPullRequestCount('novuhq', 'novu', 'closed'),
-      fetchClosedIssuesCount('novuhq', 'novu'),
-    ]);
+    if (isProductionBuild) {
+      const githubDataPromise = fetch('https://api.github.com/repos/novuhq/novu').then((response) =>
+        response.json()
+      );
+      const allContributorsPromise = fetch(
+        `${process.env.GATSBY_CONTRIBUTORS_API_URL}/contributors-mini`
+      ).then((response) => response.json());
 
-    const [
-      githubData,
-      contributors,
-      [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
-    ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
+      const dataPromises = Promise.all([
+        fetchCommitCount('novuhq', 'novu'),
+        fetchPullRequestCount('novuhq', 'novu', 'open'),
+        fetchPullRequestCount('novuhq', 'novu', 'closed'),
+        fetchClosedIssuesCount('novuhq', 'novu'),
+      ]);
+
+      [
+        githubData,
+        contributors,
+        [commitsCount, openPullRequestsCount, closedPullRequestsCount, closedIssuesCount],
+      ] = await Promise.all([githubDataPromise, allContributorsPromise, dataPromises]);
+    } else {
+      reporter.info('Using placeholder GitHub data in non-production build');
+      githubData = {
+        full_name: 'novuhq/novu',
+        html_url: 'https://github.com/novuhq/novu',
+        stargazers_count: 0,
+        forks_count: 0,
+        open_issues: 0,
+      };
+      contributors = { list: [] };
+      commitsCount = 0;
+      openPullRequestsCount = 0;
+      closedPullRequestsCount = 0;
+      closedIssuesCount = 0;
+    }
 
     createNode({
-      // nameWithOwner and url are arbitrary fields from the data
       nameWithOwner: githubData.full_name,
       url: githubData.html_url,
       count: githubData.stargazers_count,
@@ -429,9 +461,11 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest, rep
     // });
     // End of Hacktoberfest part
 
-    const issuesData = await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then(
-      (response) => response.json()
-    );
+    const issuesData = isProductionBuild
+      ? await fetch(`${process.env.GATSBY_CONTRIBUTORS_API_URL}/issues`).then((response) =>
+          response.json()
+        )
+      : { issues: [] };
 
     createNode({
       data: issuesData.issues,
