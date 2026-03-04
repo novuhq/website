@@ -175,7 +175,7 @@ module.exports = {
             UserAchievement: { limit: 0 },
             ContentType: { limit: 0 },
             Category: { excludeFieldNames: ['contentNodes'] },
-            MediaItem: { limit: 0 },
+            MediaItem: { createFileNodes: false },
           },
         }),
       },
