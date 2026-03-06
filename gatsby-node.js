@@ -480,8 +480,31 @@ exports.createSchemaCustomization = ({ actions }) => {
       content: JSON
       caption: String
     }
+    type SanityBlogPostCategory {
+      title: String
+      slug: SanitySlug
+    }
+    type SanitySlug {
+      current: String
+    }
+    type SanityBlogPostAuthor {
+      name: String
+      position: String
+      photo: String
+    }
+    type SanityLatestBlogPost {
+      title: String
+      slug: SanitySlug
+      caption: String
+      publishedAt: String
+      category: SanityBlogPostCategory
+      pathname: String
+      cover: String
+      authors: [SanityBlogPostAuthor]
+    }
     extend type Query {
       sanityLatestChangelog: SanityLatestChangelog
+      sanityLatestBlogPosts: [SanityLatestBlogPost]
     }
     enum SystemsStatusEnum {
       paused
@@ -569,6 +592,38 @@ exports.createResolvers = ({ createResolvers, reporter }) => {
           } catch (error) {
             reporter.error('Failed to fetch data from Sanity:', error);
             return null;
+          }
+        },
+      },
+      sanityLatestBlogPosts: {
+        type: '[SanityLatestBlogPost]',
+        resolve: async () => {
+          const groq = `
+          *[_type == "blogPost"] | order(publishedAt desc)[0...3] {
+            title,
+            slug,
+            caption,
+            publishedAt,
+            "category": category->{
+              title,
+              slug
+            },
+            "pathname": "/blog/" + slug.current,
+            "cover": cover.asset->url + "?w=768&h=428&q=100&fit=crop&auto=format",
+            "authors": authors[]->{
+              name,
+              position,
+              "photo": photo.asset->url + "?w=64&h=64&fit=crop&auto=format",
+            },
+          }
+        `;
+
+          try {
+            const docs = await client.fetch(groq);
+            return docs || [];
+          } catch (error) {
+            reporter.error('Failed to fetch blog posts from Sanity:', error);
+            return [];
           }
         },
       },

@@ -7,13 +7,22 @@ import { getFormattedDate } from 'utils/get-formatted-date';
 
 const AuthorWithDate = ({ className, author: { name: authorName, photo: authorPhoto }, date }) => (
   <div className={clsx('flex items-center', className)}>
-    <GatsbyImage
-      className="mr-4"
-      imgClassName="rounded-full"
-      image={getImage(authorPhoto?.localFile)}
-      alt={authorPhoto?.altText || authorName}
-      loading="eager"
-    />
+    {typeof authorPhoto === 'string' ? (
+      <img
+        className="mr-4 h-9 w-9 rounded-full"
+        src={authorPhoto}
+        alt={authorName}
+        loading="eager"
+      />
+    ) : (
+      <GatsbyImage
+        className="mr-4"
+        imgClassName="rounded-full"
+        image={getImage(authorPhoto?.localFile)}
+        alt={authorPhoto?.altText || authorName}
+        loading="eager"
+      />
+    )}
     <div className="flex items-center">
       <span className="text-sm">{authorName}</span>
       <span className="mx-3.5 block h-5 w-px bg-gray-4" />
@@ -28,14 +37,17 @@ AuthorWithDate.propTypes = {
   className: PropTypes.string,
   author: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    photo: PropTypes.shape({
-      altText: PropTypes.string,
-      localFile: PropTypes.shape({
-        childImageSharp: PropTypes.shape({
-          gatsbyImageData: PropTypes.any.isRequired,
+    photo: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        altText: PropTypes.string,
+        localFile: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            gatsbyImageData: PropTypes.any.isRequired,
+          }).isRequired,
         }).isRequired,
-      }).isRequired,
-    }).isRequired,
+      }),
+    ]).isRequired,
   }).isRequired,
   date: PropTypes.string.isRequired,
 };

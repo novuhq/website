@@ -75,24 +75,6 @@ export const query = graphql`
       }
     }
   }
-
-  fragment wpPostSeo on WpPost {
-    seo {
-      title
-      description: metaDesc
-      defaultDescription: opengraphDescription
-      preventIndexing: metaRobotsNoindex
-      slug: opengraphUrl
-      canonical
-      opengraphImage {
-        localFile {
-          childImageSharp {
-            gatsbyImageData(formats: JPG, width: 1200, height: 630)
-          }
-        }
-      }
-    }
-  }
 `;
 
 export default Layout;
