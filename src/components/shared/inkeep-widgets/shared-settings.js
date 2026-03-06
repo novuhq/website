@@ -32,9 +32,7 @@ export const aiChatSettings = {
   botAvatarSrcUrl: Logo,
   isChatSharingEnabled: true,
   shareChatUrlBasePath:
-    typeof window !== 'undefined'
-      ? `${window.location.origin}/chat/`
-      : 'http://localhost:8000/chat/',
+    typeof window !== 'undefined' ? `${window.location.origin}/` : 'http://localhost:8000/',
 };
 
 export const searchSettings = {
