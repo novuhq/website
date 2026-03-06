@@ -21,27 +21,8 @@ import DATA from 'data/pages/testpages/reusable-components';
 
 const ReusableComponents = (props) => {
   const {
-    data: {
-      allWpPost: { nodes: articles },
-    },
+    data: { sanityLatestBlogPosts: latestBlogPosts },
   } = props;
-
-  const latestBlogPosts = articles.map((post) => ({
-    title: post.title,
-    category: {
-      name: post.categories.nodes[0].name,
-      slug: post.categories.nodes[0].slug,
-      color: post.categories.nodes[0].categories.color,
-    },
-    date: post.date,
-    url: post.url,
-    image: post.pageBlogPost.imageMedium,
-    description: post.pageBlogPost.description,
-    author: {
-      name: post.pageBlogPost.author.title,
-      photo: post.pageBlogPost.author.postAuthor?.photo,
-    },
-  }));
 
   return (
     <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
@@ -62,7 +43,7 @@ const ReusableComponents = (props) => {
       <SectionWithLogos {...DATA.sectionWithLogosLg} />
       <Events {...DATA.events} />
       <EventsWithImages {...DATA.eventsWithImages} />
-      <BlogPosts {...DATA.blogPosts} items={latestBlogPosts} />
+      <BlogPosts {...DATA.blogPosts} items={latestBlogPosts || []} />
       <CTA {...DATA.ctaPurple} />
       <CTA {...DATA.ctaBlue} />
       <CTA {...DATA.ctaGreen} />
@@ -93,53 +74,25 @@ const ReusableComponents = (props) => {
 
 export const pageQuery = graphql`
   query {
-    allWpPost(sort: { date: DESC }, limit: 3) {
-      nodes {
+    sanityLatestBlogPosts {
+      title
+      slug {
+        current
+      }
+      caption
+      publishedAt
+      pathname
+      cover
+      category {
         title
-        url: uri
-        date
-        categories {
-          nodes {
-            name
-            slug
-            categories {
-              color
-            }
-          }
+        slug {
+          current
         }
-        pageBlogPost {
-          description
-          author {
-            ... on WpPostAuthors {
-              title
-              postAuthor {
-                photo {
-                  localFile {
-                    childImageSharp {
-                      gatsbyImageData(width: 36, height: 36)
-                    }
-                  }
-                }
-              }
-            }
-          }
-          imageMedium: image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 384, height: 214)
-              }
-            }
-            altText
-          }
-          imageLarge: image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 592, height: 333)
-              }
-            }
-            altText
-          }
-        }
+      }
+      authors {
+        name
+        position
+        photo
       }
     }
   }

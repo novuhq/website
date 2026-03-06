@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -22,12 +21,7 @@ const BlogPostCardMedium = ({
 }) => (
   <article className={clsx('flex flex-col', className)}>
     <Link to={url} aria-label={title}>
-      <GatsbyImage
-        className="w-full"
-        imgClassName="rounded-lg"
-        image={getImage(image.localFile)}
-        alt={image.alternativeText || ''}
-      />
+      <img className="w-full rounded-lg" src={image} alt={title} loading="lazy" />
     </Link>
     <div className="mt-5 flex grow flex-col">
       <header className="space-y-3.5">

@@ -54,17 +54,11 @@ export default function useHeaderData() {
         content
         caption
       }
-      lastPost: allWpPost(limit: 1, sort: { date: DESC }) {
-        nodes {
-          title
-          uri
-          pageBlogPost {
-            description
-            image {
-              link
-            }
-          }
-        }
+      sanityLatestBlogPosts {
+        title
+        caption
+        pathname
+        cover
       }
     }
   `);
@@ -72,7 +66,7 @@ export default function useHeaderData() {
   const changelog = data.sanityLatestChangelog;
   const changelogDescription =
     changelog?.caption || getChangelogCaptionFromContent(changelog?.content);
-  const lastPost = data.lastPost?.nodes?.[0];
+  const lastPost = data.sanityLatestBlogPosts?.[0];
 
   const changelogPostSlug = changelog?.slug
     ? `${LINKS.changeLog.to}/${changelog?.slug}`
@@ -87,9 +81,9 @@ export default function useHeaderData() {
     },
     post: {
       title: lastPost?.title || DEFAULT_STATE.post.title,
-      description: lastPost?.pageBlogPost?.description || DEFAULT_STATE.post.description,
-      url: lastPost?.uri || DEFAULT_STATE.post.url,
-      image: lastPost?.pageBlogPost?.image?.link || DEFAULT_STATE.post.image,
+      description: lastPost?.caption || DEFAULT_STATE.post.description,
+      url: lastPost?.pathname || DEFAULT_STATE.post.url,
+      image: lastPost?.cover || DEFAULT_STATE.post.image,
     },
   };
 }

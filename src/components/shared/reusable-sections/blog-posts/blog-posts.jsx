@@ -20,7 +20,16 @@ const BlogPosts = ({ title, buttonText, buttonUrl, items, blogPageURL }) => (
         {items?.map((item, index) => (
           <BlogPostCard
             className="col-span-4 md:col-span-6 xs:col-span-full"
-            {...item}
+            title={item.title}
+            description={item.caption}
+            url={item.pathname}
+            category={{
+              name: item.category.title,
+              slug: item.category.slug.current,
+            }}
+            date={item.publishedAt}
+            image={item.cover}
+            author={item.authors[0]}
             size="md"
             blogPageURL={blogPageURL}
             key={index}
@@ -52,33 +61,22 @@ BlogPosts.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      caption: PropTypes.string.isRequired,
+      pathname: PropTypes.string.isRequired,
+      publishedAt: PropTypes.string.isRequired,
       category: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        color: PropTypes.string.isRequired,
-      }),
-      date: PropTypes.string.isRequired,
-      image: PropTypes.shape({
-        altText: PropTypes.string,
-        localFile: PropTypes.shape({
-          childImageSharp: PropTypes.shape({
-            gatsbyImageData: PropTypes.any.isRequired,
-          }).isRequired,
+        title: PropTypes.string.isRequired,
+        slug: PropTypes.shape({
+          current: PropTypes.string.isRequired,
         }).isRequired,
       }).isRequired,
-      author: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        photo: PropTypes.shape({
-          altText: PropTypes.string,
-          localFile: PropTypes.shape({
-            childImageSharp: PropTypes.shape({
-              gatsbyImageData: PropTypes.any.isRequired,
-            }).isRequired,
-          }).isRequired,
-        }).isRequired,
-      }).isRequired,
+      cover: PropTypes.string.isRequired,
+      authors: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          photo: PropTypes.string.isRequired,
+        })
+      ).isRequired,
     })
   ).isRequired,
   blogPageURL: PropTypes.string.isRequired,

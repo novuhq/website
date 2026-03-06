@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -52,12 +51,7 @@ const BlogPostCardLarge = ({
         to={url}
         aria-label={title}
       >
-        <GatsbyImage
-          className="h-full w-full"
-          imgClassName="rounded-lg"
-          image={getImage(image.localFile)}
-          alt={image.alternativeText || ''}
-        />
+        <img className="h-full w-full rounded-lg" src={image} alt={title} loading="lazy" />
       </Link>
     </div>
   </article>

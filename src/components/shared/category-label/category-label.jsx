@@ -31,12 +31,13 @@ CategoryLabel.propTypes = {
   className: PropTypes.string,
   url: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(styles.size)).isRequired,
-  theme: PropTypes.oneOf(Object.keys(styles.theme)).isRequired,
+  theme: PropTypes.oneOf(Object.keys(styles.theme)),
   children: PropTypes.node.isRequired,
 };
 
 CategoryLabel.defaultProps = {
   className: null,
+  theme: 'blue',
 };
 
 export default CategoryLabel;
