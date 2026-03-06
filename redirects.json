@@ -22,5 +22,101 @@
   {
     "fromPath": "/novu-echo-coming-soon/",
     "toPath": "/"
+  },
+  {
+    "fromPath": "/chat/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/contact-us-docs/",
+    "toPath": "/contact-us/"
+  },
+  {
+    "fromPath": "/contact-us-in-app-account/",
+    "toPath": "/contact-us/"
+  },
+  {
+    "fromPath": "/echo/",
+    "toPath": "/framework/"
+  },
+  {
+    "fromPath": "/formatting-testing/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/hacktoberfest/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/landing/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/landing/get-started/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/landing/gui-workflows/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/landing/react-email-blocks/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/novu-community-2-0/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/novu-get-started/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/polishing/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/schedule/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/staging-pages/NEW-index/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/staging-pages/index-part-2/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/testpages/reusable-components/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/testpages/reusable-components-2/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/thank-you/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/thank-you-discovery-session/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/thank-you-early-access/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/thank-you-meeting/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/thank-you-swag/",
+    "toPath": "/"
+  },
+  {
+    "fromPath": "/timeline/",
+    "toPath": "/"
   }
 ]
