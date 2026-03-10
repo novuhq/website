@@ -12,7 +12,6 @@ import DATA from 'data/pages/inbox';
 
 const InboxPage = () => (
   <Layout mainClassName="overflow-hidden pt-16 bg-[#05050B]">
-    <h1 className="sr-only">Inbox</h1>
     <Hero {...DATA.hero} />
     <SectionWithBigIcons {...DATA.features} />
     <Inbox {...DATA.inboxExample} sectionOffsets="mt-[286px]" />

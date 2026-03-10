@@ -22,7 +22,7 @@ const Item = ({ animationData, title, description, comingSoon }) => {
     <li className="sm:max-w-[410px]" ref={animationWrapperRef}>
       <LottieAnimation className="h-16 max-w-[124px] sm:mx-auto sm:h-14" {...lottieData} />
       <div className="mt-5">
-        <Heading className="leading-snug lg:text-2xl" tag="h3" size="sm" theme="white">
+        <Heading className="leading-snug lg:text-2xl" tag="h2" size="sm" theme="white">
           {title}
         </Heading>
         <p className="mt-3 max-w-[377px] text-[17px] font-book leading-snug text-gray-9 lg:mt-2 lg:max-w-none">

@@ -4,7 +4,7 @@ import Link from 'components/shared/link';
 import MENUS from 'constants/menus';
 
 const Navigation = () => (
-  <nav className="-mt-[3px] flex flex-wrap gap-5 text-sm">
+  <nav className="-mt-[3px] flex flex-wrap gap-5 text-sm" aria-label="Footer navigation">
     <ul className="flex gap-40 md:gap-[94px] sm:flex-col sm:gap-[39px]">
       {MENUS.footer.main.map(({ title, items }) => (
         <li key={title}>

@@ -52,7 +52,7 @@ const ContactUsPage = () => {
               <div className="relative grid grid-cols-2 gap-8 lg:grid-cols-1 lg:gap-6">
                 {/* Technical Support */}
                 <div className="flex flex-col items-center">
-                  <Heading className="font-medium text-white" size="sm" tag="h3">
+                  <Heading className="font-medium text-white" size="sm" tag="h2">
                     Need technical support?
                   </Heading>
                   <p className="mt-2 text-base font-book text-gray-8">
@@ -71,7 +71,7 @@ const ContactUsPage = () => {
 
                 {/* Community */}
                 <div className="flex flex-col items-center">
-                  <Heading className="font-medium text-white" size="sm" tag="h3">
+                  <Heading className="font-medium text-white" size="sm" tag="h2">
                     Prefer async help?
                   </Heading>
                   <p className="mt-2 text-base font-book text-gray-8">
