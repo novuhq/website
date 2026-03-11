@@ -148,7 +148,7 @@ const SubscribeForm = ({
   return (
     <form
       className={clsx(
-        'autocomplete relative border border-transparent bg-clip-border rounded-md w-full',
+        'autocomplete relative w-full rounded-md border border-transparent bg-clip-border',
         'before:absolute before:-inset-0.5 before:-z-10 before:rounded-[inherit]',
         'after:absolute after:-inset-px after:-z-20 after:rounded-[inherit] after:blur-sm',
         alignment === 'center' && 'mx-auto',
@@ -160,6 +160,9 @@ const SubscribeForm = ({
       onSubmit={handleSubmit}
     >
       <LazyMotion features={domAnimation}>
+        <label className="sr-only" htmlFor="subscribe-email">
+          Email address
+        </label>
         <input
           className={clsx(
             'remove-autocomplete-styles h-full w-full appearance-none whitespace-nowrap rounded border-none bg-transparent pl-5 text-lg !leading-none text-white placeholder-white outline-none sm:pr-24 sm:text-base',
@@ -168,10 +171,12 @@ const SubscribeForm = ({
               'pr-36': theme === 'pink-red-gradient',
             }
           )}
+          id="subscribe-email"
           name="email"
           type="email"
           placeholder={placeholder}
           autoComplete="email"
+          aria-label="Email address"
           value={value}
           readOnly={isStateLoadingOrSuccess}
           onChange={handleInputChange}
@@ -183,8 +188,8 @@ const SubscribeForm = ({
               className={clsx(
                 'absolute -bottom-2 w-full max-w-[330px] translate-y-full text-sm text-gray-8',
                 {
-                  'text-center left-1/2 -translate-x-1/2': alignment === 'center',
-                  'left-5 md:text-center md:left-1/2 md:-translate-x-1/2': alignment === 'left',
+                  'left-1/2 -translate-x-1/2 text-center': alignment === 'center',
+                  'left-5 md:left-1/2 md:-translate-x-1/2 md:text-center': alignment === 'left',
                 }
               )}
               initial="initial"
@@ -244,7 +249,7 @@ const SubscribeForm = ({
                 exit="exit"
                 variants={appearAndExitAnimationVariants}
               >
-                <LoadingIcon className="h-6 w-6 animate-spin" />
+                <LoadingIcon className="animate-spin h-6 w-6" />
               </m.div>
             )}
             {formState === STATES.SUCCESS && (

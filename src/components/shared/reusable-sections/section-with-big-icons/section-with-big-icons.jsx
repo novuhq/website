@@ -37,6 +37,7 @@ const SectionWithBigIcons = ({ className, title, items, isCentered, button }) =>
               width={40}
               height={40}
               loading="lazy"
+              aria-hidden
             />
             <h3 className="mt-5 text-xl leading-denser tracking-snug lg:mt-4 md:text-xl sm:mt-3.5 sm:text-lg">
               {title}

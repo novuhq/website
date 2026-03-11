@@ -31,7 +31,7 @@ const BlogPostCardLarge = ({
           <Heading
             className="mt-4 line-clamp-3 font-medium leading-denser md:line-clamp-none sm:text-3xl"
             size="lg"
-            tag="h1"
+            tag="h3"
             theme="white"
           >
             <Link className="align-top" to={url} theme="white">

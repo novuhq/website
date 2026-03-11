@@ -20,7 +20,7 @@ const Hero = ({ sectionOffsets, title, description, button }) => (
             <StaticImage
               className="z-10"
               src="./images/dark-novu-inbox.png"
-              alt=""
+              alt="Novu Inbox component preview"
               width={619}
               height={648}
               loading="eager"
