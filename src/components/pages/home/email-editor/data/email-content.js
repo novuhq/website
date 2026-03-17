@@ -162,7 +162,7 @@ export const emailContents = [
                 {
                   type: 'link',
                   attrs: {
-                    href: 'http://Amazon.com',
+                    href: 'https://Amazon.com',
                     target: '_blank',
                     rel: 'noopener noreferrer nofollow',
                     class: 'mly-no-underline',

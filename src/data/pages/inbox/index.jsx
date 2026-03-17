@@ -74,7 +74,7 @@ const INBOX_EXAMPLE = {
     'Deliver a rich in-app notification experience that completely mirrors your existing UX, not an afterthought or a bolt-on.',
   button: {
     label: 'Get started',
-    link: 'http://go.novu.co/dashboard',
+    link: 'https://go.novu.co/dashboard',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
@@ -224,7 +224,7 @@ const READY_SET_GO = {
   title: 'For the best Inbox, Ready. Set. Go.',
   button: {
     label: 'Create account',
-    link: 'http://go.novu.co/dashboard',
+    link: 'https://go.novu.co/dashboard',
   },
   isCentered: true,
   items: [

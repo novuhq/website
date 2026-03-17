@@ -201,6 +201,8 @@ module.exports = {
             'Referrer-Policy: strict-origin-when-cross-origin',
             'Permissions-Policy: camera=(), microphone=(), geolocation=()',
             'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
+            "Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.segment.com https://snap.licdn.com https://plausible.io https://chat.cdn-plain.com https://js.hsforms.net https://js.hs-scripts.com https://script.crazyegg.com; style-src 'self' 'unsafe-inline' https://use.typekit.net; font-src 'self' https://use.typekit.net https://p.typekit.net; img-src 'self' data: blob: https://avatars.githubusercontent.com https://cdn.sanity.io; frame-src https://www.googletagmanager.com https://www.youtube.com https://player.vimeo.com https://www.loom.com https://app.cal.com; connect-src 'self' https://api.hsforms.com https://api.github.com https://uptime.betterstack.com https://api.sanity.io https://cdn.sanity.io https://api.segment.com https://api.mixpanel.com https://snap.licdn.com https://plausible.io https://www.googletagmanager.com https://chat.cdn-plain.com https://contributors.novu.co; media-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https://api.hsforms.com; frame-ancestors 'none'",
+            "Feature-Policy: camera 'none'; microphone 'none'; geolocation 'none'",
           ],
         },
       },
