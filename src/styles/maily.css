@@ -71,7 +71,7 @@
 .tippy-box {
   outline: none !important;
 
-  * {
+  *:not(:focus-visible) {
     outline: none !important;
   }
   .tippy-content {
