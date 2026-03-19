@@ -1,60 +1,13 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
-import AlertDrivingLogo from 'images/customers/logo-alert-driving.svg';
-import BalanceLogo from 'images/customers/logo-balance.svg';
-import BitmexLogo from 'images/customers/logo-bitmex.svg';
-import BppLogo from 'images/customers/logo-bpp.svg';
-import CheckSammyLogo from 'images/customers/logo-check-sammy.svg';
 import CheckpointLogo from 'images/customers/logo-checkpoint.svg';
-import ClaritasRxLogo from 'images/customers/logo-claritas-rx.svg';
-import CloudSoftwareGroupLogo from 'images/customers/logo-cloud-software-group.svg';
-import CorrelaLogo from 'images/customers/logo-correla.svg';
-import DerivLogo from 'images/customers/logo-deriv.svg';
-import DocplannerGroupLogo from 'images/customers/logo-docplanner-group.svg';
-import EburyLogo from 'images/customers/logo-ebury.svg';
-import ElProffenLogo from 'images/customers/logo-el-proffen.svg';
-import EvergreenLogo from 'images/customers/logo-evergreen.svg';
-import GuestyLogo from 'images/customers/logo-guesty.svg';
-import HemnetLogo from 'images/customers/logo-hemnet.svg';
-import HudlLogo from 'images/customers/logo-hudl.svg';
-import InfluencerLogo from 'images/customers/logo-influencer.svg';
-import JoyrideLogo from 'images/customers/logo-joyride.svg';
-import KantAkademiLogo from 'images/customers/logo-kant-akademi.svg';
-import KarmaCheckLogo from 'images/customers/logo-karma-check.svg';
-import KornFerryLogo from 'images/customers/logo-korn-ferry.svg';
-import LottieFilesLogo from 'images/customers/logo-lottie-files.svg';
-import MedPrevLogo from 'images/customers/logo-med-prev.svg';
-import MedVolLogo from 'images/customers/logo-med-vol.svg';
-import MoisesLogo from 'images/customers/logo-moises.svg';
 import MongodbCustomerLogo from 'images/customers/logo-mongodb.svg';
-import MothershipLogo from 'images/customers/logo-mothership.svg';
-import MottuLogo from 'images/customers/logo-mottu.svg';
-import NamirialLogo from 'images/customers/logo-namirial.svg';
-import NepLogo from 'images/customers/logo-nep.svg';
-import NormativeLogo from 'images/customers/logo-normative.svg';
-import NovacyLogo from 'images/customers/logo-novacy.svg';
-import PhocasLogo from 'images/customers/logo-phocas.svg';
-import PriceLabsLogo from 'images/customers/logo-price-labs.svg';
-import QuorumCyberLogo from 'images/customers/logo-quorum-cyber.svg';
-import Region4Logo from 'images/customers/logo-region4.svg';
 import RocheLogo from 'images/customers/logo-roche.svg';
-import SherwebLogo from 'images/customers/logo-sherweb.svg';
 import SinchLogo from 'images/customers/logo-sinch.svg';
-import SoftermiiLogo from 'images/customers/logo-softermii.svg';
-import TatilbudurLogo from 'images/customers/logo-tatilbudur.svg';
-import TeamcoreLogo from 'images/customers/logo-teamcore.svg';
-import TenderdLogo from 'images/customers/logo-tenderd.svg';
-import TerrascopeLogo from 'images/customers/logo-terrascope.svg';
-import TrustflightLogo from 'images/customers/logo-trustflight.svg';
-import UnifiedLogo from 'images/customers/logo-unified.svg';
 import UnityCustomerLogo from 'images/customers/logo-unity.svg';
 import UnopsLogo from 'images/customers/logo-unops.svg';
-import ValueLabsLogo from 'images/customers/logo-value-labs.svg';
-import VeridasLogo from 'images/customers/logo-veridas.svg';
-import VeritextLogo from 'images/customers/logo-veritext.svg';
 import WaltonEnterprisesLogo from 'images/customers/logo-walton-enterprises.svg';
-import WhoppahLogo from 'images/customers/logo-whoppah.svg';
 import bellOutlineIcon from 'images/icons/bell-outline.svg';
 import chatOutlineIcon from 'images/icons/chat-outline.svg';
 import emailOutlineIcon from 'images/icons/email-outline.svg';
@@ -66,167 +19,39 @@ import reactIcon from 'images/pages/home-new/inbox/react.svg';
 import remixIcon from 'images/pages/home-new/inbox/remix.svg';
 
 const CUSTOMERS = {
-  title: 'Notifications brands count on',
-  description: 'Ensuring seamless notifications from business to users, with zero hassle.',
+  title: 'Trusted by industry leaders',
+  description: 'Powering notifications for the world\u2019s most innovative companies.',
   items: [
     {
-      title: 'Guesty',
-      src: GuestyLogo,
-      priority: 10, // High priority - appears first
-      rowIndex: 0,
-    },
-    {
-      title: 'Sinch',
-      src: SinchLogo,
-      priority: 10, // High priority - appears first
-      rowIndex: 0,
+      title: 'Roche',
+      src: RocheLogo,
     },
     {
       title: 'MongoDB',
       src: MongodbCustomerLogo,
-      priority: 10, // High priority - appears first
-      rowIndex: 1,
-    },
-    {
-      title: 'Bitmex',
-      src: BitmexLogo,
-    },
-    {
-      title: 'BPP',
-      src: BppLogo,
-    },
-    {
-      title: 'Checkpoint',
-      src: CheckpointLogo,
-      priority: 9, // High priority - appears first
-      rowIndex: 1,
-    },
-    {
-      title: 'Cloud Software Group',
-      src: CloudSoftwareGroupLogo,
-    },
-    {
-      title: 'Deriv',
-      src: DerivLogo,
-    },
-    {
-      title: 'Docplanner Group',
-      src: DocplannerGroupLogo,
-    },
-    {
-      title: 'Ebury',
-      src: EburyLogo,
-    },
-    {
-      title: 'El Proffen',
-      src: ElProffenLogo,
-    },
-    {
-      title: 'Hemnet',
-      src: HemnetLogo,
-    },
-    {
-      title: 'Influencer',
-      src: InfluencerLogo,
-    },
-    {
-      title: 'Joyride',
-      src: JoyrideLogo,
-    },
-    {
-      title: 'Kant Akademi',
-      src: KantAkademiLogo,
-    },
-    {
-      title: 'KarmaCheck',
-      src: KarmaCheckLogo,
-    },
-    {
-      title: 'Korn Ferry',
-      src: KornFerryLogo,
-      priority: 3, // High priority - appears first
-      rowIndex: 1,
-    },
-    {
-      title: 'LottieFiles',
-      src: LottieFilesLogo,
-    },
-    {
-      title: 'MedVol',
-      src: MedVolLogo,
-    },
-    {
-      title: 'Moises',
-      src: MoisesLogo,
-    },
-    {
-      title: 'Namirial',
-      src: NamirialLogo,
-    },
-    {
-      title: 'NEP',
-      src: NepLogo,
-    },
-    {
-      title: 'Normative',
-      src: NormativeLogo,
-    },
-    {
-      title: 'Novacy',
-      src: NovacyLogo,
-    },
-    {
-      title: 'Quorum Cyber',
-      src: QuorumCyberLogo,
-    },
-    {
-      title: 'Roche',
-      src: RocheLogo,
-      priority: 7, // High priority - appears first
-      rowIndex: 1,
-    },
-    {
-      title: 'Sherweb',
-      src: SherwebLogo,
-    },
-    {
-      title: 'Tatilbudur',
-      src: TatilbudurLogo,
-    },
-    {
-      title: 'Tenderd',
-      src: TenderdLogo,
-    },
-    {
-      title: 'Trustflight',
-      src: TrustflightLogo,
-    },
-    {
-      title: 'Unified',
-      src: UnifiedLogo,
     },
     {
       title: 'Unity',
       src: UnityCustomerLogo,
-      priority: 7, // High priority - appears first
-      rowIndex: 1,
     },
     {
-      title: 'UNOPS',
-      src: UnopsLogo,
-      priority: 7, // High priority - appears first
-      rowIndex: 0,
+      title: 'Sinch',
+      src: SinchLogo,
+    },
+    {
+      title: 'Checkpoint',
+      src: CheckpointLogo,
     },
     {
       title: 'Walton Enterprises',
       src: WaltonEnterprisesLogo,
     },
     {
-      title: 'Whoppah',
-      src: WhoppahLogo,
+      title: 'UNOPS',
+      src: UnopsLogo,
     },
   ],
-  rows: 2,
+  rows: 1,
 };
 
 const COPY_AND_SHIP = {

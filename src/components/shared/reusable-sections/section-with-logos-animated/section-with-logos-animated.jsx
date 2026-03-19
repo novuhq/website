@@ -28,26 +28,32 @@ function splitIntoRows(items, rows) {
   return result;
 }
 
+const LogoItem = ({ src, title }) => {
+  if (!src || !title) return null;
+
+  return (
+    <li className="flex h-10 w-[200px] shrink-0 items-center justify-center px-4 md:h-8 md:w-[160px] sm:h-7 sm:w-[120px]">
+      <img
+        className="block h-auto w-max max-w-full opacity-50 transition-opacity duration-500 hover:opacity-90"
+        src={src}
+        alt={title}
+        loading="lazy"
+      />
+    </li>
+  );
+};
+
 const List = ({ items, ariaHidden = false, isVisible = false }) => (
   <ul
     className={clsx(
-      'flex gap-9 sm:gap-6',
+      'flex gap-12 sm:gap-8',
       isVisible && 'group-odd:animate-logos-backward group-even:animate-logos-forward'
     )}
     aria-hidden={ariaHidden}
   >
-    {items.map(({ src, title }, index) => {
-      if (!src || !title) return null;
-
-      return (
-        <li
-          className="flex h-10 w-[180px] shrink-0 items-center justify-center md:h-8 md:w-[140px] sm:h-6 sm:w-[106px]"
-          key={index}
-        >
-          <img className="block h-auto w-max max-w-full" src={src} alt={title} loading="lazy" />
-        </li>
-      );
-    })}
+    {items.map(({ src, title }, index) => (
+      <LogoItem key={index} src={src} title={title} />
+    ))}
   </ul>
 );
 
@@ -103,12 +109,13 @@ const SectionWithLogosAnimated = ({ className, title, description, items, rows }
           {logosLists.map((list, index) => (
             <div
               className={clsx(
-                'group flex w-full items-center gap-9 overflow-hidden [mask-image:linear-gradient(90deg,transparent_3%,rgba(0,0,0,.5)_20%,#000_30%,#000_70%,rgba(0,0,0,.5)_80%,transparent_97%)] sm:gap-6',
+                'group flex w-full items-center gap-12 overflow-hidden [mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,.4)_10%,#000_25%,#000_75%,rgba(0,0,0,.4)_90%,transparent_100%)] sm:gap-8',
                 index === 0 ? 'mt-16 lg:mt-14 md:mt-11 sm:mt-8' : 'mt-11 lg:mt-10 md:mt-8 sm:mt-7'
               )}
               key={index}
             >
               <List items={list} isVisible={isVisible} />
+              <List items={list} isVisible={isVisible} ariaHidden />
               <List items={list} isVisible={isVisible} ariaHidden />
             </div>
           ))}

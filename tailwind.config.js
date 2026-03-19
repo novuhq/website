@@ -174,8 +174,8 @@ module.exports = {
         '1px -1px 1px 0px rgba(57, 5, 81, 0.15) inset, 0px 1px 1px 0px rgba(0, 0, 0, 0.05), -2px 2px 5px 0px rgba(0, 0, 0, 0.08), -1px 2px 20px 0px rgba(0, 0, 0, 0.37)',
     },
     animation: {
-      'logos-backward': 'backward 160s linear infinite',
-      'logos-forward': 'forward 160s linear infinite',
+      'logos-backward': 'backward 40s linear infinite',
+      'logos-forward': 'forward 40s linear infinite',
     },
     keyframes: {
       backward: {
