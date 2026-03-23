@@ -13,7 +13,7 @@ export default {
     to: '/',
   },
   blog: {
-    to: '/blog',
+    to: '/blog/',
   },
   contributors: {
     to: '/contributors',
