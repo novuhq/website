@@ -96,7 +96,7 @@ const SECTION_WITH_CARDS = {
         />
       ),
       linkText: 'Learn more',
-      linkUrl: 'https://docs.novu.co/getting-started/introduction',
+      linkUrl: 'https://docs.novu.co/platform',
     },
     {
       title: '100% flexible',
@@ -109,7 +109,7 @@ const SECTION_WITH_CARDS = {
         />
       ),
       linkText: 'Learn more',
-      linkUrl: 'https://docs.novu.co/getting-started/introduction',
+      linkUrl: 'https://docs.novu.co/platform',
     },
     {
       title: 'Open source backed',

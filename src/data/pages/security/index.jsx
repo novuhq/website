@@ -75,8 +75,7 @@ const FEATURES = {
       icon: encryptionIcon,
       title: 'HMAC encryption',
       description: 'Data exchanges are always encrypted by default.',
-      linkUrl:
-        'https://docs.novu.co/inbox/react/production#hmac-encryption?utm_campaign=ws_security',
+      linkUrl: 'https://docs.novu.co/platform/sdks/react?utm_campaign=ws_security',
     },
     {
       icon: assessmentIcon,
@@ -117,7 +116,7 @@ const DEPLOYMENT_MODES = {
       description:
         'Cloud delivery with available local notification hydration and custom workflow management.',
       linkTitle: 'Learn more',
-      linkUrl: 'https://docs.novu.co/framework/overview?utm_campaign=ws_security',
+      linkUrl: 'https://docs.novu.co/framework/introduction?utm_campaign=ws_security',
     },
     {
       title: 'Self-hosted project',
@@ -143,8 +142,7 @@ const CTA = {
     description:
       "Ready to chat instead? Book a meeting with us, and we'll get your questions answered.",
     buttonText: 'Meet with Novu',
-    buttonLink:
-      'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=ws_security',
+    buttonLink: 'https://novu.co/contact-us/?utm_campaign=ws_security',
   },
 };
 

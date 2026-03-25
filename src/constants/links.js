@@ -106,7 +106,7 @@ export default {
     target: '_blank',
   },
   bookMeeting: {
-    to: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr',
+    to: 'https://novu.co/contact-us/',
     target: '_blank',
   },
 
@@ -141,46 +141,46 @@ export default {
     to: 'https://docs.novu.co/',
     target: '_blank',
   },
-  docsFramework: { to: 'https://docs.novu.co/framework/overview', target: '_blank' },
+  docsFramework: { to: 'https://docs.novu.co/framework/introduction', target: '_blank' },
   docsWorkflow: { to: 'https://docs.novu.co/platform/workflow', target: '_blank' },
   docsInApp: {
-    to: 'https://docs.novu.co/inbox/introduction',
+    to: 'https://docs.novu.co/platform/inbox',
     target: '_blank',
   },
   docsOverview: {
-    to: 'https://docs.novu.co/platform/overview',
+    to: 'https://docs.novu.co/platform',
     target: '_blank',
   },
   docsSdks: {
-    to: 'https://docs.novu.co/sdks/overview',
+    to: 'https://docs.novu.co/platform/sdks',
     target: '_blank',
   },
   docsApis: {
-    to: 'https://docs.novu.co/api-reference/overview',
+    to: 'https://docs.novu.co/api-reference',
     target: '_blank',
   },
   docsGuides: {
-    to: 'https://docs.novu.co/guides/overview',
+    to: 'https://docs.novu.co/guides',
     target: '_blank',
   },
   docsUserPreferences: {
-    to: 'https://docs.novu.co/inbox/react/components/preferences',
+    to: 'https://docs.novu.co/platform/sdks/react/hooks/use-preferences',
     target: '_blank',
   },
   docsContentManagement: {
-    to: 'https://docs.novu.co/workflow/template-editor',
+    to: 'https://docs.novu.co/platform/workflow/add-notification-content/channels-template-editors',
     target: '_blank',
   },
   docsProviders: {
-    to: 'https://docs.novu.co/channels-and-providers/introduction?utm_campaign=website',
+    to: 'https://docs.novu.co/platform/integrations?utm_campaign=website',
     target: '_blank',
   },
   docsQuickStart: {
-    to: 'https://docs.novu.co/quickstarts/01-introduction?utm_campaign=website',
+    to: 'https://docs.novu.co/platform/quickstart/nextjs?utm_campaign=website',
     target: '_blank',
   },
   docsNotifications: {
-    to: 'https://docs.novu.co/platform/inbox/setup-inbox',
+    to: 'https://docs.novu.co/platform/inbox',
     target: '_blank',
   },
 };

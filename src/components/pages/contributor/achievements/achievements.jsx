@@ -172,7 +172,7 @@ const Achievements = ({
                 />
 
                 <div className="mt-3.5 space-y-1.5 text-center">
-                  <h4 className="text-base leading-tight">{title}</h4>
+                  <h3 className="text-base leading-tight">{title}</h3>
                   <span className="text-sm leading-tight text-gray-6">{achievementDate}</span>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const Achievements = ({
                 />
 
                 <div className="mt-3.5 space-y-1.5 text-center">
-                  <h4 className={clsx('text-base leading-tight')}>{title}</h4>
+                  <h3 className={clsx('text-base leading-tight')}>{title}</h3>
                   <span className="text-sm leading-tight text-gray-6">
                     {findDates(pulls).values[minStars]}
                   </span>

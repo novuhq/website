@@ -29,7 +29,7 @@ const Item = ({ list, imageClassNames, starsMin, starsMax, icon, title, descript
         <Heading
           className="leading-tight md:text-[30px] sm:text-3xl"
           size="md"
-          tag="h3"
+          tag="h2"
           theme="white"
         >
           {title}

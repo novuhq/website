@@ -14,7 +14,7 @@ const FAQ_DATA = [
         A workflow run is one execution of a workflow. Triggering a workflow to a single subscriber
         counts as 1 run; triggering to a{' '}
         <Link
-          to="https://docs.novu.co/concepts/topics"
+          to="https://docs.novu.co/platform/concepts/topics"
           target="_blank"
           rel="noreferrer"
           theme="primary"

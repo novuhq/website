@@ -107,7 +107,9 @@ const Profile = ({ contributor }) => {
               to={
                 contributor.url.startsWith('http') ? contributor.url : `https://${contributor.url}`
               }
-              target="__blank"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit website"
               theme="white"
             >
               <LinkIcon className="mr-1.5 h-4 flex-shrink-0" />
@@ -121,7 +123,9 @@ const Profile = ({ contributor }) => {
             <Link
               className="transition-opacity duration-200 hover:opacity-80"
               to={`https://github.com/${contributor.github}`}
-              target="__blank"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${contributor.github} on GitHub`}
             >
               <GitHubIcon className="h-8" />
             </Link>
@@ -130,7 +134,9 @@ const Profile = ({ contributor }) => {
             <Link
               className="transition-opacity duration-200 hover:opacity-80"
               to={`https://twitter.com/${contributor.twitter}`}
-              target="__blank"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${contributor.twitter} on Twitter`}
             >
               <TwitterIcon className="h-8" />
             </Link>
