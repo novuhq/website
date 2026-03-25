@@ -18,7 +18,7 @@ const HERO = {
     },
     {
       text: 'Book Meeting',
-      url: 'https://notify.novu.co/meetings/novuhq/novu-discovery-session-rr?utm_campaign=website-usecase-multiChannel',
+      url: 'https://novu.co/contact-us/?utm_campaign=website-usecase-multiChannel',
       target: '_blank',
       rel: 'noopener noreferrer',
     },

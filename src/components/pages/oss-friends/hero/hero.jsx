@@ -38,7 +38,7 @@ const Hero = () => (
                       height={40}
                     />
                   )}
-                  <h3 className="text-3xl leading-snug lg:text-2xl">{name}</h3>
+                  <h2 className="text-3xl leading-snug lg:text-2xl">{name}</h2>
                 </header>
                 <p className="mt-5 font-light leading-snug text-gray-9 sm:mt-3">{description}</p>
               </div>

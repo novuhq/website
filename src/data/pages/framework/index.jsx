@@ -305,7 +305,7 @@ const WORKFLOW_CONTROL = {
   ),
   button: {
     label: 'Complete Control',
-    link: 'https://docs.novu.co/framework/overview?utm_campaign=ws_framework',
+    link: 'https://docs.novu.co/framework/introduction?utm_campaign=ws_framework',
   },
   theme: 'imageRight',
 };

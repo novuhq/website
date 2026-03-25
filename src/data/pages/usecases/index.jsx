@@ -42,7 +42,7 @@ const GOALS = {
       description:
         'Novu includes everything you need to deploy rich notifications and sophisticated workflows with any channel.',
       linkTitle: 'Learn more',
-      linkUrl: 'https://docs.novu.co/getting-started/how-novu-works?utm_campaign=ws_usecases',
+      linkUrl: 'https://docs.novu.co/platform/quickstart/nextjs?utm_campaign=ws_usecases',
     },
     {
       title: 'Improve collaboration',
@@ -165,7 +165,7 @@ const NOTIFICATION_CONTENT = {
     'Eliminate the content dance between development and product teams. Developers now empower product teams to safely interact with all of your notifications content, no interrupts needed.',
   button: {
     label: 'Learn more',
-    link: 'https://docs.novu.co/workflow/template-editor?utm_campaign=ws_usecases',
+    link: 'https://docs.novu.co/platform/workflow/add-notification-content/channels-template-editors?utm_campaign=ws_usecases',
   },
   image: (
     <div

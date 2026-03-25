@@ -36,7 +36,7 @@ const FEATURES = {
       icon: changeIcon,
       title: 'Built-in preferences',
       description: 'Your app users access and set their Preferences with ease.',
-      linkUrl: 'https://docs.novu.co/inbox/react/components/preferences',
+      linkUrl: 'https://docs.novu.co/platform/sdks/react/hooks/use-preferences',
     },
     {
       icon: userIcon,
@@ -49,7 +49,7 @@ const FEATURES = {
       title: 'HMAC encryption',
       description:
         'Component to Novu service communication and user identifiers are fully secured.',
-      linkUrl: 'https://docs.novu.co/inbox/react/production#hmac-encryption',
+      linkUrl: 'https://docs.novu.co/platform/sdks/react',
     },
     {
       icon: guardIcon,
@@ -63,7 +63,7 @@ const FEATURES = {
       title: 'Unified',
       description:
         'Add channels like email, SMS, and WhatsApp, mirroring Inbox across touchpoints.',
-      linkUrl: 'https://docs.novu.co/getting-started/how-novu-works',
+      linkUrl: 'https://docs.novu.co/platform/quickstart/nextjs',
     },
   ],
 };
