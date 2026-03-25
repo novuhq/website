@@ -52,10 +52,18 @@ export const Head = () => {
     description:
       'Novu is an open-source notification platform that empowers developers to create robust, multi-channel notifications for web and mobile apps. With powerful workflows, seamless integrations, and a flexible API-first approach, Novu enables product teams to manage notifications without breaking production.',
   };
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Novu',
+    url: 'https://novu.co',
+  };
+
   return (
     <>
       <SEO {...pageMetadata} />
       <RiveWasm />
+      <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
       <link
         rel="preload"
         href="/animations/pages/home/hero/hero.riv"
