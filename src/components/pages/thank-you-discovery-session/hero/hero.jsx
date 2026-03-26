@@ -3,7 +3,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import LINKS, { applyQueryParams } from 'constants/links';
+import LINKS from 'constants/links';
 
 const Hero = () => (
   <section className="safe-paddings relative overflow-hidden pt-[303px] sm:pt-52">
@@ -24,7 +24,7 @@ const Hero = () => (
         className="mt-10 sm:mt-7"
         size="sm"
         theme="white-filled"
-        {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=gs_website'])}
+        {...LINKS.dashboardV2SignUp}
       >
         Get Started Now
       </Button>

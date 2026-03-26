@@ -8,7 +8,7 @@ import Burger from 'components/shared/burger';
 import Button from 'components/shared/button';
 import ButtonGithubStars from 'components/shared/button-github-stars';
 import Link from 'components/shared/link';
-import LINKS, { applyQueryParams } from 'constants/links';
+import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import useHeaderData from 'hooks/use-header-data';
 import useScrollPosition from 'hooks/use-scroll-position';
@@ -109,7 +109,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                 className="outline-none focus-visible:shadow-[0_0_0_1px_#05050B,0_0_0_3px_white]"
                 size="xs"
                 theme="gray-outline"
-                {...applyQueryParams(LINKS.dashboardV2SignIn, ['utm_campaign=ws_top_bar'])}
+                {...LINKS.dashboardV2SignIn}
                 onClick={click}
               >
                 Login
@@ -118,7 +118,7 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
                 className="outline-none focus-visible:shadow-[0_0_0_2px_#05050B,0_0_0_4px_white]"
                 size="xs"
                 theme="white-filled"
-                {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=ws_top_bar'])}
+                {...LINKS.dashboardV2SignUp}
                 onClick={click}
               >
                 Get Started
