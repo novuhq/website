@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 import Button from 'components/shared/button';
 import Link from 'components/shared/link';
-import LINKS, { applyQueryParams } from 'constants/links';
+import LINKS from 'constants/links';
 import MENUS from 'constants/menus';
 import useHeaderData from 'hooks/use-header-data';
 import useScrollStatus from 'hooks/use-scroll-status';
@@ -112,7 +112,7 @@ const MobileMenu = ({ isOpen = false }) => {
                   className="w-full"
                   size="xs"
                   theme="white-outline"
-                  {...applyQueryParams(LINKS.dashboardV2SignIn, ['utm_campaign=ws_top_bar'])}
+                  {...LINKS.dashboardV2SignIn}
                 >
                   Login
                 </Button>
@@ -120,7 +120,7 @@ const MobileMenu = ({ isOpen = false }) => {
                   className="w-full"
                   size="xs"
                   theme="white-filled"
-                  {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=ws_top_bar'])}
+                  {...LINKS.dashboardV2SignUp}
                 >
                   Get Started
                 </Button>

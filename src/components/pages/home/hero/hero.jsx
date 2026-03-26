@@ -26,7 +26,7 @@ const Hero = () => (
             className="w-[157px] sm:h-10 sm:w-[140px] sm:px-5 sm:text-xs sm-xs:w-full"
             size="sm"
             theme="white-filled"
-            {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=gs_website'])}
+            {...LINKS.dashboardV2SignUp}
             onClick={useLandingSimpleTracking('get_started', { type: 'homepage' })}
           >
             START FOR FREE

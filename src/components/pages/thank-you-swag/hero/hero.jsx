@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from 'components/shared/button';
 import Heading from 'components/shared/heading';
-import LINKS, { applyQueryParams } from 'constants/links';
+import LINKS from 'constants/links';
 
 import bgSm from './images/bg-sm.svg';
 import bg from './images/bg.svg';
@@ -31,7 +31,7 @@ const Hero = () => (
         className="mt-10 sm:mt-7"
         size="sm"
         theme="white-filled"
-        {...applyQueryParams(LINKS.dashboardV2SignUp, ['utm_campaign=gs_website'])}
+        {...LINKS.dashboardV2SignUp}
       >
         Try Code-first Now
       </Button>

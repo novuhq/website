@@ -1,4 +1,4 @@
-import LINKS, { applyQueryParams } from 'constants/links.js';
+import LINKS from 'constants/links.js';
 
 const MENUS = {
   header: [
@@ -8,23 +8,23 @@ const MENUS = {
         {
           title: 'Features',
           items: [
-            { text: 'Inbox Component', ...applyQueryParams(LINKS.inbox, ['utm_campaign=ws_nav']) },
+            { text: 'Inbox Component', ...LINKS.inbox },
             {
               text: 'User Preference',
-              ...applyQueryParams(LINKS.docsUserPreferences, ['utm_campaign=ws_nav']),
+              ...LINKS.docsUserPreferences,
             },
             {
               text: 'Workflows',
-              ...applyQueryParams(LINKS.docsWorkflow, ['utm_campaign=ws_nav']),
+              ...LINKS.docsWorkflow,
             },
             {
               text: 'Framework',
-              ...applyQueryParams(LINKS.framework, ['utm_campaign=ws_nav']),
+              ...LINKS.framework,
             },
-            { text: 'Digest', ...applyQueryParams(LINKS.digest, ['utm_campaign=ws_nav']) },
+            { text: 'Digest', ...LINKS.digest },
             {
               text: 'Content Management',
-              ...applyQueryParams(LINKS.docsContentManagement, ['utm_campaign=ws_nav']),
+              ...LINKS.docsContentManagement,
             },
           ],
         },
@@ -40,16 +40,16 @@ const MENUS = {
         {
           title: 'Explore',
           items: [
-            { text: 'Use cases', ...applyQueryParams(LINKS.useCases, ['utm_campaign=ws_nav']) },
-            { text: 'Blog', ...applyQueryParams(LINKS.blog, ['utm_campaign=ws_nav']) },
+            { text: 'Use cases', ...LINKS.useCases },
+            { text: 'Blog', ...LINKS.blog },
             { text: 'Changelog', ...LINKS.changeLog },
             { text: 'Roadmap', ...LINKS.roadmapPage },
-            { text: 'Directory', ...applyQueryParams(LINKS.directory, ['utm_campaign=ws_nav']) },
-            { text: 'Support', ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav']) },
+            { text: 'Directory', ...LINKS.directory },
+            { text: 'Support', ...LINKS.contactUs },
             { text: 'Discord', ...LINKS.discord },
             {
               text: 'Security & Compliance',
-              ...applyQueryParams(LINKS.security, ['utm_campaign=ws_nav']),
+              ...LINKS.security,
             },
           ],
         },
@@ -67,18 +67,18 @@ const MENUS = {
           items: [
             {
               text: 'Documentation',
-              ...applyQueryParams(LINKS.docs, ['utm_campaign=ws_nav']),
+              ...LINKS.docs,
             },
-            { text: 'Guides', ...applyQueryParams(LINKS.docsGuides, ['utm_campaign=ws_nav']) },
+            { text: 'Guides', ...LINKS.docsGuides },
             {
               text: 'Framework',
-              ...applyQueryParams(LINKS.docsFramework, ['utm_campaign=ws_nav']),
+              ...LINKS.docsFramework,
             },
             {
               text: 'API reference',
-              ...applyQueryParams(LINKS.docsApis, ['utm_campaign=ws_nav']),
+              ...LINKS.docsApis,
             },
-            { text: 'SDKs', ...applyQueryParams(LINKS.docsSdks, ['utm_campaign=ws_nav']) },
+            { text: 'SDKs', ...LINKS.docsSdks },
           ],
         },
         {
@@ -88,14 +88,14 @@ const MENUS = {
             title: 'Getting started',
             description: 'This guide walks you through integrating Novu’s Inbox',
             image: '/images/header/illustration-docs.jpg',
-            url: applyQueryParams(LINKS.docsOverview, ['utm_campaign=ws_nav']).to,
+            url: LINKS.docsOverview.to,
           },
         },
       ],
     },
     { text: 'Customers', ...LINKS.customers },
-    { text: 'Pricing', ...applyQueryParams(LINKS.pricing, ['utm_campaign=ws_nav']) },
-    { text: 'Contact Us', ...applyQueryParams(LINKS.contactUs, ['utm_campaign=ws_nav']) },
+    { text: 'Pricing', ...LINKS.pricing },
+    { text: 'Contact Us', ...LINKS.contactUs },
   ],
   footer: {
     main: [
