@@ -5,7 +5,7 @@ import MENUS from 'constants/menus';
 
 const Navigation = () => (
   <nav className="-mt-[3px] flex flex-wrap gap-5 text-sm" aria-label="Footer navigation">
-    <ul className="flex gap-40 md:gap-[94px] sm:flex-col sm:gap-[39px]">
+    <ul className="flex gap-30 md:gap-14 sm:flex-col sm:gap-[39px]">
       {MENUS.footer.main.map(({ title, items }) => (
         <li key={title}>
           <p className="text-lg -tracking-[0.02em]">{title}</p>

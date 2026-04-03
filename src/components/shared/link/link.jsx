@@ -130,6 +130,8 @@ const Link = ({
     '/blog',
     '/changelog',
     '/customers',
+    '/comparison',
+    '/integrations',
     '/pricing',
     '/dpa',
     '/privacy',

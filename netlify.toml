@@ -131,3 +131,21 @@
   to = "https://website-new-murex.vercel.app/pricing/"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/comparison/*"
+  to = "https://website-new-murex.vercel.app/comparison/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/integrations"
+  to = "https://website-new-murex.vercel.app/integrations/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/integrations/*"
+  to = "https://website-new-murex.vercel.app/integrations/:splat"
+  status = 200
+  force = true
