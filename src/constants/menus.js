@@ -26,6 +26,7 @@ const MENUS = {
               text: 'Content Management',
               ...LINKS.docsContentManagement,
             },
+            { text: 'Integrations', ...LINKS.integrations },
           ],
         },
         {
@@ -116,6 +117,7 @@ const MENUS = {
             href: LINKS.docsContentManagement.to,
             isNew: false,
           },
+          { label: 'Integrations', href: LINKS.integrations.to, isNew: false },
           {
             label: 'Notifications Directory',
             href: LINKS.docsNotifications.to,
@@ -139,6 +141,32 @@ const MENUS = {
           },
           { label: 'Pricing', href: LINKS.pricing.to, isNew: false },
           { label: 'Customers', href: LINKS.customers.to, isNew: false },
+        ],
+      },
+      {
+        title: 'Comparison',
+        items: [
+          {
+            label: 'Novu vs Courier',
+            href: LINKS.comparisonCourier.to,
+            isNew: false,
+          },
+          { label: 'Novu vs Knock', href: LINKS.comparisonKnock.to, isNew: false },
+          {
+            label: 'Novu vs MagicBell',
+            href: LINKS.comparisonMagicBell.to,
+            isNew: false,
+          },
+          {
+            label: 'Novu vs SuprSend',
+            href: LINKS.comparisonSuprSend.to,
+            isNew: false,
+          },
+          {
+            label: 'Novu vs In-house',
+            href: LINKS.comparisonInHouse.to,
+            isNew: false,
+          },
         ],
       },
       {

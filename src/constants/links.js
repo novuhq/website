@@ -60,6 +60,24 @@ export default {
   },
 
   // New website
+  integrations: {
+    to: '/integrations',
+  },
+  comparisonCourier: {
+    to: '/comparison/courier',
+  },
+  comparisonKnock: {
+    to: '/comparison/knock',
+  },
+  comparisonMagicBell: {
+    to: '/comparison/magicbell',
+  },
+  comparisonSuprSend: {
+    to: '/comparison/suprsend',
+  },
+  comparisonInHouse: {
+    to: '/comparison/building-in-house',
+  },
   changeLog: {
     to: '/changelog',
   },
