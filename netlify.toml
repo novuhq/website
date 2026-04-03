@@ -43,6 +43,12 @@
   force = true
 
 [[redirects]]
+  from = "/images/integration-icons/*"
+  to = "https://website-new-murex.vercel.app/images/integration-icons/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/og-images/*"
   to = "https://website-new-murex.vercel.app/og-images/:splat"
   status = 200
