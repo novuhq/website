@@ -6,7 +6,15 @@ const SIGNUP_HOST = 'dashboard.novu.co';
 function getStoredUtmParams() {
   try {
     const stored = sessionStorage.getItem('novu_utm_params');
-    return stored ? JSON.parse(stored) : {};
+    if (!stored) return {};
+    const parsed = JSON.parse(stored);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    return Object.fromEntries(
+      UTM_PARAMS.flatMap((key) => {
+        const value = parsed[key];
+        return typeof value === 'string' && value ? [[key, value]] : [];
+      })
+    );
   } catch {
     return {};
   }
