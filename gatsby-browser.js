@@ -22,7 +22,9 @@ function captureUtmParams() {
 
   if (Object.keys(utms).length > 0) {
     try {
-      sessionStorage.setItem('novu_utm_params', JSON.stringify(utms));
+      const existing = getStoredUtmParams();
+      const merged = { ...existing, ...utms };
+      sessionStorage.setItem('novu_utm_params', JSON.stringify(merged));
     } catch {
       // sessionStorage unavailable
     }
@@ -33,9 +35,10 @@ function forwardUtmToSignupLinks() {
   const utms = getStoredUtmParams();
   if (Object.keys(utms).length === 0) return;
 
-  document.querySelectorAll(`a[href*="${SIGNUP_HOST}"]`).forEach((link) => {
+  document.querySelectorAll('a[href]').forEach((link) => {
     try {
       const url = new URL(link.href);
+      if (url.hostname !== SIGNUP_HOST) return;
       Object.entries(utms).forEach(([key, value]) => {
         if (!url.searchParams.has(key)) {
           url.searchParams.set(key, value);
