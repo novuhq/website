@@ -155,3 +155,15 @@
   to = "https://website-new-murex.vercel.app/integrations/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/mcp"
+  to = "https://website-new-murex.vercel.app/mcp/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/mcp/*"
+  to = "https://website-new-murex.vercel.app/mcp/:splat"
+  status = 200
+  force = true

@@ -35,6 +35,7 @@ const MENUS = {
         },
       ],
     },
+    { text: 'Novu MCP', ...LINKS.mcp },
     {
       text: 'Resources',
       content: [
@@ -122,6 +123,11 @@ const MENUS = {
             label: 'Notifications Directory',
             href: LINKS.docsNotifications.to,
             isNew: false,
+          },
+          {
+            label: 'Novu MCP',
+            href: LINKS.mcp.to,
+            isNew: true,
           },
         ],
       },

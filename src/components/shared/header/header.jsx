@@ -53,10 +53,10 @@ const Header = ({ isMobileMenuOpen, onBurgerClick = () => {} }) => {
           <span className="sr-only">Novu</span>
         </Link>
         <nav
-          className="absolute left-1/2 h-full -translate-x-[53%] lg:-translate-x-[60%]"
+          className="absolute left-1/2 h-full -translate-x-[53%] xl:-translate-x-[60%]"
           aria-label="Main navigation"
         >
-          <ul className="flex h-full items-center gap-x-3.5 pt-1 lg:gap-1 lg:pt-0 md:hidden">
+          <ul className="flex h-full items-center gap-x-3.5 pt-1 lg:gap-0 lg:pt-0 md:hidden">
             {MENUS.header.map(({ text, content, to }, index) => (
               <li
                 className="relative"

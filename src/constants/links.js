@@ -84,6 +84,9 @@ export default {
   customers: {
     to: '/customers',
   },
+  mcp: {
+    to: '/mcp',
+  },
 
   // Dashboard
   dashboard: {
