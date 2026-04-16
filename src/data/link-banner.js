@@ -1,8 +1,8 @@
 const bannerData = {
-  text: 'Novu is also available for EU Data residency',
-  url: 'https://go.novu.co/eu-dashboard',
+  text: 'Novu MCP is live - connect your AI agents in minutes',
+  url: '/mcp',
   isActive: true,
-  linkText: 'Sign Up',
+  linkText: 'Read more',
 };
 
 export default bannerData;
