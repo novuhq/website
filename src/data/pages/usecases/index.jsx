@@ -116,7 +116,7 @@ const IN_APP_NOTIFICATIONS = {
     <div
       className={clsx(
         imageSharedClassName,
-        'h-[1007px] w-[1107px] -translate-x-[calc(50%-73px)] -translate-y-[calc(50%+156px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]'
+        'h-[1007px] w-[1106px] -translate-x-[calc(50%-73px)] -translate-y-[calc(50%+156px)] md:h-auto md:w-[1000px] sm:w-[130%] xs:w-[150%]'
       )}
     >
       <StaticImage
@@ -124,7 +124,7 @@ const IN_APP_NOTIFICATIONS = {
         src="../../../images/pages/usecases/index/application/illustration.png"
         alt="Add notifications to your application"
         loading="lazy"
-        width={1107}
+        width={1106}
         height={1007}
       />
     </div>
