@@ -136,6 +136,7 @@ const Link = ({
     '/dpa',
     '/privacy',
     '/terms',
+    '/copilot',
     '/mcp',
   ];
   const isProxiedPath =

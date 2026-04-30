@@ -84,6 +84,9 @@ export default {
   customers: {
     to: '/customers',
   },
+  copilot: {
+    to: '/copilot',
+  },
   mcp: {
     to: '/mcp',
   },
