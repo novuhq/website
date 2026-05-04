@@ -34,6 +34,7 @@ const Dropdown = ({ isOpen, label, content, changelog, post }) => (
             'before:absolute before:-top-1.5 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
             label === 'Product' &&
               'min-w-[515px] before:left-[59px] lg:-left-[22px] lg:before:left-[60px]',
+            label === 'AI' && 'min-w-[190px] before:left-[31px]',
             label === 'Resources' &&
               'min-w-[515px] before:left-[53px] lg:-left-1.5 lg:before:left-[54px]',
             label === 'Docs' && 'min-w-[434px] before:left-[50px]'
@@ -55,14 +56,16 @@ const Dropdown = ({ isOpen, label, content, changelog, post }) => (
                 )}
                 key={index}
               >
-                <p
-                  className={clsx(
-                    'mb-4 text-sm leading-none -tracking-[0.01em] text-[#909090]',
-                    label === 'Product' && 'mb-5'
-                  )}
-                >
-                  {title}
-                </p>
+                {title !== 'AI' && (
+                  <p
+                    className={clsx(
+                      'mb-4 text-sm leading-none -tracking-[0.01em] text-[#909090]',
+                      label === 'Product' && 'mb-5'
+                    )}
+                  >
+                    {title}
+                  </p>
+                )}
                 {items && items.length > 0 && (
                   <ul className="mt-auto flex flex-col gap-y-3">
                     {items.map(({ text, ...linkProps }, index) => (

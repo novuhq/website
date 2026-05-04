@@ -35,7 +35,18 @@ const MENUS = {
         },
       ],
     },
-    { text: 'Novu MCP', ...LINKS.mcp },
+    {
+      text: 'AI',
+      content: [
+        {
+          title: 'AI',
+          items: [
+            { text: 'Novu Copilot', ...LINKS.copilot },
+            { text: 'Novu MCP', ...LINKS.mcp },
+          ],
+        },
+      ],
+    },
     {
       text: 'Resources',
       content: [
@@ -125,9 +136,14 @@ const MENUS = {
             isNew: false,
           },
           {
+            label: 'Novu Copilot',
+            href: LINKS.copilot.to,
+            isNew: true,
+          },
+          {
             label: 'Novu MCP',
             href: LINKS.mcp.to,
-            isNew: true,
+            isNew: false,
           },
         ],
       },

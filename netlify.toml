@@ -157,6 +157,18 @@
   force = true
 
 [[redirects]]
+  from = "/copilot"
+  to = "https://website-new-murex.vercel.app/copilot/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/copilot/*"
+  to = "https://website-new-murex.vercel.app/copilot/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/mcp"
   to = "https://website-new-murex.vercel.app/mcp/"
   status = 200
