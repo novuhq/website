@@ -8,6 +8,7 @@ import useCookie from 'react-use/lib/useCookie';
 import Button from 'components/shared/button';
 import { FORM_ID, UTM_PARAMS } from 'constants/forms';
 import CheckIcon from 'images/check.inline.svg';
+import { identifyKnownVisitor } from 'utils/common-room-signals';
 
 import codeDots from './images/code-dots.svg';
 import LoadingIcon from './images/loading.inline.svg';
@@ -114,6 +115,7 @@ const SubscribeForm = ({
           }),
         });
         if (response.ok) {
+          identifyKnownVisitor({ email: value });
           doNowOrAfterSomeTime(() => {
             setFormState(STATES.SUCCESS);
             setValue('Thanks for subscribing!');
@@ -230,7 +232,7 @@ const SubscribeForm = ({
                 exit="exit"
                 variants={appearAndExitAnimationVariants}
               >
-                <LoadingIcon className="h-6 w-6 animate-spin" />
+                <LoadingIcon className="animate-spin h-6 w-6" />
               </m.div>
             )}
             {formState === STATES.SUCCESS && (

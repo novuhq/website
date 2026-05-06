@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 import { useEffect } from 'react';
 
+import { identifyHubspotFormSubmission } from 'utils/common-room-signals';
 import injectScript from 'utils/inject-script';
 
 const formScriptSrc = 'https://js.hsforms.net/forms/v2.js';
@@ -9,6 +10,7 @@ const formPortalId = process.env.GATSBY_HUBSPOT_FORM_PORTAL_ID;
 export const initForm = async (element, onFormHandles) => {
   await injectScript(formScriptSrc);
   const formId = element.getAttribute('data-form-id');
+  const { onFormSubmitted, ...formHandles } = onFormHandles || {};
 
   const interval = setInterval(() => {
     if (window.hbspt) {
@@ -16,7 +18,14 @@ export const initForm = async (element, onFormHandles) => {
         portalId: formPortalId,
         formId,
         target: `div[data-form-id='${formId}']`,
-        ...onFormHandles,
+        ...formHandles,
+        onFormSubmitted: (form, submissionData) => {
+          identifyHubspotFormSubmission(form, submissionData);
+
+          if (typeof onFormSubmitted === 'function') {
+            onFormSubmitted(form, submissionData);
+          }
+        },
       });
       clearInterval(interval);
     }
