@@ -7,6 +7,32 @@ const SCRIPT_URI = '/js/script.js';
 exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
   const headComponents = [
     <script
+      key="commonroom-signals"
+      dangerouslySetInnerHTML={{
+        __html: `
+          (function() {
+            if (typeof window === 'undefined') return;
+            if (typeof window.signals !== 'undefined') return;
+            var script = document.createElement('script');
+            script.src = 'https://cdn.cr-relay.com/v1/site/0920027a-a266-4a1c-8af9-6308f7b961bd/signals.js';
+            script.async = true;
+            window.signals = Object.assign(
+              [],
+              { _opts: { apiHost: 'https://api.cr-relay.com' } },
+              ['page', 'identify', 'form'].reduce(function (acc, method){
+                acc[method] = function () {
+                  signals.push([method, arguments]);
+                  return signals;
+                };
+               return acc;
+              }, {})
+            );
+            document.head.appendChild(script);
+          })();
+        `,
+      }}
+    />,
+    <script
       key="plain-live-chat"
       dangerouslySetInnerHTML={{
         __html: `

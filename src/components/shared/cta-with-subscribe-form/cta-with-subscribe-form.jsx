@@ -230,7 +230,7 @@ const SubscribeForm = ({
                 exit="exit"
                 variants={appearAndExitAnimationVariants}
               >
-                <LoadingIcon className="h-6 w-6 animate-spin" />
+                <LoadingIcon className="animate-spin h-6 w-6" />
               </m.div>
             )}
             {formState === STATES.SUCCESS && (
