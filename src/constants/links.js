@@ -90,6 +90,9 @@ export default {
   mcp: {
     to: '/mcp',
   },
+  connect: {
+    to: '/connect',
+  },
 
   // Dashboard
   dashboard: {

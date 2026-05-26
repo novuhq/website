@@ -138,6 +138,7 @@ const Link = ({
     '/terms',
     '/copilot',
     '/mcp',
+    '/connect',
   ];
   const isProxiedPath =
     to &&

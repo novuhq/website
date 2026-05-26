@@ -95,7 +95,7 @@
   to = "https://website-new-murex.vercel.app/customers/:splat"
   status = 200
   force = true
-  
+
 [[redirects]]
   from = "/next-sitemap*"
   to = "https://website-new-murex.vercel.app/next-sitemap:splat"
@@ -177,5 +177,11 @@
 [[redirects]]
   from = "/mcp/*"
   to = "https://website-new-murex.vercel.app/mcp/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/connect"
+  to = "https://website-new-murex.vercel.app/connect/"
   status = 200
   force = true
