@@ -6,8 +6,8 @@ import LINKS from 'constants/links';
 import blobImage from './images/blob.jpg';
 
 const Connect = () => (
-  <section className="connect safe-paddings overflow-hidden pb-[168px] pt-[140px] lg:pb-[140px] lg:pt-28 md:pb-[120px] md:pt-24 sm:pb-[104px] sm:pt-20">
-    <div className="mx-auto flex w-full max-w-[1170px] items-center justify-between gap-x-20 xl:px-8 lg:gap-x-10 md:max-w-xl md:flex-col md:justify-start md:px-7 md:text-center sm:px-5">
+  <section className="connect safe-paddings overflow-hidden pb-[168px] pt-[140px] lg:pb-[140px] lg:pt-28 md:pb-[120px] md:pt-24 sm:pb-20 sm:pt-[104px]">
+    <div className="mx-auto flex w-full max-w-[1170px] items-center justify-between gap-x-20 xl:px-8 lg:max-w-[1032px] lg:gap-x-10 md:max-w-xl md:flex-col md:justify-start md:px-7 md:text-center sm:px-5">
       <div className="relative z-10 flex w-full max-w-[482px] flex-col items-start gap-8 xl:max-w-[442px] lg:max-w-[386px] md:max-w-[482px] md:items-center">
         <div className="flex w-full flex-col items-start gap-5 md:items-center">
           <div className="flex items-center gap-2">
@@ -20,7 +20,7 @@ const Connect = () => (
             <h2 className="text-[48px] font-medium leading-denser tracking-snug text-white lg:text-5xl md:text-[36px] sm:text-[32px] xs:text-3xl">
               Connect AI agents to every channel your team uses
             </h2>
-            <p className="text-base font-book leading-normal tracking-snug text-gray-8 sm:text-[15px]">
+            <p className="text-base font-book leading-normal tracking-snug text-gray-8">
               Plug Claude Managed Agents into Slack, Email, Discord, and more. Start from ready-made
               templates and launch agent workflows for product updates, approvals, alerts, and
               support in minutes.
@@ -28,10 +28,20 @@ const Connect = () => (
           </div>
         </div>
         <div className="flex items-center gap-7 xs:w-full xs:flex-col xs:items-stretch xs:gap-3">
-          <Button className="!px-5" size="sm" theme="white-filled" to={LINKS.connect.to}>
+          <Button
+            className="!px-5 sm:h-10 sm:text-xs"
+            size="sm"
+            theme="white-filled"
+            to={LINKS.connect.to}
+          >
             Explore Novu Connect
           </Button>
-          <Button size="sm" theme="gray-outline" to={`${LINKS.connect.to}#video`}>
+          <Button
+            className="sm:h-10 sm:px-5 sm:text-xs"
+            size="sm"
+            theme="gray-outline"
+            to={`${LINKS.connect.to}#video`}
+          >
             Watch 30 sec video
           </Button>
         </div>

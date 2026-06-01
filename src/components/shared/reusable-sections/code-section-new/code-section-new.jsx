@@ -148,7 +148,7 @@ const CodeSectionNew = ({
         </p>
         {button && (
           <Button
-            className="mt-8"
+            className={clsx('mt-8', button.className)}
             theme={button.theme || 'gray-outline'}
             size="sm"
             to={button.link}
@@ -173,6 +173,7 @@ CodeSectionNew.propTypes = {
     rel: PropTypes.string,
     target: PropTypes.string,
     theme: PropTypes.oneOf(['gray-outline', 'white-filled']),
+    className: PropTypes.string,
   }),
   code: PropTypes.string.isRequired,
   codeBlockPosition: PropTypes.oneOf(['left', 'right']),

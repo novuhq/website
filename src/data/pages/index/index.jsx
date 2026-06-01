@@ -65,6 +65,9 @@ import nextjsIcon from 'images/pages/home-new/inbox/nextjs.svg';
 import reactIcon from 'images/pages/home-new/inbox/react.svg';
 import remixIcon from 'images/pages/home-new/inbox/remix.svg';
 
+const HOME_BUTTON_ADAPTIVE_CLASS_NAME = 'sm:h-10 sm:px-5 sm:text-xs';
+const HOME_CTA_BUTTON_ADAPTIVE_CLASS_NAME = 'sm:!h-10 sm:!px-5 sm:!text-xs';
+
 const CUSTOMERS = {
   title: 'Notifications brands count on',
   description: 'Ensuring seamless notifications from business to users, with zero hassle.',
@@ -329,6 +332,7 @@ const PART_OF_YOUR_STACK = {
   button: {
     label: 'Get started',
     link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+    className: HOME_BUTTON_ADAPTIVE_CLASS_NAME,
   },
   theme: 'imageRight',
   image: (
@@ -353,6 +357,7 @@ const SCALE_TO_CODE = {
   button: {
     label: 'Learn More',
     link: '/framework',
+    className: HOME_BUTTON_ADAPTIVE_CLASS_NAME,
   },
   isPriorityImageLoading: true,
   code: `import { workflow } from '@novu/framework';
@@ -387,10 +392,12 @@ const CTA = {
   leftItem: {
     text: 'Get started',
     link: 'https://dashboard.novu.co/?utm_campaign=gs-website-inbox',
+    className: HOME_CTA_BUTTON_ADAPTIVE_CLASS_NAME,
   },
   rightItem: {
     text: 'Pricing',
     link: '/pricing',
+    className: HOME_CTA_BUTTON_ADAPTIVE_CLASS_NAME,
   },
 };
 
