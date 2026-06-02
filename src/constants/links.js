@@ -90,6 +90,9 @@ export default {
   mcp: {
     to: '/mcp',
   },
+  bookADemo: {
+    to: '/book-a-demo',
+  },
   connect: {
     to: '/connect',
   },
