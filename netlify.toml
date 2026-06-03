@@ -4,6 +4,10 @@
 [functions]
   node_bundler = "esbuild"
 
+[[edge_functions]]
+  path = "/*"
+  function = "markdown"
+
 # [[redirects]]
 #   from = "/inbox/playground"
 #   to = "https://inbox.novu.co/inbox/playground"

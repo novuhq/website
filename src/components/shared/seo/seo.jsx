@@ -35,6 +35,8 @@ const SEO = ({
   const currentDescription = description ?? siteDescription;
   const pathname = slug || location.pathname || '/';
   const currentUrl = siteUrl + pathname;
+  const currentMarkdownUrl =
+    siteUrl + (pathname === '/' ? '/index.md' : `${pathname.replace(/\/$/, '')}.md`);
   const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
   const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 
@@ -46,6 +48,12 @@ const SEO = ({
       {/* General */}
       <meta name="description" content={currentDescription} />
       <link rel="canonical" href={currentCanonicalUrl} />
+      <link
+        rel="alternate"
+        type="text/markdown"
+        title="Markdown version"
+        href={currentMarkdownUrl}
+      />
       {keywords && <meta name="keywords" content={keywords} />}
       {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
       {/* Open Graph */}

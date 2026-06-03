@@ -1,2 +1,1 @@
-npx --no-install lint-staged --concurrent false
-
+npx --loglevel=error --no-install lint-staged --concurrent false
