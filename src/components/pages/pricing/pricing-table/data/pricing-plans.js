@@ -5,7 +5,7 @@ const PLANS = {
   free: {
     title: 'Free',
     linkText: 'GET STARTED',
-    linkUrl: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free',
+    linkUrl: 'https://dashboard.novu.co/?utm_campaign=ws_pricing_table_free',
     linkTarget: '_blank',
     common: {},
     platform: {
@@ -74,7 +74,7 @@ const PLANS = {
   pro: {
     title: 'Pro',
     linkText: 'GET STARTED',
-    linkUrl: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_pro',
+    linkUrl: 'https://dashboard.novu.co/?utm_campaign=ws_pricing_table_pro',
     linkTarget: '_blank',
     common: {},
     platform: {
@@ -143,7 +143,7 @@ const PLANS = {
   team: {
     title: 'Team',
     linkText: 'GET STARTED',
-    linkUrl: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_team',
+    linkUrl: 'https://dashboard.novu.co/?utm_campaign=ws_pricing_table_team',
     linkTarget: '_blank',
     common: {},
     platform: {
