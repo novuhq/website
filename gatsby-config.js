@@ -191,6 +191,13 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify',
       options: {
         headers: {
+          '/': [
+            'Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="describedby", </auth.md>; rel="describedby", <https://docs.novu.co/api-reference>; rel="service-doc", <https://docs.novu.co/platform/openapi.json>; rel="service-desc"',
+          ],
+          '/.well-known/api-catalog': [
+            'Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"',
+            'Cache-Control: public, max-age=3600',
+          ],
           '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
           '/lottie-assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
           '/animations/*': ['Cache-Control: public, max-age=31536000, immutable'],
