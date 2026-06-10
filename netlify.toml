@@ -97,6 +97,12 @@
   force = true
 
 [[redirects]]
+  from = "/robots.txt"
+  to = "https://website-new-murex.vercel.app/robots.txt"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/next-sitemap*"
   to = "https://website-new-murex.vercel.app/next-sitemap:splat"
   status = 200
