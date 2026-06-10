@@ -221,8 +221,3 @@
   to = "https://website-new-murex.vercel.app/.well-known/api-catalog"
   status = 200
   force = true
-
-[[headers]]
-  for = "/"
-  [headers.values]
-    Link = '</.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="describedby", </agents.md>; rel="describedby", </auth.md>; rel="describedby", <https://docs.novu.co/api-reference>; rel="service-doc", <https://api.novu.co/openapi.json>; rel="service-desc"'
