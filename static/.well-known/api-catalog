@@ -1,0 +1,55 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://novu.co/.well-known/api-catalog",
+      "item": [
+        { "href": "https://api.novu.co/v1" },
+        { "href": "https://eu.api.novu.co/v1" },
+        { "href": "https://mcp.novu.co/" }
+      ]
+    },
+    {
+      "anchor": "https://api.novu.co/v1",
+      "service-desc": [
+        {
+          "href": "https://api.novu.co/openapi.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://docs.novu.co/api-reference",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://eu.api.novu.co/v1",
+      "service-desc": [
+        {
+          "href": "https://eu.api.novu.co/openapi.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://docs.novu.co/api-reference",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "anchor": "https://mcp.novu.co/",
+      "service-doc": [
+        {
+          "href": "https://docs.novu.co/platform/build-with-ai/mcp",
+          "type": "text/html"
+        },
+        {
+          "href": "https://novu.co/mcp/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
