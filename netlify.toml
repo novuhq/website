@@ -199,6 +199,12 @@
   force = true
 
 [[redirects]]
+  from = "/auth.md"
+  to = "https://website-new-murex.vercel.app/auth.md"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/llms.txt"
   to = "https://website-new-murex.vercel.app/llms.txt"
   status = 200
