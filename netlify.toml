@@ -197,3 +197,9 @@
   to = "https://website-new-murex.vercel.app/agents.md"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/llms.txt"
+  to = "https://website-new-murex.vercel.app/llms.txt"
+  status = 200
+  force = true
