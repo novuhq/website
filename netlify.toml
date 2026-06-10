@@ -191,3 +191,9 @@
   to = "https://website-new-murex.vercel.app/connect/"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/agents.md"
+  to = "https://website-new-murex.vercel.app/agents.md"
+  status = 200
+  force = true
