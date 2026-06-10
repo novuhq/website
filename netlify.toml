@@ -217,6 +217,12 @@
   force = true
 
 [[redirects]]
+  from = "/.well-known/api-catalog"
+  to = "https://website-new-murex.vercel.app/.well-known/api-catalog"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/.well-known/agent-skills/*"
   to = "https://website-new-murex.vercel.app/.well-known/agent-skills/:splat"
   status = 200
