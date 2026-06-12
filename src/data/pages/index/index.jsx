@@ -68,6 +68,18 @@ import remixIcon from 'images/pages/home-new/inbox/remix.svg';
 const HOME_BUTTON_ADAPTIVE_CLASS_NAME = 'sm:h-10 sm:px-5 sm:text-xs';
 const HOME_CTA_BUTTON_ADAPTIVE_CLASS_NAME = 'sm:!h-10 sm:!px-5 sm:!text-xs';
 
+const ACI = {
+  label: 'The missing agent-user layer',
+  title: 'ACI',
+  subtitle: 'Agent Communication Infrastructure',
+  description:
+    'Defining the missing agent-to-user communication layer — and the best-practices that come with it. One layer between every app, every channel, and every smart agent.',
+  button: {
+    label: 'Learn more',
+    link: '/connect',
+  },
+};
+
 const CUSTOMERS = {
   title: 'Notifications brands count on',
   description: 'Ensuring seamless notifications from business to users, with zero hassle.',
@@ -402,6 +414,7 @@ const CTA = {
 };
 
 export default {
+  aci: ACI,
   customers: CUSTOMERS,
   copyAndShip: COPY_AND_SHIP,
   inboxBatteries: INBOX_BATTERIES,
