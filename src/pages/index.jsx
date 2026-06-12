@@ -3,6 +3,7 @@ import React from 'react';
 import EmailEditor from 'components/pages/home/email-editor';
 import Hero from 'components/pages/home/hero';
 import Reviews from 'components/pages/home/reviews';
+import ACI from 'components/pages/home-new/aci';
 import Bento from 'components/pages/home-new/bento';
 import CodeWithInbox from 'components/pages/home-new/code-with-inbox/code-with-inbox';
 import Community from 'components/pages/home-new/community';
@@ -22,6 +23,7 @@ const HomePage = () => (
     <Hero />
     <SectionWithLogosAnimated {...DATA.customers} className="!mb-0" />
     <Connect />
+    <ACI {...DATA.aci} />
     <CodeWithInbox {...DATA.copyAndShip} className="!mt-0" />
     <Bento {...DATA.inboxBatteries} />
     <SectionWithSmallIcons

@@ -6,7 +6,7 @@ import LINKS from 'constants/links';
 import blobImage from './images/blob.jpg';
 
 const Connect = () => (
-  <section className="connect safe-paddings overflow-hidden pb-[168px] pt-[140px] lg:pb-[140px] lg:pt-28 md:pb-[120px] md:pt-24 sm:pb-20 sm:pt-[104px]">
+  <section className="connect safe-paddings overflow-hidden pb-[110px] pt-[140px] lg:pb-[90px] lg:pt-28 md:pb-[80px] md:pt-24 sm:pb-16 sm:pt-[104px]">
     <div className="mx-auto flex w-full max-w-[1170px] items-center justify-between gap-x-20 xl:px-8 lg:max-w-[1032px] lg:gap-x-10 md:max-w-xl md:flex-col md:justify-start md:px-7 md:text-center sm:px-5">
       <div className="relative z-10 flex w-full max-w-[482px] flex-col items-start gap-8 xl:max-w-[442px] lg:max-w-[386px] md:max-w-[482px] md:items-center">
         <div className="flex w-full flex-col items-start gap-5 md:items-center">
