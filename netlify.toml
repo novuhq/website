@@ -193,6 +193,12 @@
   force = true
 
 [[redirects]]
+  from = "/book-a-demo-connect"
+  to = "https://website-new-novuhq.vercel.app/book-a-demo-connect/"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/connect"
   to = "https://website-new-murex.vercel.app/connect/"
   status = 200
