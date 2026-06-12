@@ -6,11 +6,11 @@ import Button from 'components/shared/button';
 import heroIllustrationMobile from './images/image-mobile.png';
 import heroIllustration from './images/image.png';
 
-const ACI = ({ label, title, subtitle, description, button }) => (
-  <section className="integrations-hero safe-paddings overflow-hidden pb-[196px] pt-40 xl:pt-[94px] lg:pb-[126px] md:pb-0 md:pt-0">
+const ACI = ({ label, title, description, button }) => (
+  <section className="integrations-hero safe-paddings overflow-hidden pb-[196px] pt-40 xl:pt-[210px] lg:pb-[126px] md:pb-0 md:pt-0">
     <div className="mx-auto w-full max-w-[1216px] px-8 sm:px-5">
-      <div className="grid grid-cols-2 gap-24 xl:gap-12 lg:gap-6 md:grid-cols-1 md:gap-0">
-        <div className="relative z-10 flex flex-col items-start gap-7 md:items-center md:gap-8">
+      <div className="grid grid-cols-2 gap-[132px] xl:gap-12 lg:gap-6 md:grid-cols-1 md:gap-0">
+        <div className="relative z-10 order-2 flex flex-col items-start gap-7 md:order-1 md:items-center md:gap-8">
           <div className="flex flex-col items-start md:items-center">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 shrink-0 bg-primary-1" aria-hidden />
@@ -18,12 +18,9 @@ const ACI = ({ label, title, subtitle, description, button }) => (
                 {label}
               </span>
             </div>
-            <h1 className="mt-6 bg-[linear-gradient(75deg,#FFFDFF_1.28%,#FFDDBA_13.96%,#FCAE9C_25.25%,#EB47E0_48.76%,#B028EC_70.43%,#4F32F0_97.17%)] bg-clip-text text-[168px] font-medium leading-denser tracking-tighter text-transparent lg:text-[112px] sm:text-[96px]">
+            <h2 className="mt-5 text-[48px] font-medium leading-denser tracking-tighter lg:text-[40px] md:text-center md:text-[32px] sm:text-[28px]">
               {title}
-            </h1>
-            <p className="text-[28px] font-medium leading-denser tracking-tighter md:mt-1 md:text-center sm:text-2xl">
-              {subtitle}
-            </p>
+            </h2>
             <p className="mt-4 max-w-[524px] text-base font-book leading-normal tracking-tighter text-gray-8 md:max-w-[480px] md:text-center md:text-lg sm:text-base">
               {description}
             </p>
@@ -38,10 +35,10 @@ const ACI = ({ label, title, subtitle, description, button }) => (
           </Button>
         </div>
         <div
-          className="pointer-events-none relative min-h-[520px] w-full md:-mt-60 md:min-h-0 sm:-mt-[100px]"
+          className="pointer-events-none relative order-1 min-h-[520px] w-full md:order-2 md:-mt-60 md:min-h-0 sm:-mt-[100px]"
           aria-hidden
         >
-          <div className="desktop absolute left-1/2 top-1/2 aspect-[1073/1021] w-[1073px] -translate-x-[calc(50%+94px)] -translate-y-1/2 xl:w-[1000px] lg:w-[914px] md:hidden">
+          <div className="desktop absolute left-1/2 top-1/2 aspect-[1073/1021] w-[974px] -translate-x-[calc(50%+100px)] -translate-y-[calc(50%+80px)] xl:w-[1000px] lg:w-[914px] md:hidden">
             <img
               src={heroIllustration}
               alt=""
@@ -70,7 +67,6 @@ const ACI = ({ label, title, subtitle, description, button }) => (
 ACI.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,

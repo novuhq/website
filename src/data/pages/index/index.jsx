@@ -70,8 +70,7 @@ const HOME_CTA_BUTTON_ADAPTIVE_CLASS_NAME = 'sm:!h-10 sm:!px-5 sm:!text-xs';
 
 const ACI = {
   label: 'The missing agent-user layer',
-  title: 'ACI',
-  subtitle: 'Agent Communication Infrastructure',
+  title: 'Agent Communication Infrastructure',
   description:
     'Defining the missing agent-to-user communication layer — and the best-practices that come with it. One layer between every app, every channel, and every smart agent.',
   button: {
