@@ -6,10 +6,10 @@ import useLandingSimpleTracking from 'utils/use-landing-simple-tracking';
 
 import Animation from './animation';
 
-const TITLE = 'The <Inbox /> infrastructure for modern products';
+const TITLE = 'The communication infrastructure for agents and products';
 
 const DESCRIPTION =
-  'The notification platform that turns complex multi-channel delivery into a single <Inbox /> component. Built for developers, designed for growth, powered by open source.';
+  'One platform to connect your products and your agents to every channel your users live on: Inbox, Email, SMS, Push, Chat, Slack, Microsoft Teams, Telegram, and more.';
 
 const Hero = () => (
   <section className="hero relative pt-[88px] lg:pt-16 md:pt-11 sm:pt-9">
