@@ -52,7 +52,7 @@ const TextWithPicture = ({
           </p>
           {button && theme !== 'imageFullWidth' && (
             <Button
-              className="mt-8 md:mt-6 sm:mt-5"
+              className={clsx('mt-8 md:mt-6 sm:mt-5', button.className)}
               theme="gray-outline"
               size="sm"
               to={button.link}
@@ -66,7 +66,7 @@ const TextWithPicture = ({
         <div className={clsx(imageClassName, 'pointer-events-none')}>{image}</div>
         {button && theme === 'imageFullWidth' && (
           <Button
-            className="mt-9 md:mt-8 sm:mt-6"
+            className={clsx('mt-9 md:mt-8 sm:mt-6', button.className)}
             theme="gray-outline"
             size="sm"
             to={button.link}
@@ -94,6 +94,7 @@ TextWithPicture.propTypes = {
     link: PropTypes.string.isRequired,
     rel: PropTypes.string,
     target: PropTypes.string,
+    className: PropTypes.string,
   }),
   theme: PropTypes.oneOf(['imageLeft', 'imageRight', 'imageFullWidth']),
 };

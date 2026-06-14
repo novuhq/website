@@ -36,7 +36,7 @@ const InboxComponent = () => {
   };
 
   return (
-    <div className="inbox-component relative h-[619px] w-[608px] shrink-0 lg:h-[546px] lg:w-[531px] md:h-[529px] md:w-[512px] sm:order-last sm:aspect-[380/387] sm:h-auto sm:w-full sm:max-w-[398px]">
+    <div className="inbox-component relative h-[619px] w-[608px] shrink-0 lg:h-[546px] lg:w-[531px] md:mx-auto md:h-[529px] md:w-[512px] sm:order-last sm:aspect-[380/387] sm:h-auto sm:w-full sm:max-w-[398px]">
       <LazyMotion features={domAnimation}>
         {inboxData.map((data, index) => (
           <AnimatePresence mode="wait">
@@ -53,7 +53,7 @@ const InboxComponent = () => {
           </AnimatePresence>
         ))}
       </LazyMotion>
-      <div className="absolute top-[calc(100%+30px)] flex items-center justify-center lg:top-[calc(100%+26px)] md:top-[calc(100%+22px)] sm:top-[calc(100%+30px)]">
+      <div className="absolute inset-x-0 top-[calc(100%+30px)] flex items-center justify-center lg:top-[calc(100%+26px)] md:top-[calc(100%+22px)] sm:top-[calc(100%+30px)]">
         <Slider
           className={clsx(
             'flex max-w-[608px] transition-opacity duration-300 lg:max-w-[531px] md:max-w-[512px] sm:mx-auto sm:max-w-[398px] sm:self-center sm-xs:max-w-[calc(100vw-40px)]',
