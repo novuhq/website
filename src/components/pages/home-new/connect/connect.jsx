@@ -40,7 +40,9 @@ const Connect = () => (
             className="sm:h-10 sm:px-5 sm:text-xs"
             size="sm"
             theme="gray-outline"
-            to={`${LINKS.connect.to}#video`}
+            to="https://youtu.be/R7lqlCSoVsM"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Watch 30 sec video
           </Button>
