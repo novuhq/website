@@ -18,7 +18,7 @@ const Connect = () => (
           </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-[48px] font-medium leading-denser tracking-snug text-white lg:text-5xl md:text-[36px] sm:text-[32px] xs:text-3xl">
-              Connect AI agents to every channel your team uses
+              Connect AI agents to every channel your customer uses
             </h2>
             <p className="text-base font-book leading-normal tracking-snug text-gray-8">
               Plug Claude Managed Agents into Slack, Email, Discord, and more. Start from ready-made
