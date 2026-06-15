@@ -93,6 +93,9 @@ export default {
   connect: {
     to: '/connect',
   },
+  aci: {
+    to: '/aci',
+  },
 
   // Dashboard
   dashboard: {

@@ -140,6 +140,7 @@ const Link = ({
     '/mcp',
     '/book-a-demo',
     '/connect',
+    '/aci',
   ];
   const isProxiedPath =
     to &&
