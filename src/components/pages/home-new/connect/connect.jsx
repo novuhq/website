@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Button from 'components/shared/button';
 import Modal from 'components/shared/modal';
+import ProductHuntBadge from 'components/shared/product-hunt-badge';
 import LINKS from 'constants/links';
 import CloseIcon from 'icons/close.inline.svg';
 
@@ -66,6 +67,11 @@ const Connect = () => {
               Watch 30 sec video
             </Button>
           </div>
+          <ProductHuntBadge
+            linkProps={{
+              'aria-label': 'Featured on Product Hunt',
+            }}
+          />
         </div>
         <img
           className="block h-auto w-[608px] max-w-full shrink-0 xl:w-[560px] lg:w-[500px] md:mt-14 md:w-[480px] sm:mt-6 sm:w-[420px] xs:w-[360px] 2xs:w-[320px]"
