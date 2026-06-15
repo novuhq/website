@@ -9,6 +9,18 @@ import ProductHuntIcon from 'icons/product-hunt.inline.svg';
 const DEFAULT_PRODUCT_HUNT_LAUNCH_URL =
   'https://www.producthunt.com/products/novu/launches/novu-connect';
 
+const getSafeRel = (target, rel) => {
+  if (target !== '_blank') {
+    return rel;
+  }
+
+  const relTokens = new Set((rel || '').split(/\s+/).filter(Boolean));
+  relTokens.add('noopener');
+  relTokens.add('noreferrer');
+
+  return Array.from(relTokens).join(' ');
+};
+
 const LinkInlineArrow = ({ className = null, lineClassName = null }) => (
   <span
     className={clsx(
@@ -40,6 +52,7 @@ const ProductHuntBadge = ({
     target = '_blank',
     ...productHuntLinkProps
   } = linkProps;
+  const safeRel = getSafeRel(target, rel);
 
   return (
     <span
@@ -56,7 +69,7 @@ const ProductHuntBadge = ({
           linkClassName
         )}
         href={href}
-        rel={rel}
+        rel={safeRel}
         target={target}
         {...productHuntLinkProps}
       >
