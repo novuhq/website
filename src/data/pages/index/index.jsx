@@ -75,7 +75,7 @@ const ACI = {
     'Defining the missing agent-to-user communication layer — and the best-practices that come with it. One layer between every app, every channel, and every smart agent.',
   button: {
     label: 'Learn more',
-    link: '/connect',
+    link: '/aci',
   },
 };
 
