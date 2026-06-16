@@ -48,7 +48,7 @@ const getPricingData = (rangeValue) => [
     buttons: {
       default: {
         text: 'Try Novu for Free',
-        url: { to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_free' },
+        url: { to: 'https://dashboard.novu.co/?utm_campaign=ws_pricing_table_free' },
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {
             packageType: 'Free',
@@ -89,7 +89,7 @@ const getPricingData = (rangeValue) => [
       default: {
         text: 'Try Novu For Free',
         url: {
-          to: 'https://dashboard.novu.co/auth/sign-up?utm_campaign=ws_pricing_table_business',
+          to: 'https://dashboard.novu.co/?utm_campaign=ws_pricing_table_business',
         },
         onClick: () =>
           window?.analytics?.track('Pricing Event: Click the CTA Button on the card', {

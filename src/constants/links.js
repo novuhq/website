@@ -106,11 +106,11 @@ export default {
     target: '_blank',
   },
   dashboardV2SignUp: {
-    to: 'https://dashboard.novu.co/auth/sign-up',
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
   dashboardV2SignIn: {
-    to: 'https://dashboard.novu.co/auth/sign-in',
+    to: 'https://dashboard.novu.co',
     target: '_blank',
   },
 
