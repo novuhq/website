@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 const MARKDOWN_CONTENT_TYPE = 'text/markdown; charset=utf-8';
 const HTML_ACCEPT = 'text/html,application/xhtml+xml';
 
@@ -5,6 +7,8 @@ const STATIC_MARKDOWN_PATHS = new Set(['/auth.md', '/sitemap.md', '/llms.txt']);
 
 const NON_PAGE_EXTENSION_RE =
   /\.(?:avif|css|csv|gif|heic|ico|jpeg|jpg|js|json|map|mjs|mp3|mp4|pdf|png|riv|svg|txt|wasm|webm|webmanifest|woff2?|xml)$/i;
+
+const SAFE_LINK_PROTOCOLS = new Set(['http:', 'https:', 'mailto:', 'tel:']);
 
 const BLOCK_TAGS = [
   'address',
@@ -29,7 +33,7 @@ const BLOCK_TAGS = [
   'summary',
 ];
 
-const ENTITY_MAP: Record<string, string> = {
+const ENTITY_MAP = {
   amp: '&',
   apos: "'",
   gt: '>',
@@ -38,93 +42,34 @@ const ENTITY_MAP: Record<string, string> = {
   quot: '"',
 };
 
-type NetlifyContext = {
-  next: () => Promise<Response>;
-};
-
-export default async function markdown(request: Request, context: NetlifyContext) {
-  if (request.method !== 'GET' && request.method !== 'HEAD') {
-    return context.next();
-  }
-
-  const requestUrl = new URL(request.url);
-  const isMarkdownPath = requestUrl.pathname.endsWith('.md');
-  const wantsMarkdown = acceptsMarkdown(request.headers.get('accept'));
-
-  if (STATIC_MARKDOWN_PATHS.has(requestUrl.pathname)) {
-    return context.next();
-  }
-
-  if (!isMarkdownPath && !wantsMarkdown) {
-    return context.next();
-  }
-
-  if (!isMarkdownPath && NON_PAGE_EXTENSION_RE.test(requestUrl.pathname)) {
-    return context.next();
-  }
-
-  const pageUrl = new URL(request.url);
-
-  if (isMarkdownPath) {
-    pageUrl.pathname = markdownPathToPagePath(requestUrl.pathname);
-  }
-
-  const headers = new Headers(request.headers);
-  headers.set('accept', HTML_ACCEPT);
-
-  const pageResponse = await fetch(pageUrl, {
-    headers,
-    method: 'GET',
-    redirect: 'follow',
-  });
-
-  const contentType = pageResponse.headers.get('content-type') || '';
-
-  if (!pageResponse.ok || !contentType.includes('text/html')) {
-    if (isMarkdownPath) {
-      return new Response('Markdown representation is not available for this resource.\n', {
-        status: pageResponse.ok ? 404 : pageResponse.status,
-        headers: {
-          'content-type': MARKDOWN_CONTENT_TYPE,
-        },
-      });
-    }
-
-    return context.next();
-  }
-
-  const html = await pageResponse.text();
-  const markdownBody = htmlToMarkdown(html, pageUrl);
-  const responseHeaders = new Headers();
-  responseHeaders.set('content-type', MARKDOWN_CONTENT_TYPE);
-  responseHeaders.set('vary', 'Accept');
-
-  const cacheControl = pageResponse.headers.get('cache-control');
-  if (cacheControl) {
-    responseHeaders.set('cache-control', cacheControl);
-  }
-
-  return new Response(request.method === 'HEAD' ? null : markdownBody, {
-    status: 200,
-    headers: responseHeaders,
-  });
-}
-
-function acceptsMarkdown(accept: string | null) {
+function acceptsMarkdown(accept) {
   if (!accept) {
     return false;
   }
 
-  return accept
-    .toLowerCase()
-    .split(',')
-    .some((part) => {
-      const mediaType = part.split(';')[0].trim();
-      return mediaType === 'text/markdown' || mediaType === 'text/x-markdown';
+  return accept.split(',').some((entry) => {
+    const [rawMediaType, ...parameters] = entry.split(';');
+    const mediaType = rawMediaType.trim().toLowerCase();
+
+    if (mediaType !== 'text/markdown' && mediaType !== 'text/x-markdown') {
+      return false;
+    }
+
+    const qualityParameter = parameters.find((parameter) => {
+      const [name] = parameter.split('=');
+      return name.trim().toLowerCase() === 'q';
     });
+
+    if (!qualityParameter) {
+      return true;
+    }
+
+    const quality = Number(qualityParameter.slice(qualityParameter.indexOf('=') + 1).trim());
+    return Number.isFinite(quality) && quality > 0 && quality <= 1;
+  });
 }
 
-function markdownPathToPagePath(pathname: string) {
+function markdownPathToPagePath(pathname) {
   const withoutMarkdownExtension = pathname.replace(/\.md$/i, '');
 
   if (
@@ -138,7 +83,72 @@ function markdownPathToPagePath(pathname: string) {
   return withoutMarkdownExtension;
 }
 
-function htmlToMarkdown(html: string, sourceUrl: URL) {
+function pagePathToMarkdownPath(pathname) {
+  const normalizedPath = pathname.replace(/\/$/, '');
+
+  if (!normalizedPath) {
+    return '/index.md';
+  }
+
+  if (normalizedPath.endsWith('.md')) {
+    return normalizedPath;
+  }
+
+  return `${normalizedPath}.md`;
+}
+
+function isValidCodePoint(codePoint) {
+  return (
+    Number.isInteger(codePoint) &&
+    codePoint > 0 &&
+    codePoint <= 0x10ffff &&
+    (codePoint < 0xd800 || codePoint > 0xdfff)
+  );
+}
+
+function decodeHtml(value) {
+  return value.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (match, entity) => {
+    const normalizedEntity = entity.toLowerCase();
+
+    if (normalizedEntity.startsWith('#x')) {
+      const codePoint = Number.parseInt(normalizedEntity.slice(2), 16);
+      return isValidCodePoint(codePoint) ? String.fromCodePoint(codePoint) : match;
+    }
+
+    if (normalizedEntity.startsWith('#')) {
+      const codePoint = Number.parseInt(normalizedEntity.slice(1), 10);
+      return isValidCodePoint(codePoint) ? String.fromCodePoint(codePoint) : match;
+    }
+
+    return ENTITY_MAP[normalizedEntity] || match;
+  });
+}
+
+function normalizeHref(href, sourceUrl) {
+  let url;
+  try {
+    url = new URL(href, sourceUrl);
+  } catch {
+    return null;
+  }
+
+  if (!SAFE_LINK_PROTOCOLS.has(url.protocol)) {
+    return null;
+  }
+
+  if (url.protocol === 'mailto:' || url.protocol === 'tel:') {
+    return url.toString();
+  }
+
+  if (url.origin !== sourceUrl.origin || NON_PAGE_EXTENSION_RE.test(url.pathname)) {
+    return url.toString();
+  }
+
+  url.pathname = pagePathToMarkdownPath(url.pathname);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function htmlToMarkdown(html, sourceUrl) {
   const title = decodeHtml(extractFirstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i)).trim();
   const description = decodeHtml(
     extractFirstMatch(
@@ -167,7 +177,7 @@ function htmlToMarkdown(html: string, sourceUrl: URL) {
   return normalizeMarkdown(lines.filter(Boolean).join('\n\n'));
 }
 
-function extractPageContent(html: string) {
+function extractPageContent(html) {
   const main = extractFirstMatch(html, /<main\b[^>]*>([\s\S]*?)<\/main>/i);
   if (main) {
     return main;
@@ -181,9 +191,9 @@ function extractPageContent(html: string) {
   return extractFirstMatch(html, /<body\b[^>]*>([\s\S]*?)<\/body>/i) || html;
 }
 
-function convertHtmlFragmentToMarkdown(html: string, sourceUrl: URL) {
+function convertHtmlFragmentToMarkdown(html, sourceUrl) {
   let markdown = html;
-  const codeBlocks: string[] = [];
+  const codeBlocks = [];
 
   markdown = markdown
     .replace(/<!--[\s\S]*?-->/g, '')
@@ -215,16 +225,17 @@ function convertHtmlFragmentToMarkdown(html: string, sourceUrl: URL) {
   markdown = markdown.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi, (_match, attrs, textHtml) => {
     const text = cleanInlineText(convertHtmlFragmentToMarkdown(textHtml, sourceUrl));
     const href = extractAttribute(attrs, 'href');
+    const normalizedHref = href ? normalizeHref(href, sourceUrl) : null;
 
     if (!text) {
       return '';
     }
 
-    if (!href || href.startsWith('#') || href.startsWith('javascript:')) {
+    if (!normalizedHref) {
       return text;
     }
 
-    return `[${escapeMarkdownLinkText(text)}](${normalizeHref(href, sourceUrl)})`;
+    return `[${escapeMarkdownLinkText(text)}](${normalizedHref})`;
   });
 
   markdown = markdown
@@ -273,24 +284,24 @@ function convertHtmlFragmentToMarkdown(html: string, sourceUrl: URL) {
   return normalizeMarkdown(decodeHtml(markdown));
 }
 
-function extractFirstMatch(value: string, regex: RegExp) {
+function extractFirstMatch(value, regex) {
   return value.match(regex)?.[1] || '';
 }
 
-function extractAttribute(attrs: string, name: string) {
+function extractAttribute(attrs, name) {
   const match = attrs.match(new RegExp(`${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
   return match?.[2] ? decodeHtml(match[2]).trim() : '';
 }
 
-function stripTags(html: string) {
+function stripTags(html) {
   return html.replace(/<[^>]+>/g, '');
 }
 
-function cleanInlineText(markdown: string) {
+function cleanInlineText(markdown) {
   return normalizeMarkdown(markdown).replace(/\n+/g, ' ').trim();
 }
 
-function normalizeMarkdown(markdown: string) {
+function normalizeMarkdown(markdown) {
   return markdown
     .replace(/\r\n?/g, '\n')
     .replace(/[ \t]+\n/g, '\n')
@@ -301,61 +312,23 @@ function normalizeMarkdown(markdown: string) {
     .concat('\n');
 }
 
-function decodeHtml(value: string) {
-  return value.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (_match, entity) => {
-    const normalizedEntity = entity.toLowerCase();
-
-    if (normalizedEntity.startsWith('#x')) {
-      return String.fromCodePoint(parseInt(normalizedEntity.slice(2), 16));
-    }
-
-    if (normalizedEntity.startsWith('#')) {
-      return String.fromCodePoint(parseInt(normalizedEntity.slice(1), 10));
-    }
-
-    return ENTITY_MAP[normalizedEntity] || `&${entity};`;
-  });
-}
-
-function normalizeHref(href: string, sourceUrl: URL) {
-  if (/^(?:mailto|tel):/i.test(href)) {
-    return href;
-  }
-
-  let url: URL;
-  try {
-    url = new URL(href, sourceUrl);
-  } catch {
-    return href;
-  }
-
-  if (url.origin !== sourceUrl.origin || NON_PAGE_EXTENSION_RE.test(url.pathname)) {
-    return url.toString();
-  }
-
-  url.pathname = pagePathToMarkdownPath(url.pathname);
-  return `${url.pathname}${url.search}${url.hash}`;
-}
-
-function pagePathToMarkdownPath(pathname: string) {
-  const normalizedPath = pathname.replace(/\/$/, '');
-
-  if (!normalizedPath) {
-    return '/index.md';
-  }
-
-  if (normalizedPath.endsWith('.md')) {
-    return normalizedPath;
-  }
-
-  return `${normalizedPath}.md`;
-}
-
-function startsWithHeading(markdown: string, title: string) {
+function startsWithHeading(markdown, title) {
   const firstLine = markdown.trim().split('\n')[0] || '';
   return firstLine.replace(/^#+\s+/, '').trim() === title;
 }
 
-function escapeMarkdownLinkText(text: string) {
+function escapeMarkdownLinkText(text) {
   return text.replace(/([\\[\]])/g, '\\$1');
 }
+
+module.exports = {
+  HTML_ACCEPT,
+  MARKDOWN_CONTENT_TYPE,
+  NON_PAGE_EXTENSION_RE,
+  STATIC_MARKDOWN_PATHS,
+  acceptsMarkdown,
+  decodeHtml,
+  htmlToMarkdown,
+  markdownPathToPagePath,
+  normalizeHref,
+};
