@@ -138,7 +138,9 @@ const Link = ({
     '/terms',
     '/copilot',
     '/mcp',
+    '/book-a-demo',
     '/connect',
+    '/aci',
   ];
   const isProxiedPath =
     to &&

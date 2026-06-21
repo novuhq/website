@@ -43,6 +43,7 @@ const MENUS = {
           items: [
             { text: 'Novu Copilot', ...LINKS.copilot },
             { text: 'Novu MCP', ...LINKS.mcp },
+            { text: 'Novu ACI', ...LINKS.aci },
           ],
         },
       ],
@@ -138,12 +139,17 @@ const MENUS = {
           {
             label: 'Novu Copilot',
             href: LINKS.copilot.to,
-            isNew: true,
+            isNew: false,
           },
           {
             label: 'Novu MCP',
             href: LINKS.mcp.to,
             isNew: false,
+          },
+          {
+            label: 'Novu ACI',
+            href: LINKS.aci.to,
+            isNew: true,
           },
         ],
       },

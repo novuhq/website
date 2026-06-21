@@ -3,8 +3,9 @@ const React = require('react');
 const SITE_DOMAIN = 'novu.co';
 const PLAUSIBLE_DOMAIN = 'plausible.io';
 const SCRIPT_URI = '/js/script.js';
+const GTM_ID = 'GTM-KXMC4XP2';
 
-exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
+exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes, setPreBodyComponents }) => {
   const headComponents = [
     <script
       key="commonroom-signals"
@@ -76,6 +77,27 @@ exports.onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
         }}
       />
     );
+
+    // Google Tag Manager - server-rendered so the tag is present in the initial
+    // HTML on every page (detectable by Tag Assistant, and fires earlier/more
+    // reliably than a client-side <Script>). Previously lived in seo.jsx.
+    headComponents.push(
+      <script
+        key="gtm-head"
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
+        }}
+      />
+    );
+
+    setPreBodyComponents([
+      <noscript
+        key="gtm-noscript"
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />,
+    ]);
   }
 
   setHeadComponents(headComponents);

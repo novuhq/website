@@ -3,9 +3,11 @@ import React from 'react';
 import EmailEditor from 'components/pages/home/email-editor';
 import Hero from 'components/pages/home/hero';
 import Reviews from 'components/pages/home/reviews';
+import ACI from 'components/pages/home-new/aci';
 import Bento from 'components/pages/home-new/bento';
 import CodeWithInbox from 'components/pages/home-new/code-with-inbox/code-with-inbox';
 import Community from 'components/pages/home-new/community';
+import Connect from 'components/pages/home-new/connect';
 import Layout from 'components/shared/layout';
 import CodeSectionNew from 'components/shared/reusable-sections/code-section-new';
 import CtaWithForm from 'components/shared/reusable-sections/cta-with-form/cta-with-form';
@@ -19,8 +21,10 @@ import DATA from 'data/pages/index';
 const HomePage = () => (
   <Layout mainClassName="reusable-components overflow-hidden pt-16 bg-[#05050B]">
     <Hero />
-    <SectionWithLogosAnimated {...DATA.customers} />
-    <CodeWithInbox {...DATA.copyAndShip} />
+    <SectionWithLogosAnimated {...DATA.customers} className="!mb-0" />
+    <Connect />
+    <ACI {...DATA.aci} />
+    <CodeWithInbox {...DATA.copyAndShip} className="!mt-0" />
     <Bento {...DATA.inboxBatteries} />
     <SectionWithSmallIcons
       {...DATA.channels}

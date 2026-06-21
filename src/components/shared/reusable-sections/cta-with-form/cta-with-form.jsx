@@ -118,7 +118,7 @@ const CtaWithForm = ({
             <div className="flex gap-x-7 sm:gap-x-5">
               {leftItem.text && (
                 <Button
-                  className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
+                  className={clsx('px-5 2xs:h-10 2xs:px-4 2xs:text-xs', leftItem.className)}
                   theme="white-filled"
                   size="sm"
                   to={leftItem.link}
@@ -130,7 +130,7 @@ const CtaWithForm = ({
               )}
               {rightItem && rightItem.text && (
                 <Button
-                  className="px-5 2xs:h-10 2xs:px-4 2xs:text-xs"
+                  className={clsx('px-5 2xs:h-10 2xs:px-4 2xs:text-xs', rightItem.className)}
                   theme="gray-outline"
                   size="sm"
                   to={rightItem.isContactButton && onContactUsClick ? null : rightItem.link}
@@ -168,6 +168,7 @@ CtaWithForm.propTypes = {
     link: PropTypes.string,
     rel: PropTypes.string,
     target: PropTypes.string,
+    className: PropTypes.string,
   }).isRequired,
   rightItem: PropTypes.shape({
     text: PropTypes.string.isRequired,
@@ -175,6 +176,7 @@ CtaWithForm.propTypes = {
     rel: PropTypes.string,
     target: PropTypes.string,
     isContactButton: PropTypes.bool,
+    className: PropTypes.string,
   }).isRequired,
   onContactUsClick: PropTypes.func,
   contactSource: PropTypes.string,

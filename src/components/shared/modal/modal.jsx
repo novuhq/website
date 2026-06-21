@@ -26,12 +26,13 @@ const styles = {
   },
 };
 
-const Modal = ({ className, isOpen, children, closeModal, theme }) => (
+const Modal = ({ className, isOpen, children, closeModal, theme, contentLabel }) => (
   <ReactModal
     style={customStyles}
     className={clsx(styles.base, styles.theme[theme], className)}
     bodyOpenClassName="overflow-hidden touch-none"
     isOpen={isOpen}
+    contentLabel={contentLabel}
     ariaHideApp={false}
     closeTimeoutMS={200}
     shouldCloseOnOverlayClick
@@ -47,11 +48,13 @@ Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   theme: PropTypes.oneOf(Object.keys(styles.theme)),
+  contentLabel: PropTypes.string,
 };
 
 Modal.defaultProps = {
   className: null,
   theme: 'gradient',
+  contentLabel: null,
 };
 
 export default Modal;

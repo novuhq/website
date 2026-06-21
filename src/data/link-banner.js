@@ -1,8 +1,8 @@
 const bannerData = {
-  text: 'Novu MCP is live - connect your AI agents in minutes',
-  url: '/mcp',
+  text: 'New: Novu Connect is live. Give your AI agent access to every channel in a single conversation.',
+  url: '/connect',
   isActive: true,
-  linkText: 'Read more',
+  linkText: 'Try it free',
 };
 
 export default bannerData;
