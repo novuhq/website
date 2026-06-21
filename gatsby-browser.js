@@ -64,19 +64,20 @@ function forwardUtmToSignupLinks() {
   });
 }
 
-// Register a single, app-wide listener for successful Cal.com bookings.
-//
-// Why this is needed: Cal.com renders the booking flow inside an app.cal.com
-// iframe and fires its own tracking from *that* origin, so it cannot read the
-// novu.co Google Ads cookie (gclid) and every booking lands as "direct" /
-// unattributed. By listening for Cal.com's `bookingSuccessful` event here, the
-// conversion is pushed to the dataLayer from the parent novu.co context, where
-// GTM (server-rendered) and the Ads conversion linker can attribute it to the
-// originating ad click. One namespace-level listener covers every booking
-// surface and fires exactly once per booking.
+/**
+ * Register a single, app-wide listener for successful Cal.com bookings.
+ *
+ * Why this is needed: Cal.com renders the booking flow inside an app.cal.com
+ * iframe and fires its own tracking from that origin, so it cannot read the
+ * novu.co Google Ads cookie (gclid) and every booking lands as "direct" /
+ * unattributed. By listening for Cal.com's `bookingSuccessful` event here, the
+ * conversion is pushed to the dataLayer from the parent novu.co context, where
+ * GTM (server-rendered) and the Ads conversion linker can attribute it to the
+ * originating ad click. One namespace-level listener covers every booking
+ * surface and fires exactly once per booking.
+ */
 async function initDemoBookingTracking() {
   if (demoBookingTrackingInitialized) return;
-  demoBookingTrackingInitialized = true;
 
   try {
     const { getCalApi } = await import('@calcom/embed-react');
@@ -97,15 +98,22 @@ async function initDemoBookingTracking() {
         });
       },
     });
+
+    // Mark initialized only after the listener is successfully registered, so a
+    // failed attempt (e.g. embed import error) doesn't permanently disable
+    // tracking and can be retried on a later page load.
+    demoBookingTrackingInitialized = true;
   } catch {
     // Cal.com embed unavailable; nothing to track.
   }
 }
 
+/**
+ * Gatsby client-entry hook. Registers the demo-booking listener once, deferred
+ * to idle so loading the Cal embed never competes with first render. A booking
+ * takes many seconds to complete, so the listener is always ready in time.
+ */
 export const onClientEntry = () => {
-  // Defer until idle so loading the Cal embed never competes with first render.
-  // A booking takes many seconds to complete, so the listener is always ready
-  // well before any `bookingSuccessful` fires.
   const start = () => initDemoBookingTracking();
   if (typeof window.requestIdleCallback === 'function') {
     window.requestIdleCallback(start, { timeout: 3000 });
