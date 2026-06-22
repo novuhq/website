@@ -2,9 +2,11 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 
 const { createMarkdownMiddleware } = require('../gatsby/markdown-middleware');
+const getPageUrls = require('../src/utils/get-page-urls');
 const {
   HTML_ACCEPT,
   MARKDOWN_CONTENT_TYPE,
+  STATIC_MARKDOWN_PATHS,
   acceptsMarkdown,
   decodeHtml,
   htmlToMarkdown,
@@ -83,6 +85,39 @@ test('maps index and nested markdown paths to HTML page paths', () => {
   assert.equal(markdownPathToPagePath('/index.md'), '/');
   assert.equal(markdownPathToPagePath('/inbox.md'), '/inbox');
   assert.equal(markdownPathToPagePath('/customers/acme.md'), '/customers/acme');
+});
+
+test('bypasses static and proxied agent markdown files', () => {
+  assert.equal(STATIC_MARKDOWN_PATHS.has('/agents.md'), true);
+  assert.equal(STATIC_MARKDOWN_PATHS.has('/auth.md'), true);
+  assert.equal(STATIC_MARKDOWN_PATHS.has('/sitemap.md'), true);
+});
+
+test('normalizes current, canonical, and markdown alternate URLs', () => {
+  assert.deepEqual(
+    getPageUrls({
+      canonical: 'https://novu.co/customers/',
+      pathname: 'https://novu.co/legacy-customers/',
+      siteUrl: 'https://novu.co',
+    }),
+    {
+      currentCanonicalUrl: 'https://novu.co/customers/',
+      currentMarkdownUrl: 'https://novu.co/customers.md',
+      currentUrl: 'https://novu.co/legacy-customers/',
+    }
+  );
+
+  assert.deepEqual(
+    getPageUrls({
+      pathname: '/',
+      siteUrl: 'https://novu.co',
+    }),
+    {
+      currentCanonicalUrl: 'https://novu.co/',
+      currentMarkdownUrl: 'https://novu.co/index.md',
+      currentUrl: 'https://novu.co/',
+    }
+  );
 });
 
 test('respects markdown Accept q-values', () => {

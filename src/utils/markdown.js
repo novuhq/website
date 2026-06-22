@@ -3,7 +3,7 @@
 const MARKDOWN_CONTENT_TYPE = 'text/markdown; charset=utf-8';
 const HTML_ACCEPT = 'text/html,application/xhtml+xml';
 
-const STATIC_MARKDOWN_PATHS = new Set(['/auth.md', '/sitemap.md', '/llms.txt']);
+const STATIC_MARKDOWN_PATHS = new Set(['/agents.md', '/auth.md', '/sitemap.md', '/llms.txt']);
 
 const NON_PAGE_EXTENSION_RE =
   /\.(?:avif|css|csv|gif|heic|ico|jpeg|jpg|js|json|map|mjs|mp3|mp4|pdf|png|riv|svg|txt|wasm|webm|webmanifest|woff2?|xml)$/i;
