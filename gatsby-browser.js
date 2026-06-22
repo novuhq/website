@@ -3,6 +3,9 @@ import './src/styles/main.css';
 const UTM_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid', 'ttclid', 'wbraid'];
 const SIGNUP_HOST = 'dashboard.novu.co';
 
+const CAL_NAMESPACE = 'novu-meeting';
+let demoBookingTrackingInitialized = false;
+
 function getStoredUtmParams() {
   try {
     const stored = sessionStorage.getItem('novu_utm_params');
@@ -58,6 +61,41 @@ function forwardUtmToSignupLinks() {
     }
   });
 }
+
+async function initDemoBookingTracking() {
+  if (demoBookingTrackingInitialized) return;
+
+  const { getCalApi } = await import('@calcom/embed-react');
+  const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+
+  cal('on', {
+    action: 'bookingSuccessful',
+    callback: () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'demo_booked',
+        demo_booking: {
+          source: 'cal.com',
+          namespace: CAL_NAMESPACE,
+          ...getStoredUtmParams(),
+        },
+      });
+    },
+  });
+
+  demoBookingTrackingInitialized = true;
+}
+
+export const onClientEntry = () => {
+  const start = () => {
+    initDemoBookingTracking().catch(() => {});
+  };
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(start, { timeout: 3000 });
+  } else {
+    window.setTimeout(start, 2000);
+  }
+};
 
 export const onRouteUpdate = () => {
   if (process.env.NODE_ENV === 'production' && typeof window.plausible !== 'undefined') {
