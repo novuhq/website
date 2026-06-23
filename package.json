@@ -19,6 +19,7 @@
     "lint:js:fix": "eslint --fix --ext .js,.jsx --ignore-path .gitignore .",
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "lint:md:fix": "markdownlint --fix --ignore-path .gitignore .",
+    "test:markdown": "node --test tests/markdown.test.js",
     "prepare": "husky install"
   },
   "dependencies": {

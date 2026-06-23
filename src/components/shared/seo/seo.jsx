@@ -3,6 +3,8 @@ import { graphql, Script, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useLocation } from 'react-use';
 
+import getPageUrls from 'utils/get-page-urls';
+
 const SEO = ({
   title,
   description,
@@ -34,9 +36,12 @@ const SEO = ({
   const currentTitle = title ?? siteTitle;
   const currentDescription = description ?? siteDescription;
   const pathname = slug || location.pathname || '/';
-  const currentUrl = siteUrl + pathname;
+  const { currentCanonicalUrl, currentMarkdownUrl, currentUrl } = getPageUrls({
+    canonical,
+    pathname,
+    siteUrl,
+  });
   const currentImagePath = ogImage ? siteUrl + ogImage : siteUrl + siteImage;
-  const currentCanonicalUrl = canonical ? siteUrl + canonical : currentUrl;
 
   const isRobotsNoindexPage = preventIndexing && preventIndexing !== 'index';
 
@@ -46,6 +51,12 @@ const SEO = ({
       {/* General */}
       <meta name="description" content={currentDescription} />
       <link rel="canonical" href={currentCanonicalUrl} />
+      <link
+        rel="alternate"
+        type="text/markdown"
+        title="Markdown version"
+        href={currentMarkdownUrl}
+      />
       {keywords && <meta name="keywords" content={keywords} />}
       {isRobotsNoindexPage && <meta name="robots" content="noindex" />}
       {/* Open Graph */}

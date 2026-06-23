@@ -4,6 +4,7 @@ const path = require('path');
 const fetch = require('node-fetch');
 const slash = require('slash');
 
+const { createMarkdownMiddleware } = require('./gatsby/markdown-middleware');
 const redirects = require('./redirects.json');
 const {
   fetchRepositories,
@@ -286,6 +287,10 @@ exports.createPages = async (args) => {
   // await createPodcastPage(params);
   // await createPodcastDetailPages(params);
   await createContributorsPage(params);
+};
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(createMarkdownMiddleware());
 };
 
 exports.onCreateNode = require('./gatsby/on-create-node');
