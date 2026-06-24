@@ -1,4 +1,13 @@
-import markdownUtils from '../../src/utils/markdown.js';
+/* global globalThis */
+
+// eslint-disable-next-line import/extensions
+import '../../src/utils/markdown.js';
+
+const markdownUtils = globalThis.novuMarkdownUtils;
+
+if (!markdownUtils) {
+  throw new Error('Markdown utilities failed to load.');
+}
 
 const {
   HTML_ACCEPT,

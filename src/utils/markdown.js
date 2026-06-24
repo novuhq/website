@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define */
+/* global globalThis */
 
 const MARKDOWN_CONTENT_TYPE = 'text/markdown; charset=utf-8';
 const HTML_ACCEPT = 'text/html,application/xhtml+xml';
@@ -321,7 +322,7 @@ function escapeMarkdownLinkText(text) {
   return text.replace(/([\\[\]])/g, '\\$1');
 }
 
-module.exports = {
+const markdownUtils = {
   HTML_ACCEPT,
   MARKDOWN_CONTENT_TYPE,
   NON_PAGE_EXTENSION_RE,
@@ -332,3 +333,9 @@ module.exports = {
   markdownPathToPagePath,
   normalizeHref,
 };
+
+globalThis.novuMarkdownUtils = markdownUtils;
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = markdownUtils;
+}
