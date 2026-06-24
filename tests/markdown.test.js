@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const { readFile } = require('node:fs/promises');
 const { test } = require('node:test');
 
 const { createMarkdownMiddleware } = require('../gatsby/markdown-middleware');
@@ -133,6 +134,21 @@ test('keeps invalid numeric HTML entities without throwing', () => {
     'bad: &#9999999999; &#xFFFFFFFF; &#xD800;'
   );
   assert.equal(decodeHtml('valid: &#65; &#x42;'), 'valid: A B');
+});
+
+test('loads markdown utilities as a Deno-compatible side-effect ESM module', async () => {
+  const source = await readFile(require.resolve('../src/utils/markdown.js'), 'utf8');
+  const moduleUrl = `data:text/javascript;base64,${Buffer.from(
+    `${source}\nexport default globalThis.novuMarkdownUtils;`
+  ).toString('base64')}`;
+  const { default: edgeMarkdownUtils } = await import(moduleUrl);
+
+  assert.equal(edgeMarkdownUtils.MARKDOWN_CONTENT_TYPE, MARKDOWN_CONTENT_TYPE);
+  assert.equal(edgeMarkdownUtils.markdownPathToPagePath('/inbox.md'), '/inbox');
+  assert.match(
+    edgeMarkdownUtils.htmlToMarkdown(PAGE_HTML, new URL('https://novu.co/inbox')),
+    /# Inbox/
+  );
 });
 
 test('drops unsafe link targets and preserves allowed protocols', () => {
