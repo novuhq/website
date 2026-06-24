@@ -1,4 +1,4 @@
-import markdownUtils from '../../src/utils/markdown';
+import markdownUtils from '../../src/utils/markdown.js';
 
 const {
   HTML_ACCEPT,
