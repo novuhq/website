@@ -53,7 +53,36 @@
     "/*.webp",
     "/*.woff",
     "/*.woff2",
-    "/*.xml"
+    "/*.xml",
+    "/blog",
+    "/blog/*",
+    "/changelog",
+    "/changelog/*",
+    "/customers",
+    "/customers/*",
+    "/comparison/*",
+    "/integrations",
+    "/integrations/*",
+    "/copilot",
+    "/copilot/*",
+    "/mcp",
+    "/mcp/*",
+    "/pricing",
+    "/pricing.md",
+    "/book-a-demo",
+    "/book-a-demo.md",
+    "/book-a-demo-connect",
+    "/book-a-demo-connect.md",
+    "/connect",
+    "/connect.md",
+    "/aci",
+    "/aci.md",
+    "/dpa",
+    "/dpa.md",
+    "/privacy",
+    "/privacy.md",
+    "/terms",
+    "/terms.md"
   ]
 
 # [[redirects]]
@@ -289,5 +318,89 @@
 [[redirects]]
   from = "/.well-known/agent-skills/*"
   to = "https://website-new-murex.vercel.app/.well-known/agent-skills/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pricing.md"
+  to = "https://website-new-murex.vercel.app/pricing.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog.md"
+  to = "https://website-new-murex.vercel.app/blog.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/changelog.md"
+  to = "https://website-new-murex.vercel.app/changelog.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/customers.md"
+  to = "https://website-new-murex.vercel.app/customers.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/integrations.md"
+  to = "/integrations/channels.md"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/copilot.md"
+  to = "https://website-new-murex.vercel.app/copilot.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/mcp.md"
+  to = "https://website-new-murex.vercel.app/mcp.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/book-a-demo.md"
+  to = "https://website-new-murex.vercel.app/book-a-demo.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/book-a-demo-connect.md"
+  to = "https://website-new-novuhq.vercel.app/book-a-demo-connect.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/connect.md"
+  to = "https://website-new-murex.vercel.app/connect.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/aci.md"
+  to = "https://website-new-murex.vercel.app/aci.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/dpa.md"
+  to = "https://website-new-murex.vercel.app/dpa.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/privacy.md"
+  to = "https://website-new-murex.vercel.app/privacy.md"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/terms.md"
+  to = "https://website-new-murex.vercel.app/terms.md"
   status = 200
   force = true
