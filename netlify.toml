@@ -103,6 +103,20 @@
 #   status = 200
 #   force = true
 
+# Docs redirect
+
+[[redirects]]
+  from = "/docs"
+  to = "https://docs.novu.co/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/*"
+  to = "https://docs.novu.co/:splat"
+  status = 301
+  force = true
+
 # New website
 
 [[redirects]]

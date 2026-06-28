@@ -118,5 +118,17 @@
   {
     "fromPath": "/timeline/",
     "toPath": "/"
+  },
+  {
+    "fromPath": "/docs/",
+    "toPath": "https://docs.novu.co/",
+    "statusCode": 301,
+    "force": true
+  },
+  {
+    "fromPath": "/docs/*",
+    "toPath": "https://docs.novu.co/:splat",
+    "statusCode": 301,
+    "force": true
   }
 ]
