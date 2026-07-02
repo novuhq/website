@@ -128,8 +128,7 @@ export default {
     target: '_blank',
   },
   careers: {
-    to: 'https://careers.novu.co',
-    target: '_blank',
+    to: 'https://novu.co/careers',
   },
   trustPage: {
     to: 'https://trust.novu.co',
