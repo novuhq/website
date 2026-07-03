@@ -343,6 +343,30 @@
   force = true
 
 [[redirects]]
+  from = "/.well-known/integrations.json"
+  to = "https://website-new-murex.vercel.app/.well-known/integrations.json"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/openapi.json"
+  to = "https://api.novu.co/openapi.json"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/openapi.yaml"
+  to = "https://api.novu.co/openapi.yaml"
+  status = 308
+  force = true
+
+[[redirects]]
+  from = "/openapi.yml"
+  to = "https://api.novu.co/openapi.yaml"
+  status = 308
+  force = true
+
+[[redirects]]
   from = "/pricing.md"
   to = "https://website-new-murex.vercel.app/pricing.md"
   status = 200
