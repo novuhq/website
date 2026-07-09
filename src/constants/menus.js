@@ -44,6 +44,7 @@ const MENUS = {
             { text: 'Novu Copilot', ...LINKS.copilot },
             { text: 'Novu MCP', ...LINKS.mcp },
             { text: 'Novu ACI', ...LINKS.aci },
+            { text: 'Novu Connect', ...LINKS.connect },
           ],
         },
       ],
