@@ -64,6 +64,7 @@
     "/integrations",
     "/integrations/*",
     "/careers",
+    "/careers/*",
     "/copilot",
     "/copilot/*",
     "/mcp",
@@ -261,6 +262,12 @@
 [[redirects]]
   from = "/careers"
   to = "https://website-new-murex.vercel.app/careers/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/careers/*"
+  to = "https://website-new-murex.vercel.app/careers/:splat"
   status = 200
   force = true
 
