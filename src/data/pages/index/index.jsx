@@ -53,7 +53,6 @@ import UnopsLogo from 'images/customers/logo-unops.svg';
 import ValueLabsLogo from 'images/customers/logo-value-labs.svg';
 import VeridasLogo from 'images/customers/logo-veridas.svg';
 import VeritextLogo from 'images/customers/logo-veritext.svg';
-import WaltonEnterprisesLogo from 'images/customers/logo-walton-enterprises.svg';
 import WhoppahLogo from 'images/customers/logo-whoppah.svg';
 import bellOutlineIcon from 'images/icons/bell-outline.svg';
 import chatOutlineIcon from 'images/icons/chat-outline.svg';
@@ -230,10 +229,6 @@ const CUSTOMERS = {
       src: UnopsLogo,
       priority: 7, // High priority - appears first
       rowIndex: 0,
-    },
-    {
-      title: 'Walton Enterprises',
-      src: WaltonEnterprisesLogo,
     },
     {
       title: 'Whoppah',
