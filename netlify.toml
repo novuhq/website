@@ -122,8 +122,20 @@
 # New website
 
 [[redirects]]
+  from = "/"
+  to = "https://website-new-murex.vercel.app/"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/_next/*"
   to = "https://website-new-murex.vercel.app/_next/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/videos/*"
+  to = "https://website-new-murex.vercel.app/videos/:splat"
   status = 200
   force = true
 
