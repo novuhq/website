@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import Link from 'components/shared/link';
 import LINKS from 'constants/links';
 import ChevronRightIcon from 'icons/chevron-right.inline.svg';
+import ChannelsArrowRightIcon from 'icons/header/menu/channels-arrow-right.inline.svg';
 
 import IntegrationMenuIcon from '../integration-menu-icon';
 import MenuIcon from '../menu-icon';
@@ -136,6 +137,13 @@ const NestedMenu = ({ items, variant }) => {
             >
               <MenuIcon icon={menuIcon} />
               {text}
+              {variant === 'channels' && (
+                <ChannelsArrowRightIcon
+                  className="h-4 w-1.5 opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100"
+                  focusable="false"
+                  aria-hidden
+                />
+              )}
             </Link>
           </li>
         ))}
