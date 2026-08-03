@@ -96,6 +96,36 @@ export default {
   aci: {
     to: '/aci',
   },
+  channelSlack: {
+    to: '/channels/slack',
+  },
+  channelSlackLangchain: {
+    to: '/channels/slack/langchain',
+  },
+  channelWhatsApp: {
+    to: '/channels/whatsapp',
+  },
+  channelWhatsAppLangchain: {
+    to: '/channels/whatsapp/langchain',
+  },
+  channelTelegram: {
+    to: '/channels/telegram',
+  },
+  channelTelegramLangchain: {
+    to: '/channels/telegram/langchain',
+  },
+  channelMicrosoftTeams: {
+    to: '/channels/microsoft-teams',
+  },
+  channelMicrosoftTeamsLangchain: {
+    to: '/channels/microsoft-teams/langchain',
+  },
+  channelEmail: {
+    to: '/channels/email',
+  },
+  channelEmailLangchain: {
+    to: '/channels/email/langchain',
+  },
 
   // Dashboard
   dashboard: {
@@ -160,6 +190,10 @@ export default {
     to: 'https://github.com/novuhq/novu?utm_campaign=website',
     target: '_blank',
   },
+  githubSkills: {
+    to: 'https://github.com/novuhq/skills',
+    target: '_blank',
+  },
   pixelPoint: {
     to: 'https://pixelpoint.io/',
     target: '_blank',
@@ -171,6 +205,14 @@ export default {
     target: '_blank',
   },
   docsFramework: { to: 'https://docs.novu.co/framework/introduction', target: '_blank' },
+  docsMcp: {
+    to: 'https://docs.novu.co/platform/additional-resources/mcp',
+    target: '_blank',
+  },
+  docsCustomCode: {
+    to: 'https://docs.novu.co/agents/get-started/what-is-aci',
+    target: '_blank',
+  },
   docsWorkflow: { to: 'https://docs.novu.co/platform/workflow', target: '_blank' },
   docsInApp: {
     to: 'https://docs.novu.co/platform/inbox',

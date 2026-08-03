@@ -1,116 +1,156 @@
+import INTEGRATION_MENU_ITEMS from 'constants/integration-menu';
 import LINKS from 'constants/links.js';
 
 const MENUS = {
   header: [
     {
       text: 'Product',
+      variant: 'product',
       content: [
         {
-          title: 'Features',
           items: [
-            { text: 'Inbox Component', ...LINKS.inbox },
             {
-              text: 'User Preference',
-              ...LINKS.docsUserPreferences,
+              text: 'Novu Notify',
+              description: 'Notification center for your app',
+              ...LINKS.inbox,
             },
             {
-              text: 'Workflows',
-              ...LINKS.docsWorkflow,
+              text: 'Novu Connect',
+              description: 'Connect AI agents with customers',
+              ...LINKS.connect,
             },
-            {
-              text: 'Framework',
-              ...LINKS.framework,
-            },
-            { text: 'Digest', ...LINKS.digest },
-            {
-              text: 'Content Management',
-              ...LINKS.docsContentManagement,
-            },
-            { text: 'Integrations', ...LINKS.integrations },
           ],
         },
+      ],
+    },
+    {
+      text: 'Channels',
+      variant: 'channels',
+      content: [
         {
-          title: 'Changelog news',
-          type: 'changelog',
+          items: [
+            {
+              text: 'Slack',
+              menuIcon: 'slack',
+              ...LINKS.channelSlack,
+              children: [
+                {
+                  text: 'LangChain',
+                  menuIcon: 'langchain',
+                  ...LINKS.channelSlackLangchain,
+                },
+              ],
+            },
+            {
+              text: 'WhatsApp',
+              menuIcon: 'whatsapp',
+              ...LINKS.channelWhatsApp,
+              children: [
+                {
+                  text: 'LangChain',
+                  menuIcon: 'langchain',
+                  ...LINKS.channelWhatsAppLangchain,
+                },
+              ],
+            },
+            {
+              text: 'Telegram',
+              menuIcon: 'telegram',
+              ...LINKS.channelTelegram,
+              children: [
+                {
+                  text: 'LangChain',
+                  menuIcon: 'langchain',
+                  ...LINKS.channelTelegramLangchain,
+                },
+              ],
+            },
+            {
+              text: 'MS Teams',
+              menuIcon: 'teams',
+              ...LINKS.channelMicrosoftTeams,
+              children: [
+                {
+                  text: 'LangChain',
+                  menuIcon: 'langchain',
+                  ...LINKS.channelMicrosoftTeamsLangchain,
+                },
+              ],
+            },
+            {
+              text: 'Email',
+              menuIcon: 'email',
+              ...LINKS.channelEmail,
+              children: [
+                {
+                  text: 'LangChain',
+                  menuIcon: 'langchain',
+                  ...LINKS.channelEmailLangchain,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      text: 'Integrations',
+      variant: 'integrations',
+      content: [
+        {
+          items: INTEGRATION_MENU_ITEMS,
         },
       ],
     },
     {
       text: 'AI',
+      variant: 'ai',
       content: [
         {
-          title: 'AI',
           items: [
-            { text: 'Novu Copilot', ...LINKS.copilot },
-            { text: 'Novu MCP', ...LINKS.mcp },
-            { text: 'Novu ACI', ...LINKS.aci },
-            { text: 'Novu Connect', ...LINKS.connect },
+            { text: 'MCP', menuIcon: 'mcp', ...LINKS.mcp },
+            { text: 'Novu Copilot', menuIcon: 'copilot', ...LINKS.copilot },
+            { text: 'Novu ACI', menuIcon: 'aci', ...LINKS.aci },
+            { text: 'Skills', menuIcon: 'skills', ...LINKS.githubSkills },
           ],
         },
       ],
     },
     {
       text: 'Resources',
+      variant: 'resources',
       content: [
         {
-          title: 'Explore',
+          title: 'Discover',
           items: [
-            { text: 'Use cases', ...LINKS.useCases },
-            { text: 'Blog', ...LINKS.blog },
-            { text: 'Changelog', ...LINKS.changeLog },
-            { text: 'Roadmap', ...LINKS.roadmapPage },
-            { text: 'Directory', ...LINKS.directory },
-            { text: 'Support', ...LINKS.contactUs },
-            { text: 'Discord', ...LINKS.discord },
-            {
-              text: 'Security & Compliance',
-              ...LINKS.security,
-            },
+            { text: 'Blog', menuIcon: 'blog', ...LINKS.blog },
+            { text: 'Customers', menuIcon: 'customers', ...LINKS.customers },
+            { text: 'Community', menuIcon: 'community', ...LINKS.community },
+            { text: 'Changelog', menuIcon: 'changelog', ...LINKS.changeLog },
           ],
         },
         {
-          title: 'Latest post',
-          type: 'post',
-        },
-      ],
-    },
-    {
-      text: 'Docs',
-      content: [
-        {
-          title: 'Topics',
+          title: 'Developers',
           items: [
-            {
-              text: 'Documentation',
-              ...LINKS.docs,
-            },
-            { text: 'Guides', ...LINKS.docsGuides },
-            {
-              text: 'Framework',
-              ...LINKS.docsFramework,
-            },
-            {
-              text: 'API reference',
-              ...LINKS.docsApis,
-            },
-            { text: 'SDKs', ...LINKS.docsSdks },
+            { text: 'Documentation', menuIcon: 'documentation', ...LINKS.docs },
+            { text: 'API Reference', menuIcon: 'api', ...LINKS.docsApis },
+            { text: 'SDKs & Frameworks', menuIcon: 'sdks', ...LINKS.docsSdks },
+            { text: 'GitHub', menuIcon: 'github', ...LINKS.github },
           ],
         },
         {
-          title: 'Quickstart',
-          type: 'link',
-          content: {
-            title: 'Getting started',
-            description: 'This guide walks you through integrating Novu’s Inbox',
-            image: '/images/header/illustration-docs.jpg',
-            url: LINKS.docsOverview.to,
-          },
+          title: 'Company',
+          items: [
+            { text: 'About', menuIcon: 'about', ...LINKS.handbook },
+            { text: 'Careers', menuIcon: 'careers', ...LINKS.careers },
+            { text: 'Status', menuIcon: 'status', ...LINKS.statusPage },
+            { text: 'Contact us', menuIcon: 'contact', ...LINKS.contactUs },
+          ],
         },
       ],
     },
     { text: 'Customers', ...LINKS.customers },
     { text: 'Pricing', ...LINKS.pricing },
-    { text: 'Contact Us', ...LINKS.contactUs },
   ],
   footer: {
     main: [

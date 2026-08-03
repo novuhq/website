@@ -141,6 +141,7 @@ const Link = ({
     '/book-a-demo',
     '/connect',
     '/aci',
+    '/channels',
   ];
   const isProxiedPath =
     to &&
