@@ -1,114 +1,118 @@
-import { AnimatePresence, m, LazyMotion, domAnimation } from 'framer-motion';
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
+import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
 import React from 'react';
 
+import IntegrationMenuIcon from 'components/shared/header/integration-menu-icon';
+import MenuIcon from 'components/shared/header/menu-icon';
 import Link from 'components/shared/link';
-
-const ANIMATION_DURATION = 0.2;
+import ChevronRightIcon from 'icons/chevron-right.inline.svg';
 
 const variants = {
   hidden: {
     height: 0,
     opacity: 0,
-    transition: {
-      duration: ANIMATION_DURATION,
-    },
+    transition: { duration: 0.2 },
   },
   visible: {
     height: 'auto',
     opacity: 1,
-    transition: {
-      duration: ANIMATION_DURATION,
-    },
+    transition: { duration: 0.3 },
   },
 };
 
-const InnerContent = ({ title, description, url, image }) => (
-  <Link
-    className="group mt-8 block w-full max-w-[257px] sm-xs:max-w-none"
-    to={url}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50 bg-[linear-gradient(294deg,rgba(0,0,0,0)_45.36%,rgba(0,0,0,0.7)_126.53%),linear-gradient(120deg,rgba(0,0,0,0)_54.73%,rgba(0,0,0,0.8)_112.66%),linear-gradient(73deg,rgba(0,0,0,0)_17.56%,rgba(27,64,79,0.2)_79.95%),linear-gradient(252deg,rgba(29,23,50,0)_-8.69%,rgba(46,37,83,0.2)_100%),linear-gradient(180deg,#111427_0%,#0F122D_43.27%,#0F1223_100%)]">
-      <img src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
-    </div>
-    <p className="mt-3 line-clamp-2 font-medium leading-tight text-white group-hover:text-primary-1 group-focus-visible:text-primary-1">
-      {title}
-    </p>
-    <p className="mt-1.5 line-clamp-3 text-sm font-light leading-tight text-[#909090]">
-      {description}
-    </p>
-  </Link>
-);
-
-const InnerMenu = ({ openMenu, label, changelog, post }) => (
+const InnerMenu = ({ openMenu, label }) => (
   <LazyMotion features={domAnimation}>
-    <AnimatePresence>
+    <AnimatePresence initial={false}>
       {openMenu?.label === label && (
-        <m.div initial="hidden" animate="visible" exit="hidden" variants={variants}>
-          <ul className="relative z-20 -mt-1 pb-5 sm:mt-1">
-            {openMenu?.content.map(({ type, items, content }, index) => (
-              <li key={index}>
+        <m.div
+          className="overflow-hidden"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={variants}
+        >
+          <div className="grid gap-8 pb-6 pt-2.5">
+            {openMenu.content.map(({ title, items }, groupIndex) => (
+              <div className="min-w-0" key={title || groupIndex}>
+                {title && (
+                  <p className="mb-4 text-xs font-medium uppercase text-[#707280]">{title}</p>
+                )}
                 {items && items.length > 0 && (
-                  <ul className="mt-auto flex flex-col gap-y-3">
-                    {items.map(({ text, ...linkProps }, index) => (
-                      <li key={index}>
-                        <Link
-                          className="font-light leading-none opacity-90 hover:opacity-100 focus-visible:opacity-100"
-                          size="base"
-                          theme="gray-11"
-                          {...linkProps}
-                          tabIndex={0}
-                        >
-                          {text}
-                        </Link>
-                      </li>
-                    ))}
+                  <ul className="flex flex-col gap-y-5">
+                    {items.map(
+                      ({ text, to, target, menuIcon, description, children, remainingCount }) => (
+                        <li key={text}>
+                          {children?.length ? (
+                            <>
+                              <Link
+                                className="group flex w-full items-start gap-3 font-normal leading-none text-[#E0E1E5] outline-none focus-visible:text-white"
+                                to={to}
+                                target={target}
+                              >
+                                <MenuIcon className="mt-px" icon={menuIcon} />
+                                <span>{text}</span>
+                              </Link>
+                              <ul className="mt-3 flex flex-col gap-y-3">
+                                {children.map((child) => (
+                                  <li key={child.text}>
+                                    <Link
+                                      className="flex items-center gap-2.5 text-sm font-normal leading-none text-[#A3A6B2] outline-none transition-colors hover:text-white focus-visible:text-white"
+                                      to={child.to}
+                                      target={child.target}
+                                    >
+                                      <MenuIcon icon={child.menuIcon} />
+                                      <IntegrationMenuIcon icon={child.integrationIcon} />
+                                      {child.text}
+                                    </Link>
+                                  </li>
+                                ))}
+                                {Boolean(remainingCount) && (
+                                  <li>
+                                    <Link
+                                      className="flex items-center gap-1 text-sm font-normal leading-none text-[#A3A6B2] outline-none transition-colors hover:text-white focus-visible:text-white"
+                                      to={to}
+                                      target={target}
+                                    >
+                                      +{remainingCount} more
+                                      <ChevronRightIcon className="size-3.5" aria-hidden />
+                                    </Link>
+                                  </li>
+                                )}
+                              </ul>
+                            </>
+                          ) : (
+                            <Link
+                              className={
+                                openMenu.variant === 'product'
+                                  ? 'group flex w-full items-start gap-3 font-normal leading-none text-white outline-none'
+                                  : 'group flex w-full items-start gap-3 font-normal leading-none text-[#E0E1E5] outline-none hover:text-white focus-visible:text-white'
+                              }
+                              to={to}
+                              target={target}
+                            >
+                              <MenuIcon className="mt-px" icon={menuIcon} />
+                              <span>
+                                <span className="block">{text}</span>
+                                {description && (
+                                  <span className="mt-1.5 block text-sm leading-4 text-[#A3A6B2]">
+                                    {description}
+                                  </span>
+                                )}
+                              </span>
+                            </Link>
+                          )}
+                        </li>
+                      )
+                    )}
                   </ul>
                 )}
-                {type === 'changelog' && <InnerContent {...changelog} />}
-                {type === 'post' && <InnerContent {...post} />}
-                {type === 'link' && <InnerContent {...content} />}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </m.div>
       )}
     </AnimatePresence>
   </LazyMotion>
 );
-
-InnerMenu.propTypes = {
-  openMenu: PropTypes.shape({
-    items: PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
-      icon: PropTypes.string,
-      image: PropTypes.string,
-      to: PropTypes.string,
-      items: PropTypes.array,
-    }),
-    label: PropTypes.string,
-  }),
-  label: PropTypes.string,
-  changelog: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    url: PropTypes.string,
-    image: PropTypes.string,
-  }).isRequired,
-  post: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-    url: PropTypes.string,
-    image: PropTypes.string,
-  }).isRequired,
-};
-
-InnerMenu.defaultProps = {
-  openMenu: '',
-  label: '',
-};
 
 export default InnerMenu;

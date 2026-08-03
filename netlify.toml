@@ -15,6 +15,7 @@
     "/animations/*",
     "/favicon/*",
     "/fonts/*",
+    "/globe/*",
     "/images/*",
     "/lottie-assets/*",
     "/next-sitemap*",
@@ -61,6 +62,8 @@
     "/customers",
     "/customers/*",
     "/comparison/*",
+    "/channels",
+    "/channels/*",
     "/integrations",
     "/integrations/*",
     "/careers",
@@ -122,8 +125,26 @@
 # New website
 
 [[redirects]]
+  from = "/"
+  to = "https://website-new-murex.vercel.app/"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/_next/*"
   to = "https://website-new-murex.vercel.app/_next/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/videos/*"
+  to = "https://website-new-murex.vercel.app/videos/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/globe/*"
+  to = "https://website-new-murex.vercel.app/globe/:splat"
   status = 200
   force = true
 
@@ -244,6 +265,18 @@
 [[redirects]]
   from = "/comparison/*"
   to = "https://website-new-murex.vercel.app/comparison/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/channels"
+  to = "https://website-new-murex.vercel.app/channels/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/channels/*"
+  to = "https://website-new-murex.vercel.app/channels/:splat"
   status = 200
   force = true
 

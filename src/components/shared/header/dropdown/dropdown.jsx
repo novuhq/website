@@ -1,98 +1,254 @@
+/* eslint-disable react/prop-types */
 import clsx from 'clsx';
-import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion';
-import React from 'react';
+import { domAnimation, LazyMotion, m } from 'framer-motion';
+import React, { useState } from 'react';
 
 import Link from 'components/shared/link';
+import LINKS from 'constants/links';
+import ChevronRightIcon from 'icons/chevron-right.inline.svg';
+import ChannelsArrowRightIcon from 'icons/header/menu/channels-arrow-right.inline.svg';
 
-const InnerContent = ({ title, description, url, image }) => (
-  <Link
-    className="group -mr-px block rounded-sm pt-0.5 outline-none focus-visible:shadow-[0_0_0_5px_#05050B,0_0_0_6px_white]"
-    to={url}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <div className="aspect-[220/124] overflow-hidden rounded-md border border-[#333347]/50 bg-[linear-gradient(294deg,rgba(0,0,0,0)_45.36%,rgba(0,0,0,0.7)_126.53%),linear-gradient(120deg,rgba(0,0,0,0)_54.73%,rgba(0,0,0,0.8)_112.66%),linear-gradient(73deg,rgba(0,0,0,0)_17.56%,rgba(27,64,79,0.2)_79.95%),linear-gradient(252deg,rgba(29,23,50,0)_-8.69%,rgba(46,37,83,0.2)_100%),linear-gradient(180deg,#111427_0%,#0F122D_43.27%,#0F1223_100%)]">
-      <img src={image} alt="" loading="eager" fetchPriority="high" decoding="sync" />
-    </div>
-    <p className="mt-3 line-clamp-2 text-balance font-medium leading-tight text-white group-hover:text-primary-1 group-focus-visible:text-primary-1">
-      {title}
-    </p>
-    <p className="mt-1.5 line-clamp-3 text-pretty text-sm font-light leading-tight text-[#909090]">
-      {description}
-    </p>
-  </Link>
-);
+import IntegrationMenuIcon from '../integration-menu-icon';
+import MenuIcon from '../menu-icon';
 
-const Dropdown = ({ isOpen, label, content, changelog, post }) => (
-  <LazyMotion features={domAnimation}>
-    <AnimatePresence>
-      {isOpen && (
-        <m.div
-          layoutId="navigation-dropdown"
-          className={clsx(
-            'absolute -left-5 top-[42px] rounded-[14px] border border-gray-2 bg-[#0F0F0F] shadow-[0px_20px_50px_0px_rgba(0,0,0,0.8),0px_4px_12px_0px_rgba(0,0,0,0.3)] transition-[left,min-width] ease-in-out will-change-transform lg:top-[52px]',
-            'before:absolute before:-top-1.5 before:z-10 before:h-3.5 before:w-3.5 before:rotate-45 before:rounded-[1px] before:border before:border-gray-2 before:bg-[#0F0F0F]',
-            label === 'Product' &&
-              'min-w-[515px] before:left-[59px] lg:-left-[22px] lg:before:left-[60px]',
-            label === 'AI' && 'min-w-[190px] before:left-[31px]',
-            label === 'Resources' &&
-              'min-w-[515px] before:left-[53px] lg:-left-1.5 lg:before:left-[54px]',
-            label === 'Docs' && 'min-w-[434px] before:left-[50px]'
-          )}
-          exit={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.4,
-          }}
-        >
-          <div className="relative z-10 flex gap-x-3.5 rounded-[14px] bg-[#0F0F0F] px-8 pb-7 pt-6">
-            {content?.map(({ title, type, items, content }, index) => (
-              <div
+const PRODUCT_BANNERS = [
+  '/images/header/menu/banner-inbox.jpg',
+  '/images/header/menu/banner-connect.jpg',
+];
+
+const ProductMenu = ({ content }) => {
+  const items = content[0]?.items ?? [];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeItem = items[activeIndex] ?? items[0];
+
+  return (
+    <div className="flex w-max gap-3 p-3 font-inter">
+      <div className="flex w-[296px] shrink-0 flex-col">
+        <ul className="flex flex-col gap-y-0.5">
+          {items.map(({ text, description, to, target }, index) => (
+            <li key={text}>
+              <Link
                 className={clsx(
-                  'min-w-0',
-                  index === 0 && '-ml-px grow',
-                  index === 1 && 'w-[220px]'
+                  'flex w-full flex-col items-start gap-1 rounded-[10px] px-3 py-2.5 transition-colors hover:bg-[#121417] focus-visible:bg-[#121417] focus-visible:outline-none',
+                  index === activeIndex && 'bg-[#121417]'
                 )}
-                key={index}
+                to={to}
+                target={target}
+                onMouseEnter={() => setActiveIndex(index)}
+                onFocus={() => setActiveIndex(index)}
               >
-                {title !== 'AI' && (
-                  <p
-                    className={clsx(
-                      'mb-4 text-sm leading-none -tracking-[0.01em] text-[#909090]',
-                      label === 'Product' && 'mb-5'
-                    )}
-                  >
-                    {title}
-                  </p>
+                <span className="block text-base font-normal leading-none tracking-[-0.02em] text-white">
+                  {text}
+                </span>
+                {description && (
+                  <span className="block text-sm font-normal leading-[1.375] tracking-[-0.025em] text-[#A3A6B2]">
+                    {description}
+                  </span>
                 )}
-                {items && items.length > 0 && (
-                  <ul className="mt-auto flex flex-col gap-y-3">
-                    {items.map(({ text, ...linkProps }, index) => (
-                      <li key={index}>
-                        <Link
-                          className="rounded-sm font-light leading-none outline-none focus-visible:shadow-[0_0_0_7px_#05050B,0_0_0_8px_white]"
-                          size="base"
-                          theme="white"
-                          {...linkProps}
-                          tabIndex={0}
-                        >
-                          {text}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {type === 'changelog' && <InnerContent {...changelog} />}
-                {type === 'post' && <InnerContent {...post} />}
-                {type === 'link' && <InnerContent {...content} />}
-              </div>
-            ))}
-          </div>
-        </m.div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          className="mb-3 mt-auto inline-flex w-fit items-center gap-1 px-3 text-sm font-medium leading-none text-white transition-colors hover:text-[#A3A6B2] focus-visible:text-[#A3A6B2]"
+          {...LINKS.dashboardV2SignUp}
+        >
+          Start for free
+          <ChevronRightIcon className="size-4" aria-hidden />
+        </Link>
+      </div>
+
+      {activeItem && (
+        <Link
+          className="relative aspect-[13/11] w-[325px] shrink-0 overflow-hidden rounded-[10px] border border-[#23242A] outline-none focus-visible:ring-2 focus-visible:ring-white"
+          to={activeItem.to}
+          target={activeItem.target}
+          aria-label={`Open ${activeItem.text}`}
+        >
+          {PRODUCT_BANNERS.map((src, index) => (
+            <img
+              className={clsx(
+                'absolute inset-0 size-full object-cover transition-opacity duration-200 ease-out motion-reduce:transition-none',
+                index === activeIndex ? 'opacity-100' : 'opacity-0'
+              )}
+              src={src}
+              width="650"
+              height="550"
+              alt=""
+              loading="eager"
+              decoding="async"
+              key={src}
+            />
+          ))}
+        </Link>
       )}
-    </AnimatePresence>
-  </LazyMotion>
+    </div>
+  );
+};
+
+const MenuLinks = ({ items, variant }) => (
+  <ul
+    className={clsx(
+      'font-inter',
+      variant === 'solutions' && 'flex flex-col p-3.5',
+      variant === 'ai' && 'flex flex-col p-3.5'
+    )}
+  >
+    {items.map(({ text, to, target, menuIcon }) => (
+      <li
+        className={clsx(
+          variant === 'solutions' && 'min-w-[180px]',
+          variant === 'ai' && 'min-w-[150px]'
+        )}
+        key={text}
+      >
+        <Link
+          className="group flex w-full items-center gap-2.5 whitespace-nowrap rounded-lg p-2.5 text-[15px] font-normal leading-none tracking-[-0.02em] text-[#E0E1E5] transition-colors hover:bg-[#121417] hover:text-white focus-visible:bg-[#121417] focus-visible:text-white focus-visible:outline-none"
+          to={to}
+          target={target}
+        >
+          <MenuIcon icon={menuIcon} />
+          {text}
+        </Link>
+      </li>
+    ))}
+  </ul>
 );
+
+const NestedMenu = ({ items, variant }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeItem = items[activeIndex] ?? items[0];
+
+  return (
+    <div className="flex font-inter">
+      <ul className="shrink-0 rounded-l-[22px] bg-[#0B0C0E] p-3.5">
+        {items.map(({ text, to, target, menuIcon }, index) => (
+          <li key={text}>
+            <Link
+              className={clsx(
+                'group flex min-h-9 w-full min-w-[170px] items-center gap-2.5 whitespace-nowrap rounded-[10px] p-2.5 text-[15px] font-normal leading-none tracking-[-0.02em] text-[#A3A6B2] transition-colors hover:bg-[#121417] hover:text-white focus-visible:bg-[#121417] focus-visible:text-white focus-visible:outline-none',
+                activeIndex === index && 'bg-[#121417] text-white'
+              )}
+              to={to}
+              target={target}
+              onMouseEnter={() => setActiveIndex(index)}
+              onFocus={() => setActiveIndex(index)}
+            >
+              <MenuIcon icon={menuIcon} />
+              {text}
+              {variant === 'channels' && (
+                <ChannelsArrowRightIcon
+                  className="h-4 w-1.5 opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100"
+                  focusable="false"
+                  aria-hidden
+                />
+              )}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {activeItem && (
+        <div className="min-w-[256px] shrink-0 border-l border-[#2A2B33] p-3.5">
+          {variant === 'channels' && (
+            <p className="mx-2.5 mb-3.5 mt-2.5 text-xs font-medium uppercase leading-none tracking-normal text-[#707280]">
+              {activeItem.text} Agent Frameworks
+            </p>
+          )}
+          <ul aria-label={`${activeItem.text} links`}>
+            {activeItem.children?.map(({ text, to, target, menuIcon, integrationIcon }) => (
+              <li key={text}>
+                <Link
+                  className="group flex min-h-9 w-full items-center gap-2.5 whitespace-nowrap rounded-[10px] p-2.5 text-[15px] font-normal leading-none tracking-[-0.02em] text-[#E0E1E5] transition-colors hover:bg-[#121417] hover:text-white focus-visible:bg-[#121417] focus-visible:text-white focus-visible:outline-none"
+                  to={to}
+                  target={target}
+                >
+                  <MenuIcon icon={menuIcon} />
+                  <IntegrationMenuIcon icon={integrationIcon} />
+                  {text}
+                </Link>
+              </li>
+            ))}
+            {Boolean(activeItem.remainingCount) && (
+              <li>
+                <Link
+                  className="flex min-h-9 w-full items-center gap-1 whitespace-nowrap rounded-[10px] p-2.5 text-[15px] font-normal leading-none tracking-[-0.02em] text-[#A3A6B2] transition-colors hover:bg-[#121417] hover:text-white focus-visible:bg-[#121417] focus-visible:text-white focus-visible:outline-none"
+                  to={activeItem.to}
+                  target={activeItem.target}
+                >
+                  +{activeItem.remainingCount} more
+                  <ChevronRightIcon className="size-4" aria-hidden />
+                </Link>
+              </li>
+            )}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ResourcesMenu = ({ content }) => (
+  <div className="grid auto-cols-max grid-flow-col gap-x-6 p-3.5 pt-6 font-inter">
+    {content.map(({ title, items }) => (
+      <div className="w-[210px]" key={title}>
+        {title && (
+          <span className="mb-3.5 ml-2.5 block text-xs font-medium uppercase leading-none text-[#707280]">
+            {title}
+          </span>
+        )}
+        <ul className="flex flex-col">
+          {items.map(({ text, to, target, menuIcon }) => (
+            <li key={text}>
+              <Link
+                className="group flex min-h-9 items-center gap-2.5 whitespace-nowrap rounded-lg p-2.5 text-[15px] font-normal leading-none tracking-[-0.02em] text-[#E0E1E5] transition-colors hover:bg-[#121417] hover:text-white focus-visible:bg-[#121417] focus-visible:text-white focus-visible:outline-none"
+                to={to}
+                target={target}
+              >
+                <MenuIcon icon={menuIcon} />
+                {text}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+);
+
+const Dropdown = ({ id, isOpen, animateIn, label, variant, content }) => {
+  if (!isOpen) return null;
+
+  const items = content.flatMap((group) => group.items ?? []);
+
+  return (
+    <LazyMotion features={domAnimation}>
+      <m.div
+        id={id}
+        aria-label={`${label} submenu`}
+        initial={animateIn ? { opacity: 0, y: -4 } : false}
+        animate={{ opacity: 1, y: 0 }}
+        transition={animateIn ? { duration: 0.16, ease: 'easeOut' } : { duration: 0 }}
+        className={clsx(
+          'absolute top-[calc(100%+20px)] z-50 rounded-[22px] border border-[#2A2B33] bg-black shadow-[0_3px_26px_4px_rgba(0,0,0,0.54)]',
+          'after:absolute after:-top-6 after:left-0 after:h-6 after:w-full after:bg-transparent',
+          variant === 'product' && '-left-3',
+          ['solutions', 'channels', 'ai', 'integrations'].includes(variant) && '-left-2',
+          variant === 'resources' && '-left-[420px] lg:-left-[500px]'
+        )}
+      >
+        {variant === 'product' && <ProductMenu content={content} />}
+        {(variant === 'solutions' || variant === 'ai') && (
+          <MenuLinks items={items} variant={variant} />
+        )}
+        {(variant === 'channels' || variant === 'integrations') && (
+          <NestedMenu items={items} variant={variant} />
+        )}
+        {variant === 'resources' && <ResourcesMenu content={content} />}
+      </m.div>
+    </LazyMotion>
+  );
+};
 
 export default Dropdown;
