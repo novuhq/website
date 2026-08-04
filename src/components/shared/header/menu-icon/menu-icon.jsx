@@ -12,6 +12,7 @@ import AiCustomCodeIcon from 'icons/header/menu/ai-custom-code.inline.svg';
 import AiMcpIcon from 'icons/header/menu/ai-mcp.inline.svg';
 import AiSkillsIcon from 'icons/header/menu/ai-skills.inline.svg';
 import ChannelsChatIcon from 'icons/header/menu/channels-chat.inline.svg';
+import ChannelsClaudeAwsIcon from 'icons/header/menu/channels-claude-aws.inline.svg';
 import ChannelsEmailIcon from 'icons/header/menu/channels-email.inline.svg';
 import ChannelsImessageIcon from 'icons/header/menu/channels-imessage.inline.svg';
 import ChannelsInboxIcon from 'icons/header/menu/channels-inbox.inline.svg';
@@ -21,6 +22,7 @@ import ChannelsPushIcon from 'icons/header/menu/channels-push.inline.svg';
 import ChannelsSlackIcon from 'icons/header/menu/channels-slack.inline.svg';
 import ChannelsSmsIcon from 'icons/header/menu/channels-sms.inline.svg';
 import ChannelsTelegramIcon from 'icons/header/menu/channels-telegram.inline.svg';
+import VercelIcon from 'icons/header/menu/channels-vercel.inline.svg';
 import ChannelsWhatsappIcon from 'icons/header/menu/channels-whatsapp.inline.svg';
 import ResourcesAboutIcon from 'icons/header/menu/resources-about.inline.svg';
 import ResourcesApiIcon from 'icons/header/menu/resources-api.inline.svg';
@@ -55,6 +57,8 @@ const INLINE_ICONS = {
   codex: AiCodexIcon,
   cursor: AiCursorIcon,
   'custom-code': AiCustomCodeIcon,
+  'ai-sdk': VercelIcon,
+  'chat-sdk': VercelIcon,
   blog: ResourcesBlogIcon,
   customers: ResourcesCustomersIcon,
   community: ResourcesCommunityIcon,
@@ -84,6 +88,7 @@ const COLOR_INLINE_ICONS = {
   chat: ChannelsChatIcon,
   sms: ChannelsSmsIcon,
   langchain: ChannelsLangchainIcon,
+  'claude-aws': ChannelsClaudeAwsIcon,
 };
 
 const MenuIcon = ({ icon, className }) => {

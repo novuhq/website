@@ -102,11 +102,41 @@ export default {
   channelSlackLangchain: {
     to: '/channels/slack/langchain',
   },
+  channelSlackAiSdk: {
+    to: '/channels/slack/ai-sdk',
+  },
+  channelSlackChatSdk: {
+    to: '/channels/slack/chat-sdk',
+  },
+  channelSlackCustomCode: {
+    to: '/channels/slack/custom-code',
+  },
+  channelSlackClaude: {
+    to: '/channels/slack/claude',
+  },
+  channelSlackClaudeAws: {
+    to: '/channels/slack/claude-aws',
+  },
   channelWhatsApp: {
     to: '/channels/whatsapp',
   },
   channelWhatsAppLangchain: {
     to: '/channels/whatsapp/langchain',
+  },
+  channelWhatsAppAiSdk: {
+    to: '/channels/whatsapp/ai-sdk',
+  },
+  channelWhatsAppChatSdk: {
+    to: '/channels/whatsapp/chat-sdk',
+  },
+  channelWhatsAppCustomCode: {
+    to: '/channels/whatsapp/custom-code',
+  },
+  channelWhatsAppClaude: {
+    to: '/channels/whatsapp/claude',
+  },
+  channelWhatsAppClaudeAws: {
+    to: '/channels/whatsapp/claude-aws',
   },
   channelTelegram: {
     to: '/channels/telegram',
@@ -114,17 +144,62 @@ export default {
   channelTelegramLangchain: {
     to: '/channels/telegram/langchain',
   },
+  channelTelegramAiSdk: {
+    to: '/channels/telegram/ai-sdk',
+  },
+  channelTelegramChatSdk: {
+    to: '/channels/telegram/chat-sdk',
+  },
+  channelTelegramCustomCode: {
+    to: '/channels/telegram/custom-code',
+  },
+  channelTelegramClaude: {
+    to: '/channels/telegram/claude',
+  },
+  channelTelegramClaudeAws: {
+    to: '/channels/telegram/claude-aws',
+  },
   channelMicrosoftTeams: {
     to: '/channels/microsoft-teams',
   },
   channelMicrosoftTeamsLangchain: {
     to: '/channels/microsoft-teams/langchain',
   },
+  channelMicrosoftTeamsAiSdk: {
+    to: '/channels/microsoft-teams/ai-sdk',
+  },
+  channelMicrosoftTeamsChatSdk: {
+    to: '/channels/microsoft-teams/chat-sdk',
+  },
+  channelMicrosoftTeamsCustomCode: {
+    to: '/channels/microsoft-teams/custom-code',
+  },
+  channelMicrosoftTeamsClaude: {
+    to: '/channels/microsoft-teams/claude',
+  },
+  channelMicrosoftTeamsClaudeAws: {
+    to: '/channels/microsoft-teams/claude-aws',
+  },
   channelEmail: {
     to: '/channels/email',
   },
   channelEmailLangchain: {
     to: '/channels/email/langchain',
+  },
+  channelEmailAiSdk: {
+    to: '/channels/email/ai-sdk',
+  },
+  channelEmailChatSdk: {
+    to: '/channels/email/chat-sdk',
+  },
+  channelEmailCustomCode: {
+    to: '/channels/email/custom-code',
+  },
+  channelEmailClaude: {
+    to: '/channels/email/claude',
+  },
+  channelEmailClaudeAws: {
+    to: '/channels/email/claude-aws',
   },
 
   // Dashboard
