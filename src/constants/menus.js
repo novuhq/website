@@ -39,6 +39,31 @@ const MENUS = {
                   menuIcon: 'langchain',
                   ...LINKS.channelSlackLangchain,
                 },
+                {
+                  text: 'Vercel AI SDK',
+                  menuIcon: 'ai-sdk',
+                  ...LINKS.channelSlackAiSdk,
+                },
+                {
+                  text: 'Chat SDK',
+                  menuIcon: 'chat-sdk',
+                  ...LINKS.channelSlackChatSdk,
+                },
+                {
+                  text: 'Custom code',
+                  menuIcon: 'custom-code',
+                  ...LINKS.channelSlackCustomCode,
+                },
+                {
+                  text: 'Claude Managed Agent',
+                  menuIcon: 'claude',
+                  ...LINKS.channelSlackClaude,
+                },
+                {
+                  text: 'AWS Claude Managed Agent',
+                  menuIcon: 'claude-aws',
+                  ...LINKS.channelSlackClaudeAws,
+                },
               ],
             },
             {
@@ -50,6 +75,31 @@ const MENUS = {
                   text: 'LangChain',
                   menuIcon: 'langchain',
                   ...LINKS.channelWhatsAppLangchain,
+                },
+                {
+                  text: 'Vercel AI SDK',
+                  menuIcon: 'ai-sdk',
+                  ...LINKS.channelWhatsAppAiSdk,
+                },
+                {
+                  text: 'Chat SDK',
+                  menuIcon: 'chat-sdk',
+                  ...LINKS.channelWhatsAppChatSdk,
+                },
+                {
+                  text: 'Custom code',
+                  menuIcon: 'custom-code',
+                  ...LINKS.channelWhatsAppCustomCode,
+                },
+                {
+                  text: 'Claude Managed Agent',
+                  menuIcon: 'claude',
+                  ...LINKS.channelWhatsAppClaude,
+                },
+                {
+                  text: 'AWS Claude Managed Agent',
+                  menuIcon: 'claude-aws',
+                  ...LINKS.channelWhatsAppClaudeAws,
                 },
               ],
             },
@@ -63,6 +113,31 @@ const MENUS = {
                   menuIcon: 'langchain',
                   ...LINKS.channelTelegramLangchain,
                 },
+                {
+                  text: 'Vercel AI SDK',
+                  menuIcon: 'ai-sdk',
+                  ...LINKS.channelTelegramAiSdk,
+                },
+                {
+                  text: 'Chat SDK',
+                  menuIcon: 'chat-sdk',
+                  ...LINKS.channelTelegramChatSdk,
+                },
+                {
+                  text: 'Custom code',
+                  menuIcon: 'custom-code',
+                  ...LINKS.channelTelegramCustomCode,
+                },
+                {
+                  text: 'Claude Managed Agent',
+                  menuIcon: 'claude',
+                  ...LINKS.channelTelegramClaude,
+                },
+                {
+                  text: 'AWS Claude Managed Agent',
+                  menuIcon: 'claude-aws',
+                  ...LINKS.channelTelegramClaudeAws,
+                },
               ],
             },
             {
@@ -75,6 +150,31 @@ const MENUS = {
                   menuIcon: 'langchain',
                   ...LINKS.channelMicrosoftTeamsLangchain,
                 },
+                {
+                  text: 'Vercel AI SDK',
+                  menuIcon: 'ai-sdk',
+                  ...LINKS.channelMicrosoftTeamsAiSdk,
+                },
+                {
+                  text: 'Chat SDK',
+                  menuIcon: 'chat-sdk',
+                  ...LINKS.channelMicrosoftTeamsChatSdk,
+                },
+                {
+                  text: 'Custom code',
+                  menuIcon: 'custom-code',
+                  ...LINKS.channelMicrosoftTeamsCustomCode,
+                },
+                {
+                  text: 'Claude Managed Agent',
+                  menuIcon: 'claude',
+                  ...LINKS.channelMicrosoftTeamsClaude,
+                },
+                {
+                  text: 'AWS Claude Managed Agent',
+                  menuIcon: 'claude-aws',
+                  ...LINKS.channelMicrosoftTeamsClaudeAws,
+                },
               ],
             },
             {
@@ -86,6 +186,31 @@ const MENUS = {
                   text: 'LangChain',
                   menuIcon: 'langchain',
                   ...LINKS.channelEmailLangchain,
+                },
+                {
+                  text: 'Vercel AI SDK',
+                  menuIcon: 'ai-sdk',
+                  ...LINKS.channelEmailAiSdk,
+                },
+                {
+                  text: 'Chat SDK',
+                  menuIcon: 'chat-sdk',
+                  ...LINKS.channelEmailChatSdk,
+                },
+                {
+                  text: 'Custom code',
+                  menuIcon: 'custom-code',
+                  ...LINKS.channelEmailCustomCode,
+                },
+                {
+                  text: 'Claude Managed Agent',
+                  menuIcon: 'claude',
+                  ...LINKS.channelEmailClaude,
+                },
+                {
+                  text: 'AWS Claude Managed Agent',
+                  menuIcon: 'claude-aws',
+                  ...LINKS.channelEmailClaudeAws,
                 },
               ],
             },
@@ -124,7 +249,6 @@ const MENUS = {
           title: 'Discover',
           items: [
             { text: 'Blog', menuIcon: 'blog', ...LINKS.blog },
-            { text: 'Customers', menuIcon: 'customers', ...LINKS.customers },
             { text: 'Community', menuIcon: 'community', ...LINKS.community },
             { text: 'Changelog', menuIcon: 'changelog', ...LINKS.changeLog },
           ],

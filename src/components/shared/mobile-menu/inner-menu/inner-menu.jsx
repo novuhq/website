@@ -45,18 +45,18 @@ const InnerMenu = ({ openMenu, label }) => (
                           {children?.length ? (
                             <>
                               <Link
-                                className="group flex w-full items-start gap-3 font-normal leading-none text-[#E0E1E5] outline-none focus-visible:text-white"
+                                className="group mt-2 flex w-full items-start gap-3 font-normal leading-none text-[#E0E1E5] outline-none focus-visible:text-white"
                                 to={to}
                                 target={target}
                               >
                                 <MenuIcon className="mt-px" icon={menuIcon} />
                                 <span>{text}</span>
                               </Link>
-                              <ul className="mt-3 flex flex-col gap-y-3">
+                              <ul className="mt-5 flex flex-col gap-y-5">
                                 {children.map((child) => (
                                   <li key={child.text}>
                                     <Link
-                                      className="flex items-center gap-2.5 text-sm font-normal leading-none text-[#A3A6B2] outline-none transition-colors hover:text-white focus-visible:text-white"
+                                      className="flex items-center gap-2.5 text-base font-normal leading-none text-[#A3A6B2] outline-none transition-colors hover:text-white focus-visible:text-white"
                                       to={child.to}
                                       target={child.target}
                                     >
