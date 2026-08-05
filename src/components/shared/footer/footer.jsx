@@ -30,13 +30,26 @@ const ICONS = {
 
 const Footer = () => (
   <footer className="relative border-t border-dashed border-t-gray-4 bg-black px-8 pb-8 pt-12 lg:pt-12 md:pb-7 md:pt-10 sm:px-5 sm:pb-6">
-    <div className="mx-auto w-full max-w-[1344px]">
-      <div className="flex items-start gap-[122px] lg:flex-col lg:items-stretch lg:gap-10">
-        <Link {...LINKS.home}>
-          <span className="sr-only">Novu</span>
-          <Logo className="h-8" aria-hidden />
-        </Link>
-        <Navigation />
+    <div className="relative mx-auto w-full max-w-[1344px]">
+      <div className="relative">
+        <div className="flex items-start gap-[122px] lg:flex-col lg:items-stretch lg:gap-10">
+          <Link {...LINKS.home}>
+            <span className="sr-only">Novu</span>
+            <Logo className="h-8" aria-hidden />
+          </Link>
+          <Navigation />
+        </div>
+        <p className="absolute bottom-0 right-0 w-72 text-right text-base leading-snug -tracking-[0.02em] text-white/50 lg:static lg:mt-10 lg:w-full lg:text-left lg:tracking-normal">
+          AI agent looking to onboard?
+          <br />
+          Follow the instructions in{' '}
+          <Link
+            className="text-white underline transition-colors duration-200 hover:text-primary-1 focus-visible:text-primary-1"
+            to="https://novu.co/agents.md"
+          >
+            agents.md
+          </Link>
+        </p>
       </div>
       <div className="mt-16 pt-px xl:pt-0 md:mt-18">
         <div className="flex justify-between pb-[26px] md:pb-[21px] sm:flex-col sm:justify-normal sm:pb-4">
