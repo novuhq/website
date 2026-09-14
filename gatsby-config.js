@@ -192,7 +192,7 @@ module.exports = {
       options: {
         headers: {
           '/': [
-            'Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="describedby", </agents.md>; rel="describedby", </auth.md>; rel="describedby", <https://docs.novu.co/api-reference>; rel="service-doc", <https://api.novu.co/openapi.json>; rel="service-desc"',
+            'Link: </.well-known/api-catalog>; rel="api-catalog", </.well-known/integrations.json>; rel="describedby", </llms.txt>; rel="describedby", </agents.md>; rel="describedby", </auth.md>; rel="describedby", <https://docs.novu.co/api-reference>; rel="service-doc", <https://api.novu.co/openapi.json>; rel="service-desc"',
           ],
           '/fonts/*': ['Cache-Control: public, max-age=31536000, immutable'],
           '/lottie-assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
