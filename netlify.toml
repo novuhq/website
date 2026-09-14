@@ -82,6 +82,7 @@
     "/connect.md",
     "/aci",
     "/aci.md",
+    "/no-reply-is-dead",
     "/dpa",
     "/dpa.md",
     "/privacy",
@@ -349,6 +350,12 @@
 [[redirects]]
   from = "/aci"
   to = "https://website-new-murex.vercel.app/aci/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/no-reply-is-dead"
+  to = "https://website-new-murex.vercel.app/no-reply-is-dead/"
   status = 200
   force = true
 

@@ -142,6 +142,7 @@ const Link = ({
     '/connect',
     '/aci',
     '/channels',
+    '/no-reply-is-dead',
   ];
   const isProxiedPath =
     to &&
